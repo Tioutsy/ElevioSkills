@@ -97,6 +97,7 @@ type ManagedEmployee = Employee & {
   invitationStatus?: string;
   invitationSentAt?: string | null;
   invitationAcceptedAt?: string | null;
+  elevioScore?: number | null;
 };
 
 export default function CompanyEmployees() {
@@ -484,6 +485,7 @@ export default function CompanyEmployees() {
                       <TableHead>Role</TableHead>
                       <TableHead>Status</TableHead>
                       <TableHead className="text-center">Courses</TableHead>
+                      <TableHead className="text-center">ELEVIO Score</TableHead>
                       <TableHead className="text-right">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -498,12 +500,13 @@ export default function CompanyEmployees() {
                           <TableCell><Skeleton className="h-5 w-16" /></TableCell>
                           <TableCell><Skeleton className="h-5 w-16" /></TableCell>
                           <TableCell><Skeleton className="h-5 w-12 mx-auto" /></TableCell>
+                          <TableCell><Skeleton className="h-5 w-16 mx-auto" /></TableCell>
                           <TableCell><Skeleton className="h-8 w-28 ml-auto" /></TableCell>
                         </TableRow>
                       ))
                     ) : filteredEmployees.length === 0 ? (
                       <TableRow>
-                        <TableCell colSpan={8} className="h-48 text-center">
+                        <TableCell colSpan={9} className="h-48 text-center">
                           <div className="flex flex-col items-center justify-center space-y-3 py-4">
                             <Users className="h-10 w-10 text-muted-foreground opacity-40" />
                             <p className="text-sm font-medium text-foreground">
@@ -587,6 +590,11 @@ export default function CompanyEmployees() {
                           <TableCell className="text-center font-medium">
                             <span className="text-primary">{employee.completedCourses || 0}</span>
                             <span className="text-muted-foreground">/{employee.enrolledCourses || 0}</span>
+                          </TableCell>
+                          <TableCell className="text-center">
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 text-xs font-semibold font-mono">
+                              {((employee as any).elevioScore || 0).toLocaleString()} pts
+                            </span>
                           </TableCell>
                           <TableCell className="text-right">
                             <div className="flex justify-end gap-1">

@@ -16,6 +16,7 @@ import esgRouter from "./esg";
 import learningPathsRouter from "./learningPaths";
 import badgesRouter from "./badges";
 import meAchievementsRouter from "./meAchievements";
+import companyAchievementsRouter from "./companyAchievements";
 import leaderboardsRouter from "./leaderboards";
 import challengesRouter from "./challenges";
 import complianceRouter from "./compliance";
@@ -41,6 +42,10 @@ import platformAdminPilotsRouter from "./platformAdminPilots";
 import platformAdminUpgradeRequestsRouter from "./platformAdminUpgradeRequests";
 import internalJobsRouter from "./internalJobs";
 import bulkInvitationsRouter from "./bulkInvitations";
+import scoresRouter from "./scores";
+import companyChallengesLearnerRouter from "./companyChallengesLearner";
+import companyChallengesAdminRouter from "./companyChallengesAdmin";
+import interactionsRouter from "./interactions";
 
 const router: IRouter = Router();
 
@@ -48,6 +53,11 @@ router.use("/auth", authMeRouter);
 router.use("/me", authMeRouter);
 router.use("/onboarding", onboardingRouter);
 router.use("/internal/jobs", internalJobsRouter);
+router.use(scoresRouter);
+router.use(leaderboardsRouter);
+router.use("/company-challenges", companyChallengesLearnerRouter);
+router.use("/company/challenges", companyChallengesAdminRouter);
+router.use("/interactions", interactionsRouter);
 
 router.use(healthRouter);
 router.use(workplaceActionsRouter);
@@ -77,6 +87,7 @@ router.use("/esg", esgRouter);
 router.use("/learning-paths", learningPathsRouter);
 router.use("/badges", badgesRouter);
 router.use("/me/achievements", meAchievementsRouter);
+router.use("/company/achievements", companyAchievementsRouter);
 router.use("/leaderboards", leaderboardsRouter);
 router.use("/challenges", challengesRouter);
 router.use("/compliance", complianceRouter);

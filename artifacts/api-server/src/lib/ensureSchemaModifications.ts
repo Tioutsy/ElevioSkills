@@ -1024,6 +1024,42 @@ export async function ensureSchemaModifications() {
       }
     },
     {
+      name: "Ensure elevio_score_ledger table and employees elevio_score column (Sprint 14)",
+      check: async () => {
+        const tableOk = await tableExists("elevio_score_ledger");
+        const colOk = await columnExists("employees", "elevio_score");
+        return tableOk && colOk;
+      },
+      execute: async () => {
+        await db.execute(sql`
+          CREATE TABLE IF NOT EXISTS "elevio_score_ledger" (
+            "id" serial PRIMARY KEY,
+            "company_id" integer NOT NULL,
+            "employee_id" integer NOT NULL,
+            "clerk_user_id" text,
+            "event_type" text NOT NULL,
+            "source_entity_type" text NOT NULL,
+            "source_entity_id" text NOT NULL,
+            "course_id" integer,
+            "points" integer NOT NULL,
+            "scoring_rule_version" text NOT NULL DEFAULT 'v1',
+            "idempotency_key" text NOT NULL,
+            "metadata" jsonb,
+            "is_reversed" boolean NOT NULL DEFAULT false,
+            "reversed_at" timestamp with time zone,
+            "reversal_reason" text,
+            "reversal_reference_id" integer,
+            "event_timestamp" timestamp with time zone NOT NULL DEFAULT now(),
+            "created_at" timestamp with time zone NOT NULL DEFAULT now()
+          );
+          CREATE UNIQUE INDEX IF NOT EXISTS "elevio_score_ledger_idempotency_key_uniq" ON "elevio_score_ledger" ("idempotency_key");
+          CREATE INDEX IF NOT EXISTS "elevio_score_ledger_company_emp_idx" ON "elevio_score_ledger" ("company_id", "employee_id");
+          CREATE INDEX IF NOT EXISTS "elevio_score_ledger_event_type_idx" ON "elevio_score_ledger" ("event_type");
+          ALTER TABLE "employees" ADD COLUMN IF NOT EXISTS "elevio_score" integer NOT NULL DEFAULT 0;
+        `);
+      }
+    },
+    {
       name: "sprint_12_3_1_amend_unauthorised_course_remediation",
       check: async () => {
         const authorisedCodes = [
@@ -1369,6 +1405,228 @@ export async function ensureSchemaModifications() {
           ALTER TABLE "employee_invitations" ADD COLUMN IF NOT EXISTS "department_id" integer;
           ALTER TABLE "employee_invitations" ADD COLUMN IF NOT EXISTS "job_title_id" integer;
           ALTER TABLE "employee_invitations" ADD COLUMN IF NOT EXISTS "job_title" text;
+        `);
+      }
+    },
+    {
+      name: "Ensure companies table leaderboard_privacy_mode",
+      check: async () => await columnExists("companies", "leaderboard_privacy_mode"),
+      execute: async () => {
+        await db.execute(sql`
+          ALTER TABLE "companies" ADD COLUMN IF NOT EXISTS "leaderboard_privacy_mode" text NOT NULL DEFAULT 'initial';
+        `);
+      }
+    },
+    {
+      name: "Ensure company_seasons and company_season_snapshots tables",
+      check: async () =>
+        (await tableExists("company_seasons")) &&
+        (await tableExists("company_season_snapshots")),
+      execute: async () => {
+        await db.execute(sql`
+          CREATE TABLE IF NOT EXISTS "company_seasons" (
+            "id" serial PRIMARY KEY,
+            "company_id" integer NOT NULL REFERENCES "companies"("id") ON DELETE CASCADE,
+            "season_type" text NOT NULL DEFAULT 'MONTHLY',
+            "title" text NOT NULL,
+            "start_date" timestamp with time zone NOT NULL,
+            "end_date" timestamp with time zone NOT NULL,
+            "status" text NOT NULL DEFAULT 'ACTIVE',
+            "closed_at" timestamp with time zone,
+            "metadata" jsonb DEFAULT '{}'::jsonb,
+            "created_at" timestamp with time zone DEFAULT now() NOT NULL,
+            "updated_at" timestamp with time zone DEFAULT now() NOT NULL
+          );
+
+          CREATE INDEX IF NOT EXISTS "company_seasons_company_status_idx" ON "company_seasons" ("company_id", "status");
+          CREATE INDEX IF NOT EXISTS "company_seasons_company_dates_idx" ON "company_seasons" ("company_id", "start_date", "end_date");
+          CREATE UNIQUE INDEX IF NOT EXISTS "company_seasons_unique_title_idx" ON "company_seasons" ("company_id", "season_type", "title");
+
+          CREATE TABLE IF NOT EXISTS "company_season_snapshots" (
+            "id" serial PRIMARY KEY,
+            "season_id" integer NOT NULL REFERENCES "company_seasons"("id") ON DELETE CASCADE,
+            "company_id" integer NOT NULL REFERENCES "companies"("id") ON DELETE CASCADE,
+            "employee_id" integer NOT NULL REFERENCES "employees"("id") ON DELETE CASCADE,
+            "rank" integer NOT NULL,
+            "score" integer NOT NULL,
+            "snapshot_date" text NOT NULL,
+            "created_at" timestamp with time zone DEFAULT now() NOT NULL
+          );
+
+          CREATE INDEX IF NOT EXISTS "season_snapshots_lookup_idx" ON "company_season_snapshots" ("company_id", "season_id", "employee_id");
+          CREATE INDEX IF NOT EXISTS "season_snapshots_date_idx" ON "company_season_snapshots" ("company_id", "snapshot_date");
+        `);
+      }
+    },
+    {
+      name: "Ensure badge_definitions and employee_badges columns (Sprint 14.2)",
+      check: async () =>
+        (await columnExists("badge_definitions", "category")) &&
+        (await columnExists("badge_definitions", "is_seasonal")) &&
+        (await columnExists("badge_definitions", "tier")) &&
+        (await columnExists("badge_definitions", "is_active")) &&
+        (await columnExists("employee_badges", "season_id")) &&
+        (await columnExists("employee_badges", "metadata")),
+      execute: async () => {
+        await db.execute(sql`
+          ALTER TABLE "badge_definitions" ADD COLUMN IF NOT EXISTS "category" text NOT NULL DEFAULT 'Learning';
+          ALTER TABLE "badge_definitions" ADD COLUMN IF NOT EXISTS "is_seasonal" boolean NOT NULL DEFAULT false;
+          ALTER TABLE "badge_definitions" ADD COLUMN IF NOT EXISTS "tier" text;
+          ALTER TABLE "badge_definitions" ADD COLUMN IF NOT EXISTS "is_active" boolean NOT NULL DEFAULT true;
+          ALTER TABLE "employee_badges" ADD COLUMN IF NOT EXISTS "season_id" integer;
+          ALTER TABLE "employee_badges" ADD COLUMN IF NOT EXISTS "metadata" text;
+          ALTER TABLE "employee_badges" DROP CONSTRAINT IF EXISTS "uniq_employee_badge";
+          CREATE INDEX IF NOT EXISTS "idx_employee_badges_employee_badge" ON "employee_badges" ("employee_id", "badge_id");
+          CREATE INDEX IF NOT EXISTS "idx_employee_badges_company_earned" ON "employee_badges" ("company_id", "earned_at");
+          CREATE INDEX IF NOT EXISTS "idx_employee_badges_season" ON "employee_badges" ("season_id");
+          CREATE UNIQUE INDEX IF NOT EXISTS "uniq_employee_badge_non_seasonal" ON "employee_badges" ("employee_id", "badge_id") WHERE "season_id" IS NULL;
+          CREATE UNIQUE INDEX IF NOT EXISTS "uniq_employee_badge_seasonal" ON "employee_badges" ("employee_id", "badge_id", "season_id") WHERE "season_id" IS NOT NULL;
+        `);
+      }
+    },
+    {
+      name: "Ensure Sprint 14.3 Company Challenges tables",
+      check: async () =>
+        (await tableExists("challenge_templates")) &&
+        (await tableExists("company_challenges")) &&
+        (await tableExists("company_challenge_criteria")) &&
+        (await tableExists("employee_challenge_progress")),
+      execute: async () => {
+        await db.execute(sql`
+          CREATE TABLE IF NOT EXISTS "challenge_templates" (
+            "id" serial PRIMARY KEY,
+            "code" text NOT NULL UNIQUE,
+            "title" text NOT NULL,
+            "summary" text NOT NULL DEFAULT '',
+            "description" text NOT NULL DEFAULT '',
+            "category" text NOT NULL DEFAULT 'Sustainability',
+            "icon" text NOT NULL DEFAULT 'target',
+            "theme" text NOT NULL DEFAULT 'green',
+            "reward_points" integer NOT NULL DEFAULT 100,
+            "default_duration_days" integer NOT NULL DEFAULT 30,
+            "required_course_slug" text,
+            "criteria_config" jsonb,
+            "order_index" integer NOT NULL DEFAULT 0,
+            "is_active" boolean NOT NULL DEFAULT true,
+            "created_at" timestamp with time zone NOT NULL DEFAULT now(),
+            "updated_at" timestamp with time zone NOT NULL DEFAULT now()
+          );
+
+          CREATE TABLE IF NOT EXISTS "company_challenges" (
+            "id" serial PRIMARY KEY,
+            "company_id" integer NOT NULL REFERENCES "companies"("id") ON DELETE CASCADE,
+            "template_id" integer REFERENCES "challenge_templates"("id") ON DELETE SET NULL,
+            "code" text NOT NULL,
+            "title" text NOT NULL,
+            "description" text NOT NULL DEFAULT '',
+            "category" text NOT NULL DEFAULT 'Sustainability',
+            "icon" text NOT NULL DEFAULT 'target',
+            "theme" text NOT NULL DEFAULT 'green',
+            "reward_points" integer NOT NULL DEFAULT 100,
+            "start_date" timestamp with time zone NOT NULL,
+            "end_date" timestamp with time zone NOT NULL,
+            "status" text NOT NULL DEFAULT 'ACTIVE',
+            "created_by" text NOT NULL,
+            "activated_at" timestamp with time zone,
+            "closed_at" timestamp with time zone,
+            "cancelled_at" timestamp with time zone,
+            "cancelled_by" text,
+            "cancellation_reason" text,
+            "created_at" timestamp with time zone NOT NULL DEFAULT now(),
+            "updated_at" timestamp with time zone NOT NULL DEFAULT now()
+          );
+
+          CREATE TABLE IF NOT EXISTS "company_challenge_criteria" (
+            "id" serial PRIMARY KEY,
+            "challenge_id" integer NOT NULL REFERENCES "company_challenges"("id") ON DELETE CASCADE,
+            "criterion_type" text NOT NULL,
+            "course_id" integer REFERENCES "courses"("id") ON DELETE SET NULL,
+            "course_slug" text,
+            "course_title" text,
+            "assessment_threshold" integer,
+            "allow_prior_completion" boolean NOT NULL DEFAULT false,
+            "required_count" integer NOT NULL DEFAULT 1,
+            "order_index" integer NOT NULL DEFAULT 0,
+            "title" text NOT NULL,
+            "description" text NOT NULL DEFAULT '',
+            "created_at" timestamp with time zone NOT NULL DEFAULT now()
+          );
+
+          CREATE TABLE IF NOT EXISTS "employee_challenge_progress" (
+            "id" serial PRIMARY KEY,
+            "company_id" integer NOT NULL REFERENCES "companies"("id") ON DELETE CASCADE,
+            "challenge_id" integer NOT NULL REFERENCES "company_challenges"("id") ON DELETE CASCADE,
+            "employee_id" integer NOT NULL REFERENCES "employees"("id") ON DELETE CASCADE,
+            "status" text NOT NULL DEFAULT 'IN_PROGRESS',
+            "completed_criteria_count" integer NOT NULL DEFAULT 0,
+            "total_criteria_count" integer NOT NULL DEFAULT 1,
+            "progress_pct" integer NOT NULL DEFAULT 0,
+            "completed_at" timestamp with time zone,
+            "points_awarded" integer NOT NULL DEFAULT 0,
+            "ledger_transaction_id" integer,
+            "last_evaluated_at" timestamp with time zone NOT NULL DEFAULT now(),
+            "created_at" timestamp with time zone NOT NULL DEFAULT now(),
+            "updated_at" timestamp with time zone NOT NULL DEFAULT now()
+          );
+
+          CREATE INDEX IF NOT EXISTS "challenge_templates_code_idx" ON "challenge_templates" ("code");
+          CREATE INDEX IF NOT EXISTS "company_challenges_comp_status_idx" ON "company_challenges" ("company_id", "status");
+          CREATE INDEX IF NOT EXISTS "company_challenges_dates_idx" ON "company_challenges" ("start_date", "end_date");
+          CREATE INDEX IF NOT EXISTS "company_challenge_criteria_chal_idx" ON "company_challenge_criteria" ("challenge_id", "order_index");
+          CREATE UNIQUE INDEX IF NOT EXISTS "employee_challenge_progress_uniq" ON "employee_challenge_progress" ("challenge_id", "employee_id");
+          CREATE INDEX IF NOT EXISTS "employee_challenge_comp_emp_idx" ON "employee_challenge_progress" ("company_id", "employee_id");
+        `);
+      }
+    },
+    {
+      name: "Ensure Sprint 14.4 course_interaction_progress table and criteria interaction_id column",
+      check: async () =>
+        (await tableExists("course_interaction_progress")) &&
+        (await columnExists("company_challenge_criteria", "interaction_id")),
+      execute: async () => {
+        await db.execute(sql`
+          ALTER TABLE "company_challenge_criteria" ADD COLUMN IF NOT EXISTS "interaction_id" text;
+
+          CREATE TABLE IF NOT EXISTS "course_interaction_progress" (
+            "id" serial PRIMARY KEY,
+            "company_id" integer NOT NULL REFERENCES "companies"("id") ON DELETE CASCADE,
+            "employee_id" integer NOT NULL REFERENCES "employees"("id") ON DELETE CASCADE,
+            "user_id" text,
+            "course_id" integer NOT NULL REFERENCES "courses"("id") ON DELETE CASCADE,
+            "lesson_id" integer REFERENCES "lessons"("id") ON DELETE CASCADE,
+            "interaction_id" text NOT NULL,
+            "interaction_type" text NOT NULL,
+            "status" text NOT NULL DEFAULT 'IN_PROGRESS',
+            "score" integer,
+            "max_score" integer,
+            "passed" boolean NOT NULL DEFAULT true,
+            "attempt_count" integer NOT NULL DEFAULT 1,
+            "state_payload" jsonb,
+            "submitted_at" timestamp with time zone NOT NULL DEFAULT now(),
+            "created_at" timestamp with time zone NOT NULL DEFAULT now(),
+            "updated_at" timestamp with time zone NOT NULL DEFAULT now()
+          );
+
+          DROP INDEX IF EXISTS "course_interaction_progress_emp_idx";
+          CREATE UNIQUE INDEX IF NOT EXISTS "course_interaction_progress_emp_course_idx" ON "course_interaction_progress" ("employee_id", "course_id", "interaction_id");
+          CREATE INDEX IF NOT EXISTS "course_interaction_comp_course_idx" ON "course_interaction_progress" ("company_id", "course_id");
+          CREATE INDEX IF NOT EXISTS "course_interaction_type_status_idx" ON "course_interaction_progress" ("interaction_type", "status");
+        `);
+      }
+    },
+    {
+      name: "Ensure Sprint 14.4 course_interaction_progress 3-column uniqueness index",
+      check: async () => {
+        const res: any = await db.execute(sql`
+          SELECT 1 FROM pg_indexes
+          WHERE tablename = 'course_interaction_progress' AND indexname = 'course_interaction_progress_emp_course_idx';
+        `);
+        return (res?.rows?.length ?? res?.length ?? 0) > 0;
+      },
+      execute: async () => {
+        await db.execute(sql`
+          DROP INDEX IF EXISTS "course_interaction_progress_emp_idx";
+          CREATE UNIQUE INDEX IF NOT EXISTS "course_interaction_progress_emp_course_idx" ON "course_interaction_progress" ("employee_id", "course_id", "interaction_id");
         `);
       }
     }

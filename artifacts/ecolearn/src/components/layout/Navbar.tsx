@@ -14,6 +14,8 @@ import {
   MapPin,
   ShieldCheck,
   Home as HomeIcon,
+  Trophy,
+  Award,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuthRole } from "@/lib/authHelpers";
@@ -35,6 +37,8 @@ export function Navbar() {
     ? [
         { href: "/home", label: t("nav.home") || "Home", icon: HomeIcon },
         { href: "/dashboard", label: t("nav.my_learning"), icon: UserCircle },
+        { href: "/company-ranking", label: "Ranking", icon: Trophy },
+        { href: "/achievements", label: "Achievements", icon: Award },
         { href: "/courses", label: t("nav.courses"), icon: BookOpen },
         { href: "/challenges", label: t("nav.challenges"), icon: Target },
         ...(showCompanyLink

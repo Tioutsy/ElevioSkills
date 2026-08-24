@@ -15,7 +15,8 @@ export const companiesTable = pgTable("companies", {
   certificatesIssued: integer("certificates_issued").notNull().default(0),
   badges: text("badges").array().notNull().default([]),
   isPublicProfile: boolean("is_public_profile").notNull().default(false),
-  leaderboardEnabled: boolean("leaderboard_enabled").notNull().default(true),
+  leaderboardEnabled: boolean("leaderboard_enabled").notNull().default(false),
+  leaderboardPrivacyMode: text("leaderboard_privacy_mode").notNull().default("initial"), // 'full_name' | 'initial' | 'anonymous'
   stripeCustomerId: text("stripe_customer_id"),
   recyclingServiceStatus: text("recycling_service_status").notNull().default("NOT_CLIENT"),
   recycleanCustomerRef: text("recyclean_customer_ref"),

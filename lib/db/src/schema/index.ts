@@ -33,3 +33,6 @@ export * from "./pilotIssues";
 export * from "./employeeInvitations";
 export * from "./bulkInvitationBatches";
 export * from "./pilotPasses";
+export * from "./elevioScoreLedger";
+export * from "./companySeasons";
+export * from "./interactions";

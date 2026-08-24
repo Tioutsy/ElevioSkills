@@ -32,6 +32,8 @@ import Challenges from "@/pages/challenges";
 import Learn from "@/pages/learn";
 import Quiz from "@/pages/quiz";
 import Dashboard from "@/pages/dashboard";
+import CompanyRankingPage from "@/pages/company-ranking";
+import AchievementsPage from "@/pages/achievements";
 // import ImpactDashboard from "@/pages/impact"; // Intentionally disabled — Sprint product simplification. Preserved for future premium feature recovery.
 import Pricing from "@/pages/pricing";
 // import InsightsLanding from "@/pages/Insights/index";
@@ -47,6 +49,7 @@ import ChallengesReview from "@/pages/company/challenges-review";
 import CompanyEmployees from "@/pages/company/employees";
 import CompanyCertificates from "@/pages/company/certificates";
 import CompanyLeaderboards from "@/pages/company/leaderboards";
+import CompanyChallengesAdminPage from "@/pages/company/challenges";
 import CompanyCompliance from "@/pages/company/compliance";
 import CompanyReports from "@/pages/company/reports";
 import SustainabilityImpact from "@/pages/sustainability";
@@ -457,6 +460,12 @@ function ClerkProviderWithRoutes() {
             <Route path="/certificates" component={Certificates} />
             <Route path="/certificates/verify/:code" component={VerifyCertificate} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/achievements" component={AchievementsPage} />
+            <Route path="/milestones"><Redirect to="/achievements" /></Route>
+            <Route path="/badges"><Redirect to="/achievements" /></Route>
+            <Route path="/company-ranking" component={CompanyRankingPage} />
+            <Route path="/leaderboard"><Redirect to="/company-ranking" /></Route>
+            <Route path="/ranking"><Redirect to="/company-ranking" /></Route>
             {/* /impact — Intentionally disabled. Redirect authenticated users to dashboard. */}
             <Route path="/impact"><Redirect to="/dashboard" /></Route>
             <Route path="/pricing" component={Pricing} />
@@ -483,6 +492,7 @@ function ClerkProviderWithRoutes() {
             <Route path="/company/employees">{() => <RequireCompanyAdmin><CompanyEmployees /></RequireCompanyAdmin>}</Route>
             <Route path="/company/certificates">{() => <RequireCompanyAdmin><CompanyCertificates /></RequireCompanyAdmin>}</Route>
             <Route path="/company/leaderboards">{() => <RequireCompanyAdmin><CompanyLeaderboards /></RequireCompanyAdmin>}</Route>
+            <Route path="/company/challenges">{() => <RequireCompanyAdmin><CompanyChallengesAdminPage /></RequireCompanyAdmin>}</Route>
             <Route path="/company/compliance">{() => <RequireCompanyAdmin><CompanyCompliance /></RequireCompanyAdmin>}</Route>
             <Route path="/company/reports">{() => <RequireCompanyAdmin><CompanyReports /></RequireCompanyAdmin>}</Route>
             <Route path="/company/recycling">{() => <RequireCompanyAdmin><CompanyRecycling /></RequireCompanyAdmin>}</Route>

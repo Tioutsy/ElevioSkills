@@ -14,8 +14,14 @@ import { and, desc, eq, inArray, or } from "drizzle-orm";
 import { SubmitQuizBody } from "@workspace/api-zod";
 import { randomUUID } from "crypto";
 import { getCompanyAccess, requireCompletedProfile, sendHttpError, HttpError } from "../lib/access";
-import { syncEmployeeLearningStats } from "../lib/lmsData";
-import { awardCourseBadge, evaluateCourseMilestones } from "../lib/achievementsService";
+import {
+  evaluateQuizAchievements,
+  evaluateCourseCompletionAchievements,
+  awardCourseBadge,
+  evaluateCourseMilestones,
+} from "../lib/achievementsService.js";
+import { awardQuizPassScore, awardCourseCompletionScore } from "../lib/scoringService.js";
+import { evaluateEmployeeChallengeProgress } from "../lib/challengeService.js";
 
 const router = Router();
 
@@ -292,7 +298,60 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
               eq(courseAssignmentsTable.courseId, courseId),
             ),
           );
-        await syncEmployeeLearningStats(employee.id);
+
+        try {
+          const awardCompanyId = employee.companyId || enrollment.companyId || access.companyId;
+          await awardQuizPassScore({
+            companyId: awardCompanyId,
+            employeeId: employee.id,
+            clerkUserId: userId,
+            courseId,
+            courseTitle: course?.title,
+            score,
+            quizAttemptId: dbAttempt[0].id,
+          });
+
+          await awardCourseCompletionScore({
+            companyId: awardCompanyId,
+            employeeId: employee.id,
+            clerkUserId: userId,
+            courseId,
+            courseTitle: course?.title,
+            version: courseVersion,
+          });
+
+          // Query attempt count for first-try achievement check
+          const prevAttempts = await db
+            .select({ id: quizAttemptsTable.id })
+            .from(quizAttemptsTable)
+            .where(
+              and(
+                eq(quizAttemptsTable.userId, userId),
+                eq(quizAttemptsTable.courseId, courseId)
+              )
+            );
+
+          // Sprint 14.2 Achievements Evaluation (Zero additional points)
+          await evaluateQuizAchievements({
+            employee,
+            courseId,
+            scorePct: score,
+            attemptCount: prevAttempts.length || 1,
+          });
+
+          await evaluateCourseCompletionAchievements({
+            employee,
+            courseId,
+          });
+
+          // Sprint 14.3 Challenge Progress Evaluation
+          await evaluateEmployeeChallengeProgress({
+            employee,
+            clerkUserId: userId,
+          });
+        } catch (scoreErr: any) {
+          req.log?.error({ err: scoreErr?.message }, "Non-fatal error awarding ELEVIO score or evaluating achievements");
+        }
       }
     }
 

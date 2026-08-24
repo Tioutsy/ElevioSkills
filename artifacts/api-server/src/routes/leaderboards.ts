@@ -1,126 +1,148 @@
 import { Router } from "express";
-import { db } from "@workspace/db";
-import { companiesTable, employeesTable } from "@workspace/db";
-import { eq, desc } from "drizzle-orm";
+import { db, companiesTable } from "@workspace/db";
+import { eq } from "drizzle-orm";
+import {
+  getCompanyAccess,
+  requireCompanyAdmin,
+  sendHttpError,
+  HttpError,
+} from "../lib/access.js";
+import {
+  calculateCompanyLeaderboard,
+  getCompanyAdminLeaderboard,
+  updateCompanyCompetitionSettings,
+  getCompanySeasonHistory,
+  PrivacyMode,
+} from "../lib/leaderboardService.js";
 
 const router = Router();
 
-const TOP_N = 10;
+// ==========================================
+// LEARNER LEADERBOARD ENDPOINTS
+// ==========================================
 
-type EmployeeRow = {
-  id: number;
-  name: string;
-  department: string | null;
-  completedCourses: number;
-  avgScore: number;
-  certificates: number;
-  learningMinutes: number;
-};
-
-const buildBoard = (
-  key: string,
-  title: string,
-  description: string,
-  unit: string,
-  employees: EmployeeRow[],
-  value: (e: EmployeeRow) => number,
-  valueLabel: (v: number) => string,
-) => {
-  const ranked = employees
-    .map((e) => ({ employee: e, v: value(e) }))
-    .filter((r) => r.v > 0)
-    .sort(
-      (a, b) =>
-        b.v - a.v || a.employee.name.localeCompare(b.employee.name),
-    )
-    .slice(0, TOP_N);
-
-  return {
-    key,
-    title,
-    description,
-    unit,
-    entries: ranked.map((r, i) => ({
-      rank: i + 1,
-      employeeId: r.employee.id,
-      name: r.employee.name,
-      department: r.employee.department,
-      value: r.v,
-      valueLabel: valueLabel(r.v),
-    })),
-  };
-};
-
-router.get("/", async (req, res): Promise<void> => {
+// GET /api/leaderboards or /api/leaderboards/current
+router.get(["/", "/current"], async (req, res): Promise<void> => {
   try {
-    const [company] = await db.select().from(companiesTable).orderBy(companiesTable.id).limit(1);
-    if (!company) {
-      res.json({ enabled: false, boards: [] });
-      return;
-    }
+    const access = await getCompanyAccess(req);
+    const requestingEmployeeId = access.employee?.id;
 
-    if (!company.leaderboardEnabled) {
-      res.json({ enabled: false, boards: [] });
-      return;
-    }
+    const leaderboard = await calculateCompanyLeaderboard(
+      access.companyId,
+      requestingEmployeeId
+    );
 
-    const employees = await db
+    res.json(leaderboard);
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      req.log?.error({ err }, "Failed to fetch company leaderboard");
+      res.status(500).json({ error: err.message || "Failed to fetch leaderboard" });
+    }
+  }
+});
+
+// GET /api/leaderboards/history — Previous closed seasons
+router.get("/history", async (req, res): Promise<void> => {
+  try {
+    const access = await getCompanyAccess(req);
+    const requestingEmployeeId = access.employee?.id;
+
+    const history = await getCompanySeasonHistory(
+      access.companyId,
+      requestingEmployeeId
+    );
+
+    res.json({ history });
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      req.log?.error({ err }, "Failed to fetch season history");
+      res.status(500).json({ error: err.message || "Failed to fetch season history" });
+    }
+  }
+});
+
+// ==========================================
+// COMPANY ADMIN LEADERBOARD & SETTINGS
+// ==========================================
+
+// GET /api/company/leaderboard — Company Admin full standings
+router.get("/company/leaderboard", async (req, res): Promise<void> => {
+  try {
+    const access = await requireCompanyAdmin(req);
+    const leaderboard = await getCompanyAdminLeaderboard(access.companyId);
+    res.json(leaderboard);
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      req.log?.error({ err }, "Failed to fetch company admin leaderboard");
+      res.status(500).json({ error: err.message || "Failed to fetch company admin leaderboard" });
+    }
+  }
+});
+
+// GET /api/company/settings/competition — Fetch competition settings
+router.get("/company/settings/competition", async (req, res): Promise<void> => {
+  try {
+    const access = await requireCompanyAdmin(req);
+    const [company] = await db
       .select({
-        id: employeesTable.id,
-        name: employeesTable.name,
-        department: employeesTable.department,
-        completedCourses: employeesTable.completedCourses,
-        avgScore: employeesTable.avgScore,
-        certificates: employeesTable.certificates,
-        learningMinutes: employeesTable.learningMinutes,
+        id: companiesTable.id,
+        leaderboardEnabled: companiesTable.leaderboardEnabled,
+        leaderboardPrivacyMode: companiesTable.leaderboardPrivacyMode,
       })
-      .from(employeesTable)
-      .where(eq(employeesTable.companyId, company.id))
-      .orderBy(desc(employeesTable.completedCourses));
+      .from(companiesTable)
+      .where(eq(companiesTable.id, access.companyId))
+      .limit(1);
 
-    const boards = [
-      buildBoard(
-        "top-learners",
-        "Top Learners",
-        "Employees who have spent the most time learning.",
-        "minutes",
-        employees,
-        (e) => e.learningMinutes,
-        (v) => `${v.toLocaleString()} min`,
-      ),
-      buildBoard(
-        "sustainability-champions",
-        "Top Sustainability Champions",
-        "Employees with the most certificates earned across sustainability training.",
-        "certificates",
-        employees,
-        (e) => e.certificates,
-        (v) => `${v} ${v === 1 ? "certificate" : "certificates"}`,
-      ),
-      buildBoard(
-        "most-courses",
-        "Most Courses Completed",
-        "Employees who have completed the most courses.",
-        "courses",
-        employees,
-        (e) => e.completedCourses,
-        (v) => `${v} ${v === 1 ? "course" : "courses"}`,
-      ),
-      buildBoard(
-        "highest-score",
-        "Highest Assessment Score",
-        "Employees with the strongest average assessment scores.",
-        "score",
-        employees,
-        (e) => e.avgScore,
-        (v) => `${v}%`,
-      ),
-    ];
+    if (!company) {
+      res.status(404).json({ error: "Company not found" });
+      return;
+    }
 
-    res.json({ enabled: true, boards });
-  } catch (err) {
-    req.log?.error?.({ err }, "Failed to list leaderboards");
-    res.status(500).json({ error: "Failed to load leaderboards" });
+    res.json({
+      enabled: company.leaderboardEnabled,
+      privacyMode: company.leaderboardPrivacyMode,
+    });
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      req.log?.error({ err }, "Failed to fetch company competition settings");
+      res.status(500).json({ error: err.message || "Failed to fetch competition settings" });
+    }
+  }
+});
+
+// PUT /api/company/settings/competition — Update competition settings
+router.put("/company/settings/competition", async (req, res): Promise<void> => {
+  try {
+    const access = await requireCompanyAdmin(req);
+    const { enabled, privacyMode } = req.body;
+
+    if (typeof enabled !== "boolean") {
+      res.status(400).json({ error: "Field 'enabled' (boolean) is required" });
+      return;
+    }
+
+    const validModes = ["full_name", "initial", "anonymous"];
+    if (privacyMode && !validModes.includes(privacyMode)) {
+      res.status(400).json({
+        error: `Invalid privacyMode. Expected one of: ${validModes.join(", ")}`,
+      });
+      return;
+    }
+
+    const updated = await updateCompanyCompetitionSettings({
+      companyId: access.companyId,
+      enabled,
+      privacyMode: privacyMode as PrivacyMode,
+      actorUserId: access.userId,
+      actorRole: access.role,
+    });
+
+    res.json({ success: true, ...updated });
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      req.log?.error({ err }, "Failed to update company competition settings");
+      res.status(500).json({ error: err.message || "Failed to update competition settings" });
+    }
   }
 });
 

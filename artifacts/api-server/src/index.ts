@@ -43,6 +43,7 @@ import { ensureDefaultCompany } from "./lib/ensureDefaultCompany";
 import { ensurePlans } from "./lib/ensurePlans";
 import { ensureChallenges } from "./lib/ensureChallenges";
 import { ensureAchievementDefinitions } from "./lib/achievementsService";
+import { ensureChallengeTemplates } from "./lib/challengeService.js";
 import { ensureInsightsMigrated } from "./lib/ensureInsightsMigrated";
 import { ensureCategoriesAndAssignments } from "./lib/ensureCategoriesAndAssignments";
 import { ensureHybridSubscriptions } from "./lib/ensureHybridSubscriptions";
@@ -105,6 +106,9 @@ async function start(): Promise<void> {
 
     // Seed challenges
     await ensureChallenges();
+
+    // Seed challenge templates (Sprint 14.3)
+    await ensureChallengeTemplates();
 
     // Seed achievement definitions
     await ensureAchievementDefinitions();

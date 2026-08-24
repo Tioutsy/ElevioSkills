@@ -5,8 +5,8 @@ import { eq, and, asc, or, desc, inArray } from "drizzle-orm";
 
 import { getCompanyAccess, requireCompanyAdmin, sendHttpError } from "../lib/access";
 import { calculateSustainabilityScore } from "../lib/scoring";
-import { logger } from "../lib/logger";
-import { evaluateChallengeAchievements } from "../lib/achievementsService";
+import { logger } from "../lib/logger.js";
+import { evaluateChallengeAchievements } from "../lib/achievementsService.js";
 
 const router = Router();
 

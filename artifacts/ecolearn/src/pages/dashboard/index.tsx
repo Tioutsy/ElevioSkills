@@ -24,6 +24,7 @@ import {
   Target,
   BarChart3,
   Check,
+  ChevronRight,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
@@ -63,6 +64,25 @@ export default function Dashboard() {
     queryKey: ["/api/me/achievements"],
     queryFn: () => customFetch<any>("/api/me/achievements"),
   });
+  const { data: scoreData, isLoading: isLoadingScore } = useQuery({
+    queryKey: ["/api/me/score"],
+    queryFn: () => customFetch<{
+      totalScore: number;
+      breakdown: { learning: number; knowledge: number; workplaceActions: number; other: number };
+      transactionsCount: number;
+      recentTransactions: any[];
+    }>("/api/me/score"),
+  });
+  const { data: leaderboardData, isLoading: isLoadingLeaderboard } = useQuery({
+    queryKey: ["/api/leaderboards/current"],
+    queryFn: () => customFetch<any>("/api/leaderboards/current"),
+  });
+  const { data: companyChallengesData } = useQuery<{ active: any[]; upcoming: any[]; completed: any[] }>({
+    queryKey: ["/api/company-challenges"],
+    queryFn: () => customFetch<any>("/api/company-challenges"),
+  });
+
+  const currentChallenge = companyChallengesData?.active?.[0];
 
   const lmsEnrollments = (enrollments ?? []) as LmsEnrollment[];
   const activeEnrollments = lmsEnrollments.filter(e => e.status !== 'completed');
@@ -155,20 +175,86 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="bg-card border rounded-xl p-6 shadow-sm">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="h-10 w-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
-                <Star className="h-5 w-5" />
+          <div className="bg-card border rounded-xl p-6 shadow-sm flex flex-col justify-between">
+            <div className="flex items-center gap-4 mb-2">
+              <div className="h-10 w-10 bg-emerald-50 text-emerald-700 rounded-lg flex items-center justify-center">
+                <Trophy className="h-5 w-5" />
               </div>
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Points</p>
-                {isLoadingPoints ? <Skeleton className="h-7 w-16 mt-1" /> : (
-                  <h3 className="text-2xl font-bold">{points?.totalPoints ?? 0}</h3>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm font-medium text-muted-foreground">ELEVIO Score</p>
+                  {leaderboardData?.enabled && leaderboardData?.currentUser?.rank && (
+                    <Link href="/company-ranking">
+                      <span className="text-[11px] font-semibold text-emerald-800 hover:underline cursor-pointer flex items-center gap-0.5">
+                        #{leaderboardData.currentUser.rank} this month <ChevronRight className="h-3 w-3 inline" />
+                      </span>
+                    </Link>
+                  )}
+                </div>
+                {isLoadingScore ? <Skeleton className="h-7 w-20 mt-1" /> : (
+                  <h3 className="text-2xl font-bold text-slate-900 font-serif">
+                    {scoreData?.totalScore?.toLocaleString() ?? 0} <span className="text-xs font-sans font-medium text-muted-foreground">pts</span>
+                  </h3>
                 )}
               </div>
             </div>
+            {scoreData?.breakdown && (
+              <div className="pt-2 border-t mt-2 flex flex-wrap items-center justify-between gap-1 text-[10px] text-muted-foreground">
+                <div className="flex items-center gap-1.5">
+                  <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-medium" title="Course Completion Points">
+                    Learn: {scoreData.breakdown.learning}
+                  </span>
+                  <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-medium" title="Knowledge & Assessment Points">
+                    Quiz: {scoreData.breakdown.knowledge}
+                  </span>
+                  <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-medium" title="Workplace Actions Points">
+                    Actions: {scoreData.breakdown.workplaceActions}
+                  </span>
+                </div>
+                {leaderboardData?.enabled && (
+                  <Link href="/company-ranking">
+                    <span className="text-emerald-700 font-medium hover:underline cursor-pointer">
+                      Leaderboard →
+                    </span>
+                  </Link>
+                )}
+              </div>
+            )}
           </div>
         </div>
+
+        {currentChallenge && (
+          <div className="mb-8 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.03] p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
+            <div className="flex items-center gap-3.5">
+              <div className="w-11 h-11 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-bold shrink-0">
+                <Target className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 px-2 py-0.5 rounded-full">
+                    Active Mission
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    {currentChallenge.daysRemaining} days remaining
+                  </span>
+                </div>
+                <h3 className="font-bold text-base text-foreground mt-0.5">{currentChallenge.title}</h3>
+                <p className="text-xs text-muted-foreground">
+                  {currentChallenge.progress.completedCriteriaCount} of {currentChallenge.criteria.length} requirements completed • +{currentChallenge.rewardPoints} pts available
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="w-24 hidden sm:block">
+                <Progress value={currentChallenge.progress.progressPct} className="h-2" />
+                <span className="text-[10px] text-muted-foreground mt-0.5 block text-right">{currentChallenge.progress.progressPct}%</span>
+              </div>
+              <Button asChild size="sm">
+                <Link href="/challenges">View Mission &rarr;</Link>
+              </Button>
+            </div>
+          </div>
+        )}
 
         {nextRecommended && (
           <div className="mb-12 rounded-xl border bg-primary/5 p-5 flex flex-col md:flex-row md:items-center gap-4">
@@ -344,240 +430,125 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Achievements Grouped Sections */}
+        {/* Achievements & Recognition Section */}
         <div className="mb-12">
-          {isLoadingAchievements ? (
-            <div className="space-y-6">
-              <Skeleton className="h-10 w-48" />
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {Array(4).fill(0).map((_, i) => (
-                  <div key={i} className="border rounded-xl p-6 flex flex-col items-center text-center">
-                    <Skeleton className="h-16 w-16 rounded-full mb-4" />
-                    <Skeleton className="h-5 w-3/4 mb-2" />
-                    <Skeleton className="h-3 w-full" />
-                  </div>
-                ))}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <div>
+              <div className="flex items-center gap-2">
+                <Award className="h-5 w-5 text-emerald-700" />
+                <h2 className="text-2xl font-bold font-serif text-slate-900">
+                  Achievements & Recognition
+                </h2>
               </div>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                Meaningful recognition for pathway completions, assessment excellence, and workplace actions.
+              </p>
             </div>
-          ) : achievementsData ? (
-            <div className="space-y-12">
-              {/* Highlight Certificate Banner */}
-              {(() => {
-                const certBadge = achievementsData.achievements.find((a: any) => a.category === "certification");
-                if (!certBadge) return null;
-                const Icon = BADGE_ICONS[certBadge.icon] ?? Trophy;
+
+            <div className="flex items-center gap-4">
+              {achievementsData && (
+                <div className="text-xs text-muted-foreground">
+                  <span className="font-semibold text-emerald-800">
+                    {achievementsData.totalEarned ?? 0}
+                  </span>{" "}
+                  earned ·{" "}
+                  <span className="font-semibold text-slate-700">
+                    {achievementsData.inProgressCount ?? 0}
+                  </span>{" "}
+                  in progress
+                </div>
+              )}
+              <Link href="/achievements">
+                <span className="text-xs font-semibold text-emerald-800 hover:underline cursor-pointer flex items-center gap-1">
+                  View all achievements <ChevronRight className="h-3.5 w-3.5 inline" />
+                </span>
+              </Link>
+            </div>
+          </div>
+
+          {isLoadingAchievements ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[1, 2, 3, 4].map((i) => (
+                <Skeleton key={i} className="h-36 rounded-xl" />
+              ))}
+            </div>
+          ) : achievementsData?.achievements?.length ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {achievementsData.achievements.slice(0, 8).map((badge: any) => {
+                const isEarned = badge.earned;
                 return (
-                  <div className={`border rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 transition-all ${
-                    certBadge.earned 
-                      ? "bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border-primary/40 shadow-sm" 
-                      : "bg-muted/10 border-dashed"
-                  }`}>
-                    <div className={`h-24 w-24 rounded-full flex items-center justify-center shrink-0 ${
-                      certBadge.earned ? "bg-primary/20 text-primary shadow-inner" : "bg-muted text-muted-foreground/30"
-                    }`}>
-                      <Icon className="h-12 w-12" />
-                    </div>
-                    <div className="flex-1 text-center md:text-left">
-                      <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-2">
-                        <span className="text-xs uppercase tracking-wider font-semibold text-primary">Core Certification</span>
-                        {certBadge.earned && (
-                          <Badge variant="default" className="bg-primary text-white">Earned</Badge>
-                        )}
+                  <div
+                    key={badge.id + (badge.seasonId ? `_${badge.seasonId}` : "")}
+                    className={`border rounded-xl p-4 flex flex-col justify-between transition-all ${
+                      isEarned
+                        ? "bg-white border-emerald-200/90 shadow-xs"
+                        : "bg-slate-50/70 border-slate-200 opacity-80"
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <div
+                          className={`h-9 w-9 rounded-lg flex items-center justify-center ${
+                            isEarned
+                              ? "bg-emerald-100/70 text-emerald-800"
+                              : "bg-slate-200/60 text-slate-500"
+                          }`}
+                        >
+                          {isEarned ? (
+                            <Award className="h-5 w-5" />
+                          ) : (
+                            <Lock className="h-4 w-4" />
+                          )}
+                        </div>
+                        <Badge
+                          variant="outline"
+                          className={`text-[9px] px-1.5 py-0 ${
+                            isEarned
+                              ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+                              : "bg-slate-100 text-slate-600 border-slate-200"
+                          }`}
+                        >
+                          {badge.category}
+                        </Badge>
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold font-serif mb-2">{certBadge.name}</h3>
-                      <p className="text-muted-foreground text-sm max-w-2xl mb-4">
-                        {certBadge.earned 
-                          ? "Congratulations! You have completed all core coursework and passed the Final Certification, earning the Elevio Core Sustainability Certificate."
-                          : "Prerequisite: Complete 11 Core Courses & 1 voluntary workplace challenge, then pass the Final Certification Exam."
-                        }
+
+                      <h4 className="font-semibold text-xs text-slate-900 line-clamp-1">
+                        {badge.name}
+                      </h4>
+                      <p className="text-[11px] text-muted-foreground line-clamp-2 mt-0.5">
+                        {badge.description}
                       </p>
-                      
-                      {!certBadge.earned && (
-                        <div className="space-y-2">
-                          <div className="flex justify-between text-xs font-semibold text-muted-foreground mb-1">
-                            <span>Prerequisites Progress</span>
-                            <span>{achievementsData.completedCoreCourseCount} of 11 courses, {achievementsData.approvedChallengeCount >= 1 ? "1" : "0"} of 1 action</span>
+                    </div>
+
+                    <div className="mt-3 pt-2 border-t border-slate-100">
+                      {isEarned ? (
+                        <div className="text-[11px] font-semibold text-emerald-700 flex items-center gap-1">
+                          <Check className="h-3 w-3" /> Earned
+                        </div>
+                      ) : (
+                        <div className="space-y-1">
+                          <div className="flex justify-between text-[10px] text-muted-foreground">
+                            <span>Progress</span>
+                            <span className="font-mono">{badge.progressLabel}</span>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <Progress value={Math.round((achievementsData.completedCoreCourseCount / 11) * 100)} className="h-2 flex-1" />
-                            <span className="text-xs font-semibold">{Math.round((achievementsData.completedCoreCourseCount / 11) * 100)}%</span>
-                          </div>
+                          <Progress
+                            value={Math.min(
+                              100,
+                              Math.round((badge.progressCurrent / (badge.progressTarget || 1)) * 100)
+                            )}
+                            className="h-1 bg-slate-200"
+                          />
                         </div>
                       )}
                     </div>
-                    {certBadge.earned && (
-                      <Button asChild size="lg" className="shrink-0 shadow-md">
-                        <Link href="/certificates">View Certificate</Link>
-                      </Button>
-                    )}
                   </div>
                 );
-              })()}
-
-              {/* Group 1: Course Badges */}
-              <div>
-                <h3 className="text-xl font-bold font-serif mb-6 flex items-center gap-2">
-                  <BookOpen className="h-5 w-5 text-primary" />
-                  Course Badges
-                  <span className="text-sm font-normal text-muted-foreground ml-2">
-                    ({achievementsData.courseBadgeCount} earned)
-                  </span>
-                </h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {achievementsData.achievements
-                    .filter((a: any) => a.category === "course")
-                    .map((badge: any) => {
-                      const Icon = BADGE_ICONS[badge.icon] ?? Award;
-                      return (
-                        <div
-                          key={badge.id}
-                          className={`border rounded-xl p-5 flex flex-col items-center text-center transition-all ${
-                            badge.earned ? "bg-card border-primary/20 shadow-sm" : "bg-muted/10 opacity-70"
-                          }`}
-                        >
-                          <div className={`h-14 w-14 rounded-full flex items-center justify-center mb-3 relative ${
-                            badge.earned ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground/30"
-                          }`}>
-                            <Icon className="h-7 w-7" />
-                            {!badge.earned && <Lock className="absolute -bottom-1 -right-1 h-4 w-4 text-muted-foreground" />}
-                          </div>
-                          <h4 className={`font-semibold mb-1 text-sm ${badge.earned ? "" : "text-muted-foreground"}`}>
-                            {badge.name}
-                          </h4>
-                          <p className="text-xs text-muted-foreground mb-4 line-clamp-2">
-                            {badge.description}
-                          </p>
-                          <div className="mt-auto w-full">
-                            {badge.earned ? (
-                              <div className="text-xs font-semibold text-primary flex items-center justify-center gap-1">
-                                <Check className="h-3.5 w-3.5" /> Completed
-                              </div>
-                            ) : (
-                              <span className="text-xs font-medium text-muted-foreground/60 block">Locked</span>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
-                </div>
-              </div>
-
-              {/* Group 2: Learning Milestones */}
-              <div>
-                <h3 className="text-xl font-bold font-serif mb-6 flex items-center gap-2">
-                  <BarChart3 className="h-5 w-5 text-primary" />
-                  Learning Milestones
-                  <span className="text-sm font-normal text-muted-foreground ml-2">
-                    ({achievementsData.milestoneAchievementCount} earned)
-                  </span>
-                </h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {achievementsData.achievements
-                    .filter((a: any) => a.category === "milestone")
-                    .map((badge: any) => {
-                      const Icon = BADGE_ICONS[badge.icon] ?? Trophy;
-                      const pct = Math.round((badge.progressCurrent / badge.progressTarget) * 100);
-                      return (
-                        <div
-                          key={badge.id}
-                          className={`border rounded-xl p-5 flex flex-col items-center text-center transition-all ${
-                            badge.earned ? "bg-card border-primary/20 shadow-sm" : "bg-muted/10 opacity-70"
-                          }`}
-                        >
-                          <div className={`h-14 w-14 rounded-full flex items-center justify-center mb-3 relative ${
-                            badge.earned ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground/30"
-                          }`}>
-                            <Icon className="h-7 w-7" />
-                            {!badge.earned && <Lock className="absolute -bottom-1 -right-1 h-4 w-4 text-muted-foreground" />}
-                          </div>
-                          <h4 className={`font-semibold mb-1 text-sm ${badge.earned ? "" : "text-muted-foreground"}`}>
-                            {badge.name}
-                          </h4>
-                          <p className="text-xs text-muted-foreground mb-4 line-clamp-2">
-                            {badge.description}
-                          </p>
-                          <div className="mt-auto w-full space-y-2">
-                            {badge.earned ? (
-                              <div className="text-xs font-semibold text-primary flex items-center justify-center gap-1">
-                                <Check className="h-3.5 w-3.5" /> Earned
-                              </div>
-                            ) : (
-                              <>
-                                <Progress value={pct} className="h-1.5" />
-                                <span className="text-[10px] text-muted-foreground font-medium block">
-                                  {badge.progressLabel}
-                                </span>
-                                <span className="text-[10px] text-muted-foreground/75 italic block line-clamp-2">
-                                  {badge.unlockInstruction}
-                                </span>
-                              </>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
-                </div>
-              </div>
-
-              {/* Group 3: Challenge Achievements */}
-              <div>
-                <h3 className="text-xl font-bold font-serif mb-6 flex items-center gap-2">
-                  <Zap className="h-5 w-5 text-primary" />
-                  Workplace Challenges
-                  <span className="text-sm font-normal text-muted-foreground ml-2">
-                    ({achievementsData.challengeAchievementCount} earned)
-                  </span>
-                </h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {achievementsData.achievements
-                    .filter((a: any) => a.category === "challenge")
-                    .map((badge: any) => {
-                      const Icon = BADGE_ICONS[badge.icon] ?? Award;
-                      const pct = Math.round((badge.progressCurrent / badge.progressTarget) * 100);
-                      return (
-                        <div
-                          key={badge.id}
-                          className={`border rounded-xl p-5 flex flex-col items-center text-center transition-all ${
-                            badge.earned ? "bg-card border-primary/20 shadow-sm" : "bg-muted/10 opacity-70"
-                          }`}
-                        >
-                          <div className={`h-14 w-14 rounded-full flex items-center justify-center mb-3 relative ${
-                            badge.earned ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground/30"
-                          }`}>
-                            <Icon className="h-7 w-7" />
-                            {!badge.earned && <Lock className="absolute -bottom-1 -right-1 h-4 w-4 text-muted-foreground" />}
-                          </div>
-                          <h4 className={`font-semibold mb-1 text-sm ${badge.earned ? "" : "text-muted-foreground"}`}>
-                            {badge.name}
-                          </h4>
-                          <p className="text-xs text-muted-foreground mb-4 line-clamp-2">
-                            {badge.description}
-                          </p>
-                          <div className="mt-auto w-full space-y-2">
-                            {badge.earned ? (
-                              <div className="text-xs font-semibold text-primary flex items-center justify-center gap-1">
-                                <Check className="h-3.5 w-3.5" /> Earned
-                              </div>
-                            ) : (
-                              <>
-                                <Progress value={pct} className="h-1.5" />
-                                <span className="text-[10px] text-muted-foreground font-medium block">
-                                  {badge.progressLabel}
-                                </span>
-                                <span className="text-[10px] text-muted-foreground/75 italic block line-clamp-2">
-                                  {badge.unlockInstruction}
-                                </span>
-                              </>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
-                </div>
-              </div>
+              })}
             </div>
           ) : (
-            <div className="text-center py-8 text-muted-foreground text-sm">No achievements found.</div>
+            <div className="text-center py-6 text-muted-foreground text-xs">
+              No achievements found.
+            </div>
           )}
         </div>
 

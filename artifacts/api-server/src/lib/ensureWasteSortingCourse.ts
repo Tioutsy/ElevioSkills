@@ -155,9 +155,31 @@ const NEW_LESSONS = [
       { id: "ws4-h1", type: "heading", position: 1, headingText: "Workplace Waste Inspection" },
       { id: "ws4-t1", type: "short_text", position: 2, bodyText: "Examine a real Mauritian workplace waste sorting station. Notice the labelled bins for Paper & Cardboard, Plastics & Cans, and General Waste." },
       {
+        id: "ws4-sort1",
+        type: "sorting_activity",
+        position: 3,
+        title: "Mauritian Workplace Waste Sorting Challenge",
+        instruction: "Tap an item, then tap its correct disposal or recycling stream below:",
+        takeaway: "Never mix organic food waste with dry paper or plastic recyclables. Check site-specific bin labels first.",
+        categories: [
+          { id: "paper", name: "Paper & Cardboard", description: "Dry, clean paper, notes, flattened cardboard boxes" },
+          { id: "plastic_metal", name: "Plastics & Aluminium Cans", description: "Rinsed plastic bottles and aluminium drink cans" },
+          { id: "organic", name: "Organic & Food Scraps", description: "Fruit peels, tea bags, leftover food scraps" },
+          { id: "landfill", name: "General Waste / Landfill", description: "Oily food wrappers, polystyrene, soiled napkins" },
+        ],
+        items: [
+          { id: "ws-i1", label: "Clean PET Water Bottle", expectedCategoryId: "plastic_metal" },
+          { id: "ws-i2", label: "Flattened Shipping Box", expectedCategoryId: "paper" },
+          { id: "ws-i3", label: "Greasy Takeaway Box with Gravy", expectedCategoryId: "landfill" },
+          { id: "ws-i4", label: "Banana Peel & Tea Bags", expectedCategoryId: "organic" },
+          { id: "ws-i5", label: "Clean Aluminium Soda Can", expectedCategoryId: "plastic_metal" },
+          { id: "ws-i6", label: "Printed Office Memo", expectedCategoryId: "paper" },
+        ],
+      },
+      {
         id: "ws4-img1",
         type: "visual_question",
-        position: 3,
+        position: 4,
         imageUrl: "/images/courses/visual-workplace-waste-station.png",
         caption: "Workplace Waste Station Inspection: Clearly labelled bins for Paper & Cardboard, Plastics & Cans, and General Waste, with items on the adjacent counter.",
         imageAlt: "Realistic photograph of a modern Mauritian workplace waste sorting station featuring clear printed labels for Paper & Cardboard, Plastics & Cans, and General Waste, with clean recyclables and a used battery on the adjacent counter."
@@ -165,7 +187,7 @@ const NEW_LESSONS = [
       {
         id: "ws4-m1",
         type: "multiple_choice",
-        position: 4,
+        position: 5,
         mcqQuestion: "In the workplace waste station scene above, which item must NEVER be placed in standard recycling or general waste bins without checking special disposal procedures?",
         mcqOptions: [
           "The used AA battery on the counter",
@@ -200,9 +222,79 @@ const NEW_LESSONS = [
         ]
       },
       {
+        id: "ws5-assess1",
+        type: "challenge_assessment",
+        position: 4,
+        title: "Waste Sorting Challenge Assessment",
+        description: "Pass this scenario check (at least 4 of 5 correct) to fulfill your active company challenge knowledge criterion.",
+        passThreshold: 4,
+        questions: [
+          {
+            id: "wsa-1",
+            question: "Why should you always check printed bin labels instead of assuming bin colors are identical across all Mauritian companies?",
+            options: [
+              "Different facilities contract different private waste collectors with specific stream rules",
+              "Bin labels are only used for government inspection days",
+              "All Mauritian companies share one single waste truck",
+              "Colors are chosen at random by employees"
+            ],
+            correctIndex: 0,
+            explanation: "Waste collection rules and accepted materials depend on your employer's contracted waste service provider."
+          },
+          {
+            id: "wsa-2",
+            question: "What happens when greasy food containers are placed into a clean paper recycling bin?",
+            options: [
+              "The grease gets automatically removed during sorting",
+              "The oil ruins paper pulp fibers and can cause an entire batch to be sent to Mare Chicose landfill",
+              "The paper turns into organic fertilizer",
+              "It increases the commercial value of the paper"
+            ],
+            correctIndex: 1,
+            explanation: "Oil and moisture permanently contaminate recyclable paper streams."
+          },
+          {
+            id: "wsa-3",
+            question: "Where should spent alkaline or lithium batteries be placed?",
+            options: [
+              "In the yellow plastic recycling bin",
+              "In the paper bin",
+              "In a dedicated battery drop-off box or escalated to facilities",
+              "In the garden soil"
+            ],
+            correctIndex: 2,
+            explanation: "Batteries are hazardous e-waste and require special containment."
+          },
+          {
+            id: "wsa-4",
+            question: "What is the proper step before placing a plastic drink container into the plastics recycling bin?",
+            options: [
+              "Leave the liquid inside to add weight",
+              "Empty all residual liquid and rinse if possible",
+              "Wrap it in general trash bags",
+              "Burn it"
+            ],
+            correctIndex: 1,
+            explanation: "Emptying liquids prevents leaks that spoil neighboring paper recyclables."
+          },
+          {
+            id: "wsa-5",
+            question: "How does clean waste separation at Mauritian workplaces help the national environment?",
+            options: [
+              "It conserves landfill capacity at Mare Chicose and reduces greenhouse emissions",
+              "It eliminates the need for any workplace cleaning staff",
+              "It causes electricity rates to double",
+              "It is strictly for marketing purposes"
+            ],
+            correctIndex: 0,
+            explanation: "Keeping recyclables and organics out of landfill extends Mare Chicose lifespan and lowers methane emissions."
+          }
+        ]
+      },
+      {
         id: "ws5-p1",
         type: "practical_action",
-        position: 4,
+        position: 5,
         headingText: "Items Requiring Special Escalation",
         bodyText: "Always escalate these items to your supervisor or facilities contact: 1) Batteries and e-waste, 2) Fluorescent light tubes, 3) Chemical container residues, 4) Medical or sharp objects."
       }

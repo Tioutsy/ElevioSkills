@@ -7,6 +7,9 @@ import {
 } from "@workspace/db";
 import { eq, and, sql, desc, count, inArray } from "drizzle-orm";
 import { logAuditEvent } from "./auditLogService.js";
+import { awardWorkplaceActionScore } from "./scoringService.js";
+import { evaluateWorkplaceActionAchievements } from "./achievementsService.js";
+import { evaluateEmployeeChallengeProgress } from "./challengeService.js";
 
 export const ALLOWED_ACTION_CATEGORIES = [
   "waste",
@@ -168,6 +171,38 @@ export async function reportWorkplaceAction(
     targetId: commitmentId,
     metadata: { progressNote: note },
   });
+
+  try {
+    const [emp] = await db
+      .select({ clerkUserId: employeesTable.clerkUserId })
+      .from(employeesTable)
+      .where(eq(employeesTable.id, employeeId))
+      .limit(1);
+
+    await awardWorkplaceActionScore({
+      companyId,
+      employeeId,
+      clerkUserId: emp?.clerkUserId,
+      commitmentId,
+      courseId: existing.courseId,
+      commitmentText: existing.commitmentText,
+      actionCategory: existing.actionCategory,
+    });
+
+    // Sprint 14.2 Workplace Action Achievements Evaluation
+    await evaluateWorkplaceActionAchievements({
+      employee: { id: employeeId, companyId } as any,
+      commitmentId,
+    });
+
+    // Sprint 14.3 Challenge Progress Evaluation
+    await evaluateEmployeeChallengeProgress({
+      employee: { id: employeeId, companyId, clerkUserId: emp?.clerkUserId } as any,
+      clerkUserId: emp?.clerkUserId,
+    });
+  } catch (scoreErr: any) {
+    // Non-fatal logging to ensure action reporting transaction completes
+  }
 
   return updated;
 }

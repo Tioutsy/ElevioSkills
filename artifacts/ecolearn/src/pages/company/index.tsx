@@ -819,6 +819,16 @@ export default function CompanyDashboard() {
                   <ArrowRight className="h-4 w-4 text-blue-600 mt-2" />
                 </div>
               </Link>
+              <Link href="/company/challenges">
+                <div className="border rounded-lg p-4 hover:bg-muted/50 transition-colors h-full cursor-pointer flex flex-col items-start text-left">
+                  <div className="h-8 w-8 bg-emerald-500/10 rounded flex items-center justify-center text-emerald-600 mb-3">
+                    <Target className="h-4 w-4" />
+                  </div>
+                  <h3 className="font-semibold mb-1">Challenges & Missions</h3>
+                  <p className="text-sm text-muted-foreground flex-1">Activate time-bound missions and track participation.</p>
+                  <ArrowRight className="h-4 w-4 text-emerald-600 mt-2" />
+                </div>
+              </Link>
               <Link href="/company/compliance">
                 <div className="border rounded-lg p-4 hover:bg-muted/50 transition-colors h-full cursor-pointer flex flex-col items-start text-left">
                   <div className="h-8 w-8 bg-purple-500/10 rounded flex items-center justify-center text-purple-600 mb-3">

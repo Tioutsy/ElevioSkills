@@ -24,6 +24,7 @@ export const employeesTable = pgTable("employees", {
   certificates: integer("certificates").notNull().default(0),
   avgScore: integer("avg_score").notNull().default(0),
   learningMinutes: integer("learning_minutes").notNull().default(0),
+  elevioScore: integer("elevio_score").notNull().default(0),
   lastActiveAt: timestamp("last_active_at", { withTimezone: true }),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow().$onUpdate(() => new Date()),

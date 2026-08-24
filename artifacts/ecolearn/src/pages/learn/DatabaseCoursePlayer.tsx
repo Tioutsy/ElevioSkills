@@ -33,16 +33,40 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useQuery } from "@tanstack/react-query";
+import { customFetch } from "@workspace/api-client-react";
 import {
   TextView,
   CalloutView,
   ScenarioView,
   CheckView,
   CommitmentView,
+  WorkplaceDecisionView,
+  SortingView,
+  MatchingView,
+  SequencingView,
+  PrioritisationView,
+  MultiStepScenarioView,
+  ChallengeAssessmentView,
 } from "./blocks";
 
 function isDatabaseInteractive(block: any): boolean {
-  return ["multiple_choice", "decision_scenario", "commitment", "scenario"].includes(block.type);
+  return [
+    "multiple_choice",
+    "decision_scenario",
+    "scenario",
+    "commitment",
+    "sorting",
+    "sorting_activity",
+    "matching",
+    "matching_exercise",
+    "sequencing",
+    "sequencing_exercise",
+    "prioritisation",
+    "prioritisation_challenge",
+    "multi_step_scenario",
+    "challenge_assessment",
+  ].includes(block.type);
 }
 
 type Phase = "modules" | "quiz" | "complete";
@@ -101,6 +125,29 @@ export default function DatabaseCoursePlayer({
   const { data: rawExistingCommitments } = useGetCommitments(courseId, {
     query: { enabled: !!courseId && !isPreview, queryKey: ["commitments", courseId] },
   });
+
+  const { data: savedInteractions = [] } = useQuery<any[]>({
+    queryKey: ["interactionsProgress", courseId],
+    queryFn: async () => {
+      if (!courseId || isPreview) return [];
+      try {
+        return (await customFetch(`/api/interactions/progress?courseId=${courseId}`)) as any[];
+      } catch {
+        return [];
+      }
+    },
+    enabled: !!courseId && !isPreview,
+  });
+
+  const interactionMap = useMemo(() => {
+    const map = new Map<string, any>();
+    for (const item of savedInteractions) {
+      if (item.interactionId && item.statePayload) {
+        map.set(item.interactionId, item.statePayload);
+      }
+    }
+    return map;
+  }, [savedInteractions]);
 
   const rawUpdateProgress = useUpdateProgress();
   const rawSaveCommitments = useSaveCommitments();
@@ -332,21 +379,163 @@ export default function DatabaseCoursePlayer({
           </div>
         );
       case "scenario":
+      case "decision_scenario": {
+        const interactionId = block.id || `decision_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
         return (
-          <ScenarioView
+          <WorkplaceDecisionView
             key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
             block={{
-              type: "scenario",
-              prompt: block.scenarioText || block.prompt || "",
-              choices: (block.options || block.choices || []).map((c: any) => ({
-                label: c.text || c.label,
-                feedback: c.feedback,
-                ideal: c.isCorrect ?? c.correct
-              }))
+              type: "decision_scenario",
+              id: interactionId,
+              intro: block.decisionIntro,
+              prompt: block.decisionPrompt || block.scenarioText || block.prompt || "",
+              takeaway: block.takeaway,
+              choices: (block.decisionChoices || block.options || block.choices || []).map((c: any) => ({
+                label: c.label || c.text,
+                feedback: c.feedback || "",
+                consequences: c.consequences || c.consequence,
+                correct: c.correct ?? c.ideal ?? c.isCorrect,
+                ideal: c.ideal ?? c.correct ?? c.isCorrect,
+              })),
             }}
             onResolved={() => markResolved(i)}
           />
         );
+      }
+      case "sorting":
+      case "sorting_activity": {
+        const interactionId = block.id || `sorting_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <SortingView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "sorting_activity",
+              id: interactionId,
+              title: block.title || "Sorting Activity",
+              instruction: block.instruction || "Sort each item into its correct workplace stream:",
+              categories: block.categories || [],
+              items: block.items || [],
+              takeaway: block.takeaway,
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
+      case "matching":
+      case "matching_exercise": {
+        const interactionId = block.id || `matching_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <MatchingView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "matching_exercise",
+              id: interactionId,
+              title: block.title,
+              instruction: block.instruction || "Match each concept with its correct definition or practice:",
+              pairs: block.pairs || [],
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
+      case "sequencing":
+      case "sequencing_exercise": {
+        const interactionId = block.id || `sequencing_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <SequencingView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "sequencing_exercise",
+              id: interactionId,
+              title: block.title || "Operational Sequencing",
+              instruction: block.instruction || "Arrange the steps into the correct operational sequence:",
+              steps: block.steps || block.items || [],
+              takeaway: block.takeaway,
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
+      case "prioritisation":
+      case "prioritisation_challenge": {
+        const interactionId = block.id || `priority_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <PrioritisationView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "prioritisation_challenge",
+              id: interactionId,
+              title: block.title || "Prioritisation Challenge",
+              prompt: block.prompt || "Select the highest impact actions:",
+              maxSelect: block.maxSelect || 2,
+              options: block.options || [],
+              consequences: block.consequences,
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
+      case "multi_step_scenario": {
+        const interactionId = block.id || `multistep_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <MultiStepScenarioView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "multi_step_scenario",
+              id: interactionId,
+              title: block.title || "Workplace Branching Scenario",
+              stages: block.stages || [],
+              outcomes: block.outcomes || {},
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
+      case "challenge_assessment": {
+        const interactionId = block.id || `challenge_assessment_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <ChallengeAssessmentView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "challenge_assessment",
+              id: interactionId,
+              title: block.title || "Challenge Mission Assessment",
+              description: block.description || "Demonstrate practical competency to fulfill challenge criteria.",
+              passThreshold: block.passThreshold,
+              questions: block.questions || [],
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
       case "multiple_choice":
         return (
           <CheckView
@@ -357,22 +546,6 @@ export default function DatabaseCoursePlayer({
               options: block.mcqOptions || [],
               correctIndex: block.mcqCorrectIndex ?? 0,
               explanation: block.mcqCorrectExplanation || ""
-            }}
-            onResolved={() => markResolved(i)}
-          />
-        );
-      case "decision_scenario":
-        return (
-          <ScenarioView
-            key={i}
-            block={{
-              type: "scenario",
-              prompt: block.decisionIntro ? `${block.decisionIntro}\n\n${block.decisionPrompt}` : block.decisionPrompt || "",
-              choices: (block.decisionChoices || []).map((c: any) => ({
-                label: c.label,
-                feedback: c.feedback,
-                ideal: c.correct
-              }))
             }}
             onResolved={() => markResolved(i)}
           />

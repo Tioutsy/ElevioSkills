@@ -5,8 +5,8 @@ import {
   evaluateCourseMilestones,
   evaluateChallengeAchievements,
   ensureAchievementDefinitions,
-} from "../lib/achievementsService";
-import { logger } from "../lib/logger";
+} from "../lib/achievementsService.js";
+import { logger } from "../lib/logger.js";
 
 async function runBackfill() {
   console.log("Starting Sprint 6D Historical Achievements Backfill...");
