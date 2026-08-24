@@ -53,6 +53,28 @@ export async function verifyDatabaseIntegrity(): Promise<IntegrityReport> {
     }
   };
 
+  const getIndexes = async (table: string): Promise<{ name: string; isUnique: boolean; definition: string }[]> => {
+    try {
+      const res = await db.execute(sql.raw(`
+        SELECT 
+          i.relname AS name,
+          ix.indisunique AS is_unique,
+          pg_get_indexdef(ix.indexrelid) AS definition
+        FROM pg_class t
+        JOIN pg_index ix ON t.oid = ix.indrelid
+        JOIN pg_class i ON i.oid = ix.indexrelid
+        WHERE t.relname = '${table}'
+      `));
+      return res.rows.map((r: any) => ({
+        name: String(r.name),
+        isUnique: Boolean(r.is_unique),
+        definition: String(r.definition || "")
+      }));
+    } catch {
+      return [];
+    }
+  };
+
   // 1. Verify Expected Tables
   const requiredTables = [
     "learning_paths",
@@ -167,15 +189,49 @@ export async function verifyDatabaseIntegrity(): Promise<IntegrityReport> {
   verifyConstraint(cpCons, "chk_points_awarded", "c", "points_awarded = ANY (ARRAY", "challenge_participants");
 
   // Badge Definitions Unique Code
+  // Badge Definitions Unique Code
   const bdCons = await getConstraints("badge_definitions");
   verifyConstraint(bdCons, "badge_definitions_code_key", "u", "UNIQUE (code)", "badge_definitions");
 
-  // Employee Badges FKs & Unique
+  // Employee Badges FKs & Partial Unique Indexes (Sprint 14.2 Achievement Architecture)
   const ebCons = await getConstraints("employee_badges");
   verifyConstraint(ebCons, "employee_badges_employee_id_fk", "f", "FOREIGN KEY (employee_id) REFERENCES employees(id)", "employee_badges");
   verifyConstraint(ebCons, "employee_badges_company_id_fk", "f", "FOREIGN KEY (company_id) REFERENCES companies(id)", "employee_badges");
   verifyConstraint(ebCons, "employee_badges_badge_id_fk", "f", "FOREIGN KEY (badge_id) REFERENCES badge_definitions(id)", "employee_badges");
-  verifyConstraint(ebCons, "uniq_employee_badge", "u", "UNIQUE (employee_id, badge_id)", "employee_badges");
+
+  const ebIndexes = await getIndexes("employee_badges");
+
+  // Non-Seasonal Unique Index: UNIQUE (employee_id, badge_id) WHERE season_id IS NULL
+  const hasNonSeasonalUniq = ebIndexes.some((idx) => {
+    if (!idx.isUnique) return false;
+    const def = idx.definition.toLowerCase().replace(/\s+/g, " ");
+    const hasCols = def.includes("employee_id") && def.includes("badge_id") && !def.includes("season_id,");
+    const hasPredicate = def.includes("where (season_id is null)") || def.includes("where season_id is null");
+    return hasCols && hasPredicate;
+  });
+
+  if (!hasNonSeasonalUniq) {
+    issues.push({
+      type: "critical",
+      message: "Non-seasonal partial unique index UNIQUE (employee_id, badge_id) WHERE season_id IS NULL on table 'employee_badges' is missing."
+    });
+  }
+
+  // Seasonal Unique Index: UNIQUE (employee_id, badge_id, season_id) WHERE season_id IS NOT NULL
+  const hasSeasonalUniq = ebIndexes.some((idx) => {
+    if (!idx.isUnique) return false;
+    const def = idx.definition.toLowerCase().replace(/\s+/g, " ");
+    const hasCols = def.includes("employee_id") && def.includes("badge_id") && def.includes("season_id");
+    const hasPredicate = def.includes("where (season_id is not null)") || def.includes("where season_id is not null");
+    return hasCols && hasPredicate;
+  });
+
+  if (!hasSeasonalUniq) {
+    issues.push({
+      type: "critical",
+      message: "Seasonal partial unique index UNIQUE (employee_id, badge_id, season_id) WHERE season_id IS NOT NULL on table 'employee_badges' is missing."
+    });
+  }
 
   // 4. Data Invariants (Orphans, Duplicates, Check Violations)
   // Duplicates on challenges
@@ -215,16 +271,31 @@ export async function verifyDatabaseIntegrity(): Promise<IntegrityReport> {
     });
   }
 
-  // Duplicates on employee_badges
-  const ebDups = await db.execute(sql`
+  // Duplicates on employee_badges: Non-seasonal duplicates
+  const ebNonSeasonalDups = await db.execute(sql`
     SELECT employee_id, badge_id FROM employee_badges 
+    WHERE season_id IS NULL
     GROUP BY employee_id, badge_id HAVING count(*) > 1
   `);
-  if (ebDups.rows.length > 0) {
+  if (ebNonSeasonalDups.rows.length > 0) {
     issues.push({
       type: "critical",
-      message: "Duplicate employee badge awards found in database.",
-      details: ebDups.rows
+      message: "Duplicate non-seasonal employee badge awards found in database.",
+      details: ebNonSeasonalDups.rows
+    });
+  }
+
+  // Duplicates on employee_badges: Seasonal duplicates
+  const ebSeasonalDups = await db.execute(sql`
+    SELECT employee_id, badge_id, season_id FROM employee_badges 
+    WHERE season_id IS NOT NULL
+    GROUP BY employee_id, badge_id, season_id HAVING count(*) > 1
+  `);
+  if (ebSeasonalDups.rows.length > 0) {
+    issues.push({
+      type: "critical",
+      message: "Duplicate seasonal employee badge awards found in database.",
+      details: ebSeasonalDups.rows
     });
   }
 
