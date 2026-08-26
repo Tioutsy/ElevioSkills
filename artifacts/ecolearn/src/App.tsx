@@ -33,6 +33,7 @@ import Learn from "@/pages/learn";
 import Quiz from "@/pages/quiz";
 import Dashboard from "@/pages/dashboard";
 import CompanyRankingPage from "@/pages/company-ranking";
+import DepartmentRankingPage from "@/pages/department-ranking";
 import AchievementsPage from "@/pages/achievements";
 // import ImpactDashboard from "@/pages/impact"; // Intentionally disabled — Sprint product simplification. Preserved for future premium feature recovery.
 import Pricing from "@/pages/pricing";
@@ -79,6 +80,8 @@ import AdminCoursePreview from "@/pages/platform-admin/preview";
 import PlatformAdminSdgMapping from "@/pages/platform-admin/sdgMapping";
 import PlatformAdminSubscriptions from "@/pages/platform-admin/subscriptions";
 import PlatformAdminPilotPasses from "@/pages/platform-admin/pilot-passes";
+import GamificationHealthPage from "@/pages/platform-admin/gamification-health";
+import EngagementCompetitionPage from "@/pages/company/engagement-competition";
 
 const queryClient = new QueryClient();
 
@@ -464,6 +467,7 @@ function ClerkProviderWithRoutes() {
             <Route path="/milestones"><Redirect to="/achievements" /></Route>
             <Route path="/badges"><Redirect to="/achievements" /></Route>
             <Route path="/company-ranking" component={CompanyRankingPage} />
+            <Route path="/department-ranking" component={DepartmentRankingPage} />
             <Route path="/leaderboard"><Redirect to="/company-ranking" /></Route>
             <Route path="/ranking"><Redirect to="/company-ranking" /></Route>
             {/* /impact — Intentionally disabled. Redirect authenticated users to dashboard. */}
@@ -491,6 +495,7 @@ function ClerkProviderWithRoutes() {
             <Route path="/company/challenges-review">{() => <RequireCompanyAdmin><ChallengesReview /></RequireCompanyAdmin>}</Route>
             <Route path="/company/employees">{() => <RequireCompanyAdmin><CompanyEmployees /></RequireCompanyAdmin>}</Route>
             <Route path="/company/certificates">{() => <RequireCompanyAdmin><CompanyCertificates /></RequireCompanyAdmin>}</Route>
+            <Route path="/company/engagement-competition">{() => <RequireCompanyAdmin><EngagementCompetitionPage /></RequireCompanyAdmin>}</Route>
             <Route path="/company/leaderboards">{() => <RequireCompanyAdmin><CompanyLeaderboards /></RequireCompanyAdmin>}</Route>
             <Route path="/company/challenges">{() => <RequireCompanyAdmin><CompanyChallengesAdminPage /></RequireCompanyAdmin>}</Route>
             <Route path="/company/compliance">{() => <RequireCompanyAdmin><CompanyCompliance /></RequireCompanyAdmin>}</Route>
@@ -503,6 +508,7 @@ function ClerkProviderWithRoutes() {
             <Route path="/admin" component={AdminPanel} />
             <Route path="/admin/recycling" component={AdminRecycling} />
             <Route path="/platform-admin" component={PlatformAdminOverview} />
+            <Route path="/platform-admin/gamification-health" component={GamificationHealthPage} />
             <Route path="/platform-admin/pilot-passes" component={PlatformAdminPilotPasses} />
             <Route path="/platform-admin/organisations" component={PlatformAdminOrganisations} />
             <Route path="/platform-admin/accounts" component={PlatformAdminAccounts} />

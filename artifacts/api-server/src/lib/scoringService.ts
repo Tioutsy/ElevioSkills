@@ -333,6 +333,103 @@ export async function awardChallengeCompletionScore(params: {
 }
 
 /**
+ * Formats a score event into professional, human-readable titles and descriptions.
+ * Strict principle: Never displays sensitive operator notes or implies learner misconduct.
+ */
+export function formatScoreEventDisplay(tx: {
+  eventType: string;
+  points: number;
+  isReversed?: boolean;
+  reversalReason?: string | null;
+  reason?: string | null;
+  metadata?: any;
+}) {
+  if (tx.isReversed) {
+    const rawReason = (tx.reversalReason || tx.reason || tx.metadata?.reversalReason || "").toLowerCase();
+
+    let title = "Score Entry Corrected";
+    let description = "Score adjustment";
+
+    if (rawReason.includes("duplicate")) {
+      title = "Score Entry Corrected";
+      description = "Duplicate award reversed";
+    } else if (rawReason.includes("challenge")) {
+      title = "Score Entry Corrected";
+      description = "Challenge award corrected";
+    } else if (rawReason.includes("reconcil") || rawReason.includes("cache") || rawReason.includes("ledger")) {
+      title = "Score Cache Reconciled";
+      description = "Score cache reconciled";
+    } else if (rawReason.includes("admin") || rawReason.includes("operator") || rawReason.includes("manual") || rawReason.includes("correction")) {
+      title = "Administrative Score Correction";
+      description = "Administrative score correction";
+    } else if (rawReason.trim().length > 0) {
+      title = "Score Entry Corrected";
+      description = "Score entry corrected";
+    } else {
+      title = "Score Adjustment";
+      description = "Score adjustment";
+    }
+
+    return {
+      title,
+      description,
+      pointsDisplay: `-${tx.points} pts`,
+    };
+  }
+
+  switch (tx.eventType) {
+    case "COURSE_COMPLETED":
+      return {
+        title: "Course Completed",
+        description: tx.metadata?.courseTitle ? `Completed "${tx.metadata.courseTitle}"` : "Completed an accredited sustainability course",
+        pointsDisplay: `+${tx.points} pts`,
+      };
+    case "QUIZ_PASSED":
+      return {
+        title: "Quiz Assessment Passed",
+        description: tx.metadata?.courseTitle ? `Passed quiz for "${tx.metadata.courseTitle}"` : "Successfully passed knowledge assessment",
+        pointsDisplay: `+${tx.points} pts`,
+      };
+    case "QUIZ_SCORE_BONUS":
+      return {
+        title: "High Score Performance Bonus",
+        description: tx.metadata?.bonusTier ? `Achieved ${tx.metadata.bonusTier} score on knowledge assessment` : "High score bonus on knowledge assessment",
+        pointsDisplay: `+${tx.points} pts`,
+      };
+    case "FIRST_ATTEMPT_PASS":
+      return {
+        title: "First-Attempt Excellence Bonus",
+        description: "Passed quiz assessment on the first attempt",
+        pointsDisplay: `+${tx.points} pts`,
+      };
+    case "INTERACTIVE_ACTIVITY_COMPLETED":
+      return {
+        title: "Interactive Simulation Completed",
+        description: tx.metadata?.activityTitle || tx.metadata?.interactionType ? `Completed interactive scenario: ${tx.metadata?.activityTitle || tx.metadata?.interactionType}` : "Completed interactive learning simulation",
+        pointsDisplay: `+${tx.points} pts`,
+      };
+    case "WORKPLACE_ACTION_COMPLETED":
+      return {
+        title: "Workplace Action Verified",
+        description: tx.metadata?.actionTitle ? `Logged practical action: "${tx.metadata.actionTitle}"` : "Completed practical workplace sustainability action",
+        pointsDisplay: `+${tx.points} pts`,
+      };
+    case "CHALLENGE_COMPLETED":
+      return {
+        title: "Company Challenge Achieved",
+        description: tx.metadata?.challengeTitle ? `Achieved company challenge: "${tx.metadata.challengeTitle}"` : "Achieved company sustainability challenge",
+        pointsDisplay: `+${tx.points} pts`,
+      };
+    default:
+      return {
+        title: "Learning Activity Point Award",
+        description: "Points earned for verified learning participation",
+        pointsDisplay: `+${tx.points} pts`,
+      };
+  }
+}
+
+/**
  * Retrieves an employee's score summary, category breakdown, and recent transactions.
  */
 export async function getEmployeeScoreSummary(employeeId: number, companyId: number) {
@@ -363,11 +460,27 @@ export async function getEmployeeScoreSummary(employeeId: number, companyId: num
     }
   }
 
+  const enrichedRecent = transactions.slice(0, 10).map((tx) => {
+    const display = formatScoreEventDisplay({
+      eventType: tx.eventType,
+      points: tx.points,
+      isReversed: tx.isReversed,
+      reversalReason: tx.reversalReason,
+      metadata: tx.metadata,
+    });
+    return {
+      ...tx,
+      displayTitle: display.title,
+      displayDescription: display.description,
+      pointsDisplay: display.pointsDisplay,
+    };
+  });
+
   return {
     totalScore,
     breakdown,
     transactionsCount: transactions.length,
-    recentTransactions: transactions.slice(0, 10),
+    recentTransactions: enrichedRecent,
   };
 }
 

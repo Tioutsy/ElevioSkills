@@ -50,7 +50,7 @@ export async function logAuditEvent(params: LogAuditEventParams): Promise<any> {
     .values({
       companyId: params.companyId,
       actorUserId: params.actorUserId,
-      actorRole: params.actorRole,
+      actorRole: params.actorRole || "system",
       action: params.action,
       targetType: params.targetType,
       targetId: params.targetId !== undefined && params.targetId !== null ? String(params.targetId).slice(0, 255) : null,

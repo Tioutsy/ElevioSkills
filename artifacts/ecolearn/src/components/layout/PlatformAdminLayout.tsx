@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "wouter";
 import { useUser } from "@clerk/react";
-import { LayoutDashboard, Leaf, FolderOpen, Route, BookOpen, Target, ShieldAlert, ArrowRight } from "lucide-react";
+import { LayoutDashboard, Leaf, FolderOpen, Route, BookOpen, Target, ShieldAlert, ArrowRight, Activity } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Layout } from "./Layout";
 import { isPlatformAdmin } from "@/lib/authHelpers";
@@ -55,6 +55,7 @@ export function PlatformAdminLayout({ children }: PlatformAdminLayoutProps) {
 
   const sidebarLinks = [
     { href: "/platform-admin", label: "Overview", icon: LayoutDashboard },
+    { href: "/platform-admin/gamification-health", label: "Gamification Health", icon: Activity },
     { href: "/platform-admin/pilot-passes", label: "Pilot Passes", icon: Leaf },
     { href: "/platform-admin/organisations", label: "Organisations", icon: FolderOpen },
     { href: "/platform-admin/accounts", label: "Accounts", icon: Target },
@@ -66,6 +67,7 @@ export function PlatformAdminLayout({ children }: PlatformAdminLayoutProps) {
     { href: "/platform-admin/courses", label: "Courses", icon: BookOpen },
     { href: "/platform-admin/sdg-mapping", label: "SDG Mapping", icon: Target },
   ];
+
 
   return (
     <Layout>

@@ -1629,7 +1629,131 @@ export async function ensureSchemaModifications() {
           CREATE UNIQUE INDEX IF NOT EXISTS "course_interaction_progress_emp_course_idx" ON "course_interaction_progress" ("employee_id", "course_id", "interaction_id");
         `);
       }
-    }
+    },
+    {
+      name: "Ensure Sprint 14.5 Department Competition and Membership History Tables",
+      check: async () =>
+        (await columnExists("companies", "department_competition_enabled")) &&
+        (await columnExists("companies", "department_competition_activated_at")) &&
+        (await tableExists("employee_department_history")) &&
+        (await tableExists("department_season_standings")),
+      execute: async () => {
+        await db.execute(sql`
+          ALTER TABLE "companies" ADD COLUMN IF NOT EXISTS "department_competition_enabled" boolean NOT NULL DEFAULT false;
+          ALTER TABLE "companies" ADD COLUMN IF NOT EXISTS "department_competition_activated_at" timestamp with time zone;
+
+          CREATE TABLE IF NOT EXISTS "employee_department_history" (
+            "id" serial PRIMARY KEY,
+            "company_id" integer NOT NULL REFERENCES "companies"("id") ON DELETE CASCADE,
+            "employee_id" integer NOT NULL REFERENCES "employees"("id") ON DELETE CASCADE,
+            "department_id" integer NOT NULL REFERENCES "departments"("id") ON DELETE CASCADE,
+            "effective_from" timestamp with time zone NOT NULL,
+            "effective_to" timestamp with time zone,
+            "created_at" timestamp with time zone NOT NULL DEFAULT now()
+          );
+
+          CREATE INDEX IF NOT EXISTS "idx_emp_dept_history_company_dept" ON "employee_department_history" ("company_id", "department_id");
+          CREATE INDEX IF NOT EXISTS "idx_emp_dept_history_emp_dates" ON "employee_department_history" ("employee_id", "effective_from", "effective_to");
+
+          CREATE TABLE IF NOT EXISTS "department_season_standings" (
+            "id" serial PRIMARY KEY,
+            "season_id" integer NOT NULL REFERENCES "company_seasons"("id") ON DELETE CASCADE,
+            "company_id" integer NOT NULL REFERENCES "companies"("id") ON DELETE CASCADE,
+            "department_id" integer NOT NULL REFERENCES "departments"("id") ON DELETE CASCADE,
+            "department_name_snapshot" text NOT NULL,
+            "rank" integer NOT NULL,
+            "team_score" integer NOT NULL,
+            "performance_score" numeric(6, 2) NOT NULL,
+            "participation_score" numeric(6, 2) NOT NULL,
+            "participation_rate" numeric(5, 2) NOT NULL,
+            "average_seasonal_score" numeric(8, 2) NOT NULL,
+            "eligible_employees_count" integer NOT NULL,
+            "active_participants_count" integer NOT NULL,
+            "is_eligible" boolean NOT NULL DEFAULT true,
+            "eligibility_status" text NOT NULL DEFAULT 'RANKED',
+            "formula_version" text NOT NULL DEFAULT 'TEAM_SCORE_V1',
+            "snapshot_date" text NOT NULL,
+            "created_at" timestamp with time zone NOT NULL DEFAULT now(),
+            "updated_at" timestamp with time zone NOT NULL DEFAULT now()
+          );
+
+          CREATE UNIQUE INDEX IF NOT EXISTS "uniq_dept_season_standing" ON "department_season_standings" ("season_id", "department_id");
+          CREATE INDEX IF NOT EXISTS "idx_dept_season_standings_company_season" ON "department_season_standings" ("company_id", "season_id");
+          CREATE INDEX IF NOT EXISTS "idx_dept_season_standings_rank" ON "department_season_standings" ("company_id", "season_id", "rank");
+        `);
+      }
+    },
+    {
+      // Separate migration for the backfill — runs independently so it retries if table creation
+      // succeeded but the backfill failed (e.g. due to orphaned FK data on first attempt).
+      name: "Sprint 14.5 Backfill employee_department_history from active employees",
+      check: async () => {
+        if (!(await tableExists("employee_department_history"))) return false;
+        // If any active employee with a valid dept assignment lacks a history row, we need to run.
+        const result: any = await db.execute(sql`
+          SELECT COUNT(*) AS missing
+          FROM "employees" e
+          INNER JOIN "departments" d
+            ON d."id" = e."department_id"
+           AND d."company_id" = e."company_id"
+          WHERE e."department_id" IS NOT NULL
+            AND e."status" = 'active'
+            AND NOT EXISTS (
+              SELECT 1 FROM "employee_department_history" edh
+              WHERE edh."employee_id" = e."id"
+            )
+        `);
+        const rows = Array.isArray(result) ? result : result.rows || [];
+        const missing = rows[0]?.missing ?? rows[0]?.count ?? 0;
+        return Number(missing) === 0;
+      },
+      execute: async () => {
+        await db.execute(sql`
+          -- Backfill employee_department_history for active employees with valid dept assignments.
+          -- Inner join ensures FK integrity: only employees whose department_id belongs to their company.
+          INSERT INTO "employee_department_history" ("company_id", "employee_id", "department_id", "effective_from", "effective_to", "created_at")
+          SELECT e."company_id", e."id", e."department_id", COALESCE(e."created_at", now()), NULL, now()
+          FROM "employees" e
+          INNER JOIN "departments" d
+            ON d."id" = e."department_id"
+           AND d."company_id" = e."company_id"
+          WHERE e."department_id" IS NOT NULL
+            AND e."status" = 'active'
+            AND NOT EXISTS (
+              SELECT 1 FROM "employee_department_history" edh 
+              WHERE edh."employee_id" = e."id"
+            );
+        `);
+      }
+    },
+    {
+      name: "Ensure Sprint 14.6 Gamification Anomalies Table",
+      check: async () => await tableExists("gamification_anomalies"),
+      execute: async () => {
+        await db.execute(sql`
+          CREATE TABLE IF NOT EXISTS "gamification_anomalies" (
+            "id" serial PRIMARY KEY,
+            "company_id" integer NOT NULL REFERENCES "companies"("id") ON DELETE CASCADE,
+            "employee_id" integer REFERENCES "employees"("id") ON DELETE CASCADE,
+            "anomaly_type" text NOT NULL,
+            "severity" text NOT NULL DEFAULT 'REVIEW',
+            "description" text NOT NULL,
+            "metadata" jsonb,
+            "status" text NOT NULL DEFAULT 'OPEN',
+            "detected_at" timestamp with time zone NOT NULL DEFAULT now(),
+            "reviewed_by" text,
+            "reviewed_at" timestamp with time zone,
+            "resolution_note" text,
+            "created_at" timestamp with time zone NOT NULL DEFAULT now(),
+            "updated_at" timestamp with time zone NOT NULL DEFAULT now()
+          );
+
+          CREATE INDEX IF NOT EXISTS "idx_gamification_anomalies_company_status" ON "gamification_anomalies" ("company_id", "status");
+          CREATE INDEX IF NOT EXISTS "idx_gamification_anomalies_type_status" ON "gamification_anomalies" ("anomaly_type", "status");
+          CREATE INDEX IF NOT EXISTS "idx_gamification_anomalies_detected_at" ON "gamification_anomalies" ("detected_at");
+        `);
+      }
+    },
   ];
 
   const summary = {

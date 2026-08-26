@@ -21,6 +21,7 @@ import {
   TrendingUp,
   User,
   Info,
+  AlertCircle,
 } from "lucide-react";
 import { Link } from "wouter";
 
@@ -89,7 +90,7 @@ interface SeasonHistoryEntry {
 export default function CompanyRankingPage() {
   const [activeTab, setActiveTab] = useState<"current" | "history">("current");
 
-  const { data: leaderboard, isLoading: isLoadingLeaderboard } = useQuery<LeaderboardData>({
+  const { data: leaderboard, isLoading: isLoadingLeaderboard, isError: isErrorLeaderboard, refetch: refetchLeaderboard } = useQuery<LeaderboardData>({
     queryKey: ["/api/leaderboards/current"],
     queryFn: () => customFetch<LeaderboardData>("/api/leaderboards/current"),
   });
@@ -198,6 +199,22 @@ export default function CompanyRankingPage() {
               <Skeleton className="h-36 w-full rounded-xl" />
               <Skeleton className="h-96 w-full rounded-xl" />
             </div>
+          ) : isErrorLeaderboard ? (
+            <Card className="border-slate-200 shadow-sm text-center py-12 px-6">
+              <div className="mx-auto h-12 w-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center mb-4">
+                <AlertCircle className="h-6 w-6" />
+              </div>
+              <CardTitle className="text-xl font-serif text-slate-800 mb-2">Unable to Load Leaderboard</CardTitle>
+              <CardDescription className="max-w-md mx-auto text-sm text-muted-foreground mb-6">
+                An error occurred while loading the company leaderboard. Please check your network connection and try again.
+              </CardDescription>
+              <button
+                onClick={() => refetchLeaderboard()}
+                className="inline-flex items-center px-4 py-2 rounded-lg bg-emerald-800 text-white text-sm font-medium hover:bg-emerald-900 transition-colors shadow-xs"
+              >
+                Retry Request
+              </button>
+            </Card>
           ) : !leaderboard?.enabled ? (
             /* Competition Disabled State */
             <Card className="border-slate-200 shadow-sm text-center py-12 px-6">

@@ -36,3 +36,7 @@ export * from "./pilotPasses";
 export * from "./elevioScoreLedger";
 export * from "./companySeasons";
 export * from "./interactions";
+export * from "./departmentMembershipHistory";
+export * from "./departmentSeasonStandings";
+export * from "./gamificationAnomalies";
+

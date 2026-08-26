@@ -9,7 +9,7 @@
     "start": "node --enable-source-maps ./dist/index.mjs",
     "test": "node --env-file=.env --test --test-concurrency=1 --import tsx ./src/**/*.test.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "db:verify": "tsx src/scripts/verifyDatabaseSchema.ts",
+    "db:verify": "tsx --env-file=.env src/verify-db.ts",
     "db:repair": "tsx src/scripts/repairProductionSchema.ts"
   },
   "dependencies": {

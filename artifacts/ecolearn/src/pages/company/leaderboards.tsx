@@ -73,7 +73,7 @@ export default function CompanyLeaderboards() {
   const [search, setSearch] = useState("");
   const [departmentFilter, setDepartmentFilter] = useState("all");
 
-  const { data, isLoading } = useQuery<CompanyLeaderboardData>({
+  const { data, isLoading, isError, refetch } = useQuery<CompanyLeaderboardData>({
     queryKey: ["/api/company/leaderboard"],
     queryFn: () => customFetch<CompanyLeaderboardData>("/api/company/leaderboard"),
   });
@@ -202,6 +202,24 @@ export default function CompanyLeaderboards() {
               </div>
               <Skeleton className="h-96 rounded-xl" />
             </div>
+          ) : isError ? (
+            <Card className="border-slate-200 shadow-sm text-center py-12 px-6">
+              <div className="mx-auto h-12 w-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center mb-4">
+                <AlertCircle className="h-6 w-6" />
+              </div>
+              <CardTitle className="text-xl font-serif text-slate-800 mb-2">Unable to Load Leaderboard Management</CardTitle>
+              <CardDescription className="max-w-md mx-auto text-sm text-muted-foreground mb-6">
+                An error occurred while loading the company leaderboard management view. Please check your administrative permissions and try again.
+              </CardDescription>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => refetch()}
+                className="bg-white border-slate-300"
+              >
+                Retry Request
+              </Button>
+            </Card>
           ) : (
             <div className="space-y-6">
               {/* Active Season & Participation KPIs */}
@@ -369,10 +387,201 @@ export default function CompanyLeaderboards() {
                   </TableBody>
                 </Table>
               </Card>
+              <DepartmentCompetitionAdmin />
             </div>
           )}
         </div>
       </div>
     </Layout>
+  );
+}
+
+// ============================================================
+// Department Competition Admin Component (inline)
+// ============================================================
+
+interface DeptStandingRow {
+  departmentId: number;
+  departmentName: string;
+  rank: number | null;
+  teamScore: number;
+  performanceScore: number;
+  participationScore: number;
+  participationRate: number;
+  averageSeasonalScore: number;
+  eligibleEmployeesCount: number;
+  activeParticipantsCount: number;
+  isEligible: boolean;
+  eligibilityStatus: string;
+  neededToQualify?: { moreEmployeesNeeded: number; moreParticipantsNeeded: number; message: string };
+}
+
+interface AdminDeptPerf {
+  enabled: boolean;
+  season: { id: number; title: string; startDate: string; endDate: string; status: string };
+  departments: DeptStandingRow[];
+  summary: {
+    totalDepartments: number;
+    rankedDepartments: number;
+    totalEligibleEmployees: number;
+    totalActiveParticipants: number;
+    overallParticipationRate: number;
+    topTeamScore: number;
+  };
+}
+
+interface DeptSettings { enabled: boolean; activatedAt: string | null; }
+
+function DepartmentCompetitionAdmin() {
+  const queryClient = useQueryClient();
+  const { toast } = useToast();
+
+  const { data: settings, isLoading: loadingSettings } = useQuery<DeptSettings>({
+    queryKey: ["/api/company/department-competition/settings"],
+    queryFn: () => customFetch<DeptSettings>("/api/company/department-competition/settings"),
+  });
+
+  const { data: perfData, isLoading: loadingPerf } = useQuery<AdminDeptPerf>({
+    queryKey: ["/api/company/department-competition/performance"],
+    queryFn: () => customFetch<AdminDeptPerf>("/api/company/department-competition/performance"),
+  });
+
+  const toggleMutation = useMutation({
+    mutationFn: (enabled: boolean) =>
+      customFetch("/api/company/department-competition/settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ enabled }),
+      }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/company/department-competition/settings"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/company/department-competition/performance"] });
+      toast({ title: "Department competition updated successfully." });
+    },
+    onError: (err: any) => {
+      toast({ title: "Update failed", description: err.message || "Could not update department competition.", variant: "destructive" });
+    },
+  });
+
+  const deptEnabled = settings?.enabled ?? false;
+
+  return (
+    <Card className="border-slate-200 shadow-xs mt-2">
+      <CardHeader className="pb-3">
+        <div className="flex items-center justify-between flex-wrap gap-3">
+          <div>
+            <CardTitle className="text-xl font-bold font-serif text-slate-900 flex items-center gap-2">
+              <Users className="h-5 w-5 text-emerald-700" />
+              Department Competition
+            </CardTitle>
+            <CardDescription className="mt-0.5 text-sm">
+              Normalize team performance so departments of any size compete fairly.{" "}
+              <span className="text-slate-600 font-medium">70% performance · 30% participation</span>
+            </CardDescription>
+          </div>
+          <div className="flex items-center gap-2">
+            {loadingSettings ? (
+              <Skeleton className="h-8 w-28" />
+            ) : (
+              <>
+                <Switch
+                  id="dept-competition-toggle"
+                  checked={deptEnabled}
+                  onCheckedChange={(v) => toggleMutation.mutate(v)}
+                  disabled={toggleMutation.isPending}
+                />
+                <Label htmlFor="dept-competition-toggle" className="text-sm font-medium text-slate-700 cursor-pointer">
+                  {deptEnabled ? "Enabled" : "Disabled"}
+                </Label>
+              </>
+            )}
+          </div>
+        </div>
+        {!deptEnabled && (
+          <div className="mt-2 flex items-start gap-2 rounded-lg bg-amber-50 border border-amber-200 p-3 text-xs text-amber-700">
+            <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+            <span>
+              Department competition is disabled. Employees see individual rankings only. Enable it to show department
+              team standings.
+            </span>
+          </div>
+        )}
+      </CardHeader>
+
+      {deptEnabled && (
+        <CardContent>
+          {loadingPerf ? (
+            <div className="space-y-2">
+              <Skeleton className="h-8 w-full" />
+              <Skeleton className="h-8 w-full" />
+              <Skeleton className="h-8 w-full" />
+            </div>
+          ) : perfData ? (
+            <>
+              {/* Summary row */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                {[
+                  { label: "Total Departments", value: perfData.summary.totalDepartments },
+                  { label: "Ranked", value: perfData.summary.rankedDepartments },
+                  { label: "Overall Participation", value: `${Math.round(perfData.summary.overallParticipationRate)}%` },
+                  { label: "Top Team Score", value: perfData.summary.topTeamScore.toLocaleString() },
+                ].map((kpi) => (
+                  <div key={kpi.label} className="bg-slate-50 rounded-lg p-3">
+                    <p className="text-xs text-slate-500 mb-0.5">{kpi.label}</p>
+                    <p className="text-lg font-bold text-slate-900">{kpi.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Rank</TableHead>
+                    <TableHead>Department</TableHead>
+                    <TableHead className="text-right">Team Score</TableHead>
+                    <TableHead className="text-right">Participation</TableHead>
+                    <TableHead className="text-right">Avg Score</TableHead>
+                    <TableHead className="text-right">Active</TableHead>
+                    <TableHead className="text-right">Eligible</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {perfData.departments.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={7} className="text-center text-slate-400 py-8">
+                        No departments found.
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    perfData.departments.map((dept) => (
+                      <TableRow key={dept.departmentId} className={!dept.isEligible ? "opacity-60" : ""}>
+                        <TableCell className="font-bold text-slate-700">
+                          {dept.isEligible && dept.rank ? `#${dept.rank}` : "—"}
+                        </TableCell>
+                        <TableCell>
+                          <span className="font-medium text-slate-800">{dept.departmentName}</span>
+                          {!dept.isEligible && dept.neededToQualify && (
+                            <p className="text-xs text-amber-600 mt-0.5">{dept.neededToQualify.message}</p>
+                          )}
+                        </TableCell>
+                        <TableCell className="text-right font-mono font-semibold text-emerald-700">
+                          {dept.isEligible ? dept.teamScore.toLocaleString() : "—"}
+                        </TableCell>
+                        <TableCell className="text-right">{Math.round(dept.participationRate)}%</TableCell>
+                        <TableCell className="text-right">{Number(dept.averageSeasonalScore).toFixed(0)}</TableCell>
+                        <TableCell className="text-right">{dept.activeParticipantsCount}</TableCell>
+                        <TableCell className="text-right">{dept.eligibleEmployeesCount}</TableCell>
+                      </TableRow>
+                    ))
+                  )}
+                </TableBody>
+              </Table>
+            </>
+          ) : (
+            <p className="text-sm text-slate-400 py-4 text-center">No performance data available yet.</p>
+          )}
+        </CardContent>
+      )}
+    </Card>
   );
 }

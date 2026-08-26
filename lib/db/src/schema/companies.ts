@@ -17,6 +17,8 @@ export const companiesTable = pgTable("companies", {
   isPublicProfile: boolean("is_public_profile").notNull().default(false),
   leaderboardEnabled: boolean("leaderboard_enabled").notNull().default(false),
   leaderboardPrivacyMode: text("leaderboard_privacy_mode").notNull().default("initial"), // 'full_name' | 'initial' | 'anonymous'
+  departmentCompetitionEnabled: boolean("department_competition_enabled").notNull().default(false),
+  departmentCompetitionActivatedAt: timestamp("department_competition_activated_at", { withTimezone: true }),
   stripeCustomerId: text("stripe_customer_id"),
   recyclingServiceStatus: text("recycling_service_status").notNull().default("NOT_CLIENT"),
   recycleanCustomerRef: text("recyclean_customer_ref"),

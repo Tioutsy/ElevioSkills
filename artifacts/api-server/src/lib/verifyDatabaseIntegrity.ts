@@ -91,6 +91,13 @@ export async function verifyDatabaseIntegrity(): Promise<IntegrityReport> {
     "job_titles",
     "bulk_invitation_batches",
     "invitation_email_queue",
+    "elevio_score_ledger",
+    "company_seasons",
+    "company_challenges",
+    "course_interaction_progress",
+    "department_season_standings",
+    "employee_department_history",
+    "gamification_anomalies",
   ];
   for (const table of requiredTables) {
     const exists = await checkTableExists(table);
@@ -117,8 +124,16 @@ export async function verifyDatabaseIntegrity(): Promise<IntegrityReport> {
     employee_invitations: ["company_id", "email", "token_hash", "display_code_hash", "display_code_last_four", "status", "expires_at"],
     job_titles: ["company_id", "name", "status"],
     bulk_invitation_batches: ["company_id", "uploaded_by_user_id", "file_name", "total_rows", "valid_rows", "skipped_rows", "status"],
-    invitation_email_queue: ["company_id", "invitation_id", "recipient_email", "status"]
+    invitation_email_queue: ["company_id", "invitation_id", "recipient_email", "status"],
+    elevio_score_ledger: ["company_id", "employee_id", "event_type", "points", "idempotency_key", "is_reversed"],
+    company_seasons: ["company_id", "season_type", "status", "start_date", "end_date"],
+    company_challenges: ["company_id", "title", "code", "status"],
+    course_interaction_progress: ["company_id", "employee_id", "course_id", "interaction_id", "interaction_type", "passed"],
+    department_season_standings: ["company_id", "season_id", "department_id", "rank", "team_score", "formula_version"],
+    employee_department_history: ["company_id", "employee_id", "department_id", "effective_from"],
+    gamification_anomalies: ["company_id", "anomaly_type", "severity", "status", "detected_at"]
   };
+
 
   for (const [table, cols] of Object.entries(requiredColumns)) {
     for (const col of cols) {
