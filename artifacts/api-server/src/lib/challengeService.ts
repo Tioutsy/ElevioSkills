@@ -1,5 +1,6 @@
 import {
   db,
+  companiesTable,
   challengeTemplatesTable,
   companyChallengesTable,
   companyChallengeCriteriaTable,
@@ -82,26 +83,26 @@ export const APPROVED_TEMPLATES: ApprovedTemplateDefinition[] = [
     theme: "green",
     rewardPoints: 100,
     defaultDurationDays: 30,
-    requiredCourseSlug: "waste-sorting-the-mauritian-bin-system",
+    requiredCourseSlug: "waste-sorting-mauritian-bin-system",
     orderIndex: 1,
     criteria: [
       {
         criterionType: "COURSE_COMPLETION",
-        courseSlug: "waste-sorting-the-mauritian-bin-system",
+        courseSlug: "waste-sorting-mauritian-bin-system",
         allowPriorCompletion: true,
         title: "Complete Waste Sorting Course",
         description: "Complete or hold valid completion for Waste Sorting & Mauritian Bin System.",
       },
       {
         criterionType: "QUIZ_PASS",
-        courseSlug: "waste-sorting-the-mauritian-bin-system",
+        courseSlug: "waste-sorting-mauritian-bin-system",
         assessmentThreshold: 70,
         title: "Pass Course Assessment",
         description: "Pass the Waste Sorting assessment during the challenge period.",
       },
       {
         criterionType: "WORKPLACE_ACTION_COMPLETION",
-        courseSlug: "waste-sorting-the-mauritian-bin-system",
+        courseSlug: "waste-sorting-mauritian-bin-system",
         title: "Complete Workplace Action",
         description: "Complete and report one waste-related Workplace Action during the challenge period.",
       },
@@ -209,22 +210,302 @@ export const APPROVED_TEMPLATES: ApprovedTemplateDefinition[] = [
     theme: "emerald",
     rewardPoints: 100,
     defaultDurationDays: 45,
-    requiredCourseSlug: "core-sustainability",
+    requiredCourseSlug: "sustainability-foundations",
     orderIndex: 5,
     criteria: [
       {
         criterionType: "COURSE_COMPLETION",
-        courseSlug: "core-sustainability",
+        courseSlug: "sustainability-foundations",
         allowPriorCompletion: false,
         title: "Complete Foundation Course",
         description: "Complete a qualifying Foundation pathway course during the challenge window.",
       },
       {
         criterionType: "QUIZ_PASS",
-        courseSlug: "core-sustainability",
+        courseSlug: "sustainability-foundations",
         assessmentThreshold: 70,
         title: "Pass Foundation Assessment",
         description: "Pass the qualifying Foundation assessment during the challenge period.",
+      },
+    ],
+  },
+  {
+    code: "GREEN_OFFICE_CHALLENGE",
+    title: "Green Office Sprint",
+    summary: "Cut paper waste, optimize printing, and practice clean energy habits across daily workspace desks.",
+    description: "Complete Green Office Practices, pass the quiz, and implement an office paper-reduction or digital workflow action.",
+    category: "Workplace",
+    icon: "target",
+    theme: "green",
+    rewardPoints: 100,
+    defaultDurationDays: 30,
+    requiredCourseSlug: "green-office-practices",
+    orderIndex: 6,
+    criteria: [
+      {
+        criterionType: "COURSE_COMPLETION",
+        courseSlug: "green-office-practices",
+        allowPriorCompletion: true,
+        title: "Complete Green Office Course",
+        description: "Complete or hold valid completion for Green Office Practices.",
+      },
+      {
+        criterionType: "QUIZ_PASS",
+        courseSlug: "green-office-practices",
+        assessmentThreshold: 75,
+        title: "Pass Green Office Quiz",
+        description: "Pass the Green Office Practices assessment during the challenge window.",
+      },
+      {
+        criterionType: "WORKPLACE_ACTION_COMPLETION",
+        courseSlug: "green-office-practices",
+        title: "Complete Green Office Action",
+        description: "Complete and report one digital-first or paper-reduction workplace action.",
+      },
+    ],
+  },
+  {
+    code: "CARBON_REDUCTION_CHALLENGE",
+    title: "Carbon Footprint Buster",
+    summary: "Identify business travel, commuting, and facility emissions to unlock lower-carbon daily routines.",
+    description: "Complete Carbon Footprint Awareness, achieve 75%+ on the assessment, and implement an emissions reduction workplace action.",
+    category: "Carbon",
+    icon: "target",
+    theme: "amber",
+    rewardPoints: 100,
+    defaultDurationDays: 30,
+    requiredCourseSlug: "carbon-footprint-awareness",
+    orderIndex: 7,
+    criteria: [
+      {
+        criterionType: "COURSE_COMPLETION",
+        courseSlug: "carbon-footprint-awareness",
+        allowPriorCompletion: true,
+        title: "Complete Carbon Awareness Course",
+        description: "Complete or hold valid completion for Carbon Footprint Awareness.",
+      },
+      {
+        criterionType: "QUIZ_PASS",
+        courseSlug: "carbon-footprint-awareness",
+        assessmentThreshold: 75,
+        title: "Pass Carbon Quiz",
+        description: "Pass the Carbon Footprint assessment during the challenge period.",
+      },
+      {
+        criterionType: "WORKPLACE_ACTION_COMPLETION",
+        courseSlug: "carbon-footprint-awareness",
+        title: "Complete Emissions Action",
+        description: "Complete and report one low-carbon travel or facility emission action.",
+      },
+    ],
+  },
+  {
+    code: "SUSTAINABLE_PROCUREMENT_CHALLENGE",
+    title: "Responsible Purchasing Mission",
+    summary: "Ensure supplier screening, eco-certified purchasing, and circular supply choices in company buying.",
+    description: "Complete Sustainable Procurement, pass the quiz, and implement a sustainable vendor or supply-check workplace action.",
+    category: "Procurement",
+    icon: "shield",
+    theme: "blue",
+    rewardPoints: 100,
+    defaultDurationDays: 30,
+    requiredCourseSlug: "sustainable-procurement",
+    orderIndex: 8,
+    criteria: [
+      {
+        criterionType: "COURSE_COMPLETION",
+        courseSlug: "sustainable-procurement",
+        allowPriorCompletion: true,
+        title: "Complete Sustainable Procurement",
+        description: "Complete or hold valid completion for Sustainable Procurement.",
+      },
+      {
+        criterionType: "QUIZ_PASS",
+        courseSlug: "sustainable-procurement",
+        assessmentThreshold: 75,
+        title: "Pass Procurement Assessment",
+        description: "Pass the Sustainable Procurement quiz during the challenge window.",
+      },
+      {
+        criterionType: "WORKPLACE_ACTION_COMPLETION",
+        courseSlug: "sustainable-procurement",
+        title: "Complete Procurement Action",
+        description: "Complete and report one sustainable purchasing or vendor evaluation action.",
+      },
+    ],
+  },
+  {
+    code: "CIRCULAR_WORKPLACE_CHALLENGE",
+    title: "Circular Office & Reuse Drive",
+    summary: "Eliminate single-use items and implement reuse and recycling loops in everyday operations.",
+    description: "Complete Circular Economy, pass the assessment, and launch a single-use elimination or material-reuse workplace action.",
+    category: "Circular Economy",
+    icon: "recycle",
+    theme: "green",
+    rewardPoints: 100,
+    defaultDurationDays: 30,
+    requiredCourseSlug: "circular-economy",
+    orderIndex: 9,
+    criteria: [
+      {
+        criterionType: "COURSE_COMPLETION",
+        courseSlug: "circular-economy",
+        allowPriorCompletion: true,
+        title: "Complete Circular Economy Course",
+        description: "Complete or hold valid completion for Circular Economy.",
+      },
+      {
+        criterionType: "QUIZ_PASS",
+        courseSlug: "circular-economy",
+        assessmentThreshold: 75,
+        title: "Pass Circular Economy Assessment",
+        description: "Pass the Circular Economy quiz during the challenge period.",
+      },
+      {
+        criterionType: "WORKPLACE_ACTION_COMPLETION",
+        courseSlug: "circular-economy",
+        title: "Complete Material Reuse Action",
+        description: "Complete and report one reuse, repair, or packaging elimination action.",
+      },
+    ],
+  },
+  {
+    code: "CLIMATE_RESILIENCE_CHALLENGE",
+    title: "Climate Risk & Workplace Readiness",
+    summary: "Assess extreme weather impacts, emergency response, and infrastructure resilience for your facility.",
+    description: "Complete Climate Risk & Workplace Resilience, pass the assessment, and log a business continuity/climate adaptation workplace action.",
+    category: "Resilience",
+    icon: "shield",
+    theme: "purple",
+    rewardPoints: 120,
+    defaultDurationDays: 30,
+    requiredCourseSlug: "climate-risk-and-workplace-resilience",
+    orderIndex: 10,
+    criteria: [
+      {
+        criterionType: "COURSE_COMPLETION",
+        courseSlug: "climate-risk-and-workplace-resilience",
+        allowPriorCompletion: true,
+        title: "Complete Climate Risk Course",
+        description: "Complete or hold valid completion for Climate Risk & Workplace Resilience.",
+      },
+      {
+        criterionType: "QUIZ_PASS",
+        courseSlug: "climate-risk-and-workplace-resilience",
+        assessmentThreshold: 80,
+        title: "Pass Climate Risk Assessment",
+        description: "Pass the Climate Risk & Workplace Resilience assessment during the challenge period.",
+      },
+      {
+        criterionType: "WORKPLACE_ACTION_COMPLETION",
+        courseSlug: "climate-risk-and-workplace-resilience",
+        title: "Complete Climate Action",
+        description: "Complete and report one extreme weather readiness or risk mitigation action.",
+      },
+    ],
+  },
+  {
+    code: "GREEN_TEAMS_LEADERSHIP_CHALLENGE",
+    title: "Green Champions & Team Impact",
+    summary: "Rally colleagues, run workplace green campaigns, and establish cross-departmental sustainability champions.",
+    description: "Complete Creating and Running Effective Green Teams, pass the assessment, and launch a green team meeting or campaign action.",
+    category: "Leadership",
+    icon: "award",
+    theme: "emerald",
+    rewardPoints: 120,
+    defaultDurationDays: 30,
+    requiredCourseSlug: "creating-and-running-effective-green-teams",
+    orderIndex: 11,
+    criteria: [
+      {
+        criterionType: "COURSE_COMPLETION",
+        courseSlug: "creating-and-running-effective-green-teams",
+        allowPriorCompletion: true,
+        title: "Complete Green Teams Course",
+        description: "Complete or hold valid completion for Creating and Running Effective Green Teams.",
+      },
+      {
+        criterionType: "QUIZ_PASS",
+        courseSlug: "creating-and-running-effective-green-teams",
+        assessmentThreshold: 80,
+        title: "Pass Green Teams Assessment",
+        description: "Pass the Green Teams assessment during the challenge period.",
+      },
+      {
+        criterionType: "WORKPLACE_ACTION_COMPLETION",
+        courseSlug: "creating-and-running-effective-green-teams",
+        title: "Complete Green Team Action",
+        description: "Complete and report one green team workshop, campaign, or initiative.",
+      },
+    ],
+  },
+  {
+    code: "ETHICS_GOVERNANCE_CHALLENGE",
+    title: "Ethics & Responsible Conduct",
+    summary: "Foster transparency, anti-corruption, ethical decision-making, and robust ESG compliance across business operations.",
+    description: "Complete Ethics, Governance & Responsible Business, pass the assessment with 80%+, and submit a workplace integrity action.",
+    category: "Governance",
+    icon: "shield",
+    theme: "purple",
+    rewardPoints: 100,
+    defaultDurationDays: 30,
+    requiredCourseSlug: "ethics-governance-and-responsible-business",
+    orderIndex: 12,
+    criteria: [
+      {
+        criterionType: "COURSE_COMPLETION",
+        courseSlug: "ethics-governance-and-responsible-business",
+        allowPriorCompletion: true,
+        title: "Complete Ethics & Governance Course",
+        description: "Complete or hold valid completion for Ethics, Governance & Responsible Business.",
+      },
+      {
+        criterionType: "QUIZ_PASS",
+        courseSlug: "ethics-governance-and-responsible-business",
+        assessmentThreshold: 80,
+        title: "Pass Ethics Assessment",
+        description: "Pass the Ethics, Governance & Responsible Business quiz during the challenge window.",
+      },
+      {
+        criterionType: "WORKPLACE_ACTION_COMPLETION",
+        courseSlug: "ethics-governance-and-responsible-business",
+        title: "Complete Integrity Action",
+        description: "Complete and report one governance compliance or ethical procedure action.",
+      },
+    ],
+  },
+  {
+    code: "ACTION_PLANNING_CHALLENGE",
+    title: "Sustainability Action Planner",
+    summary: "Set measurable department targets, KPI tracking, and quarterly ESG roadmap milestones.",
+    description: "Complete Sustainability Action Planning, pass the assessment, and register a departmental sustainability milestone action.",
+    category: "Strategy",
+    icon: "target",
+    theme: "blue",
+    rewardPoints: 120,
+    defaultDurationDays: 30,
+    requiredCourseSlug: "sustainability-action-planning",
+    orderIndex: 13,
+    criteria: [
+      {
+        criterionType: "COURSE_COMPLETION",
+        courseSlug: "sustainability-action-planning",
+        allowPriorCompletion: true,
+        title: "Complete Action Planning Course",
+        description: "Complete or hold valid completion for Sustainability Action Planning.",
+      },
+      {
+        criterionType: "QUIZ_PASS",
+        courseSlug: "sustainability-action-planning",
+        assessmentThreshold: 80,
+        title: "Pass Action Planning Assessment",
+        description: "Pass the Sustainability Action Planning quiz during the challenge period.",
+      },
+      {
+        criterionType: "WORKPLACE_ACTION_COMPLETION",
+        courseSlug: "sustainability-action-planning",
+        title: "Complete Action Planning Milestone",
+        description: "Complete and report one sustainability goal setting or progress review action.",
       },
     ],
   },
@@ -280,8 +561,81 @@ export async function ensureChallengeTemplates(): Promise<void> {
       }
     }
     logger.info("Synchronized approved ELEVIO challenge templates");
+
+    // Automatically deduplicate and synchronize active challenges for all companies
+    await syncCanonicalCompanyChallenges();
   } catch (err: any) {
     logger.warn({ err: err?.message }, "Failed to synchronize challenge templates (non-fatal)");
+  }
+}
+
+/**
+ * Deduplicates active company challenges and auto-activates any missing canonical missions.
+ */
+export async function syncCanonicalCompanyChallenges(): Promise<void> {
+  try {
+    const companies = await db.select({ id: companiesTable.id }).from(companiesTable);
+    const now = new Date();
+    const futureDate = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+
+    for (const company of companies) {
+      // 1. Fetch all existing company challenges
+      const existingChallenges = await db
+        .select()
+        .from(companyChallengesTable)
+        .where(eq(companyChallengesTable.companyId, company.id))
+        .orderBy(companyChallengesTable.id);
+
+      // Group by code to identify duplicates
+      const seenCodes = new Set<string>();
+      const duplicateIds: number[] = [];
+
+      for (const ch of existingChallenges) {
+        if (seenCodes.has(ch.code)) {
+          duplicateIds.push(ch.id);
+        } else {
+          seenCodes.add(ch.code);
+        }
+      }
+
+      // Delete duplicate company challenge records and dependent criteria
+      if (duplicateIds.length > 0) {
+        for (const dupId of duplicateIds) {
+          await db.delete(companyChallengeCriteriaTable).where(eq(companyChallengeCriteriaTable.challengeId, dupId));
+          await db.delete(employeeChallengeProgressTable).where(eq(employeeChallengeProgressTable.challengeId, dupId));
+          await db.delete(companyChallengesTable).where(eq(companyChallengesTable.id, dupId));
+        }
+        logger.info({ companyId: company.id, removedDuplicates: duplicateIds.length }, "Removed duplicate company challenges");
+      }
+
+      // 2. Activate any missing approved templates for this company
+      const allTemplates = await db
+        .select()
+        .from(challengeTemplatesTable)
+        .where(eq(challengeTemplatesTable.isActive, true))
+        .orderBy(challengeTemplatesTable.orderIndex);
+
+      for (const template of allTemplates) {
+        const hasChallenge = seenCodes.has(template.code);
+        if (!hasChallenge) {
+          try {
+            await activateCompanyChallenge({
+              companyId: company.id,
+              templateId: template.id,
+              startDate: now,
+              endDate: futureDate,
+              createdBy: "system_bootstrap",
+            });
+            seenCodes.add(template.code);
+          } catch (actErr: any) {
+            logger.warn({ templateCode: template.code, err: actErr?.message }, "Failed to auto-activate challenge for company");
+          }
+        }
+      }
+    }
+    logger.info("Synchronized canonical company challenges without duplicates");
+  } catch (err: any) {
+    logger.warn({ err: err?.message }, "Failed to sync company challenges (non-fatal)");
   }
 }
 
