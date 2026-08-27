@@ -6,7 +6,16 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 import {
   Award,
   BookOpen,
@@ -24,8 +33,11 @@ import {
   Sparkles,
   ShieldCheck,
   ChevronRight,
+  Info,
+  ExternalLink,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { Link } from "wouter";
 
 interface AchievementItem {
   id: number;
@@ -75,6 +87,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 export default function AchievementsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [selectedAchievement, setSelectedAchievement] = useState<AchievementItem | null>(null);
 
   const { data, isLoading } = useQuery<AchievementSummary>({
     queryKey: ["/api/me/achievements"],
@@ -89,6 +102,11 @@ export default function AchievementsPage() {
 
   const earnedList = filteredAchievements.filter((a) => a.earned);
   const inProgressList = filteredAchievements.filter((a) => !a.earned);
+
+  const SelectedIcon = selectedAchievement ? ICON_MAP[selectedAchievement.icon] || Award : Award;
+  const selectedPct = selectedAchievement
+    ? Math.min(100, Math.round((selectedAchievement.progressCurrent / (selectedAchievement.progressTarget || 1)) * 100))
+    : 0;
 
   return (
     <Layout>
@@ -106,7 +124,7 @@ export default function AchievementsPage() {
                   Your Achievements
                 </h1>
                 <p className="text-muted-foreground text-sm max-w-2xl mt-1">
-                  Meaningful recognition for completing pathways, applying workplace actions, and maintaining learning consistency.
+                  Meaningful recognition for completing pathways, applying workplace actions, and maintaining learning consistency. Click on any achievement to view full milestone requirements and unlock details.
                 </p>
               </div>
 
@@ -204,12 +222,13 @@ export default function AchievementsPage() {
                       return (
                         <Card
                           key={item.id + (item.seasonId ? `_${item.seasonId}` : "")}
-                          className="border-emerald-200/80 bg-white shadow-xs relative overflow-hidden flex flex-col justify-between"
+                          onClick={() => setSelectedAchievement(item)}
+                          className="border-emerald-200/80 bg-white shadow-xs hover:shadow-md hover:border-emerald-400 relative overflow-hidden flex flex-col justify-between cursor-pointer transition-all group"
                         >
-                          <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-full pointer-events-none -mr-4 -mt-4 opacity-50" />
+                          <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-full pointer-events-none -mr-4 -mt-4 opacity-50 group-hover:opacity-80 transition-opacity" />
                           <CardHeader className="pb-3">
                             <div className="flex items-start justify-between gap-3">
-                              <div className="h-11 w-11 rounded-xl bg-emerald-100/70 border border-emerald-300/60 text-emerald-800 flex items-center justify-center shrink-0">
+                              <div className="h-11 w-11 rounded-xl bg-emerald-100/70 border border-emerald-300/60 text-emerald-800 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                                 <IconComponent className="h-5 w-5" />
                               </div>
                               <Badge
@@ -219,7 +238,7 @@ export default function AchievementsPage() {
                                 {item.category}
                               </Badge>
                             </div>
-                            <CardTitle className="text-base font-bold font-serif text-slate-900 mt-2">
+                            <CardTitle className="text-base font-bold font-serif text-slate-900 mt-2 group-hover:text-emerald-900 transition-colors">
                               {item.name}
                             </CardTitle>
                             <CardDescription className="text-xs text-slate-600 line-clamp-2 mt-1">
@@ -240,7 +259,7 @@ export default function AchievementsPage() {
                             )}
 
                             <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-muted-foreground">
-                              <span className="text-emerald-700 font-medium flex items-center gap-1">
+                              <span className="text-emerald-700 font-semibold flex items-center gap-1">
                                 <CheckCircle2 className="h-3.5 w-3.5 inline" /> Earned
                               </span>
                               {item.earnedAt && (
@@ -282,11 +301,12 @@ export default function AchievementsPage() {
                       return (
                         <Card
                           key={item.id}
-                          className="border-slate-200 bg-white/70 shadow-xs flex flex-col justify-between"
+                          onClick={() => setSelectedAchievement(item)}
+                          className="border-slate-200 bg-white/70 shadow-xs hover:shadow-md hover:border-slate-300 flex flex-col justify-between cursor-pointer transition-all group"
                         >
                           <CardHeader className="pb-3">
                             <div className="flex items-start justify-between gap-3">
-                              <div className="h-11 w-11 rounded-xl bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
+                              <div className="h-11 w-11 rounded-xl bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                                 <IconComponent className="h-5 w-5 opacity-70" />
                               </div>
                               <Badge
@@ -296,7 +316,7 @@ export default function AchievementsPage() {
                                 {item.category}
                               </Badge>
                             </div>
-                            <CardTitle className="text-base font-semibold text-slate-800 mt-2">
+                            <CardTitle className="text-base font-semibold text-slate-800 mt-2 group-hover:text-slate-900 transition-colors">
                               {item.name}
                             </CardTitle>
                             <CardDescription className="text-xs text-muted-foreground line-clamp-2 mt-1">
@@ -314,7 +334,7 @@ export default function AchievementsPage() {
                             </div>
 
                             {item.unlockInstruction && (
-                              <p className="text-[11px] text-muted-foreground bg-slate-50 border border-slate-200/60 rounded-md p-2">
+                              <p className="text-[11px] text-muted-foreground bg-slate-50 border border-slate-200/60 rounded-md p-2 line-clamp-2">
                                 {item.unlockInstruction}
                               </p>
                             )}
@@ -328,7 +348,162 @@ export default function AchievementsPage() {
             </div>
           )}
         </div>
+
+        {/* Achievement Detail Dialog Modal */}
+        <Dialog open={!!selectedAchievement} onOpenChange={(open) => !open && setSelectedAchievement(null)}>
+          <DialogContent className="sm:max-w-lg">
+            {selectedAchievement && (
+              <>
+                <DialogHeader className="text-left space-y-3">
+                  <div className="flex items-start justify-between gap-4">
+                    <div
+                      className={`h-14 w-14 rounded-2xl flex items-center justify-center border shadow-xs ${
+                        selectedAchievement.earned
+                          ? "bg-emerald-100 border-emerald-300 text-emerald-800"
+                          : "bg-slate-100 border-slate-200 text-slate-600"
+                      }`}
+                    >
+                      <SelectedIcon className="h-7 w-7" />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline" className="text-xs font-semibold">
+                        {selectedAchievement.category}
+                      </Badge>
+                      {selectedAchievement.isSeasonal && (
+                        <Badge variant="secondary" className="text-xs bg-amber-100 text-amber-900 border-amber-200">
+                          Seasonal
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+
+                  <div>
+                    <DialogTitle className="text-xl font-bold font-serif text-slate-900">
+                      {selectedAchievement.name}
+                    </DialogTitle>
+                    <DialogDescription className="text-sm text-slate-600 mt-1">
+                      {selectedAchievement.description}
+                    </DialogDescription>
+                  </div>
+                </DialogHeader>
+
+                <div className="space-y-4 py-2">
+                  {/* Status Banner */}
+                  <div
+                    className={`p-3.5 rounded-xl border flex items-center justify-between text-xs ${
+                      selectedAchievement.earned
+                        ? "bg-emerald-50/80 border-emerald-200 text-emerald-900"
+                        : "bg-slate-50 border-slate-200 text-slate-700"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 font-medium">
+                      {selectedAchievement.earned ? (
+                        <>
+                          <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                          <span>Achievement Unlocked & Verified</span>
+                        </>
+                      ) : (
+                        <>
+                          <Lock className="h-4 w-4 text-slate-500 shrink-0" />
+                          <span>In Progress — Locked</span>
+                        </>
+                      )}
+                    </div>
+
+                    {selectedAchievement.earned && selectedAchievement.earnedAt && (
+                      <span className="text-emerald-700 font-mono text-[11px]">
+                        {new Date(selectedAchievement.earnedAt).toLocaleDateString("en-GB", {
+                          day: "numeric",
+                          month: "short",
+                          year: "numeric",
+                        })}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Progress Tracker */}
+                  <div className="bg-white border rounded-xl p-4 space-y-2">
+                    <div className="flex items-center justify-between text-xs font-medium text-slate-700">
+                      <span>Milestone Progress</span>
+                      <span className="font-mono font-semibold text-slate-900">
+                        {selectedAchievement.progressLabel} ({selectedPct}%)
+                      </span>
+                    </div>
+                    <Progress
+                      value={selectedPct}
+                      className={`h-2.5 ${selectedAchievement.earned ? "bg-emerald-100" : "bg-slate-100"}`}
+                    />
+                  </div>
+
+                  {/* Unlock Instructions / How to Earn */}
+                  {selectedAchievement.unlockInstruction && (
+                    <div className="bg-amber-50/70 border border-amber-200/80 rounded-xl p-3.5 space-y-1">
+                      <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-900">
+                        <Info className="h-4 w-4 text-amber-700" />
+                        <span>How to Unlock</span>
+                      </div>
+                      <p className="text-xs text-amber-800 leading-relaxed">
+                        {selectedAchievement.unlockInstruction}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Seasonal or Tournament Details */}
+                  {selectedAchievement.metadata?.placeLabel && (
+                    <div className="bg-slate-50 border rounded-xl p-3 text-xs flex items-center justify-between">
+                      <span className="text-slate-500 font-medium">Tournament Result</span>
+                      <span className="font-semibold text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-md">
+                        {selectedAchievement.metadata.placeLabel}
+                      </span>
+                    </div>
+                  )}
+                  {selectedAchievement.metadata?.seasonTitle && (
+                    <div className="bg-slate-50 border rounded-xl p-3 text-xs flex items-center justify-between">
+                      <span className="text-slate-500 font-medium">Competition Period</span>
+                      <span className="font-semibold text-slate-800">
+                        {selectedAchievement.metadata.seasonTitle}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <DialogFooter className="flex flex-row items-center justify-between sm:justify-between pt-2">
+                  <Button variant="outline" size="sm" onClick={() => setSelectedAchievement(null)}>
+                    Close
+                  </Button>
+                  {!selectedAchievement.earned && (
+                    <div className="flex items-center gap-2">
+                      {selectedAchievement.category === "Learning" || selectedAchievement.category === "Knowledge" ? (
+                        <Link href="/courses">
+                          <Button size="sm" className="flex items-center gap-1 bg-emerald-700 hover:bg-emerald-800">
+                            <span>Browse Courses</span>
+                            <ChevronRight className="h-3.5 w-3.5" />
+                          </Button>
+                        </Link>
+                      ) : selectedAchievement.category === "Competition" ? (
+                        <Link href="/challenges">
+                          <Button size="sm" className="flex items-center gap-1 bg-emerald-700 hover:bg-emerald-800">
+                            <span>View Challenges</span>
+                            <ChevronRight className="h-3.5 w-3.5" />
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Link href="/dashboard">
+                          <Button size="sm" className="flex items-center gap-1 bg-emerald-700 hover:bg-emerald-800">
+                            <span>Go to Dashboard</span>
+                            <ChevronRight className="h-3.5 w-3.5" />
+                          </Button>
+                        </Link>
+                      )}
+                    </div>
+                  )}
+                </DialogFooter>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
       </div>
     </Layout>
   );
 }
+

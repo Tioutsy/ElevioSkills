@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { useListEnrollments, useListAchievementBadges, useGetMyPoints, useListCertificates, useListCourses, customFetch } from "@workspace/api-client-react";
 import type { Enrollment } from "@workspace/api-client-react";
@@ -25,10 +26,20 @@ import {
   BarChart3,
   Check,
   ChevronRight,
+  CheckCircle2,
+  Info,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -52,6 +63,7 @@ type LmsEnrollment = Enrollment & {
 
 export default function Dashboard() {
   const { t } = useLanguage();
+  const [selectedAchievement, setSelectedAchievement] = useState<any | null>(null);
   const { data: enrollments, isLoading: isLoadingEnrollments } = useListEnrollments();
   const { data: certificates, isLoading: isLoadingCertificates } = useListCertificates();
   const { data: points, isLoading: isLoadingPoints } = useGetMyPoints();
@@ -479,16 +491,17 @@ export default function Dashboard() {
                 return (
                   <div
                     key={badge.id + (badge.seasonId ? `_${badge.seasonId}` : "")}
-                    className={`border rounded-xl p-4 flex flex-col justify-between transition-all ${
+                    onClick={() => setSelectedAchievement(badge)}
+                    className={`border rounded-xl p-4 flex flex-col justify-between transition-all cursor-pointer hover:shadow-md hover:scale-[1.01] group ${
                       isEarned
-                        ? "bg-white border-emerald-200/90 shadow-xs"
-                        : "bg-slate-50/70 border-slate-200 opacity-80"
+                        ? "bg-white border-emerald-200/90 shadow-xs hover:border-emerald-400"
+                        : "bg-slate-50/70 border-slate-200 opacity-80 hover:opacity-100 hover:border-slate-300"
                     }`}
                   >
                     <div>
                       <div className="flex items-start justify-between gap-2 mb-2">
                         <div
-                          className={`h-9 w-9 rounded-lg flex items-center justify-center ${
+                          className={`h-9 w-9 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105 ${
                             isEarned
                               ? "bg-emerald-100/70 text-emerald-800"
                               : "bg-slate-200/60 text-slate-500"
@@ -512,7 +525,7 @@ export default function Dashboard() {
                         </Badge>
                       </div>
 
-                      <h4 className="font-semibold text-xs text-slate-900 line-clamp-1">
+                      <h4 className="font-semibold text-xs text-slate-900 line-clamp-1 group-hover:text-emerald-900 transition-colors">
                         {badge.name}
                       </h4>
                       <p className="text-[11px] text-muted-foreground line-clamp-2 mt-0.5">
@@ -550,6 +563,136 @@ export default function Dashboard() {
               No achievements found.
             </div>
           )}
+
+          {/* Achievement Detail Dialog Modal */}
+          <Dialog open={!!selectedAchievement} onOpenChange={(open) => !open && setSelectedAchievement(null)}>
+            <DialogContent className="sm:max-w-lg">
+              {selectedAchievement && (
+                <>
+                  <DialogHeader className="text-left space-y-3">
+                    <div className="flex items-start justify-between gap-4">
+                      <div
+                        className={`h-14 w-14 rounded-2xl flex items-center justify-center border shadow-xs ${
+                          selectedAchievement.earned
+                            ? "bg-emerald-100 border-emerald-300 text-emerald-800"
+                            : "bg-slate-100 border-slate-200 text-slate-600"
+                        }`}
+                      >
+                        {selectedAchievement.earned ? (
+                          <Award className="h-7 w-7" />
+                        ) : (
+                          <Lock className="h-7 w-7" />
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Badge variant="outline" className="text-xs font-semibold">
+                          {selectedAchievement.category}
+                        </Badge>
+                        {selectedAchievement.isSeasonal && (
+                          <Badge variant="secondary" className="text-xs bg-amber-100 text-amber-900 border-amber-200">
+                            Seasonal
+                          </Badge>
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <DialogTitle className="text-xl font-bold font-serif text-slate-900">
+                        {selectedAchievement.name}
+                      </DialogTitle>
+                      <DialogDescription className="text-sm text-slate-600 mt-1">
+                        {selectedAchievement.description}
+                      </DialogDescription>
+                    </div>
+                  </DialogHeader>
+
+                  <div className="space-y-4 py-2">
+                    {/* Status Banner */}
+                    <div
+                      className={`p-3.5 rounded-xl border flex items-center justify-between text-xs ${
+                        selectedAchievement.earned
+                          ? "bg-emerald-50/80 border-emerald-200 text-emerald-900"
+                          : "bg-slate-50 border-slate-200 text-slate-700"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 font-medium">
+                        {selectedAchievement.earned ? (
+                          <>
+                            <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                            <span>Achievement Unlocked & Verified</span>
+                          </>
+                        ) : (
+                          <>
+                            <Lock className="h-4 w-4 text-slate-500 shrink-0" />
+                            <span>In Progress — Locked</span>
+                          </>
+                        )}
+                      </div>
+
+                      {selectedAchievement.earned && selectedAchievement.earnedAt && (
+                        <span className="text-emerald-700 font-mono text-[11px]">
+                          {new Date(selectedAchievement.earnedAt).toLocaleDateString("en-GB", {
+                            day: "numeric",
+                            month: "short",
+                            year: "numeric",
+                          })}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Progress Tracker */}
+                    <div className="bg-white border rounded-xl p-4 space-y-2">
+                      <div className="flex items-center justify-between text-xs font-medium text-slate-700">
+                        <span>Milestone Progress</span>
+                        <span className="font-mono font-semibold text-slate-900">
+                          {selectedAchievement.progressLabel} ({Math.min(
+                            100,
+                            Math.round(
+                              (selectedAchievement.progressCurrent / (selectedAchievement.progressTarget || 1)) * 100
+                            )
+                          )}%)
+                        </span>
+                      </div>
+                      <Progress
+                        value={Math.min(
+                          100,
+                          Math.round(
+                            (selectedAchievement.progressCurrent / (selectedAchievement.progressTarget || 1)) * 100
+                          )
+                        )}
+                        className={`h-2.5 ${selectedAchievement.earned ? "bg-emerald-100" : "bg-slate-100"}`}
+                      />
+                    </div>
+
+                    {/* Unlock Instructions / How to Earn */}
+                    {selectedAchievement.unlockInstruction && (
+                      <div className="bg-amber-50/70 border border-amber-200/80 rounded-xl p-3.5 space-y-1">
+                        <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-900">
+                          <Info className="h-4 w-4 text-amber-700" />
+                          <span>How to Unlock</span>
+                        </div>
+                        <p className="text-xs text-amber-800 leading-relaxed">
+                          {selectedAchievement.unlockInstruction}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  <DialogFooter className="flex flex-row items-center justify-between sm:justify-between pt-2">
+                    <Button variant="outline" size="sm" onClick={() => setSelectedAchievement(null)}>
+                      Close
+                    </Button>
+                    <Link href="/achievements">
+                      <Button size="sm" className="flex items-center gap-1 bg-emerald-700 hover:bg-emerald-800">
+                        <span>View All Achievements</span>
+                        <ChevronRight className="h-3.5 w-3.5" />
+                      </Button>
+                    </Link>
+                  </DialogFooter>
+                </>
+              )}
+            </DialogContent>
+          </Dialog>
         </div>
 
         {/* Completed Courses */}
@@ -588,22 +731,3 @@ export default function Dashboard() {
   );
 }
 
-function CheckCircle2(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="m9 12 2 2 4-4" />
-    </svg>
-  );
-}
