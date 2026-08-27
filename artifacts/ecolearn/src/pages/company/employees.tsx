@@ -614,25 +614,6 @@ export default function CompanyEmployees() {
                               >
                                 <Pencil className="h-4 w-4" />
                               </Button>
-                              {employee.status === "active" ? (
-                                <Button
-                                  variant="ghost"
-                                  size="icon"
-                                  title="Deactivate employee (releases seat)"
-                                  onClick={() => handleDeactivate(employee)}
-                                >
-                                  <UserX className="h-4 w-4 text-amber-600" />
-                                </Button>
-                              ) : (
-                                <Button
-                                  variant="ghost"
-                                  size="icon"
-                                  title="Reactivate employee"
-                                  onClick={() => handleReactivate(employee)}
-                                >
-                                  <UserCheck className="h-4 w-4 text-emerald-600" />
-                                </Button>
-                              )}
                               <Button
                                 variant="ghost"
                                 size="icon"
