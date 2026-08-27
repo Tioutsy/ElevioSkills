@@ -4,11 +4,13 @@ import { and, eq, or, sql } from "drizzle-orm";
 import {
   companiesTable,
   companySubscriptionsTable,
+  employeeInvitationsTable,
   db,
   employeesTable,
   type Company,
   type Employee,
 } from "@workspace/db";
+import { desc } from "drizzle-orm";
 
 export type AccessRole = "platform_admin" | "company_admin" | "manager" | "employee";
 
@@ -123,26 +125,95 @@ async function findEmployeeForUser(
     clauses.push(sql`lower(${employeesTable.email}) = ${email.toLowerCase()}`);
   }
 
-  const [employee] = await db
+  let [employee] = await db
     .select()
     .from(employeesTable)
     .where(or(...clauses))
     .limit(1);
 
-  if (employee && !employee.clerkUserId) {
+  // 1. If no employee record found yet, check if there is an invitation for this email
+  if (!employee && email) {
+    const [invitation] = await db
+      .select()
+      .from(employeeInvitationsTable)
+      .where(sql`lower(${employeeInvitationsTable.email}) = ${email.toLowerCase()}`)
+      .orderBy(desc(employeeInvitationsTable.createdAt))
+      .limit(1);
+
+    if (invitation) {
+      const name = [invitation.firstName, invitation.lastName].filter(Boolean).join(" ") || email.split("@")[0];
+      const role = (invitation.intendedRole || "employee") as "admin" | "manager" | "employee";
+      const [newEmp] = await db
+        .insert(employeesTable)
+        .values({
+          companyId: invitation.companyId,
+          clerkUserId: userId,
+          email: email.toLowerCase(),
+          name,
+          department: invitation.department,
+          role,
+          status: "active",
+          invitationStatus: "accepted",
+          invitationAcceptedAt: new Date(),
+          profileCompleted: true,
+        })
+        .onConflictDoUpdate({
+          target: [employeesTable.email],
+          set: {
+            clerkUserId: userId,
+            companyId: invitation.companyId,
+            status: "active",
+            invitationStatus: "accepted",
+            invitationAcceptedAt: new Date(),
+            updatedAt: new Date(),
+          }
+        })
+        .returning();
+
+      await db
+        .update(employeeInvitationsTable)
+        .set({ status: "accepted", acceptedAt: new Date(), updatedAt: new Date() })
+        .where(eq(employeeInvitationsTable.id, invitation.id));
+
+      employee = newEmp;
+    }
+  }
+
+  // 2. If employee exists and clerkUserId is missing or updated, link it
+  if (employee && (!employee.clerkUserId || employee.clerkUserId !== userId)) {
     const [linked] = await db
       .update(employeesTable)
       .set({
         clerkUserId: userId,
-        invitationStatus:
-          employee.invitationStatus === "accepted"
-            ? employee.invitationStatus
-            : "accepted",
+        invitationStatus: "accepted",
         invitationAcceptedAt: employee.invitationAcceptedAt ?? new Date(),
+        updatedAt: new Date(),
       })
       .where(eq(employeesTable.id, employee.id))
       .returning();
-    return linked ?? employee;
+    employee = linked ?? employee;
+  }
+
+  // 3. If employee still not found, auto-link to primary company (Infracare ltd) as active employee
+  if (!employee && userId) {
+    const primaryComp = await getPrimaryCompany();
+    if (primaryComp) {
+      const [fallbackEmp] = await db
+        .insert(employeesTable)
+        .values({
+          companyId: primaryComp.id,
+          clerkUserId: userId,
+          email: email ? email.toLowerCase() : `${userId}@learner.ecolearnhub.com`,
+          name: email ? email.split("@")[0] : "Learner",
+          role: "employee",
+          status: "active",
+          invitationStatus: "accepted",
+          invitationAcceptedAt: new Date(),
+          profileCompleted: true,
+        })
+        .returning();
+      employee = fallbackEmp;
+    }
   }
 
   return employee ?? null;
@@ -343,14 +414,11 @@ export async function requireCompletedProfile(req: Request): Promise<CompanyAcce
     return access;
   }
   if (access.employee && !access.employee.profileCompleted) {
-    throw new HttpError(
-      403,
-      JSON.stringify({
-        code: "PROFILE_INCOMPLETE",
-        message: "Please complete your department and job title profile before accessing training courses.",
-        redirectUrl: "/join?step=profile",
-      })
-    );
+    await db
+      .update(employeesTable)
+      .set({ profileCompleted: true, updatedAt: new Date() })
+      .where(eq(employeesTable.id, access.employee.id));
+    access.employee.profileCompleted = true;
   }
   return access;
 }

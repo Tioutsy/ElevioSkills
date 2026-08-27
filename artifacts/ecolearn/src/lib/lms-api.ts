@@ -94,10 +94,11 @@ function reportQuery(params: TrainingReportParams): string {
   return query ? `?${query}` : "";
 }
 
-export function useCompanyLmsOverview() {
+export function useCompanyLmsOverview(options?: { enabled?: boolean }) {
   return useQuery({
     queryKey: ["company-lms-overview"],
     queryFn: () => apiJson<CompanyLmsOverview>("/api/company/lms-overview"),
+    enabled: options?.enabled !== false,
     retry: (failureCount, error: any) => {
       if (error?.message?.includes("404") || error?.message?.includes("403")) return false;
       return failureCount < 2;
@@ -325,10 +326,22 @@ export interface CompanyTrainingInsights {
   };
 }
 
-export function useCompanyTrainingInsights(forceRefresh: boolean = false) {
+export function useCompanyTrainingInsights(
+  optionsOrRefresh?: boolean | { forceRefresh?: boolean; enabled?: boolean }
+) {
+  const forceRefresh =
+    typeof optionsOrRefresh === "boolean"
+      ? optionsOrRefresh
+      : optionsOrRefresh?.forceRefresh ?? false;
+  const enabled =
+    typeof optionsOrRefresh === "object" && optionsOrRefresh !== null
+      ? optionsOrRefresh.enabled !== false
+      : true;
+
   return useQuery({
     queryKey: ["company-training-insights", forceRefresh],
     queryFn: () => apiJson<CompanyTrainingInsights>(`/api/company/training-insights${forceRefresh ? "?refresh=true" : ""}`),
+    enabled,
     retry: (failureCount, error: any) => {
       if (error?.message?.includes("403")) return false;
       return failureCount < 2;

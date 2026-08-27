@@ -77,11 +77,11 @@ export default function InternalHome() {
   // Manager / Admin Queries
   const {
     data: companyOverview,
-  } = useCompanyLmsOverview();
+  } = useCompanyLmsOverview({ enabled: isAdmin || isMgr || isSuper });
 
   const {
     data: trainingInsights,
-  } = useCompanyTrainingInsights();
+  } = useCompanyTrainingInsights({ enabled: isAdmin || isMgr || isSuper });
 
   // Map courses by ID for quick thumbnail lookup
   const coursesMap = useMemo(() => {
