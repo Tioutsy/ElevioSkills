@@ -9,6 +9,7 @@ import { eq, and, sql, inArray } from "drizzle-orm";
 import { dispatchNotificationDelivery } from "./notificationDeliveryService";
 import { decryptToken } from "./tokenEncryption";
 import { logger } from "./logger";
+import { getCanonicalAppUrl } from "./appUrl";
 
 export interface DispatchWorkerOptions {
   batchSize?: number;
@@ -113,12 +114,7 @@ export async function processInvitationQueueChunk(
   options: DispatchWorkerOptions = {}
 ): Promise<DispatchRunResult> {
   const batchSize = options.batchSize || 50;
-  const baseUrl =
-    options.originBaseUrl ||
-    process.env.PUBLIC_APP_URL ||
-    process.env.APP_URL ||
-    process.env.RENDER_EXTERNAL_URL ||
-    "https://ecolearnhub.com";
+  const baseUrl = getCanonicalAppUrl(options.originBaseUrl);
 
   // 1. Recover any stale claims first
   const recoveredStale = await recoverStaleSendingJobs();

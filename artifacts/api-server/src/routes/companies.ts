@@ -38,6 +38,7 @@ import {
   revokeEmployeeInvitation,
   listCompanyInvitations,
 } from "../lib/invitationService";
+import { getCanonicalAppUrl } from "../lib/appUrl";
 
 const router = Router();
 
@@ -475,13 +476,7 @@ router.get("/employee-invitations", async (req, res): Promise<void> => {
 router.post("/employee-invitations", async (req, res): Promise<void> => {
   try {
     const access = await requireCompanyAdmin(req);
-    const rawOrigin = typeof req.headers.origin === "string" ? req.headers.origin : null;
-    const origin =
-      process.env.PUBLIC_APP_URL?.replace(/\/$/, "") ||
-      process.env.RENDER_EXTERNAL_URL?.replace(/\/$/, "") ||
-      (rawOrigin && !rawOrigin.includes("localhost") ? rawOrigin : null) ||
-      rawOrigin ||
-      "https://ecolearnhub.com";
+    const origin = getCanonicalAppUrl(typeof req.headers.origin === "string" ? req.headers.origin : null);
 
     const result = await createEmployeeInvitation(
       access.companyId,
@@ -515,13 +510,7 @@ router.post("/employee-invitations/:id/resend", async (req, res): Promise<void> 
       return;
     }
 
-    const rawOrigin = typeof req.headers.origin === "string" ? req.headers.origin : null;
-    const origin =
-      process.env.PUBLIC_APP_URL?.replace(/\/$/, "") ||
-      process.env.RENDER_EXTERNAL_URL?.replace(/\/$/, "") ||
-      (rawOrigin && !rawOrigin.includes("localhost") ? rawOrigin : null) ||
-      rawOrigin ||
-      "https://ecolearnhub.com";
+    const origin = getCanonicalAppUrl(typeof req.headers.origin === "string" ? req.headers.origin : null);
 
     const result = await resendEmployeeInvitation(access.companyId, id, origin);
     res.json(result);

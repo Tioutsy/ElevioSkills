@@ -14,6 +14,7 @@ import { HttpError } from "./access";
 import { getCompanySeatUsage, getBandMaxSeats } from "./seatEnforcementService";
 import { dispatchNotificationDelivery } from "./notificationDeliveryService";
 import { logger } from "./logger";
+import { getCanonicalAppUrl } from "./appUrl";
 
 export interface CreateInvitationInput {
   email: string;
@@ -319,13 +320,7 @@ export async function createEmployeeInvitation(
     return { invitation: inserted, companyName: company.name };
   });
 
-  const baseUrl =
-    (originBaseUrl && !originBaseUrl.includes("localhost") ? originBaseUrl : null) ||
-    process.env.PUBLIC_APP_URL ||
-    process.env.APP_URL ||
-    process.env.RENDER_EXTERNAL_URL ||
-    originBaseUrl ||
-    "https://ecolearnhub.com";
+  const baseUrl = getCanonicalAppUrl(originBaseUrl);
   const invitationLink = `${baseUrl}/join?token=${encodeURIComponent(rawToken)}`;
 
   // 4. Dispatch email delivery only after transaction commits successfully
@@ -432,13 +427,7 @@ export async function resendEmployeeInvitation(
     return { updated: resendUpdated, companyName: company?.name ?? "Elevio Member" };
   });
 
-  const baseUrl =
-    (originBaseUrl && !originBaseUrl.includes("localhost") ? originBaseUrl : null) ||
-    process.env.PUBLIC_APP_URL ||
-    process.env.APP_URL ||
-    process.env.RENDER_EXTERNAL_URL ||
-    originBaseUrl ||
-    "https://ecolearnhub.com";
+  const baseUrl = getCanonicalAppUrl(originBaseUrl);
   const invitationLink = `${baseUrl}/join?token=${encodeURIComponent(rawToken)}`;
 
   let emailSent = false;

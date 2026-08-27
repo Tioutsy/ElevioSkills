@@ -1,3 +1,5 @@
+import { getCanonicalAppUrl } from "./appUrl";
+
 export type TemplateNotificationType =
   | "invitation"
   | "invitation_reminder"
@@ -38,7 +40,20 @@ export function renderEmailTemplate(
   const courseTitle = escapeHtml(data.courseTitle || "Sustainability Course");
   const courseCode = escapeHtml(data.courseCode || "");
   const dueDate = data.dueDate ? new Date(data.dueDate).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "";
-  const actionUrl = escapeHtml(data.actionUrl || data.invitationLink || data.link || process.env.PUBLIC_APP_URL || process.env.RENDER_EXTERNAL_URL || "https://ecolearnhub.com");
+  const rawUrl = data.actionUrl || data.invitationLink || data.link || "";
+  let resolvedUrl = rawUrl;
+  if (rawUrl) {
+    try {
+      const parsed = new URL(rawUrl);
+      const canonicalBase = getCanonicalAppUrl(parsed.origin);
+      resolvedUrl = `${canonicalBase}${parsed.pathname}${parsed.search}`;
+    } catch {
+      resolvedUrl = getCanonicalAppUrl(rawUrl);
+    }
+  } else {
+    resolvedUrl = getCanonicalAppUrl();
+  }
+  const actionUrl = escapeHtml(resolvedUrl);
 
   let subject = "Elevio Notification";
   let bodyContentHtml = "";

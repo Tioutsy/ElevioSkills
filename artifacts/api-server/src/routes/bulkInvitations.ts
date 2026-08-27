@@ -30,6 +30,7 @@ import { processInvitationQueueChunk } from "../lib/invitationDispatchWorker";
 import { db, bulkInvitationBatchesTable, employeeInvitationsTable } from "@workspace/db";
 import { eq, desc, and, sql } from "drizzle-orm";
 import { logAuditEvent } from "../lib/auditLogService";
+import { getCanonicalAppUrl } from "../lib/appUrl";
 
 const router = Router();
 
@@ -54,7 +55,7 @@ router.post("/bulk-invitations/upload", async (req, res): Promise<void> => {
 
     const effectiveFileName = typeof fileName === "string" && fileName.trim() ? fileName.trim() : "employees_bulk_upload.csv";
 
-    const originBaseUrl = req.headers.origin || `${req.protocol}://${req.get("host")}`;
+    const originBaseUrl = getCanonicalAppUrl(typeof req.headers.origin === "string" ? req.headers.origin : null);
 
     const batchResult = await processBulkInvitations({
       companyId: access.companyId,
@@ -232,7 +233,7 @@ router.get("/bulk-invitations/batches/:id/error-report", async (req, res): Promi
 router.post("/bulk-invitations/process-queue", async (req, res): Promise<void> => {
   try {
     const access = await requireCompanyAdmin(req);
-    const originBaseUrl = req.headers.origin || `${req.protocol}://${req.get("host")}`;
+    const originBaseUrl = getCanonicalAppUrl(typeof req.headers.origin === "string" ? req.headers.origin : null);
     const result = await processInvitationQueueChunk({ batchSize: 50, originBaseUrl });
     res.json(result);
   } catch (err: any) {
@@ -370,7 +371,7 @@ router.post("/invitations/:id/resend", async (req, res): Promise<void> => {
       return;
     }
 
-    const originBaseUrl = req.headers.origin || `${req.protocol}://${req.get("host")}`;
+    const originBaseUrl = getCanonicalAppUrl(typeof req.headers.origin === "string" ? req.headers.origin : null);
     const result = await resendEmployeeInvitation(access.companyId, invitationId, originBaseUrl);
 
     await logAuditEvent({
