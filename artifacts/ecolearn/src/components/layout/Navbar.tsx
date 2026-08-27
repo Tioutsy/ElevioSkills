@@ -40,6 +40,7 @@ export function Navbar() {
         { href: "/company-ranking", label: "Ranking", icon: Trophy },
         { href: "/achievements", label: "Achievements", icon: Award },
         { href: "/courses", label: t("nav.courses"), icon: BookOpen },
+        { href: "/learning-paths", label: t("nav.learning_paths") || "Learning Paths", icon: RouteIcon },
         { href: "/challenges", label: t("nav.challenges"), icon: Target },
         ...(showCompanyLink
           ? [{ href: "/company", label: t("nav.company"), icon: Building2 }]
@@ -53,6 +54,7 @@ export function Navbar() {
       ]
     : [
         { href: "/courses", label: t("nav.courses"), icon: BookOpen },
+        { href: "/learning-paths", label: t("nav.learning_paths") || "Learning Paths", icon: RouteIcon },
         { href: "/challenges", label: t("nav.challenges"), icon: Target },
         { href: "/pricing", label: t("nav.pricing"), icon: Building2 },
       ];

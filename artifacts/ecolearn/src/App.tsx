@@ -455,8 +455,8 @@ function ClerkProviderWithRoutes() {
             <Route path="/accept-invitation" component={JoinCompanyPage} />
             <Route path="/courses" component={Courses} />
             <Route path="/courses/:id" component={CourseDetail} />
-            {/* <Route path="/learning-paths" component={LearningPaths} />
-            <Route path="/learning-paths/:slug" component={LearningPathDetail} /> */}
+            <Route path="/learning-paths" component={LearningPaths} />
+            <Route path="/learning-paths/:slug" component={LearningPathDetail} />
             <Route path="/challenges" component={Challenges} />
             <Route path="/learn/:enrollmentId" component={Learn} />
             <Route path="/quiz/:courseId" component={Quiz} />
