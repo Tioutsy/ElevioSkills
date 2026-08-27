@@ -457,7 +457,14 @@ function ClerkProviderWithRoutes() {
             <Route path="/courses/:id" component={CourseDetail} />
             <Route path="/learning-paths" component={LearningPaths} />
             <Route path="/learning-paths/:slug" component={LearningPathDetail} />
-            <Route path="/challenges" component={Challenges} />
+            <Route path="/challenges">
+              <Show when="signed-in">
+                <Challenges />
+              </Show>
+              <Show when="signed-out">
+                <Redirect to="/sign-in" />
+              </Show>
+            </Route>
             <Route path="/learn/:enrollmentId" component={Learn} />
             <Route path="/quiz/:courseId" component={Quiz} />
             <Route path="/certificates" component={Certificates} />

@@ -56,7 +56,6 @@ export function Navbar() {
       ]
     : [
         { href: "/courses", label: t("nav.courses"), icon: BookOpen },
-        { href: "/challenges", label: t("nav.challenges"), icon: Target },
         { href: "/pricing", label: t("nav.pricing"), icon: Building2 },
       ];
 
