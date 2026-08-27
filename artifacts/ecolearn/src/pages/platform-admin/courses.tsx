@@ -2102,30 +2102,6 @@ export default function PlatformAdminCourses() {
                     </CardContent>
                   </Card>
 
-                  {/* Prerequisites */}
-                  <Card>
-                    <CardContent className="pt-6 text-xs space-y-3">
-                      <Label className="font-bold text-xs mb-1 block">Prerequisite Courses</Label>
-                      <div className="border rounded-md p-3 max-h-40 overflow-y-auto space-y-2 bg-background">
-                        {courses.filter((c: any) => c.id !== editingCourseId).map((c: any) => (
-                          <label key={c.id} className="flex items-center gap-2 cursor-pointer">
-                            <input
-                              type="checkbox"
-                              checked={selectedPrereqs.includes(c.id)}
-                              onChange={(e) => {
-                                if (e.target.checked) {
-                                  setSelectedPrereqs([...selectedPrereqs, c.id]);
-                                } else {
-                                  setSelectedPrereqs(selectedPrereqs.filter(id => id !== c.id));
-                                }
-                              }}
-                            />
-                            {c.title}
-                          </label>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
 
                   {/* SDG goal mappings */}
                   <Card>

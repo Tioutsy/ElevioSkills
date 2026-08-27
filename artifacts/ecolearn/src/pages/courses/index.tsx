@@ -402,22 +402,6 @@ export default function Courses() {
                   isPlanLocked = !companySub.entitledCourseIds.includes(course.id) && !isCompleted;
                 }
 
-                // Dynamic Prerequisite Lock Check for ALL Courses
-                const prereqsList: PrerequisiteItem[] = (course as any).prerequisites || [];
-                const missingRequiredPrereqs = prereqsList.filter(p => 
-                  p.requirementType === "required" && enrollmentMap.get(p.prerequisiteCourseId)?.status !== "completed"
-                );
-                const missingRecommendedPrereqs = prereqsList.filter(p => 
-                  p.requirementType === "recommended" && enrollmentMap.get(p.prerequisiteCourseId)?.status !== "completed"
-                );
-
-                const isElh12 = (course as any).courseCode === "ELH-12";
-                const coreCompletedCount = Array.from(enrollmentMap.entries())
-                  .filter(([_, e]) => e.status === "completed").length;
-                const elh12CoreLocked = isElh12 && coreCompletedCount < 11;
-
-                const isPrereqLocked = !isCompleted && (missingRequiredPrereqs.length > 0 || elh12CoreLocked);
-
                 // Determine primary status text
                 let statusLabel = "Ready to start";
                 let statusBadgeClass = "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20";
@@ -440,9 +424,6 @@ export default function Courses() {
                 } else if (isInProgress) {
                   statusLabel = "In progress";
                   statusBadgeClass = "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/30";
-                } else if (isPrereqLocked) {
-                  statusLabel = "Locked · Prerequisite Required";
-                  statusBadgeClass = "bg-blue-600/10 text-blue-800 dark:text-blue-300 border-blue-500/40 font-semibold";
                 }
 
                 // Primary action button text & link
@@ -458,10 +439,6 @@ export default function Courses() {
                 } else if (isInProgress && enrollment) {
                   actionText = "Continue course";
                   actionHref = `/learn/${enrollment.id}`;
-                } else if (isPrereqLocked) {
-                  actionText = "View prerequisite";
-                  const firstMissing = missingRequiredPrereqs[0];
-                  actionHref = firstMissing ? `/courses/${firstMissing.prerequisiteCourseId}` : `/courses/${course.id}`;
                 }
 
                 const primaryCategoryName = (course as any).categoryName || (course as any).primaryCategory?.categoryName || "General Sustainability";
@@ -469,7 +446,7 @@ export default function Courses() {
                 return (
                   <div key={course.id} className={cn(
                     "group bg-card border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col h-full",
-                    isPlanLocked ? "border-purple-300 dark:border-purple-800/60 bg-purple-50/10 dark:bg-purple-950/10" : isPrereqLocked ? "border-blue-300 dark:border-blue-800/60 bg-blue-50/20 dark:bg-blue-950/10" : "hover:border-primary/40"
+                    isPlanLocked ? "border-purple-300 dark:border-purple-800/60 bg-purple-50/10 dark:bg-purple-950/10" : "hover:border-primary/40"
                   )}>
                     {/* Thumbnail Header */}
                     <div className="relative aspect-video overflow-hidden bg-muted">
@@ -485,7 +462,7 @@ export default function Courses() {
                           }}
                           className={cn(
                             "w-full h-full object-cover transition-transform duration-500 group-hover:scale-105",
-                            (isPrereqLocked || isPlanLocked) && "opacity-85 grayscale-[20%]"
+                            isPlanLocked && "opacity-85 grayscale-[20%]"
                           )}
                         />
                       ) : (
@@ -516,7 +493,6 @@ export default function Courses() {
                           <span className={cn("px-2.5 py-0.5 rounded-md font-semibold border text-xs flex items-center gap-1", statusBadgeClass)}>
                             {isCompleted && <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600" />}
                             {isPlanLocked && <Building2 className="h-3.5 w-3.5 shrink-0 text-purple-600" />}
-                            {isPrereqLocked && <Lock className="h-3.5 w-3.5 shrink-0 text-blue-700 dark:text-blue-400" />}
                             {statusLabel}
                           </span>
                           <span className="flex items-center gap-1 text-muted-foreground font-medium">
@@ -578,64 +554,7 @@ export default function Courses() {
                         </div>
                       )}
 
-                      {/* Compact Prerequisite Notice & Popover Details */}
-                      {!isPlanLocked && isPrereqLocked && (
-                        <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-3 text-xs text-blue-900 dark:text-blue-200 space-y-1">
-                          <div className="font-semibold flex items-center justify-between gap-1.5 text-blue-800 dark:text-blue-300">
-                            <span className="flex items-center gap-1.5">
-                              <Lock className="h-3.5 w-3.5 shrink-0 text-blue-600 dark:text-blue-400" />
-                              <span>{missingRequiredPrereqs.length > 1 ? `${missingRequiredPrereqs.length} prerequisites required` : "Prerequisite required"}</span>
-                            </span>
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                setSelectedDetailsCourse(course);
-                              }}
-                              className="text-[11px] underline font-normal text-blue-700 dark:text-blue-300 hover:text-blue-900 cursor-pointer"
-                            >
-                              View details
-                            </button>
-                          </div>
-                          {isElh12 && coreCompletedCount < 11 ? (
-                            <p className="text-muted-foreground">Complete 11 Core Courses ({coreCompletedCount}/11 finished) to unlock.</p>
-                          ) : missingRequiredPrereqs.length === 1 ? (
-                            <p className="line-clamp-1 font-medium">{missingRequiredPrereqs[0].prerequisiteCourseCode ? `${missingRequiredPrereqs[0].prerequisiteCourseCode}: ` : ''}{missingRequiredPrereqs[0].prerequisiteTitle}</p>
-                          ) : (
-                            <p className="text-muted-foreground">Requires {missingRequiredPrereqs.map(p => p.prerequisiteCourseCode).filter(Boolean).join(", ") || `${missingRequiredPrereqs.length} courses`}</p>
-                          )}
-                        </div>
-                      )}
-
-                      {!isPlanLocked && !isPrereqLocked && !isCompleted && missingRecommendedPrereqs.length > 0 && (
-                        <div className="bg-sky-500/10 border border-sky-500/30 rounded-xl p-3 text-xs text-sky-900 dark:text-sky-200 space-y-1">
-                          <div className="font-semibold flex items-center justify-between gap-1.5 text-sky-800 dark:text-sky-300">
-                            <span className="flex items-center gap-1.5">
-                              <Info className="h-3.5 w-3.5 shrink-0 text-sky-600 dark:text-sky-400" />
-                              <span>{missingRecommendedPrereqs.length > 1 ? `${missingRecommendedPrereqs.length} recommended prerequisites` : "Recommended first"}</span>
-                            </span>
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                setSelectedDetailsCourse(course);
-                              }}
-                              className="text-[11px] underline font-normal text-sky-700 dark:text-sky-300 hover:text-sky-900 cursor-pointer"
-                            >
-                              View details
-                            </button>
-                          </div>
-                          {missingRecommendedPrereqs.length === 1 ? (
-                            <p className="line-clamp-1 font-medium">{missingRecommendedPrereqs[0].prerequisiteCourseCode ? `${missingRecommendedPrereqs[0].prerequisiteCourseCode}: ` : ''}{missingRecommendedPrereqs[0].prerequisiteTitle}</p>
-                          ) : (
-                            <p className="text-muted-foreground">Recommended: {missingRecommendedPrereqs.map(p => p.prerequisiteCourseCode).filter(Boolean).join(", ") || `${missingRecommendedPrereqs.length} courses`}</p>
-                          )}
-                        </div>
-                      )}
-
-                      {/* Action Buttons Area (Sprint 11K) */}
+                      {/* Action Buttons Area */}
                       <div className="pt-3 border-t flex items-center gap-2">
                         <Button
                           type="button"
@@ -653,16 +572,15 @@ export default function Courses() {
                         </Button>
                         <Link href={actionHref} className="flex-1">
                           <Button
-                            variant={isCompleted ? "outline" : isPlanLocked ? "secondary" : isPrereqLocked ? "secondary" : "default"}
+                            variant={isCompleted ? "outline" : isPlanLocked ? "secondary" : "default"}
                             className={cn(
                               "w-full justify-between font-medium rounded-xl text-sm h-9 transition-all",
                               isPlanLocked && "bg-purple-700 text-white hover:bg-purple-800 shadow-sm",
-                              !isPlanLocked && isPrereqLocked && "bg-blue-600 text-white hover:bg-blue-700 shadow-sm",
-                              !isCompleted && !isPlanLocked && !isPrereqLocked && "bg-primary text-primary-foreground hover:bg-primary/90"
+                              !isCompleted && !isPlanLocked && "bg-primary text-primary-foreground hover:bg-primary/90"
                             )}
                           >
                             <span>{actionText}</span>
-                            <ArrowRight className="h-4 w-4" />
+                            <ArrowRight className="h-4 w-4 shrink-0 ml-2" />
                           </Button>
                         </Link>
                       </div>
@@ -675,7 +593,7 @@ export default function Courses() {
         </div>
       </div>
 
-      {/* Accessible Course Details & Prerequisites Dialog */}
+      {/* Accessible Course Details Dialog */}
       <Dialog open={!!selectedDetailsCourse} onOpenChange={(open) => { if (!open) setSelectedDetailsCourse(null); }}>
         {selectedDetailsCourse && (() => {
           const course = selectedDetailsCourse;
@@ -688,15 +606,6 @@ export default function Courses() {
             isPlanLocked = !companySub.entitledCourseIds.includes(course.id) && !isCompleted;
           }
 
-          const prereqsList: PrerequisiteItem[] = (course as any).prerequisites || [];
-          const missingRequired = prereqsList.filter(p => 
-            p.requirementType === "required" && enrollmentMap.get(p.prerequisiteCourseId)?.status !== "completed"
-          );
-          const isElh12 = (course as any).courseCode === "ELH-12";
-          const coreCompletedCount = Array.from(enrollmentMap.entries()).filter(([_, e]) => e.status === "completed").length;
-          const elh12CoreLocked = isElh12 && coreCompletedCount < 11;
-          const isPrereqLocked = !isCompleted && (missingRequired.length > 0 || elh12CoreLocked);
-
           let actionText = "Start course";
           let actionHref = `/courses/${course.id}`;
           if (isCompleted) {
@@ -708,10 +617,6 @@ export default function Courses() {
           } else if (isInProgress && enrollment) {
             actionText = "Continue course";
             actionHref = `/learn/${enrollment.id}`;
-          } else if (isPrereqLocked) {
-            actionText = "Complete prerequisite first";
-            const firstMissing = missingRequired[0];
-            actionHref = firstMissing ? `/courses/${firstMissing.prerequisiteCourseId}` : `/courses/${course.id}`;
           }
 
           return (
@@ -751,76 +656,6 @@ export default function Courses() {
                     </ul>
                   </div>
                 )}
-
-                {/* Prerequisites Section */}
-                <div className="space-y-3">
-                  <h5 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center justify-between">
-                    <span>Prerequisites</span>
-                    <span className="text-[11px] font-normal normal-case text-muted-foreground">
-                      {prereqsList.length === 0 && !isElh12 ? "None required" : `${prereqsList.length} defined`}
-                    </span>
-                  </h5>
-
-                  {isElh12 && coreCompletedCount < 11 && (
-                    <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3.5 text-xs space-y-1.5">
-                      <div className="font-semibold text-amber-800 dark:text-amber-300 flex items-center gap-1.5">
-                        <Lock className="h-4 w-4 shrink-0 text-amber-600" />
-                        <span>11 Foundation Core Courses Required</span>
-                      </div>
-                      <p className="text-muted-foreground">You have completed {coreCompletedCount}/11 core courses. Complete all 11 foundation modules before attempting the final certification exam.</p>
-                    </div>
-                  )}
-
-                  {prereqsList.length === 0 && !isElh12 ? (
-                    <div className="bg-muted/50 border rounded-xl p-3.5 text-xs text-muted-foreground flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                      <span>None — you can start this course directly without prerequisites.</span>
-                    </div>
-                  ) : (
-                    <div className="space-y-2">
-                      {prereqsList.map((p) => {
-                        const isDone = enrollmentMap.get(p.prerequisiteCourseId)?.status === "completed";
-                        return (
-                          <div
-                            key={p.prerequisiteCourseId}
-                            className={cn(
-                              "flex items-center justify-between p-3 rounded-xl border text-xs transition-colors",
-                              isDone ? "bg-emerald-500/5 border-emerald-500/20 text-emerald-900 dark:text-emerald-200" : "bg-card border-border text-foreground"
-                            )}
-                          >
-                            <div className="space-y-0.5 max-w-[75%]">
-                              <div className="font-semibold flex items-center gap-1.5">
-                                {p.prerequisiteCourseCode && (
-                                  <span className="font-mono text-[11px] text-muted-foreground">{p.prerequisiteCourseCode}:</span>
-                                )}
-                                <span>{p.prerequisiteTitle}</span>
-                              </div>
-                              <span className="text-[11px] text-muted-foreground capitalize">
-                                {p.requirementType === "required" ? "Required prerequisite" : "Recommended preliminary course"}
-                              </span>
-                            </div>
-                            <span className={cn(
-                              "px-2.5 py-1 rounded-md text-[11px] font-semibold border flex items-center gap-1 shrink-0",
-                              isDone ? "bg-emerald-600 text-white border-emerald-700" : "bg-muted text-muted-foreground border-border"
-                            )}>
-                              {isDone ? (
-                                <>
-                                  <CheckCircle2 className="h-3 w-3" />
-                                  <span>Completed</span>
-                                </>
-                              ) : (
-                                <>
-                                  <Lock className="h-3 w-3" />
-                                  <span>Required</span>
-                                </>
-                              )}
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
               </div>
 
               {/* Action Buttons */}
@@ -830,10 +665,10 @@ export default function Courses() {
                 </Button>
                 <Link href={actionHref} onClick={() => setSelectedDetailsCourse(null)}>
                   <Button
-                    variant={isCompleted ? "outline" : isPrereqLocked ? "secondary" : "default"}
+                    variant={isCompleted ? "outline" : "default"}
                     className={cn(
                       "font-semibold rounded-xl transition-all",
-                      !isCompleted && !isPrereqLocked && "bg-primary text-primary-foreground hover:bg-primary/90"
+                      !isCompleted && "bg-primary text-primary-foreground hover:bg-primary/90"
                     )}
                   >
                     <span>{actionText}</span>

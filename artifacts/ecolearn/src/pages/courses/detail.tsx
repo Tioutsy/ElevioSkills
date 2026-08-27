@@ -3,7 +3,8 @@ import { useGetCourse, useCreateEnrollment, useListEnrollments } from "@workspac
 import { useParams, useLocation } from "wouter";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Clock, CheckCircle2, PlayCircle, FileText, Award, AlertCircle, Lock } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ArrowLeft, Clock, CheckCircle2, PlayCircle, FileText, Award, AlertCircle, Lock, BookOpen, Users } from "lucide-react";
 import { Link } from "wouter";
 import { useAuth } from "@clerk/react";
 import { useToast } from "@/hooks/use-toast";
@@ -21,11 +22,6 @@ export default function CourseDetail() {
   
   const existingEnrollment = enrollments?.find((e: any) => e.courseId === courseId);
   const enrollMutation = useCreateEnrollment();
-
-  const hasPrerequisites = course?.prerequisites && course.prerequisites.length > 0;
-  const prereqsCompleted = course?.prerequisites?.filter((p: any) => p.completed).length || 0;
-  const prereqsTotal = course?.prerequisites?.length || 0;
-  const isLocked = !existingEnrollment && hasPrerequisites && prereqsCompleted < prereqsTotal;
 
   const handleEnroll = () => {
     if (!isSignedIn) {
@@ -83,9 +79,7 @@ export default function CourseDetail() {
     return (
       <Layout>
         <div className="container mx-auto px-4 py-24 text-center">
-          <AlertCircle className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-          <h2 className="text-2xl font-bold mb-2">Course not found</h2>
-          <p className="text-muted-foreground mb-6">The course you're looking for doesn't exist or has been removed.</p>
+          <h1 className="text-2xl font-bold font-serif mb-4">Course not found</h1>
           <Button asChild>
             <Link href="/courses">Browse all courses</Link>
           </Button>
@@ -96,105 +90,68 @@ export default function CourseDetail() {
 
   return (
     <Layout>
-      <div className="bg-primary/5 py-12 border-b">
-        <div className="container mx-auto px-4">
-          <Link href="/courses" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary mb-6 transition-colors">
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to courses
-          </Link>
-          
+      {/* Hero Header */}
+      <div className="bg-muted/30 border-b">
+        <div className="container mx-auto px-4 py-12">
+          <div className="mb-6">
+            <Button variant="ghost" size="sm" asChild className="text-muted-foreground hover:text-foreground">
+              <Link href="/courses">
+                <ArrowLeft className="h-4 w-4 mr-2" /> Back to courses
+              </Link>
+            </Button>
+          </div>
+
           <div className="grid lg:grid-cols-3 gap-12 items-start">
-            <div className="lg:col-span-2">
-              <div className="flex gap-3 mb-4">
-                <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
-                  {course.categoryName}
-                </span>
-                <span className="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+            <div className="lg:col-span-2 space-y-6">
+              <div className="flex flex-wrap gap-2 items-center">
+                <Badge variant="outline" className="bg-background">
+                  {course.categoryName || "General Sustainability"}
+                </Badge>
+                <Badge variant="secondary" className="capitalize">
                   {course.level}
-                </span>
+                </Badge>
+                {course.includesCertificate && (
+                  <Badge variant="secondary" className="bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20">
+                    <Award className="h-3 w-3 mr-1" /> Certificate Included
+                  </Badge>
+                )}
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6 text-foreground leading-tight">
+
+              <h1 className="text-3xl md:text-5xl font-bold font-serif tracking-tight text-foreground">
                 {course.title}
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 {course.description}
               </p>
-              
-              <div className="flex flex-wrap items-center gap-6 text-sm font-medium border-y py-4">
+
+              <div className="flex flex-wrap items-center gap-6 pt-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-primary" />
-                  <span>{course.durationMinutes} minutes</span>
+                  <Clock className="h-4 w-4 text-primary" />
+                  <span>{course.durationMinutes} Minutes</span>
                 </div>
-                {course.includesCertificate && (
-                  <div className="flex items-center gap-2">
-                    <Award className="h-5 w-5 text-primary" />
-                    <span>Certificate of Completion</span>
-                  </div>
-                )}
-                {(course.enrollmentCount ?? 0) > 0 && (
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span>{course.enrollmentCount} enrolled</span>
-                  </div>
-                )}
+                <div className="flex items-center gap-2">
+                  <BookOpen className="h-4 w-4 text-primary" />
+                  <span>{course.lessons?.length || 0} Lessons</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="h-4 w-4 text-primary" />
+                  <span>{course.enrollmentCount || 0} Enrolled</span>
+                </div>
               </div>
             </div>
-            
+
+            {/* Sticky Action Card */}
             <div className="bg-card border rounded-2xl shadow-xl overflow-hidden sticky top-24">
-              {(course.thumbnailUrl || (course as any).courseCode === "ELH-30") && (
-                <div className="aspect-video relative">
-                  <img 
-                    src={((course as any).courseCode === "ELH-30" || course.slug === "climate-risk-and-workplace-resilience")
-                      ? "/images/courses/climate-risk-and-workplace-resilience.jpg"
-                      : (course.thumbnailUrl ?? undefined)} 
-                    alt="" 
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      target.src = "https://raw.githubusercontent.com/Tioutsy/EcoLearnHub/main/artifacts/ecolearn/public/images/courses/climate-risk-and-workplace-resilience.jpg";
-                    }}
-                    className="w-full h-full object-cover" 
-                  />
-                  {course.previewVideoUrl && (
-                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                      <Button size="icon" variant="secondary" className="rounded-full w-14 h-14 bg-white/90 text-primary hover:bg-white hover:scale-110 transition-all">
-                        <PlayCircle className="h-8 w-8" />
-                      </Button>
-                    </div>
-                  )}
-                </div>
-              )}
-              {isLocked ? (
-                <div className="p-6">
-                  <div className="bg-muted/50 rounded-xl p-4 border border-border text-center mb-4">
-                    <Lock className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                    <h3 className="font-semibold text-foreground mb-1">Course Locked</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {course.slug === "sustainability-action-planning"
-                        ? "Complete the Core Sustainability Certificate before starting Applied Workplace Sustainability courses."
-                        : `You must complete ${prereqsTotal} prerequisite courses before enrolling.`}
-                    </p>
-                    <div className="mt-4">
-                      <div className="flex justify-between text-xs mb-1 font-medium">
-                        <span>{prereqsCompleted} of {prereqsTotal} completed</span>
-                        <span>{Math.round((prereqsCompleted / prereqsTotal) * 100)}%</span>
-                      </div>
-                      <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-primary" 
-                          style={{ width: `${Math.round((prereqsCompleted / prereqsTotal) * 100)}%` }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <Button 
-                    variant="outline"
-                    size="lg" 
-                    className="w-full h-12 text-base font-semibold"
-                    asChild
-                  >
-                    <Link href="/courses">Continue Prerequisites</Link>
-                  </Button>
-                </div>
-              ) : existingEnrollment ? (
+              <div className="aspect-video bg-muted relative overflow-hidden">
+                <img 
+                  src={course.thumbnailUrl || "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&auto=format&fit=crop&q=60"} 
+                  alt={course.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {existingEnrollment ? (
                 <div className="p-6 space-y-3">
                   <Button 
                     size="lg" 
@@ -245,36 +202,10 @@ export default function CourseDetail() {
               <section>
                 <h2 className="text-2xl font-bold font-serif mb-6">What you'll learn</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {course.learningObjectives.map((obj, i) => (
+                  {course.learningObjectives.map((obj: string, i: number) => (
                     <div key={i} className="flex gap-3">
                       <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
                       <span className="text-muted-foreground">{obj}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* Prerequisites */}
-            {hasPrerequisites && (
-              <section>
-                <h2 className="text-2xl font-bold font-serif mb-6">Prerequisite Courses</h2>
-                <div className="space-y-3">
-                  {course.prerequisites?.map((p: any) => (
-                    <div key={p.courseId} className="flex items-center justify-between p-4 border rounded-xl bg-card">
-                      <div className="flex items-center gap-3">
-                        {p.completed ? (
-                          <CheckCircle2 className="h-5 w-5 text-green-500" />
-                        ) : (
-                          <div className="h-5 w-5 rounded-full border-2 border-muted-foreground/30" />
-                        )}
-                        <span className={`font-medium ${p.completed ? '' : 'text-muted-foreground'}`}>{p.title}</span>
-                      </div>
-                      {!p.completed && (
-                         <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80" asChild>
-                           <Link href={`/courses/${p.courseId}`}>View Course</Link>
-                         </Button>
-                      )}
                     </div>
                   ))}
                 </div>
