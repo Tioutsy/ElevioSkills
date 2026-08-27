@@ -143,39 +143,51 @@ async function findEmployeeForUser(
     if (invitation) {
       const name = [invitation.firstName, invitation.lastName].filter(Boolean).join(" ") || email.split("@")[0];
       const role = (invitation.intendedRole || "employee") as "admin" | "manager" | "employee";
-      const [newEmp] = await db
-        .insert(employeesTable)
-        .values({
-          companyId: invitation.companyId,
-          clerkUserId: userId,
-          email: email.toLowerCase(),
-          name,
-          department: invitation.department,
-          role,
-          status: "active",
-          invitationStatus: "accepted",
-          invitationAcceptedAt: new Date(),
-          profileCompleted: true,
-        })
-        .onConflictDoUpdate({
-          target: [employeesTable.email],
-          set: {
+
+      const [existingByEmail] = await db
+        .select()
+        .from(employeesTable)
+        .where(sql`lower(${employeesTable.email}) = ${email.toLowerCase()}`)
+        .limit(1);
+
+      if (existingByEmail) {
+        const [updatedEmp] = await db
+          .update(employeesTable)
+          .set({
             clerkUserId: userId,
             companyId: invitation.companyId,
             status: "active",
             invitationStatus: "accepted",
             invitationAcceptedAt: new Date(),
+            profileCompleted: true,
             updatedAt: new Date(),
-          }
-        })
-        .returning();
+          })
+          .where(eq(employeesTable.id, existingByEmail.id))
+          .returning();
+        employee = updatedEmp;
+      } else {
+        const [newEmp] = await db
+          .insert(employeesTable)
+          .values({
+            companyId: invitation.companyId,
+            clerkUserId: userId,
+            email: email.toLowerCase(),
+            name,
+            department: invitation.department,
+            role,
+            status: "active",
+            invitationStatus: "accepted",
+            invitationAcceptedAt: new Date(),
+            profileCompleted: true,
+          })
+          .returning();
+        employee = newEmp;
+      }
 
       await db
         .update(employeeInvitationsTable)
         .set({ status: "accepted", acceptedAt: new Date(), updatedAt: new Date() })
         .where(eq(employeeInvitationsTable.id, invitation.id));
-
-      employee = newEmp;
     }
   }
 
@@ -198,21 +210,46 @@ async function findEmployeeForUser(
   if (!employee && userId) {
     const primaryComp = await getPrimaryCompany();
     if (primaryComp) {
-      const [fallbackEmp] = await db
-        .insert(employeesTable)
-        .values({
-          companyId: primaryComp.id,
-          clerkUserId: userId,
-          email: email ? email.toLowerCase() : `${userId}@learner.ecolearnhub.com`,
-          name: email ? email.split("@")[0] : "Learner",
-          role: "employee",
-          status: "active",
-          invitationStatus: "accepted",
-          invitationAcceptedAt: new Date(),
-          profileCompleted: true,
-        })
-        .returning();
-      employee = fallbackEmp;
+      const [existingByEmail] = email
+        ? await db
+            .select()
+            .from(employeesTable)
+            .where(sql`lower(${employeesTable.email}) = ${email.toLowerCase()}`)
+            .limit(1)
+        : [null];
+
+      if (existingByEmail) {
+        const [updatedEmp] = await db
+          .update(employeesTable)
+          .set({
+            clerkUserId: userId,
+            companyId: primaryComp.id,
+            status: "active",
+            invitationStatus: "accepted",
+            invitationAcceptedAt: new Date(),
+            profileCompleted: true,
+            updatedAt: new Date(),
+          })
+          .where(eq(employeesTable.id, existingByEmail.id))
+          .returning();
+        employee = updatedEmp;
+      } else {
+        const [fallbackEmp] = await db
+          .insert(employeesTable)
+          .values({
+            companyId: primaryComp.id,
+            clerkUserId: userId,
+            email: email ? email.toLowerCase() : `${userId}@learner.ecolearnhub.com`,
+            name: email ? email.split("@")[0] : "Learner",
+            role: "employee",
+            status: "active",
+            invitationStatus: "accepted",
+            invitationAcceptedAt: new Date(),
+            profileCompleted: true,
+          })
+          .returning();
+        employee = fallbackEmp;
+      }
     }
   }
 
