@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { customFetch } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+import { useAuthRole } from "@/lib/authHelpers";
 import {
   Target,
   Recycle,
@@ -21,6 +22,8 @@ import {
   Calendar,
   AlertCircle,
   HelpCircle,
+  Plus,
+  Settings,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Link } from "wouter";
@@ -114,6 +117,8 @@ interface ChallengesResponse {
 }
 
 export default function ChallengesPage() {
+  const authRole = useAuthRole();
+  const isAdmin = authRole.isCompanyAdmin || authRole.isPlatformAdmin;
   const [activeTab, setActiveTab] = useState<"active" | "upcoming" | "completed">("active");
 
   const { data, isLoading, error, refetch } = useQuery<ChallengesResponse>({
@@ -148,8 +153,8 @@ export default function ChallengesPage() {
             </p>
           </div>
 
-          {/* Quick Metrics */}
-          <div className="flex items-center gap-3">
+          {/* Quick Metrics & Admin CTA */}
+          <div className="flex flex-wrap items-center gap-3">
             <div className="bg-card border border-border rounded-xl p-3.5 px-4 flex items-center gap-3 shadow-sm">
               <div className="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-bold">
                 <Trophy className="w-5 h-5" />
@@ -169,6 +174,15 @@ export default function ChallengesPage() {
                 <div className="text-lg font-bold text-foreground">{activeList.length}</div>
               </div>
             </div>
+
+            {isAdmin && (
+              <Link href="/company/challenges">
+                <Button className="flex items-center gap-1.5 shadow-sm bg-emerald-700 hover:bg-emerald-800 text-white">
+                  <Plus className="w-4 h-4" />
+                  <span>Launch Challenges</span>
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
 
@@ -243,13 +257,25 @@ export default function ChallengesPage() {
                     <Target className="w-10 h-10 text-muted-foreground/60 mx-auto" />
                     <h3 className="text-base font-semibold text-foreground">No Active Company Challenges</h3>
                     <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                      Your company administrator has not activated any missions for this period. Check back soon or explore course pathways in the catalogue.
+                      {isAdmin
+                        ? "No missions are currently active for your organization. Launch an approved challenge template below to engage your team."
+                        : "Your company administrator has not activated any missions for this period. Check back soon or explore course pathways in the catalogue."}
                     </p>
-                    <Link href="/courses">
-                      <Button variant="outline" size="sm" className="mt-2">
-                        Browse Course Catalogue
-                      </Button>
-                    </Link>
+                    <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                      {isAdmin && (
+                        <Link href="/company/challenges">
+                          <Button size="sm" className="flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800">
+                            <Plus className="w-4 h-4" />
+                            <span>Activate Challenge from Templates</span>
+                          </Button>
+                        </Link>
+                      )}
+                      <Link href="/courses">
+                        <Button variant="outline" size="sm">
+                          Browse Course Catalogue
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
