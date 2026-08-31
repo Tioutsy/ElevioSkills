@@ -120,6 +120,15 @@ async function findEmployeeForUser(
   userId: string,
   email: string | null,
 ): Promise<Employee | null> {
+  const bootstrapEnv = process.env.PLATFORM_ADMIN_BOOTSTRAP_EMAIL ?? "slennon2206@gmail.com";
+  const superAdminEmails = [
+    "slennon2206@gmail.com",
+    ...bootstrapEnv.split(",").map((s) => s.trim().toLowerCase()).filter(Boolean),
+  ];
+  if (email && superAdminEmails.includes(email.toLowerCase())) {
+    return null;
+  }
+
   const clauses = [eq(employeesTable.clerkUserId, userId)];
   if (email) {
     clauses.push(sql`lower(${employeesTable.email}) = ${email.toLowerCase()}`);
@@ -373,8 +382,6 @@ export async function getCompanyAccess(req: Request): Promise<CompanyAccess> {
     isPlatformRole(clerkUser?.unsafeMetadata?.role as string | null) ||
     isBootstrapMatch;
 
-  const primaryCompany = await getPrimaryCompany();
-
   if (isPlatformAdmin) {
     // If recognized as bootstrap super admin, ensure Clerk metadata has role set
     if (userId && clerkUser && clerkUser.publicMetadata?.role !== "platform_admin") {
@@ -385,14 +392,12 @@ export async function getCompanyAccess(req: Request): Promise<CompanyAccess> {
       }).catch(() => {});
     }
 
-    const companyId = claimCompanyId ?? primaryCompany?.id ?? 0;
-    const employee = await findEmployeeForUser(userId, email);
     return {
       userId,
       email,
-      companyId: employee?.companyId ?? companyId,
+      companyId: claimCompanyId ?? 0,
       role: "platform_admin",
-      employee,
+      employee: null,
       isDemo: false,
     };
   }

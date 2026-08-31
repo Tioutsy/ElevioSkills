@@ -19,9 +19,9 @@ router.get("/me", async (req, res): Promise<void> => {
       : [null];
 
     const isSuper = access.role === "platform_admin";
-    const isCompAdmin = access.role === "company_admin";
-    const isMgr = access.role === "manager";
-    const isLrn = access.role === "employee";
+    const isCompAdmin = !isSuper && access.role === "company_admin";
+    const isMgr = !isSuper && access.role === "manager";
+    const isLrn = !isSuper && access.role === "employee";
 
     let roleLabel = "Learner";
     if (isSuper) roleLabel = "Platform Administrator";
@@ -33,12 +33,12 @@ router.get("/me", async (req, res): Promise<void> => {
       email: access.email,
       role: access.role,
       roleLabel,
-      companyId: access.companyId,
-      companyName: company?.name ?? null,
-      employeeId: access.employee?.id ?? null,
-      employeeName: access.employee?.name ?? null,
-      department: access.employee?.department ?? null,
-      jobTitle: access.employee?.jobTitle ?? null,
+      companyId: isSuper ? null : access.companyId,
+      companyName: isSuper ? null : (company?.name ?? null),
+      employeeId: isSuper ? null : (access.employee?.id ?? null),
+      employeeName: isSuper ? (access.employee?.name || "Sharon Lennon") : (access.employee?.name ?? null),
+      department: isSuper ? null : (access.employee?.department ?? null),
+      jobTitle: isSuper ? null : (access.employee?.jobTitle ?? null),
       profileCompleted: access.employee ? access.employee.profileCompleted : true,
       isPlatformAdmin: isSuper,
       isCompanyAdmin: isCompAdmin,

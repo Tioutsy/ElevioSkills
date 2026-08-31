@@ -51,6 +51,7 @@ export function isPlatformAdmin(user: any): boolean {
 
 export function isCompanyAdmin(user: any): boolean {
   if (!user) return false;
+  if (isPlatformAdmin(user)) return false;
   if (user?.isCompanyAdmin === true) return true;
   const role = getRawRole(user);
   return role === "company_admin" || role === "admin";
@@ -58,6 +59,7 @@ export function isCompanyAdmin(user: any): boolean {
 
 export function isManager(user: any): boolean {
   if (!user) return false;
+  if (isPlatformAdmin(user)) return false;
   if (user?.isManager === true) return true;
   const role = getRawRole(user);
   return role === "manager";
@@ -65,9 +67,10 @@ export function isManager(user: any): boolean {
 
 export function isLearner(user: any): boolean {
   if (!user) return true;
+  if (isPlatformAdmin(user)) return false;
   if (user?.isLearner === true) return true;
   const role = getRawRole(user);
-  return role === "employee" || role === "learner" || (!isPlatformAdmin(user) && !isCompanyAdmin(user) && !isManager(user));
+  return role === "employee" || role === "learner" || (!isCompanyAdmin(user) && !isManager(user));
 }
 
 export function getUserRoleLabel(user: any): string {
@@ -138,15 +141,15 @@ export function useAuthRole() {
   const rawRole = getRawRole(user);
   const fallbackIsPlatformAdmin =
     rawRole === "platform_admin" || rawRole === "super_admin" || isBootstrapSuperAdmin;
-  const fallbackIsCompanyAdmin = rawRole === "company_admin" || rawRole === "admin";
-  const fallbackIsManager = rawRole === "manager";
+  const fallbackIsCompanyAdmin = !fallbackIsPlatformAdmin && (rawRole === "company_admin" || rawRole === "admin");
+  const fallbackIsManager = !fallbackIsPlatformAdmin && rawRole === "manager";
 
   const data = query.data;
 
   const isSuper = data ? data.isPlatformAdmin : fallbackIsPlatformAdmin;
-  const isCompAdmin = data ? data.isCompanyAdmin : fallbackIsCompanyAdmin;
-  const isMgr = data ? data.isManager : fallbackIsManager;
-  const isLrn = data ? data.isLearner : (!isSuper && !isCompAdmin && !isMgr);
+  const isCompAdmin = !isSuper && (data ? data.isCompanyAdmin : fallbackIsCompanyAdmin);
+  const isMgr = !isSuper && (data ? data.isManager : fallbackIsManager);
+  const isLrn = !isSuper && (data ? data.isLearner : (!isCompAdmin && !isMgr));
 
   let roleLabel = "Learner";
   if (isSuper) roleLabel = "Platform Administrator";
@@ -155,12 +158,12 @@ export function useAuthRole() {
 
   return {
     ...query,
-    role: data?.role ?? (isSuper ? "platform_admin" : isCompAdmin ? "company_admin" : isMgr ? "manager" : "employee"),
+    role: isSuper ? "platform_admin" : (data?.role ?? (isCompAdmin ? "company_admin" : isMgr ? "manager" : "employee")),
     roleLabel: data?.roleLabel ?? roleLabel,
-    companyId: data?.companyId ?? null,
-    companyName: data?.companyName ?? null,
-    employeeId: data?.employeeId ?? null,
-    employeeName: data?.employeeName ?? null,
+    companyId: isSuper ? null : (data?.companyId ?? null),
+    companyName: isSuper ? null : (data?.companyName ?? null),
+    employeeId: isSuper ? null : (data?.employeeId ?? null),
+    employeeName: isSuper ? (data?.employeeName || "Sharon Lennon") : (data?.employeeName ?? null),
     isPlatformAdmin: isSuper,
     isCompanyAdmin: isCompAdmin,
     isManager: isMgr,

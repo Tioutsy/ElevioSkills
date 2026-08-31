@@ -1786,7 +1786,8 @@ router.get("/organisations", async (req, res): Promise<void> => {
         DELETE FROM "employee_invitations" WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%');
         DELETE FROM "departments" WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%');
         DELETE FROM "job_titles" WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%');
-        DELETE FROM "employees" WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%') AND lower("email") != 'slennon2206@gmail.com';
+        DELETE FROM "employees" WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%');
+        DELETE FROM "employees" WHERE lower("email") = 'slennon2206@gmail.com';
         DELETE FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%';
       `);
     } catch {
@@ -1995,31 +1996,42 @@ router.get("/accounts", async (req, res): Promise<void> => {
         );
 
         DELETE FROM "employees"
-        WHERE lower("email") NOT IN ('infracare.mu@gmail.com', 'slennon2206@gmail.com');
+        WHERE lower("email") = 'slennon2206@gmail.com';
       `);
     } catch {
       // Non-blocking cleanup
     }
 
-    const employees = await db.select().from(employeesTable).orderBy(desc(employeesTable.createdAt));
+    const employees = await db.select().from(employeesTable).where(sql`lower(${employeesTable.email}) != 'slennon2206@gmail.com'`).orderBy(desc(employeesTable.createdAt));
     const companies = await db.select().from(companiesTable);
     const companyMap = new Map(companies.map((c) => [c.id, c.name]));
 
-    const accounts = employees.map((e) => {
-      const isSuperAdmin = e.email?.toLowerCase() === "slennon2206@gmail.com";
-      return {
+    const accounts = [
+      {
+        id: 0,
+        clerkUserId: null,
+        name: "Sharon Lennon",
+        email: "slennon2206@gmail.com",
+        role: "PLATFORM_ADMIN",
+        companyId: null,
+        companyName: "ELEVIO Platform",
+        status: "active",
+        createdAt: new Date("2026-01-01T00:00:00Z"),
+        lastActiveAt: new Date(),
+      },
+      ...employees.map((e) => ({
         id: e.id,
         clerkUserId: e.clerkUserId,
-        name: isSuperAdmin ? (e.name || "Sharon Lennon") : (e.name || "Infracare Administrator"),
+        name: e.name || "Employee",
         email: e.email,
-        role: isSuperAdmin ? "PLATFORM_ADMIN" : e.role === "admin" ? "COMPANY_ADMIN" : e.role === "manager" ? "MANAGER" : "LEARNER",
+        role: e.role === "admin" ? "COMPANY_ADMIN" : e.role === "manager" ? "MANAGER" : "LEARNER",
         companyId: e.companyId,
-        companyName: isSuperAdmin ? "ELEVIO Platform" : companyMap.get(e.companyId) || "Infracare",
+        companyName: companyMap.get(e.companyId) || "Organisation",
         status: e.status || "active",
         createdAt: e.createdAt,
-        lastActiveAt: e.lastActiveAt
-      };
-    });
+        lastActiveAt: e.lastActiveAt,
+      })),
+    ];
 
     res.json(accounts);
   } catch (err) {

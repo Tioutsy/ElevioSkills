@@ -1816,8 +1816,10 @@ export async function ensureSchemaModifications() {
       WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%');
 
       DELETE FROM "employees" 
-      WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%')
-        AND lower("email") != 'slennon2206@gmail.com';
+      WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%');
+
+      DELETE FROM "employees"
+      WHERE lower("email") = 'slennon2206@gmail.com';
 
       DELETE FROM "companies" 
       WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%';

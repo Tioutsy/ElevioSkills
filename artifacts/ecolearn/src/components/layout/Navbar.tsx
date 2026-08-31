@@ -64,7 +64,7 @@ export function Navbar() {
   }, []);
 
   const showCompanyWorkspace =
-    authRole.isCompanyAdmin || authRole.isManager || authRole.isPlatformAdmin;
+    (authRole.isCompanyAdmin || authRole.isManager) && !authRole.isPlatformAdmin;
   const showPlatformAdmin = authRole.isPlatformAdmin;
   const permittedCompanyNav = getPermittedCompanyNav(authRole);
 
