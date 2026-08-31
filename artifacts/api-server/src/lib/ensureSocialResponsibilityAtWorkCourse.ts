@@ -5,215 +5,196 @@ import {
   quizQuestionsTable,
   badgeDefinitionsTable,
   systemSeedsTable,
-  coursePrerequisitesTable,
 } from "@workspace/db";
-import { eq, and, or } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { logger } from "./logger";
 
 const COURSE_ID = 31;
 const COURSE_SLUG = "social-responsibility-at-work";
 const COURSE_TITLE = "Social Responsibility at Work";
 const BADGE_SLUG = "social-responsibility-practitioner";
-const SEED_NAME = "social-responsibility-at-work-v1";
+const SEED_NAME = "social-responsibility-at-work-v2";
 
 const COURSE_META = {
   courseCode: "ELH-31",
   description:
-    "Learn how organizational decisions and everyday workplace behaviors affect employees, customers, contractors, and communities, and discover practical ways to support a human-centered, responsible workplace.",
+    "Learn how organizational decisions and daily workplace behaviors affect employees, customers, contractors, and local communities under the Social (S) pillar of ESG.",
   fullDescription:
-    "Building directly on ELH-09 (ESG Basics), this course provides employees across all roles with a practical introduction to the Social (S) pillar of ESG. Explore the impact of business activities on internal and external stakeholders, distinguish company-level policy responsibilities from individual employee behaviors, navigate realistic Mauritius workplace scenarios, and apply practical habits that foster safety, respect, fairness, and trust.",
+    "This course provides employees, team leads, and managers across all operational roles with a practical, human-centered guide to the Social (S) pillar of ESG. Explore how business decisions impact internal workforce health, psychological safety, and fatigue management, understand human rights and modern slavery due diligence across outsourced contractor chains, safeguard customer privacy and accessibility, and navigate grievance escalation and speaking-up protocols safely.",
   categoryId: 1,
-  durationMinutes: 18,
+  durationMinutes: 25,
   priceUsd: "1400.00",
-  level: "Intermediate / Applied ESG",
+  level: "Applied Workplace Practice",
   isFeatured: false,
   thumbnailUrl: "/images/courses/social-responsibility.jpg",
+  intendedRoles: [
+    "All employees",
+    "Team leads, supervisors, and line managers",
+    "HR, health & safety, and administration staff",
+    "Customer service and frontline operations staff",
+    "Procurement and vendor management teams"
+  ],
   learningObjectives: [
-    "Explain the Social pillar of ESG in simple workplace language.",
-    "Identify internal and external stakeholder groups affected by business operations (employees, customers, contractors, suppliers, communities).",
-    "Recognise core workplace Social priorities, including health, safety, fair treatment, inclusion, and wellbeing.",
-    "Distinguish company-level responsibilities (policies, systems, oversight) from individual employee responsibilities (respect, safety, data care, honest reporting).",
-    "Evaluate workplace decision trade-offs where operational pressure conflicts with safety or human well-being.",
-    "Identify safe, appropriate channels for escalating workplace concerns or risks.",
-    "Select one practical workplace commitment to support a responsible and respectful workplace environment."
+    "Explain the Social (S) pillar of ESG in clear workplace language, distinguishing core business ethics from discretionary charity.",
+    "Recognise internal workforce priorities: occupational health and safety, psychological safety, reasonable working hours, and inclusion.",
+    "Identify human rights due diligence and modern slavery indicators across supply chains and outsourced frontline contractors (security, cleaning, catering).",
+    "Safeguard customer privacy, data protection, and accessible non-discriminatory service delivery.",
+    "Navigate workplace speaking-up, whistleblower protection, and structured grievance channels safely.",
+    "Complete 10 scenario-based assessment questions requiring defensible human-centered workplace decisions."
   ],
   includesCertificate: true,
   passingScore: 80,
   completionMessage:
-    "Congratulations on completing Social Responsibility at Work! Remember: Environmental = impact on planet, Social = impact on people, Governance = how responsibly the company is run. Social responsibility becomes real in the everyday decisions that affect people.",
+    "Congratulations on completing Social Responsibility at Work! You are now prepared to recognize human impacts in daily operational choices, uphold workplace safety and respect, and champion fair stakeholder practices.",
   badgeName: "Social Responsibility Practitioner",
   badgeDescription:
-    "Awarded for demonstrating practical understanding of workplace social responsibility, human-centric decision-making, and stakeholder care.",
+    "Awarded for demonstrating practical understanding of workplace social responsibility, human-centric decision-making, and stakeholder care."
 };
 
 const NEW_LESSONS = [
   {
     order: 0,
-    title: "Hook: Who Does This Decision Affect?",
-    minutes: 3,
-    content: "Understand how everyday operational choices affect different groups of people.",
+    title: "Who Does This Decision Affect? The 'S' in ESG",
+    minutes: 4,
+    content: "Understand how everyday operational choices affect people and why social responsibility starts inside core operations.",
     blocks: [
-      { id: "sr1-h1", type: "heading", position: 1, headingText: "Everyday Workplace Decisions Affect People" },
-      { id: "sr1-t1", type: "short_text", position: 2, bodyText: "A busy service hub in Ebène, Mauritius receives an urgent weekend client order. To meet the deadline, a supervisor considers cancelling scheduled break shifts and requiring overnight overtime without checking worker fatigue or safety guidelines. At first glance, this seems like a simple scheduling choice to satisfy a client. In reality, it affects employee health, contractor safety, service quality, and company reputation." },
+      { id: "sr1-h1", type: "heading", position: 1, headingText: "Everyday Decisions Have Human Consequences" },
+      { id: "sr1-t1", type: "short_text", position: 2, bodyText: "At a commercial logistics and service facility, an urgent client order arrives late on a Friday. To hit the delivery bonus, a supervisor considers cancelling mandatory rest breaks and forcing staff to work double shifts across the weekend without safety briefings. What seems like an operational speed decision directly impacts worker fatigue, road safety, error rates, and employee dignity." },
       {
         id: "sr1-k1",
         type: "key_message",
         position: 3,
-        headingText: "What Does Social Responsibility Mean?",
-        bodyText: "• Social = How a business affects people.\n• Affected Groups:\n  - Employees: Staff health, safety, fair treatment, wellbeing, skill growth.\n  - Customers: Customer safety, accessibility, privacy, honest communication.\n  - Contractors & Supply Chain: Fair treatment, safe site conditions, transparent terms.\n  - Local Communities: Neighborhood safety, noise, traffic, environmental health."
-      },
-      {
-        id: "sr1-t2",
-        type: "short_text",
-        position: 4,
-        bodyText: "Social Responsibility vs. Charity:\nSocial responsibility is NOT about public relations, charity donations, or optional sponsorships. It is about how the company conducts its core business operations every single day."
+        headingText: "Core Business Conduct vs Discretionary Charity",
+        bodyText: "Social responsibility is NOT about annual charity galas or marketing PR donations. It is about how an organization conducts its core business operations every single day: how it treats workers, protects health, respects customers, manages supply chain labor, and impacts host communities."
       },
       {
         id: "sr1-d1",
         type: "decision_scenario",
-        position: 5,
-        decisionIntro: "First Impression Challenge:",
-        decisionPrompt: "A coworker says: 'Social responsibility just means donating money to local sports clubs once a year.' How do you respond?",
+        position: 4,
+        decisionIntro: "Social responsibility definition scenario:",
+        decisionPrompt: "A colleague remarks: 'Our company donates footballs to local youth clubs every Christmas, so our Social pillar score is completely covered.' How should you respond?",
         decisionChoices: [
-          { label: "Explain that Social responsibility is about how our daily business operations treat people—our employees, customers, contractors, and local neighbors—every day.", correct: true, feedback: "Exactly right! Social responsibility starts in our core daily business operations." },
-          { label: "Agree that Social responsibility is purely about annual charity donations.", correct: false, feedback: "Incorrect. Charity donations do not replace responsible daily treatment of employees and customers." },
-          { label: "Say that Social responsibility means deleting customer safety logs to save server disk space.", correct: false, feedback: "Incorrect. Destroying safety records violates ethics and governance." }
+          { label: "Explain that the Social pillar evaluates core internal and external operational conduct—worker safety, fair wages, contractor welfare, and customer privacy—which cannot be offset by charity donations", correct: true, feedback: "Correct! Philanthropy does not compensate for unsafe working conditions, forced overtime, or supplier mistreatment in core operations." },
+          { label: "Agree that community donations are the only metric evaluated by ESG investors and regulators", correct: false, feedback: "Incorrect. ESG rating frameworks focus primarily on core operational workplace standards and human capital management." },
+          { label: "Tell the colleague that companies are legally prohibited from supporting charities", correct: false, feedback: "Incorrect. Charitable giving is positive, but it is distinct from core operational social responsibility." }
         ]
       }
     ]
   },
   {
     order: 1,
-    title: "People Inside the Organisation: Safety, Fairness & Respect",
+    title: "Internal Workforce: Safety, Fatigue & Psychological Well-being",
     minutes: 4,
-    content: "Explore health and safety, fair treatment, inclusion, and employee wellbeing.",
+    content: "Examine physical safety, manageable workloads, anti-harassment standards, and psychological safety.",
     blocks: [
-      { id: "sr2-h1", type: "heading", position: 1, headingText: "Internal People: Our Workplace Workforce" },
-      { id: "sr2-t1", type: "short_text", position: 2, bodyText: "The most immediate group affected by any organisation is its workforce. A responsible business ensures every team member can work safely, be treated fairly, and grow professionally." },
+      { id: "sr2-h1", type: "heading", position: 1, headingText: "Protecting the Workforce" },
+      { id: "sr2-t1", type: "short_text", position: 2, bodyText: "A socially responsible employer ensures every employee returns home safely at the end of each shift, works in an environment free from discrimination and harassment, and feels empowered to speak up about safety hazards." },
       {
         id: "sr2-k1",
         type: "key_message",
         position: 3,
-        headingText: "Key Internal Social Priorities",
-        bodyText: "• Health & Safety: Wearing PPE, following safety protocols, reporting physical and ergonomic hazards.\n• Fair Treatment & Inclusion: Zero tolerance for harassment, equal opportunity, respectful communication.\n• Working Conditions & Wellbeing: Reasonable work schedules, break times, mental health awareness, manageable workload.\n• Growth & Training: Equal access to skill development, fair performance reviews, clear career pathways.\n• Raising Concerns Safely: Knowing designated channels to report hazards, ethics violations, or unfair treatment without fear."
+        headingText: "Four Pillars of Internal Social Health",
+        bodyText: "1. Physical Safety & PPE: Strict adherence to safety protocols, machine guarding, ergonomic workstations, and incident reporting.\n2. Fair Hours & Fatigue Management: Respecting statutory rest periods, overtime limits, and monitoring burnout.\n3. Psychological Safety: An organizational culture where workers can raise errors, near-misses, or concerns without fear of retaliation or humiliation.\n4. Inclusion & Non-Discrimination: Equal opportunity in hiring, promotions, and training regardless of gender, race, age, religion, or disability."
       },
       {
-        id: "sr2-w1",
-        type: "workplace_example",
+        id: "sr2-d1",
+        type: "decision_scenario",
         position: 4,
-        headingText: "Workplace Example: Managing Fatigue",
-        bodyText: "An operational team lead notices a technician working double shifts to cover for an absent colleague. Recognizing the fatigue hazard, the lead reassigns non-urgent tasks and logs an official shift replacement request rather than pushing the technician to exhaustion."
+        decisionIntro: "Fatigue and safety dilemma:",
+        decisionPrompt: "A machine operator has been working continuously for 14 hours due to shift absenteeism and is showing visible signs of severe physical exhaustion while operating heavy hydraulic press machinery. The team is 20 units away from their daily target. What should the shift supervisor do?",
+        decisionChoices: [
+          { label: "Relieve the operator immediately, assign a fresh qualified colleague or pause the line; worker life and physical safety must never be risked for a production target", correct: true, feedback: "Spot on! Operator fatigue is a leading cause of catastrophic workplace amputations and fatalities. Safety and human well-being take absolute priority over daily quotas." },
+          { label: "Give the operator a cup of coffee and demand they push through until the target is hit", correct: false, feedback: "Severe hazard! Caffeine does not cure severe physical fatigue; forcing exhausted staff to run dangerous machines violates occupational safety laws." },
+          { label: "Falsify the timecard to hide the 14-hour shift from HR records", correct: false, feedback: "Illegal! Falsifying safety and labor records is a serious governance and regulatory violation." }
+        ]
       }
     ]
   },
   {
     order: 2,
-    title: "People Outside the Organisation: Customers, Contractors & Community",
+    title: "Contractor Welfare & Modern Slavery Due Diligence",
     minutes: 4,
-    content: "Understand how company actions touch customers, third-party contractors, and local communities.",
+    content: "Ensure third-party outsourced workers (cleaning, security, catering, construction) receive fair treatment and safe conditions.",
     blocks: [
-      { id: "sr3-h1", type: "heading", position: 1, headingText: "External People: Customers, Partners & Neighbors" },
-      { id: "sr3-t1", type: "short_text", position: 2, bodyText: "Social responsibility extends beyond full-time employees. Company decisions touch customers, third-party contractors, supply chain workers, and local communities." },
+      { id: "sr3-h1", type: "heading", position: 1, headingText: "Social Responsibility Across the Extended Workforce" },
+      { id: "sr3-t1", type: "short_text", position: 2, bodyText: "Many commercial facilities rely on outsourced service providers for cleaning, security guarding, catering, and maintenance. Organizations are responsible for ensuring contractor staff on their premises are treated with dignity and work in safe, legal conditions." },
       {
         id: "sr3-k1",
         type: "key_message",
         position: 3,
-        headingText: "Key External Social Priorities",
-        bodyText: "• Customer Care & Safety: Ensuring products/services are safe, transparently communicated, and physically/digitally accessible.\n• Data Privacy & Confidentiality: Protecting customer personal information and client files from unauthorized access.\n• Contractors & Supply Chain: Treating third-party technicians, security staff, and supplier workers with the same safety standards and respect as internal staff.\n• Local Community Impact: Managing local noise, traffic congestion, waste spills, and respecting local neighborhood well-being."
+        headingText: "Modern Slavery and Fair Labor Red Flags",
+        bodyText: "• Wage Deductions & Retained Passports: Subcontractors withholding identity documents or making unauthorized deductions from low-wage workers.\n• Excessive Shifts: Security guards or cleaners working 18-hour continuous shifts without access to drinking water, seating, or hygienic rest amenities.\n• Substandard PPE: Contractors denying their frontline workers basic safety shoes, gloves, or respiratory protection."
       },
       {
-        id: "sr3-f1",
-        type: "memorable_fact",
+        id: "sr3-m1",
+        type: "multiple_choice",
         position: 4,
-        headingText: "Did You Know? (Worth Knowing)",
-        bodyText: "According to international business studies, 76% of customers and 82% of job candidates prefer companies with strong, verifiable social responsibility standards! Treating people responsibly drives long-term brand trust and talent retention."
+        mcqQuestion: "What should a facilities manager do upon noticing that outsourced cleaning staff on site are working with hazardous chemical strippers without basic gloves or eye protection?",
+        mcqOptions: [
+          "Stop the hazardous task immediately and require the contractor supervisor to provide certified PPE before work resumes",
+          "Ignore the situation because contracted cleaners are not direct employees on the company payroll",
+          "Deduct money from the cleaning contractor's invoice without addressing the safety hazard",
+          "Tell the cleaners to work faster so they are exposed to chemicals for a shorter time"
+        ],
+        mcqCorrectIndex: 0,
+        mcqCorrectExplanation: "Host organizations have a legal and ethical duty of care for all workers on their premises. Unsafe work must be stopped immediately.",
+        mcqIncorrectExplanation: "Incorrect. Duty of care applies to all workers on site regardless of employment contract structure."
       }
     ]
   },
   {
     order: 3,
-    title: "Company Responsibility vs Employee Role",
-    minutes: 3,
-    content: "Distinguish leadership policy responsibilities from individual employee behaviors.",
+    title: "Customer Welfare, Accessibility & Data Privacy",
+    minutes: 4,
+    content: "Protect customer data rights, prevent misleading marketing, and ensure accessible service delivery.",
     blocks: [
-      { id: "sr4-h1", type: "heading", position: 1, headingText: "Systems & Strategy vs. Daily Behaviors" },
-      { id: "sr4-t1", type: "short_text", position: 2, bodyText: "To practice Social responsibility effectively, it is essential to distinguish what the company is responsible for from what individual employees contribute." },
+      { id: "sr4-h1", type: "heading", position: 1, headingText: "External People: Customers and Service Users" },
+      { id: "sr4-t1", type: "short_text", position: 2, bodyText: "The Social pillar also governs an organization's relationship with its customers and community. Fair treatment, truthful communication, accessibility, and strict privacy protection are core social responsibilities." },
       {
         id: "sr4-k1",
         type: "key_message",
         position: 3,
-        headingText: "Company Responsibility vs. Employee Contribution",
-        bodyText: "• Company / Leadership Responsibility: Creating fair HR policies, establishing safe facilities, providing safety equipment, setting manageable workloads, maintaining formal grievance/reporting channels, and funding training.\n• Employee Contribution: Following safety procedures, treating coworkers with respect, protecting customer privacy, recording work data accurately, and raising concerns through designated reporting channels."
-      },
-      {
-        id: "sr4-d1",
-        type: "decision_scenario",
-        position: 4,
-        decisionIntro: "Reporting Challenge:",
-        decisionPrompt: "An employee notices that a contractor's safety harness is frayed while working at height. The contractor says: 'Don't worry, I've used this for years.' What should the employee do?",
-        decisionChoices: [
-          { label: "Stop the work immediately if authorized, report the safety hazard to the site supervisor, and ensure proper equipment is provided before work resumes.", correct: true, feedback: "Outstanding! Escalating safety hazards protects human life and complies with site safety rules." },
-          { label: "Ignore it because contractors are employed by a third-party agency.", correct: false, feedback: "Incorrect. Safety hazards on site threaten human life regardless of employment contracts." },
-          { label: "Tell the contractor to work faster so they finish before an inspector arrives.", correct: false, feedback: "Incorrect. Rushing dangerous work increases injury risks severe legal liability." }
-        ]
+        headingText: "Customer Social Priorities",
+        bodyText: "• Data Privacy & Consent: Strict adherence to data protection acts; customer records must never be sold or shared without clear authorization.\n• Accessible Services: Providing physical access ramps, accessible digital platforms, and supportive assistance for individuals with disabilities.\n• Truthful Commercial Communication: Transparent product terms, fair pricing, and zero deceptive fine print."
       }
     ]
   },
   {
     order: 4,
-    title: "ESG in Real Life: Mauritius Workplace Scenario",
-    minutes: 3,
-    content: "Examine a realistic Mauritius business situation and make human-centered decisions.",
+    title: "Action Boundaries: Speaking Up & Whistleblower Safety",
+    minutes: 4,
+    content: "Understand how to report safety hazards, harassment, or labor violations through protected channels.",
     blocks: [
-      { id: "sr5-h1", type: "heading", position: 1, headingText: "Real-Life Application: Resort & Corporate Operations in Grand Baie" },
-      { id: "sr5-t1", type: "short_text", position: 2, bodyText: "At a hotel resort and corporate service complex in Grand Baie, Mauritius, the team faces high seasonal demand. During a busy afternoon, three operational choices arise at once." },
+      { id: "sr5-h1", type: "heading", position: 1, headingText: "The Speaking-Up Culture" },
+      { id: "sr5-t1", type: "short_text", position: 2, bodyText: "A socially responsible company provides transparent, confidential channels for employees and contractors to report safety risks, bullying, discrimination, or ethical breaches without fear of retaliation." },
       {
-        id: "sr5-img1",
-        type: "visual_question",
+        id: "sr5-k1",
+        type: "key_message",
         position: 3,
-        imageUrl: "/images/courses/visual-social-responsibility.png",
-        caption: "Grand Baie Operations Review: Evaluating Ergonomics (S), Contractor Safety (S), and Data Protection (G/S).",
-        imageAlt: "Illustration of a Mauritian resort office showing staff schedules, safety inspection logs, customer data folders, and contractor permits."
-      },
-      {
-        id: "sr5-d1",
-        type: "decision_scenario",
-        position: 4,
-        decisionIntro: "Multi-Stakeholder Decision Challenge:",
-        decisionPrompt: "The resort manager evaluates 3 high-pressure situations:\nSituation A: A kitchen line cook reports severe wrist pain and asks for ergonomic support during peak dinner service.\nSituation B: A temporary maintenance contractor is asked to clean outdoor glass windows without safety goggles or harness inspection.\nSituation C: A receptionist leaves unencrypted customer passport files open on a public desk counter to handle a check-in queue.\nWhat is the most responsible multi-stakeholder resolution?",
-        decisionChoices: [
-          { label: "Address all 3 risks: pause the contractor until safety gear is verified, secure customer passport files immediately, and rotate the line cook to lighter prep work while logging an ergonomic review.", correct: true, feedback: "Outstanding! Protecting staff safety, contractor welfare, and customer data privacy preserves operational integrity and respects human dignity." },
-          { label: "Ignore all three items until seasonal peak demand ends next month.", correct: false, feedback: "Incorrect. Delaying safety, health, and privacy risks leads to severe injury, data breach liability, and staff burnout." },
-          { label: "Fix Situation A only because internal staff are more important than contractors or customers.", correct: false, feedback: "Incorrect. Social responsibility encompasses all people affected by the business—employees, contractors, and customers alike!" }
-        ]
+        headingText: "Structured Reporting Channels",
+        bodyText: "1. LINE MANAGEMENT: Raise immediate operational safety and workload concerns directly with supervisors.\n2. HR & HEALTH/SAFETY OFFICERS: Escalate workplace conflicts, harassment, or chronic ergonomic hazards.\n3. CONFIDENTIAL ETHICS HELPLINES: Use anonymous whistleblower channels for severe misconduct, retaliation, or senior leadership violations."
       }
     ]
   },
   {
     order: 5,
-    title: "Your Role in Social Responsibility & Personal Commitment",
-    minutes: 2,
-    content: "Discover how individual actions contribute to company goals and commit to a daily workplace habit.",
+    title: "Your Workplace Social Responsibility Commitment",
+    minutes: 3,
+    content: "Select practical commitments to foster safety, dignity, and respect in your daily work routine.",
     blocks: [
-      { id: "sr6-h1", type: "heading", position: 1, headingText: "Pledge to Support a Responsible Workplace" },
-      { id: "sr6-t1", type: "short_text", position: 2, bodyText: "Every workday brings choices that affect people. Select the practical habits you commit to practice in your daily role." },
-      {
-        id: "sr6-k1",
-        type: "key_message",
-        position: 3,
-        headingText: "How You Support Social Responsibility Every Day",
-        bodyText: "• Listen respectfully when colleagues raise safety or workload concerns.\n• Follow physical safety rules and wear protective equipment.\n• Protect customer personal information and confidential data.\n• Treat third-party contractors and temporary staff fairly.\n• Raise hazards or policy gaps through designated management channels."
-      },
+      { id: "sr6-h1", type: "heading", position: 1, headingText: "Pledge to Act & Operational Takeaways" },
+      { id: "sr6-t1", type: "short_text", position: 2, bodyText: "Congratulations on completing Social Responsibility at Work! Select the commitments below relevant to your daily role." },
       {
         id: "sr6-c1",
         type: "commitment",
-        position: 4,
-        commitmentInstruction: "Select your daily workplace Social responsibility commitment (choose at least one):",
+        position: 3,
+        commitmentInstruction: "Select your workplace social responsibility commitments (choose at least one):",
         commitmentOptions: [
-          { value: "prioritize-safety-reporting", label: "Report safety hazards and support physical/mental wellbeing for my team", description: "Contribute to internal workforce health and safety." },
-          { value: "treat-all-fairly", label: "Treat all colleagues, contractors, and customers with fairness and respect", description: "Promote workplace inclusion and equal treatment." },
-          { value: "protect-data-privacy", label: "Protect customer data and confidential files in daily tasks", description: "Safeguard customer privacy and trust." },
-          { value: "raise-concerns-appropriately", label: "Raise workplace concerns or policy gaps through proper channels", description: "Support transparent communication and corporate accountability." }
+          { value: "prioritize-physical-safety", label: "Never compromise physical safety or PPE standards for speed or production quotas", description: "Protect yourself and teammates from injury." },
+          { value: "foster-respect-inclusion", label: "Treat all colleagues, contractors, and customers with dignity, fairness, and respect", description: "Uphold an inclusive, harassment-free workplace." },
+          { value: "speak-up-on-hazards", label: "Report near-misses, fatigue hazards, and safety violations promptly through designated channels", description: "Build a proactive, transparent safety culture." },
+          { value: "protect-contractor-welfare", label: "Ensure outsourced workers on site have access to safe conditions, PPE, and basic amenities", description: "Demonstrate due diligence across the extended workforce." },
+          { value: "safeguard-customer-privacy", label: "Handle customer and employee personal data securely and strictly according to privacy regulations", description: "Protect stakeholder trust and confidential records." }
         ]
       }
     ]
@@ -223,173 +204,166 @@ const NEW_LESSONS = [
 const NEW_QUIZ = [
   {
     order: 1,
-    question: "What does the Social (S) pillar of ESG focus on in plain workplace language?",
+    question: "What is the core focus of the Social (S) pillar of ESG in plain workplace language?",
     options: [
-      "Exclusively managing company tax filing deadlines",
-      "Evaluating how an organisation's decisions and daily operations affect people—including employees, customers, contractors, and communities",
-      "Designing promotional marketing flyers for corporate social media accounts",
-      "Calculating solar panel electrical output for facility rooftops"
+      "How an organization's core operations treat and impact people—including employees, contractors, customers, and local communities",
+      "The amount of money spent on marketing billboards and corporate sports sponsorships",
+      "Ensuring that all employees attend mandatory social cocktail parties every Friday",
+      "Tracking the total volume of paper recycled in administrative offices"
     ],
-    correct: 1,
-    correctExplanation: "The Social pillar evaluates how a business affects people across internal workforce and external stakeholders.",
-    incorrectExplanation: "Incorrect. The Social pillar focuses on people affected by the organisation."
+    correct: 0,
+    correctExplanation: "The Social pillar examines human capital, labor standards, workplace health and safety, contractor welfare, customer rights, and community relations.",
+    incorrectExplanation: "Incorrect. The Social pillar evaluates human relationships, safety, fairness, and stakeholder impact across operations."
   },
   {
     order: 2,
-    question: "An employee notices a team member working long overtime hours and showing clear signs of physical exhaustion near machinery. What is the most responsible action?",
+    question: "Why can discretionary charitable donations never replace responsible operational labor standards under ESG criteria?",
     options: [
-      "Encourage the team member to drink coffee and continue operating machinery faster",
-      "Ignore the situation because overtime is an individual employee choice",
-      "Report the fatigue hazard to the supervisor immediately so tasks can be safely reassigned or breaks provided",
-      "Tell the team member to leave work without informing management"
+      "Because public charity does not eliminate or offset internal health hazards, worker exploitation, or unfair labor practices in core operations",
+      "Because corporate donations to charity are illegal under international trade law",
+      "Because investors only care about marketing logos on football jerseys",
+      "Because charities refuse to accept funds from profitable businesses"
     ],
-    correct: 2,
-    correctExplanation: "Recognizing fatigue hazards and escalating them promptly protects workplace safety and employee health.",
-    incorrectExplanation: "Incorrect. Fatigue hazards must be reported immediately to protect safety."
+    correct: 0,
+    correctExplanation: "ESG criteria evaluate how profits are made (fair wages, safe conditions, dignity), not whether a fraction of profit is donated to charity.",
+    incorrectExplanation: "Incorrect. Charity cannot compensate for unsafe or exploitative operational working conditions."
   },
   {
     order: 3,
-    question: "How should customer personal information (such as national ID numbers, address records, or payment data) be treated under workplace Social responsibility?",
+    question: "What is 'psychological safety' in a commercial workplace setting?",
     options: [
-      "Protected securely, kept confidential, and handled strictly in accordance with company data protection procedures",
-      "Printed on public flyers and handed out in office reception areas",
-      "Saved on unencrypted personal mobile phones",
-      "Discarded in open recycling bins without shredding"
+      "A culture where employees feel safe to speak up about errors, safety hazards, near-misses, or ethical concerns without fear of humiliation or retaliation",
+      "Installing locks on all office doors so nobody can enter",
+      "Providing free video games in the employee breakroom",
+      "Eliminating all performance targets and deadlines permanently"
     ],
     correct: 0,
-    correctExplanation: "Protecting customer privacy and confidential data is a core Social responsibility that builds trust.",
-    incorrectExplanation: "Incorrect. Customer data must be protected securely and confidentially."
+    correctExplanation: "Psychological safety empowers employees to raise safety concerns and admit mistakes early, preventing catastrophic accidents.",
+    incorrectExplanation: "Incorrect. Psychological safety enables transparent reporting of hazards and near-misses without fear of blame."
   },
   {
     order: 4,
-    question: "What is the difference between company-level responsibility and individual employee responsibility in Social ESG?",
+    question: "A line supervisor observes a frontline machine operator who has worked 15 consecutive hours and is visibly nodding off at the controls. What is the correct response?",
     options: [
-      "Individual employees carry 100% legal liability for structural company policies while management has no role",
-      "Company policies only apply on public holidays",
-      "There is no difference between corporate leadership and individual employees",
-      "The company establishes policies, safe systems, and resources, while employees contribute by following safety rules, treating people respectfully, and reporting hazards"
+      "Relieve the operator immediately and ensure a rested qualified team member takes over; physical life and safety must never be sacrificed for quotas",
+      "Offer the operator an energy drink and demand they complete the final 50 units",
+      "Tell the operator to close their eyes while operating the machine to rest their eyelids",
+      "Falsify the shift timecard to hide the 15-hour duration from senior management"
     ],
-    correct: 3,
-    correctExplanation: "Leadership sets corporate policies and systems; employees contribute through daily responsible behaviors.",
-    incorrectExplanation: "Incorrect. Leadership sets policies, while employees contribute through daily actions."
+    correct: 0,
+    correctExplanation: "Severe worker fatigue causes severe industrial amputations and fatalities. Operational quotas must never override life safety.",
+    incorrectExplanation: "Incorrect. Forcing an exhausted worker to operate dangerous machinery is a severe safety violation."
   },
   {
     order: 5,
-    question: "During a peak demand period at a Mauritian commercial facility, a contractor is asked to perform high-voltage electrical repairs without standard safety gear. What should happen?",
+    question: "How should an organization treat third-party contracted staff (such as outsourced security guards, cleaners, or canteen workers) operating on its premises?",
     options: [
-      "Proceed with electrical repairs to avoid delaying client orders",
-      "Pause the work until proper safety gear and permits are verified, protecting human life over short-term speed",
-      "Instruct an untrained internal staff member to do the repair instead",
-      "Cancel the entire client contract and close the facility permanently"
+      "With full duty of care, ensuring they have access to safe working conditions, certified PPE, drinking water, fair rest periods, and clean amenities",
+      "As completely disposable labor with zero rights or safety protections",
+      "By forbidding them from using staff washrooms or drinking clean water",
+      "By confiscating their passports and national identity cards at the security gate"
     ],
-    correct: 1,
-    correctExplanation: "Responsible workplace decision-making prioritizes human safety over short-term operational speed.",
-    incorrectExplanation: "Incorrect. Always prioritize human life and safety over short-term operational speed."
+    correct: 0,
+    correctExplanation: "Due diligence and social responsibility extend to all workers operating on an organization's premises regardless of employment contracts.",
+    incorrectExplanation: "Incorrect. Organizations have a duty of care to ensure safe, humane conditions for all contracted workers on site."
+  },
+  {
+    order: 6,
+    question: "Which of the following is a major red flag indicating potential modern slavery or labor exploitation in a supplier's contracted workforce?",
+    options: [
+      "The contractor retains workers' original passports and makes unauthorized deductions that trap workers in continuous debt",
+      "Workers are provided with certified safety footwear and paid according to statutory wage rates",
+      "Employees receive comprehensive on-the-job safety training in their native language",
+      "Workers have access to a clean staff cafeteria and scheduled rest breaks"
+    ],
+    correct: 0,
+    correctExplanation: "Retaining passports, debt bondage, and restricted freedom of movement are definitive indicators of modern slavery and forced labor.",
+    incorrectExplanation: "Incorrect. Document retention and debt bondage are clear red flags of forced labor."
+  },
+  {
+    order: 7,
+    question: "How does responsible customer data privacy relate to the Social (S) pillar of ESG?",
+    options: [
+      "Customer personal and financial records are sensitive assets; safeguarding privacy prevents identity theft, fraud, and violations of human rights",
+      "Data privacy is purely an IT software issue with no social or ethical relevance",
+      "Customer data should be published on public message boards to promote transparency",
+      "Selling customer email lists without consent is a recommended way to increase green revenue"
+    ],
+    correct: 0,
+    correctExplanation: "Protecting consumer data, securing confidential records, and obtaining transparent consent are fundamental social responsibility standards.",
+    incorrectExplanation: "Incorrect. Safeguarding personal customer data is a core ethical and legal component of stakeholder responsibility."
+  },
+  {
+    order: 8,
+    question: "What is the purpose of a confidential whistleblower or grievance mechanism in an enterprise?",
+    options: [
+      "To provide a secure, protected avenue for workers to report illegal conduct, severe harassment, or safety violations without fear of retaliation",
+      "To encourage employees to spread malicious gossip about colleagues' personal lives",
+      "To publicly broadcast internal company complaints on television",
+      "To replace the national judicial court system entirely"
+    ],
+    correct: 0,
+    correctExplanation: "Whistleblower channels allow organizations to detect and resolve severe misconduct internally while protecting reporting individuals.",
+    incorrectExplanation: "Incorrect. Whistleblower mechanisms protect workers who report ethical and safety breaches from retaliation."
+  },
+  {
+    order: 9,
+    question: "An employee notices that a coworker with a mobility disability cannot access the team's new second-floor meeting room because the elevator is broken. What should they do?",
+    options: [
+      "Advocate to relocate the meeting to an accessible ground-floor room and log an urgent repair ticket for the elevator with facilities",
+      "Tell the coworker that people with disabilities are not allowed in team meetings",
+      "Ignore the issue and hold the meeting without the coworker",
+      "Carry the coworker up the stairs by their arms without permission"
+    ],
+    correct: 0,
+    correctExplanation: "Accessible workspaces and inclusive operational adjustments ensure all team members participate fully with dignity and safety.",
+    incorrectExplanation: "Incorrect. Relocating meetings to accessible spaces and fixing physical barriers upholds inclusion and dignity."
+  },
+  {
+    order: 10,
+    question: "Why does investing in employee well-being, fair compensation, and transparent career progression strengthen long-term business performance?",
+    options: [
+      "It reduces costly turnover, attracts top talent, boosts productivity, minimizes accident rates, and builds stakeholder trust",
+      "It eliminates the need for companies to make a financial profit",
+      "It guarantees that no competitor will ever enter the market",
+      "It makes physical equipment run without electricity"
+    ],
+    correct: 0,
+    correctExplanation: "Human capital investment drives operational excellence, lowers recruitment costs, fosters innovation, and underpins sustainable growth.",
+    incorrectExplanation: "Incorrect. Strong social standards directly improve talent retention, operational safety, and long-term enterprise resilience."
   }
 ];
 
 export async function ensureSocialResponsibilityAtWorkCourse(): Promise<void> {
   try {
     await db.transaction(async (tx) => {
-      // 1. Resolve Course by courseCode "ELH-31", slug, or title
-      let existingCourse = null;
-
-      const [byCode] = await tx
+      // 1. Resolve Course 31 by ID 31 or slug
+      let course = null;
+      
+      const [byId] = await tx
         .select()
         .from(coursesTable)
-        .where(eq(coursesTable.courseCode, "ELH-31"))
+        .where(eq(coursesTable.id, COURSE_ID))
         .limit(1);
 
-      if (byCode) {
-        existingCourse = byCode;
+      if (byId) {
+        course = byId;
       } else {
         const [bySlug] = await tx
           .select()
           .from(coursesTable)
           .where(eq(coursesTable.slug, COURSE_SLUG))
           .limit(1);
-        if (bySlug) {
-          existingCourse = bySlug;
-        } else {
-          const [byTitle] = await tx
-            .select()
-            .from(coursesTable)
-            .where(eq(coursesTable.title, COURSE_TITLE))
-            .limit(1);
-          if (byTitle) {
-            existingCourse = byTitle;
-          }
-        }
+        course = bySlug ?? null;
       }
 
-      let courseId: number;
-
-      if (!existingCourse) {
-        logger.info("Seeding new ELH-31 Social Responsibility at Work course record...");
-        try {
-          const [inserted] = await tx
-            .insert(coursesTable)
-            .values({
-              courseCode: COURSE_META.courseCode,
-              slug: COURSE_SLUG,
-              title: COURSE_TITLE,
-              description: COURSE_META.description,
-              fullDescription: COURSE_META.fullDescription,
-              categoryId: COURSE_META.categoryId,
-              durationMinutes: COURSE_META.durationMinutes,
-              priceUsd: COURSE_META.priceUsd,
-              level: COURSE_META.level,
-              isFeatured: COURSE_META.isFeatured,
-              thumbnailUrl: COURSE_META.thumbnailUrl,
-              learningObjectives: COURSE_META.learningObjectives,
-              includesCertificate: COURSE_META.includesCertificate,
-              passingScore: COURSE_META.passingScore,
-              completionMessage: COURSE_META.completionMessage,
-              badgeName: COURSE_META.badgeName,
-              badgeDescription: COURSE_META.badgeDescription,
-              isPublished: true,
-              status: "published",
-            })
-            .returning();
-          courseId = inserted.id;
-        } catch (_err) {
-          const [retry] = await tx
-            .select()
-            .from(coursesTable)
-            .where(eq(coursesTable.slug, COURSE_SLUG))
-            .limit(1);
-          if (retry) {
-            courseId = retry.id;
-          } else {
-            throw _err;
-          }
-        }
-      } else {
-        courseId = existingCourse.id;
-        await tx
-          .update(coursesTable)
-          .set({
-            courseCode: COURSE_META.courseCode,
-            title: COURSE_TITLE,
-            slug: COURSE_SLUG,
-            description: COURSE_META.description,
-            fullDescription: COURSE_META.fullDescription,
-            categoryId: COURSE_META.categoryId,
-            durationMinutes: COURSE_META.durationMinutes,
-            priceUsd: COURSE_META.priceUsd,
-            level: COURSE_META.level,
-            thumbnailUrl: COURSE_META.thumbnailUrl,
-            learningObjectives: COURSE_META.learningObjectives,
-            completionMessage: COURSE_META.completionMessage,
-            badgeName: COURSE_META.badgeName,
-            badgeDescription: COURSE_META.badgeDescription,
-            isPublished: true,
-            status: "published",
-          })
-          .where(eq(coursesTable.id, courseId));
+      if (!course) {
+        throw new Error("Course 31 not seeded by catalogue skeletons bootstrap!");
       }
 
-      // 2. Fetch system seed marker
+      const courseId = course.id;
+
+      // 2. Fetch seed marker and existing database content
       const [existingSeed] = await tx
         .select()
         .from(systemSeedsTable)
@@ -401,62 +375,68 @@ export async function ensureSocialResponsibilityAtWorkCourse(): Promise<void> {
         .from(lessonsTable)
         .where(eq(lessonsTable.courseId, courseId));
 
-      const existingQuiz = await tx
+      const existingQuizQuestions = await tx
         .select()
         .from(quizQuestionsTable)
         .where(eq(quizQuestionsTable.courseId, courseId));
 
-      const needsRepair = !existingSeed || existingLessons.length !== 6 || existingQuiz.length !== 5;
+      // 3. Evaluate integrity violations
+      const hasMissingLessons = existingLessons.length !== NEW_LESSONS.length;
+      const hasEmptyBlocks = existingLessons.some(
+        (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
+      );
+      const hasMissingQuiz = existingQuizQuestions.length !== NEW_QUIZ.length;
+      const hasIncorrectSlug = course.slug !== COURSE_SLUG;
+
+      const needsRepair = !existingSeed ||
+                          hasMissingLessons ||
+                          hasEmptyBlocks ||
+                          hasMissingQuiz ||
+                          hasIncorrectSlug;
 
       if (!needsRepair) {
-        logger.info({ courseId, slug: COURSE_SLUG }, "Social Responsibility course content verified. Skipping repair...");
+        logger.info({ courseId, slug: COURSE_SLUG }, "Social Responsibility course content and v2 integrity verified. Skipping repair to preserve administrator edits...");
         return;
       }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "Seeding or repairing ELH-31 course content transactionally...");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v2 seed detected for Course 31. Re-seeding course content and lessons transactionally...");
 
-      // 3. Resolve ELH-09 as prerequisite & next course logic
-      const [elh09] = await tx
+      // 4. Resolve next recommended course dynamically by slug
+      const [nextCourse] = await tx
         .select({ id: coursesTable.id })
         .from(coursesTable)
-        .where(eq(coursesTable.courseCode, "ELH-09"))
+        .where(eq(coursesTable.slug, "ethics-governance-and-responsible-business"))
         .limit(1);
+      const nextCourseId = nextCourse?.id ?? null;
 
-      if (elh09) {
-        const [existingPrereq] = await tx
-          .select()
-          .from(coursePrerequisitesTable)
-          .where(
-            and(
-              eq(coursePrerequisitesTable.courseId, courseId),
-              eq(coursePrerequisitesTable.prerequisiteCourseId, elh09.id)
-            )
-          )
-          .limit(1);
+      // 5. Update course record slug, title, and metadata
+      await tx
+        .update(coursesTable)
+        .set({
+          title: COURSE_TITLE,
+          slug: COURSE_SLUG,
+          description: COURSE_META.description,
+          fullDescription: COURSE_META.fullDescription,
+          categoryId: COURSE_META.categoryId,
+          durationMinutes: COURSE_META.durationMinutes,
+          priceUsd: COURSE_META.priceUsd,
+          level: COURSE_META.level,
+          isFeatured: COURSE_META.isFeatured,
+          thumbnailUrl: COURSE_META.thumbnailUrl,
+          intendedRoles: COURSE_META.intendedRoles,
+          learningObjectives: COURSE_META.learningObjectives,
+          includesCertificate: COURSE_META.includesCertificate,
+          passingScore: COURSE_META.passingScore,
+          badgeName: COURSE_META.badgeName,
+          badgeDescription: COURSE_META.badgeDescription,
+          recommendedNextCourseId: nextCourseId,
+          isPublished: true,
+          status: "published",
+          updatedAt: new Date()
+        })
+        .where(eq(coursesTable.id, courseId));
 
-        if (!existingPrereq) {
-          await tx.insert(coursePrerequisitesTable).values({
-            courseId,
-            prerequisiteCourseId: elh09.id,
-          });
-        }
-      }
-
-      // Set ELH-30 or ELH-09 as next recommended course safely
-      const [elh30] = await tx
-        .select({ id: coursesTable.id })
-        .from(coursesTable)
-        .where(eq(coursesTable.courseCode, "ELH-30"))
-        .limit(1);
-
-      if (elh30) {
-        await tx
-          .update(coursesTable)
-          .set({ recommendedNextCourseId: elh30.id })
-          .where(eq(coursesTable.id, courseId));
-      }
-
-      // 4. Seed Lessons
+      // 6. Seed/re-seed lessons with exact position block arrays
       await tx.delete(lessonsTable).where(eq(lessonsTable.courseId, courseId));
       for (const newLesson of NEW_LESSONS) {
         await tx.insert(lessonsTable).values({
@@ -470,7 +450,7 @@ export async function ensureSocialResponsibilityAtWorkCourse(): Promise<void> {
         });
       }
 
-      // 5. Seed Quiz Questions
+      // 7. Seed/re-seed quiz questions
       await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
       await tx.insert(quizQuestionsTable).values(
         NEW_QUIZ.map((q) => ({
@@ -481,18 +461,21 @@ export async function ensureSocialResponsibilityAtWorkCourse(): Promise<void> {
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.options.map((_, optIdx) => 
+            optIdx === q.correct ? q.correctExplanation : q.incorrectExplanation
+          ),
           isArchived: false,
         }))
       );
 
-      // 6. Seed Badge Definition
+      // 8. Idempotently seed/update badge definition
       await tx
         .insert(badgeDefinitionsTable)
         .values({
           slug: BADGE_SLUG,
           name: COURSE_META.badgeName,
           description: COURSE_META.badgeDescription,
-          icon: "award",
+          icon: "users",
           criteriaType: "all_courses",
           threshold: 0,
           courseIds: [courseId],
@@ -507,22 +490,20 @@ export async function ensureSocialResponsibilityAtWorkCourse(): Promise<void> {
           },
         });
 
-      // 7. Record System Seed Version Idempotently
-      await tx
-        .insert(systemSeedsTable)
-        .values({
+      // 9. Save seed marker version
+      if (!existingSeed) {
+        await tx.insert(systemSeedsTable).values({
           name: SEED_NAME,
-          version: 1,
-        })
-        .onConflictDoUpdate({
-          target: systemSeedsTable.name,
-          set: { version: 1 },
+          version: 2,
         });
+      } else {
+        await tx.update(systemSeedsTable).set({ version: 2 }).where(eq(systemSeedsTable.name, SEED_NAME));
+      }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "ELH-31 Social Responsibility at Work seeded successfully!");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Social Responsibility at Work course v2 seed / repair transaction completed successfully.");
     });
   } catch (err) {
-    logger.error({ err }, "Failed to seed ELH-31 Social Responsibility course");
+    logger.error({ err, courseId: COURSE_ID }, "Failed to ensure Social Responsibility at Work course seeding");
     throw err;
   }
 }

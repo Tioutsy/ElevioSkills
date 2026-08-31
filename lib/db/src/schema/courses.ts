@@ -32,6 +32,20 @@ export const coursesTable = pgTable("courses", {
   badgeDescription: text("badge_description"),
   completionMessage: text("completion_message"),
   status: text("status").notNull().default("draft"),
+  
+  // Sprint 14.12 Taxonomy & Intelligent Learning Path Metadata (Additive)
+  relevanceLayer: text("relevance_layer").notNull().default("universal_core"),
+  primaryClassification: text("primary_classification").notNull().default("UNIVERSAL_CORE"),
+  isEssentialUniversal: boolean("is_essential_universal").notNull().default(false),
+  primaryCompetency: text("primary_competency"),
+  secondaryCompetencies: text("secondary_competencies").array().notNull().default([]),
+  applicableSectors: text("applicable_sectors").array().notNull().default([]),
+  applicableDepartments: text("applicable_departments").array().notNull().default([]),
+  applicableJobFamilies: text("applicable_job_families").array().notNull().default([]),
+  applicableSeniorityTiers: text("applicable_seniority_tiers").array().notNull().default([]),
+  productionPriority: text("production_priority").notNull().default("p0"),
+  learningPathPurpose: text("learning_path_purpose"),
+
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow().$onUpdate(() => new Date()),
 });

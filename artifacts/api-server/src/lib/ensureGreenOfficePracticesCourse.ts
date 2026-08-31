@@ -6,242 +6,202 @@ import {
   badgeDefinitionsTable,
   systemSeedsTable,
 } from "@workspace/db";
-import { eq, and } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { logger } from "./logger";
 
 const COURSE_ID = 6;
 const COURSE_SLUG = "green-office-practices";
 const COURSE_TITLE = "Green Office Practices";
 const BADGE_SLUG = "green-office-contributor";
-const SEED_NAME = "green-office-practices-v4";
-const SKELETON_BADGE_SLUG = "green-office-practitioner"; // catalogue skeleton slug — do not delete
+const SEED_NAME = "green-office-practices-v5";
+const SKELETON_BADGE_SLUG = "green-office-practitioner";
 
 const COURSE_META = {
+  courseCode: "ELH-06",
   description:
-    "Integrate everyday office routines, shared workspace management, printing and digital boundaries, meeting efficiency, and respectful team habits into a sustainable workplace culture.",
+    "Master sustainable office administration, digital workflow hygiene, responsible consumables purchasing, low-waste meeting catering, hybrid working practices, and collaborative green workplace management.",
   fullDescription:
-    "This course helps office-based, hybrid, administrative, and managerial employees organize daily office work efficiently. It covers arrival routines, document and digital file boundaries, lower-waste meeting planning, shared space management, confidential record protection, critical equipment boundaries, and respectful colleague communication in Mauritian workplaces.",
+    "This course equips office managers, administrative coordinators, department leaders, and knowledge workers to establish sustainable workplace administration systems. Moving beyond generic environmental tips, it focuses on sustainable office supplies procurement, digital document hygiene, pull-printing and confidential data boundaries, catering and kitchen systems, hot-desking and hybrid working resource management, landlord-tenant green lease coordination, and constructive culture change without policing colleagues.",
   categoryId: 1,
-  durationMinutes: 18,
+  durationMinutes: 25,
   priceUsd: "1400.00",
   level: "Foundation",
   isFeatured: false,
   thumbnailUrl: "/images/courses/green-office-practices.jpg",
+  intendedRoles: [
+    "Office managers and administrators",
+    "Executive assistants and departmental coordinators",
+    "HR and operations support staff",
+    "All office-based and hybrid employees",
+    "Team leads and facilities liaisons"
+  ],
   learningObjectives: [
-    "Recognise common resource waste across a normal office working day.",
-    "Apply practical sustainability habits in personal and shared workspaces.",
-    "Apply sensible printing and digital document boundaries while protecting data confidentiality.",
-    "Plan efficient, lower-waste meetings and shared refreshment routines.",
-    "Distinguish direct employee actions from changes requiring site procedure or facilities escalation.",
-    "Escalate office faults and safety issues constructively without policing or blaming colleagues.",
-    "Select one practical workplace commitment to support a green office culture."
+    "Establish sustainable office consumables management, inventory control, and supplier return systems.",
+    "Implement digital document workflows and secure pull-printing practices while safeguarding data confidentiality.",
+    "Plan low-waste, right-sized meeting catering and eliminate single-use items in shared kitchens.",
+    "Manage hybrid workspace footprints, shared desk shutdown routines, and digital cloud storage hygiene.",
+    "Navigate landlord-tenant green lease coordination and HVAC/lighting scheduling in leased premises.",
+    "Foster a collaborative sustainability culture through positive behavioral defaults rather than confrontational policing."
   ],
   includesCertificate: true,
   passingScore: 80,
   completionMessage:
-    "You have completed Green Office Practices. You can now organize your daily office routine efficiently, plan lower-waste meetings, handle confidential records securely, and encourage sustainable team habits constructively.",
-  badgeName: "Green Office Contributor",
+    "You have completed Green Office Practices. You are now equipped to manage office supplies responsibly, streamline digital workflows, plan low-waste meetings, and foster sustainable administrative systems.",
+  badgeName: "Green Office Administrator",
   badgeDescription:
-    "Awarded for mastering everyday sustainable office routines, meeting efficiency, document boundaries, and respectful workplace habits.",
+    "Awarded for demonstrating practical competence in sustainable workplace administration, digital workflow hygiene, and green office systems."
 };
 
 const NEW_LESSONS = [
   {
     order: 0,
-    title: "A Normal Office Day with Hidden Waste",
-    minutes: 3,
-    content: "Identify resource waste across a typical office working day.",
+    title: "The Friction-Heavy Office: A Day in Administration",
+    minutes: 4,
+    content: "Examine resource waste across administration, consumables, meetings, and shared office amenities.",
     blocks: [
-      { id: "gop1-h1", type: "heading", position: 1, headingText: "Arriving for a Team Meeting" },
-      { id: "gop1-t1", type: "short_text", position: 2, bodyText: "Imagine arriving at your office at 8:15 AM for a morning team meeting. The presentation display screen in an empty room is already powered on, thick printed paper packs sit uncollected on the table, disposable coffee cups fill the bin, and confidential client folders are stacked beside an open recycling box." },
-      { id: "gop1-k1", type: "key_message", position: 3, headingText: "Effortless Daily Routines", bodyText: "Green office practice is not about sacrificing comfort or productivity. It is about building clear, consistent daily routines across shared spaces, meetings, documents, and equipment to eliminate careless waste." },
+      { id: "gop1-h1", type: "heading", position: 1, headingText: "Morning Arrival in Administration" },
+      { id: "gop1-t1", type: "short_text", position: 2, bodyText: "Imagine walking into a corporate office on a Monday morning. Uncollected print jobs from Friday are piled beside the printer, five opened boxes of different pen brands clutter the stationery cupboard, single-use plastic water bottles fill the meeting room bin, and confidential client documents are stacked dangerously close to an open recycling box. Office waste is rarely an individual failure—it is the result of missing administrative systems and unclear workplace defaults." },
+      { id: "gop1-k1", type: "key_message", position: 3, headingText: "Systems Beat Slogans", bodyText: "Telling staff to 'use less' rarely creates lasting change. Sustainable office administration relies on frictionless systems: centralized supply inventories, secure pull-printing defaults, standardized meeting catering templates, and clear shared-space ownership." },
       {
         id: "gop1-d1",
         type: "decision_scenario",
         position: 4,
-        decisionIntro: "Morning meeting arrival decision scenario:",
-        decisionPrompt: "You walk into an empty meeting room 30 minutes before your scheduled meeting and notice the large presentation screen powered on displaying a blank input screen. What should you do?",
+        decisionIntro: "Morning stationery requisition scenario:",
+        decisionPrompt: "An employee submits a purchase request for a personal desktop printer and three separate desk fans for their team because 'the central printer is ten steps away and the central AC feels slightly breezy'. How should the office administrator respond?",
         decisionChoices: [
-          { label: "Switch off or put the presentation screen into standby until the meeting starts", correct: true, feedback: "Perfect! Turning off idle room displays when meetings are not active is a simple, direct employee habit." },
-          { label: "Leave the screen running on high brightness for 30 minutes because someone will use it eventually", correct: false, feedback: "Incorrect. Leaving displays powered on in empty rooms wastes power and shortens equipment life." },
-          { label: "Unplug the main network server cabinet in the corner of the room", correct: false, feedback: "NEVER disconnect network or server infrastructure! Critical IT hardware must remain powered continuously." }
+          { label: "Decline the personal printer request, explain the centralized network printer standard, and coordinate with facilities to adjust the diffuser louver for air comfort", correct: true, feedback: "Spot on! Proliferation of personal desktop printers multiplies cartridge waste, power draw, and maintenance costs. Addressing the root comfort issue and maintaining central infrastructure is best administrative practice." },
+          { label: "Approve the personal printer and all fans immediately to keep the employee happy", correct: false, feedback: "Incorrect. Dispersed desktop printers drastically increase cartridge waste, standby energy, and procurement overhead." },
+          { label: "Send a company-wide email shaming the employee for asking for a printer", correct: false, feedback: "Unprofessional! Address administrative requests constructively through clear policy explanations." }
         ]
-      },
-      {
-        id: "gop1-m1",
-        type: "multiple_choice",
-        position: 5,
-        mcqQuestion: "What is the core purpose of the Green Office Practices course?",
-        mcqOptions: [
-          "Helping employees build practical daily routines that eliminate office waste in shared spaces, meetings, and documents",
-          "Policing colleagues and reporting small personal mistakes to senior management",
-          "Banning all paper printing and electrical equipment in corporate offices",
-          "Switching off critical IT server racks and security alarms every evening"
-        ],
-        mcqCorrectIndex: 0,
-        mcqCorrectExplanation: "The course focuses on practical, shared daily routines and constructive workplace culture—not policing or banning equipment.",
-        mcqIncorrectExplanation: "Incorrect. Green office practice creates effortless daily routines without policing colleagues or risking critical operations."
       }
     ]
   },
   {
     order: 1,
-    title: "Why Green Office Habits Matter",
-    minutes: 3,
-    content: "Connect daily office habits to employee experience, business efficiency, and environmental responsibility.",
+    title: "Consumables Management & Sustainable Office Purchasing",
+    minutes: 4,
+    content: "Streamline stationery inventory, eliminate redundant orders, and institute closed-loop return systems.",
     blocks: [
-      { id: "gop2-h1", type: "heading", position: 1, headingText: "Three Workplace Perspectives" },
-      { id: "gop2-t1", type: "short_text", position: 2, bodyText: "Consistent office habits create tangible benefits across three areas:" },
+      { id: "gop2-h1", type: "heading", position: 1, headingText: "From Cluttered Cupboards to Rationalized Purchasing" },
+      { id: "gop2-t1", type: "short_text", position: 2, bodyText: "Uncontrolled stationery ordering leads to duplicate supplies, dried-up marker pens, and wasted operational budget. Rationalized purchasing standardizes core office supplies." },
       {
         id: "gop2-k1",
         type: "key_message",
         position: 3,
-        headingText: "Employee, Business & Environmental Value",
-        bodyText: "• Employee Experience: Cleaner, better-organized workspaces, fewer misplaced files, and smoother team collaboration.\n• Business Value: Reduced paper and supply overhead, longer equipment lifespan, and stronger compliance with company policy.\n• Environmental Value: Reduced unnecessary material consumption, lower standby power draw, and responsible resource stewardship."
+        headingText: "Four Sustainable Supply Chain Practices",
+        bodyText: "1. Standardized Product Catalogue: Select certified 100% recycled or FSC-certified copy paper, refillable whiteboard markers, and durable staples.\n2. Consolidated Monthly Ordering: Eliminate frequent small courier deliveries by grouping departmental orders into a single monthly delivery.\n3. Take-Back & Return Schemes: Partner with suppliers who collect empty toner cartridges and electronic e-waste for certified recycling.\n4. Central 'Stationery Amnesty': Host a quarterly internal collection where employees return unused items from their desk drawers to the central store."
       },
       {
-        id: "gop2-w1",
-        type: "workplace_example",
+        id: "gop2-m1",
+        type: "multiple_choice",
         position: 4,
-        headingText: "Mauritian Office Reality",
-        bodyText: "In Mauritian business centers (Port Louis, Ebène, and regional hubs), imported paper, office supplies, and electricity carry real commercial costs. Simple daily habits—like duplex printing and clearing meeting rooms—have an immediate cumulative impact."
+        mcqQuestion: "What is the primary benefit of holding a quarterly 'Stationery Amnesty' in an office?",
+        mcqOptions: [
+          "It recovers hundreds of unused pens, folders, and notebooks hoarded in desk drawers, cutting new purchasing costs and reducing clutter",
+          "It allows the company to fire employees who have more than two pens",
+          "It legally exempts the organization from corporate tax requirements",
+          "It eliminates the need for computer monitors in the office"
+        ],
+        mcqCorrectIndex: 0,
+        mcqCorrectExplanation: "Stationery amnesties recover dormant inventory, prevent unnecessary duplicate purchases, and remind staff of shared resource stewardship.",
+        mcqIncorrectExplanation: "Incorrect. Internal supply recovery saves procurement funds and organizes inventory."
       }
     ]
   },
   {
     order: 2,
-    title: "The Working-Day Framework & Sourced Facts",
+    title: "Digital Document Workflows & Secure Print Boundaries",
     minutes: 4,
-    content: "Follow an integrated 5-stage working day framework and learn sourced office efficiency facts.",
+    content: "Implement secure pull-printing, digital signing, and navigate confidential data vs recycling requirements.",
     blocks: [
-      { id: "gop3-h1", type: "heading", position: 1, headingText: "The 5-Stage Office Working-Day Framework" },
-      { id: "gop3-t1", type: "short_text", position: 2, bodyText: "Organize your workday using five practical stages:" },
+      { id: "gop3-h1", type: "heading", position: 1, headingText: "Smart Printing and Document Security" },
+      { id: "gop3-t1", type: "short_text", position: 2, bodyText: "The average office worker prints thousands of pages annually, with up to 30% never being collected from the output tray. Furthermore, discarded paper containing client personal data presents severe privacy and regulatory compliance liabilities." },
       {
         id: "gop3-k1",
         type: "key_message",
         position: 3,
-        headingText: "Working-Day Stages",
-        bodyText: "1. ARRIVE & SET UP: Use only needed equipment; report existing room faults.\n2. WORK & COMMUNICATE: Share digital links; print only when required by legal/operational rules.\n3. MEET & COLLABORATE: Confirm attendee count; order proportionate catering; release room displays.\n4. USE SHARED SPACES: Follow kitchen/waste labels; keep reusable cups clean; avoid kettle overfilling.\n5. CLOSE THE DAY: Power down non-critical desk gear; leave server racks powered; clear confidential paper."
+        headingText: "The Data Protection vs Recycling Rule",
+        bodyText: "CRITICAL COMPLIANCE PRINCIPLE: Never place confidential records, payroll sheets, medical information, or client identity documents into standard open paper recycling bins. Confidential documents MUST go through secure locked shredding consoles. General unprinted scrap or non-confidential drafts go into blue recycling bins."
       },
       {
-        id: "gop3-f1",
-        type: "memorable_fact",
+        id: "gop3-d1",
+        type: "decision_scenario",
         position: 4,
-        headingText: "Did You Know? (Worth Knowing)",
-        bodyText: "According to the International Energy Agency (IEA) and UNEP Sustainable Office Studies, unattended office monitors, idle meeting room displays, and unnecessary document printing account for over 20% of avoidable commercial office energy and supply overhead! Establishing a simple end-of-day shut-down checklist eliminates this waste effortlessly."
-      },
-      {
-        id: "gop3-m1",
-        type: "multiple_choice",
-        position: 5,
-        mcqQuestion: "What is a recommended practice when closing your desk workspace at the end of the working day?",
-        mcqOptions: [
-          "Switch off non-critical workstation monitors and desk lamps while leaving critical IT infrastructure powered on",
-          "Switch off all central IT server racks and fire safety alarms in the building",
-          "Leave all desk displays, lights, and air conditioners running on full power overnight",
-          "Dump confidential client files into an open hallway waste paper bin"
-        ],
-        mcqCorrectIndex: 0,
-        mcqCorrectExplanation: "Turn off personal desk equipment safely while ensuring central IT and safety systems remain untouched.",
-        mcqIncorrectExplanation: "Incorrect. Personal desk displays should be switched off, while critical server infrastructure must remain powered."
+        decisionIntro: "Document disposal dilemma:",
+        decisionPrompt: "You are clearing out an administrative archive and have three boxes of obsolete customer contract copies containing national identity numbers and financial bank details. What is the correct disposal method?",
+        decisionChoices: [
+          { label: "Deposit the contracts into the locked confidential shredding bin for certified destruction", correct: true, feedback: "Correct! Confidential customer data must be shredded according to Data Protection Act regulations. Standard open recycling exposes the organization to massive privacy breaches." },
+          { label: "Dump the files into the general office paper recycling box to save time", correct: false, feedback: "Severe compliance violation! Never place personal customer data into unmonitored open recycling bins." },
+          { label: "Throw the intact files into the outdoor general garbage dumpster", correct: false, feedback: "Unacceptable. Intact records in general waste can be intercepted and violate data privacy laws." }
+        ]
       }
     ]
   },
   {
     order: 3,
-    title: "Document, Printing & Digital Boundaries",
+    title: "Meeting Practices, Low-Waste Catering & Shared Amenities",
     minutes: 4,
-    content: "Apply proportionate printing guidelines while protecting document confidentiality and data security.",
+    content: "Eliminate disposable items in shared kitchens, right-size event catering, and manage digital meeting hygiene.",
     blocks: [
-      { id: "gop4-h1", type: "heading", position: 1, headingText: "Printing, Digital Tools & Confidentiality" },
-      { id: "gop4-t1", type: "short_text", position: 2, bodyText: "Digital document sharing reduces paper use, but printing remains necessary for certain legal, accessibility, or operational tasks. Follow these practical boundaries:" },
+      { id: "gop4-h1", type: "heading", position: 1, headingText: "Event & Meeting Administration" },
+      { id: "gop4-t1", type: "short_text", position: 2, bodyText: "Internal workshops, board meetings, and client sessions are frequent hotspots for single-use plastics, excessive printed decks, and wasted buffet catering." },
       {
         id: "gop4-k1",
         type: "key_message",
         position: 3,
-        headingText: "Proportionate Printing & Confidentiality Rules",
-        bodyText: "• Print When Required: Legal/contractual records, approved operational checklists, accessibility needs, or signed client records.\n• Avoid Unnecessary Print: Printing emails solely for reading, printing full meeting packs before attendance is confirmed, or multi-page draft reviews.\n• Protect Data Confidentiality: NEVER place confidential client papers, HR records, or financial documents into general paper bins. Use approved secure shredding consoles."
-      },
-      {
-        id: "gop4-w1",
-        type: "workplace_example",
-        position: 4,
-        headingText: "Digital Responsibility Principle",
-        bodyText: "Digital storage is not impact-free. Clean up outdated draft files, share document links instead of sending 50MB attachments to large distribution lists, and close unused video calls."
+        headingText: "Four Administrative Meeting Standards",
+        bodyText: "1. Digital Agendas: Share slide decks and briefing packs via cloud links; print only when legally required or specifically requested by attendees with accessibility needs.\n2. Reusable Glassware & Filtered Water: Replace single-use 500ml plastic bottles with glass carafes and reusable cups.\n3. Headcount-Confirmed Catering: Confirm dietary restrictions and exact attendance 24 hours prior to prevent ordering 30 lunches for 12 participants.\n4. Food Redistribution Protocols: Partner with local charities or have clean takeaway packaging ready for staff to consume surplus catering safely."
       }
     ]
   },
   {
     order: 4,
-    title: "Inspecting Office & Meeting Room Boundaries",
+    title: "Hybrid Work, Shared Desks & Landlord Green Leases",
     minutes: 4,
-    content: "Identify post-meeting room waste, confidential paper risks, and critical IT equipment boundaries.",
+    content: "Manage hot-desking shutdown routines, digital cloud storage footprints, and leased facility coordination.",
     blocks: [
-      { id: "gop5-h1", type: "heading", position: 1, headingText: "Meeting Room & Kitchenette Inspection" },
-      { id: "gop5-t1", type: "short_text", position: 2, bodyText: "Examine a real Mauritian corporate meeting space. Observe the active presentation screen, leftover printed packs, confidential folders near a bin, and the glass server cabinet." },
+      { id: "gop5-h1", type: "heading", position: 1, headingText: "The Modern Hybrid Workplace" },
+      { id: "gop5-t1", type: "short_text", position: 2, bodyText: "In hybrid work models with flexible desk sharing, employees often leave shared monitors and accessories on standby because 'it is not my personal desk'. Furthermore, in leased commercial buildings, tenants and landlords must coordinate operational hours." },
       {
-        id: "gop5-img1",
-        type: "visual_question",
+        id: "gop5-k1",
+        type: "key_message",
         position: 3,
-        imageUrl: "/images/courses/visual-green-office-practices.png",
-        caption: "Meeting Room Inspection: Active presentation screen, abandoned printed packs, confidential folders near a recycling bin, and server cabinet labeled 'CRITICAL IT INFRASTRUCTURE - DO NOT POWER DOWN'.",
-        imageAlt: "Realistic photograph of a Mauritian office meeting room after a meeting showing an active presentation screen, abandoned paper packs, confidential folders on a desk near a bin, and a glass IT server cabinet labeled CRITICAL IT INFRASTRUCTURE - DO NOT POWER DOWN."
+        headingText: "Shared Desk Etiquette and Green Leases",
+        bodyText: "• Clean Desk & Power-Down: When vacating a hot-desk, shut down the external monitor, unplug personal chargers, and wipe the workspace.\n• Cloud Storage Hygiene: Delete duplicate video recordings, unneeded backups, and massive email attachments—data centers consume enormous continuous energy.\n• Landlord Coordination (Green Lease): Ensure the building management system (BMS) aligns centralized cooling with your actual departmental working hours rather than running AC across unoccupied tenant floors on weekends."
       },
       {
-        id: "gop5-m1",
-        type: "multiple_choice",
+        id: "gop5-d1",
+        type: "decision_scenario",
         position: 4,
-        mcqQuestion: "In the office inspection scene above, what must you NEVER do regarding the glass server cabinet labeled 'CRITICAL IT INFRASTRUCTURE - DO NOT POWER DOWN'?",
-        mcqOptions: [
-          "Never switch off, unplug, or tamper with critical server infrastructure or network equipment",
-          "Switch it off every evening at 5:00 PM to save standby electricity",
-          "Open the cabinet door and adjust internal cooling fans",
-          "Use the server cabinet as a temporary storage shelf for wet cleaning sponges"
-        ],
-        mcqCorrectIndex: 0,
-        mcqCorrectExplanation: "Critical IT infrastructure must remain powered 24/7 to maintain network security, database availability, and business continuity.",
-        mcqIncorrectExplanation: "Incorrect. Critical IT server cabinets must never be powered down by general office employees."
+        decisionIntro: "Leased building scheduling dilemma:",
+        decisionPrompt: "Your company occupies the 4th floor of a leased office tower. You discover the landlord's central chiller runs on full power every Saturday from 7:00 AM to 6:00 PM, even though your staff work 100% remotely on weekends. What should administration do?",
+        decisionChoices: [
+          { label: "Contact the building property manager to adjust the BMS timer schedule to shut off 4th-floor air handling units on weekends", correct: true, feedback: "Outstanding! Coordinating HVAC schedules with property management stops hundreds of hours of wasteful weekend cooling and lowers tenant service charges." },
+          { label: "Ignore it because the landlord pays for the electricity anyway", correct: false, feedback: "Incorrect. Tenant service charges pass utility costs directly back to your company, and wasted energy harms the climate." },
+          { label: "Tell employees they are forced to come into the office on Saturdays so the cooling isn't wasted", correct: false, feedback: "Incorrect. Adjust the technical schedule to match business reality." }
+        ]
       }
     ]
   },
   {
     order: 5,
-    title: "Authority Boundaries & Respectful Culture",
+    title: "Your Sustainable Office Administration Toolkit",
     minutes: 3,
-    content: "Categorize office actions into authority levels and practice constructive, respectful communication.",
+    content: "Select practical administrative routines and commitments to establish an efficient, green office culture.",
     blocks: [
-      { id: "gop6-h1", type: "heading", position: 1, headingText: "Act, Check & Escalate Framework" },
-      { id: "gop6-t1", type: "short_text", position: 2, bodyText: "Structure your daily office actions using three clear authority levels:" },
-      {
-        id: "gop6-k1",
-        type: "key_message",
-        position: 3,
-        headingText: "Three Levels of Authority",
-        bodyText: "1. ACT DIRECTLY: Turn off desk lights/monitors, print duplex, clear personal desk space, use reusable cups.\n2. CHECK SITE PROCEDURE: Adjusting central AC settings, altering meeting room booking rules, disposing of bulk office furniture.\n3. ESCALATE TO MANAGEMENT: Electrical faults, water near electrical outlets, damaged power cords, confidential data leaks, or repeated procedure failures."
-      },
-      {
-        id: "gop6-d1",
-        type: "decision_scenario",
-        position: 4,
-        decisionIntro: "Respectful team communication scenario:",
-        decisionPrompt: "You notice that colleagues frequently print full 40-page meeting packs before attendee numbers are confirmed, leaving half of them in the bin after the meeting. How should you address this?",
-        decisionChoices: [
-          { label: "Suggest constructively at the next team meeting: 'Could we share digital agendas first and print copies only for those who request them?'", correct: true, feedback: "Outstanding! Constructive suggestions focus on process improvements without blaming or policing colleagues." },
-          { label: "Publicly shame your colleagues on the company group chat for wasting paper", correct: false, feedback: "Incorrect! Public shaming creates hostility and undermines team culture." },
-          { label: "Hide the office printer paper so nobody can print anything", correct: false, feedback: "Incorrect. Sabotaging office supplies disrupts business operations." }
-        ]
-      },
+      { id: "gop6-h1", type: "heading", position: 1, headingText: "Pledge to Act & Administrative Takeaways" },
+      { id: "gop6-t1", type: "short_text", position: 2, bodyText: "Congratulations on completing Green Office Practices! Select the commitments below relevant to your administrative and operational responsibilities." },
       {
         id: "gop6-c1",
         type: "commitment",
-        position: 5,
-        commitmentInstruction: "Select your daily green office commitments (choose at least one):",
+        position: 3,
+        commitmentInstruction: "Select your workplace administration commitments (choose at least one):",
         commitmentOptions: [
-          { value: "print-intentionally", label: "Print intentionally and use duplex mode for multi-page documents", description: "Reduce unnecessary paper waste while respecting operational printing needs." },
-          { value: "protect-confidential-paper", label: "Place confidential documents strictly into secure destruction consoles", description: "Safeguard client and company data security." },
-          { value: "release-room-displays", label: "Switch off presentation screens and lights when leaving meeting rooms", description: "Eliminate idle standby power draw in shared spaces." },
-          { value: "respect-critical-it", label: "Never touch or power down central server racks and safety systems", description: "Protect IT network infrastructure and workplace safety." },
-          { value: "suggest-constructively", label: "Suggest office improvements constructively without policing or blaming peers", description: "Build a positive, collaborative workplace sustainability culture." }
+          { value: "rationalize-stationery", label: "Consolidate monthly supply orders and standardize on sustainable office products", description: "Eliminate excess inventory and reduce delivery emissions." },
+          { value: "secure-shredding", label: "Enforce locked confidential shredding for sensitive data while recycling clean paper", description: "Protect customer privacy while maximizing material recycling." },
+          { value: "low-waste-meetings", label: "Provide glass carafes and right-sized catering for meetings and events", description: "Eliminate single-use plastics and food waste." },
+          { value: "hotdesk-shutdown", label: "Implement power-down and clean-desk routines for shared workstations", description: "Eliminate idle standby power on flexible desks." },
+          { value: "landlord-coordination", label: "Coordinate with building management to ensure HVAC schedules match working hours", description: "Prevent weekend and after-hours energy waste in leased premises." }
         ]
       }
     ]
@@ -251,68 +211,133 @@ const NEW_LESSONS = [
 const NEW_QUIZ = [
   {
     order: 1,
-    question: "What is the primary objective of practicing green office routines?",
+    question: "What is the fundamental difference between effective sustainable office administration and simply putting up 'use less' slogans?",
     options: [
-      "Banning all paper printing and electrical devices in commercial offices",
-      "Policing colleagues and publicly reporting personal errors",
-      "Building effortless daily habits in shared spaces, meetings, and document workflows that eliminate waste without compromising productivity",
-      "Switching off central IT server infrastructure every weekend"
+      "Sustainable administration establishes effortless structural defaults (centralized purchasing, pull-printing, locked shredding) that make green habits the easiest choice",
+      "Slogans are legally binding under commercial law, whereas administrative procedures are optional",
+      "Sustainable administration requires firing all employees who consume paper",
+      "Administrative procedures eliminate the need for corporate leadership"
     ],
-    correct: 2,
-    correctExplanation: "Green office practices focus on building seamless, shared daily habits that eliminate waste while maintaining productivity.",
-    incorrectExplanation: "Incorrect. Green office practices create efficient daily habits without policing colleagues or risking IT operations."
+    correct: 0,
+    correctExplanation: "Clear administrative systems, sensible procurement defaults, and shared routines create permanent, frictionless operational efficiency.",
+    incorrectExplanation: "Incorrect. Slogans without supportive systems fail; structural defaults create lasting workplace habits."
   },
   {
     order: 2,
-    question: "How should confidential paper records (e.g. HR files, financial reports, client data) be handled?",
+    question: "How should an office manager handle confidential customer contracts and payroll records when archiving or disposing of old paperwork?",
     options: [
-      "Placed strictly into authorized secure destruction consoles or shredded according to company data policies",
-      "Thrown into open hallway recycling bins",
-      "Left on meeting room tables for cleaners to throw away",
-      "Used as scratch paper for public notes"
+      "Deposit the documents into a locked, secure shredding console for certified destruction in compliance with data protection laws",
+      "Toss the intact files into the open blue paper recycling bin in the hallway",
+      "Throw the intact folders into the outdoor general waste dumpster",
+      "Leave the folders on an unattended coffee table in the reception lounge"
     ],
     correct: 0,
-    correctExplanation: "Confidential records must follow secure destruction procedures to comply with data protection regulations.",
-    incorrectExplanation: "Incorrect. Confidential documents require secure handling and must never be placed in open recycling bins."
+    correctExplanation: "Sensitive personal and commercial records must never go into open recycling bins. They must be securely shredded to prevent data breaches.",
+    incorrectExplanation: "Incorrect. Placing personal data in open recycling violates data protection laws and creates severe privacy liabilities."
   },
   {
     order: 3,
-    question: "Which piece of office equipment must NEVER be powered down or unplugged by general employees during end-of-day shut-down routines?",
+    question: "What is the primary benefit of consolidating stationery purchasing into a standardized catalogue with scheduled monthly ordering?",
     options: [
-      "Individual desktop workstation computer monitors",
-      "Central IT server racks, network cabinets, and building security systems",
-      "Desk lamps in unoccupied private offices",
-      "Presentation display screens in empty meeting rooms"
+      "It eliminates duplicate stock, reduces courier delivery emissions, secures bulk discounts on eco-certified supplies, and prevents cluttered storage cupboards",
+      "It allows employees to purchase luxury personal electronics on company expense",
+      "It makes the office completely paper-free within 24 hours",
+      "It eliminates the need for accounting and invoice audits"
     ],
-    correct: 1,
-    correctExplanation: "Server racks and network cabinets maintain business systems and data security—never switch them off.",
-    incorrectExplanation: "Incorrect. Server racks and IT infrastructure must remain powered continuously."
+    correct: 0,
+    correctExplanation: "Consolidated, standardized purchasing cuts delivery transport, lowers procurement costs, and prevents hoarded, unused supplies.",
+    incorrectExplanation: "Incorrect. Consolidated ordering optimizes inventory and eliminates wasteful ad-hoc deliveries."
   },
   {
     order: 4,
-    question: "What is a key principle of lower-waste meeting planning?",
+    question: "When organizing catering for a 20-person corporate training workshop, what is the best practice to prevent food waste and single-use plastic pollution?",
     options: [
-      "Printing 50 extra paper packs for unconfirmed guests",
-      "Leaving presentation screens powered on 24 hours before the meeting",
-      "Ordering individual plastic bottled drinks for every internal participant",
-      "Confirming attendee numbers before ordering catering and sharing digital documents in advance"
+      "Confirm attendee dietary preferences 24 hours prior, provide glass water carafes with reusable tableware, and prepare clean containers for surplus food redistribution",
+      "Order 50 individual fast-food meal boxes with single-use plastic cutlery and 100 individual plastic water bottles",
+      "Provide no food or water for the participants during an 8-hour workshop",
+      "Throw all leftover food directly into the plastic recycling bin"
     ],
-    correct: 3,
-    correctExplanation: "Confirming attendance and sharing digital agendas prevents unnecessary paper and catering waste.",
-    incorrectExplanation: "Incorrect. Confirming attendance and sharing digital links eliminates meeting waste."
+    correct: 0,
+    correctExplanation: "Right-sizing catering, eliminating single-use plastic bottles, and planning for food redistribution prevents massive event waste.",
+    incorrectExplanation: "Incorrect. Over-ordering individual plastics and discarding food creates massive avoidable waste."
   },
   {
     order: 5,
-    question: "What is the most effective way to encourage sustainable habits among office colleagues?",
+    question: "An administrative coordinator discovers that in their leased office building, the central air conditioning runs at full power on Saturdays when the office is 100% remote. What should they do?",
     options: [
-      "Publicly confront and shame colleagues who leave lights on",
-      "Model good habits yourself and suggest process improvements constructively during team meetings",
-      "Hide shared office stationery so colleagues cannot use it",
-      "Report minor personal habits to senior management immediately"
+      "Liaise with building property management to adjust the Building Management System (BMS) schedule so the floor is unconditioned on weekends",
+      "Ignore it because tenant service charges cannot be changed",
+      "Demand that all staff come into the office on Saturdays so the cooling is utilized",
+      "Smash the building's main thermostat with a hammer"
     ],
-    correct: 1,
-    correctExplanation: "Modeling positive habits and making constructive process suggestions builds a collaborative, lasting culture.",
-    incorrectExplanation: "Incorrect. Constructive suggestions and leading by example build a positive workplace culture."
+    correct: 0,
+    correctExplanation: "Coordinating HVAC schedules with building landlords aligns energy consumption with actual occupancy, saving significant utility costs.",
+    incorrectExplanation: "Incorrect. Proactively coordinating with property managers eliminates wasteful after-hours and weekend cooling."
+  },
+  {
+    order: 6,
+    question: "What is 'pull-printing' (badge-authenticated printing) and why is it an essential sustainable office standard?",
+    options: [
+      "Print jobs are held on a secure server and released only when the user taps their ID badge at the printer, eliminating uncollected print waste and protecting privacy",
+      "The printer physically pulls paper out of the recycling bin to re-use it",
+      "Employees must physically pull the printer cable out of the wall every time they print",
+      "It requires three managers to sign a physical paper form for every single page printed"
+    ],
+    correct: 0,
+    correctExplanation: "Pull-printing prevents forgotten print jobs in the tray (up to 30% of office print volume) and ensures confidential documents are never left unattended.",
+    incorrectExplanation: "Incorrect. Pull-printing holds jobs until the user arrives at the machine, eliminating abandoned prints and safeguarding privacy."
+  },
+  {
+    order: 7,
+    question: "What is the recommended administrative practice for hot-desking and shared workstations at the end of the working day?",
+    options: [
+      "Employees shut down external displays, unplug personal chargers, and leave the surface clean and ready for the next colleague",
+      "Employees leave all screens on high brightness with personal files open on the desk",
+      "Employees take the computer monitors home in their personal bag",
+      "Employees tape their personal name tag to the desk to claim permanent ownership"
+    ],
+    correct: 0,
+    correctExplanation: "Shared desk etiquette requires shutting down monitors to eliminate standby draw, removing personal items, and leaving a clean space.",
+    incorrectExplanation: "Incorrect. Hot-desking etiquette prevents standby energy waste and supports agile team collaboration."
+  },
+  {
+    order: 8,
+    question: "How does digital data hygiene (e.g. deleting duplicate video recordings and cleaning unneeded cloud storage) contribute to sustainability?",
+    options: [
+      "Cloud servers and data centers consume substantial electricity and water for cooling; reducing redundant data lowers digital carbon footprints",
+      "It prevents computer monitors from emitting radiation",
+      "It makes the internet completely free for all users worldwide",
+      "It eliminates the need for internet security firewalls"
+    ],
+    correct: 0,
+    correctExplanation: "Data centers represent a rapidly growing share of global electricity and cooling demand. Digital hygiene reduces unnecessary cloud storage infrastructure.",
+    incorrectExplanation: "Incorrect. Data centers consume immense power and cooling; managing digital storage minimizes cloud energy footprints."
+  },
+  {
+    order: 9,
+    question: "An employee notices a colleague occasionally printing single-sided documents. What is the most constructive way to encourage sustainable habits?",
+    options: [
+      "Politely remind them of the default double-sided printing setting or ask IT to make double-sided the automatic driver default, without public shaming",
+      "Take a photo of the colleague and post it on social media with a mocking caption",
+      "Steal the colleague's paper tray and hide it in the bathroom",
+      "File an official police report for environmental vandalism"
+    ],
+    correct: 0,
+    correctExplanation: "Constructive peer communication and setting helpful system defaults encourage positive change without creating workplace hostility.",
+    incorrectExplanation: "Incorrect. Effective green culture relies on positive system defaults and respectful communication, not confrontation."
+  },
+  {
+    order: 10,
+    question: "What should an administrative team do with obsolete or broken electronics such as keyboards, cables, and laptops?",
+    options: [
+      "Consolidate items in a secure e-waste holding area and arrange collection with a certified e-waste recycling and data sanitization provider",
+      "Toss all electronics into the municipal garden waste compost bin",
+      "Bury them in the garden behind the office building",
+      "Burn them in an open metal barrel in the parking lot"
+    ],
+    correct: 0,
+    correctExplanation: "Electronic waste contains toxic heavy metals and valuable recyclable materials; it must be handled through certified e-waste recyclers.",
+    incorrectExplanation: "Incorrect. E-waste must never be landfilled, composted, or incinerated; it requires certified electronic recycling."
   }
 ];
 
@@ -363,11 +388,11 @@ export async function ensureGreenOfficePracticesCourse(): Promise<void> {
         .where(eq(quizQuestionsTable.courseId, courseId));
 
       // 3. Evaluate integrity violations
-      const hasMissingLessons = existingLessons.length !== 6;
+      const hasMissingLessons = existingLessons.length !== NEW_LESSONS.length;
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 5;
+      const hasMissingQuiz = existingQuizQuestions.length !== NEW_QUIZ.length;
       const hasIncorrectSlug = course.slug !== COURSE_SLUG;
 
       const needsRepair = !existingSeed ||
@@ -377,17 +402,17 @@ export async function ensureGreenOfficePracticesCourse(): Promise<void> {
                           hasIncorrectSlug;
 
       if (!needsRepair) {
-        logger.info({ courseId, slug: COURSE_SLUG }, "Green Office Practices course content and v4 integrity verified. Skipping repair to preserve administrator edits...");
+        logger.info({ courseId, slug: COURSE_SLUG }, "Green Office Practices course content and v5 integrity verified. Skipping repair to preserve administrator edits...");
         return;
       }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v4 seed detected for Course 6. Re-seeding course content and lessons transactionally...");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v5 seed detected for Course 6. Re-seeding course content and lessons transactionally...");
 
       // 4. Resolve next recommended course dynamically by slug
       const [nextCourse] = await tx
         .select({ id: coursesTable.id })
         .from(coursesTable)
-        .where(eq(coursesTable.slug, "sustainable-transport-commuting"))
+        .where(eq(coursesTable.slug, "carbon-footprint-awareness"))
         .limit(1);
       const nextCourseId = nextCourse?.id ?? null;
 
@@ -405,15 +430,16 @@ export async function ensureGreenOfficePracticesCourse(): Promise<void> {
           level: COURSE_META.level,
           isFeatured: COURSE_META.isFeatured,
           thumbnailUrl: COURSE_META.thumbnailUrl,
+          intendedRoles: COURSE_META.intendedRoles,
           learningObjectives: COURSE_META.learningObjectives,
           includesCertificate: COURSE_META.includesCertificate,
           passingScore: COURSE_META.passingScore,
-          completionMessage: COURSE_META.completionMessage,
           badgeName: COURSE_META.badgeName,
           badgeDescription: COURSE_META.badgeDescription,
           recommendedNextCourseId: nextCourseId,
           isPublished: true,
           status: "published",
+          updatedAt: new Date()
         })
         .where(eq(coursesTable.id, courseId));
 
@@ -442,6 +468,9 @@ export async function ensureGreenOfficePracticesCourse(): Promise<void> {
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.options.map((_, optIdx) => 
+            optIdx === q.correct ? q.correctExplanation : q.incorrectExplanation
+          ),
           isArchived: false,
         }))
       );
@@ -472,15 +501,16 @@ export async function ensureGreenOfficePracticesCourse(): Promise<void> {
       if (!existingSeed) {
         await tx.insert(systemSeedsTable).values({
           name: SEED_NAME,
-          version: 4,
+          version: 5,
         });
       } else {
-        await tx.update(systemSeedsTable).set({ version: 4 }).where(eq(systemSeedsTable.name, SEED_NAME));
+        await tx.update(systemSeedsTable).set({ version: 5 }).where(eq(systemSeedsTable.name, SEED_NAME));
       }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "Green Office Practices course v4 seed / repair transaction completed successfully.");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Green Office Practices course v5 seed / repair transaction completed successfully.");
     });
   } catch (err) {
-    logger.error({ err }, "Failed to execute idempotent seeding/repair of Green Office Practices course");
+    logger.error({ err, courseId: COURSE_ID }, "Failed to ensure Green Office Practices course seeding");
+    throw err;
   }
 }

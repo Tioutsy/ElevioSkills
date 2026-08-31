@@ -5,217 +5,181 @@ import {
   quizQuestionsTable,
   badgeDefinitionsTable,
   systemSeedsTable,
-  coursePrerequisitesTable,
 } from "@workspace/db";
-import { eq, and, or } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { logger } from "./logger";
 
 const COURSE_ID = 32;
 const COURSE_SLUG = "ethics-governance-and-responsible-business";
 const COURSE_TITLE = "Ethics, Governance & Responsible Business";
 const BADGE_SLUG = "responsible-business-practitioner";
-const SEED_NAME = "ethics-governance-and-responsible-business-v1";
+const SEED_NAME = "ethics-governance-and-responsible-business-v2";
 
 const COURSE_META = {
   courseCode: "ELH-32",
   description:
-    "Learn how an organisation makes responsible decisions, sets accountabilities, handles conflicts of interest and confidentiality, and ensures appropriate workplace controls are followed.",
+    "Learn how an organisation makes responsible decisions, manages conflicts of interest, prevents bribery and greenwashing, maintains audit-ready records, and upholds corporate governance.",
   fullDescription:
-    "Building directly on ELH-09 (ESG Basics) and ELH-31 (Social Responsibility at Work), this course provides employees across all roles with a practical introduction to the Governance (G) pillar of ESG. Explore the foundations of responsible decision-making, distinguish company-level governance structures from individual employee behaviors, handle conflicts of interest and confidentiality, navigate realistic Mauritius workplace scenarios, and apply practical habits that foster integrity and trust.",
+    "This course provides employees, managers, and corporate officers with a comprehensive, practical guide to the Governance (G) pillar of ESG. Explore the mechanics of accountable decision-making, master conflict-of-interest declaration registers, implement anti-bribery and gift thresholds, maintain audit-ready financial and operational records, prevent fraudulent record alterations, protect confidential data, and utilize safe whistleblower escalation channels.",
   categoryId: 1,
-  durationMinutes: 18,
+  durationMinutes: 25,
   priceUsd: "1400.00",
-  level: "Intermediate / Applied ESG",
+  level: "Applied Workplace Practice",
   isFeatured: false,
   thumbnailUrl: "/images/courses/ethics-and-governance.jpg",
+  intendedRoles: [
+    "All employees",
+    "Department managers, supervisors, and team leads",
+    "Finance, accounting, and internal audit staff",
+    "Procurement, purchasing, and sales teams",
+    "Executive assistants, legal, and compliance liaisons"
+  ],
   learningObjectives: [
-    "Explain Governance in simple workplace language and understand why it is part of ESG.",
-    "Recognise ethical and unethical workplace decisions in everyday work.",
-    "Understand accountability and the importance of responsible decision-making.",
-    "Identify a potential conflict of interest and know how to disclose it transparently.",
-    "Understand why accurate records, invoices, and operational reports matter for corporate integrity.",
-    "Protect employee, customer, and business confidentiality in daily tasks.",
-    "Understand why shortcuts can undermine workplace controls and know how to raise concerns through appropriate channels.",
-    "Distinguish leadership governance responsibilities (policies, oversight, systems) from individual employee contributions.",
-    "Select one practical workplace commitment to support responsible business conduct."
+    "Define the Governance (G) pillar of ESG in plain workplace language, connecting high-level oversight to daily operational integrity.",
+    "Identify personal and commercial conflicts of interest and execute transparent disclosure and recusal procedures.",
+    "Apply anti-bribery and hospitality thresholds, distinguishing lawful courtesy from improper inducement.",
+    "Maintain audit-ready operational, financial, and environmental records, rejecting document alteration shortcuts.",
+    "Navigate confidential information boundaries and proprietary business data protection.",
+    "Utilize structured whistleblower protection channels to report serious non-compliance safely."
   ],
   includesCertificate: true,
   passingScore: 80,
   completionMessage:
-    "Congratulations on completing Ethics, Governance & Responsible Business! Remember: Environmental = impact on planet, Social = impact on people, Governance = how responsibly the organisation is run. Good governance becomes real in everyday decisions involving honesty, records, confidentiality, and speaking up.",
+    "Congratulations on completing Ethics, Governance & Responsible Business! You are now prepared to uphold transparent business conduct, manage conflicts of interest, protect data integrity, and lead with ethical accountability.",
   badgeName: "Responsible Business Practitioner",
   badgeDescription:
-    "Awarded for demonstrating practical understanding of workplace ethics, governance controls, conflict-of-interest disclosure, and transparent business conduct.",
+    "Awarded for demonstrating practical understanding of workplace ethics, governance controls, conflict-of-interest disclosure, and transparent business conduct."
 };
 
 const NEW_LESSONS = [
   {
     order: 0,
-    title: "Hook: Would You Say Something?",
-    minutes: 3,
-    content: "Understand how everyday workplace choices reflect corporate governance and ethics.",
+    title: "The Pressure to Cut Corners: Governance in Daily Decisions",
+    minutes: 4,
+    content: "Understand why corporate governance lives in everyday operational integrity and record-keeping.",
     blocks: [
       { id: "eg1-h1", type: "heading", position: 1, headingText: "Governance: How Responsible Organisations Make Decisions" },
-      { id: "eg1-t1", type: "short_text", position: 2, bodyText: "At a commercial office and facilities hub in Ebène, Mauritius, a project team is days away from a major audit. A supervisor notices that a safety inspection certificate expired last week and suggests: 'Just change the date on the PDF to yesterday—nobody will check.' At first glance, this seems like a quick convenience to save the team from an audit finding. In reality, it falsifies records, breaches company ethics, and exposes the firm to severe legal liability." },
+      { id: "eg1-t1", type: "short_text", position: 2, bodyText: "At a commercial facilities management hub, an internal ISO audit is scheduled for tomorrow. A team member discovers that a mandatory environmental inspection certificate expired last week and suggests: 'Just change the expiry date on the PDF to next month—nobody is going to call the lab to check.' While framed as a quick fix to save the team from an audit finding, altering the document is forgery, breaches company ethics, and creates severe legal liability." },
       {
         id: "eg1-k1",
         type: "key_message",
         position: 3,
-        headingText: "What Does Governance Mean?",
-        bodyText: "• Governance = How an organisation makes decisions, sets responsibilities, behaves ethically, and ensures appropriate rules and controls are followed.\n• Why Governance is Part of ESG:\n  - Environmental: How do our activities affect the planet?\n  - Social: How do our activities affect people?\n  - Governance: How do we make responsible decisions and ensure the business is properly run?"
-      },
-      {
-        id: "eg1-t2",
-        type: "short_text",
-        position: 4,
-        bodyText: "Governance in Everyday Work:\nGovernance is not just for boardrooms or corporate lawyers. It happens every day in how employees record data, follow procedures, handle confidential information, and report concerns."
+        headingText: "Governance Lives in Daily Choices",
+        bodyText: "• Environmental: What is our impact on the planet?\n• Social: How do we treat and impact people?\n• Governance: How do we make decisions, follow rules, maintain honest records, and ensure the business is run with accountability and transparency?"
       },
       {
         id: "eg1-d1",
         type: "decision_scenario",
-        position: 5,
-        decisionIntro: "First Impression Challenge:",
-        decisionPrompt: "A coworker says: 'Governance only matters to board directors and compliance lawyers.' How do you respond?",
+        position: 4,
+        decisionIntro: "Audit shortcut scenario:",
+        decisionPrompt: "A colleague asks you to sign off on a completed safety equipment inspection log that you did not personally witness, saying: 'We know the machines are fine and we need the paperwork signed for the auditor today.' What should you do?",
         decisionChoices: [
-          { label: "Explain that Governance applies to all of us—it shapes how we record data, follow policies, handle confidential info, and make ethical daily decisions.", correct: true, feedback: "Exactly right! Governance lives in our everyday operational choices." },
-          { label: "Agree that ordinary employees have zero connection to corporate governance.", correct: false, feedback: "Incorrect. Every employee shapes governance through honest reporting and policy adherence." },
-          { label: "Say that Governance means deleting all audit records to keep files small.", correct: false, feedback: "Incorrect. Destroying records violates governance and compliance rules." }
+          { label: "Refuse to sign unverified records; arrange for an immediate inspection or report the pending status transparently to the auditor", correct: true, feedback: "Correct! Falsifying inspection records is a severe compliance violation that destroys trust and exposes the organisation to catastrophic safety and legal penalties." },
+          { label: "Sign the log immediately to make the audit go smoothly", correct: false, feedback: "Incorrect and illegal! Never sign off on unperformed safety checks." },
+          { label: "Delete the entire inspection record database to hide the issue", correct: false, feedback: "Severe misconduct! Destroying evidence violates corporate governance and criminal law." }
         ]
       }
     ]
   },
   {
     order: 1,
-    title: "Ethics in Everyday Work",
+    title: "Conflict of Interest: Recognition & Disclosure Protocols",
     minutes: 4,
-    content: "Recognize ethical workplace behaviors and avoid deceptive shortcuts.",
+    content: "Identify personal, financial, and family conflicts of interest and apply transparent disclosure and recusal.",
     blocks: [
-      { id: "eg2-h1", type: "heading", position: 1, headingText: "Ethical Workplace Decisions" },
-      { id: "eg2-t1", type: "short_text", position: 2, bodyText: "Ethics is about doing the right thing in daily workplace choices. Something being convenient or fast does not automatically make it responsible." },
+      { id: "eg2-h1", type: "heading", position: 1, headingText: "What Is a Conflict of Interest?" },
+      { id: "eg2-t1", type: "short_text", position: 2, bodyText: "A conflict of interest occurs when an employee's personal, family, or financial interests could compromise—or appear to compromise—their professional judgement and loyalty to the business." },
       {
         id: "eg2-k1",
         type: "key_message",
         position: 3,
-        headingText: "Everyday Ethical Priorities",
-        bodyText: "• Honesty & Integrity: Refusing to falsify figures, alter dates, or hide errors.\n• Refusing Improper Gifts: Declaring or declining gifts, favors, or bribes from suppliers or clients.\n• Accurate Information: Reporting operational facts truthfully to management and clients.\n• Avoiding Unauthorized Shortcuts: Following required sign-offs and procedures even under time pressure."
+        headingText: "Having a Conflict Is Not a Crime; Hiding It Is",
+        bodyText: "Having a family member bid on a contract or owning shares in a supplier is not automatically illegal. The ethical violation occurs when the relationship is concealed. Transparent disclosure allows management to manage the conflict and recuse the employee from decision-making."
       },
       {
-        id: "eg2-w1",
-        type: "workplace_example",
+        id: "eg2-d1",
+        type: "decision_scenario",
         position: 4,
-        headingText: "Workplace Example: Reporting Equipment Errors",
-        bodyText: "An employee accidentally breaks a piece of equipment. Instead of hiding the broken item behind a cabinet, the employee immediately logs an incident report and informs the facilities manager, allowing repair before a safety hazard occurs."
+        decisionIntro: "Vendor selection conflict scenario:",
+        decisionPrompt: "You are on a 3-person committee evaluating commercial catering tenders for the corporate cafeteria. You realize one of the bidding companies is owned by your first cousin. What is the required governance action?",
+        decisionChoices: [
+          { label: "Declare the family relationship immediately in writing in the conflict of interest register and recuse yourself from evaluating and scoring that tender", correct: true, feedback: "Spot on! Formal disclosure and recusal protect both your personal professional reputation and the legal validity of the tender process." },
+          { label: "Say nothing and secretly score your cousin's company with the highest possible marks", correct: false, feedback: "Severe ethical breach! Undisclosed bias in procurement constitutes commercial favoritism and fraud." },
+          { label: "Disqualify your cousin's company immediately without telling anyone why", correct: false, feedback: "Incorrect. You must disclose the connection to the committee; fair evaluation can proceed with an independent replacement evaluator." }
+        ]
       }
     ]
   },
   {
     order: 2,
-    title: "Conflicts of Interest & Confidentiality",
+    title: "Anti-Bribery, Gifts & Hospitality Thresholds",
     minutes: 4,
-    content: "Identify personal conflicts transparently and safeguard sensitive business data.",
+    content: "Distinguish legitimate commercial hospitality from improper inducements, kickbacks, and corruption.",
     blocks: [
-      { id: "eg3-h1", type: "heading", position: 1, headingText: "Navigating Conflicts & Sensitive Information" },
-      { id: "eg3-t1", type: "short_text", position: 2, bodyText: "Two common areas where governance is tested at work are personal connections during business choices and handling sensitive information." },
+      { id: "eg3-h1", type: "heading", position: 1, headingText: "Gifts, Favors & Bribery Prevention" },
+      { id: "eg3-t1", type: "short_text", position: 2, bodyText: "Bribery is the offering, giving, receiving, or soliciting of anything of value to improperly influence a business decision. Gifts and entertainment must never create an obligation or appear to influence commercial outcomes." },
       {
         id: "eg3-k1",
         type: "key_message",
         position: 3,
-        headingText: "Conflicts of Interest & Confidentiality",
-        bodyText: "• Conflict of Interest: Arises when a personal relationship or financial interest could influence—or appear to influence—a work decision (e.g., a bidder is a close relative).\n  - ACTION: Disclose the relationship transparently, follow company process, and step back from decision-making.\n• Confidentiality: Protecting employee records, customer data, financial figures, passwords, and internal reports.\n  - ACTION: Access info strictly for legitimate work, do not share passwords, and report unauthorized disclosures."
-      },
-      {
-        id: "sr3-f1",
-        type: "memorable_fact",
-        position: 4,
-        headingText: "Did You Know? (Worth Knowing)",
-        bodyText: "Disclosing a potential conflict of interest is NOT an admission of wrongdoing! In fact, transparently declaring relationships protects your personal credibility and shields the organization from corruption allegations."
+        headingText: "Three Rules for Gifts and Hospitality",
+        bodyText: "1. Nominal Value Only: Modest promotional items (pens, calendars) or routine working lunches are acceptable if permitted by company policy.\n2. No Gifts During Active Tenders: Absolutely zero gifts, entertainment, or sponsorships may be accepted from vendors participating in an open bid or contract renewal.\n3. Gift Register Logging: All gifts exceeding the policy threshold (e.g., luxury hampers, event tickets) must be logged in the company gift register and either shared or declined."
       }
     ]
   },
   {
     order: 3,
-    title: "Accurate Records & Company Controls",
-    minutes: 3,
-    content: "Understand why trustworthy information matters and how controls protect the organization.",
+    title: "Record Integrity, Audit Trails & Whistleblower Safety",
+    minutes: 4,
+    content: "Maintain auditable records, protect company confidentiality, and navigate protected whistleblower channels.",
     blocks: [
-      { id: "eg4-h1", type: "heading", position: 1, headingText: "Information You Can Trust & Speaking Up" },
-      { id: "eg4-t1", type: "short_text", position: 2, bodyText: "Trustworthy information is the bedrock of responsible business. Controls and procedures exist to ensure accuracy, safety, and accountability." },
+      { id: "eg4-h1", type: "heading", position: 1, headingText: "Transparent Record-Keeping and Speaking Up" },
+      { id: "eg4-t1", type: "short_text", position: 2, bodyText: "Accurate financial entries, meter logs, waste transfer notes, and HR records are the backbone of corporate governance. Falsifying figures undermines investor confidence and invites statutory fines." },
       {
         id: "eg4-k1",
         type: "key_message",
         position: 3,
-        headingText: "Records, Controls & Escalation",
-        bodyText: "• Never Alter Records: Training logs, safety sheets, invoices, and environmental metrics must be 100% accurate.\n• Controls Are Not Bureaucracy: Required sign-offs and dual approvals protect the business from fraud and error.\n• Speaking Up: If you encounter falsified data, unsafe practices, or misconduct, report it through available internal channels (manager, HR, or designated compliance lead)."
-      },
-      {
-        id: "eg4-d1",
-        type: "decision_scenario",
-        position: 4,
-        decisionIntro: "Records Challenge:",
-        decisionPrompt: "A colleague asks you to approve an invoice for goods that have not arrived yet so the department can spend its budget before month-end. What should you do?",
-        decisionChoices: [
-          { label: "Refuse to approve unverified invoices and explain that financial records must reflect genuine transactions.", correct: true, feedback: "Outstanding! Financial and operational records must always be accurate and truthful." },
-          { label: "Approve the invoice immediately to help the department spend its budget.", correct: false, feedback: "Incorrect. Approving unverified invoices violates accounting controls and company policy." },
-          { label: "Delete the invoice from the system and pretend it never existed.", correct: false, feedback: "Incorrect. Destroying accounting records is a severe compliance violation." }
-        ]
+        headingText: "Whistleblower Protection",
+        bodyText: "When an employee witnesses systemic financial fraud, safety cover-ups, or executive corruption that cannot be resolved through line management, they have access to protected, confidential whistleblower reporting channels without fear of termination or career retaliation."
       }
     ]
   },
   {
     order: 4,
-    title: "The Contractor Decision: Mauritius Workplace Challenge",
-    minutes: 3,
-    content: "Apply governance principles to a multi-step procurement scenario in Grand Baie.",
+    title: "Action Boundaries: Personal Integrity vs Board Oversight",
+    minutes: 4,
+    content: "Differentiate personal compliance responsibilities from board-level governance oversight.",
     blocks: [
-      { id: "eg5-h1", type: "heading", position: 1, headingText: "Real-Life Application: The Contractor Selection in Grand Baie" },
-      { id: "eg5-t1", type: "short_text", position: 2, bodyText: "At a commercial facility in Grand Baie, Mauritius, the procurement team is selecting a contractor for urgent building repairs. During the review, four governance challenges emerge." },
+      { id: "eg5-h1", type: "heading", position: 1, headingText: "Governance Roles and Boundaries" },
+      { id: "eg5-t1", type: "short_text", position: 2, bodyText: "Effective corporate governance requires alignment between top-level board structures and frontline employee actions." },
       {
-        id: "eg5-img1",
-        type: "visual_question",
+        id: "eg5-k1",
+        type: "key_message",
         position: 3,
-        imageUrl: "/images/courses/visual-ethics-governance.png",
-        caption: "Grand Baie Procurement Review: Assessing Conflict Disclosure (G), Approval Controls (G), and Bid Confidentiality (G).",
-        imageAlt: "Illustration of a Mauritian corporate desk showing contractor tender files, conflict disclosure forms, scoring rubrics, and confidential price bids."
-      },
-      {
-        id: "eg5-d1",
-        type: "decision_scenario",
-        position: 4,
-        decisionIntro: "Multi-Step Governance Challenge:",
-        decisionPrompt: "The selection committee evaluates 4 critical decision points:\nPoint 1: A committee member notices that Bidder A is owned by their sibling.\nPoint 2: A colleague suggests skipping the final manager approval because the project is running late.\nPoint 3: Someone proposes raising Bidder A's compliance score by 2 points so they beat Bidder B.\nPoint 4: Bidder B's pricing spreadsheet is left open on a shared network drive.\nWhat is the most responsible governance response across all four points?",
-        decisionChoices: [
-          { label: "Declare the sibling conflict transparently and step back from voting; enforce required manager approval; preserve exact assessment scores; and restrict access to the confidential pricing file immediately.", correct: true, feedback: "Outstanding! Disclosing conflicts, upholding controls, protecting score integrity, and safeguarding confidentiality ensures 100% transparent and ethical governance." },
-          { label: "Bypass approvals and adjust scores to award the contract to Bidder A quickly.", correct: false, feedback: "Incorrect. Falsifying scores, hiding conflicts, and bypassing approvals destroys corporate integrity and violates governance policies." },
-          { label: "Cancel the procurement process permanently and refuse to repair the building.", correct: false, feedback: "Incorrect. Responsible governance solves operational needs through transparent, ethical procedures." }
-        ]
+        headingText: "Who Does What?",
+        bodyText: "• Board & Executive: Set ethical codes, establish internal control frameworks, provide independent audit oversight, and ensure legal compliance.\n• Individual Employees: Accurately log operational data, disclose conflicts of interest, decline improper gifts, protect confidential business records, and speak up about non-compliance."
       }
     ]
   },
   {
     order: 5,
-    title: "Your Role in Responsible Business & Personal Commitment",
-    minutes: 2,
-    content: "Distinguish company leadership systems from individual employee behaviors.",
+    title: "Your Workplace Ethics & Governance Commitment",
+    minutes: 3,
+    content: "Select practical commitments to maintain integrity, transparency, and accountability in your daily role.",
     blocks: [
-      { id: "eg6-h1", type: "heading", position: 1, headingText: "Pledge to Support Responsible Governance" },
-      { id: "eg6-t1", type: "short_text", position: 2, bodyText: "Governance is a shared responsibility. Leadership sets policies and oversight, while employees put governance into practice through daily choices." },
-      {
-        id: "eg6-k1",
-        type: "key_message",
-        position: 3,
-        headingText: "Company Responsibility vs. Employee Contribution",
-        bodyText: "• Leadership / Organisation: Establishing governance structures, fair policies, internal controls, risk management, escalation channels, and audit oversight.\n• Employee Contribution: Acting honestly, recording data accurately, protecting confidential information, declaring potential conflicts, and raising concerns through proper channels."
-      },
+      { id: "eg6-h1", type: "heading", position: 1, headingText: "Pledge to Act & Operational Takeaways" },
+      { id: "eg6-t1", type: "short_text", position: 2, bodyText: "Congratulations on completing Ethics, Governance & Responsible Business! Select the commitments below relevant to your role." },
       {
         id: "eg6-c1",
         type: "commitment",
-        position: 4,
-        commitmentInstruction: "Select your daily workplace Governance commitment (choose at least one):",
+        position: 3,
+        commitmentInstruction: "Select your workplace ethics commitments (choose at least one):",
         commitmentOptions: [
-          { value: "record-data-accurately", label: "Record workplace information and metrics accurately, even under time pressure", description: "Support trustworthy data and corporate transparency." },
-          { value: "declare-conflicts-transparently", label: "Declare potential conflicts of interest promptly rather than hiding them", description: "Protect personal integrity and fair decision-making." },
-          { value: "protect-confidential-info", label: "Protect sensitive business, employee, and customer information", description: "Safeguard company data confidentiality." },
-          { value: "follow-controls-and-escalate", label: "Follow required approval controls and raise concerns through proper channels", description: "Uphold corporate accountability and ethics." }
+          { value: "maintain-record-integrity", label: "Never alter, backdate, or falsify operational, financial, or safety records", description: "Preserve truthfulness and audit-ready data." },
+          { value: "disclose-conflicts", label: "Promptly disclose personal, family, or financial connections in the conflict register", description: "Ensure transparent, fair commercial decisions." },
+          { value: "refuse-improper-gifts", label: "Decline or log gifts and hospitality according to company thresholds", description: "Prevent conflicts of interest and perceived bias." },
+          { value: "protect-confidentiality", label: "Protect proprietary business data, customer records, and employee information", description: "Prevent data breaches and maintain stakeholder trust." },
+          { value: "speak-up-on-misconduct", label: "Use appropriate escalation or whistleblower channels when witnessing severe ethical violations", description: "Protect organizational integrity and legal compliance." }
         ]
       }
     ]
@@ -225,173 +189,166 @@ const NEW_LESSONS = [
 const NEW_QUIZ = [
   {
     order: 1,
-    question: "What does the Governance (G) pillar of ESG focus on in plain workplace language?",
+    question: "What is the primary role of the Governance (G) pillar of ESG in corporate management?",
     options: [
-      "Exclusively managing employee social events",
-      "How an organisation makes decisions, sets responsibilities, behaves ethically, and ensures appropriate rules and controls are followed",
-      "Installing solar water heaters on warehouse roofs",
-      "Designing promotional marketing brochures for external sales teams"
+      "Ensuring the organisation makes decisions transparently, adheres to ethical standards, maintains accurate records, and enforces accountability controls",
+      "Ensuring that the company pays zero taxes to municipal and national governments",
+      "Designing decorative logos for the company's annual calendar",
+      "Managing the temperature settings of the office air conditioning units"
     ],
-    correct: 1,
-    correctExplanation: "Governance focuses on how responsibly an organisation is directed, managed, controlled, and held accountable.",
-    incorrectExplanation: "Incorrect. Governance focuses on decision-making, ethics, and controls."
+    correct: 0,
+    correctExplanation: "Governance establishes the rules, leadership accountability, internal controls, and ethical standards that guide an organization.",
+    incorrectExplanation: "Incorrect. Governance defines decision-making integrity, oversight systems, and legal/ethical accountability."
   },
   {
     order: 2,
-    question: "An employee involved in selecting a new supplier discovers that one bidding company belongs to a close family member. What is the most responsible action?",
+    question: "An employee is evaluating vendor bids for a major software contract and realizes that one bidding company is owned by their brother. What is the required governance action?",
     options: [
-      "Keep the relationship secret and vote for the family member's company",
-      "Disqualification of the supplier without informing anyone",
-      "Disclose the relationship transparently to management and recuse oneself from the selection decision",
-      "Share confidential competitor price quotes with the family member"
+      "Disclose the relationship in writing in the company conflict of interest register and recuse themselves from scoring or deciding that tender",
+      "Say nothing and award the contract to the brother to keep business in the family",
+      "Disqualify the brother's company without explanation to avoid questions",
+      "Ask the brother to pay them a private cash bonus if they win the contract"
     ],
-    correct: 2,
-    correctExplanation: "Disclosing potential conflicts transparently and stepping back from decision-making preserves process integrity.",
-    incorrectExplanation: "Incorrect. Disclose the relationship transparently and recuse oneself from voting."
+    correct: 0,
+    correctExplanation: "Conflicts of interest must be disclosed transparently; recusal ensures the tender is evaluated fairly and objectively.",
+    incorrectExplanation: "Incorrect. Undisclosed conflicts violate procurement ethics. Written disclosure and recusal are mandatory."
   },
   {
     order: 3,
-    question: "While preparing a monthly operational report, an employee notices a calculation typo that makes department performance look slightly worse than expected. What should they do?",
+    question: "A contractor bidding for a lucrative multi-year maintenance contract sends an expensive luxury smartphone and weekend resort vouchers to the procurement manager during the tender evaluation period. What should the manager do?",
     options: [
-      "Correct the typo so the report reflects 100% accurate, truthful data",
-      "Invent fake additional numbers to make the department look impressive",
-      "Delete the entire report and claim computer servers crashed",
-      "Blame the typo on a coworker during a staff meeting"
+      "Refuse and return the gifts immediately, log the incident in the company gift register, and notify the compliance officer",
+      "Accept the gifts quietly and give the contractor the tender scoring sheet in advance",
+      "Keep the smartphone but decline the resort vouchers",
+      "Raffle the smartphone off among family members without telling anyone"
     ],
     correct: 0,
-    correctExplanation: "Responsible governance relies on truthful, accurate recordkeeping without falsifying or hiding information.",
-    incorrectExplanation: "Incorrect. Always record and report data accurately."
+    correctExplanation: "Accepting luxury gifts during an active procurement process is an improper inducement (bribery). Gifts must be refused and logged.",
+    incorrectExplanation: "Incorrect. Accepting gifts during tenders breaches anti-bribery policies and compromises tender integrity."
   },
   {
     order: 4,
-    question: "What is the difference between company-level governance responsibility and individual employee responsibility?",
+    question: "Prior to an annual external financial audit, a manager discovers an invoicing typo that made last month's operational expenses appear 10% lower. What is the correct ethical response?",
     options: [
-      "Employees carry full legal liability for corporate governance while leadership does nothing",
-      "Corporate governance policies only apply to external consultants",
-      "There is no difference between executive management and frontline staff",
-      "Leadership establishes policies, controls, and reporting systems, while employees contribute by acting honestly, following rules, and reporting concerns"
+      "Correct the calculation transparently in the ledger and provide the documented correction to accounting and the auditor",
+      "Leave the typo uncorrected because it makes the department look more profitable",
+      "Delete the entire expense ledger file to avoid showing the mistake",
+      "Blame the error on an intern who left the company six months ago"
     ],
-    correct: 3,
-    correctExplanation: "Leadership creates governance structures and policies, while employees put governance into practice through daily actions.",
-    incorrectExplanation: "Incorrect. Leadership sets policies; employees contribute through daily actions."
+    correct: 0,
+    correctExplanation: "Record integrity requires honest, transparent corrections with clear audit trails rather than concealing errors.",
+    incorrectExplanation: "Incorrect. Honest corrections preserve financial integrity; hiding known errors constitutes fraudulent reporting."
   },
   {
     order: 5,
-    question: "A project deadline is hours away. A colleague suggests skipping a required safety sign-off to save time. How should you respond?",
+    question: "Why is 'backdating' or altering the date on an expired safety or environmental compliance certificate a serious legal violation?",
     options: [
-      "Skip the sign-off to meet the deadline, assuming nothing will go wrong",
-      "Explain that controls protect safety and compliance, and complete the required sign-off before proceeding",
-      "Falsify the signature of the safety manager",
-      "Cancel the project and resign from the company immediately"
+      "It constitutes document forgery, misleads regulators and auditors, and hides real operational safety risks from management",
+      "It is perfectly legal as long as the supervisor approves it verbally",
+      "It improves the visual aesthetics of the company archive file",
+      "It reduces the paper consumption of the facilities department"
     ],
-    correct: 1,
-    correctExplanation: "Bypassing controls creates severe safety and legal risks; completing required approvals upholds governance.",
-    incorrectExplanation: "Incorrect. Controls protect safety and compliance; complete required approvals before proceeding."
+    correct: 0,
+    correctExplanation: "Altering dates on regulatory records is document fraud that creates severe legal liabilities and jeopardizes safety.",
+    incorrectExplanation: "Incorrect. Falsifying or backdating compliance documents is illegal and severely damages corporate credibility."
+  },
+  {
+    order: 6,
+    question: "What is the primary function of an enterprise whistleblower reporting channel?",
+    options: [
+      "To allow employees to report serious misconduct, fraud, or safety violations confidentially without fear of retaliation",
+      "To submit anonymous complaints about colleagues' lunch food choices",
+      "To bypass all internal managers for routine daily vacation requests",
+      "To publish internal salary lists on public social media websites"
+    ],
+    correct: 0,
+    correctExplanation: "Whistleblower mechanisms protect workers who report illegal, dangerous, or unethical practices from employer retaliation.",
+    incorrectExplanation: "Incorrect. Whistleblower channels exist to investigate severe misconduct while safeguarding the reporting individual."
+  },
+  {
+    order: 7,
+    question: "How should an employee handle sensitive commercial information, such as upcoming tender pricing or unannounced product launches?",
+    options: [
+      "Maintain strict confidentiality, share it only with authorized colleagues on a need-to-know basis, and store files securely",
+      "Post the tender pricing on public online forums to get feedback from strangers",
+      "Email the file to competitor companies to see if they can match the price",
+      "Print 50 copies and leave them on the reception coffee table"
+    ],
+    correct: 0,
+    correctExplanation: "Confidentiality protects competitive advantage, intellectual property, and compliance with non-disclosure obligations.",
+    incorrectExplanation: "Incorrect. Proprietary business data must be kept confidential and shared only with authorized personnel."
+  },
+  {
+    order: 8,
+    question: "Which of the following describes an ethical workplace shortcut that is actually an unacceptable governance failure?",
+    options: [
+      "Bypassing dual-authorization financial payment sign-offs to pay an unverified supplier faster",
+      "Using keyboard shortcuts to format an Excel financial spreadsheet faster",
+      "Switching off your computer screen before leaving for lunch",
+      "Walking up the stairs instead of waiting for the elevator"
+    ],
+    correct: 0,
+    correctExplanation: "Bypassing financial and operational internal controls removes essential fraud protections, exposing the firm to theft and errors.",
+    incorrectExplanation: "Incorrect. Bypassing mandatory sign-offs compromises internal financial controls and risk governance."
+  },
+  {
+    order: 9,
+    question: "What is the difference between individual ethical responsibility and board-level governance oversight?",
+    options: [
+      "The Board sets codes, policies, and independent audit oversight; individual employees apply honesty, accurate record-keeping, and policy adherence in daily tasks",
+      "The Board is responsible for all ethics, meaning individual employees have zero personal accountability",
+      "Individual employees make all national laws, while the Board executes marketing campaigns",
+      "There is no difference; only board directors are legally required to be honest"
+    ],
+    correct: 0,
+    correctExplanation: "Governance requires both top-down structural oversight and bottom-up individual compliance and integrity.",
+    incorrectExplanation: "Incorrect. Effective governance connects board-level frameworks with daily frontline employee adherence."
+  },
+  {
+    order: 10,
+    question: "Why does strong corporate governance protect an organization from catastrophic business failure?",
+    options: [
+      "It prevents fraud and corruption, ensures regulatory compliance, builds investor trust, and creates an open culture where risks are caught early",
+      "It eliminates the need for the company to have paying customers",
+      "It guarantees that the company will never face market competition",
+      "It makes the business exempt from all international trade tariffs"
+    ],
+    correct: 0,
+    correctExplanation: "Sound governance systems detect operational risks, prevent legal penalties, safeguard shareholder assets, and sustain long-term resilience.",
+    incorrectExplanation: "Incorrect. Governance systems prevent fraud, protect reputation, and ensure transparent, resilient operations."
   }
 ];
 
 export async function ensureEthicsGovernanceCourse(): Promise<void> {
   try {
     await db.transaction(async (tx) => {
-      // 1. Resolve Course by courseCode "ELH-32", slug, or title
-      let existingCourse = null;
-
-      const [byCode] = await tx
+      // 1. Resolve Course 32 by ID 32 or slug
+      let course = null;
+      
+      const [byId] = await tx
         .select()
         .from(coursesTable)
-        .where(eq(coursesTable.courseCode, "ELH-32"))
+        .where(eq(coursesTable.id, COURSE_ID))
         .limit(1);
 
-      if (byCode) {
-        existingCourse = byCode;
+      if (byId) {
+        course = byId;
       } else {
         const [bySlug] = await tx
           .select()
           .from(coursesTable)
           .where(eq(coursesTable.slug, COURSE_SLUG))
           .limit(1);
-        if (bySlug) {
-          existingCourse = bySlug;
-        } else {
-          const [byTitle] = await tx
-            .select()
-            .from(coursesTable)
-            .where(eq(coursesTable.title, COURSE_TITLE))
-            .limit(1);
-          if (byTitle) {
-            existingCourse = byTitle;
-          }
-        }
+        course = bySlug ?? null;
       }
 
-      let courseId: number;
-
-      if (!existingCourse) {
-        logger.info("Seeding new ELH-32 Ethics, Governance & Responsible Business course record...");
-        try {
-          const [inserted] = await tx
-            .insert(coursesTable)
-            .values({
-              courseCode: COURSE_META.courseCode,
-              slug: COURSE_SLUG,
-              title: COURSE_TITLE,
-              description: COURSE_META.description,
-              fullDescription: COURSE_META.fullDescription,
-              categoryId: COURSE_META.categoryId,
-              durationMinutes: COURSE_META.durationMinutes,
-              priceUsd: COURSE_META.priceUsd,
-              level: COURSE_META.level,
-              isFeatured: COURSE_META.isFeatured,
-              thumbnailUrl: COURSE_META.thumbnailUrl,
-              learningObjectives: COURSE_META.learningObjectives,
-              includesCertificate: COURSE_META.includesCertificate,
-              passingScore: COURSE_META.passingScore,
-              completionMessage: COURSE_META.completionMessage,
-              badgeName: COURSE_META.badgeName,
-              badgeDescription: COURSE_META.badgeDescription,
-              isPublished: true,
-              status: "published",
-            })
-            .returning();
-          courseId = inserted.id;
-        } catch (_err) {
-          const [retry] = await tx
-            .select()
-            .from(coursesTable)
-            .where(eq(coursesTable.slug, COURSE_SLUG))
-            .limit(1);
-          if (retry) {
-            courseId = retry.id;
-          } else {
-            throw _err;
-          }
-        }
-      } else {
-        courseId = existingCourse.id;
-        await tx
-          .update(coursesTable)
-          .set({
-            courseCode: COURSE_META.courseCode,
-            title: COURSE_TITLE,
-            slug: COURSE_SLUG,
-            description: COURSE_META.description,
-            fullDescription: COURSE_META.fullDescription,
-            categoryId: COURSE_META.categoryId,
-            durationMinutes: COURSE_META.durationMinutes,
-            priceUsd: COURSE_META.priceUsd,
-            level: COURSE_META.level,
-            thumbnailUrl: COURSE_META.thumbnailUrl,
-            learningObjectives: COURSE_META.learningObjectives,
-            completionMessage: COURSE_META.completionMessage,
-            badgeName: COURSE_META.badgeName,
-            badgeDescription: COURSE_META.badgeDescription,
-            isPublished: true,
-            status: "published",
-          })
-          .where(eq(coursesTable.id, courseId));
+      if (!course) {
+        throw new Error("Course 32 not seeded by catalogue skeletons bootstrap!");
       }
 
-      // 2. Fetch system seed marker
+      const courseId = course.id;
+
+      // 2. Fetch seed marker and existing database content
       const [existingSeed] = await tx
         .select()
         .from(systemSeedsTable)
@@ -403,62 +360,68 @@ export async function ensureEthicsGovernanceCourse(): Promise<void> {
         .from(lessonsTable)
         .where(eq(lessonsTable.courseId, courseId));
 
-      const existingQuiz = await tx
+      const existingQuizQuestions = await tx
         .select()
         .from(quizQuestionsTable)
         .where(eq(quizQuestionsTable.courseId, courseId));
 
-      const needsRepair = !existingSeed || existingLessons.length !== 6 || existingQuiz.length !== 5;
+      // 3. Evaluate integrity violations
+      const hasMissingLessons = existingLessons.length !== NEW_LESSONS.length;
+      const hasEmptyBlocks = existingLessons.some(
+        (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
+      );
+      const hasMissingQuiz = existingQuizQuestions.length !== NEW_QUIZ.length;
+      const hasIncorrectSlug = course.slug !== COURSE_SLUG;
+
+      const needsRepair = !existingSeed ||
+                          hasMissingLessons ||
+                          hasEmptyBlocks ||
+                          hasMissingQuiz ||
+                          hasIncorrectSlug;
 
       if (!needsRepair) {
-        logger.info({ courseId, slug: COURSE_SLUG }, "Ethics and Governance course content verified. Skipping repair...");
+        logger.info({ courseId, slug: COURSE_SLUG }, "Ethics Governance course content and v2 integrity verified. Skipping repair to preserve administrator edits...");
         return;
       }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "Seeding or repairing ELH-32 course content transactionally...");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v2 seed detected for Course 32. Re-seeding course content and lessons transactionally...");
 
-      // 3. Resolve ELH-09 as prerequisite
-      const [elh09] = await tx
+      // 4. Resolve next recommended course dynamically by slug
+      const [nextCourse] = await tx
         .select({ id: coursesTable.id })
         .from(coursesTable)
-        .where(eq(coursesTable.courseCode, "ELH-09"))
+        .where(eq(coursesTable.slug, "esg-data-measurement-and-reporting-basics"))
         .limit(1);
+      const nextCourseId = nextCourse?.id ?? null;
 
-      if (elh09) {
-        const [existingPrereq] = await tx
-          .select()
-          .from(coursePrerequisitesTable)
-          .where(
-            and(
-              eq(coursePrerequisitesTable.courseId, courseId),
-              eq(coursePrerequisitesTable.prerequisiteCourseId, elh09.id)
-            )
-          )
-          .limit(1);
+      // 5. Update course record slug, title, and metadata
+      await tx
+        .update(coursesTable)
+        .set({
+          title: COURSE_TITLE,
+          slug: COURSE_SLUG,
+          description: COURSE_META.description,
+          fullDescription: COURSE_META.fullDescription,
+          categoryId: COURSE_META.categoryId,
+          durationMinutes: COURSE_META.durationMinutes,
+          priceUsd: COURSE_META.priceUsd,
+          level: COURSE_META.level,
+          isFeatured: COURSE_META.isFeatured,
+          thumbnailUrl: COURSE_META.thumbnailUrl,
+          intendedRoles: COURSE_META.intendedRoles,
+          learningObjectives: COURSE_META.learningObjectives,
+          includesCertificate: COURSE_META.includesCertificate,
+          passingScore: COURSE_META.passingScore,
+          badgeName: COURSE_META.badgeName,
+          badgeDescription: COURSE_META.badgeDescription,
+          recommendedNextCourseId: nextCourseId,
+          isPublished: true,
+          status: "published",
+          updatedAt: new Date()
+        })
+        .where(eq(coursesTable.id, courseId));
 
-        if (!existingPrereq) {
-          await tx.insert(coursePrerequisitesTable).values({
-            courseId,
-            prerequisiteCourseId: elh09.id,
-          });
-        }
-      }
-
-      // Set ELH-31 or ELH-09 as next recommended course safely
-      const [elh31] = await tx
-        .select({ id: coursesTable.id })
-        .from(coursesTable)
-        .where(eq(coursesTable.courseCode, "ELH-31"))
-        .limit(1);
-
-      if (elh31) {
-        await tx
-          .update(coursesTable)
-          .set({ recommendedNextCourseId: elh31.id })
-          .where(eq(coursesTable.id, courseId));
-      }
-
-      // 4. Seed Lessons
+      // 6. Seed/re-seed lessons with exact position block arrays
       await tx.delete(lessonsTable).where(eq(lessonsTable.courseId, courseId));
       for (const newLesson of NEW_LESSONS) {
         await tx.insert(lessonsTable).values({
@@ -472,7 +435,7 @@ export async function ensureEthicsGovernanceCourse(): Promise<void> {
         });
       }
 
-      // 5. Seed Quiz Questions
+      // 7. Seed/re-seed quiz questions
       await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
       await tx.insert(quizQuestionsTable).values(
         NEW_QUIZ.map((q) => ({
@@ -483,18 +446,21 @@ export async function ensureEthicsGovernanceCourse(): Promise<void> {
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.options.map((_, optIdx) => 
+            optIdx === q.correct ? q.correctExplanation : q.incorrectExplanation
+          ),
           isArchived: false,
         }))
       );
 
-      // 6. Seed Badge Definition
+      // 8. Idempotently seed/update badge definition
       await tx
         .insert(badgeDefinitionsTable)
         .values({
           slug: BADGE_SLUG,
           name: COURSE_META.badgeName,
           description: COURSE_META.badgeDescription,
-          icon: "award",
+          icon: "shield",
           criteriaType: "all_courses",
           threshold: 0,
           courseIds: [courseId],
@@ -509,22 +475,20 @@ export async function ensureEthicsGovernanceCourse(): Promise<void> {
           },
         });
 
-      // 7. Record System Seed Version Idempotently
-      await tx
-        .insert(systemSeedsTable)
-        .values({
+      // 9. Save seed marker version
+      if (!existingSeed) {
+        await tx.insert(systemSeedsTable).values({
           name: SEED_NAME,
-          version: 1,
-        })
-        .onConflictDoUpdate({
-          target: systemSeedsTable.name,
-          set: { version: 1 },
+          version: 2,
         });
+      } else {
+        await tx.update(systemSeedsTable).set({ version: 2 }).where(eq(systemSeedsTable.name, SEED_NAME));
+      }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "ELH-32 Ethics, Governance & Responsible Business seeded successfully!");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Ethics, Governance & Responsible Business course v2 seed / repair transaction completed successfully.");
     });
   } catch (err) {
-    logger.error({ err }, "Failed to seed ELH-32 Ethics and Governance course");
+    logger.error({ err, courseId: COURSE_ID }, "Failed to ensure Ethics, Governance & Responsible Business course seeding");
     throw err;
   }
 }

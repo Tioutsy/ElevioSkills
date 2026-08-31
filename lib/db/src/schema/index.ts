@@ -39,4 +39,5 @@ export * from "./interactions";
 export * from "./departmentMembershipHistory";
 export * from "./departmentSeasonStandings";
 export * from "./gamificationAnomalies";
+export * from "./companyLearningConfig";
 

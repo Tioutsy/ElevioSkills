@@ -6,228 +6,205 @@ import {
   badgeDefinitionsTable,
   systemSeedsTable,
 } from "@workspace/db";
-import { eq, and } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { logger } from "./logger";
 
 const COURSE_ID = 10;
 const COURSE_SLUG = "carbon-footprint-awareness";
 const COURSE_TITLE = "Carbon Footprint Awareness";
 const BADGE_SLUG = "carbon-aware";
-const SEED_NAME = "carbon-footprint-awareness-v3";
-const SKELETON_BADGE_SLUG = "carbon-aware"; // catalogue skeleton slug — do not delete
+const SEED_NAME = "carbon-footprint-awareness-v4";
+const SKELETON_BADGE_SLUG = "carbon-aware";
 
 const COURSE_META = {
+  courseCode: "ELH-07",
   description:
-    "Gain a plain-language understanding of greenhouse gas emissions, Scope 1–3 boundaries, activity data versus emission factors, and workplace decisions without turning into a specialist carbon accountant.",
+    "Gain a plain-language, practical understanding of greenhouse gas emissions, Scope 1–3 boundaries, activity data versus emission factors, refrigerant impacts, and authentic carbon claims.",
   fullDescription:
-    "This course helps employees across all roles understand what a carbon footprint represents, how daily workplace activities connect to greenhouse gas emissions, how Scope 1, Scope 2, and Scope 3 emissions differ, how activity data is gathered, and how to avoid unsupported greenwashing claims in Mauritian facilities.",
+    "This foundation course demystifies corporate greenhouse gas accounting for non-specialist professionals and employees. Learners explore how everyday workplace decisions relate to carbon footprints, master the difference between Scope 1 (direct fuels), Scope 2 (purchased grid electricity), and Scope 3 (value chain supply and commuting), learn how raw activity data (litres, kWh, kg) is converted into CO2 equivalent (CO2e), recognise high-impact refrigerant leak risks, and evaluate commercial carbon claims to prevent greenwashing.",
   categoryId: 1,
-  durationMinutes: 18,
+  durationMinutes: 25,
   priceUsd: "1400.00",
   level: "Foundation",
   isFeatured: false,
   thumbnailUrl: "/images/courses/carbon-footprint-awareness.jpg",
+  intendedRoles: [
+    "All employees",
+    "Operations and fleet supervisors",
+    "Facilities and maintenance coordinators",
+    "Finance, administration, and procurement officers",
+    "Sustainability committee members and team leads"
+  ],
   learningObjectives: [
-    "Explain a carbon footprint and greenhouse gas emissions in plain workplace language.",
-    "Distinguish direct emissions (Scope 1), purchased energy (Scope 2), and value-chain emissions (Scope 3).",
-    "Distinguish measurable activity data (litres, kWh, km) from emission factors and final carbon calculations.",
-    "Map major emissions sources across workplace energy, transport, goods, waste, and refrigerants.",
-    "Avoid unsupported carbon claims, guessed figures, and misleading 'carbon-neutral' greenwashing slogans.",
-    "Distinguish employee direct actions from data verification, accounting methodology, and management escalation.",
-    "Select one practical workplace carbon commitment to support reliable data and emissions awareness."
+    "Define a carbon footprint and greenhouse gas emissions (GHGs) using plain workplace language.",
+    "Categorize workplace emission sources accurately across Scope 1 (direct), Scope 2 (purchased power), and Scope 3 (value chain).",
+    "Explain how raw activity data (litres of diesel, kWh of power, kg of gas) is multiplied by emission factors to calculate CO2e.",
+    "Recognise the outsized global warming potential (GWP) of synthetic refrigerants and the necessity of leak log tracking.",
+    "Evaluate vendor and marketing 'carbon neutral' statements to prevent deceptive greenwashing claims.",
+    "Execute personal and departmental actions that reduce primary operational emissions at source."
   ],
   includesCertificate: true,
   passingScore: 80,
   completionMessage:
     "You have completed Carbon Footprint Awareness. You can now recognise how workplace decisions connect to greenhouse gas emissions, understand Scope 1–3 boundaries, and support reliable carbon data collection safely.",
-  badgeName: "Carbon Awareness Contributor",
+  badgeName: "Carbon Awareness Practitioner",
   badgeDescription:
-    "Awarded for demonstrating plain-language carbon awareness, understanding Scope 1–3 emissions, and supporting reliable workplace activity data.",
+    "Awarded for demonstrating plain-language carbon awareness, understanding Scope 1–3 emissions, and supporting reliable workplace activity data."
 };
 
 const NEW_LESSONS = [
   {
     order: 0,
     title: "Understanding Workplace Carbon Footprints",
-    minutes: 3,
-    content: "Learn what a carbon footprint represents and why data verification matters.",
+    minutes: 4,
+    content: "Learn what a carbon footprint represents and why verifiable activity data matters.",
     blocks: [
       { id: "cfa1-h1", type: "heading", position: 1, headingText: "Why Emissions Data Requires Evidence" },
-      { id: "cfa1-t1", type: "short_text", position: 2, bodyText: "At a management meeting, a team asks why the company's annual carbon footprint increased despite employees printing less paper. Staff offer guesses: 'It must be the delivery trucks,' or 'We switched power suppliers, so our footprint should be zero.' The sustainability lead points to the data: generator diesel fuel increased and a major refrigerant leak occurred." },
-      { id: "cfa1-k1", type: "key_message", position: 3, headingText: "Emissions Require Measurement, Not Guesses", bodyText: "A carbon footprint is an estimate of total greenhouse gas emissions caused directly and indirectly by an activity or organization. Visible habits (like paper) are important, but energy, fuel, and refrigerants often create far greater emissions." },
+      { id: "cfa1-t1", type: "short_text", position: 2, bodyText: "At an annual management review, a company discovers its carbon footprint increased by 15% despite employees diligently turning off personal computer screens. Team members guess: 'It must be employee commuting,' or 'It's because we sent more emails.' The facilities lead reviews the invoices: backup diesel generator hours doubled during grid outages and a 15-kilogram refrigerant leak occurred in the central air handling unit." },
+      { id: "cfa1-k1", type: "key_message", position: 3, headingText: "Emissions Require Measurement, Not Guesses", bodyText: "A corporate carbon footprint is an evidence-based calculation of total greenhouse gases emitted directly and indirectly by an organization's operations. Visible symbolic habits matter, but fuel combustion, grid electricity, and chemical refrigerants represent the vast majority of commercial emissions." },
       {
         id: "cfa1-d1",
         type: "decision_scenario",
         position: 4,
-        decisionIntro: "Evaluating carbon claims scenario:",
-        decisionPrompt: "A vendor claims their service is '100% Carbon Neutral' but provides no data, reporting boundary, or verification sheet. What should you do?",
+        decisionIntro: "Evaluating vendor carbon claims scenario:",
+        decisionPrompt: "A freight delivery company offers your business '100% Zero-Carbon Delivery' at a premium rate. When asked for documentation, they reply: 'Our drivers plant trees on weekends, so it is officially zero carbon.' What should you do?",
         decisionChoices: [
-          { label: "Treat the claim as unverified marketing and request official methodology or reporting evidence before repeating it", correct: true, feedback: "Perfect! Public carbon claims require defined boundaries, recognized methodologies, and verifiable evidence." },
-          { label: "Publish the 'Carbon Neutral' claim on the company website immediately", correct: false, feedback: "Incorrect! Repeating unverified carbon slogans exposes the company to greenwashing risks." },
-          { label: "Assume all carbon calculations are fake and refuse to collect energy records", correct: false, feedback: "Incorrect. Operational energy and fuel data must be collected accurately." }
+          { label: "Treat the claim as unverified marketing and request certified Scope 1–3 calculation methodology and audited offset standards before paying a premium or citing it publicly", correct: true, feedback: "Correct! Informal tree-planting claims without certified carbon accounting, verified permanence, and third-party audit are classic greenwashing risks." },
+          { label: "Immediately advertise on your company website that all your deliveries are 100% zero carbon", correct: false, feedback: "Dangerous! Publishing unverified third-party claims exposes your organization to severe regulatory and reputational penalties." },
+          { label: "Assume all freight transport produces zero emissions by law", correct: false, feedback: "Incorrect. Transportation is one of the highest emission sources globally." }
         ]
-      },
-      {
-        id: "cfa1-m1",
-        type: "multiple_choice",
-        position: 5,
-        mcqQuestion: "What is a carbon footprint in simple workplace terms?",
-        mcqOptions: [
-          "An estimate of total greenhouse gas emissions caused directly and indirectly by an activity, expressed as CO2 equivalent (CO2e)",
-          "The physical dirt left on office floors by employee shoes",
-          "A tax paid exclusively on paper printing invoices",
-          "A guarantee that a company produces zero pollution"
-        ],
-        mcqCorrectIndex: 0,
-        mcqCorrectExplanation: "A carbon footprint estimates direct and indirect greenhouse gas emissions in CO2 equivalent units.",
-        mcqIncorrectExplanation: "Incorrect. A carbon footprint measures greenhouse gas emissions associated with activities."
       }
     ]
   },
   {
     order: 1,
-    title: "Carbon Terminology: GHGs, CO2e & Activity Data",
+    title: "The Carbon Equation: Activity Data & Emission Factors",
     minutes: 4,
-    content: "Master core carbon terms in plain English without technical accounting confusion.",
+    content: "Master the fundamental calculation: Activity Data × Emission Factor = Carbon Footprint (CO2e).",
     blocks: [
-      { id: "cfa2-h1", type: "heading", position: 1, headingText: "Plain-Language Carbon Vocabulary" },
-      { id: "cfa2-t1", type: "short_text", position: 2, bodyText: "To participate intelligently in workplace sustainability, understand four fundamental terms:" },
+      { id: "cfa2-h1", type: "heading", position: 1, headingText: "How Carbon Footprints Are Actually Calculated" },
+      { id: "cfa2-t1", type: "short_text", position: 2, bodyText: "You do not need to be an environmental chemist to understand carbon accounting. The calculation relies on a straightforward formula:" },
       {
         id: "cfa2-k1",
         type: "key_message",
         position: 3,
-        headingText: "Core Vocabulary",
-        bodyText: "• Greenhouse Gases (GHGs): Heat-trapping gases including Carbon Dioxide (CO2), Methane (CH4), Nitrous Oxide (N2O), and Refrigerants.\n• CO2 Equivalent (CO2e): A standard unit that expresses the warming effect of different GHGs in one comparable measure.\n• Activity Data: Measurable operational quantities (litres of diesel, kWh of electricity, km driven, kg of refrigerant refilled).\n• Emission Factor: An authorized multiplier used to convert raw activity data into estimated GHG emissions."
+        headingText: "Activity Data × Emission Factor = Total CO2e",
+        bodyText: "• Activity Data: The measurable quantity of an operational activity recorded from primary records (e.g. 5,000 litres of diesel from fuel receipts, 120,000 kWh from utility bills, 45,000 km from vehicle fleet logs).\n• Emission Factor: An authoritative multiplier established by international bodies (IPCC, GHG Protocol) or national utilities indicating how many kilograms of CO2e are released per unit of activity.\n• CO2 Equivalent (CO2e): A universal metric that converts the warming impact of different greenhouse gases (Methane, Nitrous Oxide, F-gases) into the equivalent quantity of Carbon Dioxide."
       },
       {
-        id: "cfa2-w1",
-        type: "workplace_example",
+        id: "cfa2-m1",
+        type: "multiple_choice",
         position: 4,
-        headingText: "Data Rule: Measure Activity, Do Not Guess Factors",
-        bodyText: "CRITICAL DATA PRINCIPLE: Employees should collect exact, verifiable activity data (invoices, meter logs, fuel receipts). Never invent missing figures or search randomly online for emission factors—authorized reporting leads apply official factors."
+        mcqQuestion: "In the carbon calculation formula, what constitutes reliable 'Activity Data' for a company vehicle fleet?",
+        mcqOptions: [
+          "Actual litres of fuel purchased recorded from fuel receipts and telematics odometer logs",
+          "An employee's rough guess of how far colleagues drove last month",
+          "The color and physical size of the vehicle fleet",
+          "The total number of likes on the company's social media transport post"
+        ],
+        mcqCorrectIndex: 0,
+        mcqCorrectExplanation: "Activity data must be grounded in verified, auditable operational records such as invoices, utility meter logs, and fuel receipts.",
+        mcqIncorrectExplanation: "Incorrect. Carbon accounting requires auditable primary records, not subjective guesses."
       }
     ]
   },
   {
     order: 2,
-    title: "Scope 1, Scope 2 & Scope 3 Emissions & Sourced Facts",
+    title: "Scope 1, Scope 2 & Scope 3 Boundaries",
     minutes: 4,
-    content: "Understand direct, energy, and value-chain emissions scopes and learn sourced GHG facts.",
+    content: "Classify greenhouse gas emissions into direct combustion, purchased electricity, and value chain categories.",
     blocks: [
-      { id: "cfa3-h1", type: "heading", position: 1, headingText: "The Three Greenhouse Gas Scopes" },
-      { id: "cfa3-t1", type: "short_text", position: 2, bodyText: "Greenhouse gas reporting categorizes emissions into three distinct scopes based on operational control:" },
+      { id: "cfa3-h1", type: "heading", position: 1, headingText: "The Three Emission Scopes (GHG Protocol)" },
+      { id: "cfa3-t1", type: "short_text", position: 2, bodyText: "The Greenhouse Gas Protocol divides an organization's emissions into three distinct boundaries to prevent double-counting and assign accountability:" },
       {
         id: "cfa3-k1",
         type: "key_message",
         position: 3,
-        headingText: "Scope 1, Scope 2 & Scope 3",
-        bodyText: "• Scope 1 (Direct Emissions): Fuel burned in company vehicles/generators, and direct AC/refrigerant gas leaks.\n• Scope 2 (Purchased Energy): Indirect emissions from purchased electricity or chilled water used in facilities.\n• Scope 3 (Value Chain): Indirect emissions from purchased goods, business travel, employee commuting, freight, and waste."
+        headingText: "Scope 1, 2, and 3 Definitions",
+        bodyText: "• SCOPE 1 (Direct Emissions): Fuels burned on-site (diesel in backup generators, LPG in canteen kitchens, petrol in company-owned delivery vans) and fugitive refrigerant leaks from owned AC equipment.\n• SCOPE 2 (Indirect Energy Emissions): Purchased electricity, steam, or central chilled water bought from the municipal grid (e.g. CEB electricity in Mauritius).\n• SCOPE 3 (Value Chain Indirect Emissions): Everything else upstream and downstream—business flights, employee daily commuting, purchased office goods, waste sent to landfill, and third-party outsourced freight."
       },
       {
-        id: "cfa3-f1",
-        type: "memorable_fact",
-        position: 4,
-        headingText: "Did You Know? (Worth Knowing)",
-        bodyText: "According to the Intergovernmental Panel on Climate Change (IPCC) and GHG Protocol standards, fluorinated refrigerant gas leaks (Scope 1) trap heat in the atmosphere up to 2,000 times more effectively than CO2 per kilogram! Promptly repairing leaking air conditioners and cooling units is one of the highest-impact carbon reductions a facility can make."
-      },
-      {
-        id: "cfa3-m1",
-        type: "multiple_choice",
-        position: 5,
-        mcqQuestion: "Which emissions source represents Scope 1 (Direct Emissions) for a Mauritian commercial company?",
-        mcqOptions: [
-          "Diesel fuel burned in company-owned delivery vans and refrigerant leaks from facility AC units",
-          "Purchased electricity drawn from the central utility power grid",
-          "Flights taken by third-party overseas consultants",
-          "Emissions created during the manufacturing of imported paper"
-        ],
-        mcqCorrectIndex: 0,
-        mcqCorrectExplanation: "Fuel burned in company-owned vehicles and direct refrigerant leaks are direct Scope 1 emissions.",
-        mcqIncorrectExplanation: "Incorrect. Company vehicle fuel and direct AC leaks are Scope 1 direct emissions."
-      }
-    ]
-  },
-  {
-    order: 3,
-    title: "The Workplace Carbon Map & Data Verification",
-    minutes: 4,
-    content: "Inspect operational carbon data sources, activity records, and greenwashing risks.",
-    blocks: [
-      { id: "cfa4-h1", type: "heading", position: 1, headingText: "Operations Desk Carbon Data Inspection" },
-      { id: "cfa4-t1", type: "short_text", position: 2, bodyText: "Examine a real Mauritian workplace operations desk. Observe the CEB electricity bill, generator fuel receipt, vehicle logbook, AC refrigerant report, handwritten guessed estimate, and '100% Zero-Carbon Office' poster." },
-      {
-        id: "cfa4-img1",
-        type: "visual_question",
-        position: 3,
-        imageUrl: "/images/courses/visual-workplace-carbon-data.png",
-        caption: "Operations Desk Inspection: Electricity invoice, generator fuel receipt, fleet logbook, refrigerant repair sheet, guessed estimate note, and '100% ZERO-CARBON OFFICE' poster.",
-        imageAlt: "Realistic photograph of a Mauritian operations desk showing a CEB electricity invoice, generator fuel receipt, fleet vehicle logbook, AC maintenance report noting 0.5kg refrigerant added, a handwritten note reading 'Estimated travel emissions: 0.1 tons (guessed)', and a wall poster claiming '100% ZERO-CARBON OFFICE'."
-      },
-      {
-        id: "cfa4-m1",
-        type: "multiple_choice",
-        position: 4,
-        mcqQuestion: "In the operations desk inspection scene above, how should a responsible employee treat the handwritten note reading 'Estimated travel emissions: 0.1 tons (guessed)'?",
-        mcqOptions: [
-          "Reject guessed figures and locate verifiable activity data (exact fuel receipts, odometer logs, or travel invoices)",
-          "Accept the guessed figure as final carbon accounting data",
-          "Multiply the guessed figure by 10 to be safe",
-          "Erase the note and claim travel emissions are zero"
-        ],
-        mcqCorrectIndex: 0,
-        mcqCorrectExplanation: "Never rely on guessed figures for carbon data. Always track exact activity data like fuel receipts and vehicle logs.",
-        mcqIncorrectExplanation: "Incorrect. Guessed carbon data is unreliable; accurate activity logs are required."
-      }
-    ]
-  },
-  {
-    order: 4,
-    title: "Action & Authority Boundaries",
-    minutes: 3,
-    content: "Structure carbon actions into direct habits, site data checks, and specialist escalation.",
-    blocks: [
-      { id: "cfa5-h1", type: "heading", position: 1, headingText: "Three Levels of Carbon Action" },
-      { id: "cfa5-t1", type: "short_text", position: 2, bodyText: "Group your daily carbon-related workplace actions into three distinct authority levels:" },
-      {
-        id: "cfa5-k1",
-        type: "key_message",
-        position: 3,
-        headingText: "Act, Check & Escalate Framework",
-        bodyText: "1. ACT DIRECTLY: Avoid unnecessary equipment run-time, report refrigerant leaks, log vehicle mileage accurately.\n2. CHECK SITE PROCEDURE: Collecting monthly utility invoices, logging fuel receipts, submitting commuting survey data.\n3. ESCALATE TO MANAGEMENT: Unexplained spikes in fuel/power data, major refrigerant leaks, public carbon-neutrality claims, selecting emission factors, or buying carbon offsets."
-      },
-      {
-        id: "cfa5-d1",
+        id: "cfa3-d1",
         type: "decision_scenario",
         position: 4,
-        decisionIntro: "Carbon reporting scenario:",
-        decisionPrompt: "A company's annual electricity consumption dropped by 10%, but total reported carbon emissions rose by 5% because diesel generator use increased during grid outages. A marketing colleague wants to announce '10% Carbon Reduction' publicly based solely on electricity. What should you do?",
+        decisionIntro: "Scope classification scenario:",
+        decisionPrompt: "An accounting firm operates in a leased office. During the year, they consumed: (1) 40,000 kWh of grid electricity, (2) 500 litres of diesel in their owned client-shuttle van, and (3) staff took 12 commercial airline flights for client audits. How are these classified?",
         decisionChoices: [
-          { label: "Escalate to the reporting lead and ensure public statements accurately reflect the total footprint across all fuel sources", correct: true, feedback: "Outstanding! Preventing misleading public claims protects the company from severe greenwashing liability." },
-          { label: "Approve the marketing announcement because lowering electricity sounds good", correct: false, feedback: "Incorrect! Omitting generator fuel emissions creates false, misleading carbon reporting." },
-          { label: "Delete generator fuel receipts from company records so the numbers match", correct: false, feedback: "NEVER falsify or delete activity data records! Falsifying records violates legal and corporate governance rules." }
+          { label: "Van diesel = Scope 1; Grid electricity = Scope 2; Commercial airline flights = Scope 3", correct: true, feedback: "Spot on! Direct fuel in owned vehicles is Scope 1; purchased utility electricity is Scope 2; third-party commercial flights are Scope 3." },
+          { label: "All three are Scope 1 because the company paid money for them", correct: false, feedback: "Incorrect. Paying for a service does not make it Scope 1; Scope depends on direct operational control of the combustion source." },
+          { label: "All three are Scope 3 because the firm is in a leased office", correct: false, feedback: "Incorrect. Purchased grid power is always Scope 2, and owned vehicle fuel is Scope 1." }
         ]
       }
     ]
   },
   {
-    order: 5,
-    title: "Your Carbon Awareness Commitment",
-    minutes: 3,
-    content: "Select practical daily carbon awareness commitments for your workplace role.",
+    order: 3,
+    title: "Refrigerants & Fugitive Gases: The Hidden High-Impact Emitters",
+    minutes: 4,
+    content: "Understand Global Warming Potential (GWP) and why managing AC refrigerant leaks is critical.",
     blocks: [
-      { id: "cfa6-h1", type: "heading", position: 1, headingText: "Pledge to Act" },
-      { id: "cfa6-t1", type: "short_text", position: 2, bodyText: "Congratulations on completing the lessons! Select the carbon awareness habits you commit to practice in your daily work routine." },
+      { id: "cfa4-h1", type: "heading", position: 1, headingText: "Why 1 kg of Refrigerant Can Equal 2,000 kg of CO2" },
+      { id: "cfa4-t1", type: "short_text", position: 2, bodyText: "Many common fluorinated refrigerants (like R-410A or R-134a) used in commercial air conditioners, cold rooms, and chillers have a Global Warming Potential (GWP) between 1,400 and 2,100 times stronger than carbon dioxide over a 100-year timescale." },
+      {
+        id: "cfa4-f1",
+        type: "memorable_fact",
+        position: 3,
+        headingText: "The Impact of a Single AC Top-Up",
+        bodyText: "If an office HVAC system develops a leak and technicians top up 5 kg of R-410A refrigerant during an annual service, that single leak releases the carbon equivalent of driving a diesel vehicle for over 45,000 kilometres! Refrigerant gas leak tracking and preventative maintenance are among the highest-impact climate actions a facility can take."
+      },
+      {
+        id: "cfa4-m1",
+        type: "multiple_choice",
+        position: 4,
+        mcqQuestion: "Why is tracking refrigerant gas top-up logs on commercial air conditioners vital for corporate carbon reporting?",
+        mcqOptions: [
+          "Synthetic refrigerants have global warming potentials thousands of times higher than CO2, so even minor leaks create massive Scope 1 emissions",
+          "Refrigerants are completely non-toxic and have zero effect on global warming",
+          "Refrigerant gas logs are used by municipal police to issue speeding tickets",
+          "Refrigerant top-ups reduce a company's Scope 2 electricity consumption to zero"
+        ],
+        mcqCorrectIndex: 0,
+        mcqCorrectExplanation: "Because hydrofluorocarbons (HFCs) have enormous GWP values, refrigerant leakage represents a major fugitive Scope 1 emission source.",
+        mcqIncorrectExplanation: "Incorrect. High GWP refrigerants create substantial climate impact when leaked into the atmosphere."
+      }
+    ]
+  },
+  {
+    order: 4,
+    title: "Action Boundaries: Direct Reduction vs Reliable Reporting",
+    minutes: 4,
+    content: "Distinguish what employees can directly reduce from accounting and reporting governance.",
+    blocks: [
+      { id: "cfa5-h1", type: "heading", position: 1, headingText: "Action Framework: Knowing Your Role" },
+      { id: "cfa5-t1", type: "short_text", position: 2, bodyText: "Decarbonization requires collective action: employees reduce energy and fuel waste, while administration ensures data traceability." },
+      {
+        id: "cfa5-k1",
+        type: "key_message",
+        position: 3,
+        headingText: "Act, Record & Verify",
+        bodyText: "1. ACT DIRECTLY: Eliminate avoidable electricity waste (AC containment, lighting), optimize delivery routes, avoid unnecessary business travel through videoconferencing.\n2. RECORD ACTIVITY DATA: Save fuel receipts, maintain monthly electricity bills with kWh figures, log vehicle odometer readings, and keep refrigerant contractor service sheets.\n3. AVOID GREENWASHING: Never claim a product or process is 'zero carbon' or 'climate neutral' without verified boundary reports and third-party assurance."
+      }
+    ]
+  },
+  {
+    order: 5,
+    title: "Your Workplace Carbon Literacy Commitment",
+    minutes: 3,
+    content: "Select practical workplace commitments to support carbon reduction and evidence accuracy.",
+    blocks: [
+      { id: "cfa6-h1", type: "heading", position: 1, headingText: "Pledge to Act & Operational Takeaways" },
+      { id: "cfa6-t1", type: "short_text", position: 2, bodyText: "Congratulations on completing Carbon Footprint Awareness! Select the commitments below relevant to your role." },
       {
         id: "cfa6-c1",
         type: "commitment",
         position: 3,
-        commitmentInstruction: "Select your daily workplace carbon commitments (choose at least one):",
+        commitmentInstruction: "Select your workplace carbon commitments (choose at least one):",
         commitmentOptions: [
-          { value: "log-accurate-data", label: "Provide exact fuel, electricity, and activity data without guessing", description: "Support accurate carbon accounting with verifiable receipts and logs." },
-          { value: "report-refrigerant-leaks", label: "Report AC refrigerant leaks and cooling faults immediately", description: "Prevent high-impact Scope 1 fluorinated gas emissions." },
-          { value: "avoid-unsupported-claims", label: "Avoid repeating unverified 'zero-carbon' or 'carbon-neutral' marketing claims", description: "Protect company credibility against greenwashing risks." },
-          { value: "optimize-facility-energy", label: "Reduce unnecessary equipment run-time and travel where practical", description: "Lower operational energy draw and Scope 1 & 2 emissions." },
-          { value: "escalate-data-anomalies", label: "Escalate unexplained energy spikes or missing records to management", description: "Ensure operational carbon data integrity." }
+          { value: "reduce-operational-energy", label: "Actively reduce electricity consumption in daily work to cut Scope 2 grid emissions", description: "Maintain AC thermostat standards and shutdown routines." },
+          { value: "optimize-business-travel", label: "Prioritize digital meetings over unnecessary flights and vehicle travel", description: "Reduce Scope 3 business travel emissions." },
+          { value: "preserve-activity-evidence", label: "Ensure fuel invoices, utility bills, and maintenance records are archived with accurate units", description: "Support audit-ready greenhouse gas reporting." },
+          { value: "track-refrigerant-leaks", label: "Ensure facilities service sheets record exact refrigerant top-up quantities (kg)", description: "Prevent unrecorded high-GWP fugitive Scope 1 emissions." },
+          { value: "challenge-unverified-claims", label: "Question unverified 'carbon neutral' claims and promote authentic evidence-based communications", description: "Protect the organization from greenwashing risks." }
         ]
       }
     ]
@@ -237,68 +214,133 @@ const NEW_LESSONS = [
 const NEW_QUIZ = [
   {
     order: 1,
-    question: "What is the relationship between activity data and emission factors in carbon accounting?",
+    question: "What is a corporate carbon footprint in plain workplace language?",
     options: [
-      "Activity data and emission factors are identical terms for utility bills",
-      "Emission factors are guessed numbers invented by frontline employees",
-      "Activity data measures operational quantities (litres of fuel, kWh of electricity), while emission factors convert that data into estimated CO2e emissions",
-      "Activity data is only collected when a company is carbon neutral"
+      "An evidence-based calculation of total greenhouse gas emissions (in CO2 equivalent) caused directly and indirectly by an organization's activities",
+      "The physical dust and dirt tracked onto building floors by employee footwear",
+      "A mandatory tax paid exclusively on paper printing receipts",
+      "A marketing certificate stating that a business produces zero environmental impact"
     ],
-    correct: 2,
-    correctExplanation: "Activity data measures physical consumption (litres, kWh), while emission factors convert activity data into CO2e estimates.",
-    incorrectExplanation: "Incorrect. Activity data measures physical usage; emission factors convert activity data to CO2e."
+    correct: 0,
+    correctExplanation: "A carbon footprint estimates the warming impact of all operational activities, measured in standard units of Carbon Dioxide equivalent (CO2e).",
+    incorrectExplanation: "Incorrect. A carbon footprint measures greenhouse gas emissions resulting from operational and value-chain activities."
   },
   {
     order: 2,
-    question: "Which option represents a Scope 1 (Direct) greenhouse gas emission?",
+    question: "Which of the following is the standard formula used to calculate greenhouse gas emissions from an operational activity?",
     options: [
-      "Diesel fuel burned in company-owned delivery trucks or direct AC refrigerant leaks",
-      "Purchased electricity drawn from the central power grid",
-      "Emissions generated during the production of paper bought from a supplier",
-      "Commercial flights taken by overseas customers"
+      "Activity Data (e.g. litres of diesel, kWh of electricity) × Emission Factor = Total CO2e",
+      "Total Revenue ÷ Number of Employees = Total Carbon Footprint",
+      "Square Footage of Building × Air Temperature = Kilowatts of Carbon",
+      "Number of Trees in Garden + Paper Recycled = Carbon Neutrality"
     ],
     correct: 0,
-    correctExplanation: "Fuel burned in company-owned vehicles and direct AC refrigerant leaks are Scope 1 direct emissions.",
-    incorrectExplanation: "Incorrect. Direct fuel combustion and refrigerant leaks are Scope 1 emissions."
+    correctExplanation: "Emissions are calculated by multiplying verified activity data (quantities consumed) by authoritative emission factors.",
+    incorrectExplanation: "Incorrect. Carbon accounting multiplies primary activity data by standard emission factors."
   },
   {
     order: 3,
-    question: "Why are AC refrigerant gas leaks considered a high-priority carbon issue for Mauritian facilities?",
+    question: "According to the GHG Protocol, what are 'Scope 1' emissions?",
     options: [
-      "Refrigerant gas leaks increase paper printing costs",
-      "Fluorinated refrigerant gases have global warming potentials up to 2,000 times greater than CO2 per kilogram",
-      "Refrigerants automatically turn grid electricity green",
-      "Refrigerant leaks are required by law in commercial offices"
+      "Direct greenhouse gas emissions from sources owned or controlled by the company, such as fuel burned in company vans, generator diesel, and refrigerant leaks",
+      "Indirect emissions from grid electricity purchased from the municipal utility",
+      "Emissions generated by third-party suppliers, employee commuting, and business flights",
+      "Emissions produced exclusively by international space satellites"
     ],
-    correct: 1,
-    correctExplanation: "Refrigerant gases have extreme global warming potentials compared to CO2, making leak repair a top priority.",
-    incorrectExplanation: "Incorrect. Fluorinated refrigerants trap heat up to thousands of times more effectively than CO2."
+    correct: 0,
+    correctExplanation: "Scope 1 covers direct combustion of fuels on-site or in owned vehicles, plus fugitive chemical/refrigerant gas leaks.",
+    incorrectExplanation: "Incorrect. Scope 1 specifically covers direct on-site combustion and owned vehicle emissions."
   },
   {
     order: 4,
-    question: "How should a company evaluate a supplier claiming a product is '100% Carbon Neutral'?",
+    question: "A commercial business pays its monthly municipal electricity bill for 50,000 kWh of grid power. Under which greenhouse gas scope does this electricity fall?",
     options: [
-      "Publish the claim immediately on marketing brochures without asking for data",
-      "Assume the supplier has eliminated all environmental impact",
-      "Pay the supplier extra money without checking records",
-      "Request verifiable reporting boundaries, methodology details, and third-party verification before accepting the claim"
+      "Scope 2 (Indirect emissions from purchased electricity, heating, or cooling)",
+      "Scope 1 (Direct on-site fuel combustion)",
+      "Scope 3 (Value chain supplier emissions)",
+      "It is completely exempt from carbon accounting"
     ],
-    correct: 3,
-    correctExplanation: "Unverified 'carbon neutral' claims require defined reporting boundaries, methodology evidence, and verification.",
-    incorrectExplanation: "Incorrect. Carbon neutral claims require verifiable reporting boundaries and methodology evidence."
+    correct: 0,
+    correctExplanation: "Purchased electricity, steam, or cooling generated off-site and delivered via the grid is the core definition of Scope 2 emissions.",
+    incorrectExplanation: "Incorrect. Purchased grid electricity is classified as Scope 2."
   },
   {
     order: 5,
-    question: "At the end of the year, facility electricity draw fell by 10%, but total company carbon emissions rose due to heavy generator fuel use. How should management respond?",
+    question: "Which of the following activities falls under 'Scope 3' value chain emissions for a service company?",
     options: [
-      "Delete generator fuel records so total emissions appear lower",
-      "Acknowledge total emissions across all sources accurately and investigate generator usage rather than claiming a false 10% reduction",
-      "Claim 10% carbon reduction publicly based solely on electricity and ignore generator fuel",
-      "Fire the maintenance team for tracking generator fuel"
+      "Employee daily commuting, commercial airline business travel, and purchased office supplies",
+      "Diesel fuel pumped into the company's own on-site backup generator",
+      "LPG gas burned in the company's own cafeteria kitchen stove",
+      "Fugitive refrigerant gas escaping from the company's own central chiller"
     ],
-    correct: 1,
-    correctExplanation: "Total carbon footprints evaluate all emissions sources. Omitting generator fuel creates false, misleading reports.",
-    incorrectExplanation: "Incorrect. Total carbon footprints evaluate all fuel and energy sources accurately."
+    correct: 0,
+    correctExplanation: "Scope 3 encompasses indirect upstream and downstream value chain activities, including commercial flights, supplier goods, and employee commuting.",
+    incorrectExplanation: "Incorrect. Commuting and commercial airline flights are indirect value chain (Scope 3) emissions."
+  },
+  {
+    order: 6,
+    question: "Why do synthetic chemical refrigerants (like R-410A) represent a major climate risk when air conditioners leak?",
+    options: [
+      "They have Global Warming Potentials (GWP) thousands of times higher than CO2, meaning a 1 kg leak can equal over 2,000 kg of carbon emissions",
+      "They are highly flammable and explode whenever exposed to room air",
+      "They permanently increase the electricity voltage of the entire building",
+      "They make the room colder than absolute zero"
+    ],
+    correct: 0,
+    correctExplanation: "Fluorinated refrigerant gases trap enormous heat per kilogram (high GWP), making leak prevention a critical climate priority.",
+    incorrectExplanation: "Incorrect. Synthetic refrigerants have GWPs thousands of times stronger than carbon dioxide."
+  },
+  {
+    order: 7,
+    question: "An equipment supplier claims their service is '100% Carbon Neutral' because their managing director volunteers on weekend environmental cleanups. What is the correct response?",
+    options: [
+      "Request third-party audited carbon accounting evidence and certified offset registries; volunteer work alone does not validate a carbon neutrality claim",
+      "Immediately publish the supplier's claim in your corporate annual report as verified fact",
+      "Refuse to work with the supplier because volunteer work is illegal",
+      "Assume the claim is valid because company directors are always legally infallible"
+    ],
+    correct: 0,
+    correctExplanation: "Carbon neutral claims require defined scopes, verified measurement methodologies, and certified standards to avoid greenwashing.",
+    incorrectExplanation: "Incorrect. Claims of carbon neutrality must be supported by transparent accounting and verified evidence."
+  },
+  {
+    order: 8,
+    question: "Why is 'CO2 equivalent' (CO2e) used as the universal standard metric in carbon reporting?",
+    options: [
+      "It allows the different warming impacts of various greenhouse gases (Methane, Nitrous Oxide, F-gases) to be compared and added together on a common scale",
+      "It represents the exact weight of solid charcoal burned in an engine",
+      "It is the only unit allowed by computer spreadsheets",
+      "It eliminates the need to measure electricity bills"
+    ],
+    correct: 0,
+    correctExplanation: "CO2e standardizes the global warming potential of multiple greenhouse gases into a single comparable figure.",
+    incorrectExplanation: "Incorrect. CO2e converts the warming potential of different gases into the equivalent impact of CO2."
+  },
+  {
+    order: 9,
+    question: "Which of the following actions represents a direct, measurable operational emissions reduction for a business?",
+    options: [
+      "Optimizing logistics delivery routes to reduce vehicle fleet diesel consumption by 15%",
+      "Changing the font size of internal email signatures to 'eco-green'",
+      "Purchasing 100 novelty carbon footprint pins for staff uniforms",
+      "Renaming the company parking lot to 'The Climate Zone'"
+    ],
+    correct: 0,
+    correctExplanation: "Route optimization cuts actual fuel burned (activity data), directly reducing Scope 1 tailpipe emissions.",
+    incorrectExplanation: "Incorrect. Real decarbonization reduces physical fuel, electricity, or material consumption."
+  },
+  {
+    order: 10,
+    question: "Why must primary activity records (fuel receipts, utility invoices, refrigerant service sheets) be preserved with exact units and dates?",
+    options: [
+      "They provide the verifiable audit trail required for credible GHG calculations, regulatory compliance, and third-party verification",
+      "They are required by the post office to deliver mail",
+      "They automatically lower the corporate tax rate to zero",
+      "They replace the need for financial balance sheets"
+    ],
+    correct: 0,
+    correctExplanation: "Audit-ready carbon reporting depends entirely on verifiable primary source data with clear units of measurement and dates.",
+    incorrectExplanation: "Incorrect. Verifiable primary documents establish the audit trail necessary for credible greenhouse gas reporting."
   }
 ];
 
@@ -308,34 +350,25 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
       // 1. Resolve Course 10 by ID 10 or slug
       let course = null;
       
-      const [byCode] = await tx
+      const [byId] = await tx
         .select()
         .from(coursesTable)
-        .where(eq(coursesTable.courseCode, "ELH-07"))
+        .where(eq(coursesTable.id, COURSE_ID))
         .limit(1);
 
-      if (byCode) {
-        course = byCode;
+      if (byId) {
+        course = byId;
       } else {
         const [bySlug] = await tx
           .select()
           .from(coursesTable)
           .where(eq(coursesTable.slug, COURSE_SLUG))
           .limit(1);
-        if (bySlug) {
-          course = bySlug;
-        } else {
-          const [byId] = await tx
-            .select()
-            .from(coursesTable)
-            .where(eq(coursesTable.id, COURSE_ID))
-            .limit(1);
-          course = byId ?? null;
-        }
+        course = bySlug ?? null;
       }
 
       if (!course) {
-        throw new Error("Course ELH-07 / carbon-footprint-awareness not seeded by catalogue skeletons bootstrap!");
+        throw new Error("Course 10 not seeded by catalogue skeletons bootstrap!");
       }
 
       const courseId = course.id;
@@ -358,11 +391,11 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
         .where(eq(quizQuestionsTable.courseId, courseId));
 
       // 3. Evaluate integrity violations
-      const hasMissingLessons = existingLessons.length !== 6;
+      const hasMissingLessons = existingLessons.length !== NEW_LESSONS.length;
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 5;
+      const hasMissingQuiz = existingQuizQuestions.length !== NEW_QUIZ.length;
       const hasIncorrectSlug = course.slug !== COURSE_SLUG;
 
       const needsRepair = !existingSeed ||
@@ -372,17 +405,17 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
                           hasIncorrectSlug;
 
       if (!needsRepair) {
-        logger.info({ courseId, slug: COURSE_SLUG }, "Carbon Footprint Awareness course content and v3 integrity verified. Skipping repair to preserve administrator edits...");
+        logger.info({ courseId, slug: COURSE_SLUG }, "Carbon Footprint course content and v4 integrity verified. Skipping repair to preserve administrator edits...");
         return;
       }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v3 seed detected for Course ELH-07. Re-seeding course content and lessons transactionally...");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v4 seed detected for Course 10. Re-seeding course content and lessons transactionally...");
 
       // 4. Resolve next recommended course dynamically by slug
       const [nextCourse] = await tx
         .select({ id: coursesTable.id })
         .from(coursesTable)
-        .where(eq(coursesTable.slug, "climate-change-mauritian-context"))
+        .where(eq(coursesTable.slug, "biodiversity-in-mauritius"))
         .limit(1);
       const nextCourseId = nextCourse?.id ?? null;
 
@@ -392,7 +425,6 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
         .set({
           title: COURSE_TITLE,
           slug: COURSE_SLUG,
-          courseCode: "ELH-07",
           description: COURSE_META.description,
           fullDescription: COURSE_META.fullDescription,
           categoryId: COURSE_META.categoryId,
@@ -401,15 +433,16 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
           level: COURSE_META.level,
           isFeatured: COURSE_META.isFeatured,
           thumbnailUrl: COURSE_META.thumbnailUrl,
+          intendedRoles: COURSE_META.intendedRoles,
           learningObjectives: COURSE_META.learningObjectives,
           includesCertificate: COURSE_META.includesCertificate,
           passingScore: COURSE_META.passingScore,
-          completionMessage: COURSE_META.completionMessage,
           badgeName: COURSE_META.badgeName,
           badgeDescription: COURSE_META.badgeDescription,
           recommendedNextCourseId: nextCourseId,
           isPublished: true,
           status: "published",
+          updatedAt: new Date()
         })
         .where(eq(coursesTable.id, courseId));
 
@@ -438,6 +471,9 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.options.map((_, optIdx) => 
+            optIdx === q.correct ? q.correctExplanation : q.incorrectExplanation
+          ),
           isArchived: false,
         }))
       );
@@ -449,7 +485,7 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
           slug: BADGE_SLUG,
           name: COURSE_META.badgeName,
           description: COURSE_META.badgeDescription,
-          icon: "cloud",
+          icon: "activity",
           criteriaType: "all_courses",
           threshold: 0,
           courseIds: [courseId],
@@ -468,15 +504,16 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
       if (!existingSeed) {
         await tx.insert(systemSeedsTable).values({
           name: SEED_NAME,
-          version: 3,
+          version: 4,
         });
       } else {
-        await tx.update(systemSeedsTable).set({ version: 3 }).where(eq(systemSeedsTable.name, SEED_NAME));
+        await tx.update(systemSeedsTable).set({ version: 4 }).where(eq(systemSeedsTable.name, SEED_NAME));
       }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "Carbon Footprint Awareness course v3 seed / repair transaction completed successfully.");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Carbon Footprint Awareness course v4 seed / repair transaction completed successfully.");
     });
   } catch (err) {
-    logger.error({ err }, "Failed to execute idempotent seeding/repair of Carbon Footprint Awareness course");
+    logger.error({ err, courseId: COURSE_ID }, "Failed to ensure Carbon Footprint Awareness course seeding");
+    throw err;
   }
 }

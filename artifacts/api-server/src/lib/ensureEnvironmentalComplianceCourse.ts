@@ -6,35 +6,41 @@ import {
   badgeDefinitionsTable,
   systemSeedsTable,
 } from "@workspace/db";
-import { eq, and } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { logger } from "./logger";
 
 const COURSE_ID = 10;
 const COURSE_SLUG = "environmental-compliance";
 const COURSE_TITLE = "Environmental Compliance";
 const BADGE_SLUG = "compliance-aware";
-const SEED_NAME = "environmental-compliance-v2";
-const SKELETON_BADGE_SLUG = "environmental-responsibility"; // catalogue skeleton slug — do not delete
+const SEED_NAME = "environmental-compliance-v3";
+const SKELETON_BADGE_SLUG = "environmental-responsibility";
 
 const COURSE_META = {
+  courseCode: "ELH-10",
   description:
     "Learn how environmental laws, permit conditions, company procedures, and operational records work together, and apply STOP–CHECK–CONTROL–RECORD–ESCALATE protocols safely.",
   fullDescription:
-    "This course provides employees across all roles with a practical introduction to environmental compliance in Mauritian workplaces. Learn how statutory requirements, licence conditions, and site procedures connect to daily work, distinguish compliance tiers, preserve evidence, handle spills and contractor risks, and apply the STOP–CHECK–CONTROL–RECORD–ESCALATE protocol safely.",
+    "This foundation course provides employees, supervisors, and operations teams with a practical guide to environmental compliance in Mauritian commercial workplaces. Learn how national environmental protection acts, EIA/PER permit conditions, and internal standard operating procedures connect to daily work, distinguish compliance tiers, preserve audit-ready records, oversee contractor activities, and execute the STOP–CHECK–CONTROL–RECORD–ESCALATE emergency protocol safely.",
   categoryId: 1,
-  durationMinutes: 18,
+  durationMinutes: 25,
   priceUsd: "1400.00",
   level: "ESG and Compliance",
   isFeatured: false,
   thumbnailUrl: "/images/courses/environmental-compliance.jpg",
+  intendedRoles: [
+    "All employees and operations staff",
+    "Facilities, maintenance, and site supervisors",
+    "Procurement and contractor management teams",
+    "HSE and sustainability working group members"
+  ],
   learningObjectives: [
-    "Explain environmental compliance in plain workplace language.",
-    "Distinguish between Legal Requirements, Permit Conditions, Company Procedures, and Good Practice.",
-    "Identify common workplace situations that create environmental compliance obligations or runoff risks.",
-    "Apply the 5-step STOP–CHECK–CONTROL–RECORD–ESCALATE operational protocol.",
-    "Avoid high-risk mistakes such as backdating forms, inventing missing logs, or washing spills into storm drains.",
-    "Evaluate role-based micro-decisions across general staff, facilities, procurement, operations, sales, managers, and contractors.",
-    "Select one practical workplace compliance commitment to support accurate records and timely escalation."
+    "Define environmental compliance in plain workplace terms and understand why it protects organizations from legal shutdown.",
+    "Distinguish between Statutory Laws, Permit Conditions, Company Procedures, and Voluntary Good Practice.",
+    "Identify high-risk workplace situations: uncontained chemical drums, hazardous runoff, missing waste transfer notes, and illegal drain washing.",
+    "Apply the 5-step STOP–CHECK–CONTROL–RECORD–ESCALATE operational protocol during environmental incidents.",
+    "Maintain audit-ready compliance registers without backdating, guessing, or falsifying inspection logs.",
+    "Complete 10 scenario-based assessment questions testing practical compliance dilemmas and contractor oversight."
   ],
   includesCertificate: true,
   passingScore: 80,
@@ -42,18 +48,18 @@ const COURSE_META = {
     "You have completed Environmental Compliance. You can now recognise environmental obligations, distinguish permit conditions from procedures, and apply STOP–CHECK–CONTROL–RECORD–ESCALATE protocols safely.",
   badgeName: "Environmental Compliance Awareness",
   badgeDescription:
-    "Awarded for demonstrating practical workplace environmental compliance awareness, understanding permit conditions, preserving evidence, and escalating concerns correctly.",
+    "Awarded for demonstrating practical workplace environmental compliance awareness, understanding permit conditions, preserving evidence, and escalating concerns correctly."
 };
 
 const NEW_LESSONS = [
   {
     order: 0,
     title: "Understanding Workplace Environmental Obligations",
-    minutes: 3,
+    minutes: 4,
     content: "Learn how environmental obligations apply to daily site operations and why guessing compliance data is dangerous.",
     blocks: [
       { id: "ec1-h1", type: "heading", position: 1, headingText: "Compliance Beyond Legal Jargon" },
-      { id: "esg1-t1", type: "short_text", position: 2, bodyText: "On a Monday morning at a Mauritian commercial loading yard, a site worker notices an unlabelled blue chemical drum leaking fluid near an open storm drain cover, a contractor washing machinery into the drain, an incomplete waste transfer form, and a supervisor asking staff to 'copy last month's figures' for an upcoming inspection." },
+      { id: "ec1-t1", type: "short_text", position: 2, bodyText: "On a Monday morning at a commercial loading yard, a site worker notices an unlabelled blue chemical drum leaking fluid near an open storm drain cover, a contractor washing machinery into the drain, an incomplete waste transfer form, and a supervisor asking staff to 'copy last month's figures' for an upcoming inspection. What happens on the ground represents legal risk." },
       { id: "ec1-k1", type: "key_message", position: 3, headingText: "Compliance Is Operational Procedure, Not Guesswork", bodyText: "Environmental compliance means ensuring workplace activities meet established legal laws, site licence conditions, and internal company procedures. Employees do not need to be lawyers, but they must follow approved procedures, log exact facts, and escalate uncertainty." },
       {
         id: "ec1-d1",
@@ -66,21 +72,6 @@ const NEW_LESSONS = [
           { label: "Allow the washing to continue because contractors are solely responsible for their own work", correct: false, feedback: "Incorrect! Companies share site responsibility for contractor activities occurring on their property." },
           { label: "Help the contractor wash the equipment faster so the drain clears before managers arrive", correct: false, feedback: "NEVER assist in illegal effluent discharge into public drains!" }
         ]
-      },
-      {
-        id: "ec1-m1",
-        type: "multiple_choice",
-        position: 5,
-        mcqQuestion: "What is the scope and purpose of this Environmental Compliance course?",
-        mcqOptions: [
-          "To provide practical workplace awareness on following procedures, preserving evidence, and escalating concerns safely",
-          "To certify employees as statutory environmental lawyers qualified to issue government court warrants",
-          "To replace all company environmental permits with an online badge",
-          "To guarantee that a company will never be inspected by local authorities"
-        ],
-        mcqCorrectIndex: 0,
-        mcqCorrectExplanation: "This course provides general workplace awareness for following procedures, preserving evidence, and escalating concerns safely.",
-        mcqIncorrectExplanation: "Incorrect. General compliance training builds practical workplace awareness and reporting habits."
       }
     ]
   },
@@ -100,139 +91,90 @@ const NEW_LESSONS = [
         bodyText: "1. Legal Requirements: Statutory laws and national regulations (e.g. Environment Protection Act Mauritius bans unpermitted toxic discharges).\n2. Permit or Licence Conditions: Specific binding terms issued to a facility (e.g. EIA / PER licence specifying maximum wastewater discharge volumes).\n3. Company Procedures: Approved internal operational rules (e.g. mandatory chemical drum secondary containment and spill kit protocols).\n4. Good Practice: Voluntary actions exceeding minimum rules to improve environmental resilience."
       },
       {
-        id: "ec2-f1",
-        type: "memorable_fact",
+        id: "ec2-d1",
+        type: "decision_scenario",
         position: 4,
-        headingText: "Did You Know? (Worth Knowing)",
-        bodyText: "Under the Environment Protection Act (EPA Mauritius) and local effluent discharge regulations, Environmental Impact Assessment (EIA) licences contain legally binding self-monitoring conditions. Failing to log required water, waste, or emissions data can trigger statutory stop-notices and severe corporate penalties!"
+        decisionIntro: "Permit limit dilemma:",
+        decisionPrompt: "A facility's environmental permit sets a maximum daily generator run-time limit of 4 hours during normal grid supply. Due to a production rush, a supervisor suggests running the diesel generator for 12 hours. What should the operator do?",
+        decisionChoices: [
+          { label: "Inform the supervisor of the binding permit condition, refuse unauthorized non-compliant run-times, and escalate to the environmental compliance officer", correct: true, feedback: "Spot on! Permit conditions are legally binding. Breaching operating hours risks statutory enforcement notices, heavy fines, and permit revocation." },
+          { label: "Run the generator for 12 hours and disconnect the hour meter so nobody knows", correct: false, feedback: "Severe legal fraud! Tampering with compliance meters is a criminal offense." },
+          { label: "Pour water into the diesel tank to make the engine run quieter", correct: false, feedback: "Dangerous and destructive! Always adhere to operating procedures and permit conditions." }
+        ]
       }
     ]
   },
   {
     order: 2,
-    title: "The STOP–CHECK–CONTROL–RECORD–ESCALATE Protocol",
+    title: "Chemical Storage, Spills & Drain Protection",
     minutes: 4,
-    content: "Inspect loading yard compliance risks and apply the 5-step operational protocol.",
+    content: "Implement secondary containment, spill kits, and hazardous waste storage standards.",
     blocks: [
-      { id: "ec3-h1", type: "heading", position: 1, headingText: "The 5-Step Operational Protocol" },
-      { id: "ec3-t1", type: "short_text", position: 2, bodyText: "When encountering an environmental hazard, spill, or contractor risk, apply this 5-step protocol:" },
+      { id: "ec3-h1", type: "heading", position: 1, headingText: "Preventing Runoff and Ground Contamination" },
+      { id: "ec3-t1", type: "short_text", position: 2, bodyText: "Chemical drums and oils stored without secondary bunding risk catastrophic soil and waterway pollution during tropical rains." },
       {
         id: "ec3-k1",
         type: "key_message",
         position: 3,
-        headingText: "STOP–CHECK–CONTROL–RECORD–ESCALATE",
-        bodyText: "1. STOP: Pause an unsafe or non-compliant action safely.\n2. CHECK: Review labels, work permits, safety data sheets, or approved site procedures.\n3. CONTROL: Prevent pollution from spreading (e.g. deploy spill kit booms around drains) without taking personal safety risks.\n4. RECORD: Log exact facts, time, place, photos, and container labels accurately.\n5. ESCALATE: Inform the facility lead, environmental coordinator, or supervisor immediately."
-      },
-      {
-        id: "ec3-img1",
-        type: "visual_question",
-        position: 4,
-        imageUrl: "/images/courses/visual-environmental-compliance.png",
-        caption: "Service Yard Inspection: Labelled hazardous waste drum on spill pallet (compliant), unlabelled blue drum on pavement leaking fluid near open storm drain (major risk), work permit clipboard, and worker logging photos.",
-        imageAlt: "Realistic photograph of a Mauritian commercial service loading yard displaying a yellow hazardous waste drum on a spill pallet, an unlabelled blue drum leaking fluid on bare pavement near an open storm drain, a work permit clipboard, and a facility worker photographing the site to log evidence."
-      },
-      {
-        id: "ec3-m1",
-        type: "multiple_choice",
-        position: 5,
-        mcqQuestion: "In the service yard inspection above, what is the most critical immediate action for the leaking blue drum?",
-        mcqOptions: [
-          "Deploy spill kit absorbent materials to block fluid from entering the open storm drain, log photos, and escalate to the facility lead",
-          "Hose down the pavement so the leaking fluid disappears into the storm drain quickly",
-          "Kick the drum over to empty it faster before an inspector arrives",
-          "Ignore the drum because it has no label"
-        ],
-        mcqCorrectIndex: 0,
-        mcqCorrectExplanation: "Preventing fluid from entering storm drains protecting aquatic habitats is top priority, followed by photo logging and escalation.",
-        mcqIncorrectExplanation: "Incorrect. Block drains and control spills; never wash chemical leaks into stormwater drains."
+        headingText: "Storage & Spills Non-Negotiables",
+        bodyText: "• Secondary Containment: All liquid chemicals must sit on bunded spill pallets holding at least 110% of the largest container volume.\n• Clear Labelling & SDS: Every container must have an intact GHS hazard label and Safety Data Sheet accessible nearby.\n• Dedicated Spill Kits: Spill absorbent pads and booms must be stocked and positioned within 10 metres of chemical storage areas."
       }
     ]
   },
   {
     order: 3,
-    title: "Worked Scenario & Inspection Evidence",
+    title: "The 5-Step Incident Protocol: STOP–CHECK–CONTROL–RECORD–ESCALATE",
     minutes: 4,
-    content: "Analyze a worked Mauritian facility scenario and learn how to handle missing data before inspections.",
+    content: "Master the standard emergency procedure during an environmental spill or non-compliance discovery.",
     blocks: [
-      { id: "ec4-h1", type: "heading", position: 1, headingText: "Inspection Readiness & Record Integrity" },
-      { id: "ec4-t1", type: "short_text", position: 2, bodyText: "Examine how a Mauritian manufacturing facility prepares for an environmental review:" },
+      { id: "ec4-h1", type: "heading", position: 1, headingText: "Emergency Response Protocol" },
+      { id: "ec4-t1", type: "short_text", position: 2, bodyText: "When an environmental hazard or leak occurs on site, execute the 5 steps immediately:" },
       {
-        id: "ec4-w1",
-        type: "workplace_example",
+        id: "ec4-k1",
+        type: "key_message",
         position: 3,
-        headingText: "Worked Scenario: Pre-Inspection Audit Request",
-        bodyText: "An environmental officer visits a site in 20 minutes. A supervisor asks a staff member to 'copy last month's waste transfer log numbers' because Q4 logs are missing.\n• WRONG ACTION: Copying old figures or backdating forms (Falsification breach).\n• CORRECT ACTION: Search approved archives for missing forms, present verified Q1–Q3 records honestly, declare the Q4 gap, and notify the environmental lead. Honesty preserves legal credibility!"
-      },
-      {
-        id: "ec4-d1",
-        type: "decision_scenario",
-        position: 4,
-        decisionIntro: "Handling missing logs scenario:",
-        decisionPrompt: "A contractor completes maintenance but forgets to sign the hazardous waste transfer receipt. How should the facility coordinator handle the document?",
-        decisionChoices: [
-          { label: "Contact the contractor supervisor to obtain the authorized signature and retain the unsigned form in a pending file with an explanatory note", correct: true, feedback: "Correct! Retaining an explanatory note preserves audit trail integrity without falsifying signatures." },
-          { label: "Sign the contractor's name yourself so the file looks complete", correct: false, feedback: "NEVER forge or fake signatures on compliance documents! Forging signatures is illegal." },
-          { label: "Throw the waste transfer form away so no one sees it was unsigned", correct: false, feedback: "NEVER destroy compliance paperwork! Destroying records violates waste transfer regulations." }
-        ]
+        headingText: "The 5 Steps",
+        bodyText: "1. STOP: Pause the unsafe activity or isolate the source of the leak safely.\n2. CHECK: Assess safety hazards (toxic fumes, fire risk, PPE required) before approaching.\n3. CONTROL: Deploy spill booms or absorbent pads to protect stormwater drains and unpaved soil.\n4. RECORD: Document the exact time, location, chemical type, estimated volume, and photos.\n5. ESCALATE: Notify the designated site environmental officer and facilities lead immediately."
       }
     ]
   },
   {
     order: 4,
-    title: "High-Risk Mistakes & Role-Based Micro-Decisions",
-    minutes: 3,
-    content: "Avoid prohibited compliance actions and practice role-based decisions across operational departments.",
+    title: "Contractor Oversight & Audit Evidence Integrity",
+    minutes: 4,
+    content: "Ensure third-party contractor compliance and preserve auditable environmental logs.",
     blocks: [
-      { id: "ec5-h1", type: "heading", position: 1, headingText: "Prohibited Compliance Actions" },
-      { id: "ec5-t1", type: "short_text", position: 2, bodyText: "NEVER engage in these four high-risk operational behaviors:" },
+      { id: "ec5-h1", type: "heading", position: 1, headingText: "Audit Readiness and Contractor Due Diligence" },
+      { id: "ec5-t1", type: "short_text", position: 2, bodyText: "Organizations remain legally responsible for environmental breaches committed by contractors on their premises." },
       {
         id: "ec5-k1",
         type: "key_message",
         position: 3,
-        headingText: "Prohibited Actions",
-        bodyText: "• DO NOT invent figures, backdate forms, or falsify environmental logs.\n• DO NOT wash chemical spills, oil, or contaminated washwater into storm drains or soil.\n• DO NOT hide near-miss incidents, unlabelled containers, or contractor breaches.\n• DO NOT make absolute public claims like '100% Legally Compliant' without authorized legal verification."
-      },
-      {
-        id: "ec5-d1",
-        type: "decision_scenario",
-        position: 4,
-        decisionIntro: "Facilities & Maintenance Micro-Decision:",
-        decisionPrompt: "A maintenance technician replaces an AC cooling unit compressor and notices a small refrigerant gas leak, but the site supervisor says 'it is too small to report.' What should the technician do?",
-        decisionChoices: [
-          { label: "Log the exact leak location and quantity on the maintenance work order and report it to the environmental lead", correct: true, feedback: "Outstanding! Accurate logging and escalation ensure high-impact fluorinated refrigerant leaks are repaired promptly." },
-          { label: "Ignore the leak because the supervisor told you it is small", correct: false, feedback: "Incorrect! Fluorinated refrigerants have extreme warming impacts and must be logged and repaired." },
-          { label: "Cover the leaking pipe with duct tape and claim the repair is complete", correct: false, feedback: "Duct tape is not an approved refrigerant repair! Report and repair leaks properly." }
-        ]
+        headingText: "Contractor Rules & Evidence Records",
+        bodyText: "• Site Induction: Brief contractors on drain protection, waste sorting, and spill reporting before work begins.\n• Waste Transfer Notes: Obtain signed consignment notes from certified waste haulers for all hazardous waste collections.\n• Never Backdate: Falsifying inspection logs or backdating calibration certificates destroys legal credibility and violates compliance."
       }
     ]
   },
   {
     order: 5,
-    title: "Your Compliance Awareness Commitment & Disclaimer",
+    title: "Your Workplace Environmental Compliance Commitment",
     minutes: 3,
-    content: "Select practical daily workplace commitments and review the legal compliance awareness disclaimer.",
+    content: "Select practical commitments to maintain legal compliance and environmental protection in your daily work.",
     blocks: [
-      { id: "ec6-h1", type: "heading", position: 1, headingText: "Pledge to Act" },
-      { id: "ec6-t1", type: "short_text", position: 2, bodyText: "Congratulations on completing the lessons! Select the compliance habits you commit to practice in your daily work routine." },
+      { id: "ec6-h1", type: "heading", position: 1, headingText: "Pledge to Act & Operational Takeaways" },
+      { id: "ec6-t1", type: "short_text", position: 2, bodyText: "Congratulations on completing Environmental Compliance! Select the commitments below relevant to your role." },
       {
         id: "ec6-c1",
         type: "commitment",
         position: 3,
-        commitmentInstruction: "Select your daily workplace environmental compliance commitments (choose at least one):",
+        commitmentInstruction: "Select your workplace compliance commitments (choose at least one):",
         commitmentOptions: [
-          { value: "apply-stop-check-control", label: "Apply the STOP–CHECK–CONTROL–RECORD–ESCALATE protocol for site environmental risks", description: "Pause unsafe actions, control runoff, and report concerns promptly." },
-          { value: "never-falsify-logs", label: "Never invent figures, backdate forms, or falsify environmental records", description: "Support audit integrity with verified factual records." },
-          { value: "protect-storm-drains", label: "Keep chemicals, oils, and washwater away from storm drains and unpaved soil", description: "Prevent illegal effluent discharges into public waterways." },
-          { value: "verify-contractor-permits", label: "Check that contractors follow site environmental permits and work controls", description: "Ensure third-party site operations meet company standards." },
-          { value: "escalate-unlabelled-containers", label: "Report unlabelled chemical containers and missing safety sheets immediately", description: "Eliminate chemical hazard risks in storage and loading areas." }
+          { value: "apply-stop-check-control", label: "Apply the STOP–CHECK–CONTROL–RECORD–ESCALATE protocol during spills or environmental risks", description: "Prevent chemical contamination and protect public drains." },
+          { value: "never-falsify-logs", label: "Never alter, backdate, or falsify environmental logs or inspection records", description: "Preserve corporate integrity and audit compliance." },
+          { value: "protect-storm-drains", label: "Ensure chemicals, oils, and equipment washwater never enter outdoor storm drains", description: "Safeguard local rivers and coral lagoons." },
+          { value: "verify-contractor-compliance", label: "Ensure third-party contractors follow site environmental controls and waste procedures", description: "Maintain site due diligence across operations." },
+          { value: "maintain-spill-kits", label: "Ensure chemical storage has secondary bunding and stocked spill kits nearby", description: "Be prepared for accidental leaks." }
         ]
-      },
-      {
-        id: "ec6-w1",
-        type: "workplace_example",
-        position: 4,
-        headingText: "Course Disclaimer",
-        bodyText: "DISCLAIMER: This course provides general workplace awareness. Specific legal and permit requirements vary by facility, activity, and sector. Employees must follow their organisation's approved procedures and consult designated environmental leads or legal specialists for statutory interpretation."
       }
     ]
   }
@@ -241,68 +183,133 @@ const NEW_LESSONS = [
 const NEW_QUIZ = [
   {
     order: 1,
-    question: "What is the difference between a Legal Requirement and a Company Procedure?",
+    question: "What is the primary difference between a statutory Legal Requirement and an internal Company Procedure?",
     options: [
-      "Legal Requirements only apply to police officers; Company Procedures only apply to hotel guests",
-      "Company Procedures override national laws whenever a deadline is near",
-      "Legal Requirements are binding national laws (e.g. Environment Protection Act); Company Procedures are internal operational rules set by management to meet those laws and standards",
-      "There is no difference; both are optional suggestions for office workers"
+      "Legal Requirements are binding national laws (e.g. Environment Protection Act); Company Procedures are internal operational rules established by management to achieve compliance",
+      "Legal Requirements apply only to government officials, while Company Procedures apply only to customers",
+      "Company Procedures override national laws whenever a production deadline is approaching",
+      "There is no difference; both are optional suggestions"
     ],
-    correct: 2,
-    correctExplanation: "Legal requirements are binding statutory laws; company procedures are internal rules designed to achieve compliance.",
-    incorrectExplanation: "Incorrect. Laws are statutory rules; company procedures are internal operational controls."
+    correct: 0,
+    correctExplanation: "Statutory laws are legally mandated regulations; internal procedures are the specific operational steps created to adhere to those laws.",
+    incorrectExplanation: "Incorrect. Laws are statutory mandates; company procedures are internal management controls designed to satisfy legal standards."
   },
   {
     order: 2,
-    question: "What is the first step in the STOP–CHECK–CONTROL–RECORD–ESCALATE protocol when observing an unapproved chemical spill near a drain?",
+    question: "What is the very first step in the STOP–CHECK–CONTROL–RECORD–ESCALATE protocol when an uncontained chemical leak is discovered?",
     options: [
-      "STOP: Pause the unsafe or non-compliant activity safely to prevent further spill generation",
-      "RECORD: Take 50 photos before telling anyone about the leak",
-      "CONTROL: Wash the spill into the drain with a high-pressure hose",
-      "ESCALATE: Post a public video online before talking to the site supervisor"
+      "STOP: Safely pause the hazardous activity or isolate the source of the leak to prevent further volume escaping",
+      "ESCALATE: Post a video of the spill on social media before telling the supervisor",
+      "CONTROL: Wash the spill into the nearest stormwater drain with a high-pressure hose",
+      "RECORD: Take 50 photos while allowing the chemical to continue flowing into the soil"
     ],
     correct: 0,
-    correctExplanation: "The first step is STOP—pause the activity safely to prevent additional spill volume.",
-    incorrectExplanation: "Incorrect. The first step in the protocol is STOP."
+    correctExplanation: "The first action is to STOP the flow safely to prevent expanding the contamination footprint.",
+    incorrectExplanation: "Incorrect. The first step is STOP—halt the leak or activity safely before taking further action."
   },
   {
     order: 3,
-    question: "Why should chemical spills or contaminated washwater NEVER be hosed into stormwater drains?",
+    question: "Why must chemical spills, oily washwater, or paint residues NEVER be hosed into outdoor stormwater drains?",
     options: [
-      "Hosing water into drains makes the pavement too clean for delivery trucks",
-      "Stormwater drains discharge directly into rivers, groundwater, and lagoons without water treatment, causing severe environmental contamination",
-      "Stormwater drains are reserved exclusively for drinking water storage",
-      "Chemicals in storm drains automatically destroy solar panels"
+      "Stormwater drains lead directly into local rivers, wetlands, and coral lagoons without municipal treatment, causing severe toxic pollution",
+      "Stormwater drains are reserved exclusively for storing emergency drinking water",
+      "Chemicals in drains make the road asphalt too clean for vehicle tires",
+      "Hosing chemicals into drains causes solar panels to lose efficiency"
     ],
-    correct: 1,
-    correctExplanation: "Storm drains lead untreated into waterways and lagoons; hosing chemicals into drains causes severe pollution.",
-    incorrectExplanation: "Incorrect. Storm drains flow untreated into aquatic ecosystems; never wash chemicals into drains."
+    correct: 0,
+    correctExplanation: "Storm drains discharge untreated surface runoff into waterways. Discharging chemicals into drains is an environmental crime.",
+    incorrectExplanation: "Incorrect. Storm drains bypass sewage treatment and flow directly into aquatic ecosystems; never wash chemicals into drains."
   },
   {
     order: 4,
-    question: "An environmental inspector arrives in 15 minutes, but Q3 chemical disposal forms cannot be found. A supervisor tells you to 'guess the weights and sign for Q3.' What is the correct response?",
+    question: "An environmental auditor arrives, and the Q3 hazardous waste disposal forms are missing. A supervisor tells an employee to 'make up the disposal weights and sign for the contractor.' What should the employee do?",
     options: [
-      "Guess the numbers quickly and forge the contractor's signature so the file looks neat",
-      "Delete all Q1 and Q2 records so the inspector has nothing to check",
-      "Lock the office door and pretend no one is inside",
-      "Refuse to invent figures or forge signatures; present available verified records, declare the data gap honestly, and notify the environmental lead"
+      "Refuse to invent figures or forge signatures; present available verified records, declare the data gap honestly, and notify the environmental manager",
+      "Quickly invent numbers and forge the contractor's signature so the folder looks complete",
+      "Delete all historical waste files so the auditor has nothing to inspect",
+      "Lock the office door and pretend the building is closed"
     ],
-    correct: 3,
-    correctExplanation: "Falsifying data or forging signatures is illegal. Present verified records honestly and declare data gaps.",
-    incorrectExplanation: "Incorrect. Never invent data or forge signatures; present verified records and declare gaps honestly."
+    correct: 0,
+    correctExplanation: "Falsifying records or forging signatures is criminal document fraud. Data gaps must be declared honestly and investigated.",
+    incorrectExplanation: "Incorrect. Never forge signatures or invent compliance data; present verified records and declare gaps transparently."
   },
   {
     order: 5,
-    question: "How does contractor management connect to a company's environmental compliance?",
+    question: "How does third-party contractor management connect to a company's environmental compliance obligations?",
     options: [
-      "Contractors can do whatever they want on private property without rules",
-      "Companies share responsibility for activities occurring on their property and must ensure contractors follow site environmental controls and permits",
-      "Contractors automatically absorb all legal liability so companies never need site controls",
-      "Contractors are exempt from environmental legislation in Mauritius"
+      "Organizations maintain site oversight and share legal liability for environmental spills or unlawful dumping committed by contractors on their property",
+      "Contractors can do whatever they want on site with zero rules or liability for the host company",
+      "Contractors automatically absorb all legal responsibility so host companies never need site controls",
+      "Contractors are legally exempt from all environmental legislation in Mauritius"
     ],
-    correct: 1,
-    correctExplanation: "Companies maintain site oversight and must ensure third-party contractors comply with site permits and controls.",
-    incorrectExplanation: "Incorrect. Companies must oversee contractors on their property to ensure environmental permit compliance."
+    correct: 0,
+    correctExplanation: "Host organizations are accountable for site operations and must ensure third-party contractors adhere to environmental permits and procedures.",
+    incorrectExplanation: "Incorrect. Host companies share site liability and must supervise contractor environmental compliance."
+  },
+  {
+    order: 6,
+    question: "What is the purpose of 'Secondary Containment' (such as bunded spill pallets) under liquid chemical storage regulations?",
+    options: [
+      "To capture and contain leaks, ruptures, or overflows before hazardous chemicals reach unpaved soil, concrete cracks, or storm drains",
+      "To make chemical drums look more colorful in the warehouse",
+      "To double the storage capacity of the chemical warehouse",
+      "To prevent employees from ever touching the chemicals"
+    ],
+    correct: 0,
+    correctExplanation: "Secondary containment bunds capture liquid leaks from primary containers, preventing soil and water contamination.",
+    incorrectExplanation: "Incorrect. Secondary bunds prevent chemical leaks from escaping into soil, groundwater, or drainage networks."
+  },
+  {
+    order: 7,
+    question: "A site supervisor discovers that a diesel storage tank's annual pressure integrity test is overdue by two months. What is the required compliance action?",
+    options: [
+      "Log the non-conformance immediately, schedule an urgent certified inspection, and apply interim risk controls",
+      "Change the date on the old inspection certificate to yesterday using a PDF editor",
+      "Ignore it because diesel fuel never leaks",
+      "Drain all the diesel onto the parking lot gravel to test if the tank is empty"
+    ],
+    correct: 0,
+    correctExplanation: "Overdue inspections must be logged and expedited; altering certificate dates constitutes illegal document forgery.",
+    incorrectExplanation: "Incorrect. Overdue compliance checks must be logged and scheduled immediately; altering dates is illegal."
+  },
+  {
+    order: 8,
+    question: "What is a 'Waste Transfer Note' (or hazardous consignment manifest) in environmental compliance governance?",
+    options: [
+      "An official legally binding document tracking the type, quantity, origin, transporter, and authorized disposal destination of hazardous waste",
+      "A casual text message sent to a scrap metal dealer",
+      "A receipt for buying office coffee supplies",
+      "A document that is discarded immediately after printing"
+    ],
+    correct: 0,
+    correctExplanation: "Waste Transfer Notes establish the auditable chain of custody proving hazardous waste was handled and disposed of legally.",
+    incorrectExplanation: "Incorrect. Waste Transfer Notes provide verifiable proof of authorized, legal waste transport and disposal."
+  },
+  {
+    order: 9,
+    question: "Why must Safety Data Sheets (SDS / MSDS) and GHS hazard labels be accessible at chemical storage locations?",
+    options: [
+      "They provide essential first-aid, PPE requirements, flammability hazards, and spill neutralization instructions for first responders and workers",
+      "They are decorative posters designed to improve warehouse aesthetics",
+      "They are written in secret codes only understood by software engineers",
+      "They guarantee that chemicals will never evaporate"
+    ],
+    correct: 0,
+    correctExplanation: "Safety Data Sheets provide vital life-safety, PPE, and spill response instructions in the event of worker exposure or leaks.",
+    incorrectExplanation: "Incorrect. Safety Data Sheets detail critical hazard information, emergency PPE, and spill control measures."
+  },
+  {
+    order: 10,
+    question: "What should an employee do if they observe an ongoing environmental breach that their direct supervisor refuses to correct?",
+    options: [
+      "Escalate the concern through designated internal HSE compliance channels, the company whistleblower helpline, or legal compliance officers",
+      "Help the supervisor conceal the breach from executive management",
+      "Resign immediately without telling anyone what happened",
+      "Encourage coworkers to cause additional spills"
+    ],
+    correct: 0,
+    correctExplanation: "When line management fails to address environmental non-compliance, employees should use protected compliance escalation or whistleblower channels.",
+    incorrectExplanation: "Incorrect. Unresolved compliance breaches should be escalated through designated HSE, compliance, or whistleblower avenues."
   }
 ];
 
@@ -321,25 +328,26 @@ export async function ensureEnvironmentalComplianceCourse(): Promise<void> {
       if (byCode) {
         course = byCode;
       } else {
-        const [bySlug] = await tx
+        const [byId] = await tx
           .select()
           .from(coursesTable)
-          .where(eq(coursesTable.slug, COURSE_SLUG))
+          .where(eq(coursesTable.id, COURSE_ID))
           .limit(1);
-        if (bySlug) {
-          course = bySlug;
+        
+        if (byId) {
+          course = byId;
         } else {
-          const [byId] = await tx
+          const [bySlug] = await tx
             .select()
             .from(coursesTable)
-            .where(eq(coursesTable.id, COURSE_ID))
+            .where(eq(coursesTable.slug, COURSE_SLUG))
             .limit(1);
-          course = byId ?? null;
+          course = bySlug ?? null;
         }
       }
 
       if (!course) {
-        throw new Error("Course ELH-10 / environmental-compliance not seeded by catalogue skeletons bootstrap!");
+        throw new Error("Course 10 not seeded by catalogue skeletons bootstrap!");
       }
 
       const courseId = course.id;
@@ -362,11 +370,11 @@ export async function ensureEnvironmentalComplianceCourse(): Promise<void> {
         .where(eq(quizQuestionsTable.courseId, courseId));
 
       // 3. Evaluate integrity violations
-      const hasMissingLessons = existingLessons.length !== 6;
+      const hasMissingLessons = existingLessons.length !== NEW_LESSONS.length;
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 5;
+      const hasMissingQuiz = existingQuizQuestions.length !== NEW_QUIZ.length;
       const hasIncorrectSlug = course.slug !== COURSE_SLUG;
 
       const needsRepair = !existingSeed ||
@@ -376,17 +384,17 @@ export async function ensureEnvironmentalComplianceCourse(): Promise<void> {
                           hasIncorrectSlug;
 
       if (!needsRepair) {
-        logger.info({ courseId, slug: COURSE_SLUG }, "Environmental Compliance course content and v2 integrity verified. Skipping repair to preserve administrator edits...");
+        logger.info({ courseId, slug: COURSE_SLUG }, "Environmental Compliance course content and v3 integrity verified. Skipping repair to preserve administrator edits...");
         return;
       }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v2 seed detected for Course ELH-10. Re-seeding course content and lessons transactionally...");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v3 seed detected for Course 10. Re-seeding course content and lessons transactionally...");
 
       // 4. Resolve next recommended course dynamically by slug
       const [nextCourse] = await tx
         .select({ id: coursesTable.id })
         .from(coursesTable)
-        .where(eq(coursesTable.slug, "circular-economy-principles"))
+        .where(eq(coursesTable.slug, "circular-economy-at-work"))
         .limit(1);
       const nextCourseId = nextCourse?.id ?? null;
 
@@ -396,7 +404,7 @@ export async function ensureEnvironmentalComplianceCourse(): Promise<void> {
         .set({
           title: COURSE_TITLE,
           slug: COURSE_SLUG,
-          courseCode: "ELH-10",
+          courseCode: COURSE_META.courseCode,
           description: COURSE_META.description,
           fullDescription: COURSE_META.fullDescription,
           categoryId: COURSE_META.categoryId,
@@ -405,15 +413,16 @@ export async function ensureEnvironmentalComplianceCourse(): Promise<void> {
           level: COURSE_META.level,
           isFeatured: COURSE_META.isFeatured,
           thumbnailUrl: COURSE_META.thumbnailUrl,
+          intendedRoles: COURSE_META.intendedRoles,
           learningObjectives: COURSE_META.learningObjectives,
           includesCertificate: COURSE_META.includesCertificate,
           passingScore: COURSE_META.passingScore,
-          completionMessage: COURSE_META.completionMessage,
           badgeName: COURSE_META.badgeName,
           badgeDescription: COURSE_META.badgeDescription,
           recommendedNextCourseId: nextCourseId,
           isPublished: true,
           status: "published",
+          updatedAt: new Date()
         })
         .where(eq(coursesTable.id, courseId));
 
@@ -442,6 +451,9 @@ export async function ensureEnvironmentalComplianceCourse(): Promise<void> {
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.options.map((_, optIdx) => 
+            optIdx === q.correct ? q.correctExplanation : q.incorrectExplanation
+          ),
           isArchived: false,
         }))
       );
@@ -453,11 +465,11 @@ export async function ensureEnvironmentalComplianceCourse(): Promise<void> {
           slug: BADGE_SLUG,
           name: COURSE_META.badgeName,
           description: COURSE_META.badgeDescription,
-          icon: "shield-check",
+          icon: "alert-triangle",
           criteriaType: "all_courses",
           threshold: 0,
           courseIds: [courseId],
-          orderIndex: 15,
+          orderIndex: 10,
         })
         .onConflictDoUpdate({
           target: badgeDefinitionsTable.slug,
@@ -472,15 +484,16 @@ export async function ensureEnvironmentalComplianceCourse(): Promise<void> {
       if (!existingSeed) {
         await tx.insert(systemSeedsTable).values({
           name: SEED_NAME,
-          version: 2,
+          version: 3,
         });
       } else {
-        await tx.update(systemSeedsTable).set({ version: 2 }).where(eq(systemSeedsTable.name, SEED_NAME));
+        await tx.update(systemSeedsTable).set({ version: 3 }).where(eq(systemSeedsTable.name, SEED_NAME));
       }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "Environmental Compliance course v2 seed / repair transaction completed successfully.");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Environmental Compliance course v3 seed / repair transaction completed successfully.");
     });
   } catch (err) {
-    logger.error({ err }, "Failed to execute idempotent seeding/repair of Environmental Compliance course");
+    logger.error({ err, courseId: COURSE_ID }, "Failed to ensure Environmental Compliance course seeding");
+    throw err;
   }
 }

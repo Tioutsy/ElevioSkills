@@ -5,219 +5,181 @@ import {
   quizQuestionsTable,
   badgeDefinitionsTable,
   systemSeedsTable,
-  coursePrerequisitesTable,
 } from "@workspace/db";
-import { eq, and } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { logger } from "./logger";
 
 const COURSE_ID = 33;
 const COURSE_SLUG = "esg-data-measurement-and-reporting-basics";
 const COURSE_TITLE = "ESG Data, Measurement & Reporting Basics";
 const BADGE_SLUG = "esg-data-awareness";
-const SEED_NAME = "esg-data-measurement-and-reporting-basics-v1";
+const SEED_NAME = "esg-data-measurement-and-reporting-basics-v2";
 
 const COURSE_META = {
   courseCode: "ELH-33",
   description:
-    "Learn how organisations collect, check, use, and report ESG information, understand why data quality matters, and discover your role in maintaining trustworthy workplace records.",
+    "Understand how organisations measure ESG performance, determine material topics, navigate external reporting standards (GRI, ISSB), and produce audit-ready sustainability disclosures.",
   fullDescription:
-    "Building directly on ELH-09 (ESG Basics), ELH-31 (Social Responsibility at Work), and ELH-32 (Ethics, Governance & Responsible Business), this course provides employees across all roles with a practical introduction to ESG data literacy. Explore what ESG data looks like across Environmental, Social, and Governance pillars, distinguish actions from measurements and evidence, apply key context rules (Value + Unit + Period + Scope + Source), recognize measured vs estimated figures, and discover how honest daily records support organisational transparency.",
+    "Building on foundational ESG literacy, this course introduces the principles of corporate ESG measurement, external reporting frameworks, and public disclosure governance. Designed for professionals across finance, administration, operations, and compliance, it covers financial vs. double materiality, reporting boundaries, core frameworks (GRI standards, IFRS S1/S2 sustainability and climate disclosures), assurance levels, and the critical link between internal evidence and published sustainability statements.",
   categoryId: 1,
-  durationMinutes: 18,
+  durationMinutes: 25,
   priceUsd: "1400.00",
-  level: "Intermediate / Applied ESG",
+  level: "Applied Workplace Practice",
   isFeatured: false,
   thumbnailUrl: "/images/courses/esg-data-measurement.jpg",
+  intendedRoles: [
+    "All employees",
+    "Finance, accounting, and reporting analysts",
+    "Sustainability coordinators and ESG working group members",
+    "Operations, HR, and compliance managers",
+    "Executive assistants and departmental liaisons"
+  ],
   learningObjectives: [
-    "Explain what ESG data means in simple workplace language.",
-    "Recognise examples of Environmental, Social, and Governance information.",
-    "Understand the difference between an action statement, a measurement, and verified evidence.",
-    "Understand why units, dates, periods, and context (Value + Unit + Period + Scope + Source) matter for trustworthy records.",
-    "Recognise basic data-quality problems such as missing units, wrong dates, or duplicate entries.",
-    "Distinguish measured information from estimated figures.",
-    "Understand why missing data should not simply be copied or invented.",
-    "Understand why manipulating numbers to make performance look better violates corporate integrity.",
-    "Recognise the individual employee's role in accurate daily recordkeeping.",
-    "Distinguish employee data accuracy responsibilities from organisational ESG reporting responsibilities.",
-    "Select one practical workplace commitment to support trustworthy ESG information."
+    "Define corporate ESG reporting and explain why investors, banks, and regulators require standardized disclosures.",
+    "Explain the concept of materiality, distinguishing financial materiality from impact (double) materiality.",
+    "Identify major international ESG reporting frameworks, including the Global Reporting Initiative (GRI) and ISSB (IFRS S1 and S2).",
+    "Define reporting boundaries (equity share, operational control) and understand how data consolidation occurs.",
+    "Differentiate internal operational data collection from external verified disclosure with third-party assurance.",
+    "Complete 10 scenario-based assessment questions evaluating reporting boundaries, materiality, and published evidence."
   ],
   includesCertificate: true,
   passingScore: 80,
   completionMessage:
-    "Congratulations on completing ESG Data, Measurement & Reporting Basics! Remember: Environmental = impact on planet, Social = impact on people, Governance = how responsibly the business is run. ESG data becomes trustworthy through daily accuracy, clear units, verified evidence, and transparent reporting.",
-  badgeName: "ESG Data Awareness",
+    "Congratulations on completing ESG Data, Measurement & Reporting Basics! You now understand the frameworks, materiality principles, and evidence standards that underpin credible corporate sustainability disclosures.",
+  badgeName: "ESG Reporting Practitioner",
   badgeDescription:
-    "Awarded for demonstrating practical understanding of workplace ESG data quality, measurement principles, evidence verification, and trustworthy recordkeeping.",
+    "Awarded for demonstrating practical understanding of corporate ESG measurement, materiality principles, reporting frameworks, and disclosure governance."
 };
 
 const NEW_LESSONS = [
   {
     order: 0,
-    title: "Hook: Can You Trust This Number?",
-    minutes: 3,
-    content: "Understand why uncontextualized numbers are misleading and why ESG data requires context.",
+    title: "From Raw Data to External Trust: Why ESG Reporting Matters",
+    minutes: 4,
+    content: "Understand why investors, lenders, and regulators demand standardized corporate ESG disclosures.",
     blocks: [
-      { id: "ed1-h1", type: "heading", position: 1, headingText: "Understanding Workplace ESG Data" },
-      { id: "ed1-t1", type: "short_text", position: 2, bodyText: "A facility manager in Ebène, Mauritius receives a monthly dashboard update stating: 'Water used: 280.' Immediately, questions arise: 280 what? Litres or cubic metres (m³)? For the main office or the warehouse? Measured from a utility meter or estimated from last year? Without units, dates, scope, and source, a number is incomplete and cannot be used for responsible business decisions." },
+      { id: "ed1-h1", type: "heading", position: 1, headingText: "The Rise of Corporate ESG Disclosures" },
+      { id: "ed1-t1", type: "short_text", position: 2, bodyText: "In modern corporate governance, a company's financial balance sheet tells only part of its story. Commercial banks evaluating loan risk, institutional investors allocating capital, enterprise customers issuing supply chain tenders, and regulatory authorities all require transparent, standardized disclosures on how an organization manages environmental risks, treats its workforce, and governs its operations." },
       {
         id: "ed1-k1",
         type: "key_message",
         position: 3,
-        headingText: "What Is ESG Data?",
-        bodyText: "• ESG Data = Figures, metrics, and records that measure how a business operates across Environmental, Social, and Governance areas.\n• Purpose: Data helps an organisation track progress, identify resource waste, demonstrate accountability, and communicate truthfully with stakeholders."
-      },
-      {
-        id: "ed1-t2",
-        type: "short_text",
-        position: 4,
-        bodyText: "Action vs. Measurement vs. Evidence:\n• Action: 'We try to reduce water waste.' (Statement of intent)\n• Measurement: 'The main meter recorded 280 m³ of water in July.' (Numerical data)\n• Evidence: 'Utility bill #8910 and signed meter log confirm 280 m³.' (Verifiable proof)"
+        headingText: "Why Standardization is Essential",
+        bodyText: "Without standardized reporting rules, companies could selectively highlight positive stories while concealing toxic waste, high accident rates, or executive conflicts of interest. Standardized ESG frameworks ensure performance metrics are comparable, verifiable, and complete across industries."
       },
       {
         id: "ed1-d1",
         type: "decision_scenario",
-        position: 5,
-        decisionIntro: "First Impression Challenge:",
-        decisionPrompt: "A colleague says: 'ESG data just means inventing green numbers to impress corporate auditors.' How do you respond?",
+        position: 4,
+        decisionIntro: "Investor ESG disclosure scenario:",
+        decisionPrompt: "A commercial bank asks an enterprise loan applicant for its verified Scope 1 and Scope 2 emissions data. The marketing manager drafts a response stating: 'We are an eco-friendly green leader with a deep love for nature.' How should the finance and reporting lead respond?",
         decisionChoices: [
-          { label: "Explain that ESG data must be accurate and verifiable—it comes from genuine operational measurements like meter logs, training completion records, and safety reports.", correct: true, feedback: "Exactly right! ESG data relies on real, verifiable operational records." },
-          { label: "Agree that ESG data is completely made up and does not need evidence.", correct: false, feedback: "Incorrect. Fabricating data violates ethics, governance, and audit standards." },
-          { label: "Say that ESG data means deleting utility invoices so nobody sees electricity costs.", correct: false, feedback: "Incorrect. Destroying operational records is a severe compliance breach." }
+          { label: "Reject the marketing statement and provide the verified GHG calculation report showing audited kWh consumption, generator fuel litres, and calculated metric tonnes of CO2e", correct: true, feedback: "Correct! Financial institutions and rating agencies require structured, quantified, audit-ready data backed by primary evidence, not vague marketing slogans." },
+          { label: "Approve the marketing statement because positive emotional words inspire banker confidence", correct: false, feedback: "Incorrect. Vague unquantified statements are rejected by financial analysts and flag potential greenwashing." },
+          { label: "Refuse to answer because corporate banks have no right to ask about electricity use", correct: false, feedback: "Incorrect. Climate and resource metrics are standard components of modern credit risk underwriting." }
         ]
       }
     ]
   },
   {
     order: 1,
-    title: "What Counts as ESG Data?",
+    title: "Materiality: Financial vs Double Materiality",
     minutes: 4,
-    content: "Explore examples across Environmental, Social, and Governance pillars.",
+    content: "Learn how companies determine which ESG topics are significant enough to measure and report.",
     blocks: [
-      { id: "ed2-h1", type: "heading", position: 1, headingText: "Examples Across Environmental, Social & Governance Pillars" },
-      { id: "ed2-t1", type: "short_text", position: 2, bodyText: "ESG data is generated across every department. It includes both quantitative (numerical) metrics and qualitative (descriptive) information." },
+      { id: "ed2-h1", type: "heading", position: 1, headingText: "What Is 'Materiality' in ESG?" },
+      { id: "ed2-t1", type: "short_text", position: 2, bodyText: "An organization cannot report on every single detail of its operations. Materiality is the filtering process used to identify the environmental, social, and governance issues that matter most to the business and its stakeholders." },
       {
         id: "ed2-k1",
         type: "key_message",
         position: 3,
-        headingText: "Examples Across the 3 Pillars",
-        bodyText: "• Environmental Data: Electricity consumed (kWh), fuel used (litres), water consumed (m³), waste generated/recycled (kg/tonnes).\n• Social Data: Training participation/completion rates, workplace safety incident logs, employee turnover, customer safety feedback.\n• Governance Data: Compliance check completion, declared conflicts of interest, audit findings, policy acknowledgement records.\n• Quantitative vs. Qualitative: Quantitative metrics use numbers (e.g., 450 kWh), while qualitative data describes status or policies (e.g., 'Equal opportunity policy updated and published')."
+        headingText: "Financial Materiality vs Double Materiality",
+        bodyText: "• Financial Materiality (Single Materiality / ISSB): Focuses on how sustainability risks (e.g. rising sea levels flooding coastal resorts, carbon taxes on fuel) affect the company's financial cash flow and enterprise value.\n• Impact Materiality (GRI): Focuses on how the company's operations impact the external environment, economy, and society (e.g. factory effluent polluting local coral reefs).\n• Double Materiality (CSRD / Modern Standards): Integrates both perspectives—reporting both how external sustainability trends affect the company financially AND how the company impacts the wider world."
       },
       {
-        id: "ed2-w1",
-        type: "workplace_example",
+        id: "ed2-d1",
+        type: "decision_scenario",
         position: 4,
-        headingText: "Workplace Example: Paper & Policy Tracking",
-        bodyText: "An office manager logs monthly paper consumption (quantitative: 50 reams) alongside the team's double-sided printing policy (qualitative: procedure active in all departments)."
+        decisionIntro: "Materiality assessment scenario:",
+        decisionPrompt: "A software development firm with 50 office employees is conducting an ESG materiality assessment. The committee is deciding whether to focus primarily on data privacy/security and employee well-being, versus industrial chemical effluent management. What is the correct priority?",
+        decisionChoices: [
+          { label: "Prioritize customer data privacy, cybersecurity, and tech workforce retention, as these represent the software firm's most material operational risks and impacts", correct: true, feedback: "Spot on! Materiality requires reporting on topics where the specific business has significant impacts or dependencies. Software firms have high data privacy risks and virtually zero industrial chemical effluent." },
+          { label: "Focus 100% of their ESG report on heavy chemical effluent to look like a manufacturing plant", correct: false, feedback: "Incorrect. Reporting on immaterial topics while ignoring core sector risks (data security) violates reporting standards." },
+          { label: "Pick the easiest 3 topics from an internet search at random", correct: false, feedback: "Incorrect. Materiality must be based on structured stakeholder and operational impact analysis." }
+        ]
       }
     ]
   },
   {
     order: 2,
-    title: "From Action to Evidence & Context",
+    title: "Major ESG Reporting Frameworks: GRI & ISSB Standards",
     minutes: 4,
-    content: "Apply the 5-point Context Rule and learn to compare data like-for-like.",
+    content: "Demystify the leading global disclosure standards and understand their core objectives.",
     blocks: [
-      { id: "ed3-h1", type: "heading", position: 1, headingText: "The 5-Point Context Rule & Fair Comparisons" },
-      { id: "ed3-t1", type: "short_text", position: 2, bodyText: "A number alone is never enough. To make information useful and trustworthy, it requires complete context." },
+      { id: "ed3-h1", type: "heading", position: 1, headingText: "Navigating Global Reporting Standards" },
+      { id: "ed3-t1", type: "short_text", position: 2, bodyText: "Two dominant international framework systems shape modern corporate ESG disclosures:" },
       {
         id: "ed3-k1",
         type: "key_message",
         position: 3,
-        headingText: "The 5-Point Context Rule & Fair Comparisons",
-        bodyText: "• Context Formula: Value + Unit + Period + Scope/Location + Source.\n  - Example: '1,200 kWh (Value/Unit) used in July 2026 (Period) at the Grand Baie Hub (Scope) from CEB Meter #442 (Source).'\n• Comparing Like with Like: If electricity dropped 30% this month, ask why! Was it due to solar energy efficiency, or because the building was closed for holidays? Context prevents misleading conclusions."
-      },
-      {
-        id: "ed3-f1",
-        type: "memorable_fact",
-        position: 4,
-        headingText: "Did You Know? (Worth Knowing)",
-        bodyText: "International data standards show that over 60% of ESG data errors are caused by simple missing units or mismatched date ranges! Double-checking units (e.g., litres vs m³) prevents costly reporting mistakes."
+        headingText: "GRI and ISSB Overview",
+        bodyText: "• Global Reporting Initiative (GRI): The world's most widely adopted multi-stakeholder standard for sustainability reporting. Focuses on broad stakeholder impact across environmental, social, and economic topics.\n• International Sustainability Standards Board (ISSB / IFRS): Established by the IFRS Foundation to create a global baseline for capital markets:\n  - IFRS S1: General Requirements for Disclosure of Sustainability-related Financial Information.\n  - IFRS S2: Climate-related Disclosures (governance, strategy, risk management, Scope 1–3 emissions metrics and targets)."
       }
     ]
   },
   {
     order: 3,
-    title: "Good Data vs Misleading Data",
-    minutes: 3,
-    content: "Distinguish measured vs estimated data and master the 5 Data Quality Attributes.",
+    title: "Reporting Boundaries, Consolidation & Audit Assurance",
+    minutes: 4,
+    content: "Understand organisational boundaries, baseline years, and the difference between limited and reasonable assurance.",
     blocks: [
-      { id: "ed4-h1", type: "heading", position: 1, headingText: "Measured vs. Estimated & 5 Quality Attributes" },
-      { id: "ed4-t1", type: "short_text", position: 2, bodyText: "High-quality data builds trust. Understanding measured vs estimated information ensures transparency." },
+      { id: "ed4-h1", type: "heading", position: 1, headingText: "Establishing the Reporting Boundary" },
+      { id: "ed4-t1", type: "short_text", position: 2, bodyText: "Before publishing data, an organization must define its organizational boundary (e.g., operational control: do we report emissions for all facilities where we control daily operations, or only properties we 100% own?)." },
       {
         id: "ed4-k1",
         type: "key_message",
         position: 3,
-        headingText: "Measured vs. Estimated & Data Quality",
-        bodyText: "• Measured Data: Obtained directly from utility meters, invoices, or verified system logs.\n• Estimated Data: Calculated when direct measurement is unavailable. Estimates are acceptable ONLY when clearly labelled and based on reasonable methods.\n• 5 Data Quality Attributes:\n  1. Accurate: Reflects true operational facts.\n  2. Complete: Important records are not omitted.\n  3. Consistent: Standard units and methods are used.\n  4. Traceable: Source documents or logs exist.\n  5. Timely: Recorded in the correct period."
-      },
-      {
-        id: "ed4-d1",
-        type: "decision_scenario",
-        position: 4,
-        decisionIntro: "Data Integrity Challenge:",
-        decisionPrompt: "A utility bill is missing for the last week of the month. A coworker suggests: 'Just make up a number so the spreadsheet looks finished.' What should you do?",
-        decisionChoices: [
-          { label: "Label the missing period clearly, use a documented estimate or wait for the invoice, and explain the assumption transparently.", correct: true, feedback: "Outstanding! Transparently labelling estimates or waiting for verified invoices protects data integrity." },
-          { label: "Invent a fake number and present it as an official meter reading.", correct: false, feedback: "Incorrect. Presenting invented numbers as official readings is falsification." },
-          { label: "Delete the entire month's data from the company archive.", correct: false, feedback: "Incorrect. Destroying operational records corrupts company historical data." }
-        ]
+        headingText: "Third-Party Audit Assurance",
+        bodyText: "Just as financial statements are audited by certified accounting firms, corporate sustainability reports undergo independent third-party assurance to verify that published metrics are supported by verifiable primary evidence."
       }
     ]
   },
   {
     order: 4,
-    title: "The Monthly ESG Snapshot: Mauritius Workplace Challenge",
-    minutes: 3,
-    content: "Navigate a multi-step data quality review in a Mauritius commercial resort complex.",
+    title: "Action Boundaries: Internal Data Collection vs External Disclosure",
+    minutes: 4,
+    content: "Differentiate operational data logging (ELH-18) from external corporate reporting governance (ELH-33).",
     blocks: [
-      { id: "ed5-h1", type: "heading", position: 1, headingText: "Real-Life Application: Monthly ESG Review in Mauritius" },
-      { id: "ed5-t1", type: "short_text", position: 2, bodyText: "At a hotel resort and commercial complex in Mauritius, the team is reviewing the monthly internal ESG snapshot before management submission. Five data issues require resolution." },
+      { id: "ed5-h1", type: "heading", position: 1, headingText: "Connecting Daily Data to the Annual Report" },
+      { id: "ed5-t1", type: "short_text", position: 2, bodyText: "A credible annual ESG report is only as strong as the day-to-day records collected across departments." },
       {
-        id: "ed5-img1",
-        type: "visual_question",
+        id: "ed5-k1",
+        type: "key_message",
         position: 3,
-        imageUrl: "/images/courses/visual-esg-data.png",
-        caption: "Grand Baie Operations Review: Evaluating Water Units (E), Waste Invoices (E), Facility Closures (E), Training Status (S), and Incident Logs (G).",
-        imageAlt: "Illustration of a Mauritian resort office showing utility meter spreadsheets, waste collection receipts, staff training logs, and incident reports."
-      },
-      {
-        id: "ed5-d1",
-        type: "decision_scenario",
-        position: 4,
-        decisionIntro: "Multi-Step Data Quality Challenge:",
-        decisionPrompt: "The review team evaluates 5 data entries:\n1. Water entry reads '280' without units.\n2. Waste collection receipt is missing; colleague suggests copying last month's figure.\n3. Electricity fell 40% because Wing B was closed for repairs.\n4. Manager wants 10 pending employees marked '100% completed' for training.\n5. Proposal to delete an accidental fuel spill log to make safety numbers look good.\nWhat is the most responsible data resolution across all five items?",
-        decisionChoices: [
-          { label: "Add 'm³' unit to water; request vendor copy for waste receipt; record true electricity drop while adding facility closure context; log exact current training completion; and retain fuel spill log transparently.", correct: true, feedback: "Outstanding! Ensuring accurate units, chasing genuine evidence, providing context, reporting true completion, and preserving incident records maintains 100% data integrity." },
-          { label: "Invent missing figures, mark pending training as completed, and delete the fuel spill log to make results look impressive.", correct: false, feedback: "Incorrect. Inventing numbers, falsifying training logs, and hiding incident reports destroys corporate trust and violates ESG governance rules." },
-          { label: "Delete all five department records and refuse to submit the monthly snapshot.", correct: false, feedback: "Incorrect. Responsible data management resolves issues through accurate, transparent evidence." }
-        ]
+        headingText: "The Evidence Chain",
+        bodyText: "1. Operational Level (ELH-18): Frontline teams log utility meters, save fuel invoices, record safety incident logs, and maintain exact units.\n2. Management Level (ELH-33): ESG and finance teams consolidate departmental data, apply approved emission factors, conduct materiality reviews, and prepare disclosures aligned with GRI or IFRS S1/S2.\n3. Governance Level: The Board of Directors reviews and approves the published report, and external auditors verify the underlying evidence trail."
       }
     ]
   },
   {
     order: 5,
-    title: "Your Role in Trustworthy ESG Information & Personal Commitment",
-    minutes: 2,
-    content: "Distinguish frontline recordkeeping from corporate ESG reporting, and commit to daily habits.",
+    title: "Your Workplace ESG Reporting Literacy Commitment",
+    minutes: 3,
+    content: "Select practical commitments to support transparent, auditable corporate sustainability reporting.",
     blocks: [
-      { id: "ed6-h1", type: "heading", position: 1, headingText: "Frontline Recordkeeping vs. Corporate Reporting" },
-      { id: "ed6-t1", type: "short_text", position: 2, bodyText: "Corporate ESG reports depend on frontline data accuracy. Understand your role in keeping information trustworthy." },
-      {
-        id: "ed6-k1",
-        type: "key_message",
-        position: 3,
-        headingText: "Organisational Role vs. Employee Contribution",
-        bodyText: "• Organisational / ESG Specialist Role: Establishing reporting frameworks, setting boundary rules, calculating carbon footprints, submitting formal disclosures, and conducting audits.\n• Employee Contribution: Recording daily figures accurately, double-checking units and dates, keeping source evidence/receipts, labelling estimates, and reporting data errors promptly."
-      },
+      { id: "ed6-h1", type: "heading", position: 1, headingText: "Pledge to Act & Operational Takeaways" },
+      { id: "ed6-t1", type: "short_text", position: 2, bodyText: "Congratulations on completing ESG Data, Measurement & Reporting Basics! Select the commitments below relevant to your role." },
       {
         id: "ed6-c1",
         type: "commitment",
-        position: 4,
-        commitmentInstruction: "Select your daily workplace ESG data commitment (choose at least one):",
+        position: 3,
+        commitmentInstruction: "Select your ESG reporting commitments (choose at least one):",
         commitmentOptions: [
-          { value: "check-units-and-dates", label: "Check units, dates, and locations before recording operational data", description: "Prevent basic data errors and missing context." },
-          { value: "never-invent-missing-data", label: "Never copy or invent missing figures when records are unavailable", description: "Uphold data integrity and evidence standards." },
-          { value: "label-estimates-transparently", label: "Label estimated figures clearly and keep source receipts/evidence", description: "Ensure data traceability and transparency." },
-          { value: "report-data-errors-promptly", label: "Report data discrepancies or recording errors to supervisors promptly", description: "Support continuous data quality and honest reporting." }
+          { value: "support-evidence-trails", label: "Ensure all departmental data submitted for ESG reporting is supported by verifiable primary records", description: "Maintain audit readiness across operational records." },
+          { value: "understand-materiality", label: "Focus departmental sustainability initiatives on high-materiality operational risks", description: "Drive resources toward high-impact priorities." },
+          { value: "align-with-standards", label: "Promote alignment with recognized frameworks (GRI, ISSB) in corporate disclosures", description: "Ensure credibility and international comparability." },
+          { value: "prevent-greenwashing", label: "Ensure public sustainability statements are backed by audited evidence before publication", description: "Protect corporate reputation and investor trust." },
+          { value: "champion-data-accuracy", label: "Treat non-financial ESG metrics with the same accuracy and rigor as financial accounting data", description: "Elevate sustainability governance across the enterprise." }
         ]
       }
     ]
@@ -227,173 +189,166 @@ const NEW_LESSONS = [
 const NEW_QUIZ = [
   {
     order: 1,
-    question: "What does ESG data include in plain workplace language?",
+    question: "What is the primary purpose of standardized corporate ESG reporting?",
     options: [
-      "Exclusively financial stock market share prices",
-      "Operational figures and records across Environmental (kWh, water, waste), Social (training, safety), and Governance (compliance checks, conflicts) pillars",
-      "Unsubstantiated marketing slogans printed on sales posters",
-      "Personal social media posts by company executives"
+      "To provide transparent, comparable, and verifiable data on an organization's sustainability risks, impacts, and governance for investors, lenders, and regulators",
+      "To generate decorative marketing brochures that distract from financial losses",
+      "To replace all financial accounting and corporate tax filings with environmental essays",
+      "To guarantee that a company will never face regulatory scrutiny"
     ],
-    correct: 1,
-    correctExplanation: "ESG data encompasses operational measurements and records across Environmental, Social, and Governance activities.",
-    incorrectExplanation: "Incorrect. ESG data includes operational figures across E, S, and G pillars."
+    correct: 0,
+    correctExplanation: "Standardized ESG disclosures ensure sustainability metrics are credible, audit-ready, and comparable across industries for investors and stakeholders.",
+    incorrectExplanation: "Incorrect. ESG reporting provides standardized, verifiable performance data for capital markets and stakeholders."
   },
   {
     order: 2,
-    question: "Which of the following represents verified ESG evidence rather than a statement of intent?",
+    question: "In ESG reporting terminology, what is 'Financial Materiality' (as emphasized by the ISSB / IFRS sustainability standards)?",
     options: [
-      "Saying 'We plan to reduce electricity consumption next year'",
-      "Writing an email that says 'Our office is very eco-friendly'",
-      "A utility bill and certified meter reading log confirming 1,400 kWh consumed in July",
-      "Posting a green leaf icon on the company intranet homepage"
+      "Sustainability topics and climate risks that could reasonably be expected to affect an enterprise's cash flows, cost of capital, and financial valuation",
+      "The amount of cash an organization spends on office recycling bins",
+      "A rule stating that only profitable companies are required to have safety policies",
+      "The total market value of decorative gold certificates awarded to staff"
     ],
-    correct: 2,
-    correctExplanation: "Evidence consists of verifiable proof, such as signed meter logs, utility bills, or system records.",
-    incorrectExplanation: "Incorrect. Verified evidence requires traceable proof like utility bills or signed meter logs."
+    correct: 0,
+    correctExplanation: "Financial materiality examines how outside environmental and social risks impact the organization's enterprise value and financial viability.",
+    incorrectExplanation: "Incorrect. Financial materiality focuses on sustainability risks and opportunities that impact enterprise cash flows and valuation."
   },
   {
     order: 3,
-    question: "Why is a recorded figure such as 'Water: 450' incomplete without context?",
+    question: "What is 'Double Materiality' in contemporary sustainability frameworks (such as the European CSRD)?",
     options: [
-      "Because without a unit (m³ or litres), period (month/year), location, and source, the number cannot be accurately understood or compared",
-      "Because all numbers must be converted into foreign currencies",
-      "Because water data is illegal to record in commercial buildings",
-      "Because figures under 500 are automatically invalid"
+      "Evaluating both how sustainability issues financially impact the company (outside-in) AND how the company's activities impact society and the planet (inside-out)",
+      "Reporting every single operational metric twice in the same report",
+      "Doubling the size of the font on all corporate environmental statements",
+      "Paying double salaries to employees who work in the sustainability department"
     ],
     correct: 0,
-    correctExplanation: "Complete context (Value + Unit + Period + Scope + Source) ensures data is clear, accurate, and comparable.",
-    incorrectExplanation: "Incorrect. Numbers require units, dates, scope, and source to be usable."
+    correctExplanation: "Double materiality combines financial materiality (financial risk to company) with impact materiality (company impact on environment and people).",
+    incorrectExplanation: "Incorrect. Double materiality integrates both financial impact on the firm and operational impact on the wider world."
   },
   {
     order: 4,
-    question: "A waste collection receipt for the last week of the month is missing. How should an employee handle this situation?",
+    question: "What is the primary role of the Global Reporting Initiative (GRI) standards?",
     options: [
-      "Copy the previous month's figure and present it as an exact receipt",
-      "Invent a large number to make waste recycling look impressive",
-      "Delete all waste records for the entire year",
-      "Follow procedure to request a duplicate receipt from the vendor, or label any calculated estimate transparently"
+      "To provide the world's most widely used multi-stakeholder standard for reporting an organization's material impacts on the economy, environment, and society",
+      "To provide legal defense lawyers for corporations facing environmental fines",
+      "To manage municipal water filtration infrastructure in Europe",
+      "To issue speeding tickets to commercial delivery drivers"
     ],
-    correct: 3,
-    correctExplanation: "Missing data should be retrieved from source documents or labelled as an estimate transparently—never invented.",
-    incorrectExplanation: "Incorrect. Always retrieve source receipts or label estimates transparently."
+    correct: 0,
+    correctExplanation: "GRI is the leading global standard focused on transparent multi-stakeholder disclosure of corporate environmental and social impacts.",
+    incorrectExplanation: "Incorrect. GRI provides standardized multi-stakeholder reporting guidelines for corporate sustainability impacts."
   },
   {
     order: 5,
-    question: "What is the primary data responsibility of an individual employee compared to corporate ESG specialists?",
+    question: "What is the core focus of the IFRS S2 standard issued by the International Sustainability Standards Board (ISSB)?",
     options: [
-      "Individual employees must calculate international carbon footprint disclosures for the board",
-      "Employees contribute by recording daily workplace data accurately, verifying units/dates, and keeping source records, while specialists handle formal reporting frameworks",
-      "Employees carry full legal liability for international climate reporting treaties",
-      "Employees have no role in workplace recordkeeping whatsoever"
+      "Climate-related financial disclosures across governance, strategy, risk management, and metrics/targets (including Scope 1–3 emissions)",
+      "Standardizing the physical dimensions of office copy paper",
+      "Regulating international air traffic flight routes",
+      "Setting mandatory retail prices for solar panels"
     ],
-    correct: 1,
-    correctExplanation: "Employees support data quality through accurate daily recordkeeping; specialists aggregate data for formal reporting.",
-    incorrectExplanation: "Incorrect. Employees focus on daily data accuracy and evidence; specialists manage formal disclosures."
+    correct: 0,
+    correctExplanation: "IFRS S2 establishes a global baseline for capital markets to evaluate corporate climate resilience, risks, and greenhouse gas metrics.",
+    incorrectExplanation: "Incorrect. IFRS S2 governs climate-related financial disclosures and emissions metric reporting for capital markets."
+  },
+  {
+    order: 6,
+    question: "Why must a company clearly define its 'Organizational Reporting Boundary' (e.g. operational control vs equity share) before publishing ESG data?",
+    options: [
+      "To establish exactly which subsidiaries, leased facilities, and joint ventures are included in consolidated metrics, preventing double-counting or selective cherry-picking",
+      "To draw physical boundary fences around all company parking lots",
+      "To prevent employees from viewing the company's website from home",
+      "To ensure that competitors are legally prohibited from measuring their own emissions"
+    ],
+    correct: 0,
+    correctExplanation: "Clear boundary definitions ensure consolidated sustainability figures are mathematically consistent, transparent, and auditable.",
+    incorrectExplanation: "Incorrect. Organizational boundaries establish which entities and facilities are covered by the reported metrics."
+  },
+  {
+    order: 7,
+    question: "What does 'Third-Party Assurance' mean for a published corporate sustainability report?",
+    options: [
+      "An independent, qualified auditing firm reviews the underlying primary evidence, calculation methodologies, and internal controls to verify that published metrics are accurate",
+      "The company's CEO promises on social media that all numbers are completely real",
+      "The marketing agency guarantees that the report cover design looks attractive",
+      "A government official stamps the report without reading the numbers"
+    ],
+    correct: 0,
+    correctExplanation: "Third-party assurance provides independent verification that reported non-financial data is accurate, auditable, and free from material misstatement.",
+    incorrectExplanation: "Incorrect. Third-party assurance is independent professional verification of data accuracy and reporting evidence."
+  },
+  {
+    order: 8,
+    question: "What is the fundamental connection between frontline operational data collection (ELH-18) and executive ESG disclosures (ELH-33)?",
+    options: [
+      "Frontline primary records (meter logs, fuel bills, accident reports) form the verifiable evidence base that roll up into published board disclosures",
+      "Frontline workers write the annual report by hand, while executives take utility meter readings",
+      "There is zero connection; published reports use fictional numbers while operations uses real numbers",
+      "Frontline workers are legally prohibited from knowing what ESG stands for"
+    ],
+    correct: 0,
+    correctExplanation: "Corporate disclosure integrity depends directly on the accuracy and provenance of primary operational records collected across daily business units.",
+    incorrectExplanation: "Incorrect. Published ESG disclosures are consolidated directly from underlying operational evidence and primary data."
+  },
+  {
+    order: 9,
+    question: "A company publishes an ESG report claiming a '40% reduction in workplace carbon emissions', but audit testing reveals they achieved this simply by excluding three major manufacturing factories from this year's boundary. What is this practice called?",
+    options: [
+      "Deceptive boundary manipulation and greenwashing, which violates international reporting standards and invites regulatory sanctions",
+      "An innovative accounting technique recommended by international banks",
+      "A legal tax minimization strategy",
+      "Standard best practice for corporate annual reporting"
+    ],
+    correct: 0,
+    correctExplanation: "Manipulating reporting boundaries to make performance look better without operational reduction is misleading greenwashing.",
+    incorrectExplanation: "Incorrect. Changing boundaries to artificially mask emissions violates disclosure integrity and constitutes greenwashing."
+  },
+  {
+    order: 10,
+    question: "Why are non-financial ESG metrics increasingly treated with the same governance rigor and internal controls as financial balance sheets?",
+    options: [
+      "Because ESG performance directly influences credit ratings, borrowing costs, regulatory compliance, investor capital, and brand reputation",
+      "Because environmental metrics are legally required to be written in gold ink",
+      "Because financial accounting will be completely abolished worldwide next year",
+      "Because computers can only calculate environmental numbers"
+    ],
+    correct: 0,
+    correctExplanation: "Non-financial ESG metrics represent material business risks and opportunities that capital markets, insurers, and regulators scrutinize alongside financial returns.",
+    incorrectExplanation: "Incorrect. ESG metrics are critical to valuation, credit risk, regulatory compliance, and long-term enterprise survival."
   }
 ];
 
 export async function ensureEsgDataCourse(): Promise<void> {
   try {
     await db.transaction(async (tx) => {
-      // 1. Resolve Course by courseCode "ELH-33", slug, or title
-      let existingCourse = null;
-
-      const [byCode] = await tx
+      // 1. Resolve Course 33 by ID 33 or slug
+      let course = null;
+      
+      const [byId] = await tx
         .select()
         .from(coursesTable)
-        .where(eq(coursesTable.courseCode, "ELH-33"))
+        .where(eq(coursesTable.id, COURSE_ID))
         .limit(1);
 
-      if (byCode) {
-        existingCourse = byCode;
+      if (byId) {
+        course = byId;
       } else {
         const [bySlug] = await tx
           .select()
           .from(coursesTable)
           .where(eq(coursesTable.slug, COURSE_SLUG))
           .limit(1);
-        if (bySlug) {
-          existingCourse = bySlug;
-        } else {
-          const [byTitle] = await tx
-            .select()
-            .from(coursesTable)
-            .where(eq(coursesTable.title, COURSE_TITLE))
-            .limit(1);
-          if (byTitle) {
-            existingCourse = byTitle;
-          }
-        }
+        course = bySlug ?? null;
       }
 
-      let courseId: number;
-
-      if (!existingCourse) {
-        logger.info("Seeding new ELH-33 ESG Data, Measurement & Reporting Basics course record...");
-        try {
-          const [inserted] = await tx
-            .insert(coursesTable)
-            .values({
-              courseCode: COURSE_META.courseCode,
-              slug: COURSE_SLUG,
-              title: COURSE_TITLE,
-              description: COURSE_META.description,
-              fullDescription: COURSE_META.fullDescription,
-              categoryId: COURSE_META.categoryId,
-              durationMinutes: COURSE_META.durationMinutes,
-              priceUsd: COURSE_META.priceUsd,
-              level: COURSE_META.level,
-              isFeatured: COURSE_META.isFeatured,
-              thumbnailUrl: COURSE_META.thumbnailUrl,
-              learningObjectives: COURSE_META.learningObjectives,
-              includesCertificate: COURSE_META.includesCertificate,
-              passingScore: COURSE_META.passingScore,
-              completionMessage: COURSE_META.completionMessage,
-              badgeName: COURSE_META.badgeName,
-              badgeDescription: COURSE_META.badgeDescription,
-              isPublished: true,
-              status: "published",
-            })
-            .returning();
-          courseId = inserted.id;
-        } catch (_err) {
-          const [retry] = await tx
-            .select()
-            .from(coursesTable)
-            .where(eq(coursesTable.slug, COURSE_SLUG))
-            .limit(1);
-          if (retry) {
-            courseId = retry.id;
-          } else {
-            throw _err;
-          }
-        }
-      } else {
-        courseId = existingCourse.id;
-        await tx
-          .update(coursesTable)
-          .set({
-            courseCode: COURSE_META.courseCode,
-            title: COURSE_TITLE,
-            slug: COURSE_SLUG,
-            description: COURSE_META.description,
-            fullDescription: COURSE_META.fullDescription,
-            categoryId: COURSE_META.categoryId,
-            durationMinutes: COURSE_META.durationMinutes,
-            priceUsd: COURSE_META.priceUsd,
-            level: COURSE_META.level,
-            thumbnailUrl: COURSE_META.thumbnailUrl,
-            learningObjectives: COURSE_META.learningObjectives,
-            completionMessage: COURSE_META.completionMessage,
-            badgeName: COURSE_META.badgeName,
-            badgeDescription: COURSE_META.badgeDescription,
-            isPublished: true,
-            status: "published",
-          })
-          .where(eq(coursesTable.id, courseId));
+      if (!course) {
+        throw new Error("Course 33 not seeded by catalogue skeletons bootstrap!");
       }
 
-      // 2. Fetch system seed marker
+      const courseId = course.id;
+
+      // 2. Fetch seed marker and existing database content
       const [existingSeed] = await tx
         .select()
         .from(systemSeedsTable)
@@ -405,62 +360,68 @@ export async function ensureEsgDataCourse(): Promise<void> {
         .from(lessonsTable)
         .where(eq(lessonsTable.courseId, courseId));
 
-      const existingQuiz = await tx
+      const existingQuizQuestions = await tx
         .select()
         .from(quizQuestionsTable)
         .where(eq(quizQuestionsTable.courseId, courseId));
 
-      const needsRepair = !existingSeed || existingLessons.length !== 6 || existingQuiz.length !== 5;
+      // 3. Evaluate integrity violations
+      const hasMissingLessons = existingLessons.length !== NEW_LESSONS.length;
+      const hasEmptyBlocks = existingLessons.some(
+        (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
+      );
+      const hasMissingQuiz = existingQuizQuestions.length !== NEW_QUIZ.length;
+      const hasIncorrectSlug = course.slug !== COURSE_SLUG;
+
+      const needsRepair = !existingSeed ||
+                          hasMissingLessons ||
+                          hasEmptyBlocks ||
+                          hasMissingQuiz ||
+                          hasIncorrectSlug;
 
       if (!needsRepair) {
-        logger.info({ courseId, slug: COURSE_SLUG }, "ESG Data course content verified. Skipping repair...");
+        logger.info({ courseId, slug: COURSE_SLUG }, "ESG Data & Reporting course content and v2 integrity verified. Skipping repair to preserve administrator edits...");
         return;
       }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "Seeding or repairing ELH-33 course content transactionally...");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v2 seed detected for Course 33. Re-seeding course content and lessons transactionally...");
 
-      // 3. Resolve ELH-09 as prerequisite
-      const [elh09] = await tx
+      // 4. Resolve next recommended course dynamically by slug
+      const [nextCourse] = await tx
         .select({ id: coursesTable.id })
         .from(coursesTable)
-        .where(eq(coursesTable.courseCode, "ELH-09"))
+        .where(eq(coursesTable.slug, "esg-in-my-job-from-policy-to-everyday-action"))
         .limit(1);
+      const nextCourseId = nextCourse?.id ?? null;
 
-      if (elh09) {
-        const [existingPrereq] = await tx
-          .select()
-          .from(coursePrerequisitesTable)
-          .where(
-            and(
-              eq(coursePrerequisitesTable.courseId, courseId),
-              eq(coursePrerequisitesTable.prerequisiteCourseId, elh09.id)
-            )
-          )
-          .limit(1);
+      // 5. Update course record slug, title, and metadata
+      await tx
+        .update(coursesTable)
+        .set({
+          title: COURSE_TITLE,
+          slug: COURSE_SLUG,
+          description: COURSE_META.description,
+          fullDescription: COURSE_META.fullDescription,
+          categoryId: COURSE_META.categoryId,
+          durationMinutes: COURSE_META.durationMinutes,
+          priceUsd: COURSE_META.priceUsd,
+          level: COURSE_META.level,
+          isFeatured: COURSE_META.isFeatured,
+          thumbnailUrl: COURSE_META.thumbnailUrl,
+          intendedRoles: COURSE_META.intendedRoles,
+          learningObjectives: COURSE_META.learningObjectives,
+          includesCertificate: COURSE_META.includesCertificate,
+          passingScore: COURSE_META.passingScore,
+          badgeName: COURSE_META.badgeName,
+          badgeDescription: COURSE_META.badgeDescription,
+          recommendedNextCourseId: nextCourseId,
+          isPublished: true,
+          status: "published",
+          updatedAt: new Date()
+        })
+        .where(eq(coursesTable.id, courseId));
 
-        if (!existingPrereq) {
-          await tx.insert(coursePrerequisitesTable).values({
-            courseId,
-            prerequisiteCourseId: elh09.id,
-          });
-        }
-      }
-
-      // Set ELH-32 as next recommended course safely if available
-      const [elh32] = await tx
-        .select({ id: coursesTable.id })
-        .from(coursesTable)
-        .where(eq(coursesTable.courseCode, "ELH-32"))
-        .limit(1);
-
-      if (elh32) {
-        await tx
-          .update(coursesTable)
-          .set({ recommendedNextCourseId: elh32.id })
-          .where(eq(coursesTable.id, courseId));
-      }
-
-      // 4. Seed Lessons
+      // 6. Seed/re-seed lessons with exact position block arrays
       await tx.delete(lessonsTable).where(eq(lessonsTable.courseId, courseId));
       for (const newLesson of NEW_LESSONS) {
         await tx.insert(lessonsTable).values({
@@ -474,7 +435,7 @@ export async function ensureEsgDataCourse(): Promise<void> {
         });
       }
 
-      // 5. Seed Quiz Questions
+      // 7. Seed/re-seed quiz questions
       await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
       await tx.insert(quizQuestionsTable).values(
         NEW_QUIZ.map((q) => ({
@@ -485,18 +446,21 @@ export async function ensureEsgDataCourse(): Promise<void> {
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.options.map((_, optIdx) => 
+            optIdx === q.correct ? q.correctExplanation : q.incorrectExplanation
+          ),
           isArchived: false,
         }))
       );
 
-      // 6. Seed Badge Definition
+      // 8. Idempotently seed/update badge definition
       await tx
         .insert(badgeDefinitionsTable)
         .values({
           slug: BADGE_SLUG,
           name: COURSE_META.badgeName,
           description: COURSE_META.badgeDescription,
-          icon: "award",
+          icon: "database",
           criteriaType: "all_courses",
           threshold: 0,
           courseIds: [courseId],
@@ -511,22 +475,20 @@ export async function ensureEsgDataCourse(): Promise<void> {
           },
         });
 
-      // 7. Record System Seed Version Idempotently
-      await tx
-        .insert(systemSeedsTable)
-        .values({
+      // 9. Save seed marker version
+      if (!existingSeed) {
+        await tx.insert(systemSeedsTable).values({
           name: SEED_NAME,
-          version: 1,
-        })
-        .onConflictDoUpdate({
-          target: systemSeedsTable.name,
-          set: { version: 1 },
+          version: 2,
         });
+      } else {
+        await tx.update(systemSeedsTable).set({ version: 2 }).where(eq(systemSeedsTable.name, SEED_NAME));
+      }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "ELH-33 ESG Data, Measurement & Reporting Basics seeded successfully!");
+      logger.info({ courseId, slug: COURSE_SLUG }, "ESG Data, Measurement & Reporting Basics course v2 seed / repair transaction completed successfully.");
     });
   } catch (err) {
-    logger.error({ err }, "Failed to seed ELH-33 ESG Data course");
+    logger.error({ err, courseId: COURSE_ID }, "Failed to ensure ESG Data, Measurement & Reporting Basics course seeding");
     throw err;
   }
 }
