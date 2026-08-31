@@ -83,22 +83,28 @@ export function getUserRoleLabel(user: any): string {
 
 export function hasCapability(user: any, capability: string): boolean {
   if (user?.capabilities && typeof user.capabilities === "object") {
-    if (capability === "employees.manage" || capability === "employees.create" || capability === "employees.view") return Boolean(user.capabilities.canManageEmployees);
+    if (capability === "employees.manage" || capability === "employees.create") return Boolean(user.capabilities.canManageEmployees);
     if (capability === "company.manage") return Boolean(user.capabilities.canManageCompany);
     if (capability === "reports.team") return Boolean(user.capabilities.canViewReports);
     if (capability === "courses.assign") return Boolean(user.capabilities.canAssignCourses);
     if (capability === "challenges.review") return Boolean(user.capabilities.canReviewChallenges);
+    if (capability === "company.view") return Boolean(user.capabilities.canManageCompany || user.isManager || user.isCompanyAdmin || user.isPlatformAdmin);
+    if (capability === "engagement.view" || capability === "leaderboards.view") return true;
+    if (capability === "certificates.download") return true;
   }
 
   if (isPlatformAdmin(user)) return true;
   if (isCompanyAdmin(user)) return true;
   if (isManager(user)) {
     return [
+      "company.view",
       "employees.view",
       "reports.team",
       "certificates.download",
       "courses.assign",
       "challenges.review",
+      "engagement.view",
+      "leaderboards.view",
     ].includes(capability);
   }
   return ["certificates.download"].includes(capability);

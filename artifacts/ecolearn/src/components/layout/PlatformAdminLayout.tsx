@@ -1,10 +1,11 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "wouter";
 import { useUser } from "@clerk/react";
-import { LayoutDashboard, Leaf, FolderOpen, Route, BookOpen, Target, ShieldAlert, ArrowRight, Activity } from "lucide-react";
+import { ShieldAlert, ArrowRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Layout } from "./Layout";
 import { isPlatformAdmin } from "@/lib/authHelpers";
+import { PLATFORM_ADMIN_NAV } from "@/config/navigation";
 
 interface PlatformAdminLayoutProps {
   children: ReactNode;
@@ -53,22 +54,6 @@ export function PlatformAdminLayout({ children }: PlatformAdminLayoutProps) {
     );
   }
 
-  const sidebarLinks = [
-    { href: "/platform-admin", label: "Overview", icon: LayoutDashboard },
-    { href: "/platform-admin/gamification-health", label: "Gamification Health", icon: Activity },
-    { href: "/platform-admin/pilot-passes", label: "Pilot Passes", icon: Leaf },
-    { href: "/platform-admin/organisations", label: "Organisations", icon: FolderOpen },
-    { href: "/platform-admin/accounts", label: "Accounts", icon: Target },
-    { href: "/platform-admin/activity", label: "Activity", icon: Route },
-    { href: "/platform-admin/health", label: "Account Health", icon: ShieldAlert },
-    { href: "/platform-admin/insights", label: "Mauritius Rules & Resources", icon: Leaf },
-    { href: "/platform-admin/sectors", label: "Sectors", icon: FolderOpen },
-    { href: "/platform-admin/learning-paths", label: "Learning Paths", icon: Route },
-    { href: "/platform-admin/courses", label: "Courses", icon: BookOpen },
-    { href: "/platform-admin/sdg-mapping", label: "SDG Mapping", icon: Target },
-  ];
-
-
   return (
     <Layout>
       <div className="w-full px-4 sm:px-6 lg:px-8 py-8 max-w-[1720px] mx-auto">
@@ -79,16 +64,19 @@ export function PlatformAdminLayout({ children }: PlatformAdminLayoutProps) {
 
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           {/* Side Nav */}
-          <aside className="w-full lg:w-64 shrink-0 space-y-1">
-            {sidebarLinks.map((link) => {
-              const active = location === link.href || (link.href !== "/platform-admin" && location.startsWith(link.href));
+          <aside className="w-full lg:w-64 shrink-0 space-y-1" aria-label="Platform Admin Navigation">
+            {PLATFORM_ADMIN_NAV.map((link) => {
+              const active = link.exact
+                ? location === link.href
+                : location === link.href || (link.href !== "/platform-admin" && location.startsWith(link.href));
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                  aria-current={active ? "page" : undefined}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
                     active
-                      ? "bg-primary text-primary-foreground"
+                      ? "bg-primary text-primary-foreground font-semibold shadow-sm"
                       : "text-muted-foreground hover:bg-muted hover:text-foreground"
                   }`}
                 >

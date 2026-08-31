@@ -764,8 +764,8 @@ export default function CompanyDashboard() {
                   <div className="h-8 w-8 bg-secondary/10 rounded flex items-center justify-center text-secondary mb-3">
                     <GraduationCap className="h-4 w-4" />
                   </div>
-                  <h3 className="font-semibold mb-1">Assign Training</h3>
-                  <p className="text-sm text-muted-foreground flex-1">Browse catalog to assign new courses.</p>
+                  <h3 className="font-semibold mb-1">Training Priorities</h3>
+                  <p className="text-sm text-muted-foreground flex-1">Browse catalog to assign priority courses to your team.</p>
                   <ArrowRight className="h-4 w-4 text-secondary mt-2" />
                 </div>
               </Link>
