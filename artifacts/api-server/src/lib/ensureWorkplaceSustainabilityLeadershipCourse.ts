@@ -637,156 +637,27 @@ const QUIZ_QUESTIONS = [
 
 export async function ensureWorkplaceSustainabilityLeadershipCourse(): Promise<void> {
   try {
+    // Obsolete draft course superseded by canonical ELH-23 (planning-and-delivering-workplace-sustainability-initiatives)
     const existing = await db
-      .select()
+      .select({ id: coursesTable.id })
       .from(coursesTable)
       .where(eq(coursesTable.slug, COURSE_SLUG))
       .limit(1)
       .then((r) => r[0]);
 
-    let courseId: number;
-
     if (existing) {
-      courseId = existing.id;
-      // Preserve "draft" status as requested
-      await db
-        .update(coursesTable)
-        .set({
-          title: COURSE_META.title,
-          courseCode: COURSE_META.courseCode,
-          description: COURSE_META.description,
-          fullDescription: COURSE_META.fullDescription,
-          categoryId: COURSE_META.categoryId,
-          durationMinutes: COURSE_META.durationMinutes,
-          priceUsd: COURSE_META.priceUsd,
-          level: COURSE_META.level,
-          status: "draft", // Strictly preserved as draft
-          isFeatured: COURSE_META.isFeatured,
-          thumbnailUrl: COURSE_META.thumbnailUrl,
-          intendedRoles: COURSE_META.intendedRoles,
-          learningObjectives: COURSE_META.learningObjectives,
-          includesCertificate: COURSE_META.includesCertificate,
-          passingScore: COURSE_META.passingScore,
-          completionMessage: COURSE_META.completionMessage,
-          badgeName: COURSE_META.badgeName,
-          badgeDescription: COURSE_META.badgeDescription,
-        })
-        .where(eq(coursesTable.id, courseId));
-    } else {
-      const [newCourse] = await db
-        .insert(coursesTable)
-        .values({
-          title: COURSE_META.title,
-          slug: COURSE_META.slug,
-          courseCode: COURSE_META.courseCode,
-          description: COURSE_META.description,
-          fullDescription: COURSE_META.fullDescription,
-          categoryId: COURSE_META.categoryId,
-          durationMinutes: COURSE_META.durationMinutes,
-          priceUsd: COURSE_META.priceUsd,
-          level: COURSE_META.level,
-          status: "draft", // Strictly preserved as draft
-          isFeatured: COURSE_META.isFeatured,
-          thumbnailUrl: COURSE_META.thumbnailUrl,
-          intendedRoles: COURSE_META.intendedRoles,
-          learningObjectives: COURSE_META.learningObjectives,
-          includesCertificate: COURSE_META.includesCertificate,
-          passingScore: COURSE_META.passingScore,
-          completionMessage: COURSE_META.completionMessage,
-          badgeName: COURSE_META.badgeName,
-          badgeDescription: COURSE_META.badgeDescription,
-        })
-        .returning();
-      courseId = newCourse.id;
+      await db.delete(lessonsTable).where(eq(lessonsTable.courseId, existing.id));
+      await db.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, existing.id));
+      await db.delete(coursesTable).where(eq(coursesTable.id, existing.id));
+      logger.info(
+        { courseId: existing.id },
+        "Cleaned up obsolete draft workplace-sustainability-leadership course superseded by canonical ELH-23"
+      );
     }
-
-    // Seed/update lessons
-    const existingLessons = await db
-      .select({ id: lessonsTable.id })
-      .from(lessonsTable)
-      .where(eq(lessonsTable.courseId, courseId));
-
-    if (existingLessons.length > 0) {
-      await db.delete(lessonsTable).where(eq(lessonsTable.courseId, courseId));
-    }
-
-    for (const lesson of LESSONS) {
-      await db.insert(lessonsTable).values({
-        courseId,
-        title: lesson.title,
-        orderIndex: lesson.order,
-        durationMinutes: lesson.minutes,
-        content: lesson.content,
-        contentBlocks: lesson.blocks as any,
-      });
-    }
-
-    // Seed/update quiz questions
-    const existingQuiz = await db
-      .select({ id: quizQuestionsTable.id })
-      .from(quizQuestionsTable)
-      .where(eq(quizQuestionsTable.courseId, courseId));
-
-    if (existingQuiz.length > 0) {
-      await db
-        .delete(quizQuestionsTable)
-        .where(eq(quizQuestionsTable.courseId, courseId));
-    }
-
-    for (const q of QUIZ_QUESTIONS) {
-      await db.insert(quizQuestionsTable).values({
-        courseId,
-        orderIndex: q.order,
-        question: q.question,
-        options: q.options,
-        correctOption: q.correctOption,
-        correctExplanation: q.correctExplanation,
-        incorrectExplanation: q.incorrectExplanation,
-      });
-    }
-
-    // Ensure badge definition
-    const existingBadge = await db
-      .select()
-      .from(badgeDefinitionsTable)
-      .where(eq(badgeDefinitionsTable.slug, BADGE_SLUG))
-      .limit(1)
-      .then((r) => r[0]);
-
-    if (existingBadge) {
-      await db
-        .update(badgeDefinitionsTable)
-        .set({
-          name: COURSE_META.badgeName,
-          description: COURSE_META.badgeDescription,
-          courseIds: [courseId],
-          icon: "award",
-        })
-        .where(eq(badgeDefinitionsTable.id, existingBadge.id));
-    } else {
-      await db
-        .insert(badgeDefinitionsTable)
-        .values({
-          name: COURSE_META.badgeName,
-          slug: BADGE_SLUG,
-          description: COURSE_META.badgeDescription,
-          icon: "award",
-          criteriaType: "all_courses",
-          threshold: 0,
-          courseIds: [courseId],
-          orderIndex: 23,
-        })
-        .onConflictDoNothing();
-    }
-
-    logger.info(
-      { courseId, slug: COURSE_SLUG, status: "draft" },
-      "Completed course structure seeded for Workplace Sustainability Leadership (DRAFT)"
-    );
   } catch (err: any) {
     logger.warn(
       { err: err?.message },
-      "Notice during ensureWorkplaceSustainabilityLeadershipCourse seeding"
+      "Notice during cleanup of obsolete workplace-sustainability-leadership course"
     );
   }
 }
