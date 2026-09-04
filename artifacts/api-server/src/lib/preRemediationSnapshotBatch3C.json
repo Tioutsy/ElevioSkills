@@ -1,0 +1,208 @@
+{
+  "generatedAt": "2026-09-04T14:21:53.420Z",
+  "totalCanonicalCourses": 136,
+  "v2Count": 53,
+  "v1Count": 83,
+  "batch": "Batch 3C",
+  "targetCount": 18,
+  "targets": [
+    {
+      "id": 714,
+      "courseCode": "ELH-57",
+      "title": "Industrial Energy Efficiency & Compressed Air",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 2,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "6dec7785e925e5e8b8c3489b852e7cfb95ec24eee2d177acae9ce242bdc62dbf"
+    },
+    {
+      "id": 715,
+      "courseCode": "ELH-58",
+      "title": "Boiler & Steam System Optimization",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 2,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "1bf48cc042ebf05324da37ebea1d50b76599b2da9f1e02619876b96ff88b084d"
+    },
+    {
+      "id": 730,
+      "courseCode": "ELH-59",
+      "title": "Industrial Wastewater & Effluent Treatment",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 7,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "5e1ac82dfa1bb7b36a82144595bf5f33ff59793c31a21c35de3daa6d54cd215a"
+    },
+    {
+      "id": 749,
+      "courseCode": "ELH-60",
+      "title": "Industrial Energy Audit & Motor Systems Optimization",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 7,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "06d079e596d27576f1f6ca20e6a715e0b51852215a5571428c43a35303c9c623"
+    },
+    {
+      "id": 716,
+      "courseCode": "ELH-62",
+      "title": "Industrial Chemical Management & GHS",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 2,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "e6e7eb55fe5e0d5017e8bfdadb5231a58f078baacb0bde52f0d252c6d7f70f03"
+    },
+    {
+      "id": 732,
+      "courseCode": "ELH-63",
+      "title": "Sustainable Packaging Design in Manufacturing",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 7,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "876dd9722c42f46867196d62b503c9b4e6831303f0ab29c5d4149bfa2aa2a2a6"
+    },
+    {
+      "id": 750,
+      "courseCode": "ELH-64",
+      "title": "Circular Raw Material Substitution in Industry",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 7,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "6dcd0690563b307e7e689c5ea1278318dd40a8aa9a9208f2b08272acade55e30"
+    },
+    {
+      "id": 775,
+      "courseCode": "ELH-65",
+      "title": "Industrial Air Quality, VOC Controls & Scrubbers",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 7,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "a2dc7624585d9179725eeee31a61f928e2efa7ea3a86f316d3e213275c482ad2"
+    },
+    {
+      "id": 776,
+      "courseCode": "ELH-66",
+      "title": "Sustainable Supply Chain Traceability in Manufacturing",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 7,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "a7be6ef63193fe086a8a877df8b673720c67f2d898c288c9272465341884da4d"
+    },
+    {
+      "id": 733,
+      "courseCode": "ELH-67",
+      "title": "Supermarket Cold Chain & Refrigeration Efficiency",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 8,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "8386999a22b7a457c608fafcfba4d01f28c8306667306a45ae1a74b5f542de0d"
+    },
+    {
+      "id": 751,
+      "courseCode": "ELH-69",
+      "title": "Sustainable Retail Store Lighting & HVAC Design",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 8,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "3b0a6c18371ff879d448d3abbc9850932c334e6b78af4505c7ee9e9bbd1f3cb1"
+    },
+    {
+      "id": 752,
+      "courseCode": "ELH-70",
+      "title": "Sustainable Retail Sourcing & Supplier ESG Code",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 8,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "56bd3ef6836d6d697f5a863ae34f5679948c846719bfc7bad524bccdf3e305be"
+    },
+    {
+      "id": 778,
+      "courseCode": "ELH-74",
+      "title": "Circular Textiles & Sustainable Fashion Retailing",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 8,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "a480dce1ac1f68f8a7208a85ec46e399b6e52451ae16285412a3f245175bae43"
+    },
+    {
+      "id": 736,
+      "courseCode": "ELH-75",
+      "title": "Sustainable Lending & Green Credit Underwriting",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 9,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "05df5654cd6cc97ee8809e78a3d347e3620ac10f54ba4ae88f980f82284f8891"
+    },
+    {
+      "id": 737,
+      "courseCode": "ELH-76",
+      "title": "ESG Risk Integration in Commercial Credit",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 9,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "37e0554a6115074d6a1eab13b201ebe7a726e37bcd7e0c0edb357e6951f6a37f"
+    },
+    {
+      "id": 754,
+      "courseCode": "ELH-77",
+      "title": "TCFD & Climate Financial Risk Disclosures",
+      "version": 1,
+      "level": "Specialist",
+      "categoryId": 9,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "c2b5e39ad1653699e1b30cd03efc6243b7d722a42879b0260fd63b345248b0a9"
+    },
+    {
+      "id": 755,
+      "courseCode": "ELH-78",
+      "title": "Carbon Markets, Offsets & Credit Verification",
+      "version": 1,
+      "level": "Specialist",
+      "categoryId": 9,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "2241225ac10fd6636683400262233879cd15e278b623c7f5d20ba81e30282721"
+    },
+    {
+      "id": 738,
+      "courseCode": "ELH-79",
+      "title": "Anti-Greenwashing in Financial Products",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 9,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "fe1bcd3d79bc4807a7adb2bb74c71457cfeb1e00cd81181dd152d92654c58eb0"
+    }
+  ]
+}

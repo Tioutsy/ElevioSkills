@@ -298,7 +298,7 @@ export function calculateRelevance(
   if (
     (learner.seniority === "SEN_MANAGER" || learner.seniority === "SEN_SUPERVISOR" || learner.seniority === "SEN_HEAD") &&
     course.primaryClassification === "MANAGEMENT_LEADERSHIP" &&
-    (jobFamilies.length === 0 || jobFamilies.includes(learner.jobFamily))
+    (jobFamilies.length === 0 || (learner.jobFamily && jobFamilies.includes(learner.jobFamily)))
   ) {
     score += 25;
     adminDetails.push("Managerial Leadership Alignment (+25)");

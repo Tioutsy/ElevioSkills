@@ -276,6 +276,934 @@ export const WAVE_1_COURSES: Wave1CourseDefinition[] = [
     ]
   },
 
+  // 2. ELH-36: Sustainable Commercial Kitchens & Culinary
+  {
+    id: 36,
+    courseCode: "ELH-36",
+    slug: "sustainable-commercial-kitchens-and-culinary",
+    title: "Sustainable Commercial Kitchens & Culinary",
+    description: "Induction cooking efficiency, equipment startup and shutdown scheduling, demand-controlled exhaust hoods, and kitchen heat load reduction.",
+    fullDescription: "Commercial resort and restaurant kitchens are intensive energy consumers. This course equips head chefs, line cooks, and kitchen stewards with operational protocols for induction cooking, exhaust hood modulation, equipment staging, and kitchen waste heat reduction.",
+    categoryId: 2,
+    durationMinutes: 20,
+    priceUsd: "1400.00",
+    level: "Applied Workplace Practice",
+    isFeatured: false,
+    thumbnailUrl: "/images/courses/sustainable-commercial-kitchens.jpg",
+    intendedRoles: ["Chefs", "Line Cooks", "Kitchen Stewards", "F&B Supervisors"],
+    learningObjectives: [
+      "Implement equipment start-up and shut-down schedules to avoid peak morning electrical demand surges.",
+      "Operate commercial induction cooktops and combi-steamers at optimal thermal efficiency settings.",
+      "Coordinate with stewarding and maintenance on demand-controlled kitchen ventilation (DCKV) hood sensors.",
+      "Maintain clean grease filters and refrigeration door gaskets to prevent compressor overwork.",
+      "Apply low-energy hot-holding and blast-chilling temperature management SOPs.",
+      "Complete 8 scenario-based assessment questions on commercial culinary energy stewardship."
+    ],
+    includesCertificate: true,
+    passingScore: 80,
+    completionMessage: "Congratulations! You have completed Sustainable Commercial Kitchens & Culinary.",
+    badgeName: "Sustainable Culinary Specialist",
+    badgeDescription: "Awarded for demonstrating operational excellence in commercial kitchen energy efficiency and sustainable food service operations.",
+    badgeSlug: "sustainable-culinary-specialist",
+    relevanceLayer: "sector_specific",
+    primaryClassification: "SECTOR_SPECIFIC",
+    isEssentialUniversal: false,
+    primaryCompetency: "COMP_ENERGY",
+    secondaryCompetencies: ["COMP_WATER", "COMP_CIRCULARITY"],
+    applicableSectors: ["SEC_HOSPITALITY"],
+    applicableDepartments: ["DEP_FOOD_BEVERAGE"],
+    applicableJobFamilies: ["JF_FRONTLINE", "JF_SUPERVISOR", "JF_PROFESSIONAL"],
+    applicableSeniorityTiers: ["SEN_INDIVIDUAL", "SEN_SUPERVISOR", "SEN_MANAGER"],
+    productionPriority: "p0",
+    learningPathPurpose: "Reduce peak electrical draw, water consumption, and thermal kitchen load during prep shifts.",
+    lessons: [
+      {
+        order: 0,
+        title: "Commercial Kitchen Energy Profiles",
+        minutes: 3,
+        content: "Understanding high-intensity energy zones in commercial food production.",
+        blocks: [
+          { id: "kit1-h1", type: "heading", position: 1, headingText: "High Thermal Intensity" },
+          { id: "kit1-t1", type: "short_text", position: 2, bodyText: "Commercial kitchens consume roughly 2.5 times more energy per square metre than other commercial hospitality spaces. Unstaged equipment startup creates massive peak electrical spikes." },
+          {
+            id: "kit1-d1",
+            type: "decision_scenario",
+            position: 3,
+            decisionIntro: "Morning kitchen prep dilemma:",
+            decisionPrompt: "The breakfast prep shift arrives at 5:30 AM. The prep cook wants to turn on all fryers, combi-ovens, salamanders, and exhaust hoods at once. What should be done?",
+            decisionChoices: [
+              { label: "Stagger equipment startup according to actual production schedules; fire ovens 15 minutes before needed and leave holding equipment off until service", correct: true, feedback: "Spot on! Staggered startup eliminates peak power demand surcharges and prevents idle thermal waste." },
+              { label: "Turn everything on at maximum temperature immediately to warm the kitchen", correct: false, feedback: "Incorrect. Full simultaneous startup causes severe power spikes and wastes substantial energy." },
+              { label: "Turn off all walk-in chillers to save power during cooking", correct: false, feedback: "Dangerous! Disabling refrigeration violates HACCP food safety boundaries." }
+            ]
+          }
+        ]
+      },
+      {
+        order: 1,
+        title: "Induction Cooking & Combi-Steamer Optimization",
+        minutes: 4,
+        content: "Maximizing electromagnetic transfer efficiency and combi steam staging.",
+        blocks: [
+          { id: "kit2-h1", type: "heading", position: 1, headingText: "Thermal Efficiency Transfer" },
+          { id: "kit2-t1", type: "short_text", position: 2, bodyText: "Induction cooktops deliver over 85% thermal efficiency compared to less than 40% for open gas burners, drastically cutting ambient kitchen heat and ventilation requirements." }
+        ]
+      },
+      {
+        order: 2,
+        title: "Demand-Controlled Kitchen Ventilation (DCKV)",
+        minutes: 3,
+        content: "Optical smoke and thermal sensors modulating exhaust hood fan speeds.",
+        blocks: [
+          { id: "kit3-h1", type: "heading", position: 1, headingText: "Smart Exhaust Hoods" },
+          { id: "kit3-t1", type: "short_text", position: 2, bodyText: "DCKV systems adjust exhaust fan speeds from 100% during heavy searing down to 50% during light simmering, cutting makeup air conditioning loads." }
+        ]
+      },
+      {
+        order: 3,
+        title: "Refrigeration & Cold-Holding Integrity",
+        minutes: 3,
+        content: "Condenser airflow, gasket sealing, and defrost management.",
+        blocks: [
+          {
+            id: "kit4-d1",
+            type: "decision_scenario",
+            position: 1,
+            decisionIntro: "Walk-in freezer inspection:",
+            decisionPrompt: "During busy lunch service, staff frequently prop the walk-in freezer door open with a crate to speed up ingredient retrieval. What action is required?",
+            decisionChoices: [
+              { label: "Enforce strict door-closure discipline and install heavy-duty PVC strip curtains to prevent warm humid air infiltration and ice buildup on evaporator coils", correct: true, feedback: "Spot on! Propping freezer doors open causes severe coil icing, compressor strain, and rapid temperature loss." },
+              { label: "Leave the door open all day to air out the freezer", correct: false, feedback: "Incorrect. Open freezer doors cause severe energy waste and risk food spoilage." },
+              { label: "Turn the freezer thermostat down to -40°C to compensate", correct: false, feedback: "Incorrect. Over-chilling doubles compressor power draw without solving humidity infiltration." }
+            ]
+          }
+        ]
+      },
+      {
+        order: 4,
+        title: "Dishwashing & Stewarding Water Conservation",
+        minutes: 3,
+        content: "Flight-type dishwashers, pre-rinse spray valves, and rack staging.",
+        blocks: [
+          { id: "kit5-h1", type: "heading", position: 1, headingText: "High-Efficiency Stewarding" },
+          { id: "kit5-t1", type: "short_text", position: 2, bodyText: "Only operate rack-conveyor dishwashers with full loads, and use high-velocity low-flow pre-rinse spray nozzles (under 4.5 L/min)." }
+        ]
+      },
+      {
+        order: 5,
+        title: "Culinary Energy Action Checklist",
+        minutes: 4,
+        content: "Establish shift closing protocols and kitchen maintenance requests.",
+        blocks: [
+          { id: "kit6-h1", type: "heading", position: 1, headingText: "Shift Handover SOP" },
+          { id: "kit6-t1", type: "short_text", position: 2, bodyText: "Verify all non-essential equipment, heated pass-through lamps, and exhaust hoods are switched off at close." }
+        ]
+      }
+    ],
+    quiz: [
+      {
+        order: 1,
+        question: "Why should commercial kitchen equipment startup be staggered rather than switched on all at once at the start of a shift?",
+        options: [
+          "It prevents massive electrical peak demand spikes and reduces idle heating energy before food prep begins",
+          "It allows chefs to listen to the radio",
+          "It cools down the dining room",
+          "It makes gas burners produce ozone"
+        ],
+        correct: 0,
+        correctExplanation: "Staggered startup flattens peak electrical demand surges and saves power by heating units only when needed.",
+        incorrectExplanation: "Incorrect. Staggering startup avoids maximum demand utility surcharges and eliminates pre-shift idle waste."
+      },
+      {
+        order: 2,
+        question: "What is the primary energy advantage of commercial induction hobs over traditional open-flame gas ranges?",
+        options: [
+          "Induction transfers over 85% of electrical energy directly into the pan, minimizing ambient kitchen heat and exhaust requirements",
+          "Induction cooktops make food cook with radiation",
+          "Induction eliminates the need for pots and pans",
+          "Induction operates without electrical power"
+        ],
+        correct: 0,
+        correctExplanation: "Induction hobs heat the cookware directly with magnetic fields, transferring 85%+ of thermal energy with minimal waste heat.",
+        incorrectExplanation: "Incorrect. Induction hobs achieve 85%+ thermal efficiency compared to under 40% for open gas flames."
+      },
+      {
+        order: 3,
+        question: "How does Demand-Controlled Kitchen Ventilation (DCKV) save electrical and thermal energy?",
+        options: [
+          "It uses optical and temperature sensors to modulate exhaust fan speeds according to actual cooking intensity rather than running at 100% constantly",
+          "It replaces kitchen exhaust hoods with open windows",
+          "It turns off kitchen lighting when pans are hot",
+          "It exhausts smoke into the dining room"
+        ],
+        correct: 0,
+        correctExplanation: "DCKV reduces hood exhaust and tempered make-up air volume when appliances are idle or lightly simmering.",
+        incorrectExplanation: "Incorrect. DCKV automatically modulates hood fan speeds based on real-time heat and vapor production."
+      },
+      {
+        order: 4,
+        question: "What is the operational consequence of leaving walk-in cold room and freezer doors propped open during service?",
+        options: [
+          "Warm humid air enters, causing heavy frost on evaporator coils, compressor overwork, increased power draw, and food safety risk",
+          "It improves the air conditioning of the hot kitchen line",
+          "It keeps the walk-in floor dry and clean",
+          "It increases the shelf life of dairy products"
+        ],
+        correct: 0,
+        correctExplanation: "Propped doors allow tropical humidity to ice over evaporator coils, drastically degrading cooling efficiency.",
+        incorrectExplanation: "Incorrect. Leaving cold room doors open introduces moisture, forms ice on coils, and increases energy use by up to 50%."
+      },
+      {
+        order: 5,
+        question: "Which stewarding practice delivers the greatest water and thermal energy savings in commercial dishwashing?",
+        options: [
+          "Washing only completely full dishracks and using low-flow high-velocity pre-rinse trigger spray valves",
+          "Running single plates through the machine as soon as they arrive",
+          "Washing dishes under continuous hot running water taps in open sinks",
+          "Using cold ocean seawater to wash glassware"
+        ],
+        correct: 0,
+        correctExplanation: "Full-rack staging ensures every litre of heated wash and rinse water is utilized at maximum capacity.",
+        incorrectExplanation: "Incorrect. Running full dishracks and using high-velocity pre-rinse nozzles cuts stewarding water and heating costs dramatically."
+      },
+      {
+        order: 6,
+        question: "Why should kitchen refrigeration condenser coils and door gaskets be inspected and cleaned monthly?",
+        options: [
+          "Dust-choked coils and torn gaskets force compressors to run continuously, inflating electricity use and triggering premature mechanical failure",
+          "It makes the stainless steel shiny for dining guests",
+          "It stops ice cream from melting into liquid nitrogen",
+          "It changes the refrigerant gas into clean oxygen"
+        ],
+        correct: 0,
+        correctExplanation: "Clean condenser coils and airtight magnetic gaskets ensure efficient heat rejection and temperature retention.",
+        incorrectExplanation: "Incorrect. Dirty coils and leaky gaskets restrict heat exchange, raising compressor run-time and energy use."
+      },
+      {
+        order: 7,
+        question: "What is the best practice for managing heated pass-through holding cabinets during lull periods between meal services?",
+        options: [
+          "Power them off or set to standby holding modes when empty between shift meal periods",
+          "Keep all holding cabinets at 95°C empty 24 hours a day",
+          "Use them to dry wet kitchen aprons and towels",
+          "Store ice cream tubs inside them"
+        ],
+        correct: 0,
+        correctExplanation: "Powering down empty hot-holding units between peak services prevents thousands of kWh of wasted thermal standby energy.",
+        incorrectExplanation: "Incorrect. Empty hot-holding cabinets should be switched off between services to eliminate parasitic standby load."
+      },
+      {
+        order: 8,
+        question: "How do sustainable kitchen standard operating procedures (SOPs) benefit commercial culinary operations?",
+        options: [
+          "They reduce utility operating overheads, create cooler and safer kitchen working conditions, and uphold high culinary and hygiene standards",
+          "They eliminate the need to cook hot food",
+          "They double the food preparation time for guests",
+          "They require kitchens to operate without electricity"
+        ],
+        correct: 0,
+        correctExplanation: "Efficient culinary SOPs reduce energy overheads, lower kitchen ambient heat stress, and preserve food quality.",
+        incorrectExplanation: "Incorrect. Energy-efficient culinary SOPs optimize working comfort, lower utility bills, and support operational excellence."
+      }
+    ]
+  },
+
+  // 3. ELH-37: Hotel Food Waste Prevention & Composting
+  {
+    id: 37,
+    courseCode: "ELH-37",
+    slug: "hotel-food-waste-prevention-and-composting",
+    title: "Hotel Food Waste Prevention & Composting",
+    description: "Buffet portioning, prep trim reduction, surplus food donation protocols, and on-site commercial composting.",
+    fullDescription: "Food waste represents a major financial loss and environmental impact in hotel and resort operations. This course trains F&B teams, banquet staff, chefs, and stewards on food waste measurement, menu trim optimization, buffet replenishment pacing, and aerobic composting systems.",
+    categoryId: 2,
+    durationMinutes: 20,
+    priceUsd: "1400.00",
+    level: "Applied Workplace Practice",
+    isFeatured: false,
+    thumbnailUrl: "/images/courses/hotel-food-waste-prevention.jpg",
+    intendedRoles: ["Chefs", "F&B Staff", "Stewards", "Banquet Supervisors"],
+    learningObjectives: [
+      "Track and categorize kitchen prep trim, plate waste, and buffet overproduction using daily waste logs.",
+      "Execute dynamic buffet replenishment pacing to minimize end-of-service surplus.",
+      "Implement safe surplus food storage and donation protocols complying with food safety standards.",
+      "Operate on-site organic composters and manage carbon-to-nitrogen ratios with resort landscaping teams.",
+      "Engage guests constructively on food portioning without degrading hospitality experience.",
+      "Complete 8 scenario-based assessment questions on food waste prevention."
+    ],
+    includesCertificate: true,
+    passingScore: 80,
+    completionMessage: "Congratulations! You have completed Hotel Food Waste Prevention & Composting.",
+    badgeName: "Food Waste Reduction Specialist",
+    badgeDescription: "Awarded for demonstrating excellence in hotel kitchen waste tracking, buffet pacing, and organic recycling.",
+    badgeSlug: "food-waste-reduction-specialist",
+    relevanceLayer: "sector_specific",
+    primaryClassification: "SECTOR_SPECIFIC",
+    isEssentialUniversal: false,
+    primaryCompetency: "COMP_CIRCULARITY",
+    secondaryCompetencies: ["COMP_GHG", "COMP_COMPLIANCE"],
+    applicableSectors: ["SEC_HOSPITALITY", "SEC_RETAIL"],
+    applicableDepartments: ["DEP_FOOD_BEVERAGE"],
+    applicableJobFamilies: ["JF_FRONTLINE", "JF_SUPERVISOR", "JF_PROFESSIONAL"],
+    applicableSeniorityTiers: ["SEN_INDIVIDUAL", "SEN_SUPERVISOR", "SEN_MANAGER"],
+    productionPriority: "p0",
+    learningPathPurpose: "Cut organic waste volume going to landfill from banquet and restaurant buffets.",
+    lessons: [
+      {
+        order: 0,
+        title: "The Scale and Cost of Resort Food Waste",
+        minutes: 3,
+        content: "Understanding prep waste, buffet overproduction, and post-consumer plate waste.",
+        blocks: [
+          { id: "fw1-h1", type: "heading", position: 1, headingText: "Where Waste Occurs" },
+          { id: "fw1-t1", type: "short_text", position: 2, bodyText: "In Mauritian resort buffets, over 40% of discarded food originates from unconsumed buffet chafing dishes. Preventing overproduction saves both food purchasing costs and landfill methane emissions." },
+          {
+            id: "fw1-d1",
+            type: "decision_scenario",
+            position: 3,
+            decisionIntro: "Dinner buffet final hour dilemma:",
+            decisionPrompt: "It is 9:15 PM and dinner buffet service ends at 10:00 PM. Guest footfall is slowing down, but three luxury meat and seafood platters are half-empty. What should the chef do?",
+            decisionChoices: [
+              { label: "Switch to small-dish replenishment or cook-to-order live cooking stations for the final 45 minutes rather than filling deep full-size chafing pans", correct: true, feedback: "Spot on! Shallow pans and live cooking ensure freshness for late-dining guests while preventing massive end-of-night scrap waste." },
+              { label: "Cook full 10-kg batch trays to ensure the buffet looks overflowing until the last minute", correct: false, feedback: "Incorrect. Full batch refills at the end of service inevitably result in massive food waste." },
+              { label: "Immediately remove all food and turn off lights 45 minutes early", correct: false, feedback: "Incorrect. Turning away paying guests harms service reputation." }
+            ]
+          }
+        ]
+      },
+      {
+        order: 1,
+        title: "Kitchen Preparation Waste & Nose-to-Tail Yield",
+        minutes: 4,
+        content: "Vegetable peel stock stocks, carcass butchery yield, and precision prep.",
+        blocks: [
+          { id: "fw2-h1", type: "heading", position: 1, headingText: "Maximizing Ingredient Yield" },
+          { id: "fw2-t1", type: "short_text", position: 2, bodyText: "Clean vegetable trimmings and bones should be channeled into stocks and reductions rather than discarded into general waste bins." }
+        ]
+      },
+      {
+        order: 2,
+        title: "Buffet Presentation & Dish Pacing Strategies",
+        minutes: 3,
+        content: "Using shallow inserts, individual ramekins, and dynamic pan sizing.",
+        blocks: [
+          { id: "fw3-h1", type: "heading", position: 1, headingText: "Visual Abundance Without Waste" },
+          { id: "fw3-t1", type: "short_text", position: 2, bodyText: "Shallow buffet inserts create the visual illusion of abundant generosity while holding 50% less volume, enabling faster food turnover and fresher meals." }
+        ]
+      },
+      {
+        order: 3,
+        title: "Safe Surplus Food Recovery & Donation",
+        minutes: 3,
+        content: "HACCP temperature logs, blast chilling, and community redistribution.",
+        blocks: [
+          {
+            id: "fw4-d1",
+            type: "decision_scenario",
+            position: 1,
+            decisionIntro: "Banquet surplus handling:",
+            decisionPrompt: "A conference banquet has 50 unserved portions of cooked chicken breast maintained strictly above 63°C in holding ovens. How should this surplus be handled?",
+            decisionChoices: [
+              { label: "Rapidly blast chill down to below 4°C within 90 minutes, label with date and allergen codes, and store in dedicated food-bank donation chillers under approved sanitary protocol", correct: true, feedback: "Spot on! Following HACCP blast-chilling and documentation standards enables safe food donation without health risks." },
+              { label: "Leave it on the kitchen counter at room temperature overnight for staff lunch tomorrow", correct: false, feedback: "Severe food safety hazard! Danger zone temperatures promote bacterial proliferation." },
+              { label: "Throw all unserved food into the municipal trash compactor immediately", correct: false, feedback: "Incorrect. Edible unserved food should be safely recovered and redistributed." }
+            ]
+          }
+        ]
+      },
+      {
+        order: 4,
+        title: "On-Site Commercial Composting & Bokashi",
+        minutes: 3,
+        content: "Organic waste segregation, tumbler aeration, and resort garden mulch.",
+        blocks: [
+          { id: "fw5-h1", type: "heading", position: 1, headingText: "Closing the Nutrient Loop" },
+          { id: "fw5-t1", type: "short_text", position: 2, bodyText: "Segregated plate scraps and coffee grounds fed into on-site aerobic composters produce rich soil conditioner for resort landscaping, diverting tonnes from Mare Chicose landfill." }
+        ]
+      },
+      {
+        order: 5,
+        title: "Daily Waste Tracking & Team Engagement",
+        minutes: 4,
+        content: "Transparent waste weighing scales and kitchen waste reduction targets.",
+        blocks: [
+          { id: "fw6-h1", type: "heading", position: 1, headingText: "Measure to Manage" },
+          { id: "fw6-t1", type: "short_text", position: 2, bodyText: "Weighing waste bins per section (prep, buffet, plate) daily gives chefs the data required to adjust menu prep sheets." }
+        ]
+      }
+    ],
+    quiz: [
+      {
+        order: 1,
+        question: "What is the most effective operational strategy to minimize food waste during the final hour of a hotel buffet service?",
+        options: [
+          "Switch from large deep chafing pans to shallow inserts or live cook-to-order preparation",
+          "Cook double portions so the buffet looks full when closing",
+          "Turn off all warmers and lock the restaurant doors early",
+          "Mix raw ingredients into cooked buffet dishes"
+        ],
+        correct: 0,
+        correctExplanation: "Shallow pans maintain visual appeal while minimizing surplus food discarded at closing time.",
+        incorrectExplanation: "Incorrect. Using shallow inserts and cook-to-order prep prevents massive late-service food waste."
+      },
+      {
+        order: 2,
+        question: "Why is diverting organic food waste away from landfills an urgent environmental priority in Mauritius?",
+        options: [
+          "Organic waste decomposing in anaerobic landfills releases potent methane (CH4) greenhouse gas and generates toxic leachate that threatens groundwater",
+          "Landfills require food waste to grow trees",
+          "Food waste makes landfill trucks drive faster",
+          "Organic waste turns into gold under sunlight"
+        ],
+        correct: 0,
+        correctExplanation: "Food rotting in landfills creates methane (28x more potent than CO2) and produces polluting leachate.",
+        incorrectExplanation: "Incorrect. Landfilled organics generate potent methane emissions and hazardous groundwater leachate."
+      },
+      {
+        order: 3,
+        question: "What is the role of visual portion control (such as using smaller plates and shallow buffet pans) in sustainable F&B operations?",
+        options: [
+          "It reduces post-consumer plate waste and buffet scrap while ensuring guests can take second helpings if desired",
+          "It prevents guests from eating any food",
+          "It forces guests to pay extra for dessert",
+          "It replaces cooked meals with vitamin pills"
+        ],
+        correct: 0,
+        correctExplanation: "Right-sized presentation curbs plate overfill while preserving guest dining freedom and luxury perception.",
+        incorrectExplanation: "Incorrect. Thoughtful plating and shallow pans reduce unnecessary plate waste without restricting guest satisfaction."
+      },
+      {
+        order: 4,
+        question: "Under HACCP standards, how must hot surplus food from untouched banquet holding cabinets be processed for safe donation?",
+        options: [
+          "Rapidly blast-chilled to below 4°C within 90 minutes, labelled with production date/allergens, and held in sanitary cold storage",
+          "Left on the kitchen counter at room temperature overnight",
+          "Placed in open cardboard boxes under the sun",
+          "Reheated to 200°C in an open fire pit"
+        ],
+        correct: 0,
+        correctExplanation: "Rapid blast chilling and temperature logging ensures safe redistribution without bacterial danger zone exposure.",
+        incorrectExplanation: "Incorrect. Surplus food must be blast-chilled to <4°C within 90 minutes and documented for safe donation."
+      },
+      {
+        order: 5,
+        question: "How can clean kitchen prep trim (such as vegetable peels and herb stems) be upcycled into culinary value?",
+        options: [
+          "Simmered into rich stocks, broths, and reductions, or dried into seasoning powders",
+          "Dumped into the ocean behind the resort",
+          "Flushed down toilet drains",
+          "Burned in kitchen garbage bins"
+        ],
+        correct: 0,
+        correctExplanation: "Clean vegetable trimmings and carcasses provide the base for stocks and sauces, extracting 100% of ingredient value.",
+        incorrectExplanation: "Incorrect. Trimmings can be repurposed into stocks, sauces, and culinary powders to extract maximum yield."
+      },
+      {
+        order: 6,
+        question: "What is the critical operating requirement for maintaining an odor-free on-site aerobic composting system at a resort?",
+        options: [
+          "Maintaining a proper balance of nitrogen-rich food scraps ('greens') and carbon-rich dry leaves/wood chips ('browns') with adequate aeration",
+          "Pouring full-strength chlorine bleach into the composter daily",
+          "Sealing the composter airtight with no oxygen",
+          "Adding plastic cutlery to absorb moisture"
+        ],
+        correct: 0,
+        correctExplanation: "Aerobic composting requires oxygen and a ~30:1 carbon-to-nitrogen ratio to decompose organics without foul odors.",
+        incorrectExplanation: "Incorrect. Aerobic decomposition requires regular turning/aeration and balanced carbon (browns) and nitrogen (greens)."
+      },
+      {
+        order: 7,
+        question: "Why should commercial kitchens implement separate color-coded waste bins for organic prep scraps vs general waste?",
+        options: [
+          "It prevents organic contamination of recyclables and ensures clean feedstock for composting or bio-digestion",
+          "It makes the kitchen floor look colorful",
+          "It is required to change kitchen music stations",
+          "It stops cooks from tasting sauces"
+        ],
+        correct: 0,
+        correctExplanation: "Dedicated organic bins prevent contamination with plastics and packaging, enabling 100% organic recycling.",
+        incorrectExplanation: "Incorrect. Segregated bins keep organic streams uncontaminated for composting and livestock feed."
+      },
+      {
+        order: 8,
+        question: "What is the primary business benefit of daily kitchen food waste logging and tracking?",
+        options: [
+          "It identifies exact overproduction areas, enabling head chefs to adjust purchasing orders and prep pars to cut F&B costs",
+          "It gives stewards extra paperwork to do after shifts",
+          "It allows the hotel to eliminate the kitchen team",
+          "It increases food storage inventory to maximum limits"
+        ],
+        correct: 0,
+        correctExplanation: "Accurate waste measurement directly informs prep sheet adjustments, cutting resort food purchasing costs by 5-15%.",
+        incorrectExplanation: "Incorrect. Daily waste tracking gives culinary management the data needed to trim food purchasing budgets."
+      }
+    ]
+  },
+
+  // 4. ELH-39: Hotel Engineering: Central Plant & HVAC Optimization
+  {
+    id: 39,
+    courseCode: "ELH-39",
+    slug: "hotel-engineering-central-plant-and-hvac-optimization",
+    title: "Hotel Engineering: Central Plant & HVAC Optimization",
+    description: "Central chiller plant staging, condenser water cooling tower delta-T, boiler heat recovery for domestic hot water, and BMS chiller sequencing.",
+    fullDescription: "Central HVAC and hot water plants account for over 60% of total energy consumption in Mauritian resorts and commercial properties. This course provides chief engineers, HVAC technicians, and facility operators with rigorous operational protocols for chiller sequencing, variable primary flow control, heat recovery desuperheaters, and cooling tower chemical treatment.",
+    categoryId: 2,
+    durationMinutes: 30,
+    priceUsd: "1400.00",
+    level: "Role Specialist",
+    isFeatured: false,
+    thumbnailUrl: "/images/courses/hotel-engineering-central-plant.jpg",
+    intendedRoles: ["Hotel Engineers", "Chief Engineers", "HVAC Technicians", "Maintenance Supervisors"],
+    learningObjectives: [
+      "Calculate and optimize chiller coefficient of performance (COP) across varying wet-bulb temperatures.",
+      "Implement automated chiller staging and chilled water supply temperature reset algorithms.",
+      "Maintain condenser cooling tower approach temperatures and automated blowdown conductivity controls.",
+      "Operate waste heat recovery exchangers to preheat domestic hot water from chiller condenser loops.",
+      "Detect and eliminate low delta-T syndrome across air handling units and secondary distribution loops.",
+      "Complete 8 scenario-based assessment questions on central plant HVAC engineering."
+    ],
+    includesCertificate: true,
+    passingScore: 80,
+    completionMessage: "Congratulations! You have completed Hotel Engineering: Central Plant & HVAC Optimization.",
+    badgeName: "Central Plant Optimization Specialist",
+    badgeDescription: "Awarded for technical expertise in resort chiller plant staging, heat recovery, and cooling tower efficiency.",
+    badgeSlug: "central-plant-optimization-specialist",
+    relevanceLayer: "sector_specific",
+    primaryClassification: "SECTOR_SPECIFIC",
+    isEssentialUniversal: false,
+    primaryCompetency: "COMP_ENERGY",
+    secondaryCompetencies: ["COMP_WATER", "COMP_GHG"],
+    applicableSectors: ["SEC_HOSPITALITY", "SEC_PROPERTY"],
+    applicableDepartments: ["DEP_ENGINEERING", "DEP_FACILITIES"],
+    applicableJobFamilies: ["JF_TECHNICAL", "JF_SUPERVISOR", "JF_MANAGER"],
+    applicableSeniorityTiers: ["SEN_INDIVIDUAL", "SEN_SUPERVISOR", "SEN_MANAGER"],
+    productionPriority: "p0",
+    learningPathPurpose: "Align resort central chiller and boiler systems with seasonal occupancy to eliminate low delta-T losses.",
+    lessons: [
+      {
+        order: 0,
+        title: "Central Plant Architecture in Tropical Resorts",
+        minutes: 5,
+        content: "Water-cooled chillers, cooling towers, and variable flow primary pumps.",
+        blocks: [
+          { id: "plant1-h1", type: "heading", position: 1, headingText: "The Core Energy Engine" },
+          { id: "plant1-t1", type: "short_text", position: 2, bodyText: "Chillers, pumps, and cooling towers account for the lion's share of commercial property electricity bills. Running an extra chiller at 30% partial load instead of staging one at 85% causes severe efficiency degradation." },
+          {
+            id: "plant1-d1",
+            type: "decision_scenario",
+            position: 3,
+            decisionIntro: "Resort shoulder-season chiller staging:",
+            decisionPrompt: "During the Mauritian winter (low thermal load), the plant operator runs two 300-TR chillers simultaneously at 35% load to 'share the wear'. What should the chief engineer do?",
+            decisionChoices: [
+              { label: "Stage off one chiller immediately and run a single 300-TR chiller at 70% load; centrifugal chillers operate at peak COP between 65-85% load and running an unnecessary machine wastes pump and tower power", correct: true, feedback: "Spot on! Centrifugal chillers operating at low partial loads suffer severe COP penalties, and running twin condenser and chilled water pumps doubles auxiliary parasitic power." },
+              { label: "Turn on a third chiller to reduce the load on each to 20%", correct: false, feedback: "Incorrect. Running chillers at 20% load destroys plant efficiency and creates extreme parasitic pumping overhead." },
+              { label: "Switch off all cooling towers and let chillers overheat", correct: false, feedback: "Dangerous! Disabling cooling towers causes high-pressure chiller safety trips." }
+            ]
+          }
+        ]
+      },
+      {
+        order: 1,
+        title: "Chilled Water Supply Temperature Reset",
+        minutes: 5,
+        content: "Dynamic reset curves based on outdoor wet-bulb temperature and valve demand.",
+        blocks: [
+          { id: "plant2-h1", type: "heading", position: 1, headingText: "Resetting Chilled Water Setpoints" },
+          { id: "plant2-t1", type: "short_text", position: 2, bodyText: "Every 1°C increase in chilled water supply temperature yields a 2-3% improvement in chiller compressor efficiency without sacrificing indoor comfort." }
+        ]
+      },
+      {
+        order: 2,
+        title: "Cooling Tower Approach & Condenser Loop Delta-T",
+        minutes: 5,
+        content: "VFD cooling tower fans, scale prevention, and wet-bulb approach.",
+        blocks: [
+          { id: "plant3-h1", type: "heading", position: 1, headingText: "Condenser Heat Rejection" },
+          { id: "plant3-t1", type: "short_text", position: 2, bodyText: "Lowering condenser water temperature entering the chiller reduces compressor lift, saving significant power. Cooling tower VFDs modulate fan speeds to track wet-bulb approach." }
+        ]
+      },
+      {
+        order: 3,
+        title: "Desuperheaters & Waste Heat Domestic Hot Water",
+        minutes: 5,
+        content: "Harnessing chiller condenser heat to eliminate diesel boiler operation.",
+        blocks: [
+          {
+            id: "plant4-d1",
+            type: "decision_scenario",
+            position: 1,
+            decisionIntro: "Resort hot water supply dilemma:",
+            decisionPrompt: "The resort burns 200 litres of diesel daily in boilers to generate 55°C guest hot water while chillers reject massive amounts of 35°C heat to cooling towers. What is the optimal engineering solution?",
+            decisionChoices: [
+              { label: "Install a refrigerant desuperheater heat recovery exchanger on the chiller compressor discharge to preheat boiler feed water from 25°C to 50°C using free waste heat", correct: true, feedback: "Spot on! Chiller heat recovery captures rejected thermal energy, cutting resort boiler diesel consumption by up to 70%." },
+              { label: "Turn off guest hot water heaters completely to save diesel", correct: false, feedback: "Incorrect. Depriving guests of hot water violates basic hotel hospitality standards." },
+              { label: "Vent boiling steam into the air handling units", correct: false, feedback: "Dangerous! Venting steam causes building mold and energy catastrophe." }
+            ]
+          }
+        ]
+      },
+      {
+        order: 4,
+        title: "Diagnosing & Curing Low Delta-T Syndrome",
+        minutes: 5,
+        content: "2-way modulating control valves, balancing coils, and VFD pump tracking.",
+        blocks: [
+          { id: "plant5-h1", type: "heading", position: 1, headingText: "Fighting Low Delta-T" },
+          { id: "plant5-t1", type: "short_text", position: 2, bodyText: "When chilled water returns at 9°C instead of the design 12°C, chillers cannot load fully despite excessive water flow, forcing extra pumps and chillers online unnecessarily." }
+        ]
+      },
+      {
+        order: 5,
+        title: "Central Plant Daily Log & Maintenance SOPs",
+        minutes: 5,
+        content: "Approach temperature logs, water chemical conductivity, and refrigerant leak checks.",
+        blocks: [
+          { id: "plant6-h1", type: "heading", position: 1, headingText: "Daily Log Verification" },
+          { id: "plant6-t1", type: "short_text", position: 2, bodyText: "Log evaporator/condenser approach temperatures daily to detect tube fouling before scale builds up." }
+        ]
+      }
+    ],
+    quiz: [
+      {
+        order: 1,
+        question: "Why is running one 400-TR chiller at 80% load significantly more energy efficient than running two 400-TR chillers at 40% load each?",
+        options: [
+          "Centrifugal chillers operate at optimal COP at higher partial loads, and running a single machine eliminates the electrical power draw of a second condenser pump, chilled water pump, and cooling tower fan",
+          "Two chillers consume zero electricity when sharing loads",
+          "Chillers can only cool water when running above 90°C",
+          "Running two chillers produces pure hydrogen fuel"
+        ],
+        correct: 0,
+        correctExplanation: "Staging a single chiller at high COP eliminates the massive auxiliary pump and fan loads of running twin machines.",
+        incorrectExplanation: "Incorrect. Staging chillers to operate near peak COP (70-85%) and de-energizing redundant auxiliary pumps saves massive energy."
+      },
+      {
+        order: 2,
+        question: "What efficiency benefit is achieved by implementing Chilled Water Supply Temperature Reset during low-demand periods?",
+        options: [
+          "Raising chilled water temperature from 6°C to 8°C reduces compressor lift, saving approximately 2-3% of chiller energy per degree Celsius",
+          "It freezes all air conditioning pipes to preserve cold air",
+          "It eliminates the need for air handling units",
+          "It converts chilled water into boiler steam"
+        ],
+        correct: 0,
+        correctExplanation: "Increasing chilled water setpoint lowers compressor pressure differential, directly reducing electricity consumption.",
+        incorrectExplanation: "Incorrect. Every 1°C increase in chilled water temperature reduces chiller compressor work by 2-3%."
+      },
+      {
+        order: 3,
+        question: "What is 'Low Delta-T Syndrome' in central chilled water distribution systems?",
+        options: [
+          "A condition where chilled water returns to the plant with a temperature difference much lower than design (e.g. 3°C instead of 6°C), starving the plant of thermal load and forcing extra pumps online",
+          "When water in cooling towers turns into ice during summer",
+          "When air conditioners blow warm steam into offices",
+          "A medical condition affecting building occupants"
+        ],
+        correct: 0,
+        correctExplanation: "Low delta-T occurs when return water is too cold due to 3-way bypass valves or oversized coils, overloading distribution pumps.",
+        incorrectExplanation: "Incorrect. Low delta-T syndrome causes chillers to under-load while pumps run at maximum flow, wasting energy."
+      },
+      {
+        order: 4,
+        question: "How does a refrigerant desuperheater heat recovery system reduce resort operating expenses?",
+        options: [
+          "It captures high-temperature heat rejected by chiller compressors and transfers it to preheat domestic hot water for guestrooms, slashing boiler fuel consumption",
+          "It cools the resort swimming pool with ice cubes",
+          "It generates electricity from solar panels on the roof",
+          "It eliminates the need for guest showers"
+        ],
+        correct: 0,
+        correctExplanation: "Desuperheaters capture waste heat from compressor discharge to heat domestic water, cutting diesel/gas boiler costs by up to 70%.",
+        incorrectExplanation: "Incorrect. Desuperheaters harness rejected chiller heat to preheat domestic hot water, slashing boiler fuel bills."
+      },
+      {
+        order: 5,
+        question: "What is the consequence of allowing mineral scale to accumulate inside water-cooled chiller condenser tubes?",
+        options: [
+          "Scale acts as thermal insulation, raising condensing temperature, degrading COP, and increasing compressor electrical power consumption by 10-25%",
+          "Scale makes chiller condenser water taste sweet",
+          "Scale eliminates the need for cooling tower fans",
+          "Scale increases chiller cooling capacity by 50%"
+        ],
+        correct: 0,
+        correctExplanation: "Mineral scale insulates condenser tubes, hindering heat transfer and forcing the compressor to work harder.",
+        incorrectExplanation: "Incorrect. Even a 0.5 mm layer of scale degrades heat transfer, causing a 10%+ penalty on chiller efficiency."
+      },
+      {
+        order: 6,
+        question: "How should cooling tower variable frequency drives (VFDs) be controlled for optimal plant efficiency?",
+        options: [
+          "Modulate all tower fan speeds together to maintain the optimum condenser water temperature based on ambient wet-bulb temperature approach",
+          "Run one tower fan at 100% speed while leaving the rest turned off",
+          "Run all tower fans in reverse to blow air upwards into clouds",
+          "Turn off all tower fans during the hottest hours of the day"
+        ],
+        correct: 0,
+        correctExplanation: "Operating multiple tower fans at reduced speeds takes advantage of the fan affinity laws, cutting fan power consumption drastically.",
+        incorrectExplanation: "Incorrect. Modulating multiple tower fans via VFDs lowers fan power exponentially while maintaining target approach temperatures."
+      },
+      {
+        order: 7,
+        question: "Why must automated cooling tower water blowdown systems be calibrated using electrical conductivity sensors?",
+        options: [
+          "To control cycles of concentration, preventing both scale accumulation and excessive freshwater/chemical wastage",
+          "To electrify the cooling tower water to repel birds",
+          "To convert mineral salts into clean drinking water",
+          "To test whether the cooling tower is grounded"
+        ],
+        correct: 0,
+        correctExplanation: "Conductivity blowdown control maintains optimal cycles of concentration, preventing mineral scale while saving water and chemicals.",
+        incorrectExplanation: "Incorrect. Automated conductivity control maintains balanced cycles of concentration, stopping scale and saving water."
+      },
+      {
+        order: 8,
+        question: "What daily parameter should a facility engineer compare to detect tube fouling in chiller evaporators and condensers?",
+        options: [
+          "The Approach Temperature (the difference between leaving fluid temperature and refrigerant saturation temperature)",
+          "The color of the exterior paint on the chiller shell",
+          "The volume of the maintenance room radio",
+          "The height of the cooling tower above sea level"
+        ],
+        correct: 0,
+        correctExplanation: "Rising approach temperature is the definitive early indicator of heat exchanger tube fouling or micro-scaling.",
+        incorrectExplanation: "Incorrect. Tracking approach temperature deviations alerts engineers to tube fouling before efficiency collapses."
+      }
+    ]
+  },
+
+  // 5. ELH-47: Green Leases & Tenant Sustainability Engagement
+  {
+    id: 47,
+    courseCode: "ELH-47",
+    slug: "green-leases-and-tenant-sustainability-engagement",
+    title: "Green Leases & Tenant Sustainability Engagement",
+    description: "Drafting enforceable green lease clauses, tenant utility data sharing, sub-meter billing transparency, and collaborative building setback rules.",
+    fullDescription: "The split-incentive dilemma in commercial real estate frequently hinders sustainability investments. This course equips commercial property managers, asset managers, and leasing executives with legal frameworks, data-sharing protocols, and fit-out standards to align landlord and tenant ESG objectives.",
+    categoryId: 2,
+    durationMinutes: 25,
+    priceUsd: "1400.00",
+    level: "Role Specialist",
+    isFeatured: false,
+    thumbnailUrl: "/images/courses/green-leases-tenant-engagement.jpg",
+    intendedRoles: ["Property Managers", "Asset Managers", "Leasing Executives", "Legal Counsel"],
+    learningObjectives: [
+      "Structure green lease schedules covering energy data disclosure, sub-metering, and waste reporting.",
+      "Resolve split-incentive barriers by establishing capital cost recovery mechanisms for energy retrofits.",
+      "Develop sustainable tenant fit-out guides mandating LED lighting and high-efficiency HVAC equipment.",
+      "Establish building management committee (BMC) sustainability meetings with major anchor tenants.",
+      "Enforce common area and tenanted space environmental operating hours and thermostat boundaries.",
+      "Complete 8 scenario-based assessment questions on green lease governance and tenant engagement."
+    ],
+    includesCertificate: true,
+    passingScore: 80,
+    completionMessage: "Congratulations! You have completed Green Leases & Tenant Sustainability Engagement.",
+    badgeName: "Green Lease Specialist",
+    badgeDescription: "Awarded for competency in commercial real estate green lease administration, landlord-tenant ESG alignment, and shared utility management.",
+    badgeSlug: "green-lease-specialist",
+    relevanceLayer: "sector_specific",
+    primaryClassification: "SECTOR_SPECIFIC",
+    isEssentialUniversal: false,
+    primaryCompetency: "COMP_GOVERNANCE",
+    secondaryCompetencies: ["COMP_ENERGY", "COMP_ESG_DATA"],
+    applicableSectors: ["SEC_PROPERTY", "SEC_PROF_SERVICES"],
+    applicableDepartments: ["DEP_FACILITIES", "DEP_LEGAL_COMPLIANCE", "DEP_OPERATIONS"],
+    applicableJobFamilies: ["JF_PROFESSIONAL", "JF_MANAGER"],
+    applicableSeniorityTiers: ["SEN_INDIVIDUAL", "SEN_SUPERVISOR", "SEN_MANAGER", "SEN_HEAD"],
+    productionPriority: "p0",
+    learningPathPurpose: "Align commercial landlord and tenant incentives for energy, water, and waste reduction.",
+    lessons: [
+      {
+        order: 0,
+        title: "The Split-Incentive Barrier in Real Estate",
+        minutes: 4,
+        content: "Why traditional commercial leases discourage landlord energy investments.",
+        blocks: [
+          { id: "gl1-h1", type: "heading", position: 1, headingText: "The Landlord-Tenant Friction" },
+          { id: "gl1-t1", type: "short_text", position: 2, bodyText: "Under triple-net commercial leases, landlords pay for capital efficiency improvements while tenants reap the lower utility bills. Green lease schedules bridge this divide through amortized cost-sharing clauses." },
+          {
+            id: "gl1-d1",
+            type: "decision_scenario",
+            position: 3,
+            decisionIntro: "Commercial lease renewal negotiation:",
+            decisionPrompt: "An anchor tenant occupying three floors in a Cybercity tower wants to renew their 5-year lease but refuses to share their sub-metered electricity consumption data for building ESG reporting. What should the asset manager do?",
+            decisionChoices: [
+              { label: "Incorporate a standard green lease data-sharing clause providing mutual confidentiality, explaining that anonymized aggregate utility data is required for national building energy certifications and Scope 3 reporting", correct: true, feedback: "Spot on! Green lease data-sharing provisions protect confidentiality while enabling comprehensive building ESG disclosure." },
+              { label: "Threaten to disconnect the tenant's electricity immediately", correct: false, feedback: "Severe legal breach! Disconnecting power violates tenant rights and lease contracts." },
+              { label: "Fabricate fake utility numbers for the tenant in the annual report", correct: false, feedback: "Illegal! Falsifying ESG data constitutes reporting fraud." }
+            ]
+          }
+        ]
+      },
+      {
+        order: 1,
+        title: "Key Green Lease Clauses & Drafting Standards",
+        minutes: 4,
+        content: "Data sharing, setback temperature rules, and fit-out environmental standards.",
+        blocks: [
+          { id: "gl2-h1", type: "heading", position: 1, headingText: "Essential Green Lease Provisions" },
+          { id: "gl2-t1", type: "short_text", position: 2, bodyText: "Key clauses include: automated energy data sharing, 24°C thermostat operating bands, sub-meter billing accuracy, and mandatory LED fit-outs." }
+        ]
+      },
+      {
+        order: 2,
+        title: "Capital Cost Recovery Mechanisms",
+        minutes: 4,
+        content: "Structuring energy-efficiency amortizations into commercial service charges.",
+        blocks: [
+          { id: "gl3-h1", type: "heading", position: 1, headingText: "Shared Capital Savings" },
+          { id: "gl3-t1", type: "short_text", position: 2, bodyText: "Cost recovery clauses allow landlords to recover energy-saving CapEx through service charges, capped strictly at the tenant's demonstrated utility cost reduction." }
+        ]
+      },
+      {
+        order: 3,
+        title: "Sustainable Fit-Out & De-Fit Guides",
+        minutes: 4,
+        content: "Low-VOC materials, smart sub-meters, and construction waste diversion.",
+        blocks: [
+          {
+            id: "gl4-d1",
+            type: "decision_scenario",
+            position: 1,
+            decisionIntro: "Tenant fit-out contractor review:",
+            decisionPrompt: "A new corporate tenant's interior designer submits plans specifying halogen spotlights and solvent-based paints with high VOC content. What action is required?",
+            decisionChoices: [
+              { label: "Reject the specifications and refer the tenant to the Building Sustainable Fit-Out Guide, requiring 100% LED lighting, sub-metered lighting/plug power circuits, and zero/low-VOC certified paints", correct: true, feedback: "Spot on! Enforcing the Sustainable Fit-Out Guide protects indoor air quality and ensures high tenant energy performance." },
+              { label: "Approve the halogen lights because they make the office look vintage", correct: false, feedback: "Incorrect. Halogen fixtures consume 5x more power and generate massive cooling loads." },
+              { label: "Prohibit the tenant from doing any interior decoration", correct: false, feedback: "Incorrect. Reasonable fit-outs are permitted under established green guidelines." }
+            ]
+          }
+        ]
+      },
+      {
+        order: 4,
+        title: "Building Sustainability Committees & Joint Initiatives",
+        minutes: 4,
+        content: "Quarterly meetings with tenant ESG reps, recycling drives, and EV charging.",
+        blocks: [
+          { id: "gl5-h1", type: "heading", position: 1, headingText: "Collaborative Governance" },
+          { id: "gl5-t1", type: "short_text", position: 2, bodyText: "Quarterly sustainability committees foster collaboration on shared EV charging infrastructure, e-waste amnesties, and after-hours HVAC shutdown." }
+        ]
+      },
+      {
+        order: 5,
+        title: "Green Lease Compliance & Dispute Resolution",
+        minutes: 5,
+        content: "Auditing green covenants, continuous sub-metering, and collaborative resolution.",
+        blocks: [
+          { id: "gl6-h1", type: "heading", position: 1, headingText: "Verifying Commitments" },
+          { id: "gl6-t1", type: "short_text", position: 2, bodyText: "Conduct annual sustainability walk-throughs and review sub-meter anomalies collaboratively before escalating contractual issues." }
+        ]
+      }
+    ],
+    quiz: [
+      {
+        order: 1,
+        question: "What is the 'split-incentive' problem in commercial real estate leasing?",
+        options: [
+          "A situation where the building owner pays for energy efficiency upgrades, but the financial benefits of lower utility bills accrue entirely to the tenant",
+          "When tenants divide office desks with cardboard boxes",
+          "When a lease is signed by two people at the same time",
+          "When rent is paid in two different currencies"
+        ],
+        correct: 0,
+        correctExplanation: "Split incentives occur when landlords lack financial motivation to invest in CapEx because tenants reap the utility savings.",
+        incorrectExplanation: "Incorrect. The split incentive occurs when the party investing in efficiency (landlord) does not receive the utility bill savings (tenant)."
+      },
+      {
+        order: 2,
+        question: "How does a well-drafted Green Lease overcome the split-incentive barrier for energy efficiency retrofits?",
+        options: [
+          "By including capital cost recovery clauses that allow landlords to amortize retrofit costs through service charges, capped at the tenant's utility savings",
+          "By doubling the base rent every year without explanation",
+          "By turning off power to the building on weekends",
+          "By prohibiting tenants from using air conditioning"
+        ],
+        correct: 0,
+        correctExplanation: "Cost recovery clauses allow landlords to recoup CapEx while guaranteeing that the tenant's total occupancy cost decreases.",
+        incorrectExplanation: "Incorrect. Green lease cost recovery clauses permit landlords to amortize CapEx through service fees up to the amount of utility savings."
+      },
+      {
+        order: 3,
+        question: "Why is a mutual utility data-sharing clause essential in modern commercial green leases?",
+        options: [
+          "It enables landlords and tenants to measure aggregate energy/water footprints for statutory ESG reporting, carbon accounting, and green building certifications",
+          "It allows building managers to sell tenant financial data online",
+          "It lets building security read tenant emails",
+          "It prevents tenants from using computers"
+        ],
+        correct: 0,
+        correctExplanation: "Data sharing provides the baseline metrics needed for Scope 1, 2, and 3 GHG reporting and green building certifications (e.g. LEED, BREEAM).",
+        incorrectExplanation: "Incorrect. Transparent utility data sharing is necessary for GHG carbon accounting and building environmental ratings."
+      },
+      {
+        order: 4,
+        question: "What standard environmental requirement should be included in a commercial building Sustainable Fit-Out Guide?",
+        options: [
+          "Mandatory 100% LED lighting, dedicated sub-metering for HVAC and plug loads, and low-VOC paints and adhesives",
+          "Permitting high-consumption halogen and incandescent lighting throughout",
+          "Allowing solvent-based toxic chemicals to be used in unventilated areas",
+          "Banning all furniture made from recycled materials"
+        ],
+        correct: 0,
+        correctExplanation: "Fit-out guides mandate energy-efficient equipment, sub-meters, and non-toxic materials to protect IAQ and reduce load.",
+        incorrectExplanation: "Incorrect. Fit-out guides mandate LED lighting, sub-metering, and low-VOC materials to ensure high efficiency and healthy air."
+      },
+      {
+        order: 5,
+        question: "What is the recommended indoor temperature operating band specified in commercial green leases during cooling hours?",
+        options: [
+          "23°C to 25°C (with 24°C as the optimal baseline)",
+          "15°C to 17°C",
+          "30°C to 35°C",
+          "0°C to 5°C"
+        ],
+        correct: 0,
+        correctExplanation: "Setting thermostats to 24°C provides optimal thermal comfort while preventing massive energy waste from over-cooling.",
+        incorrectExplanation: "Incorrect. The standard green lease comfort band is 23°C–25°C, preventing severe over-cooling in tropical climates."
+      },
+      {
+        order: 6,
+        question: "What is the primary objective of establishing a Building Management Committee (BMC) with major tenants?",
+        options: [
+          "To provide a collaborative forum for reviewing monthly building utility data, coordinating waste reduction initiatives, and resolving operational bottlenecks",
+          "To organize weekly tenant poker games",
+          "To eliminate all cleaning services in tenanted areas",
+          "To manage tenant hiring and firing decisions"
+        ],
+        correct: 0,
+        correctExplanation: "BMC sustainability meetings facilitate mutual problem-solving on after-hours HVAC scheduling, recycling, and energy targets.",
+        incorrectExplanation: "Incorrect. Building sustainability committees coordinate joint energy targets, e-waste amnesties, and common-area operating schedules."
+      },
+      {
+        order: 7,
+        question: "How does individual tenant sub-metering improve energy conservation compared to prorating utility bills by square footage?",
+        options: [
+          "It bill tenants for their actual consumption, incentivizing them to turn off after-hours lighting, computers, and secondary equipment",
+          "It forces tenants to guess their power bills each month",
+          "It charges all tenants an identical flat fee regardless of use",
+          "It eliminates the need for electric utility connections"
+        ],
+        correct: 0,
+        correctExplanation: "Direct sub-meter billing links behavior to cost, eliminating the 'free-rider' effect of square-footage prorating.",
+        incorrectExplanation: "Incorrect. Sub-metering rewards energy-efficient tenant behavior by charging directly for actual consumption."
+      },
+      {
+        order: 8,
+        question: "What is a 'de-fit' or 'make-good' green clause in commercial tenancy termination agreements?",
+        options: [
+          "A requirement to salvage, reuse, or recycle fit-out partitions, carpets, and fixtures rather than sending all demolition materials to landfill",
+          "A requirement for the tenant to demolish the entire building exterior",
+          "A clause allowing tenants to abandon trash in the building corridors",
+          "A penalty requiring tenants to repaint the building black"
+        ],
+        correct: 0,
+        correctExplanation: "Sustainable make-good clauses mandate diversion of interior fit-out materials away from landfills through material reclamation.",
+        incorrectExplanation: "Incorrect. Green make-good clauses require contractors to salvage and recycle interior partitions, cables, and carpet tiles."
+      }
+    ]
+  },
+
   // 6. ELH-48: Smart Building Automation & BMS Optimization
   {
     id: 48,
@@ -735,42 +1663,76 @@ export async function ensureWave1Catalogue(): Promise<void> {
 
         if (existing) {
           courseId = existing.id;
-          await tx
-            .update(coursesTable)
-            .set({
-              title: courseDef.title,
-              slug: courseDef.slug,
-              description: courseDef.description,
-              fullDescription: courseDef.fullDescription,
-              categoryId: courseDef.categoryId,
-              durationMinutes: courseDef.durationMinutes,
-              priceUsd: courseDef.priceUsd,
-              level: courseDef.level,
-              isFeatured: courseDef.isFeatured,
-              thumbnailUrl: courseDef.thumbnailUrl,
-              intendedRoles: courseDef.intendedRoles,
-              learningObjectives: courseDef.learningObjectives,
-              includesCertificate: courseDef.includesCertificate,
-              passingScore: courseDef.passingScore,
-              completionMessage: courseDef.completionMessage,
-              badgeName: courseDef.badgeName,
-              badgeDescription: courseDef.badgeDescription,
-              relevanceLayer: courseDef.relevanceLayer,
-              primaryClassification: courseDef.primaryClassification,
-              isEssentialUniversal: courseDef.isEssentialUniversal,
-              primaryCompetency: courseDef.primaryCompetency,
-              secondaryCompetencies: courseDef.secondaryCompetencies,
-              applicableSectors: courseDef.applicableSectors,
-              applicableDepartments: courseDef.applicableDepartments,
-              applicableJobFamilies: courseDef.applicableJobFamilies,
-              applicableSeniorityTiers: courseDef.applicableSeniorityTiers,
-              productionPriority: courseDef.productionPriority,
-              learningPathPurpose: courseDef.learningPathPurpose,
-              isPublished: true,
-              status: "published",
-              updatedAt: new Date(),
-            })
-            .where(eq(coursesTable.id, courseId));
+          if ((existing.version ?? 1) < 2) {
+            await tx
+              .update(coursesTable)
+              .set({
+                title: courseDef.title,
+                slug: courseDef.slug,
+                description: courseDef.description,
+                fullDescription: courseDef.fullDescription,
+                categoryId: courseDef.categoryId,
+                durationMinutes: courseDef.durationMinutes,
+                priceUsd: courseDef.priceUsd,
+                level: courseDef.level,
+                isFeatured: courseDef.isFeatured,
+                thumbnailUrl: courseDef.thumbnailUrl,
+                intendedRoles: courseDef.intendedRoles,
+                learningObjectives: courseDef.learningObjectives,
+                includesCertificate: courseDef.includesCertificate,
+                passingScore: courseDef.passingScore,
+                completionMessage: courseDef.completionMessage,
+                badgeName: courseDef.badgeName,
+                badgeDescription: courseDef.badgeDescription,
+                relevanceLayer: courseDef.relevanceLayer,
+                primaryClassification: courseDef.primaryClassification,
+                isEssentialUniversal: courseDef.isEssentialUniversal,
+                primaryCompetency: courseDef.primaryCompetency,
+                secondaryCompetencies: courseDef.secondaryCompetencies,
+                applicableSectors: courseDef.applicableSectors,
+                applicableDepartments: courseDef.applicableDepartments,
+                applicableJobFamilies: courseDef.applicableJobFamilies,
+                applicableSeniorityTiers: courseDef.applicableSeniorityTiers,
+                productionPriority: courseDef.productionPriority,
+                learningPathPurpose: courseDef.learningPathPurpose,
+                isPublished: true,
+                status: "published",
+                updatedAt: new Date(),
+              })
+              .where(eq(coursesTable.id, courseId));
+
+            // Seed / Re-seed Lessons
+            await tx.delete(lessonsTable).where(eq(lessonsTable.courseId, courseId));
+            for (const l of courseDef.lessons) {
+              await tx.insert(lessonsTable).values({
+                courseId,
+                title: l.title,
+                orderIndex: l.order,
+                durationMinutes: l.minutes,
+                content: l.content,
+                contentBlocks: l.blocks,
+                isArchived: false,
+              });
+            }
+
+            // Seed / Re-seed Quizzes
+            await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
+            await tx.insert(quizQuestionsTable).values(
+              courseDef.quiz.map((q) => ({
+                courseId,
+                question: q.question,
+                options: q.options,
+                correctOption: q.correct,
+                orderIndex: q.order,
+                correctExplanation: q.correctExplanation,
+                incorrectExplanation: q.incorrectExplanation,
+                optionFeedback: q.options.map((_, idx) =>
+                  idx === q.correct ? q.correctExplanation : q.incorrectExplanation
+                ),
+                isArchived: false,
+              }))
+            );
+          }
         } else {
           const [inserted] = await tx
             .insert(coursesTable)
@@ -809,39 +1771,39 @@ export async function ensureWave1Catalogue(): Promise<void> {
             })
             .returning({ id: coursesTable.id });
           courseId = inserted.id;
-        }
 
-        // Seed / Re-seed Lessons
-        await tx.delete(lessonsTable).where(eq(lessonsTable.courseId, courseId));
-        for (const l of courseDef.lessons) {
-          await tx.insert(lessonsTable).values({
-            courseId,
-            title: l.title,
-            orderIndex: l.order,
-            durationMinutes: l.minutes,
-            content: l.content,
-            contentBlocks: l.blocks,
-            isArchived: false,
-          });
-        }
+          // Seed / Re-seed Lessons
+          await tx.delete(lessonsTable).where(eq(lessonsTable.courseId, courseId));
+          for (const l of courseDef.lessons) {
+            await tx.insert(lessonsTable).values({
+              courseId,
+              title: l.title,
+              orderIndex: l.order,
+              durationMinutes: l.minutes,
+              content: l.content,
+              contentBlocks: l.blocks,
+              isArchived: false,
+            });
+          }
 
-        // Seed / Re-seed Quizzes
-        await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
-        await tx.insert(quizQuestionsTable).values(
-          courseDef.quiz.map((q) => ({
-            courseId,
-            question: q.question,
-            options: q.options,
-            correctOption: q.correct,
-            orderIndex: q.order,
-            correctExplanation: q.correctExplanation,
-            incorrectExplanation: q.incorrectExplanation,
-            optionFeedback: q.options.map((_, idx) =>
-              idx === q.correct ? q.correctExplanation : q.incorrectExplanation
-            ),
-            isArchived: false,
-          }))
-        );
+          // Seed / Re-seed Quizzes
+          await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
+          await tx.insert(quizQuestionsTable).values(
+            courseDef.quiz.map((q) => ({
+              courseId,
+              question: q.question,
+              options: q.options,
+              correctOption: q.correct,
+              orderIndex: q.order,
+              correctExplanation: q.correctExplanation,
+              incorrectExplanation: q.incorrectExplanation,
+              optionFeedback: q.options.map((_, idx) =>
+                idx === q.correct ? q.correctExplanation : q.incorrectExplanation
+              ),
+              isArchived: false,
+            }))
+          );
+        }
 
         // Badge definition
         await tx

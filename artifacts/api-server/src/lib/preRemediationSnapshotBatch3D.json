@@ -1,0 +1,208 @@
+{
+  "generatedAt": "2026-09-04T15:11:27.527Z",
+  "totalCanonicalCourses": 136,
+  "v2Count": 71,
+  "v1Count": 65,
+  "batch": "Batch 3D",
+  "targetCount": 18,
+  "targets": [
+    {
+      "id": 756,
+      "courseCode": "ELH-80",
+      "title": "Sustainable Wealth Management & ESG Advisory",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 9,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "45304c1e84d14fd0e0b0eaee701616da23a666d25782622097977467559154ec"
+    },
+    {
+      "id": 757,
+      "courseCode": "ELH-81",
+      "title": "Green Freight & Multimodal Cargo Optimization",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 10,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "01f4e11711a26600c70850e630b4fd736034c6b69420b5161a107943ca52c69e"
+    },
+    {
+      "id": 779,
+      "courseCode": "ELH-82",
+      "title": "Maritime Port & Shipping Sustainability Practices",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 10,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "badbf5df894d4c74c0db3569442e3b70eb7a9718d3a2a697bded122b7441a2a6"
+    },
+    {
+      "id": 739,
+      "courseCode": "ELH-84",
+      "title": "Commercial Fleet Electrification & EV Charging",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 10,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "48975cb714c1bca2774459ff56f8d722ead55646b9cd34f7ec77cd2adf9b1425"
+    },
+    {
+      "id": 718,
+      "courseCode": "ELH-85",
+      "title": "Sustainable Warehouse Operations",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 2,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "9e8abfadce8c0129befa31697bc91aaac549eafe27292c8a3a32e3e39e825994"
+    },
+    {
+      "id": 740,
+      "courseCode": "ELH-86",
+      "title": "Route Optimization & Logistics Efficiency",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 10,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "9d08e8f71e1261a4d9b509d51b3ee28d05e3ef2d1c29fc7df8c1bf14aaaea7e8"
+    },
+    {
+      "id": 762,
+      "courseCode": "ELH-88",
+      "title": "Smart Irrigation & Agricultural Water Efficiency",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 15,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "df3d4c9ad6e3ad9197db441f28d9b99e88bb76c1ac41022bb4e049cb2b4b337b"
+    },
+    {
+      "id": 780,
+      "courseCode": "ELH-89",
+      "title": "Organic Fertilizers & Biological Pest Management",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 15,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "ff1c13f64564f4f1761f823b5260cf3c191dec09f57a038db9c947d06fab9ae3"
+    },
+    {
+      "id": 781,
+      "courseCode": "ELH-90",
+      "title": "Post-Harvest Loss Reduction & Cold Storage",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 15,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "a989d5b979e7c0606ac8961e8e72a159819141c097d6398edfa9bc022a2c66d5"
+    },
+    {
+      "id": 763,
+      "courseCode": "ELH-91",
+      "title": "Sustainable Aquaculture & Responsible Fish Farming",
+      "version": 1,
+      "level": "Specialist",
+      "categoryId": 15,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "f4c733572a5ad25f5c9c65a12264c2cee086ef745199e99c741ab2858911f6ec"
+    },
+    {
+      "id": 782,
+      "courseCode": "ELH-92",
+      "title": "Mangrove & Coastal Ecosystem Protection in Agriculture",
+      "version": 1,
+      "level": "Specialist",
+      "categoryId": 15,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "7869d5ed5abf153e7da7be6678bebe41fa7da553a629240d1409809d521c24ff"
+    },
+    {
+      "id": 764,
+      "courseCode": "ELH-93",
+      "title": "Agrochemical Safety & Runoff Prevention",
+      "version": 1,
+      "level": "Specialist",
+      "categoryId": 15,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "1713142772d0610e8ff75ee5f5d7382b97f5b2f59b7c331ccfc28464774a6957"
+    },
+    {
+      "id": 783,
+      "courseCode": "ELH-94",
+      "title": "Agri-Food Carbon Footprinting & Certification",
+      "version": 1,
+      "level": "Specialist",
+      "categoryId": 15,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "c8a32d2849ae0b0417ea0facb801b0a18665bb79ee6f183c96ea8d2e3a03a6dd"
+    },
+    {
+      "id": 741,
+      "courseCode": "ELH-95",
+      "title": "Green Software Engineering & Cloud Efficiency",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 11,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "40fba96381bf11a08e544bef2eb85cf5b21cfc8f2c635b8f41cbab1f6a9fba3e"
+    },
+    {
+      "id": 758,
+      "courseCode": "ELH-96",
+      "title": "Data Center Energy Efficiency & Cooling",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 11,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "3aa0b1b608e214eb2db9f039a0c9f457aee234693ccb7b7c2de396c9dca9f549"
+    },
+    {
+      "id": 766,
+      "courseCode": "ELH-100",
+      "title": "Energy & Water Conservation in Healthcare Facilities",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 16,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "4b1240e419773362ba6b72f20414f2d4ee2badd2a7ebe10cb0666e8e987b386f"
+    },
+    {
+      "id": 767,
+      "courseCode": "ELH-101",
+      "title": "Sustainable Healthcare Procurement & Single-Use Reductions",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 16,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "ac9122195e6865c8cedb7e2ca69c75053f9f1736b2181c902f3b880a2c8b8d38"
+    },
+    {
+      "id": 784,
+      "courseCode": "ELH-102",
+      "title": "Anesthetic Gas & Pharmaceutical Waste Management",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 16,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "c1aae3d03274b37af5e7030ea9b09d6d9d66e14f559d7cb240b6688f19f9471c"
+    }
+  ]
+}

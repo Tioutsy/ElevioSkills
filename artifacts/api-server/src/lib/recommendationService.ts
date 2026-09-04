@@ -320,3 +320,138 @@ async function getCourseById(id: number) {
     .limit(1)
     .then(rows => rows[0] || null);
 }
+
+export interface CourseRecommendationResolution {
+  recommendedCourse: {
+    id: number;
+    courseCode: string | null;
+    title: string;
+    level: string;
+    isPublished: boolean;
+  } | null;
+  reason: "DIRECT_PROGRESSION" | "SUPPRESSED_COMPLETED_FOLLOW_CHAIN" | "CONDITIONAL_REMEDIAL" | "SAME_LEVEL_PROGRESSION" | "TRACK_FALLBACK" | "NO_RECOMMENDATION";
+  traversalPath: string[];
+  isRemedial: boolean;
+}
+
+export async function resolveNextCourseRecommendation(params: {
+  currentCourseId: number;
+  completedCourseIds?: Set<number> | number[];
+  demonstratedCompetencyGaps?: string[];
+  allCoursesCache?: Array<{
+    id: number;
+    courseCode: string | null;
+    title: string;
+    level: string;
+    isPublished: boolean;
+    recommendedNextCourseId: number | null;
+    primaryCompetency: string | null;
+    secondaryCompetencies: string[] | null;
+  }>;
+}): Promise<CourseRecommendationResolution> {
+  const completedSet = new Set<number>(
+    Array.isArray(params.completedCourseIds)
+      ? params.completedCourseIds
+      : params.completedCourseIds
+      ? Array.from(params.completedCourseIds)
+      : []
+  );
+  completedSet.add(params.currentCourseId);
+
+  const courses = params.allCoursesCache || await db
+    .select({
+      id: coursesTable.id,
+      courseCode: coursesTable.courseCode,
+      title: coursesTable.title,
+      level: coursesTable.level,
+      isPublished: coursesTable.isPublished,
+      recommendedNextCourseId: coursesTable.recommendedNextCourseId,
+      primaryCompetency: coursesTable.primaryCompetency,
+      secondaryCompetencies: coursesTable.secondaryCompetencies,
+    })
+    .from(coursesTable);
+
+  const courseMap = new Map(courses.map(c => [c.id, c]));
+  const current = courseMap.get(params.currentCourseId);
+  if (!current) {
+    return {
+      recommendedCourse: null,
+      reason: "NO_RECOMMENDATION",
+      traversalPath: [],
+      isRemedial: false,
+    };
+  }
+
+  // 1. Check if there are demonstrated competency gaps requiring conditional remedial recommendation
+  if (params.demonstratedCompetencyGaps && params.demonstratedCompetencyGaps.length > 0) {
+    const remedialCandidate = courses.find(c =>
+      c.id !== current.id &&
+      c.isPublished &&
+      !completedSet.has(c.id) &&
+      (c.level.toLowerCase().includes("awareness") || c.level.toLowerCase().includes("d1") || c.level.toLowerCase().includes("working") || c.level.toLowerCase().includes("d2")) &&
+      (params.demonstratedCompetencyGaps!.includes(c.primaryCompetency || "") ||
+       c.secondaryCompetencies?.some(sc => params.demonstratedCompetencyGaps!.includes(sc)))
+    );
+    if (remedialCandidate) {
+      return {
+        recommendedCourse: remedialCandidate,
+        reason: "CONDITIONAL_REMEDIAL",
+        traversalPath: [current.courseCode || String(current.id), remedialCandidate.courseCode || String(remedialCandidate.id)],
+        isRemedial: true,
+      };
+    }
+  }
+
+  // 2. Traversal along recommendation chain with cycle protection and completed-course suppression
+  const visited = new Set<number>();
+  visited.add(current.id);
+  const path: string[] = [current.courseCode || String(current.id)];
+
+  let nextId = current.recommendedNextCourseId;
+  while (nextId && !visited.has(nextId)) {
+    visited.add(nextId);
+    const candidate = courseMap.get(nextId);
+    if (!candidate || !candidate.isPublished) {
+      break;
+    }
+    path.push(candidate.courseCode || String(candidate.id));
+
+    // If candidate not completed, this is our recommendation!
+    if (!completedSet.has(candidate.id)) {
+      return {
+        recommendedCourse: candidate,
+        reason: path.length === 2 ? "DIRECT_PROGRESSION" : "SUPPRESSED_COMPLETED_FOLLOW_CHAIN",
+        traversalPath: path,
+        isRemedial: false,
+      };
+    }
+
+    // Otherwise candidate was already completed; advance along candidate's next link
+    nextId = candidate.recommendedNextCourseId;
+  }
+
+  // 3. Fallback: Find next uncompleted published course of same or progressive level
+  const fallback = courses.find(c =>
+    c.id !== current.id &&
+    c.isPublished &&
+    !completedSet.has(c.id)
+  );
+
+  if (fallback) {
+    path.push(fallback.courseCode || String(fallback.id));
+    return {
+      recommendedCourse: fallback,
+      reason: "TRACK_FALLBACK",
+      traversalPath: path,
+      isRemedial: false,
+    };
+  }
+
+  return {
+    recommendedCourse: null,
+    reason: "NO_RECOMMENDATION",
+    traversalPath: path,
+    isRemedial: false,
+  };
+}
+

@@ -1,0 +1,976 @@
+/**
+ * Sprint 15.2.5 — Canonical Batch 3 Course Register (87 Courses)
+ * Authoritative register for all D3 Applied Workplace Practice courses.
+ */
+
+export interface Batch3CourseRecord {
+  id: number;
+  courseCode: string;
+  title: string;
+  evidencedLevel: 'D3';
+  sprint1522Score: number;
+  classification: 'A' | 'B' | 'C' | 'D';
+  priority: 'P0' | 'P1' | 'P2' | 'P3';
+  dependencyStatus: string;
+  waveAssignment: 'Wave 3A' | 'Wave 3B' | 'Wave 3C' | 'Wave 3D' | 'Wave 3E';
+}
+
+export const CANONICAL_BATCH_3_REGISTER: Batch3CourseRecord[] = [
+  {
+    "id": 13,
+    "courseCode": "ELH-13",
+    "title": "Sustainability Action Planning",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 92,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 14,
+    "courseCode": "ELH-14",
+    "title": "Setting Departmental Sustainability Goals",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 92,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 162,
+    "courseCode": "ELH-15",
+    "title": "Building a Workplace Sustainability Team",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 92,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 114,
+    "courseCode": "ELH-16",
+    "title": "Communicating Sustainability at Work",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 84,
+    "classification": "B",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 102,
+    "courseCode": "ELH-21",
+    "title": "Building Employee Engagement in Sustainability",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 84,
+    "classification": "B",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 143,
+    "courseCode": "ELH-22",
+    "title": "Creating and Running Effective Green Teams",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 84,
+    "classification": "B",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 719,
+    "courseCode": "ELH-117",
+    "title": "Setting SMART Departmental Sustainability Targets",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 84,
+    "classification": "B",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 720,
+    "courseCode": "ELH-118",
+    "title": "Managing Sustainability Performance & KPIs",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 84,
+    "classification": "B",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 721,
+    "courseCode": "ELH-121",
+    "title": "Building Business Cases for Sustainability Projects",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 84,
+    "classification": "B",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 722,
+    "courseCode": "ELH-122",
+    "title": "Managing Subcontractor Sustainability Compliance",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 84,
+    "classification": "B",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 723,
+    "courseCode": "ELH-128",
+    "title": "Sustainability for Health & Safety (HSE) Officers",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 84,
+    "classification": "B",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 805,
+    "courseCode": "ELH-130",
+    "title": "Sustainability Communications & Green Claims",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 83,
+    "classification": "B",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3A"
+  },
+  {
+    "id": 163,
+    "courseCode": "ELH-17",
+    "title": "Tracking Sustainability Actions and Progress",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 161,
+    "courseCode": "ELH-19",
+    "title": "Reviewing Sustainability Performance and Taking Corrective Action",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 164,
+    "courseCode": "ELH-20",
+    "title": "Sustainability Roles, Responsibilities and Accountability",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 895,
+    "courseCode": "ELH-23",
+    "title": "Planning and Delivering Workplace Sustainability Initiatives",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 710,
+    "courseCode": "ELH-35",
+    "title": "Sustainable Housekeeping Operations",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 808,
+    "courseCode": "ELH-36",
+    "title": "Sustainable Commercial Kitchens & Culinary",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 810,
+    "courseCode": "ELH-39",
+    "title": "Hotel Engineering: Central Plant & HVAC Optimization",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 745,
+    "courseCode": "ELH-43",
+    "title": "Energy-Efficient Hotel Guest Rooms & Smart Controls",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 727,
+    "courseCode": "ELH-45",
+    "title": "Sustainable Hospitality Sourcing & Local Purchasing",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 811,
+    "courseCode": "ELH-47",
+    "title": "Green Leases & Tenant Sustainability Engagement",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 711,
+    "courseCode": "ELH-48",
+    "title": "Smart Building Automation & BMS Optimization",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 712,
+    "courseCode": "ELH-49",
+    "title": "Construction Site Environmental Controls",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 728,
+    "courseCode": "ELH-50",
+    "title": "Sustainable Building Materials & Low-Carbon Concrete",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 747,
+    "courseCode": "ELH-52",
+    "title": "Sustainable Property Facility Operations",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 773,
+    "courseCode": "ELH-53",
+    "title": "Green Building Retrofits & Decarbonization Pathways",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 774,
+    "courseCode": "ELH-54",
+    "title": "Sustainable Property HVAC & Chiller Optimization",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 713,
+    "courseCode": "ELH-55",
+    "title": "Legionella & Water System Safety in Facilities",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 748,
+    "courseCode": "ELH-56",
+    "title": "Sustainable Building Certifications (LEED/BREEAM)",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3B"
+  },
+  {
+    "id": 714,
+    "courseCode": "ELH-57",
+    "title": "Industrial Energy Efficiency & Compressed Air",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 715,
+    "courseCode": "ELH-58",
+    "title": "Boiler & Steam System Optimization",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 730,
+    "courseCode": "ELH-59",
+    "title": "Industrial Wastewater & Effluent Treatment",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 749,
+    "courseCode": "ELH-60",
+    "title": "Industrial Energy Audit & Motor Systems Optimization",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 716,
+    "courseCode": "ELH-62",
+    "title": "Industrial Chemical Management & GHS",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 732,
+    "courseCode": "ELH-63",
+    "title": "Sustainable Packaging Design in Manufacturing",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 750,
+    "courseCode": "ELH-64",
+    "title": "Circular Raw Material Substitution in Industry",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 775,
+    "courseCode": "ELH-65",
+    "title": "Industrial Air Quality, VOC Controls & Scrubbers",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 776,
+    "courseCode": "ELH-66",
+    "title": "Sustainable Supply Chain Traceability in Manufacturing",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 733,
+    "courseCode": "ELH-67",
+    "title": "Supermarket Cold Chain & Refrigeration Efficiency",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 751,
+    "courseCode": "ELH-69",
+    "title": "Sustainable Retail Store Lighting & HVAC Design",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 752,
+    "courseCode": "ELH-70",
+    "title": "Sustainable Retail Sourcing & Supplier ESG Code",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 778,
+    "courseCode": "ELH-74",
+    "title": "Circular Textiles & Sustainable Fashion Retailing",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 736,
+    "courseCode": "ELH-75",
+    "title": "Sustainable Lending & Green Credit Underwriting",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 737,
+    "courseCode": "ELH-76",
+    "title": "ESG Risk Integration in Commercial Credit",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 754,
+    "courseCode": "ELH-77",
+    "title": "TCFD & Climate Financial Risk Disclosures",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 755,
+    "courseCode": "ELH-78",
+    "title": "Carbon Markets, Offsets & Credit Verification",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 738,
+    "courseCode": "ELH-79",
+    "title": "Anti-Greenwashing in Financial Products",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3C"
+  },
+  {
+    "id": 756,
+    "courseCode": "ELH-80",
+    "title": "Sustainable Wealth Management & ESG Advisory",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 757,
+    "courseCode": "ELH-81",
+    "title": "Green Freight & Multimodal Cargo Optimization",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 779,
+    "courseCode": "ELH-82",
+    "title": "Maritime Port & Shipping Sustainability Practices",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 739,
+    "courseCode": "ELH-84",
+    "title": "Commercial Fleet Electrification & EV Charging",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 718,
+    "courseCode": "ELH-85",
+    "title": "Sustainable Warehouse Operations",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 740,
+    "courseCode": "ELH-86",
+    "title": "Route Optimization & Logistics Efficiency",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 762,
+    "courseCode": "ELH-88",
+    "title": "Smart Irrigation & Agricultural Water Efficiency",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 780,
+    "courseCode": "ELH-89",
+    "title": "Organic Fertilizers & Biological Pest Management",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 781,
+    "courseCode": "ELH-90",
+    "title": "Post-Harvest Loss Reduction & Cold Storage",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 763,
+    "courseCode": "ELH-91",
+    "title": "Sustainable Aquaculture & Responsible Fish Farming",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 782,
+    "courseCode": "ELH-92",
+    "title": "Mangrove & Coastal Ecosystem Protection in Agriculture",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 764,
+    "courseCode": "ELH-93",
+    "title": "Agrochemical Safety & Runoff Prevention",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 783,
+    "courseCode": "ELH-94",
+    "title": "Agri-Food Carbon Footprinting & Certification",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 741,
+    "courseCode": "ELH-95",
+    "title": "Green Software Engineering & Cloud Efficiency",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 758,
+    "courseCode": "ELH-96",
+    "title": "Data Center Energy Efficiency & Cooling",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 766,
+    "courseCode": "ELH-100",
+    "title": "Energy & Water Conservation in Healthcare Facilities",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 767,
+    "courseCode": "ELH-101",
+    "title": "Sustainable Healthcare Procurement & Single-Use Reductions",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 784,
+    "courseCode": "ELH-102",
+    "title": "Anesthetic Gas & Pharmaceutical Waste Management",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3D"
+  },
+  {
+    "id": 785,
+    "courseCode": "ELH-103",
+    "title": "Healthcare Indoor Air Quality & Infection Ventilation",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 786,
+    "courseCode": "ELH-104",
+    "title": "Climate Resilience & Disaster Preparedness for Hospitals",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 789,
+    "courseCode": "ELH-107",
+    "title": "Net-Zero Energy Building Design & Passive Architecture",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 790,
+    "courseCode": "ELH-108",
+    "title": "Renewable Energy: Rooftop Solar PV & Storage",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 791,
+    "courseCode": "ELH-109",
+    "title": "Industrial Heat Recovery & Combined Heat and Power",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 792,
+    "courseCode": "ELH-110",
+    "title": "Closed-Loop Water Recycling in Commercial Real Estate",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 793,
+    "courseCode": "ELH-111",
+    "title": "Zero Waste to Landfill Certification in Manufacturing",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 794,
+    "courseCode": "ELH-112",
+    "title": "Green Cold Chain Logistics & Refrigerated Transport",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 795,
+    "courseCode": "ELH-113",
+    "title": "Sustainable Packaging Procurement for Logistics",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 796,
+    "courseCode": "ELH-114",
+    "title": "ESG Data Assurance & Audit Readiness",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 797,
+    "courseCode": "ELH-115",
+    "title": "Biodiversity Impact Assessment (BIA) for Projects",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 798,
+    "courseCode": "ELH-116",
+    "title": "Circular Economy Business Models & Product-as-a-Service",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 768,
+    "courseCode": "ELH-119",
+    "title": "Engaging Frontline Employees in Green Initiatives",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 799,
+    "courseCode": "ELH-120",
+    "title": "Cross-Functional Sustainability Working Groups",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 769,
+    "courseCode": "ELH-123",
+    "title": "Managing Capital Expenditure (CapEx) for Energy Retrofits",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 800,
+    "courseCode": "ELH-124",
+    "title": "Executive Climate Governance & Net-Zero Strategy",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 801,
+    "courseCode": "ELH-125",
+    "title": "Occupational Health, Safety & Environmental Systems",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 802,
+    "courseCode": "ELH-126",
+    "title": "Facilities Energy Management for Specialists",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 803,
+    "courseCode": "ELH-127",
+    "title": "Sustainable Supply Chain Management for Procurement",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 804,
+    "courseCode": "ELH-129",
+    "title": "Environmental Risk & Compliance Management",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  },
+  {
+    "id": 743,
+    "courseCode": "ELH-133",
+    "title": "Advanced GHG Accounting: Scope 1, 2 & 3 Emissions",
+    "evidencedLevel": "D3",
+    "sprint1522Score": 85,
+    "classification": "A",
+    "priority": "P3",
+    "dependencyStatus": "Independent / Core Anchor",
+    "waveAssignment": "Wave 3E"
+  }
+];

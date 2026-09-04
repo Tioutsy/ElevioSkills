@@ -3,9 +3,9 @@ import {
   generateLearningJourney,
   calculatePairwisePathDifferentiation,
   GeneratedLearningJourney,
-} from "./learningPathEngine.ts";
-import { WAVE_1_COURSES } from "./ensureWave1Catalogue.ts";
-import { WAVE_1B_COURSES } from "./ensureWave1BCatalogue.ts";
+} from "./learningPathEngine";
+import { WAVE_1_COURSES } from "./ensureWave1Catalogue";
+import { WAVE_1B_COURSES } from "./ensureWave1BCatalogue";
 import { Course } from "@workspace/db";
 
 // Build mock catalogue of all 52 active courses (ELH-01..34 + Wave 1A + Wave 1B)

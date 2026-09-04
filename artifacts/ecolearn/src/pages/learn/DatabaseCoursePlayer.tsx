@@ -55,6 +55,7 @@ function isDatabaseInteractive(block: any): boolean {
     "multiple_choice",
     "decision_scenario",
     "scenario",
+    "interactive_scenario",
     "commitment",
     "sorting",
     "sorting_activity",
@@ -379,7 +380,8 @@ export default function DatabaseCoursePlayer({
           </div>
         );
       case "scenario":
-      case "decision_scenario": {
+      case "decision_scenario":
+      case "interactive_scenario": {
         const interactionId = block.id || `decision_${module?.id}_${i}`;
         const savedState = interactionMap.get(interactionId);
         return (
@@ -391,15 +393,15 @@ export default function DatabaseCoursePlayer({
             block={{
               type: "decision_scenario",
               id: interactionId,
-              intro: block.decisionIntro,
-              prompt: block.decisionPrompt || block.scenarioText || block.prompt || "",
+              intro: block.situation || block.decisionIntro,
+              prompt: block.prompt || block.decisionPrompt || block.scenarioText || "",
               takeaway: block.takeaway,
-              choices: (block.decisionChoices || block.options || block.choices || []).map((c: any) => ({
-                label: c.label || c.text,
+              choices: (block.options || block.decisionChoices || block.choices || []).map((c: any) => ({
+                label: c.text || c.label,
                 feedback: c.feedback || "",
                 consequences: c.consequences || c.consequence,
-                correct: c.correct ?? c.ideal ?? c.isCorrect,
-                ideal: c.ideal ?? c.correct ?? c.isCorrect,
+                correct: c.isCorrect ?? c.correct ?? c.ideal,
+                ideal: c.isCorrect ?? c.ideal ?? c.correct,
               })),
             }}
             onResolved={() => markResolved(i)}

@@ -216,6 +216,12 @@ router.post("/", async (req, res): Promise<void> => {
       return;
     }
 
+    const [targetCourse] = await db
+      .select({ version: coursesTable.version })
+      .from(coursesTable)
+      .where(eq(coursesTable.id, parsed.data.courseId))
+      .limit(1);
+
     const [enrollment] = await db
       .insert(enrollmentsTable)
       .values({
@@ -223,6 +229,7 @@ router.post("/", async (req, res): Promise<void> => {
         companyId: access.employee?.companyId ?? access.companyId,
         employeeId: access.employee?.id,
         courseId: parsed.data.courseId,
+        enrolledVersion: targetCourse?.version ?? 1,
       })
       .returning();
     res.status(201).json({

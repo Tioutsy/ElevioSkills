@@ -1,0 +1,5452 @@
+[
+  {
+    "courseId": 1,
+    "courseCode": "ELH-01",
+    "title": "Sustainability Foundations",
+    "category": "Sustainability",
+    "claimedLevel": "beginner",
+    "evidencedLevel": "D1",
+    "isLevelMismatched": false,
+    "primaryClassification": "UNIVERSAL_CORE",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [
+      "COMP_CIRCULARITY",
+      "COMP_WATER",
+      "COMP_GHG"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 7,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 8,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 79
+    },
+    "classification": "B",
+    "remediationPriority": "P2",
+    "remediationBatch": "Batch 1",
+    "criticalFindings": [
+      "Assessment item count (7 questions) is below the required 8-question quality standard.",
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Expand assessment question bank by 1 scenario-based evaluation items.",
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 2,
+    "courseCode": "ELH-02",
+    "title": "Waste Sorting & the Mauritian Bin System",
+    "category": "Sustainability",
+    "claimedLevel": "Foundation",
+    "evidencedLevel": "D1",
+    "isLevelMismatched": false,
+    "primaryClassification": "UNIVERSAL_CORE",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [
+      "COMP_COMPLIANCE"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 5,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 8,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 79
+    },
+    "classification": "B",
+    "remediationPriority": "P2",
+    "remediationBatch": "Batch 1",
+    "criticalFindings": [
+      "Assessment item count (5 questions) is below the required 8-question quality standard.",
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Expand assessment question bank by 3 scenario-based evaluation items.",
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 3,
+    "courseCode": "ELH-03",
+    "title": "Energy Efficiency at Work",
+    "category": "Sustainability",
+    "claimedLevel": "Foundation",
+    "evidencedLevel": "D1",
+    "isLevelMismatched": false,
+    "primaryClassification": "UNIVERSAL_CORE",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [
+      "COMP_GHG"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 4,
+    "courseCode": "ELH-04",
+    "title": "Water Conservation",
+    "category": "Sustainability",
+    "claimedLevel": "Foundation",
+    "evidencedLevel": "D1",
+    "isLevelMismatched": false,
+    "primaryClassification": "UNIVERSAL_CORE",
+    "primaryCompetency": "COMP_WATER",
+    "secondaryCompetencies": [
+      "COMP_COMPLIANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 5,
+    "courseCode": "ELH-05",
+    "title": "Sustainable Purchasing for Non-Specialists",
+    "category": "Sustainability",
+    "claimedLevel": "Foundation",
+    "evidencedLevel": "D1",
+    "isLevelMismatched": false,
+    "primaryClassification": "CROSS_SECTOR_CORE",
+    "primaryCompetency": "COMP_PROCUREMENT",
+    "secondaryCompetencies": [
+      "COMP_CIRCULARITY",
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 2",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": true
+  },
+  {
+    "courseId": 6,
+    "courseCode": "ELH-06",
+    "title": "Green Office Practices",
+    "category": "Sustainability",
+    "claimedLevel": "Foundation",
+    "evidencedLevel": "D1",
+    "isLevelMismatched": false,
+    "primaryClassification": "CROSS_SECTOR_CORE",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [
+      "COMP_ENERGY"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 7,
+    "courseCode": "ELH-07",
+    "title": "Carbon Footprint Awareness",
+    "category": "Sustainability",
+    "claimedLevel": "Foundation",
+    "evidencedLevel": "D1",
+    "isLevelMismatched": false,
+    "primaryClassification": "CROSS_SECTOR_CORE",
+    "primaryCompetency": "COMP_GHG",
+    "secondaryCompetencies": [
+      "COMP_ENERGY",
+      "COMP_ESG_DATA"
+    ],
+    "durationMinutes": 18,
+    "learningObjectivesCount": 7,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 5,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 8,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 78
+    },
+    "classification": "B",
+    "remediationPriority": "P2",
+    "remediationBatch": "Batch 1",
+    "criticalFindings": [
+      "Assessment item count (5 questions) is below the required 8-question quality standard.",
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Expand assessment question bank by 3 scenario-based evaluation items.",
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 8,
+    "courseCode": "ELH-08",
+    "title": "Biodiversity in Mauritius",
+    "category": "Sustainability",
+    "claimedLevel": "Foundation",
+    "evidencedLevel": "D1",
+    "isLevelMismatched": false,
+    "primaryClassification": "CROSS_SECTOR_CORE",
+    "primaryCompetency": "COMP_BIODIVERSITY",
+    "secondaryCompetencies": [
+      "COMP_COMPLIANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P2",
+    "remediationBatch": "Batch 1",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 9,
+    "courseCode": "ELH-09",
+    "title": "ESG Basics",
+    "category": "Sustainability",
+    "claimedLevel": "Foundation",
+    "evidencedLevel": "D1",
+    "isLevelMismatched": false,
+    "primaryClassification": "CROSS_SECTOR_CORE",
+    "primaryCompetency": "COMP_ESG_DATA",
+    "secondaryCompetencies": [
+      "COMP_STRATEGY",
+      "COMP_GOVERNANCE",
+      "COMP_SOCIAL"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P2",
+    "remediationBatch": "Batch 1",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 10,
+    "courseCode": "ELH-10",
+    "title": "Environmental Compliance",
+    "category": "Sustainability",
+    "claimedLevel": "ESG and Compliance",
+    "evidencedLevel": "D1",
+    "isLevelMismatched": false,
+    "primaryClassification": "CROSS_SECTOR_CORE",
+    "primaryCompetency": "COMP_COMPLIANCE",
+    "secondaryCompetencies": [
+      "COMP_SOCIAL"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P2",
+    "remediationBatch": "Batch 1",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 11,
+    "courseCode": "ELH-11",
+    "title": "Circular Economy",
+    "category": "Sustainability",
+    "claimedLevel": "ESG and Compliance",
+    "evidencedLevel": "D1",
+    "isLevelMismatched": false,
+    "primaryClassification": "CROSS_SECTOR_CORE",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [
+      "COMP_PROCUREMENT"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P2",
+    "remediationBatch": "Batch 1",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 12,
+    "courseCode": "ELH-12",
+    "title": "Final Sustainability Certification",
+    "category": "Sustainability",
+    "claimedLevel": "ESG and Compliance",
+    "evidencedLevel": "D4",
+    "isLevelMismatched": false,
+    "primaryClassification": "CAPSTONE_CERTIFICATION",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_ENERGY",
+      "COMP_WATER",
+      "COMP_CIRCULARITY",
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 2,
+    "quizQuestionsCount": 15,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 10,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 94
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 4",
+    "criticalFindings": [],
+    "requiredChanges": [],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 13,
+    "courseCode": "ELH-13",
+    "title": "Sustainability Action Planning",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_STRATEGY"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 14,
+    "courseCode": "ELH-14",
+    "title": "Setting Departmental Sustainability Goals",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_STRATEGY"
+    ],
+    "durationMinutes": 18,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 102,
+    "courseCode": "ELH-21",
+    "title": "Building Employee Engagement in Sustainability",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_SOCIAL"
+    ],
+    "durationMinutes": 18,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 114,
+    "courseCode": "ELH-16",
+    "title": "Communicating Sustainability at Work",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_SOCIAL"
+    ],
+    "durationMinutes": 18,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 120,
+    "courseCode": "ELH-18",
+    "title": "Sustainability Data Collection and Evidence",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "DEPARTMENT_SPECIFIC",
+    "primaryCompetency": "COMP_ESG_DATA",
+    "secondaryCompetencies": [
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 2",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 143,
+    "courseCode": "ELH-22",
+    "title": "Creating and Running Effective Green Teams",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_SOCIAL"
+    ],
+    "durationMinutes": 18,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 161,
+    "courseCode": "ELH-19",
+    "title": "Reviewing Sustainability Performance and Taking Corrective Action",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_ESG_DATA",
+      "COMP_STRATEGY"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 162,
+    "courseCode": "ELH-15",
+    "title": "Building a Workplace Sustainability Team",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_SOCIAL"
+    ],
+    "durationMinutes": 18,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 163,
+    "courseCode": "ELH-17",
+    "title": "Tracking Sustainability Actions and Progress",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_ESG_DATA"
+    ],
+    "durationMinutes": 18,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 164,
+    "courseCode": "ELH-20",
+    "title": "Sustainability Roles, Responsibilities and Accountability",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 195,
+    "courseCode": "ELH-30",
+    "title": "Climate Risk & Workplace Resilience",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "CROSS_SECTOR_CORE",
+    "primaryCompetency": "COMP_CLIMATE_RISK",
+    "secondaryCompetencies": [
+      "COMP_COMPLIANCE"
+    ],
+    "durationMinutes": 18,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 12,
+      "feedbackAndExplanations": 3,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 89
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Some assessment questions have brief or generic answer explanations.",
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Enhance distractor rationales and explanation depth for all quiz options.",
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 197,
+    "courseCode": "ELH-31",
+    "title": "Social Responsibility at Work",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "CROSS_SECTOR_CORE",
+    "primaryCompetency": "COMP_SOCIAL",
+    "secondaryCompetencies": [
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P2",
+    "remediationBatch": "Batch 1",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 212,
+    "courseCode": "ELH-32",
+    "title": "Ethics, Governance & Responsible Business",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "CROSS_SECTOR_CORE",
+    "primaryCompetency": "COMP_GOVERNANCE",
+    "secondaryCompetencies": [
+      "COMP_COMPLIANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P2",
+    "remediationBatch": "Batch 1",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 221,
+    "courseCode": "ELH-33",
+    "title": "ESG Data, Measurement & Reporting Basics",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "DEPARTMENT_SPECIFIC",
+    "primaryCompetency": "COMP_ESG_REPORTING",
+    "secondaryCompetencies": [
+      "COMP_ESG_DATA",
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P2",
+    "remediationBatch": "Batch 1",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 225,
+    "courseCode": "ELH-34",
+    "title": "ESG in My Job: From Policy to Everyday Action",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "UNIVERSAL_CORE",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_ENERGY",
+      "COMP_WATER",
+      "COMP_SOCIAL",
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P2",
+    "remediationBatch": "Batch 1",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 710,
+    "courseCode": "ELH-35",
+    "title": "Sustainable Housekeeping Operations",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_WATER",
+    "secondaryCompetencies": [
+      "COMP_CIRCULARITY",
+      "COMP_ENERGY"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 711,
+    "courseCode": "ELH-48",
+    "title": "Smart Building Automation & BMS Optimization",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [
+      "COMP_GHG",
+      "COMP_COMPLIANCE"
+    ],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 712,
+    "courseCode": "ELH-49",
+    "title": "Construction Site Environmental Controls",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_COMPLIANCE",
+    "secondaryCompetencies": [
+      "COMP_WATER",
+      "COMP_BIODIVERSITY",
+      "COMP_CIRCULARITY"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 713,
+    "courseCode": "ELH-55",
+    "title": "Legionella & Water System Safety in Facilities",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_COMPLIANCE",
+    "secondaryCompetencies": [
+      "COMP_WATER",
+      "COMP_HEALTH_SAFETY"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 714,
+    "courseCode": "ELH-57",
+    "title": "Industrial Energy Efficiency & Compressed Air",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [
+      "COMP_GHG",
+      "COMP_CIRCULARITY"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 715,
+    "courseCode": "ELH-58",
+    "title": "Boiler & Steam System Optimization",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [
+      "COMP_GHG",
+      "COMP_WATER"
+    ],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 716,
+    "courseCode": "ELH-62",
+    "title": "Industrial Chemical Management & GHS",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_COMPLIANCE",
+    "secondaryCompetencies": [
+      "COMP_HEALTH_SAFETY",
+      "COMP_WATER"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 717,
+    "courseCode": "ELH-83",
+    "title": "Eco-Driving & Fleet Fuel Efficiency",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [
+      "COMP_GHG",
+      "COMP_HEALTH_SAFETY"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 718,
+    "courseCode": "ELH-85",
+    "title": "Sustainable Warehouse Operations",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [
+      "COMP_CIRCULARITY",
+      "COMP_GHG"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 719,
+    "courseCode": "ELH-117",
+    "title": "Setting SMART Departmental Sustainability Targets",
+    "category": "Sustainability",
+    "claimedLevel": "Management & Leadership",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_ESG_DATA",
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 720,
+    "courseCode": "ELH-118",
+    "title": "Managing Sustainability Performance & KPIs",
+    "category": "Sustainability",
+    "claimedLevel": "Management & Leadership",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_ESG_DATA",
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 721,
+    "courseCode": "ELH-121",
+    "title": "Building Business Cases for Sustainability Projects",
+    "category": "Sustainability",
+    "claimedLevel": "Management & Leadership",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_STRATEGY",
+    "secondaryCompetencies": [
+      "COMP_ESG_DATA",
+      "COMP_LEADERSHIP"
+    ],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 722,
+    "courseCode": "ELH-122",
+    "title": "Managing Subcontractor Sustainability Compliance",
+    "category": "Sustainability",
+    "claimedLevel": "Management & Leadership",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_COMPLIANCE",
+    "secondaryCompetencies": [
+      "COMP_GOVERNANCE",
+      "COMP_PROCUREMENT"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 5,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 723,
+    "courseCode": "ELH-128",
+    "title": "Sustainability for Health & Safety (HSE) Officers",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_COMPLIANCE",
+    "secondaryCompetencies": [
+      "COMP_HEALTH_SAFETY",
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 724,
+    "courseCode": "ELH-38",
+    "title": "Hotel Laundry & Water Stewardship",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_WATER",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 725,
+    "courseCode": "ELH-40",
+    "title": "Resort Guest Engagement & Green Nudges",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_SOCIAL",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 726,
+    "courseCode": "ELH-41",
+    "title": "Sustainable Event & Banquet Management",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 727,
+    "courseCode": "ELH-45",
+    "title": "Sustainable Hospitality Sourcing & Local Purchasing",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_PROCUREMENT",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 728,
+    "courseCode": "ELH-50",
+    "title": "Sustainable Building Materials & Low-Carbon Concrete",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 729,
+    "courseCode": "ELH-51",
+    "title": "Indoor Environmental Quality & Well-Being",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_HEALTH_SAFETY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 730,
+    "courseCode": "ELH-59",
+    "title": "Industrial Wastewater & Effluent Treatment",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_WATER",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 731,
+    "courseCode": "ELH-61",
+    "title": "Lean Green Manufacturing: Waste Elimination",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 732,
+    "courseCode": "ELH-63",
+    "title": "Sustainable Packaging Design in Manufacturing",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 733,
+    "courseCode": "ELH-67",
+    "title": "Supermarket Cold Chain & Refrigeration Efficiency",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 734,
+    "courseCode": "ELH-68",
+    "title": "Retail Food Waste & Dynamic Markdown Management",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 735,
+    "courseCode": "ELH-71",
+    "title": "Eliminating Single-Use Plastics in Retail",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 736,
+    "courseCode": "ELH-75",
+    "title": "Sustainable Lending & Green Credit Underwriting",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_STRATEGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 737,
+    "courseCode": "ELH-76",
+    "title": "ESG Risk Integration in Commercial Credit",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_RISK",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 738,
+    "courseCode": "ELH-79",
+    "title": "Anti-Greenwashing in Financial Products",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_GOVERNANCE",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 739,
+    "courseCode": "ELH-84",
+    "title": "Commercial Fleet Electrification & EV Charging",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 740,
+    "courseCode": "ELH-86",
+    "title": "Route Optimization & Logistics Efficiency",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 741,
+    "courseCode": "ELH-95",
+    "title": "Green Software Engineering & Cloud Efficiency",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 742,
+    "courseCode": "ELH-131",
+    "title": "Executive ESG Strategy & Board Oversight",
+    "category": "Sustainability",
+    "claimedLevel": "Strategic",
+    "evidencedLevel": "D4",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_GOVERNANCE",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 4",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 743,
+    "courseCode": "ELH-133",
+    "title": "Advanced GHG Accounting: Scope 1, 2 & 3 Emissions",
+    "category": "Sustainability",
+    "claimedLevel": "Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_GHG",
+    "secondaryCompetencies": [],
+    "durationMinutes": 35,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 744,
+    "courseCode": "ELH-42",
+    "title": "Eco-Friendly Pool, Spa & Wellness Operations",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_WATER",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 745,
+    "courseCode": "ELH-43",
+    "title": "Energy-Efficient Hotel Guest Rooms & Smart Controls",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 746,
+    "courseCode": "ELH-46",
+    "title": "Eco-Tourism & Marine Biodiversity Protection",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_BIODIVERSITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 747,
+    "courseCode": "ELH-52",
+    "title": "Sustainable Property Facility Operations",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 748,
+    "courseCode": "ELH-56",
+    "title": "Sustainable Building Certifications (LEED/BREEAM)",
+    "category": "Sustainability",
+    "claimedLevel": "Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_GOVERNANCE",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 749,
+    "courseCode": "ELH-60",
+    "title": "Industrial Energy Audit & Motor Systems Optimization",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 750,
+    "courseCode": "ELH-64",
+    "title": "Circular Raw Material Substitution in Industry",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 751,
+    "courseCode": "ELH-69",
+    "title": "Sustainable Retail Store Lighting & HVAC Design",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 752,
+    "courseCode": "ELH-70",
+    "title": "Sustainable Retail Sourcing & Supplier ESG Code",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_PROCUREMENT",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 753,
+    "courseCode": "ELH-72",
+    "title": "Green eCommerce, Last-Mile Delivery & Packaging",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 754,
+    "courseCode": "ELH-77",
+    "title": "TCFD & Climate Financial Risk Disclosures",
+    "category": "Sustainability",
+    "claimedLevel": "Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_RISK",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 755,
+    "courseCode": "ELH-78",
+    "title": "Carbon Markets, Offsets & Credit Verification",
+    "category": "Sustainability",
+    "claimedLevel": "Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_GHG",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 756,
+    "courseCode": "ELH-80",
+    "title": "Sustainable Wealth Management & ESG Advisory",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_STRATEGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 757,
+    "courseCode": "ELH-81",
+    "title": "Green Freight & Multimodal Cargo Optimization",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 758,
+    "courseCode": "ELH-96",
+    "title": "Data Center Energy Efficiency & Cooling",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 759,
+    "courseCode": "ELH-97",
+    "title": "Sustainable IT Hardware Lifecycle & E-Waste",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "DEPARTMENT_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 760,
+    "courseCode": "ELH-98",
+    "title": "Green Office Systems for Professional Services",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "DEPARTMENT_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 761,
+    "courseCode": "ELH-87",
+    "title": "Regenerative Agriculture & Soil Health",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_BIODIVERSITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 762,
+    "courseCode": "ELH-88",
+    "title": "Smart Irrigation & Agricultural Water Efficiency",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_WATER",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 763,
+    "courseCode": "ELH-91",
+    "title": "Sustainable Aquaculture & Responsible Fish Farming",
+    "category": "Sustainability",
+    "claimedLevel": "Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_BIODIVERSITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 764,
+    "courseCode": "ELH-93",
+    "title": "Agrochemical Safety & Runoff Prevention",
+    "category": "Sustainability",
+    "claimedLevel": "Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_COMPLIANCE",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 765,
+    "courseCode": "ELH-99",
+    "title": "Hospital & Clinic Medical Waste Segregation",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_HEALTH_SAFETY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 766,
+    "courseCode": "ELH-100",
+    "title": "Energy & Water Conservation in Healthcare Facilities",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 767,
+    "courseCode": "ELH-101",
+    "title": "Sustainable Healthcare Procurement & Single-Use Reductions",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_PROCUREMENT",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 768,
+    "courseCode": "ELH-119",
+    "title": "Engaging Frontline Employees in Green Initiatives",
+    "category": "Sustainability",
+    "claimedLevel": "Management & Leadership",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_SOCIAL",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 769,
+    "courseCode": "ELH-123",
+    "title": "Managing Capital Expenditure (CapEx) for Energy Retrofits",
+    "category": "Sustainability",
+    "claimedLevel": "Management & Leadership",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_STRATEGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 770,
+    "courseCode": "ELH-132",
+    "title": "CSRD & European Sustainability Reporting Standards (ESRS)",
+    "category": "Sustainability",
+    "claimedLevel": "Strategic",
+    "evidencedLevel": "D4",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_GOVERNANCE",
+    "secondaryCompetencies": [],
+    "durationMinutes": 35,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 4",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 771,
+    "courseCode": "ELH-136",
+    "title": "Corporate Net-Zero Transition Planning & Science-Based Targets (SBTi)",
+    "category": "Sustainability",
+    "claimedLevel": "Strategic",
+    "evidencedLevel": "D4",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_GHG",
+    "secondaryCompetencies": [],
+    "durationMinutes": 35,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 4",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 772,
+    "courseCode": "ELH-44",
+    "title": "Sustainable Single-Use Plastic Elimination in Resorts",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 773,
+    "courseCode": "ELH-53",
+    "title": "Green Building Retrofits & Decarbonization Pathways",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 774,
+    "courseCode": "ELH-54",
+    "title": "Sustainable Property HVAC & Chiller Optimization",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 775,
+    "courseCode": "ELH-65",
+    "title": "Industrial Air Quality, VOC Controls & Scrubbers",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_COMPLIANCE",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 776,
+    "courseCode": "ELH-66",
+    "title": "Sustainable Supply Chain Traceability in Manufacturing",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_PROCUREMENT",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 777,
+    "courseCode": "ELH-73",
+    "title": "Sustainable Quick-Service Restaurant (QSR) Operations",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 778,
+    "courseCode": "ELH-74",
+    "title": "Circular Textiles & Sustainable Fashion Retailing",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 779,
+    "courseCode": "ELH-82",
+    "title": "Maritime Port & Shipping Sustainability Practices",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 780,
+    "courseCode": "ELH-89",
+    "title": "Organic Fertilizers & Biological Pest Management",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_BIODIVERSITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 781,
+    "courseCode": "ELH-90",
+    "title": "Post-Harvest Loss Reduction & Cold Storage",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 782,
+    "courseCode": "ELH-92",
+    "title": "Mangrove & Coastal Ecosystem Protection in Agriculture",
+    "category": "Sustainability",
+    "claimedLevel": "Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_BIODIVERSITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 783,
+    "courseCode": "ELH-94",
+    "title": "Agri-Food Carbon Footprinting & Certification",
+    "category": "Sustainability",
+    "claimedLevel": "Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_GHG",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 784,
+    "courseCode": "ELH-102",
+    "title": "Anesthetic Gas & Pharmaceutical Waste Management",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_HEALTH_SAFETY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 785,
+    "courseCode": "ELH-103",
+    "title": "Healthcare Indoor Air Quality & Infection Ventilation",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_HEALTH_SAFETY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 786,
+    "courseCode": "ELH-104",
+    "title": "Climate Resilience & Disaster Preparedness for Hospitals",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_RISK",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 787,
+    "courseCode": "ELH-105",
+    "title": "Sustainable Hotel Kitchen Energy & Equipment",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 788,
+    "courseCode": "ELH-106",
+    "title": "Low-Impact Coastal Resort Landscaping & Native Flora",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_BIODIVERSITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 789,
+    "courseCode": "ELH-107",
+    "title": "Net-Zero Energy Building Design & Passive Architecture",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 790,
+    "courseCode": "ELH-108",
+    "title": "Renewable Energy: Rooftop Solar PV & Storage",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 791,
+    "courseCode": "ELH-109",
+    "title": "Industrial Heat Recovery & Combined Heat and Power",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 792,
+    "courseCode": "ELH-110",
+    "title": "Closed-Loop Water Recycling in Commercial Real Estate",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_WATER",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 793,
+    "courseCode": "ELH-111",
+    "title": "Zero Waste to Landfill Certification in Manufacturing",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 794,
+    "courseCode": "ELH-112",
+    "title": "Green Cold Chain Logistics & Refrigerated Transport",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 795,
+    "courseCode": "ELH-113",
+    "title": "Sustainable Packaging Procurement for Logistics",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 796,
+    "courseCode": "ELH-114",
+    "title": "ESG Data Assurance & Audit Readiness",
+    "category": "Sustainability",
+    "claimedLevel": "Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_GOVERNANCE",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 797,
+    "courseCode": "ELH-115",
+    "title": "Biodiversity Impact Assessment (BIA) for Projects",
+    "category": "Sustainability",
+    "claimedLevel": "Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_BIODIVERSITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 798,
+    "courseCode": "ELH-116",
+    "title": "Circular Economy Business Models & Product-as-a-Service",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 93
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 799,
+    "courseCode": "ELH-120",
+    "title": "Cross-Functional Sustainability Working Groups",
+    "category": "Sustainability",
+    "claimedLevel": "Management & Leadership",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_SOCIAL",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 800,
+    "courseCode": "ELH-124",
+    "title": "Executive Climate Governance & Net-Zero Strategy",
+    "category": "Sustainability",
+    "claimedLevel": "Management & Leadership",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_GOVERNANCE",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 801,
+    "courseCode": "ELH-125",
+    "title": "Occupational Health, Safety & Environmental Systems",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_HEALTH_SAFETY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 802,
+    "courseCode": "ELH-126",
+    "title": "Facilities Energy Management for Specialists",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 803,
+    "courseCode": "ELH-127",
+    "title": "Sustainable Supply Chain Management for Procurement",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_PROCUREMENT",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 804,
+    "courseCode": "ELH-129",
+    "title": "Environmental Risk & Compliance Management",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_RISK",
+    "secondaryCompetencies": [],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 805,
+    "courseCode": "ELH-130",
+    "title": "Sustainability Communications & Green Claims",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_GOVERNANCE",
+    "secondaryCompetencies": [],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 3,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 4,
+      "totalScore": 83
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 806,
+    "courseCode": "ELH-134",
+    "title": "Biodiversity & Nature-Related Disclosures (TNFD)",
+    "category": "Sustainability",
+    "claimedLevel": "Strategic",
+    "evidencedLevel": "D4",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_BIODIVERSITY",
+    "secondaryCompetencies": [],
+    "durationMinutes": 35,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 4",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 807,
+    "courseCode": "ELH-135",
+    "title": "Internal Carbon Pricing & Carbon Budgeting",
+    "category": "Sustainability",
+    "claimedLevel": "Strategic",
+    "evidencedLevel": "D4",
+    "isLevelMismatched": false,
+    "primaryClassification": "ADVANCED_ESG_PROFESSIONAL",
+    "primaryCompetency": "COMP_GHG",
+    "secondaryCompetencies": [],
+    "durationMinutes": 35,
+    "learningObjectivesCount": 4,
+    "lessonsCount": 6,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 4",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 808,
+    "courseCode": "ELH-36",
+    "title": "Sustainable Commercial Kitchens & Culinary",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [
+      "COMP_WATER",
+      "COMP_CIRCULARITY"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 809,
+    "courseCode": "ELH-37",
+    "title": "Hotel Food Waste Prevention & Composting",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_CIRCULARITY",
+    "secondaryCompetencies": [
+      "COMP_GHG",
+      "COMP_COMPLIANCE"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 5",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 810,
+    "courseCode": "ELH-39",
+    "title": "Hotel Engineering: Central Plant & HVAC Optimization",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [
+      "COMP_WATER",
+      "COMP_GHG"
+    ],
+    "durationMinutes": 30,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 811,
+    "courseCode": "ELH-47",
+    "title": "Green Leases & Tenant Sustainability Engagement",
+    "category": "Sustainability",
+    "claimedLevel": "Role Specialist",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "SECTOR_SPECIFIC",
+    "primaryCompetency": "COMP_GOVERNANCE",
+    "secondaryCompetencies": [
+      "COMP_ENERGY",
+      "COMP_ESG_DATA"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 814,
+    "courseCode": "ELH-23",
+    "title": "Planning and Delivering Workplace Sustainability Initiatives",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "MANAGEMENT_LEADERSHIP",
+    "primaryCompetency": "COMP_LEADERSHIP",
+    "secondaryCompetencies": [
+      "COMP_STRATEGY",
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 10,
+    "lessonsCount": 12,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 10,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 815,
+    "courseCode": "ELH-24",
+    "title": "Sustainability for HR Teams",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "DEPARTMENT_SPECIFIC",
+    "primaryCompetency": "COMP_SOCIAL",
+    "secondaryCompetencies": [
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 2",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 816,
+    "courseCode": "ELH-25",
+    "title": "Sustainability for Finance Teams",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "DEPARTMENT_SPECIFIC",
+    "primaryCompetency": "COMP_STRATEGY",
+    "secondaryCompetencies": [
+      "COMP_ESG_DATA",
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 2",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 817,
+    "courseCode": "ELH-26",
+    "title": "Sustainability for Procurement and Purchasing Teams",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_PROCUREMENT",
+    "secondaryCompetencies": [
+      "COMP_SUPPLY_CHAIN",
+      "COMP_GOVERNANCE"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 10,
+    "lessonsCount": 12,
+    "scenariosCount": 1,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 14,
+      "scenarioQuality": 8,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 92
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 818,
+    "courseCode": "ELH-29",
+    "title": "Sustainability for Operations and Frontline Teams",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D3",
+    "isLevelMismatched": false,
+    "primaryClassification": "ROLE_SPECIALIST",
+    "primaryCompetency": "COMP_COMPLIANCE",
+    "secondaryCompetencies": [
+      "COMP_ENERGY",
+      "COMP_CIRCULARITY"
+    ],
+    "durationMinutes": 20,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 12,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 5,
+      "accessibilityAndReadability": 5,
+      "totalScore": 85
+    },
+    "classification": "A",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 3",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": true
+  },
+  {
+    "courseId": 819,
+    "courseCode": "ELH-27",
+    "title": "Sustainability for Facilities and Property Teams",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "DEPARTMENT_SPECIFIC",
+    "primaryCompetency": "COMP_ENERGY",
+    "secondaryCompetencies": [
+      "COMP_WATER",
+      "COMP_COMPLIANCE"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 2",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  },
+  {
+    "courseId": 820,
+    "courseCode": "ELH-28",
+    "title": "Sustainability for Sales and Marketing Teams",
+    "category": "Sustainability",
+    "claimedLevel": "Applied Workplace Practice",
+    "evidencedLevel": "D2",
+    "isLevelMismatched": false,
+    "primaryClassification": "DEPARTMENT_SPECIFIC",
+    "primaryCompetency": "COMP_GOVERNANCE",
+    "secondaryCompetencies": [
+      "COMP_STRATEGY"
+    ],
+    "durationMinutes": 25,
+    "learningObjectivesCount": 6,
+    "lessonsCount": 6,
+    "scenariosCount": 0,
+    "quizQuestionsCount": 8,
+    "scores": {
+      "learningObjectiveAlignment": 14,
+      "competencyAlignment": 14,
+      "levelAccuracy": 14,
+      "practicalWorkplaceApplication": 10,
+      "scenarioQuality": 4,
+      "assessmentQuality": 14,
+      "feedbackAndExplanations": 5,
+      "sectorRelevance": 4,
+      "accessibilityAndReadability": 5,
+      "totalScore": 84
+    },
+    "classification": "B",
+    "remediationPriority": "P3",
+    "remediationBatch": "Batch 2",
+    "criticalFindings": [
+      "Course contains fewer than 2 interactive decision scenarios."
+    ],
+    "requiredChanges": [
+      "Introduce additional workplace trade-off scenarios reflecting operational dilemmas."
+    ],
+    "consolidationFlag": false
+  }
+]

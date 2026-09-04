@@ -17,7 +17,7 @@ export interface Wave4CourseDefinition {
   badgeName: string;
   badgeDescription: string;
   completionMessage: string;
-  isEssentialUniversal: boolean;
+  isEssentialUniversal?: boolean;
   relevanceLayer: "universal_core" | "cross_sector_core" | "sector_specific" | "department_specific" | "role_specialist" | "management_leadership" | "advanced_esg_professional";
   primaryClassification: "UNIVERSAL_CORE" | "CROSS_SECTOR_CORE" | "SECTOR_SPECIFIC" | "DEPARTMENT_SPECIFIC" | "ROLE_SPECIALIST" | "MANAGEMENT_LEADERSHIP" | "ADVANCED_ESG_PROFESSIONAL";
   applicableSectors: string[];
@@ -6674,33 +6674,35 @@ export async function ensureWave4Catalogue(): Promise<void> {
     let courseId: number;
     if (existing.length > 0) {
       courseId = existing[0].id;
-      await db
-        .update(coursesTable)
-        .set({
-          title: courseDef.title,
-          description: courseDef.description,
-          fullDescription: courseDef.fullDescription,
-          categoryId,
-          durationMinutes: courseDef.durationMinutes,
-          priceUsd: courseDef.priceUsd,
-          level: courseDef.level,
-          isFeatured: courseDef.isFeatured,
-          learningObjectives: courseDef.learningObjectives,
-          intendedRoles: courseDef.intendedRoles,
-          badgeName: courseDef.badgeName,
-          badgeDescription: courseDef.badgeDescription,
-          completionMessage: courseDef.completionMessage,
-          isEssentialUniversal: courseDef.isEssentialUniversal,
-          relevanceLayer: courseDef.relevanceLayer,
-          primaryClassification: courseDef.primaryClassification,
-          applicableSectors: courseDef.applicableSectors,
-          applicableDepartments: courseDef.applicableDepartments,
-          applicableJobFamilies: courseDef.applicableJobFamilies,
-          applicableSeniorityTiers: courseDef.applicableSeniorityTiers,
-          primaryCompetency: courseDef.primaryCompetency,
-          status: "published",
-        })
-        .where(eq(coursesTable.id, courseId));
+      if ((existing[0].version ?? 1) < 2) {
+        await db
+          .update(coursesTable)
+          .set({
+            title: courseDef.title,
+            description: courseDef.description,
+            fullDescription: courseDef.fullDescription,
+            categoryId,
+            durationMinutes: courseDef.durationMinutes,
+            priceUsd: courseDef.priceUsd,
+            level: courseDef.level,
+            isFeatured: courseDef.isFeatured,
+            learningObjectives: courseDef.learningObjectives,
+            intendedRoles: courseDef.intendedRoles,
+            badgeName: courseDef.badgeName,
+            badgeDescription: courseDef.badgeDescription,
+            completionMessage: courseDef.completionMessage,
+            isEssentialUniversal: courseDef.isEssentialUniversal,
+            relevanceLayer: courseDef.relevanceLayer,
+            primaryClassification: courseDef.primaryClassification,
+            applicableSectors: courseDef.applicableSectors,
+            applicableDepartments: courseDef.applicableDepartments,
+            applicableJobFamilies: courseDef.applicableJobFamilies,
+            applicableSeniorityTiers: courseDef.applicableSeniorityTiers,
+            primaryCompetency: courseDef.primaryCompetency,
+            status: "published",
+          })
+          .where(eq(coursesTable.id, courseId));
+      }
     } else {
       const [newCourse] = await db
         .insert(coursesTable)
@@ -6748,7 +6750,6 @@ export async function ensureWave4Catalogue(): Promise<void> {
           content: l.content,
           durationMinutes: l.durationMinutes,
           orderIndex: i + 1,
-          isFree: i === 0,
         });
       }
     }
@@ -6766,8 +6767,7 @@ export async function ensureWave4Catalogue(): Promise<void> {
           courseId,
           question: q.question,
           options: q.options,
-          correctAnswerIndex: q.correctAnswerIndex,
-          explanation: q.explanation,
+          correctOption: q.correctAnswerIndex,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
           orderIndex: i + 1,

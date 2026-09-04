@@ -165,11 +165,19 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
       }
     }
 
+    const questionIdMap = new Map(questions.map((q) => [q.id, q]));
+    for (const answer of parsed.data.answers) {
+      if (!questionIdMap.has(answer.questionId)) {
+        res.status(400).json({ error: "Invalid or cross-version quiz question ID submitted" });
+        return;
+      }
+    }
+
     let correctAnswers = 0;
     const incorrectSourceCourseIds: Record<number, number> = {};
 
     for (const answer of parsed.data.answers) {
-      const question = questions.find((q) => q.id === answer.questionId);
+      const question = questionIdMap.get(answer.questionId);
       if (question) {
         const isCorrect = question.correctOption === answer.selectedOption;
         if (isCorrect) {
@@ -214,11 +222,13 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
         passed = score >= 80 && allCompetenciesPassed;
     }
 
+    const enrolledContentVersion = enrollment.enrolledVersion || courseVersion;
+
     const userId = access.userId;
     const dbAttempt = await db.insert(quizAttemptsTable).values({
       userId,
       courseId,
-      courseVersion,
+      courseVersion: enrolledContentVersion,
       score,
       totalQuestions,
       correctAnswers,
@@ -268,7 +278,7 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
             employeeName: employee?.name ?? "Elevio Learner",
             companyName: company?.name ?? "Elevio",
             courseId,
-            courseVersion,
+            courseVersion: enrolledContentVersion,
             uniqueCode: code,
             certificateTitle,
           })
@@ -283,7 +293,7 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
           status: "completed",
           progressPct: 100,
           completedAt,
-          completedVersion: courseVersion,
+          completedVersion: enrolledContentVersion,
           lastAccessedAt: completedAt,
         })
         .where(eq(enrollmentsTable.id, enrollment.id));
