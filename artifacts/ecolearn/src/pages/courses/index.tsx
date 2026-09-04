@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { CourseImage } from "@/components/CourseImage";
 import { useListCourses, useListCategories, useListEnrollments } from "@workspace/api-client-react";
 import { customFetch } from "@workspace/api-client-react";
 import { Link } from "wouter";
@@ -450,26 +451,15 @@ export default function Courses() {
                   )}>
                     {/* Thumbnail Header */}
                     <div className="relative aspect-video overflow-hidden bg-muted">
-                      {(course.thumbnailUrl || (course as any).courseCode === "ELH-30") ? (
-                        <img
-                          src={((course as any).courseCode === "ELH-30" || course.slug === "climate-risk-and-workplace-resilience")
-                            ? "/images/courses/climate-risk-and-workplace-resilience.jpg"
-                            : (course.thumbnailUrl ?? undefined)}
-                          alt={course.title}
-                          onError={(e) => {
-                            const target = e.currentTarget;
-                            target.src = "https://raw.githubusercontent.com/Tioutsy/EcoLearnHub/main/artifacts/ecolearn/public/images/courses/climate-risk-and-workplace-resilience.jpg";
-                          }}
-                          className={cn(
-                            "w-full h-full object-cover transition-transform duration-500 group-hover:scale-105",
-                            isPlanLocked && "opacity-85 grayscale-[20%]"
-                          )}
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-emerald-950 to-teal-900 flex items-center justify-center p-4 text-center">
-                          <span className="text-white font-serif font-bold text-lg">{course.title}</span>
-                        </div>
-                      )}
+                      <CourseImage
+                        src={course.thumbnailUrl}
+                        courseCode={(course as any).courseCode}
+                        alt={course.title}
+                        className={cn(
+                          "w-full h-full object-cover transition-transform duration-500 group-hover:scale-105",
+                          isPlanLocked && "opacity-85 grayscale-[20%]"
+                        )}
+                      />
                       
                       {/* Top Badges */}
                       <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">

@@ -49,6 +49,7 @@ import { ensureCategoriesAndAssignments } from "./lib/ensureCategoriesAndAssignm
 import { ensureHybridSubscriptions } from "./lib/ensureHybridSubscriptions";
 import { syncSequences } from "./lib/syncSequences";
 import { ensureSchemaModifications } from "./lib/ensureSchemaModifications";
+import { ensureCourseImages } from "./lib/ensureCourseImages";
 import { verifyDatabaseIntegrity } from "./lib/verifyDatabaseIntegrity";
 import { startInvitationDispatchWorker } from "./lib/invitationDispatchWorker";
 
@@ -156,6 +157,7 @@ async function start(): Promise<void> {
     await ensureCategoriesAndAssignments();
     await ensureHybridSubscriptions();
     await ensureInsightsMigrated();
+    await ensureCourseImages();
     logger.info("Database initialization and course seeding completed.");
 
     // Start background email outbox dispatch worker loop

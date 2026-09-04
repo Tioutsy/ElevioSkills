@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { CourseImage } from "@/components/CourseImage";
 import { useGetCourse, useCreateEnrollment, useListEnrollments } from "@workspace/api-client-react";
 import { useParams, useLocation } from "wouter";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -143,13 +144,13 @@ export default function CourseDetail() {
 
             {/* Sticky Action Card */}
             <div className="bg-card border rounded-2xl shadow-xl overflow-hidden sticky top-24">
-              <div className="aspect-video bg-muted relative overflow-hidden">
-                <img 
-                  src={course.thumbnailUrl || "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&auto=format&fit=crop&q=60"} 
-                  alt={course.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <CourseImage 
+                src={course.thumbnailUrl} 
+                courseCode={(course as any).courseCode}
+                alt={course.title} 
+                priority={true}
+                className="w-full h-full object-cover"
+              />
 
               {existingEnrollment ? (
                 <div className="p-6 space-y-3">

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="ELEVIO Skills Course Fallback">
+  <defs>
+    <linearGradient id="fallbackBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#022c22"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="fallbackGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#022c22" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="fallbackGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#fallbackBg)"/>
+  <rect width="1600" height="900" fill="url(#fallbackGlow)"/>
+  <rect width="1600" height="900" fill="url(#fallbackGrid)"/>
+
+  <!-- Neutral ELEVIO Geometric Emblem -->
+  <g transform="translate(800, 420)">
+    <circle cx="0" cy="0" r="120" fill="none" stroke="#10b981" stroke-width="3" opacity="0.4" stroke-dasharray="16 8"/>
+    <circle cx="0" cy="0" r="80" fill="rgba(16, 185, 129, 0.1)" stroke="#34d399" stroke-width="2"/>
+    <polygon points="0,-40 35,20 -35,20" fill="#10b981" opacity="0.8"/>
+  </g>
+
+  <text x="800" y="580" fill="#f8fafc" font-family="Georgia, Cambria, 'Times New Roman', serif" font-size="28" font-weight="bold" text-anchor="middle" letter-spacing="0.5">
+    ELEVIO SKILLS
+  </text>
+  <text x="800" y="620" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="500" text-anchor="middle">
+    Sustainability &amp; ESG Learning Platform
+  </text>
+</svg>

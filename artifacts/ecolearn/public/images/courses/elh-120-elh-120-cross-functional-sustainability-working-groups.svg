@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="ELH-120: Cross-Functional Sustainability Working Groups">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="60%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="75%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#93c5fd" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#090d16" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)"/>
+    </linearGradient>
+    <linearGradient id="ecoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#93c5fd" stop-opacity="0.2"/>
+    </linearGradient>
+    <radialGradient id="circleGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#93c5fd" stop-opacity="0.1"/>
+    </radialGradient>
+
+    <!-- Structural Grid Pattern -->
+    <pattern id="gridPattern" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+      <circle cx="60" cy="60" r="1.5" fill="rgba(255, 255, 255, 0.08)"/>
+    </pattern>
+  </defs>
+
+  <!-- Base Canvas -->
+  <rect width="1600" height="900" fill="url(#bgGrad)"/>
+  <rect width="1600" height="900" fill="url(#glowGrad)"/>
+  <rect width="1600" height="900" fill="url(#gridPattern)"/>
+
+  <!-- Subtle Horizon / Diagonal Accent Geometry -->
+  <path d="M -100 900 L 1700 650 L 1700 900 Z" fill="rgba(0, 0, 0, 0.35)"/>
+  <path d="M -100 900 L 1700 750 L 1700 900 Z" fill="rgba(0, 0, 0, 0.2)"/>
+
+  <!-- Specialized Vector Motif -->
+  
+      <!-- Executive Governance & ESG Analytics Motif -->
+      <g opacity="0.9">
+        <!-- Dashboard Chart & Disclosure Framework Grid -->
+        <rect x="980" y="210" width="380" height="260" rx="16" fill="url(#panelGrad)" stroke="#3b82f6" stroke-width="2"/>
+        <!-- Bar Chart Columns -->
+        <rect x="1020" y="360" width="40" height="80" rx="6" fill="#93c5fd" opacity="0.8"/>
+        <rect x="1080" y="310" width="40" height="130" rx="6" fill="#3b82f6" opacity="0.9"/>
+        <rect x="1140" y="270" width="40" height="170" rx="6" fill="#e2e8f0" opacity="0.85"/>
+        <rect x="1200" y="330" width="40" height="110" rx="6" fill="#93c5fd" opacity="0.8"/>
+        <rect x="1260" y="250" width="40" height="190" rx="6" fill="#3b82f6" opacity="0.95"/>
+        <!-- Trend Line -->
+        <path d="M 1040 350 L 1100 290 L 1160 250 L 1220 310 L 1280 230" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="1280" cy="230" r="7" fill="#ffffff"/>
+      </g>
+    
+
+  <!-- Brand Bar / Top Header -->
+  <g transform="translate(100, 100)">
+    <!-- Course Code Pill -->
+    <rect x="0" y="0" width="130" height="42" rx="8" fill="#3b82f6" opacity="0.95"/>
+    <text x="65" y="27" fill="#022c22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="800" text-anchor="middle" letter-spacing="1">ELH-120</text>
+
+    <!-- Category Tag -->
+    <rect x="145" y="0" width="340" height="42" rx="8" fill="rgba(59, 130, 246, 0.2)" stroke="rgba(147, 197, 253, 0.4)" stroke-width="1.5"/>
+    <text x="165" y="27" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="600" letter-spacing="0.5">Executive ESG Strategy &amp; Governance</text>
+  </g>
+
+  <!-- Course Title & Metadata Content (Left Block) -->
+  <g transform="translate(100, 240)">
+    <text x="0" y="60" fill="#ffffff" font-family="Georgia, Cambria, 'Times New Roman', serif" font-size="52" font-weight="bold" line-height="1.2">
+      <tspan x="0" dy="0">Cross-Functional Sustainability Working Groups</tspan>
+      
+    </text>
+
+    <!-- Sector / Pathway Sub-Badge -->
+    <g transform="translate(0, 100)">
+      <text x="0" y="0" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="600" letter-spacing="0.5">
+        Sector Focus: Executive Leadership &amp; Board Oversight
+      </text>
+      <text x="0" y="36" fill="rgba(255, 255, 255, 0.7)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="400">
+        ELEVIO Skills · Workplace Sustainability &amp; ESG Standards
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Brand Footnote & Professional Accent Line -->
+  <rect x="100" y="780" width="1400" height="2" fill="#3b82f6" opacity="0.3"/>
+  <g transform="translate(100, 825)">
+    <text x="0" y="0" fill="rgba(255, 255, 255, 0.6)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="500">
+      ELEVIO SKILLS CANONICAL CATALOGUE · 16:9 RESPONSIVE DISPLAY STANDARD
+    </text>
+    <text x="1400" y="0" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="600" text-anchor="end">
+      1600 × 900 · VERIFIED
+    </text>
+  </g>
+</svg>

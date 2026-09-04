@@ -159,8 +159,8 @@ export async function ensureSchemaModifications() {
     },
     {
       name: "Backfill course code ELH-07",
-      check: () => courseCodeExists("carbon-footprint-awareness", "ELH-07"),
-      execute: () => db.execute(sql`UPDATE "courses" SET "course_code" = 'ELH-07' WHERE "slug" = 'carbon-footprint-awareness';`)
+      check: async () => (await courseCodeExists("carbon-footprint-awareness", "ELH-07")) || (await courseCodeExists("resource-efficiency-circular-economy-and-zero-waste-strategy", "ELH-07")),
+      execute: () => db.execute(sql`UPDATE "courses" SET "course_code" = 'ELH-07' WHERE "slug" = 'resource-efficiency-circular-economy-and-zero-waste-strategy' OR "slug" = 'carbon-footprint-awareness';`)
     },
     {
       name: "Backfill course code ELH-08",

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
+import { CourseImage } from "@/components/CourseImage";
 import { useListEnrollments, useListAchievementBadges, useGetMyPoints, useListCertificates, useListCourses, customFetch } from "@workspace/api-client-react";
 import type { Enrollment } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -326,10 +327,13 @@ export default function Dashboard() {
             activeEnrollments.map((enrollment) => (
               <Link key={enrollment.id} href={`/learn/${enrollment.id}`}>
                 <div className="group bg-card border rounded-xl p-4 flex gap-4 items-center hover:shadow-md hover:border-primary/30 transition-all cursor-pointer">
-                  <div className="w-32 h-24 rounded-lg overflow-hidden shrink-0 relative bg-muted">
-                    {enrollment.courseThumbnail && (
-                      <img src={enrollment.courseThumbnail} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
-                    )}
+                  <div className="w-36 aspect-video rounded-lg overflow-hidden shrink-0 relative bg-muted">
+                    <CourseImage 
+                      src={enrollment.courseThumbnail} 
+                      courseCode={(enrollment as any).courseCode}
+                      alt={enrollment.courseName || "Enrolled Course"} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform" 
+                    />
                     <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <PlayCircle className="h-8 w-8 text-white" />
                     </div>
@@ -708,9 +712,12 @@ export default function Dashboard() {
               {completedEnrollments.map((enrollment) => (
                 <div key={enrollment.id} className="bg-card border rounded-xl overflow-hidden opacity-80 hover:opacity-100 transition-opacity">
                   <div className="aspect-video relative bg-muted">
-                    {enrollment.courseThumbnail && (
-                      <img src={enrollment.courseThumbnail} alt="" className="w-full h-full object-cover grayscale-[50%]" />
-                    )}
+                    <CourseImage 
+                      src={enrollment.courseThumbnail} 
+                      courseCode={(enrollment as any).courseCode}
+                      alt={enrollment.courseName || "Completed Course"} 
+                      className="w-full h-full object-cover grayscale-[50%]" 
+                    />
                     <div className="absolute top-2 right-2 bg-green-500 text-white p-1 rounded-full">
                       <CheckCircle2 className="h-4 w-4" />
                     </div>

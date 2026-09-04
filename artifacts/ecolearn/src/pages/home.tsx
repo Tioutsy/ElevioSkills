@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { CourseImage } from "@/components/CourseImage";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Leaf, ShieldCheck, TrendingUp, PlayCircle, BookOpen, Award, BarChart3 } from "lucide-react";
@@ -138,8 +139,9 @@ export default function Home() {
               <Link key={course.id} href={`/courses/${course.id}`}>
                 <div className="group bg-card border rounded-2xl overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer h-full flex flex-col">
                   <div className="relative aspect-video overflow-hidden">
-                    <img 
-                      src={course.thumbnailUrl || '/images/course-esg.png'} 
+                    <CourseImage 
+                      src={course.thumbnailUrl} 
+                      courseCode={(course as any).courseCode}
                       alt={course.title} 
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />

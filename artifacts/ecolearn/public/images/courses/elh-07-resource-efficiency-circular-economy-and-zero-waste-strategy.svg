@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="ELH-07: Resource Efficiency: Circular Economy &amp; Zero-Waste Strategy">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d9488"/>
+      <stop offset="60%" stop-color="#115e59"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="75%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#2dd4bf" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#115e59" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)"/>
+    </linearGradient>
+    <linearGradient id="ecoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0.2"/>
+    </linearGradient>
+    <radialGradient id="circleGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0.1"/>
+    </radialGradient>
+
+    <!-- Structural Grid Pattern -->
+    <pattern id="gridPattern" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+      <circle cx="60" cy="60" r="1.5" fill="rgba(255, 255, 255, 0.08)"/>
+    </pattern>
+  </defs>
+
+  <!-- Base Canvas -->
+  <rect width="1600" height="900" fill="url(#bgGrad)"/>
+  <rect width="1600" height="900" fill="url(#glowGrad)"/>
+  <rect width="1600" height="900" fill="url(#gridPattern)"/>
+
+  <!-- Subtle Horizon / Diagonal Accent Geometry -->
+  <path d="M -100 900 L 1700 650 L 1700 900 Z" fill="rgba(0, 0, 0, 0.35)"/>
+  <path d="M -100 900 L 1700 750 L 1700 900 Z" fill="rgba(0, 0, 0, 0.2)"/>
+
+  <!-- Specialized Vector Motif -->
+  
+      <!-- Circular Economy & Material Flows Motif -->
+      <g opacity="0.9">
+        <circle cx="1150" cy="380" r="160" fill="none" stroke="#14b8a6" stroke-width="8" stroke-dasharray="240 40 180 30" opacity="0.85"/>
+        <circle cx="1150" cy="380" r="110" fill="none" stroke="#2dd4bf" stroke-width="4" stroke-dasharray="120 30" opacity="0.6"/>
+        <!-- 3-Segment Circular Arrows -->
+        <path d="M 1150 200 L 1180 220 L 1140 240 Z" fill="#14b8a6"/>
+        <path d="M 1300 450 L 1320 410 L 1280 430 Z" fill="#2dd4bf"/>
+        <path d="M 1010 440 L 990 480 L 1030 460 Z" fill="#5eead4"/>
+        <!-- Material Core Icon -->
+        <polygon points="1150,330 1195,360 1195,410 1150,440 1105,410 1105,360" fill="#14b8a6" opacity="0.3"/>
+        <circle cx="1150" cy="385" r="28" fill="#2dd4bf"/>
+      </g>
+    
+
+  <!-- Brand Bar / Top Header -->
+  <g transform="translate(100, 100)">
+    <!-- Course Code Pill -->
+    <rect x="0" y="0" width="130" height="42" rx="8" fill="#14b8a6" opacity="0.95"/>
+    <text x="65" y="27" fill="#022c22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="800" text-anchor="middle" letter-spacing="1">ELH-07</text>
+
+    <!-- Category Tag -->
+    <rect x="145" y="0" width="340" height="42" rx="8" fill="rgba(20, 184, 166, 0.2)" stroke="rgba(45, 212, 191, 0.4)" stroke-width="1.5"/>
+    <text x="165" y="27" fill="#5eead4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="600" letter-spacing="0.5">Foundations &amp; Core ESG</text>
+  </g>
+
+  <!-- Course Title & Metadata Content (Left Block) -->
+  <g transform="translate(100, 240)">
+    <text x="0" y="60" fill="#ffffff" font-family="Georgia, Cambria, 'Times New Roman', serif" font-size="52" font-weight="bold" line-height="1.2">
+      <tspan x="0" dy="0">Resource Efficiency: Circular Economy</tspan>
+      <tspan x="0" dy="64">&amp; Zero-Waste Strategy</tspan>
+    </text>
+
+    <!-- Sector / Pathway Sub-Badge -->
+    <g transform="translate(0, 160)">
+      <text x="0" y="0" fill="#2dd4bf" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="600" letter-spacing="0.5">
+        Sector Focus: Workplace Fundamentals
+      </text>
+      <text x="0" y="36" fill="rgba(255, 255, 255, 0.7)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="400">
+        ELEVIO Skills · Workplace Sustainability &amp; ESG Standards
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Brand Footnote & Professional Accent Line -->
+  <rect x="100" y="780" width="1400" height="2" fill="#14b8a6" opacity="0.3"/>
+  <g transform="translate(100, 825)">
+    <text x="0" y="0" fill="rgba(255, 255, 255, 0.6)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="500">
+      ELEVIO SKILLS CANONICAL CATALOGUE · 16:9 RESPONSIVE DISPLAY STANDARD
+    </text>
+    <text x="1400" y="0" fill="#2dd4bf" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="600" text-anchor="end">
+      1600 × 900 · VERIFIED
+    </text>
+  </g>
+</svg>
