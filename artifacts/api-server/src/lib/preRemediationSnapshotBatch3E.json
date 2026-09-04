@@ -1,0 +1,241 @@
+{
+  "generatedAt": "2026-09-04T19:44:13.452Z",
+  "totalCanonicalCourses": 136,
+  "v2Count": 89,
+  "v1Count": 47,
+  "batch": "Batch 3E",
+  "targetCount": 21,
+  "targets": [
+    {
+      "id": 785,
+      "courseCode": "ELH-103",
+      "title": "Healthcare Indoor Air Quality & Infection Ventilation",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 16,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "123ed8b433961cd8b04141edfedd4241830679ce71c5813a21259294209d7245"
+    },
+    {
+      "id": 786,
+      "courseCode": "ELH-104",
+      "title": "Climate Resilience & Disaster Preparedness for Hospitals",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 16,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "39a4fead903ae553a4558bb288e129c417063245dccbaee946b50bb6fd98c032"
+    },
+    {
+      "id": 789,
+      "courseCode": "ELH-107",
+      "title": "Net-Zero Energy Building Design & Passive Architecture",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 6,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "8e4b1ee8cb3828ea9255e722a4cebd30eec7ecce8518f101ce255033d7ea3118"
+    },
+    {
+      "id": 790,
+      "courseCode": "ELH-108",
+      "title": "Renewable Energy: Rooftop Solar PV & Storage",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 6,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "a24967a004b854dc7eb850bb237d2313097842ad4befa2c1ae3ef06a2328ed33"
+    },
+    {
+      "id": 791,
+      "courseCode": "ELH-109",
+      "title": "Industrial Heat Recovery & Combined Heat and Power",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 7,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "adc9d9da8fab1f48d1f2e6d77b413b6ebc418a6ef4230717d5df9ebbed25190f"
+    },
+    {
+      "id": 792,
+      "courseCode": "ELH-110",
+      "title": "Closed-Loop Water Recycling in Commercial Real Estate",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 6,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "c214dc098a7287a4a8673fe687389e5593accf64419ca5f9b667091e47a4b824"
+    },
+    {
+      "id": 793,
+      "courseCode": "ELH-111",
+      "title": "Zero Waste to Landfill Certification in Manufacturing",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 7,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "328dbc44d0c5834f0e120a5fcd9dd4fbf9cfd19e90e9419ae86cd2af71eaf9f5"
+    },
+    {
+      "id": 794,
+      "courseCode": "ELH-112",
+      "title": "Green Cold Chain Logistics & Refrigerated Transport",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 10,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "2b1eade7964d10a4695bdc591c76cce310975a3a834de1cf2223d1127ff737ac"
+    },
+    {
+      "id": 795,
+      "courseCode": "ELH-113",
+      "title": "Sustainable Packaging Procurement for Logistics",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 10,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "4f0de5302b0ae4e82ba2087ec43c21925e447b42ca81ca7c4ec0475d3cfce049"
+    },
+    {
+      "id": 796,
+      "courseCode": "ELH-114",
+      "title": "ESG Data Assurance & Audit Readiness",
+      "version": 1,
+      "level": "Specialist",
+      "categoryId": 14,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "e9956ee52fe6afbb95d494dd15443f0f164b0013ef6acf865e91da565ee37600"
+    },
+    {
+      "id": 797,
+      "courseCode": "ELH-115",
+      "title": "Biodiversity Impact Assessment (BIA) for Projects",
+      "version": 1,
+      "level": "Specialist",
+      "categoryId": 6,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "0b5aa817cbc312ba6b4da6b13dfa5e24eb97c6c437514e6c39498f7a930ecf2b"
+    },
+    {
+      "id": 798,
+      "courseCode": "ELH-116",
+      "title": "Circular Economy Business Models & Product-as-a-Service",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 8,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "900415a0c15d087a9c097ee6cc71040e7da901f4b486c09b66413f8a7a78accb"
+    },
+    {
+      "id": 768,
+      "courseCode": "ELH-119",
+      "title": "Engaging Frontline Employees in Green Initiatives",
+      "version": 1,
+      "level": "Management & Leadership",
+      "categoryId": 12,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "710c11428e76f487ba4290db5c5329ebe839d631d27bf68e932cf15d0183528e"
+    },
+    {
+      "id": 799,
+      "courseCode": "ELH-120",
+      "title": "Cross-Functional Sustainability Working Groups",
+      "version": 1,
+      "level": "Management & Leadership",
+      "categoryId": 12,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "c8b71167e806b50e1176700b9007f78d10854c894d482f9b8186c27c68caa2b5"
+    },
+    {
+      "id": 769,
+      "courseCode": "ELH-123",
+      "title": "Managing Capital Expenditure (CapEx) for Energy Retrofits",
+      "version": 1,
+      "level": "Management & Leadership",
+      "categoryId": 12,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "ee7d3feea1e27af5efd26574ce9b1a1edc8bbc6fc35407be3a4e721cdef52c5b"
+    },
+    {
+      "id": 800,
+      "courseCode": "ELH-124",
+      "title": "Executive Climate Governance & Net-Zero Strategy",
+      "version": 1,
+      "level": "Management & Leadership",
+      "categoryId": 12,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "a6003fa41f864252b18983618410da1102cbbfcab8910c0a778a26d495de9da1"
+    },
+    {
+      "id": 801,
+      "courseCode": "ELH-125",
+      "title": "Occupational Health, Safety & Environmental Systems",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 12,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "acd6cfb20e61f9c18b4ec2f0187c0d245616c3b5b306124ff5230c97cbdd5ad4"
+    },
+    {
+      "id": 802,
+      "courseCode": "ELH-126",
+      "title": "Facilities Energy Management for Specialists",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 12,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "02bb0f74e918d790ac693a1c3b420310505fe67b8dbd2b28ee8013db7f1ada60"
+    },
+    {
+      "id": 803,
+      "courseCode": "ELH-127",
+      "title": "Sustainable Supply Chain Management for Procurement",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 12,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "234cd4458ba707c4eefaf4b9d407f56c340e29b1ec52e01336bc222969ce6bad"
+    },
+    {
+      "id": 804,
+      "courseCode": "ELH-129",
+      "title": "Environmental Risk & Compliance Management",
+      "version": 1,
+      "level": "Role Specialist",
+      "categoryId": 12,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "7ca004e4294c842b09f20e57674ff53793d392efedcb36e79255b195f72c0564"
+    },
+    {
+      "id": 743,
+      "courseCode": "ELH-133",
+      "title": "Advanced GHG Accounting: Scope 1, 2 & 3 Emissions",
+      "version": 1,
+      "level": "Specialist",
+      "categoryId": 13,
+      "lessonCount": 6,
+      "questionCount": 8,
+      "beforeChecksum": "f152dbd60935d2758efa6299faa63a005f8a8991f7729b6e40ca47ed517835f8"
+    }
+  ]
+}
