@@ -2,6 +2,7 @@ import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
+import { execSync } from "node:child_process";
 import { CANONICAL_COURSE_IMAGE_MANIFEST, FALLBACK_COURSE_IMAGE, getCourseImageRecord } from "./courseImageManifest.js";
 import { db, coursesTable, lessonsTable, enrollmentsTable, companiesTable } from "@workspace/db";
 import { asc, notLike, eq, count } from "drizzle-orm";
@@ -63,18 +64,30 @@ describe("Sprint 15.2.9A — Course Image Visual QA & Deployment Closure Suite",
     });
   });
 
-  // Gate 6: Every SVG has a valid 16:9 ViewBox
-  it("Gate 6: Every SVG has a valid 16:9 ViewBox", () => {
+  // Gate 6: Every asset has a valid 16:9 aspect ratio or valid ViewBox
+  it("Gate 6: Every asset has a valid 16:9 aspect ratio or valid ViewBox", () => {
     CANONICAL_COURSE_IMAGE_MANIFEST.forEach(c => {
       const fullPath = path.join(publicDir, c.imagePath.replace(/^\//, ""));
-      const content = fs.readFileSync(fullPath, "utf-8");
-      assert.ok(content.includes("<svg"), `File ${c.imagePath} is not valid SVG`);
-      assert.ok(content.includes('viewBox="0 0 1600 900"') || content.includes('viewBox="0 0 1920 1080"'), `SVG for ${c.courseCode} must have a 16:9 viewBox`);
+      assert.ok(fs.existsSync(fullPath), `File ${c.imagePath} must exist`);
+      if (c.imagePath.endsWith(".svg")) {
+        const content = fs.readFileSync(fullPath, "utf-8");
+        assert.ok(content.includes("<svg"), `File ${c.imagePath} is not valid SVG`);
+        assert.ok(content.includes('viewBox="0 0 1600 900"') || content.includes('viewBox="0 0 1920 1080"'), `SVG for ${c.courseCode} must have a 16:9 viewBox`);
+      } else {
+        const out = execSync(`sips -g pixelWidth -g pixelHeight "${fullPath}"`).toString();
+        const wMatch = out.match(/pixelWidth:\s*(\d+)/);
+        const hMatch = out.match(/pixelHeight:\s*(\d+)/);
+        const w = parseInt(wMatch?.[1] || "0", 10);
+        const h = parseInt(hMatch?.[1] || "0", 10);
+        assert.ok(w >= 1280 && h >= 720, `Dimensions ${w}x${h} too small for ${c.courseCode}`);
+        const ratio = w / h;
+        assert.ok(Math.abs(ratio - 16 / 9) < 0.05, `Aspect ratio ${ratio} must be 16:9 for ${c.courseCode}`);
+      }
     });
   });
 
-  // Gate 7: Every SVG remains within the approved size budget (< 250 KB)
-  it("Gate 7: Every SVG remains within the approved size budget (< 250 KB)", () => {
+  // Gate 7: Every asset remains within the approved size budget (< 250 KB)
+  it("Gate 7: Every asset remains within the approved size budget (< 250 KB)", () => {
     CANONICAL_COURSE_IMAGE_MANIFEST.forEach(c => {
       const fullPath = path.join(publicDir, c.imagePath.replace(/^\//, ""));
       const stat = fs.statSync(fullPath);
@@ -85,25 +98,29 @@ describe("Sprint 15.2.9A — Course Image Visual QA & Deployment Closure Suite",
     });
   });
 
-  // Gate 8: SVGs contain no external script
-  it("Gate 8: SVGs contain no external script", () => {
+  // Gate 8: Assets contain no external script
+  it("Gate 8: Assets contain no external script", () => {
     CANONICAL_COURSE_IMAGE_MANIFEST.forEach(c => {
       const fullPath = path.join(publicDir, c.imagePath.replace(/^\//, ""));
-      const content = fs.readFileSync(fullPath, "utf-8");
-      assert.ok(!content.includes("<script"), `SVG for ${c.courseCode} contains <script>`);
-      assert.ok(!content.includes("javascript:"), `SVG for ${c.courseCode} contains javascript: pseudo-protocol`);
-      assert.ok(!content.includes("onload="), `SVG for ${c.courseCode} contains inline onload`);
+      if (c.imagePath.endsWith(".svg")) {
+        const content = fs.readFileSync(fullPath, "utf-8");
+        assert.ok(!content.includes("<script"), `SVG for ${c.courseCode} contains <script>`);
+        assert.ok(!content.includes("javascript:"), `SVG for ${c.courseCode} contains javascript: pseudo-protocol`);
+        assert.ok(!content.includes("onload="), `SVG for ${c.courseCode} contains inline onload`);
+      }
     });
   });
 
-  // Gate 9: SVGs contain no external image dependency
-  it("Gate 9: SVGs contain no external image dependency", () => {
+  // Gate 9: Assets contain no external image dependency
+  it("Gate 9: Assets contain no external image dependency", () => {
     CANONICAL_COURSE_IMAGE_MANIFEST.forEach(c => {
       const fullPath = path.join(publicDir, c.imagePath.replace(/^\//, ""));
-      const content = fs.readFileSync(fullPath, "utf-8");
-      assert.ok(!content.includes('href="http://'), `SVG for ${c.courseCode} contains external http reference`);
-      assert.ok(!content.includes('href="https://'), `SVG for ${c.courseCode} contains external https reference`);
-      assert.ok(!content.includes('xlink:href="http'), `SVG for ${c.courseCode} contains external xlink reference`);
+      if (c.imagePath.endsWith(".svg")) {
+        const content = fs.readFileSync(fullPath, "utf-8");
+        assert.ok(!content.includes('href="http://'), `SVG for ${c.courseCode} contains external http reference`);
+        assert.ok(!content.includes('href="https://'), `SVG for ${c.courseCode} contains external https reference`);
+        assert.ok(!content.includes('xlink:href="http'), `SVG for ${c.courseCode} contains external xlink reference`);
+      }
     });
   });
 
