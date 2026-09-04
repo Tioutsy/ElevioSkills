@@ -387,7 +387,7 @@ export default function Courses() {
             </div>
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {displayedCourses.map((course) => {
+              {displayedCourses.map((course, idx) => {
                 const enrollment = enrollmentMap.get(course.id);
                 const isCompleted = enrollment?.status === "completed";
                 const isInProgress = (enrollment?.status as string) === "active" || (enrollment?.status as string) === "in_progress";
@@ -455,6 +455,7 @@ export default function Courses() {
                         src={course.thumbnailUrl}
                         courseCode={(course as any).courseCode}
                         alt={course.title}
+                        priority={idx < 4}
                         className={cn(
                           "w-full h-full object-cover transition-transform duration-500 group-hover:scale-105",
                           isPlanLocked && "opacity-85 grayscale-[20%]"

@@ -324,7 +324,7 @@ export default function Dashboard() {
               </Button>
             </div>
           ) : (
-            activeEnrollments.map((enrollment) => (
+            activeEnrollments.map((enrollment, idx) => (
               <Link key={enrollment.id} href={`/learn/${enrollment.id}`}>
                 <div className="group bg-card border rounded-xl p-4 flex gap-4 items-center hover:shadow-md hover:border-primary/30 transition-all cursor-pointer">
                   <div className="w-36 aspect-video rounded-lg overflow-hidden shrink-0 relative bg-muted">
@@ -332,6 +332,7 @@ export default function Dashboard() {
                       src={enrollment.courseThumbnail} 
                       courseCode={(enrollment as any).courseCode}
                       alt={enrollment.courseName || "Enrolled Course"} 
+                      priority={idx < 2}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform" 
                     />
                     <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">

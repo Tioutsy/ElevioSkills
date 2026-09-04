@@ -135,7 +135,7 @@ export default function Home() {
                   <Skeleton className="h-4 w-1/2" />
                 </div>
               ))
-            ) : featuredCourses?.map((course) => (
+            ) : featuredCourses?.map((course, idx) => (
               <Link key={course.id} href={`/courses/${course.id}`}>
                 <div className="group bg-card border rounded-2xl overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer h-full flex flex-col">
                   <div className="relative aspect-video overflow-hidden">
@@ -143,6 +143,7 @@ export default function Home() {
                       src={course.thumbnailUrl} 
                       courseCode={(course as any).courseCode}
                       alt={course.title} 
+                      priority={idx < 3}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3 flex gap-2">

@@ -19,19 +19,21 @@ export async function ensureCourseImages(): Promise<{
 
   logger.info({ totalCourses: CANONICAL_COURSE_IMAGE_MANIFEST.length }, "Checking and reconciling canonical course images...");
 
-  for (const record of CANONICAL_COURSE_IMAGE_MANIFEST) {
-    const existing = await db
-      .select({ id: coursesTable.id, code: coursesTable.courseCode, thumbnailUrl: coursesTable.thumbnailUrl })
-      .from(coursesTable)
-      .where(eq(coursesTable.courseCode, record.courseCode))
-      .limit(1);
+  // Fetch all existing courses in a single query for maximum speed and zero latency overhead
+  const existingCourses = await db
+    .select({ id: coursesTable.id, code: coursesTable.courseCode, thumbnailUrl: coursesTable.thumbnailUrl })
+    .from(coursesTable);
 
-    if (existing.length === 0) {
+  const courseMap = new Map(existingCourses.map(c => [c.code, c]));
+
+  for (const record of CANONICAL_COURSE_IMAGE_MANIFEST) {
+    const current = courseMap.get(record.courseCode);
+
+    if (!current) {
       logger.warn({ courseCode: record.courseCode }, "Course not found in database during image reconciliation");
       continue;
     }
 
-    const current = existing[0];
     if (current.thumbnailUrl === record.imagePath) {
       alreadyCorrect++;
     } else {
