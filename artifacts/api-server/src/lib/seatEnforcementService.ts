@@ -50,7 +50,7 @@ export function getBandMaxSeats(bandCode: string | null, contractualLimit?: numb
     case "FROM_81_TO_120":
       return 120;
     case "OVER_120":
-      return 250;
+      return contractualLimit && contractualLimit > 0 ? contractualLimit : 120;
     default:
       return 25;
   }

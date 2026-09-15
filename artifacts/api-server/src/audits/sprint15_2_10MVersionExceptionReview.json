@@ -1,0 +1,23 @@
+{
+  "sprint": "Sprint 15.2.10M",
+  "auditDate": "2026-09-09T12:24:08.689Z",
+  "identifiedCourse": {
+    "courseCode": "ELH-12",
+    "databaseId": 12,
+    "title": "Final Sustainability Certification",
+    "currentVersion": 1,
+    "passingScore": 80,
+    "questionCount": 15,
+    "governingSprint": "Sprint 14.12 / Sprint 15.2.10A-L Capstone Architecture",
+    "contentSubstantivelyChanged": false,
+    "historicalRecordsLinked": {
+      "certificates": 0,
+      "enrollments": 0,
+      "attempts": 0
+    },
+    "applicableVersionPolicy": "Standard curriculum version policy dictates that foundational courses created with compliant 80% passing threshold and comprehensive scenario-based assessment remain at Version 1 until a major curriculum restructuring occurs. Cohort remediation B through L upgraded 135 courses to Version 2 upon revising passing scores or authoring new option-level feedback.",
+    "reasonForVersion1": "ELH-12 is the 15-question capstone certification exam across the 11 Core Sustainability courses (ELH-01..11). It was authored from inception with an 80% pass threshold (12/15 questions) and complete scenario depth. Because it was inherently compliant and was not a member of the modular remediation cohorts (B through L), its version remained at 1.",
+    "correctionRequired": false,
+    "disposition": "APPROVED_EXCEPTION — Version 1 is intentional, policy-compliant, and fully preserves learner certificate provenance."
+  }
+}

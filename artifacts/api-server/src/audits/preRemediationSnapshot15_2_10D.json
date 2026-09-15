@@ -1,0 +1,1928 @@
+{
+  "capturedAt": "2026-09-05T07:06:07.986Z",
+  "sprint": "15.2.10D",
+  "canonicalCourseCount": 136,
+  "catalogueScoredQuestionCount": 1208,
+  "diagnosticItemCount": 88,
+  "historicalLearnerData": {
+    "attemptsCount": 16,
+    "enrollmentsCount": 22,
+    "certificatesCount": 6,
+    "badgeDefinitionsCount": 133,
+    "scoreLedgerCount": 6
+  },
+  "cohortMetadata": [
+    {
+      "courseCode": "ELH-36",
+      "courseId": 808,
+      "title": "Sustainable Commercial Kitchens & Culinary",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "All questions default to correct_option index 1",
+        "Passing score non-standard at 75%",
+        "Needs deeper culinary operations scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with distributed correct answers, comprehensive 4-element option feedback, and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-37",
+      "courseId": 809,
+      "title": "Hotel Food Waste Prevention & Composting",
+      "currentVersion": 1,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 80,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Missing 4-element option feedback",
+        "Boilerplate distractors",
+        "Needs practical composting and waste measurement scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "DEFICIENT_FEEDBACK",
+      "proposedRemediation": "Remediate 8 scored questions with detailed 4-element option feedback, Bloom level application/analysis, and advance course version to 2."
+    },
+    {
+      "courseCode": "ELH-38",
+      "courseId": 724,
+      "title": "Hotel Laundry & Water Stewardship",
+      "currentVersion": 1,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 70,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Missing 4-element option feedback",
+        "Passing score at 70%",
+        "Needs commercial laundry water recycling and chemical dosing scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "DEFICIENT_FEEDBACK",
+      "proposedRemediation": "Remediate 8 scored questions with high-fidelity operational scenarios, complete 4-element option feedback, standardize passing score to 80%, and advance version to 2."
+    },
+    {
+      "courseCode": "ELH-39",
+      "courseId": 810,
+      "title": "Hotel Engineering: Central Plant & HVAC Optimization",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "All questions default to correct_option index 1",
+        "Passing score non-standard at 75%",
+        "Needs chiller plant delta-T and VAV control scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with varied answer distributions, chiller/HVAC engineering scenarios, complete 4-element option feedback, and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-40",
+      "courseId": 725,
+      "title": "Resort Guest Engagement & Green Nudges",
+      "currentVersion": 1,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 70,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Missing 4-element option feedback",
+        "Passing score at 70%",
+        "Needs behavioral nudge and guest communication scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "DEFICIENT_FEEDBACK",
+      "proposedRemediation": "Remediate 8 scored questions with behavioral choice architecture scenarios, 4-element feedback, standardize passing score to 80%, and advance version to 2."
+    },
+    {
+      "courseCode": "ELH-41",
+      "courseId": 726,
+      "title": "Sustainable Event & Banquet Management",
+      "currentVersion": 1,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 70,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Missing 4-element option feedback",
+        "Passing score at 70%",
+        "Needs ISO 20121 and zero-waste event planning scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "DEFICIENT_FEEDBACK",
+      "proposedRemediation": "Remediate 8 scored questions with banquet portioning and sustainable decor scenarios, complete 4-element feedback, standardize passing score to 80%, and advance version to 2."
+    },
+    {
+      "courseCode": "ELH-42",
+      "courseId": 744,
+      "title": "Eco-Friendly Pool, Spa & Wellness Operations",
+      "currentVersion": 1,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 70,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Missing 4-element option feedback",
+        "Generic boilerplate questions",
+        "Passing score at 70%"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "DEFICIENT_FEEDBACK",
+      "proposedRemediation": "Remediate 8 scored questions with pool filtration, water chemistry, and spa eco-linen scenarios, 4-element feedback, standardize passing score to 80%, and advance version to 2."
+    },
+    {
+      "courseCode": "ELH-43",
+      "courseId": 745,
+      "title": "Energy-Efficient Hotel Guest Rooms & Smart Controls",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "All questions default to correct_option index 1",
+        "Passing score non-standard at 75%",
+        "Needs smart EMS and setback algorithm scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with varied answer indexes, smart EMS/interlock scenarios, 4-element feedback, and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-44",
+      "courseId": 772,
+      "title": "Sustainable Single-Use Plastic Elimination in Resorts",
+      "currentVersion": 1,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 70,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Missing 4-element option feedback",
+        "Generic boilerplate distractors",
+        "Passing score at 70%"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "DEFICIENT_FEEDBACK",
+      "proposedRemediation": "Remediate 8 scored questions with refillable dispenser logistics, glass bottling plant workflows, 4-element feedback, standardize passing score to 80%, and advance version to 2."
+    },
+    {
+      "courseCode": "ELH-45",
+      "courseId": 727,
+      "title": "Sustainable Hospitality Sourcing & Local Purchasing",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "All questions default to correct_option index 1",
+        "Passing score non-standard at 75%",
+        "Needs supplier audit and local farming contract scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with balanced answer distributions, sustainable seafood (MSC/ASC) and closed-loop packaging scenarios, 4-element feedback, and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-46",
+      "courseId": 746,
+      "title": "Eco-Tourism & Marine Biodiversity Protection",
+      "currentVersion": 1,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 70,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Missing 4-element option feedback",
+        "Generic boilerplate questions",
+        "Passing score at 70%"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "DEFICIENT_FEEDBACK",
+      "proposedRemediation": "Remediate 8 scored questions with coral reef protection, water sports eco-briefings, wildlife viewing guidelines, 4-element feedback, standardize passing score to 80%, and advance version to 2."
+    },
+    {
+      "courseCode": "ELH-47",
+      "courseId": 811,
+      "title": "Green Leases & Tenant Sustainability Engagement",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "All questions default to correct_option index 1",
+        "Passing score non-standard at 75%",
+        "Needs split-incentive clause and fit-out governance scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with balanced answer keys, sub-metering data sharing, capital cost recovery clauses, 4-element feedback, and standardize passing score to 80%."
+    }
+  ],
+  "cohortCourses": [
+    {
+      "id": 808,
+      "code": "ELH-36",
+      "title": "Sustainable Commercial Kitchens & Culinary",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 809,
+      "code": "ELH-37",
+      "title": "Hotel Food Waste Prevention & Composting",
+      "version": 1,
+      "passingScore": 80
+    },
+    {
+      "id": 724,
+      "code": "ELH-38",
+      "title": "Hotel Laundry & Water Stewardship",
+      "version": 1,
+      "passingScore": 70
+    },
+    {
+      "id": 810,
+      "code": "ELH-39",
+      "title": "Hotel Engineering: Central Plant & HVAC Optimization",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 725,
+      "code": "ELH-40",
+      "title": "Resort Guest Engagement & Green Nudges",
+      "version": 1,
+      "passingScore": 70
+    },
+    {
+      "id": 726,
+      "code": "ELH-41",
+      "title": "Sustainable Event & Banquet Management",
+      "version": 1,
+      "passingScore": 70
+    },
+    {
+      "id": 744,
+      "code": "ELH-42",
+      "title": "Eco-Friendly Pool, Spa & Wellness Operations",
+      "version": 1,
+      "passingScore": 70
+    },
+    {
+      "id": 745,
+      "code": "ELH-43",
+      "title": "Energy-Efficient Hotel Guest Rooms & Smart Controls",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 772,
+      "code": "ELH-44",
+      "title": "Sustainable Single-Use Plastic Elimination in Resorts",
+      "version": 1,
+      "passingScore": 70
+    },
+    {
+      "id": 727,
+      "code": "ELH-45",
+      "title": "Sustainable Hospitality Sourcing & Local Purchasing",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 746,
+      "code": "ELH-46",
+      "title": "Eco-Tourism & Marine Biodiversity Protection",
+      "version": 1,
+      "passingScore": 70
+    },
+    {
+      "id": 811,
+      "code": "ELH-47",
+      "title": "Green Leases & Tenant Sustainability Engagement",
+      "version": 2,
+      "passingScore": 75
+    }
+  ],
+  "cohortQuestions": [
+    {
+      "id": 9078,
+      "courseId": 724,
+      "orderIndex": 1,
+      "options": [
+        "To generate unnecessary paperwork that slows down daily workplace tasks",
+        "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+        "To replace all human employees with automated robots",
+        "To eliminate all customer interactions permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "314f937030a639c38d94f6ba186b40bd4b3b38e1c2cf1f2f28d64a4bd76366f0"
+    },
+    {
+      "id": 9079,
+      "courseId": 724,
+      "orderIndex": 2,
+      "options": [
+        "They are only created for decorative office displays",
+        "They prevent employees from ever taking breaks",
+        "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+        "They make simple tasks impossible to finish"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "e57473315b3e95eda0a4567b790ba7bae9c82940419396f1e1468c8deb805988"
+    },
+    {
+      "id": 9080,
+      "courseId": 724,
+      "orderIndex": 3,
+      "options": [
+        "Logged immediately in the tracking register and escalated according to the defined response protocol",
+        "Ignored completely hoping no one notices",
+        "Concealed from team supervisors",
+        "Blamed on external vendors without investigation"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "2323451e52d31ad8dc72648e428ca2e19b9ed08b5f332031f67ec977f49060b8"
+    },
+    {
+      "id": 9081,
+      "courseId": 724,
+      "orderIndex": 4,
+      "options": [
+        "Increased employee turnover",
+        "Guaranteed bankruptcy within 30 days",
+        "Higher municipal landfill penalty taxes",
+        "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "1b9c5bcccba1683c65c7d10fd204cca0e5f4fd1597ba19fa0af5b2ce48b81e87"
+    },
+    {
+      "id": 9082,
+      "courseId": 724,
+      "orderIndex": 5,
+      "options": [
+        "It is purely an aesthetic exercise with zero business value",
+        "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+        "It is only performed when an inspector is standing in the building",
+        "It replaces the need for actual equipment maintenance"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "9ff4ad94c1816b95dfd4533b5e0058ecb94de1f868eddc1e244f211d6f7f5ae9"
+    },
+    {
+      "id": 9083,
+      "courseId": 724,
+      "orderIndex": 6,
+      "options": [
+        "Send anonymous complaint letters to the executive board",
+        "Refuse to communicate with any other department",
+        "Compete destructively for the same resources without coordination",
+        "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "955f2890d9ee33df9d3ce8fb9add5a86bcf685ad74058308ab244b5cb78b5751"
+    },
+    {
+      "id": 9084,
+      "courseId": 724,
+      "orderIndex": 7,
+      "options": [
+        "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+        "Automatic award of international sustainability prizes",
+        "Instant elimination of corporate taxes",
+        "Zero consequences under all circumstances"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "081e1c05ea9cc000a7f5753009ed519c52344b9b600e4caa9bd2949ba34abe74"
+    },
+    {
+      "id": 9085,
+      "courseId": 724,
+      "orderIndex": 8,
+      "options": [
+        "It is a legal formality with no practical purpose",
+        "It allows managers to cancel all future sustainability efforts",
+        "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+        "It ensures that no process changes are ever permitted"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "c2b674bffd648b161314160735157607212304fda8fabcb88eaf855dcad10d1d"
+    },
+    {
+      "id": 9086,
+      "courseId": 725,
+      "orderIndex": 1,
+      "options": [
+        "To generate unnecessary paperwork that slows down daily workplace tasks",
+        "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+        "To replace all human employees with automated robots",
+        "To eliminate all customer interactions permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "314f937030a639c38d94f6ba186b40bd4b3b38e1c2cf1f2f28d64a4bd76366f0"
+    },
+    {
+      "id": 9087,
+      "courseId": 725,
+      "orderIndex": 2,
+      "options": [
+        "They are only created for decorative office displays",
+        "They prevent employees from ever taking breaks",
+        "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+        "They make simple tasks impossible to finish"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "e57473315b3e95eda0a4567b790ba7bae9c82940419396f1e1468c8deb805988"
+    },
+    {
+      "id": 9088,
+      "courseId": 725,
+      "orderIndex": 3,
+      "options": [
+        "Logged immediately in the tracking register and escalated according to the defined response protocol",
+        "Ignored completely hoping no one notices",
+        "Concealed from team supervisors",
+        "Blamed on external vendors without investigation"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "2323451e52d31ad8dc72648e428ca2e19b9ed08b5f332031f67ec977f49060b8"
+    },
+    {
+      "id": 9089,
+      "courseId": 725,
+      "orderIndex": 4,
+      "options": [
+        "Increased employee turnover",
+        "Guaranteed bankruptcy within 30 days",
+        "Higher municipal landfill penalty taxes",
+        "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "1b9c5bcccba1683c65c7d10fd204cca0e5f4fd1597ba19fa0af5b2ce48b81e87"
+    },
+    {
+      "id": 9090,
+      "courseId": 725,
+      "orderIndex": 5,
+      "options": [
+        "It is purely an aesthetic exercise with zero business value",
+        "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+        "It is only performed when an inspector is standing in the building",
+        "It replaces the need for actual equipment maintenance"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "9ff4ad94c1816b95dfd4533b5e0058ecb94de1f868eddc1e244f211d6f7f5ae9"
+    },
+    {
+      "id": 9091,
+      "courseId": 725,
+      "orderIndex": 6,
+      "options": [
+        "Send anonymous complaint letters to the executive board",
+        "Refuse to communicate with any other department",
+        "Compete destructively for the same resources without coordination",
+        "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "955f2890d9ee33df9d3ce8fb9add5a86bcf685ad74058308ab244b5cb78b5751"
+    },
+    {
+      "id": 9092,
+      "courseId": 725,
+      "orderIndex": 7,
+      "options": [
+        "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+        "Automatic award of international sustainability prizes",
+        "Instant elimination of corporate taxes",
+        "Zero consequences under all circumstances"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "081e1c05ea9cc000a7f5753009ed519c52344b9b600e4caa9bd2949ba34abe74"
+    },
+    {
+      "id": 9093,
+      "courseId": 725,
+      "orderIndex": 8,
+      "options": [
+        "It is a legal formality with no practical purpose",
+        "It allows managers to cancel all future sustainability efforts",
+        "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+        "It ensures that no process changes are ever permitted"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "c2b674bffd648b161314160735157607212304fda8fabcb88eaf855dcad10d1d"
+    },
+    {
+      "id": 9094,
+      "courseId": 726,
+      "orderIndex": 1,
+      "options": [
+        "To generate unnecessary paperwork that slows down daily workplace tasks",
+        "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+        "To replace all human employees with automated robots",
+        "To eliminate all customer interactions permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "314f937030a639c38d94f6ba186b40bd4b3b38e1c2cf1f2f28d64a4bd76366f0"
+    },
+    {
+      "id": 9095,
+      "courseId": 726,
+      "orderIndex": 2,
+      "options": [
+        "They are only created for decorative office displays",
+        "They prevent employees from ever taking breaks",
+        "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+        "They make simple tasks impossible to finish"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "e57473315b3e95eda0a4567b790ba7bae9c82940419396f1e1468c8deb805988"
+    },
+    {
+      "id": 9096,
+      "courseId": 726,
+      "orderIndex": 3,
+      "options": [
+        "Logged immediately in the tracking register and escalated according to the defined response protocol",
+        "Ignored completely hoping no one notices",
+        "Concealed from team supervisors",
+        "Blamed on external vendors without investigation"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "2323451e52d31ad8dc72648e428ca2e19b9ed08b5f332031f67ec977f49060b8"
+    },
+    {
+      "id": 9097,
+      "courseId": 726,
+      "orderIndex": 4,
+      "options": [
+        "Increased employee turnover",
+        "Guaranteed bankruptcy within 30 days",
+        "Higher municipal landfill penalty taxes",
+        "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "1b9c5bcccba1683c65c7d10fd204cca0e5f4fd1597ba19fa0af5b2ce48b81e87"
+    },
+    {
+      "id": 9098,
+      "courseId": 726,
+      "orderIndex": 5,
+      "options": [
+        "It is purely an aesthetic exercise with zero business value",
+        "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+        "It is only performed when an inspector is standing in the building",
+        "It replaces the need for actual equipment maintenance"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "9ff4ad94c1816b95dfd4533b5e0058ecb94de1f868eddc1e244f211d6f7f5ae9"
+    },
+    {
+      "id": 9099,
+      "courseId": 726,
+      "orderIndex": 6,
+      "options": [
+        "Send anonymous complaint letters to the executive board",
+        "Refuse to communicate with any other department",
+        "Compete destructively for the same resources without coordination",
+        "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "955f2890d9ee33df9d3ce8fb9add5a86bcf685ad74058308ab244b5cb78b5751"
+    },
+    {
+      "id": 9100,
+      "courseId": 726,
+      "orderIndex": 7,
+      "options": [
+        "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+        "Automatic award of international sustainability prizes",
+        "Instant elimination of corporate taxes",
+        "Zero consequences under all circumstances"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "081e1c05ea9cc000a7f5753009ed519c52344b9b600e4caa9bd2949ba34abe74"
+    },
+    {
+      "id": 9101,
+      "courseId": 726,
+      "orderIndex": 8,
+      "options": [
+        "It is a legal formality with no practical purpose",
+        "It allows managers to cancel all future sustainability efforts",
+        "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+        "It ensures that no process changes are ever permitted"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "c2b674bffd648b161314160735157607212304fda8fabcb88eaf855dcad10d1d"
+    },
+    {
+      "id": 19992,
+      "courseId": 727,
+      "orderIndex": 0,
+      "options": [
+        "It makes the receiving dock smell like gasoline.",
+        "It eliminates hundreds of thousands of disposable packaging units, cuts dock waste handling labor, and protects fresh produce from transport crushing.",
+        "It increases the weight of cardboard in landfills by 500%.",
+        "It requires suppliers to fly produce on private planes."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Food-grade plastic crates are odorless and sanitized.",
+        "Correct! Returnable crates eliminate disposable packaging waste, lower handling labor, and prevent product damage.",
+        "Incorrect. Reusable crates eliminate cardboard from entering landfills.",
+        "Incorrect. Reusable packaging is optimized for ground and marine freight, not private planes."
+      ],
+      "checksum": "8bed342aa77e054093d8f2789a1a0ee5c4afae5aab68f0d2054e6b6e11ebe29f"
+    },
+    {
+      "id": 19993,
+      "courseId": 727,
+      "orderIndex": 1,
+      "options": [
+        "Purchasing exclusively frozen imported fish sticks.",
+        "100% elimination of endangered/IUCN red-listed marine species and strict adherence to statutory seasonal fishing bans (e.g. octopus bans).",
+        "Permitting chefs to buy undersized juvenile fish if offered at a 50% discount.",
+        "Allowing spearfishing in marine protected reserves."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Frozen fish sticks do not represent sustainable local culinary procurement.",
+        "Correct! Eliminating endangered species and honoring seasonal breeding closures is mandatory for marine conservation compliance.",
+        "Incorrect. Purchasing undersized juvenile fish destroys marine breeding stock.",
+        "Incorrect. Fishing in marine protected reserves is an illegal act that violates environmental law."
+      ],
+      "checksum": "2aa39de3669764efba16f378f823943faeea736085f65e274a90f63910e8f101"
+    },
+    {
+      "id": 19994,
+      "courseId": 727,
+      "orderIndex": 2,
+      "options": [
+        "Because local growers can produce heavy machinery on demand.",
+        "It reduces vulnerability to maritime shipping disruptions, lowers Scope 3 freight emissions, and guarantees fresher produce while supporting community economies.",
+        "It allows hotels to avoid paying for food entirely.",
+        "It eliminates the need for refrigeration in hotel kitchens."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Agricultural cooperatives specialize in food production, not heavy equipment.",
+        "Correct! Local grower partnerships reduce shipping vulnerability, cut carbon footprint, and ensure culinary freshness.",
+        "Incorrect. Food procurement involves fair financial compensation for growers.",
+        "Incorrect. Food safety refrigeration remains essential for all fresh ingredients."
+      ],
+      "checksum": "5c451bcd66d1bde1c3951ff1b208a34a113dad5b3fa168cafacd555553e2baa9"
+    },
+    {
+      "id": 19995,
+      "courseId": 727,
+      "orderIndex": 3,
+      "options": [
+        "0% (price must be the only selection factor).",
+        "10% to 15% of total evaluation scoring weighting.",
+        "100% (pricing and food quality should be completely ignored).",
+        "500%."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. A 0% weighting ignores supply chain ESG risks and packaging waste.",
+        "Correct! A 10-15% ESG tender weighting drives vendor sustainability compliance while maintaining competitive commercial terms.",
+        "Incorrect. 100% weighting ignores culinary quality and financial viability.",
+        "Incorrect. 500% is mathematically invalid."
+      ],
+      "checksum": "409620aae93f9a0cab52f155ce62bce8e3eca6207c25226eaa0bd269d05d6442"
+    },
+    {
+      "id": 19996,
+      "courseId": 727,
+      "orderIndex": 4,
+      "options": [
+        "Award them a 10-year exclusive monopoly contract.",
+        "Engage with the vendor to address specific concerns, provide guidance on compliance, and establish a time-bound phase-in period or transition to a compliant alternative supplier.",
+        "Immediately delete all historical purchasing records.",
+        "Ignore the refusal and pretend the document was signed."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Rewarding non-compliance destroys supply chain governance.",
+        "Correct! Explaining standards, providing phase-in support, and holding firm on compliance maintains supply integrity.",
+        "Incorrect. Deleting purchasing records violates financial accounting laws.",
+        "Incorrect. Falsifying compliance signatures violates corporate governance and audit standards."
+      ],
+      "checksum": "14b47728f4199eb6341ad406f2c74686274697a866f0f2a91bcfd59fcf21d531"
+    },
+    {
+      "id": 19997,
+      "courseId": 727,
+      "orderIndex": 5,
+      "options": [
+        "European water freezes instantly in the tropics.",
+        "It generates massive Scope 3 maritime/air freight carbon emissions and creates vast quantities of non-recyclable glass and plastic waste compared to on-site filtration and bottling.",
+        "European water has no minerals.",
+        "Imported water causes hotel elevators to stop functioning."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Water does not freeze in tropical ambient temperatures.",
+        "Correct! Long-distance freight emissions and packaging waste make imported water ecologically unsustainable compared to on-site bottling.",
+        "Incorrect. Mineral content varies by source, but freight carbon remains the primary impact.",
+        "Incorrect. Water imports have zero interaction with elevator machinery."
+      ],
+      "checksum": "c06e205e2f544851874583d232947bc2f1b9ac505f816b442c6ca1eb7a0f17aa"
+    },
+    {
+      "id": 19998,
+      "courseId": 727,
+      "orderIndex": 6,
+      "options": [
+        "Uncontrolled chemical pesticide spraying directly adjacent to natural freshwater streams.",
+        "Drip irrigation systems, integrated pest management (IPM), compost enrichment, and proper PPE for agricultural workers.",
+        "Piles of burning plastic pesticide containers behind the greenhouse.",
+        "Empty chemical barrels discarded into local irrigation canals."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Spraying pesticides near waterways is a severe pollution and regulatory violation.",
+        "Correct! Drip irrigation, IPM biological controls, soil composting, and worker PPE reflect exemplary agricultural standards.",
+        "Incorrect. Burning plastic releases carcinogenic dioxins and violates environmental laws.",
+        "Incorrect. Dumping chemical barrels into canals is an illegal act of water contamination."
+      ],
+      "checksum": "44e9550e0356a9a785a361c9cf762d43b1bce9fd1338513105806c574417a850"
+    },
+    {
+      "id": 19999,
+      "courseId": 727,
+      "orderIndex": 7,
+      "options": [
+        "Cancel all food purchasing and order guests to fast.",
+        "Audit top 10 suppliers for returnable crate adoption, implement a Sustainable Seafood Policy with chefs, and issue the Supplier Code of Conduct.",
+        "Switch all purchasing exclusively to unvetted overseas internet vendors.",
+        "Allow suppliers to deliver produce in single-use styrofoam without inspection."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Denying food violates hospitality business continuity.",
+        "Correct! Auditing returnable crates, establishing seafood policies, and rolling out the Supplier Code establishes immediate control.",
+        "Incorrect. Unvetted overseas vendors increase freight emissions and supply risks.",
+        "Incorrect. Accepting uninspected styrofoam violates zero-waste standards."
+      ],
+      "checksum": "21b3ae448f562653fb577dc85aaacb1432a6c686a91e53976da9bc91c5e82dbc"
+    },
+    {
+      "id": 9238,
+      "courseId": 744,
+      "orderIndex": 1,
+      "options": [
+        "To generate unnecessary paperwork that slows down daily workplace tasks",
+        "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+        "To replace all human employees with automated robots",
+        "To eliminate all customer interactions permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "314f937030a639c38d94f6ba186b40bd4b3b38e1c2cf1f2f28d64a4bd76366f0"
+    },
+    {
+      "id": 9239,
+      "courseId": 744,
+      "orderIndex": 2,
+      "options": [
+        "They are only created for decorative office displays",
+        "They prevent employees from ever taking breaks",
+        "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+        "They make simple tasks impossible to finish"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "e57473315b3e95eda0a4567b790ba7bae9c82940419396f1e1468c8deb805988"
+    },
+    {
+      "id": 9240,
+      "courseId": 744,
+      "orderIndex": 3,
+      "options": [
+        "Logged immediately in the tracking register and escalated according to the defined response protocol",
+        "Ignored completely hoping no one notices",
+        "Concealed from team supervisors",
+        "Blamed on external vendors without investigation"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "2323451e52d31ad8dc72648e428ca2e19b9ed08b5f332031f67ec977f49060b8"
+    },
+    {
+      "id": 9241,
+      "courseId": 744,
+      "orderIndex": 4,
+      "options": [
+        "Increased employee turnover",
+        "Guaranteed bankruptcy within 30 days",
+        "Higher municipal landfill penalty taxes",
+        "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "1b9c5bcccba1683c65c7d10fd204cca0e5f4fd1597ba19fa0af5b2ce48b81e87"
+    },
+    {
+      "id": 9242,
+      "courseId": 744,
+      "orderIndex": 5,
+      "options": [
+        "It is purely an aesthetic exercise with zero business value",
+        "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+        "It is only performed when an inspector is standing in the building",
+        "It replaces the need for actual equipment maintenance"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "9ff4ad94c1816b95dfd4533b5e0058ecb94de1f868eddc1e244f211d6f7f5ae9"
+    },
+    {
+      "id": 9243,
+      "courseId": 744,
+      "orderIndex": 6,
+      "options": [
+        "Send anonymous complaint letters to the executive board",
+        "Refuse to communicate with any other department",
+        "Compete destructively for the same resources without coordination",
+        "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "955f2890d9ee33df9d3ce8fb9add5a86bcf685ad74058308ab244b5cb78b5751"
+    },
+    {
+      "id": 9244,
+      "courseId": 744,
+      "orderIndex": 7,
+      "options": [
+        "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+        "Automatic award of international sustainability prizes",
+        "Instant elimination of corporate taxes",
+        "Zero consequences under all circumstances"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "081e1c05ea9cc000a7f5753009ed519c52344b9b600e4caa9bd2949ba34abe74"
+    },
+    {
+      "id": 9245,
+      "courseId": 744,
+      "orderIndex": 8,
+      "options": [
+        "It is a legal formality with no practical purpose",
+        "It allows managers to cancel all future sustainability efforts",
+        "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+        "It ensures that no process changes are ever permitted"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "c2b674bffd648b161314160735157607212304fda8fabcb88eaf855dcad10d1d"
+    },
+    {
+      "id": 19984,
+      "courseId": 745,
+      "orderIndex": 0,
+      "options": [
+        "Keycard slots use too much electrical power to hold the card.",
+        "Guests easily bypass keycard slots by inserting business cards or dummy cards, keeping air conditioning running 24/7 in empty rooms.",
+        "Keycard slots permanently erase guest credit card data.",
+        "Keycard slots prevent room lights from functioning."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Keycard slots consume negligible power themselves.",
+        "Correct! Dummy cards easily defeat mechanical slots, whereas smart EMS detects actual human occupancy.",
+        "Incorrect. Keycard slots do not interface with banking credit cards.",
+        "Incorrect. Keycard slots turn on lights when a card is inserted."
+      ],
+      "checksum": "ff18c4ba2330754aa3d293fbf241e423ba1587e7a542bf0e0f7ef64e22b362f7"
+    },
+    {
+      "id": 19985,
+      "courseId": 745,
+      "orderIndex": 1,
+      "options": [
+        "To keep the room at 35°C to kill bacteria.",
+        "To pre-cool the guest room to a comfortable welcome temperature (e.g. 22°C) upon PMS check-in so the guest arrives to an inviting room without 24/7 pre-cooling waste.",
+        "To turn off all electricity permanently in the room.",
+        "To broadcast loud music into the hallway."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Excessive heat causes discomfort and damages interior finishes.",
+        "Correct! Pre-cooling upon front desk check-in provides a perfect guest arrival experience without cooling empty rooms for days.",
+        "Incorrect. Check-in pending activates systems just in time for arrival.",
+        "Incorrect. EMS controls thermal HVAC and lighting, not hallway audio."
+      ],
+      "checksum": "bfd8b86043326ab5c0ad6cd0a64df673bac22f9859a716429fccd455cfb5d989"
+    },
+    {
+      "id": 19986,
+      "courseId": 745,
+      "orderIndex": 2,
+      "options": [
+        "To give guests time to escape in an emergency.",
+        "To prevent annoying compressor cycling and air conditioner shutoffs when a guest briefly steps onto the balcony to look at the view.",
+        "To allow hot air to warm up the room completely.",
+        "To save electrical battery life on the door sensor."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Life safety egress is independent of HVAC door interlock delays.",
+        "Correct! A 60-second buffer prevents annoying short-cycling while stopping massive open-door cooling waste.",
+        "Incorrect. The objective is to conserve energy, not overheat rooms.",
+        "Incorrect. Hardwired or low-power wireless sensors operate reliably regardless of delay timers."
+      ],
+      "checksum": "591ed1ff50b1d299093fcbcec235578eef0af65316a29c75053b4a7f10555279"
+    },
+    {
+      "id": 19987,
+      "courseId": 745,
+      "orderIndex": 3,
+      "options": [
+        "The air conditioner will transform into an ice machine.",
+        "Warm humid ambient air enters, causing severe condensation, moisture damage, mold growth on ceilings, and massive refrigeration compressor load.",
+        "The television will automatically change channels.",
+        "The room carpet will instantly evaporate."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Chilled water coils cool air but do not produce ice cubes.",
+        "Correct! High humidity causes severe duct and ceiling condensation, leading to costly mold remediation and equipment overload.",
+        "Incorrect. TV channels are controlled by guest remotes, not humidity.",
+        "Incorrect. Moisture causes carpet dampness and mold, not evaporation."
+      ],
+      "checksum": "4da377576750bbc98acb2eee4988ea464b03b36522e13d8a1e46e84f6d60c922"
+    },
+    {
+      "id": 19988,
+      "courseId": 745,
+      "orderIndex": 4,
+      "options": [
+        "Blood-sucking insects in the bed.",
+        "Standby electrical power consumed by TVs, coffee machines, and electronics when turned off, mitigated by master switched relay circuits connected to the EMS.",
+        "High utility rates charged by electricity companies at night.",
+        "Excessive water pressure in the bathroom shower."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Vampire load is an electrical engineering term for standby power.",
+        "Correct! Master switched relays de-energize standby electronics when rooms are vacant, eliminating phantom power waste.",
+        "Incorrect. Electricity tariffs are utility rate structures, not phantom loads.",
+        "Incorrect. Water pressure is a plumbing metric, unrelated to electrical standby power."
+      ],
+      "checksum": "478be768afc56920488203f1c52fa9183033eb09a35d43d40d0cf88d9e7f4593"
+    },
+    {
+      "id": 19989,
+      "courseId": 745,
+      "orderIndex": 5,
+      "options": [
+        "Because cool-white lighting is strictly illegal in all hotel rooms worldwide.",
+        "Because warm-dim LEDs replicate traditional incandescent ambience, enhance relaxation and circadian sleep quality, and deliver 80%+ energy savings.",
+        "Because cool-white LEDs consume five times more electricity than warm LEDs.",
+        "Because warm-dim LEDs produce zero heat whatsoever."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Cool-white LEDs are legal but create a sterile, clinical atmosphere unsuitable for luxury bedrooms.",
+        "Correct! Warm-dim LEDs provide relaxing residential warmth, support circadian sleep rhythms, and cut energy by > 80%.",
+        "Incorrect. Both LED color temperatures have similar luminous efficacy.",
+        "Incorrect. All LEDs produce minor heat at the semiconductor junction."
+      ],
+      "checksum": "93dcd77bee39a79c64b19cbad955355f0b44d452524e619a773144e1b297b3d1"
+    },
+    {
+      "id": 19990,
+      "courseId": 745,
+      "orderIndex": 6,
+      "options": [
+        "Drift by 15°C above guest setpoint (reaching 37°C).",
+        "Drift by 2.0°C to 2.5°C above guest setpoint (maintaining maximum 24.5°C–25°C), allowing recovery in under 3 minutes upon return.",
+        "Turn off the air conditioning completely until the guest calls front desk.",
+        "Lock the room temperature at 15°C all day."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Excessive drift causes severe overheating and long, frustrating recovery times.",
+        "Correct! A 2.0–2.5°C drift delivers major energy savings while ensuring fast < 3 minute recovery upon guest return.",
+        "Incorrect. Complete shutdown causes stuffiness and high guest complaints.",
+        "Incorrect. Chilling empty rooms to 15°C causes massive energy waste."
+      ],
+      "checksum": "ed941071cd2a0df3066040f6d4a9ffcbedade27e16154e12ab5f8f1fce3555f7"
+    },
+    {
+      "id": 19991,
+      "courseId": 745,
+      "orderIndex": 7,
+      "options": [
+        "Audit balcony door interlocks across a sample of guest rooms, calibrate unoccupied setback temperatures, and check for sensor bypass tampering.",
+        "Remove all windows and doors from guest suites.",
+        "Increase electricity rates billed directly to guest personal credit cards.",
+        "Replace all room air conditioners with manual ceiling fans only."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Correct! Auditing interlocks, calibrating setbacks, and checking for bypasses establishes immediate room energy control.",
+        "Incorrect. Removing windows and doors destroys guest security and comfort.",
+        "Incorrect. Surcharging guests for standard electricity destroys hospitality guest satisfaction.",
+        "Incorrect. Removing AC in luxury tropical resorts causes immediate guest walkouts."
+      ],
+      "checksum": "34a54e8308eebb8231d417b9939e01be99d75b0b6306511f5cc223ce37292c07"
+    },
+    {
+      "id": 9254,
+      "courseId": 746,
+      "orderIndex": 1,
+      "options": [
+        "To generate unnecessary paperwork that slows down daily workplace tasks",
+        "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+        "To replace all human employees with automated robots",
+        "To eliminate all customer interactions permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "314f937030a639c38d94f6ba186b40bd4b3b38e1c2cf1f2f28d64a4bd76366f0"
+    },
+    {
+      "id": 9255,
+      "courseId": 746,
+      "orderIndex": 2,
+      "options": [
+        "They are only created for decorative office displays",
+        "They prevent employees from ever taking breaks",
+        "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+        "They make simple tasks impossible to finish"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "e57473315b3e95eda0a4567b790ba7bae9c82940419396f1e1468c8deb805988"
+    },
+    {
+      "id": 9256,
+      "courseId": 746,
+      "orderIndex": 3,
+      "options": [
+        "Logged immediately in the tracking register and escalated according to the defined response protocol",
+        "Ignored completely hoping no one notices",
+        "Concealed from team supervisors",
+        "Blamed on external vendors without investigation"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "2323451e52d31ad8dc72648e428ca2e19b9ed08b5f332031f67ec977f49060b8"
+    },
+    {
+      "id": 9257,
+      "courseId": 746,
+      "orderIndex": 4,
+      "options": [
+        "Increased employee turnover",
+        "Guaranteed bankruptcy within 30 days",
+        "Higher municipal landfill penalty taxes",
+        "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "1b9c5bcccba1683c65c7d10fd204cca0e5f4fd1597ba19fa0af5b2ce48b81e87"
+    },
+    {
+      "id": 9258,
+      "courseId": 746,
+      "orderIndex": 5,
+      "options": [
+        "It is purely an aesthetic exercise with zero business value",
+        "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+        "It is only performed when an inspector is standing in the building",
+        "It replaces the need for actual equipment maintenance"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "9ff4ad94c1816b95dfd4533b5e0058ecb94de1f868eddc1e244f211d6f7f5ae9"
+    },
+    {
+      "id": 9259,
+      "courseId": 746,
+      "orderIndex": 6,
+      "options": [
+        "Send anonymous complaint letters to the executive board",
+        "Refuse to communicate with any other department",
+        "Compete destructively for the same resources without coordination",
+        "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "955f2890d9ee33df9d3ce8fb9add5a86bcf685ad74058308ab244b5cb78b5751"
+    },
+    {
+      "id": 9260,
+      "courseId": 746,
+      "orderIndex": 7,
+      "options": [
+        "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+        "Automatic award of international sustainability prizes",
+        "Instant elimination of corporate taxes",
+        "Zero consequences under all circumstances"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "081e1c05ea9cc000a7f5753009ed519c52344b9b600e4caa9bd2949ba34abe74"
+    },
+    {
+      "id": 9261,
+      "courseId": 746,
+      "orderIndex": 8,
+      "options": [
+        "It is a legal formality with no practical purpose",
+        "It allows managers to cancel all future sustainability efforts",
+        "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+        "It ensures that no process changes are ever permitted"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "c2b674bffd648b161314160735157607212304fda8fabcb88eaf855dcad10d1d"
+    },
+    {
+      "id": 9462,
+      "courseId": 772,
+      "orderIndex": 1,
+      "options": [
+        "To generate unnecessary paperwork that slows down daily workplace tasks",
+        "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+        "To replace all human employees with automated robots",
+        "To eliminate all customer interactions permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "314f937030a639c38d94f6ba186b40bd4b3b38e1c2cf1f2f28d64a4bd76366f0"
+    },
+    {
+      "id": 9463,
+      "courseId": 772,
+      "orderIndex": 2,
+      "options": [
+        "They are only created for decorative office displays",
+        "They prevent employees from ever taking breaks",
+        "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+        "They make simple tasks impossible to finish"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "e57473315b3e95eda0a4567b790ba7bae9c82940419396f1e1468c8deb805988"
+    },
+    {
+      "id": 9464,
+      "courseId": 772,
+      "orderIndex": 3,
+      "options": [
+        "Logged immediately in the tracking register and escalated according to the defined response protocol",
+        "Ignored completely hoping no one notices",
+        "Concealed from team supervisors",
+        "Blamed on external vendors without investigation"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "2323451e52d31ad8dc72648e428ca2e19b9ed08b5f332031f67ec977f49060b8"
+    },
+    {
+      "id": 9465,
+      "courseId": 772,
+      "orderIndex": 4,
+      "options": [
+        "Increased employee turnover",
+        "Guaranteed bankruptcy within 30 days",
+        "Higher municipal landfill penalty taxes",
+        "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "1b9c5bcccba1683c65c7d10fd204cca0e5f4fd1597ba19fa0af5b2ce48b81e87"
+    },
+    {
+      "id": 9466,
+      "courseId": 772,
+      "orderIndex": 5,
+      "options": [
+        "It is purely an aesthetic exercise with zero business value",
+        "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+        "It is only performed when an inspector is standing in the building",
+        "It replaces the need for actual equipment maintenance"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "checksum": "9ff4ad94c1816b95dfd4533b5e0058ecb94de1f868eddc1e244f211d6f7f5ae9"
+    },
+    {
+      "id": 9467,
+      "courseId": 772,
+      "orderIndex": 6,
+      "options": [
+        "Send anonymous complaint letters to the executive board",
+        "Refuse to communicate with any other department",
+        "Compete destructively for the same resources without coordination",
+        "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "checksum": "955f2890d9ee33df9d3ce8fb9add5a86bcf685ad74058308ab244b5cb78b5751"
+    },
+    {
+      "id": 9468,
+      "courseId": 772,
+      "orderIndex": 7,
+      "options": [
+        "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+        "Automatic award of international sustainability prizes",
+        "Instant elimination of corporate taxes",
+        "Zero consequences under all circumstances"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "checksum": "081e1c05ea9cc000a7f5753009ed519c52344b9b600e4caa9bd2949ba34abe74"
+    },
+    {
+      "id": 9469,
+      "courseId": 772,
+      "orderIndex": 8,
+      "options": [
+        "It is a legal formality with no practical purpose",
+        "It allows managers to cancel all future sustainability efforts",
+        "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+        "It ensures that no process changes are ever permitted"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "checksum": "c2b674bffd648b161314160735157607212304fda8fabcb88eaf855dcad10d1d"
+    },
+    {
+      "id": 22807,
+      "courseId": 808,
+      "orderIndex": 0,
+      "options": [
+        "It guarantees that chefs arrive two hours late for their shifts.",
+        "It prevents massive idle power and gas consumption by heating equipment only when needed for actual food preparation.",
+        "It lowers the temperature of walk-in freezers to 0°C.",
+        "It eliminates the need for daily kitchen cleaning."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Staggered startup manages equipment heating schedules, not employee tardiness.",
+        "Correct! Heating equipment only when required eliminates idle power burn and cuts utility costs by 15-25%.",
+        "Incorrect. Walk-in freezers must maintain -18°C to -20°C for food safety.",
+        "Incorrect. Daily sanitation and cleaning remains mandatory."
+      ],
+      "checksum": "b8d068ecf19241df09808706933ac20d0d8a1e7d92c9fa62b015ec7429837b1e"
+    },
+    {
+      "id": 22808,
+      "courseId": 808,
+      "orderIndex": 1,
+      "options": [
+        "Morning, Afternoon, and Night waste.",
+        "Storage/Spoilage Waste, Preparation Waste (trimmings), and Plate/Buffet Waste.",
+        "Plastic waste, Metal waste, and Glass waste.",
+        "Chef waste, Manager waste, and Guest waste."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Time of day alone does not reveal whether waste came from spoilage, prep, or guest plates.",
+        "Correct! Spoilage, Preparation, and Plate/Buffet waste tracking pinpoints operational waste drivers.",
+        "Incorrect. Plastic, metal, and glass are dry recyclables, not food waste streams.",
+        "Incorrect. Waste streams are categorized by operational process stage, not job title."
+      ],
+      "checksum": "c5f076ac0d354d1d739a5b4eb904c2905ceae5735ef749f129b4ab0365d64562"
+    },
+    {
+      "id": 22809,
+      "courseId": 808,
+      "orderIndex": 2,
+      "options": [
+        "It shuts off kitchen exhaust completely whenever food is being cooked.",
+        "It uses optic and thermal sensors to modulate fan speeds based on real-time cooking activity, reducing exhaust airflow and conditioned air loss during slow periods.",
+        "It heats the exhaust air to 100°C before releasing it outdoors.",
+        "It blows outside exhaust air back into the dining room."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. DCKV operates whenever cooking occurs, varying airflow to match the load.",
+        "Correct! Dynamic sensor-controlled fan modulation cuts exhaust and conditioned makeup air loss by 30-50%.",
+        "Incorrect. Exhaust air is discharged safely, not heated.",
+        "Incorrect. Exhaust air contains grease and smoke and must be discharged outdoors through filtration."
+      ],
+      "checksum": "b0201619c67daa891b5ff295a7e18f9a7bd32d39acc2feff8927ca61eab290fe"
+    },
+    {
+      "id": 22810,
+      "courseId": 808,
+      "orderIndex": 3,
+      "options": [
+        "Gas burners are 95% efficient, while induction is only 20% efficient.",
+        "Induction cooktops deliver 85–90% thermal efficiency directly to the cookware, compared to only 35–40% efficiency for commercial open gas burners.",
+        "Induction cooktops require no electrical connection.",
+        "Gas burners cool down the commercial kitchen environment."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Gas burners lose the vast majority of their energy as ambient waste heat.",
+        "Correct! Induction achieves 85-90% thermal efficiency, drastically reducing energy waste and kitchen ambient heat.",
+        "Incorrect. Induction cooktops run on electrical power.",
+        "Incorrect. Gas burners emit massive waste heat that heavily burdens kitchen air conditioning."
+      ],
+      "checksum": "975c6467174af353e29d5bfe922a7779ea3c24d07c024c547e41ae0f93db8ebb"
+    },
+    {
+      "id": 22811,
+      "courseId": 808,
+      "orderIndex": 4,
+      "options": [
+        "Pour it down the kitchen floor drains with boiling water and dishwashing liquid.",
+        "Store it in sealed, labeled, bunded drums and hand it over exclusively to licensed collectors for conversion into certified biodiesel.",
+        "Mix it with garden soil around guest villas as fertilizer.",
+        "Dump it into municipal rainwater stormwater canals."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Pouring grease into drains causes severe sewer fatbergs and violates environmental wastewater laws.",
+        "Correct! Storing UCO in bunded drums for licensed biodiesel conversion satisfies statutory and circular economy standards.",
+        "Incorrect. Cooking oil suffocates soil microbiomes and attracts vermin.",
+        "Incorrect. Discharging grease into stormwater canals is an illegal polluting act subject to heavy statutory fines."
+      ],
+      "checksum": "de3c070821c863057329216cdc23c5d0d9a0d3bcc5ce531b4ad9b51b4e3a3115"
+    },
+    {
+      "id": 22812,
+      "courseId": 808,
+      "orderIndex": 5,
+      "options": [
+        "Turn off the lights in the restaurant to force guests to leave early.",
+        "Transition to smaller, beautifully garnished presentation platters and prepare popular hot items fresh to order from live action stations.",
+        "Refill every 10kg chafing dish to maximum capacity right up until closing time.",
+        "Serve cold canned rations during the last hour."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Turning off lights damages guest satisfaction and hospitality service reputation.",
+        "Correct! Right-sizing buffet platters and offering live cook-to-order options prevents surplus waste while boosting food freshness.",
+        "Incorrect. Refilling massive trays right before closing guarantees heavy food waste and financial loss.",
+        "Incorrect. Canned rations violate hospitality luxury and culinary quality standards."
+      ],
+      "checksum": "915d0acb356957c7d8790e91b61c27fe90fcee1cb6e9564f9faef87e257e8b0d"
+    },
+    {
+      "id": 22813,
+      "courseId": 808,
+      "orderIndex": 6,
+      "options": [
+        "Using hot water in the kitchen handwashing sinks.",
+        "Lack of routine pumping maintenance, grease overloading from poor dry-wiping of cookware, and illegal chemical grease emulsifier dosing.",
+        "Installing stainless steel prep tables in the bakery.",
+        "Using LED lighting above the dishwashing area."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Handwashing water has negligible grease content.",
+        "Correct! Failing to dry-wipe pots, using illegal chemical emulsifiers, and irregular pumping cause trap blockages and sewer overflows.",
+        "Incorrect. Stainless steel surfaces are standard hygienic culinary fixtures.",
+        "Incorrect. LED lighting has zero interaction with plumbing systems."
+      ],
+      "checksum": "d7acfe6b0a6892f2973d87ff728a9ef92a1e03181ed209a86f95d957eac9cf97"
+    },
+    {
+      "id": 22814,
+      "courseId": 808,
+      "orderIndex": 7,
+      "options": [
+        "Eliminate all fresh cooking and serve only pre-packaged frozen meals.",
+        "Post visual equipment startup/shutdown schedules, install food waste scales in prep areas, and audit UCO collection records.",
+        "Order a complete kitchen demolition without management approval.",
+        "Stop washing kitchen floors to save water."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Pre-packaged meals degrade culinary quality and increase packaging waste.",
+        "Correct! Visual startup schedules, waste scales, and UCO audit logs establish immediate operational and environmental control.",
+        "Incorrect. Unapproved demolition destroys operations and creates immense financial liability.",
+        "Incorrect. Floor sanitation is essential for food safety and workplace slip prevention."
+      ],
+      "checksum": "e1702aaa25b74daf7a0ef6f2fd0d7235521a25f91ba3dfb786e29794bcf0d6f5"
+    },
+    {
+      "id": 22407,
+      "courseId": 809,
+      "orderIndex": 1,
+      "options": [
+        "Switch from large deep chafing pans to shallow inserts or live cook-to-order preparation",
+        "Cook double portions so the buffet looks full when closing",
+        "Turn off all warmers and lock the restaurant doors early",
+        "Mix raw ingredients into cooked buffet dishes"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Shallow pans maintain visual appeal while minimizing surplus food discarded at closing time.",
+        "Incorrect. Using shallow inserts and cook-to-order prep prevents massive late-service food waste.",
+        "Incorrect. Using shallow inserts and cook-to-order prep prevents massive late-service food waste.",
+        "Incorrect. Using shallow inserts and cook-to-order prep prevents massive late-service food waste."
+      ],
+      "checksum": "a8a1391caebc012b3ee2310441161d0eac3254d17c4ec6b09c9babaeca2c85b7"
+    },
+    {
+      "id": 22408,
+      "courseId": 809,
+      "orderIndex": 2,
+      "options": [
+        "Organic waste decomposing in anaerobic landfills releases potent methane (CH4) greenhouse gas and generates toxic leachate that threatens groundwater",
+        "Landfills require food waste to grow trees",
+        "Food waste makes landfill trucks drive faster",
+        "Organic waste turns into gold under sunlight"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Food rotting in landfills creates methane (28x more potent than CO2) and produces polluting leachate.",
+        "Incorrect. Landfilled organics generate potent methane emissions and hazardous groundwater leachate.",
+        "Incorrect. Landfilled organics generate potent methane emissions and hazardous groundwater leachate.",
+        "Incorrect. Landfilled organics generate potent methane emissions and hazardous groundwater leachate."
+      ],
+      "checksum": "834051f37d7045f51f2d2ddc93924c835880cb5c8edda6cdb1ff870ca455d6ab"
+    },
+    {
+      "id": 22409,
+      "courseId": 809,
+      "orderIndex": 3,
+      "options": [
+        "It reduces post-consumer plate waste and buffet scrap while ensuring guests can take second helpings if desired",
+        "It prevents guests from eating any food",
+        "It forces guests to pay extra for dessert",
+        "It replaces cooked meals with vitamin pills"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Right-sized presentation curbs plate overfill while preserving guest dining freedom and luxury perception.",
+        "Incorrect. Thoughtful plating and shallow pans reduce unnecessary plate waste without restricting guest satisfaction.",
+        "Incorrect. Thoughtful plating and shallow pans reduce unnecessary plate waste without restricting guest satisfaction.",
+        "Incorrect. Thoughtful plating and shallow pans reduce unnecessary plate waste without restricting guest satisfaction."
+      ],
+      "checksum": "6b4329113a08559978827fa6d52963001847955e5a8ea1d5cee8d808679344f6"
+    },
+    {
+      "id": 22410,
+      "courseId": 809,
+      "orderIndex": 4,
+      "options": [
+        "Rapidly blast-chilled to below 4°C within 90 minutes, labelled with production date/allergens, and held in sanitary cold storage",
+        "Left on the kitchen counter at room temperature overnight",
+        "Placed in open cardboard boxes under the sun",
+        "Reheated to 200°C in an open fire pit"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Rapid blast chilling and temperature logging ensures safe redistribution without bacterial danger zone exposure.",
+        "Incorrect. Surplus food must be blast-chilled to <4°C within 90 minutes and documented for safe donation.",
+        "Incorrect. Surplus food must be blast-chilled to <4°C within 90 minutes and documented for safe donation.",
+        "Incorrect. Surplus food must be blast-chilled to <4°C within 90 minutes and documented for safe donation."
+      ],
+      "checksum": "4ad8e7b315c7783b44f722f9d45abc429e7e23fbabaa59fe56e1e856d66c5dc0"
+    },
+    {
+      "id": 22411,
+      "courseId": 809,
+      "orderIndex": 5,
+      "options": [
+        "Simmered into rich stocks, broths, and reductions, or dried into seasoning powders",
+        "Dumped into the ocean behind the resort",
+        "Flushed down toilet drains",
+        "Burned in kitchen garbage bins"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Clean vegetable trimmings and carcasses provide the base for stocks and sauces, extracting 100% of ingredient value.",
+        "Incorrect. Trimmings can be repurposed into stocks, sauces, and culinary powders to extract maximum yield.",
+        "Incorrect. Trimmings can be repurposed into stocks, sauces, and culinary powders to extract maximum yield.",
+        "Incorrect. Trimmings can be repurposed into stocks, sauces, and culinary powders to extract maximum yield."
+      ],
+      "checksum": "5b2d7dd7474f9c147c55fe2a9b2a1f7f8b5cca772a8e5c42bc7233eb641e0d62"
+    },
+    {
+      "id": 22412,
+      "courseId": 809,
+      "orderIndex": 6,
+      "options": [
+        "Maintaining a proper balance of nitrogen-rich food scraps ('greens') and carbon-rich dry leaves/wood chips ('browns') with adequate aeration",
+        "Pouring full-strength chlorine bleach into the composter daily",
+        "Sealing the composter airtight with no oxygen",
+        "Adding plastic cutlery to absorb moisture"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Aerobic composting requires oxygen and a ~30:1 carbon-to-nitrogen ratio to decompose organics without foul odors.",
+        "Incorrect. Aerobic decomposition requires regular turning/aeration and balanced carbon (browns) and nitrogen (greens).",
+        "Incorrect. Aerobic decomposition requires regular turning/aeration and balanced carbon (browns) and nitrogen (greens).",
+        "Incorrect. Aerobic decomposition requires regular turning/aeration and balanced carbon (browns) and nitrogen (greens)."
+      ],
+      "checksum": "448724b7c354cdfab5b217a4370a9b2311342307fda547a0974b4a4af4756ac5"
+    },
+    {
+      "id": 22413,
+      "courseId": 809,
+      "orderIndex": 7,
+      "options": [
+        "It prevents organic contamination of recyclables and ensures clean feedstock for composting or bio-digestion",
+        "It makes the kitchen floor look colorful",
+        "It is required to change kitchen music stations",
+        "It stops cooks from tasting sauces"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Dedicated organic bins prevent contamination with plastics and packaging, enabling 100% organic recycling.",
+        "Incorrect. Segregated bins keep organic streams uncontaminated for composting and livestock feed.",
+        "Incorrect. Segregated bins keep organic streams uncontaminated for composting and livestock feed.",
+        "Incorrect. Segregated bins keep organic streams uncontaminated for composting and livestock feed."
+      ],
+      "checksum": "069365e2b4962a50123b8fae15966fe4a0d97946e945c5fff1edc1f563325337"
+    },
+    {
+      "id": 22414,
+      "courseId": 809,
+      "orderIndex": 8,
+      "options": [
+        "It identifies exact overproduction areas, enabling head chefs to adjust purchasing orders and prep pars to cut F&B costs",
+        "It gives stewards extra paperwork to do after shifts",
+        "It allows the hotel to eliminate the kitchen team",
+        "It increases food storage inventory to maximum limits"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Accurate waste measurement directly informs prep sheet adjustments, cutting resort food purchasing costs by 5-15%.",
+        "Incorrect. Daily waste tracking gives culinary management the data needed to trim food purchasing budgets.",
+        "Incorrect. Daily waste tracking gives culinary management the data needed to trim food purchasing budgets.",
+        "Incorrect. Daily waste tracking gives culinary management the data needed to trim food purchasing budgets."
+      ],
+      "checksum": "469404643e44b2a2f926c04d048adfe7c7ead5def500758257cdfe75ad67d8fa"
+    },
+    {
+      "id": 22815,
+      "courseId": 810,
+      "orderIndex": 0,
+      "options": [
+        "2.50 to 3.00 kW/TR",
+        "Less than 0.70 kW/TR (or COP >= 5.0)",
+        "0.00 kW/TR (zero electricity consumption)",
+        "15.0 kW/TR"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. 2.50 kW/TR represents extremely inefficient, degraded equipment.",
+        "Correct! < 0.70 kW/TR represents a modern, optimized water-cooled central chiller plant benchmark.",
+        "Incorrect. Vapor compression chillers require electrical power to operate.",
+        "Incorrect. 15.0 kW/TR is absurdly high and represents catastrophic failure."
+      ],
+      "checksum": "a6b057553e0caefd532de625038b686f14a46b1d29f04bb1b1590aade929ba02"
+    },
+    {
+      "id": 22816,
+      "courseId": 810,
+      "orderIndex": 1,
+      "options": [
+        "When water freezes inside the pipes, stopping all water flow.",
+        "When chilled water returns to the plant at a lower temperature than design (e.g. 9°C instead of 13°C), causing excessive pump and chiller staging without meeting cooling loads.",
+        "When the cooling tower basin runs completely out of water.",
+        "When hotel guests leave their room keys in the elevator."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Freezing is pipe freeze-up, not Low Delta-T Syndrome.",
+        "Correct! Low Delta-T forces extra pumps and chillers online to move excess water, causing massive energy waste.",
+        "Incorrect. Low basin level is a cooling tower water supply issue.",
+        "Incorrect. Keycards have no connection to hydronic chilled water loops."
+      ],
+      "checksum": "3872b0091bb427dfe99c83a2b6e4f273c35eab7c9d3e7010b3213ec42c06cf90"
+    },
+    {
+      "id": 22817,
+      "courseId": 810,
+      "orderIndex": 2,
+      "options": [
+        "0.0% (no effect)",
+        "Approximately 2.0% to 2.5% reduction in chiller compressor power",
+        "50.0% reduction",
+        "100.0% reduction"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Condenser water temperature has a major thermodynamic impact on compressor lift.",
+        "Correct! Lowering condenser water temperature reduces compressor lift, cutting power by 2.0–2.5% per °C.",
+        "Incorrect. A 50% drop from 1°C is thermodynamically impossible.",
+        "Incorrect. Complete power elimination cannot occur while chillers run."
+      ],
+      "checksum": "99394d0585764706592e11180555d7f850a68aada298608a4792bc161fd7e452"
+    },
+    {
+      "id": 22818,
+      "courseId": 810,
+      "orderIndex": 3,
+      "options": [
+        "By burning extra diesel fuel inside the chiller compressor motor.",
+        "By capturing superheated refrigerant gas from the compressor discharge before it reaches the condenser, transferring heat to domestic water.",
+        "By running electric immersion heaters inside the cooling tower basin.",
+        "By circulating chilled water directly through guest showers."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Chillers run on electricity and do not burn diesel internally.",
+        "Correct! Capturing superheated refrigerant discharge heat produces free 55-60°C hot water for guest rooms and laundry.",
+        "Incorrect. Immersion heaters in cooling towers waste energy and defeat tower cooling purpose.",
+        "Incorrect. Chilled water is for air conditioning, not domestic hot water supply."
+      ],
+      "checksum": "b17f4226315083dc22c5ea816abb845885cd8f8bf007465da10a6848cf776f16"
+    },
+    {
+      "id": 22819,
+      "courseId": 810,
+      "orderIndex": 4,
+      "options": [
+        "The chiller produces colder air while using 50% less power.",
+        "Mineral scale acts as a thermal insulator, increasing compressor discharge pressure and increasing electricity consumption by 10% to 20%.",
+        "The cooling tower turns into a solar panel.",
+        "Chilled water turns into drinking milk."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Scaling always degrades efficiency and increases power consumption.",
+        "Correct! Mineral scale insulates heat transfer surfaces, increasing compressor head pressure and wasting 10-20% electricity.",
+        "Incorrect. Cooling towers are evaporative heat rejection devices, not photovoltaic panels.",
+        "Incorrect. Condenser water is an industrial circulating fluid, unrelated to dairy products."
+      ],
+      "checksum": "471931e477eef3da76f80872fc851e7ed1a179a6dd8a4cbe8dfa65c4538c9af0"
+    },
+    {
+      "id": 22820,
+      "courseId": 810,
+      "orderIndex": 5,
+      "options": [
+        "Because load-based staging ensures chillers operate within their peak efficiency sweet spot (60-80% load) and prevents unnecessary chiller startup during Low Delta-T conditions.",
+        "Because time schedules allow chillers to sleep during the day.",
+        "Because water flow rates are impossible to measure with physical sensors.",
+        "Because load-based staging allows the hotel to disconnect from the electrical grid permanently."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Correct! Load-based staging maintains chillers in their 60-80% peak COP sweet spot and prevents false starts during low delta-T.",
+        "Incorrect. Chillers must operate continuously to maintain guest room comfort.",
+        "Incorrect. Electromagnetic and ultrasonic flow meters measure water flow accurately.",
+        "Incorrect. Central chillers remain connected to grid electrical power."
+      ],
+      "checksum": "9571dbf5185adeea8427de96313232b0b2be1aeb7aaed64fdfdbdccb44aa7d24"
+    },
+    {
+      "id": 22821,
+      "courseId": 810,
+      "orderIndex": 6,
+      "options": [
+        "Sensor drift has zero impact on plant operations.",
+        "A drift of just 0.5°C in chilled water temperature sensors can trigger false chiller staging or excessive subcooling, wasting tens of thousands of kWh annually.",
+        "Sensor drift automatically turns off the hotel WiFi network.",
+        "Sensor drift makes cooling tower fans spin backwards."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Telemetry precision is the foundation of automated plant efficiency.",
+        "Correct! A 0.5°C sensor error causes false chiller staging and improper setpoints, wasting significant electricity.",
+        "Incorrect. Temperature telemetry is isolated from guest IT networks.",
+        "Incorrect. Fan rotation direction is determined by motor phase wiring, not sensor drift."
+      ],
+      "checksum": "6f7ff6aae65be1f22a59629964ab9bc63ce221c9644dbfaf6763623814b2f091"
+    },
+    {
+      "id": 22822,
+      "courseId": 810,
+      "orderIndex": 7,
+      "options": [
+        "Replace all chillers immediately without analyzing current operational data.",
+        "Calculate baseline plant kW/TR efficiency, audit secondary loop Delta-T, and verify cooling tower approach and blowdown controls.",
+        "Disconnect all BMS automation and switch to manual toggle switches.",
+        "Paint the cooling tower pipes purple for branding purposes."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Replacing chillers without baseline data leads to severe capital misallocation.",
+        "Correct! Logging plant kW/TR, auditing loop delta-T, and checking cooling towers establishes immediate operational control.",
+        "Incorrect. Disabling BMS automation degrades plant control and increases human error.",
+        "Incorrect. Pipe aesthetics provide zero thermodynamic or efficiency benefit."
+      ],
+      "checksum": "3aa41874c8138afcc1f27fbe3a6b0d1bed9dee8a0db574d4ddf9f903b209c065"
+    },
+    {
+      "id": 22823,
+      "courseId": 811,
+      "orderIndex": 0,
+      "options": [
+        "When tenants split their monthly rent in half without permission.",
+        "When landlords pay for capital efficiency retrofits but tenants receive 100% of the utility savings; resolved by cost-recovery clauses where tenants share verified energy savings to reimburse capital.",
+        "When building elevators break down in between floors.",
+        "When landlords charge tenants for outdoor sunshine."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Rent payment splitting is a lease default issue, not the split-incentive barrier.",
+        "Correct! Green leases resolve the split-incentive by sharing verified utility bill savings to amortize landlord capital investments.",
+        "Incorrect. Elevator breakdowns are mechanical maintenance issues.",
+        "Incorrect. Sunshine charges do not exist in commercial leasing."
+      ],
+      "checksum": "666c03960e6e86e6a1d1d39295a92e4dec7dd804021f287db9157b17d9133f19"
+    },
+    {
+      "id": 22824,
+      "courseId": 811,
+      "orderIndex": 1,
+      "options": [
+        "Tenants must wear green clothing to work on Mondays.",
+        "Mandatory energy and water sub-meter telemetry sharing for ESG reporting, sustainable fit-out standards, and building recycling compliance.",
+        "Landlords are allowed to enter tenant offices unannounced at any time of night.",
+        "Tenants must agree never to use air conditioning."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Dress codes have no place in commercial leasing contracts.",
+        "Correct! Telemetry sharing, fit-out guidelines, and recycling covenants form the legal backbone of green leases.",
+        "Incorrect. Unannounced night entry violates tenant quiet enjoyment and security covenants.",
+        "Incorrect. Green leases manage efficiency within comfortable thermal standards, not ban cooling."
+      ],
+      "checksum": "1bef7979fb680dcb755b6539d521af6e4a7bf530acaad51831a1cc254f98be69"
+    },
+    {
+      "id": 22825,
+      "courseId": 811,
+      "orderIndex": 2,
+      "options": [
+        "50.0 W/m2 using incandescent floodlights.",
+        "Less than 6.0 W/m2 using 100% LED fixtures with occupancy sensing and daylight harvesting.",
+        "500 W/m2.",
+        "0.0 W/m2 (complete darkness)."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. 50 W/m2 represents obsolete, highly wasteful lighting technology.",
+        "Correct! < 6.0 W/m2 using smart LEDs is the international green building standard for commercial offices.",
+        "Incorrect. 500 W/m2 is an extreme fire hazard.",
+        "Incorrect. Workplaces require proper illumination for safety and productivity."
+      ],
+      "checksum": "db46ac498816b7d7015c30a3a977868fe098e62e943e11676c88e2d788d79b5b"
+    },
+    {
+      "id": 22826,
+      "courseId": 811,
+      "orderIndex": 3,
+      "options": [
+        "To ensure the paint dries in exactly 3 seconds.",
+        "To protect indoor air quality (IAQ), prevent off-gassing of toxic chemicals, and reduce employee respiratory illness and Sick Building Syndrome.",
+        "To make the walls waterproof against tsunamis.",
+        "To increase the weight of building partitions."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. VOC content governs chemical toxicity, not drying speed.",
+        "Correct! Low-VOC materials safeguard indoor air quality and prevent Sick Building Syndrome for office workers.",
+        "Incorrect. Low-VOC formulations are interior air quality specifications, not maritime flood barriers.",
+        "Incorrect. VOC content does not alter structural partition mass."
+      ],
+      "checksum": "e8bb7f39afb3f3521e9b724e2040c93dbbf57ba086021c151b82b84f17925f70"
+    },
+    {
+      "id": 22827,
+      "courseId": 811,
+      "orderIndex": 4,
+      "options": [
+        "It automatically turns off tenant computers during meetings.",
+        "It establishes direct utility cost accountability based on actual tenant consumption rather than arbitrary square-meter allocation, motivating active conservation.",
+        "It eliminates the need for power lines in the building.",
+        "It generates cryptocurrency for the landlord."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Sub-meters measure power; they do not control tenant IT devices.",
+        "Correct! Direct consumption billing creates financial accountability and eliminates the pro-rata free-rider problem.",
+        "Incorrect. Sub-meters monitor electrical distribution; they do not replace wiring.",
+        "Incorrect. Sub-meters measure kWh; they do not mine cryptocurrency."
+      ],
+      "checksum": "1b1cab1724ca2462489ea60b5208bab2d6f5cd7d1a61503bd49ad3ce5743d222"
+    },
+    {
+      "id": 22828,
+      "courseId": 811,
+      "orderIndex": 5,
+      "options": [
+        "To organize mandatory employee karaoke competitions.",
+        "To provide a collaborative forum for landlords and tenants to review shared resource data, coordinate waste campaigns, and resolve operational sustainability friction.",
+        "To audit employee personal bank accounts.",
+        "To enforce dress code rules in tenant private suites."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Green committees focus on environmental governance, not social karaoke.",
+        "Correct! Collaborative committees allow landlords and tenants to review resource data and drive joint efficiency campaigns.",
+        "Incorrect. Financial auditing of personal accounts is illegal.",
+        "Incorrect. Tenancy committees have no authority over private tenant workplace dress."
+      ],
+      "checksum": "4e7ca547b84fe752698fe11be5e2d7158fc7d62b8b6af9bb3ce3ba6c145de66e"
+    },
+    {
+      "id": 22829,
+      "courseId": 811,
+      "orderIndex": 6,
+      "options": [
+        "Allow contractors to throw drywall and metal into building general waste compactors.",
+        "Mandate a C&D Waste Management Plan requiring minimum 75% diversion from landfill through on-site sorting and verified recycling manifests.",
+        "Dump all construction debris in the building basement permanently.",
+        "Throw construction debris out of upper floor windows into the street."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. General compactors are for operational waste, not heavy construction debris.",
+        "Correct! Requiring a C&D Waste Plan with >= 75% recycling diversion prevents landfill dumping and recovers valuable materials.",
+        "Incorrect. Storing construction debris in basements violates fire and safety codes.",
+        "Incorrect. Throwing debris from windows is an illegal, life-threatening safety violation."
+      ],
+      "checksum": "a07d855895a6e78808025bd5784596cf3140a2b76146a2a1a886611ef2316548"
+    },
+    {
+      "id": 22830,
+      "courseId": 811,
+      "orderIndex": 7,
+      "options": [
+        "Evict all existing commercial tenants immediately.",
+        "Incorporate standard green lease clauses into upcoming lease renewals, publish a Sustainable Fit-Out Guide, and schedule the inaugural Green Committee meeting.",
+        "Shut off water to all office restrooms to save utility costs.",
+        "Replace all glass windows with solid concrete blocks."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Mass evictions destroy rental income and create severe legal disputes.",
+        "Correct! Updating lease templates, publishing fit-out guides, and convening green committees establishes immediate leasing governance.",
+        "Incorrect. Cutting restroom water violates occupational health and safety regulations.",
+        "Incorrect. Blocking windows eliminates natural daylight and violates building codes."
+      ],
+      "checksum": "84dca105a19fe583c429671e08e8d9d66072c461af9f45a611d7abaab6b90419"
+    }
+  ]
+}

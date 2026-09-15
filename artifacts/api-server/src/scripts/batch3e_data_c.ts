@@ -1,4 +1,4 @@
-import { RemediatedCourseDataBatch3E } from "./batch3e_part1";
+import { RemediatedCourseDataBatch3E } from "../lib/ensureBatch3ERemediation.js";
 
 export const BATCH3E_DATA_C: RemediatedCourseDataBatch3E[] = [
   // 15. ELH-123

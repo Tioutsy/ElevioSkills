@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-09-09T13:00:10.584Z",
+  "sprint": "15.2.11A",
+  "tenantIsolation": {
+    "isolatedCompanyId": 1543,
+    "isolatedCompanyName": "Sprint 15.2.11A QA Test Tenant",
+    "isolatedCompanySlug": "qa-sprint15211a-isolated"
+  },
+  "testUsers": [
+    {
+      "id": 2920,
+      "email": "test-admin-15211a@ecolearnhub.test",
+      "name": "QA Test Admin",
+      "role": "admin",
+      "clerkUserId": "usr_test_admin_15211a",
+      "companyId": 1543
+    },
+    {
+      "id": 2921,
+      "email": "test-learner-1@ecolearnhub.test",
+      "name": "QA Learner One",
+      "role": "employee",
+      "clerkUserId": "usr_test_learner_1_15211a",
+      "companyId": 1543
+    },
+    {
+      "id": 2922,
+      "email": "test-learner-2@ecolearnhub.test",
+      "name": "QA Learner Two",
+      "role": "employee",
+      "clerkUserId": "usr_test_learner_2_15211a",
+      "companyId": 1543
+    },
+    {
+      "id": 2923,
+      "email": "test-manager@ecolearnhub.test",
+      "name": "QA Manager",
+      "role": "manager",
+      "clerkUserId": "usr_test_manager_15211a",
+      "companyId": 1543
+    }
+  ],
+  "historicalBaselineIntegrity": {
+    "expectedAttempts": 16,
+    "expectedEnrollments": 22,
+    "expectedCertificates": 6,
+    "expectedBadgeDefinitions": 133,
+    "expectedScoreLedgers": 6,
+    "currentCounts": {
+      "historicalAttemptsCount": 16,
+      "historicalEnrollmentsCount": 22,
+      "historicalCertificatesCount": 6,
+      "historicalBadgesCount": 133,
+      "historicalLedgerEventsCount": 6
+    },
+    "status": "VERIFIED_UNCHANGED"
+  },
+  "safetyPolicy": {
+    "noRealUserAccountsUsed": true,
+    "noHistoricalDataMutated": true,
+    "noCatalogueWideDeletions": true,
+    "idempotentReruns": true
+  }
+}

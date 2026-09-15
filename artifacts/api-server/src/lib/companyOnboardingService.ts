@@ -340,6 +340,7 @@ export async function onboardCompany(input: OnboardCompanyInput): Promise<Onboar
   const planId = plan?.id ?? 1;
 
   // 4. Derive Authoritative Pricing Server-Side
+  const isTailored = band.code === "OVER_120" || employeeCount > 120;
   const pricingBreakdown = calculateAuthoritativePricing({
     planCode: plan?.code ?? "ESSENTIAL",
     employeeCount,
@@ -347,7 +348,7 @@ export async function onboardCompany(input: OnboardCompanyInput): Promise<Onboar
     billingInterval: input.billingInterval,
   });
 
-  const includedCapacity = pricingBreakdown.includedMaxEmployees;
+  const includedCapacity = isTailored ? 120 : (band.maximumEmployees ?? pricingBreakdown.includedMaxEmployees);
 
   // 5. Real Database Transaction: Company -> First Admin Employee -> Subscription
   const slugBase = companyName.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
@@ -385,25 +386,25 @@ export async function onboardCompany(input: OnboardCompanyInput): Promise<Onboar
         companyId: company.id,
         subscriptionPlanId: planId,
         employeeBandId: band.id,
-        status: "PENDING", // Initialized as PENDING until commercial payment confirmation
+        status: isTailored ? "CUSTOM_QUOTE_REQUIRED" : "PENDING",
         currency: "MUR",
-        billingInterval: pricingBreakdown.billingInterval,
-        discountPercentage: String(pricingBreakdown.discountPercentage),
-        agreedMonthlyAmount: pricingBreakdown.finalMonthlyAmount.toFixed(2),
-        agreedYearlyAmount: pricingBreakdown.finalYearlyAmount.toFixed(2),
-        pricingSource: "STANDARD",
+        billingInterval: isTailored ? "MONTHLY" : pricingBreakdown.billingInterval,
+        discountPercentage: isTailored ? "0" : String(pricingBreakdown.discountPercentage),
+        agreedMonthlyAmount: isTailored ? null : pricingBreakdown.finalMonthlyAmount.toFixed(2),
+        agreedYearlyAmount: isTailored ? null : pricingBreakdown.finalYearlyAmount.toFixed(2),
+        pricingSource: isTailored ? "TAILORED" : "STANDARD",
         startsAt: new Date(),
       })
       .returning();
 
     return {
-      outcome: "success",
+      outcome: isTailored ? "tailored_contact_required" : "success",
       company,
       employee: adminEmployee,
       subscription,
-      monthlyAmount: pricingBreakdown.finalMonthlyAmount,
+      monthlyAmount: isTailored ? null : pricingBreakdown.finalMonthlyAmount,
       pricingBreakdown,
-      onboardingStage: "onboarding-complete",
+      onboardingStage: isTailored ? "custom-quote-required" : "onboarding-complete",
     };
   });
 }

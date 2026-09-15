@@ -85,10 +85,6 @@ router.get("/:courseId/quiz", async (req, res): Promise<void> => {
       question: quizQuestionsTable.question,
       options: quizQuestionsTable.options,
       orderIndex: quizQuestionsTable.orderIndex,
-      correctExplanation: quizQuestionsTable.correctExplanation,
-      incorrectExplanation: quizQuestionsTable.incorrectExplanation,
-      optionFeedback: quizQuestionsTable.optionFeedback,
-      practicalTakeaway: quizQuestionsTable.practicalTakeaway,
     })
     .from(quizQuestionsTable)
     .where(eq(quizQuestionsTable.courseId, courseId))

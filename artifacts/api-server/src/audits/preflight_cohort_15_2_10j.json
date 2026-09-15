@@ -1,0 +1,194 @@
+{
+  "timestamp": "2026-09-07T18:28:32.352Z",
+  "sprint": "15.2.10J",
+  "baseline": {
+    "canonicalCourses": 136,
+    "persistedScoredQuestions": 1208,
+    "diagnosticBankQuestions": 88,
+    "attempts": 16,
+    "enrollments": 22,
+    "certificates": 6,
+    "badges": 133,
+    "scoreLedgers": 6
+  },
+  "targetCourses": [
+    {
+      "id": 790,
+      "courseCode": "ELH-108",
+      "title": "Renewable Energy: Rooftop Solar PV & Storage",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Model commercial solar PV yields, shading derating factors, and specific yield (kWh/kWp/year) using industry modeling methodologies.",
+        "Dimension grid-tied inverter topologies, string matching, DC/AC oversizing ratios (1.2–1.3), and balance of plant (BoP).",
+        "Specify lithium iron phosphate (LiFePO4/LFP) Battery Energy Storage Systems (BESS) for commercial peak shaving and power factor support.",
+        "Navigate Central Electricity Board (CEB) MSDG interconnection rules, anti-islanding protection, and net-billing regulations.",
+        "Develop a 30-day commercial rooftop solar project feasibility and financial modeling plan (IRR, NPV, LCOE)."
+      ]
+    },
+    {
+      "id": 791,
+      "courseCode": "ELH-109",
+      "title": "Industrial Heat Recovery & Combined Heat and Power",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Conduct thermal pinch analysis to identify maximum heat recovery potential across industrial process streams.",
+        "Specify and integrate boiler flue-gas condensing economizers, recuperators, and waste heat recovery boilers (WHRB).",
+        "Evaluate Organic Rankine Cycle (ORC) systems for converting low-grade industrial waste heat (80–180°C) into clean electricity.",
+        "Size and model industrial Combined Heat and Power (CHP / Cogeneration) systems to achieve overall thermal efficiencies >80%.",
+        "Develop a 30-day industrial waste heat capture audit, mass/energy balance, and CapEx business case."
+      ]
+    },
+    {
+      "id": 792,
+      "courseCode": "ELH-110",
+      "title": "Closed-Loop Water Recycling in Commercial Real Estate",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Design dual-plumbing reticulation systems separating potable water from non-potable recycled greywater/rainwater.",
+        "Dimension on-site Membrane Bioreactor (MBR) and ultrafiltration systems for commercial wastewater treatment.",
+        "Optimize cooling tower water chemistry to increase Cycles of Concentration (CoC) from 3 to 6+, cutting blowdown water waste by 50%.",
+        "Model rainwater harvesting storage capacity and non-potable toilet flushing / irrigation demand balances.",
+        "Formulate a 30-day commercial property water neutrality and closed-loop recycling management protocol."
+      ]
+    },
+    {
+      "id": 793,
+      "courseCode": "ELH-111",
+      "title": "Zero Waste to Landfill Certification in Manufacturing",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Conduct mass-balance manufacturing waste characterization audits across all production lines and packaging stations.",
+        "Calculate Waste Diversion Rate (%) according to UL 2799 and TRUE Zero Waste validation methodologies.",
+        "Implement point-of-generation waste segregation, color-coded material flow tracking, and lean 5S waste elimination.",
+        "Develop industrial byproduct synergy partnerships, finding secondary manufacturing uses for process scrap and sludge.",
+        "Formulate a 30-day manufacturing Zero Waste to Landfill transition and third-party audit readiness plan."
+      ]
+    },
+    {
+      "id": 794,
+      "courseCode": "ELH-112",
+      "title": "Green Cold Chain Logistics & Refrigerated Transport",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Evaluate low-GWP and natural refrigerants (R744, R290, R1234yf) against high-GWP legacy HFCs (R404A, R507) in transport refrigeration.",
+        "Calculate diesel fuel consumption and Scope 1 carbon intensity of conventional vs. electric Transport Refrigeration Units (e-TRUs).",
+        "Design thermal insulation envelopes, air curtains, and rapid multi-drop door opening protocols to prevent thermal loss.",
+        "Implement real-time IoT temperature logging and GPS telematics to eliminate cold chain breaks and food spoilage waste.",
+        "Formulate a 30-day green cold chain fleet decarbonization and thermal integrity assurance roadmap."
+      ]
+    },
+    {
+      "id": 795,
+      "courseCode": "ELH-113",
+      "title": "Sustainable Packaging Procurement for Logistics",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Conduct comparative Life Cycle Assessments (LCA) across fiber, virgin plastic, PCR polymer, and bio-based packaging formats.",
+        "Specify Forest Stewardship Council (FSC 100% / FSC Recycled) certified corrugated packaging and minimum 50%+ PCR content.",
+        "Deploy automated 3D dimensional right-sizing packaging systems to eliminate air shipment and reduce void-fill plastic by 60%+.",
+        "Design closed-loop Returnable Transit Packaging (RTP) systems with reverse logistics and asset-tracking RFID/barcodes.",
+        "Formulate a 30-day sustainable packaging procurement specification and vendor evaluation scorecard."
+      ]
+    },
+    {
+      "id": 796,
+      "courseCode": "ELH-114",
+      "title": "ESG Data Assurance & Audit Readiness",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Design and document robust internal control systems for sustainability reporting using the COSO ICSR framework.",
+        "Establish end-to-end data lineage, audit trails, and automated reconciliation for Scope 1, 2, and 3 GHG metrics.",
+        "Prepare corporate ESG disclosures for limited and reasonable assurance engagements under ISAE 3000 and ISAE 3410.",
+        "Conduct internal pre-assurance audits, identifying data gaps, estimation uncertainties, and documentation deficiencies.",
+        "Formulate a 30-day ESG audit readiness and data governance institutionalization roadmap."
+      ]
+    },
+    {
+      "id": 797,
+      "courseCode": "ELH-115",
+      "title": "Biodiversity Impact Assessment (BIA) for Projects",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Conduct ecological baseline field surveys and GIS spatial habitat vulnerability mapping for development projects.",
+        "Apply the 4-step Mitigation Hierarchy (Avoidance, Minimization, Ecological Restoration, Biodiversity Offsets).",
+        "Implement the TNFD LEAP framework (Locate, Evaluate, Assess, Prepare) for nature-related risk disclosure.",
+        "Design verified Net Positive Impact (NPI) biodiversity restoration plans and native vegetation corridors.",
+        "Formulate a 30-day project Biodiversity Impact Assessment and ecological management plan (EMP)."
+      ]
+    },
+    {
+      "id": 798,
+      "courseCode": "ELH-116",
+      "title": "Circular Economy Business Models & Product-as-a-Service",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Evaluate the 5 core circular business models (Circular Supplies, Resource Recovery, Product Life Extension, Sharing Platforms, Product-as-a-Service).",
+        "Structure servitized Product-as-a-Service (PaaS) commercial contracts, balancing recurring revenue with asset balance sheet management.",
+        "Design modular products for disassembly, component remanufacturing, and cascading reuse loops.",
+        "Implement Digital Product Passports (DPP) and circular reverse logistics tracking for end-of-use asset recovery.",
+        "Formulate a 30-day circular business model transformation and customer pilot feasibility plan."
+      ]
+    },
+    {
+      "id": 719,
+      "courseCode": "ELH-117",
+      "title": "Setting SMART Departmental Sustainability Targets",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Formulate mathematically sound, auditable SMART sustainability KPIs across operational functions.",
+        "Calculate normalized intensity baselines accounting for operational capacity, production volume, and weather seasonality.",
+        "Establish upper and lower control limits for quarterly KPI variance tracking.",
+        "Integrate departmental targets into corporate ERP systems and executive reporting dashboards."
+      ]
+    },
+    {
+      "id": 720,
+      "courseCode": "ELH-118",
+      "title": "Managing Sustainability Performance & KPIs",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Execute systematic monthly variance reviews comparing actual departmental consumption against target trajectories.",
+        "Apply structured Root Cause Analysis (RCA) techniques (5-Whys, Ishikawa Fishbone) to diagnose operational overconsumption.",
+        "Formulate time-bound Corrective Action Plans (CAP) with 30-day remediation milestones and single-point accountability.",
+        "Prepare executive-grade performance summaries highlighting variances, root causes, and corrective actions."
+      ]
+    },
+    {
+      "id": 768,
+      "courseCode": "ELH-119",
+      "title": "Engaging Frontline Employees in Green Initiatives",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "learningObjectives": [
+        "Design and lead frontline 'Green Kaizen' continuous improvement circles at the shift and team level.",
+        "Apply behavioral economics principles (EAST: Easy, Attractive, Social, Timely) to encourage workplace resource conservation.",
+        "Implement transparent, shift-level sustainability metrics, visual management boards, and recognition systems.",
+        "Build a structured frontline green idea capture, screening, and rapid-prototyping pipeline.",
+        "Formulate a 30-day frontline sustainability engagement campaign and employee recognition protocol."
+      ]
+    }
+  ]
+}

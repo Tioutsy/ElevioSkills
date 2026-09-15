@@ -76,9 +76,9 @@ export const BANDS_CONFIG = [
     code: "OVER_120",
     label: "121+ employees",
     minimumEmployees: 121,
-    maximumEmployees: 250,
+    maximumEmployees: null,
     displayOrder: 5,
-    requiresTailoredQuote: false,
+    requiresTailoredQuote: true,
   },
 ];
 
@@ -88,21 +88,21 @@ export const PRICING_MATRIX: Record<string, Record<string, number | null>> = {
     FROM_26_TO_50: 4500,
     FROM_51_TO_80: 5000,
     FROM_81_TO_120: 6250,
-    OVER_120: 7500,
+    OVER_120: null,
   },
   PROFESSIONAL: {
-    UP_TO_25: 4500,
-    FROM_26_TO_50: 6500,
-    FROM_51_TO_80: 7500,
-    FROM_81_TO_120: 9000,
-    OVER_120: 9500,
+    UP_TO_25: 3000,
+    FROM_26_TO_50: 4500,
+    FROM_51_TO_80: 5000,
+    FROM_81_TO_120: 6250,
+    OVER_120: null,
   },
   COMPLETE: {
-    UP_TO_25: 6000,
-    FROM_26_TO_50: 9000,
-    FROM_51_TO_80: 11000,
-    FROM_81_TO_120: 13500,
-    OVER_120: 12500,
+    UP_TO_25: 3000,
+    FROM_26_TO_50: 4500,
+    FROM_51_TO_80: 5000,
+    FROM_81_TO_120: 6250,
+    OVER_120: null,
   },
 };
 
@@ -232,7 +232,7 @@ export async function ensureHybridSubscriptions(): Promise<void> {
       }
     }
 
-    // 4. Seed Course Entitlements
+    // 4. Seed Course Entitlements — Standard subscription includes all canonical published courses
     const allCourses = await db.select({
       id: coursesTable.id,
       courseCode: coursesTable.courseCode,
@@ -243,31 +243,40 @@ export async function ensureHybridSubscriptions(): Promise<void> {
     const professionalPlanId = planIdMap.get("PROFESSIONAL")!;
     const completePlanId = planIdMap.get("COMPLETE")!;
 
-    // Category slugs
-    const coreCategory = await db.select().from(categoriesTable).where(eq(categoriesTable.slug, "core-sustainability-certificate")).then(r => r[0]);
-    const actionCategory = await db.select().from(categoriesTable).where(eq(categoriesTable.slug, "sustainability-in-action")).then(r => r[0]);
-    const departmentCategory = await db.select().from(categoriesTable).where(eq(categoriesTable.slug, "sustainability-by-department")).then(r => r[0]);
-    const leadershipCategory = await db.select().from(categoriesTable).where(eq(categoriesTable.slug, "leadership-and-sustainability-management")).then(r => r[0]);
+    const existingEntitlements = await db
+      .select({
+        subscriptionPlanId: planCourseEntitlementsTable.subscriptionPlanId,
+        courseId: planCourseEntitlementsTable.courseId,
+      })
+      .from(planCourseEntitlementsTable);
+
+    const existingKeySet = new Set(
+      existingEntitlements.map(e => `${e.subscriptionPlanId}:${e.courseId}`)
+    );
+
+    const toInsert: Array<{ subscriptionPlanId: number; courseId: number; accessType: string }> = [];
+    const planIds = [essentialPlanId, professionalPlanId, completePlanId];
 
     for (const course of allCourses) {
-      const code = course.courseCode || "";
-      const isCore = (code >= "ELH-01" && code <= "ELH-12") || course.categoryId === coreCategory?.id;
-
-      // Essential Plan: Core courses (ELH-01..12)
-      if (isCore) {
-        await upsertCourseEntitlement(essentialPlanId, course.id);
+      for (const pId of planIds) {
+        if (!existingKeySet.has(`${pId}:${course.id}`)) {
+          toInsert.push({
+            subscriptionPlanId: pId,
+            courseId: course.id,
+            accessType: "INCLUDED",
+          });
+        }
       }
-
-      // Professional Plan: Essential + Action + Department
-      const isAction = (code >= "ELH-13" && code <= "ELH-23") || course.categoryId === actionCategory?.id;
-      const isDepartment = (code >= "ELH-24" && code <= "ELH-30") || course.categoryId === departmentCategory?.id;
-      if (isCore || isAction || isDepartment) {
-        await upsertCourseEntitlement(professionalPlanId, course.id);
-      }
-
-      // Complete Plan: All courses
-      await upsertCourseEntitlement(completePlanId, course.id);
     }
+
+    if (toInsert.length > 0) {
+      // Chunk in blocks of 100 for fast safe execution
+      for (let i = 0; i < toInsert.length; i += 100) {
+        const chunk = toInsert.slice(i, i + 100);
+        await db.insert(planCourseEntitlementsTable).values(chunk).onConflictDoNothing();
+      }
+    }
+
 
     // 5. Seed Feature Entitlements
     const featureMappings: Record<string, string[]> = {

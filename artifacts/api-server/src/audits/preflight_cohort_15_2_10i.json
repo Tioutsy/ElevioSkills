@@ -1,0 +1,242 @@
+{
+  "targetCodes": [
+    "ELH-96",
+    "ELH-97",
+    "ELH-98",
+    "ELH-99",
+    "ELH-100",
+    "ELH-101",
+    "ELH-102",
+    "ELH-103",
+    "ELH-104",
+    "ELH-105",
+    "ELH-106",
+    "ELH-107"
+  ],
+  "resolvedCount": 12,
+  "totalCanonicalCourses": 136,
+  "totalScoredQuestions": 1208,
+  "totalQuizAttempts": 16,
+  "totalEnrollments": 22,
+  "totalCertificates": 6,
+  "totalBadges": 133,
+  "totalScoreLedgers": 6,
+  "courses": [
+    {
+      "id": 766,
+      "courseCode": "ELH-100",
+      "title": "Energy & Water Conservation in Healthcare Facilities",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "questionIds": [
+        24058,
+        24059,
+        24060,
+        24061,
+        24062,
+        24063,
+        24064,
+        24065
+      ]
+    },
+    {
+      "id": 767,
+      "courseCode": "ELH-101",
+      "title": "Sustainable Healthcare Procurement & Single-Use Reductions",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "questionIds": [
+        24066,
+        24067,
+        24068,
+        24069,
+        24070,
+        24071,
+        24072,
+        24073
+      ]
+    },
+    {
+      "id": 784,
+      "courseCode": "ELH-102",
+      "title": "Anesthetic Gas & Pharmaceutical Waste Management",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "questionIds": [
+        24074,
+        24075,
+        24076,
+        24077,
+        24078,
+        24079,
+        24080,
+        24081
+      ]
+    },
+    {
+      "id": 785,
+      "courseCode": "ELH-103",
+      "title": "Healthcare Indoor Air Quality & Infection Ventilation",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "questionIds": [
+        24270,
+        24271,
+        24272,
+        24273,
+        24274,
+        24275,
+        24276,
+        24277
+      ]
+    },
+    {
+      "id": 786,
+      "courseCode": "ELH-104",
+      "title": "Climate Resilience & Disaster Preparedness for Hospitals",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "questionIds": [
+        24278,
+        24279,
+        24280,
+        24281,
+        24282,
+        24283,
+        24284,
+        24285
+      ]
+    },
+    {
+      "id": 787,
+      "courseCode": "ELH-105",
+      "title": "Sustainable Hotel Kitchen Energy & Equipment",
+      "version": 1,
+      "passingScore": 70,
+      "questionCount": 8,
+      "questionIds": [
+        9584,
+        9588,
+        9582,
+        9583,
+        9585,
+        9586,
+        9587,
+        9589
+      ]
+    },
+    {
+      "id": 788,
+      "courseCode": "ELH-106",
+      "title": "Low-Impact Coastal Resort Landscaping & Native Flora",
+      "version": 1,
+      "passingScore": 70,
+      "questionCount": 8,
+      "questionIds": [
+        9612,
+        9626,
+        9610,
+        9611,
+        9613,
+        9614,
+        9627,
+        9625
+      ]
+    },
+    {
+      "id": 789,
+      "courseCode": "ELH-107",
+      "title": "Net-Zero Energy Building Design & Passive Architecture",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "questionIds": [
+        24286,
+        24287,
+        24288,
+        24289,
+        24290,
+        24291,
+        24292,
+        24293
+      ]
+    },
+    {
+      "id": 758,
+      "courseCode": "ELH-96",
+      "title": "Data Center Energy Efficiency & Cooling",
+      "version": 2,
+      "passingScore": 75,
+      "questionCount": 8,
+      "questionIds": [
+        24050,
+        24051,
+        24052,
+        24053,
+        24054,
+        24055,
+        24056,
+        24057
+      ]
+    },
+    {
+      "id": 759,
+      "courseCode": "ELH-97",
+      "title": "Sustainable IT Hardware Lifecycle & E-Waste",
+      "version": 1,
+      "passingScore": 70,
+      "questionCount": 8,
+      "questionIds": [
+        9360,
+        9358,
+        9359,
+        9361,
+        9362,
+        9363,
+        9364,
+        9365
+      ]
+    },
+    {
+      "id": 760,
+      "courseCode": "ELH-98",
+      "title": "Green Office Systems for Professional Services",
+      "version": 1,
+      "passingScore": 70,
+      "questionCount": 8,
+      "questionIds": [
+        9368,
+        9372,
+        9366,
+        9367,
+        9369,
+        9370,
+        9371,
+        9373
+      ]
+    },
+    {
+      "id": 765,
+      "courseCode": "ELH-99",
+      "title": "Hospital & Clinic Medical Waste Segregation",
+      "version": 1,
+      "passingScore": 70,
+      "questionCount": 8,
+      "questionIds": [
+        9408,
+        9412,
+        9406,
+        9407,
+        9409,
+        9410,
+        9411,
+        9413
+      ]
+    }
+  ]
+}

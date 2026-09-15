@@ -337,7 +337,13 @@ const NEW_QUIZ = [
     ],
     correct: 2,
     correctExplanation: "Most unsorted waste in Mauritius goes to Mare Chicose landfill, making waste reduction and proper sorting essential.",
-    incorrectExplanation: "Incorrect. Mare Chicose is the central landfill site in Mauritius."
+    incorrectExplanation: "Incorrect. Mare Chicose is the primary landfill site in Mauritius.",
+    optionFeedback: [
+      "Incorrect. Unsorted general waste cannot go to compost facilities due to synthetic contaminants.",
+      "Incorrect. Mauritius does not export mixed unsorted municipal waste for recycling.",
+      "Correct! General waste in Mauritius is transported to Mare Chicose landfill, which faces strict space constraints.",
+      "Incorrect. Mauritius does not operate a general municipal waste-to-energy incineration plant."
+    ]
   },
   {
     order: 2,
@@ -350,7 +356,13 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Different employers contract different waste collection services with unique guidelines and accepted items.",
-    incorrectExplanation: "Incorrect. Bin systems and accepted materials vary by employer and waste collector."
+    incorrectExplanation: "Incorrect. Bin systems and accepted materials vary by employer and waste collector.",
+    optionFeedback: [
+      "Correct! Private waste contractors and local recyclers have distinct sorting guidelines and color schemes.",
+      "Incorrect. Commercial sorting bins serve functional operational and recycling purposes.",
+      "Incorrect. Different private waste haulers operate with varying sorting requirements across business sites.",
+      "Incorrect. Paper, cardboard, PET plastics, and metals are also collected by specialized commercial contractors."
+    ]
   },
   {
     order: 3,
@@ -363,7 +375,13 @@ const NEW_QUIZ = [
     ],
     correct: 1,
     correctExplanation: "Grease and moisture disrupt repulping processes, contaminating dry paper streams beyond recovery.",
-    incorrectExplanation: "Incorrect. Food oil and moisture permanently spoil recyclable paper streams."
+    incorrectExplanation: "Incorrect. Food oil and moisture permanently spoil recyclable paper streams.",
+    optionFeedback: [
+      "Incorrect. Paper recycling relies on water-based repulping; oil and grease cannot be separated from cellulose fibers.",
+      "Correct! Grease and oils bind to paper fibers, making the pulp unusable and resulting in rejected loads.",
+      "Incorrect. Greasy cardboard mixed with inks and packaging adhesives cannot safely turn into clean compost.",
+      "Incorrect. Contamination drastically devalues recyclable commodities and causes processing rejections."
+    ]
   },
   {
     order: 4,
@@ -376,7 +394,13 @@ const NEW_QUIZ = [
     ],
     correct: 3,
     correctExplanation: "Batteries contain hazardous heavy metals and chemicals that require dedicated collection procedures.",
-    incorrectExplanation: "Incorrect. Batteries and e-waste must be escalated to special collection points."
+    incorrectExplanation: "Incorrect. Batteries and e-waste must be escalated to special collection points.",
+    optionFeedback: [
+      "Incorrect. Clean PET plastic bottles belong in designated plastic packaging recycling bins.",
+      "Incorrect. Clean flattened cardboard belongs in standard cardboard recycling streams.",
+      "Incorrect. Clean aluminum cans belong in designated metal/can recycling containers.",
+      "Correct! Heavy metals and battery electrolytes cause toxic leaching in landfills and fire risks in collection trucks."
+    ]
   },
   {
     order: 5,
@@ -389,7 +413,70 @@ const NEW_QUIZ = [
     ],
     correct: 1,
     correctExplanation: "Emptying liquids prevents leaks that destroy adjacent paper and cardboard recyclables.",
-    incorrectExplanation: "Incorrect. Liquids must be emptied before placing containers into recycling streams."
+    incorrectExplanation: "Incorrect. Liquids must be emptied before placing containers into recycling streams.",
+    optionFeedback: [
+      "Incorrect. Liquids leak in collection bins and saturate clean dry cardboard and paper recyclables.",
+      "Correct! Emptying and lightly rinsing containers preserves packaging quality and prevents foul odors and contamination.",
+      "Incorrect. Plastic bottles do not belong in paper streams.",
+      "Incorrect. Each individual employee is responsible for properly prepping their personal beverage containers."
+    ]
+  },
+  {
+    order: 6,
+    question: "Workplace Scenario (Office Paper Contamination): A team member finishes printing a report with plastic spiral binding and a clear plastic cover. How should they prepare the document for recycling?",
+    options: [
+      "Toss the bound document directly into the paper recycling bin without disassembling it",
+      "Remove the plastic cover and metal spiral, place clean paper pages in the paper recycling bin, and dispose of non-recyclable components appropriately",
+      "Throw the entire binder into the kitchen organic waste bin",
+      "Burn the plastic binding in an outdoor barrel behind the premises"
+    ],
+    correct: 1,
+    correctExplanation: "Disassembling multi-material documents ensures the paper stream remains unpolluted by plastic and metal components.",
+    incorrectExplanation: "Incorrect. Separating covers and spirals prevents jamming industrial repulping machines.",
+    optionFeedback: [
+      "Incorrect. Plastic spirals and vinyl covers jam paper recycling repulping equipment and contaminate pulp batches.",
+      "Correct! Separating materials ensures that high-grade paper can be repulped without synthetic contamination.",
+      "Incorrect. Plastic and metal components must never enter compost streams.",
+      "Incorrect. Open burning of plastics releases hazardous toxic fumes and is illegal under local environmental laws."
+    ]
+  },
+  {
+    order: 7,
+    question: "Workplace Scenario (Canteen Waste Sorting): After lunch, an employee has a plastic food container coated with heavy curry oil. The workplace recycling station accepts clean plastic only. What is the correct procedure?",
+    options: [
+      "Place the oily container in the clean plastic bin hoping the recycling plant washes it",
+      "Wash and rinse the container with water to remove oil before placing it in the plastic recycling bin, or discard in general waste if cleaning is not possible",
+      "Hide the oily container underneath cardboard boxes in the paper bin",
+      "Throw the container into the office electronics recycling bin"
+    ],
+    correct: 1,
+    correctExplanation: "Plastic recyclables must be free of heavy food grease to prevent batch contamination and pest attraction.",
+    incorrectExplanation: "Incorrect. Grease-laden containers contaminate clean recyclables.",
+    optionFeedback: [
+      "Incorrect. Recycling facilities cannot process heavily oil-soaked food containers with dry plastic streams.",
+      "Correct! Removing food grease preserves recyclable quality; if unrinsable, general waste prevents batch rejection.",
+      "Incorrect. Hiding oily containers ruins dry paper streams and attracts pests.",
+      "Incorrect. Electronics bins are strictly reserved for cables, e-waste, and batteries."
+    ]
+  },
+  {
+    order: 8,
+    question: "Workplace Decision (Sorting Infrastructure): You notice a newly relocated water station in your facility lacks a dedicated bin for plastic cups, leading people to toss cups into general waste. What is the most effective operational action?",
+    options: [
+      "Inform your department green team or facility manager to request a clearly labelled recycling bin at that station",
+      "Scold colleagues whenever they drink water",
+      "Ignore the issue because waste management is only facilities' responsibility",
+      "Remove the water dispenser so no waste is generated"
+    ],
+    correct: 0,
+    correctExplanation: "Reporting infrastructure gaps ensures permanent, accessible sorting for all staff.",
+    incorrectExplanation: "Incorrect. Proactive communication with facilities solves structural waste sorting gaps.",
+    optionFeedback: [
+      "Correct! Escalating infrastructure gaps to facilities or green teams establishes the physical means for correct sorting.",
+      "Incorrect. Antagonistic behaviour creates resistance and fails to provide the needed recycling bin.",
+      "Incorrect. Active sustainability engagement relies on all employees noticing and reporting sorting bottlenecks.",
+      "Incorrect. Removing hydration stations undermines employee health and safety."
+    ]
   }
 ];
 
@@ -444,7 +531,7 @@ export async function ensureWasteSortingCourse(): Promise<void> {
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 5;
+      const hasMissingQuiz = existingQuizQuestions.length < 8;
       const hasIncorrectSlug = course.slug !== COURSE_SLUG;
 
       const needsRepair = !existingSeed ||
@@ -518,6 +605,7 @@ export async function ensureWasteSortingCourse(): Promise<void> {
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );

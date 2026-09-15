@@ -1,0 +1,2243 @@
+{
+  "capturedAt": "2026-09-07T14:04:41.495Z",
+  "sprint": "15.2.10F",
+  "canonicalCourseCount": 136,
+  "catalogueScoredQuestionCount": 1208,
+  "diagnosticItemCount": 88,
+  "historicalLearnerData": {
+    "attemptsCount": 16,
+    "enrollmentsCount": 22,
+    "certificatesCount": 6,
+    "badgeDefinitionsCount": 133,
+    "scoreLedgerCount": 6
+  },
+  "cohortMetadata": [
+    {
+      "courseCode": "ELH-60",
+      "courseId": 749,
+      "title": "Industrial Energy Audit & Motor Systems Optimization",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "Questions default to correct_option index 1",
+        "Needs IE3/IE4 premium efficiency motor replacement and VFD affinity law scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with industrial motor/VFD operational scenarios, 4-element option feedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-61",
+      "courseId": 731,
+      "title": "Lean Green Manufacturing: Waste Elimination",
+      "currentVersion": 1,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 70,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 70%",
+        "Version 1 requires upgrade to version 2",
+        "Missing complete 4-element option feedback",
+        "Needs Value Stream Mapping (VSM) and Muda/environmental waste integration scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "DEFICIENT_FEEDBACK",
+      "proposedRemediation": "Remediate 8 scored questions with lean-green manufacturing scenarios, comprehensive 4-element option feedback, advance version to 2, and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-62",
+      "courseId": 716,
+      "title": "Industrial Chemical Management & GHS",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 80,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Questions lack balanced answer key distribution",
+        "Needs chemical secondary containment, SDS pictograms, and spill escalation protocols"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with rigorous GHS hazardous chemical containment scenarios, complete 4-element option feedback, and balanced 2/2/2/2 answer keys."
+    },
+    {
+      "courseCode": "ELH-63",
+      "courseId": 732,
+      "title": "Sustainable Packaging Design in Manufacturing",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "Questions default to correct_option index 1",
+        "Needs mono-material recyclability and packaging volume/headspace reduction scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with sustainable packaging engineering scenarios, complete 4-element option feedback, balanced keys, and 80% passing score."
+    },
+    {
+      "courseCode": "ELH-64",
+      "courseId": 750,
+      "title": "Circular Raw Material Substitution in Industry",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "Questions default to correct_option index 1",
+        "Needs post-consumer recycled (PCR) resin qualification and industrial byproduct symbiosis scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with circular material substitution trade-off scenarios, complete 4-element option feedback, balanced keys, and 80% passing score."
+    },
+    {
+      "courseCode": "ELH-65",
+      "courseId": 775,
+      "title": "Industrial Air Quality, VOC Controls & Scrubbers",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "Questions default to correct_option index 1",
+        "Needs Regenerative Thermal Oxidizer (RTO), carbon adsorption, and wet scrubber operational scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with industrial emission control and scrubber safety scenarios, complete 4-element option feedback, balanced keys, and 80% passing score."
+    },
+    {
+      "courseCode": "ELH-66",
+      "courseId": 776,
+      "title": "Sustainable Supply Chain Traceability in Manufacturing",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "Questions default to correct_option index 1",
+        "Needs Chain of Custody (CoC), Tier-2 supplier auditing, and Scope 3 supplier primary data collection scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with supply chain traceability verification scenarios, complete 4-element option feedback, balanced keys, and 80% passing score."
+    },
+    {
+      "courseCode": "ELH-67",
+      "courseId": 733,
+      "title": "Supermarket Cold Chain & Refrigeration Efficiency",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "Questions default to correct_option index 1",
+        "Needs display case glass doors, floating head pressure, and transcritical CO2 (R-744) safety scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with retail commercial refrigeration efficiency and natural refrigerant scenarios, complete 4-element option feedback, balanced keys, and 80% passing score."
+    },
+    {
+      "courseCode": "ELH-68",
+      "courseId": 734,
+      "title": "Retail Food Waste & Dynamic Markdown Management",
+      "currentVersion": 1,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 70,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 70%",
+        "Version 1 requires upgrade to version 2",
+        "Missing complete 4-element option feedback",
+        "Needs dynamic markdown algorithm, cold-chain food donation, and bakery waste diversion scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "DEFICIENT_FEEDBACK",
+      "proposedRemediation": "Remediate 8 scored questions with retail perishable markdown and food rescue safety scenarios, advance version to 2, and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-69",
+      "courseId": 751,
+      "title": "Sustainable Retail Store Lighting & HVAC Design",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "Questions default to correct_option index 1",
+        "Needs retail Lighting Power Density (LPD), vestibule air curtains, and DCV occupancy sensing scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with retail building services efficiency scenarios, complete 4-element option feedback, balanced keys, and 80% passing score."
+    },
+    {
+      "courseCode": "ELH-70",
+      "courseId": 752,
+      "title": "Sustainable Retail Sourcing & Supplier ESG Code",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "Questions default to correct_option index 1",
+        "Needs private-label ESG supplier scorecards, Fair Trade auditing, and corrective action plan (CAP) enforcement scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with retail supplier ESG auditing and compliance scenarios, complete 4-element option feedback, balanced keys, and 80% passing score."
+    },
+    {
+      "courseCode": "ELH-71",
+      "courseId": 735,
+      "title": "Eliminating Single-Use Plastics in Retail",
+      "currentVersion": 1,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 70,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 70%",
+        "Version 1 requires upgrade to version 2",
+        "Missing complete 4-element option feedback",
+        "Needs checkout bag phaseouts, loose produce reusables, and customer nudge scenarios"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "DEFICIENT_FEEDBACK",
+      "proposedRemediation": "Remediate 8 scored questions with retail plastic phaseout operational scenarios, complete 4-element option feedback, advance version to 2, and standardize passing score to 80%."
+    }
+  ],
+  "cohortCourses": [
+    {
+      "id": 749,
+      "code": "ELH-60",
+      "title": "Industrial Energy Audit & Motor Systems Optimization",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 731,
+      "code": "ELH-61",
+      "title": "Lean Green Manufacturing: Waste Elimination",
+      "version": 1,
+      "passingScore": 70
+    },
+    {
+      "id": 716,
+      "code": "ELH-62",
+      "title": "Industrial Chemical Management & GHS",
+      "version": 2,
+      "passingScore": 80
+    },
+    {
+      "id": 732,
+      "code": "ELH-63",
+      "title": "Sustainable Packaging Design in Manufacturing",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 750,
+      "code": "ELH-64",
+      "title": "Circular Raw Material Substitution in Industry",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 775,
+      "code": "ELH-65",
+      "title": "Industrial Air Quality, VOC Controls & Scrubbers",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 776,
+      "code": "ELH-66",
+      "title": "Sustainable Supply Chain Traceability in Manufacturing",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 733,
+      "code": "ELH-67",
+      "title": "Supermarket Cold Chain & Refrigeration Efficiency",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 734,
+      "code": "ELH-68",
+      "title": "Retail Food Waste & Dynamic Markdown Management",
+      "version": 1,
+      "passingScore": 70
+    },
+    {
+      "id": 751,
+      "code": "ELH-69",
+      "title": "Sustainable Retail Store Lighting & HVAC Design",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 752,
+      "code": "ELH-70",
+      "title": "Sustainable Retail Sourcing & Supplier ESG Code",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 735,
+      "code": "ELH-71",
+      "title": "Eliminating Single-Use Plastics in Retail",
+      "version": 1,
+      "passingScore": 70
+    }
+  ],
+  "cohortQuestions": [
+    {
+      "id": 22439,
+      "courseId": 716,
+      "orderIndex": 1,
+      "question": "Under the Globally Harmonized System (GHS), what is the difference between the signal words 'DANGER' and 'WARNING' on a chemical label?",
+      "options": [
+        "'DANGER' is used for more severe hazard categories, whereas 'WARNING' is used for less severe hazards",
+        "'DANGER' is for French speakers only and 'WARNING' is for English speakers",
+        "'DANGER' means the container is empty",
+        "There is zero difference between the two terms"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "'DANGER' indicates high-severity hazards (e.g. fatal if swallowed, highly flammable), while 'WARNING' indicates moderate hazards.",
+        "Incorrect. Under GHS, 'DANGER' indicates severe hazards and 'WARNING' indicates less severe hazards.",
+        "Incorrect. Under GHS, 'DANGER' indicates severe hazards and 'WARNING' indicates less severe hazards.",
+        "Incorrect. Under GHS, 'DANGER' indicates severe hazards and 'WARNING' indicates less severe hazards."
+      ],
+      "correctExplanation": "'DANGER' indicates high-severity hazards (e.g. fatal if swallowed, highly flammable), while 'WARNING' indicates moderate hazards.",
+      "incorrectExplanation": "Incorrect. Under GHS, 'DANGER' indicates severe hazards and 'WARNING' indicates less severe hazards."
+    },
+    {
+      "id": 22440,
+      "courseId": 716,
+      "orderIndex": 2,
+      "question": "Why is it strictly prohibited to decant industrial chemicals into unlabelled beverage bottles or food containers?",
+      "options": [
+        "It is a leading cause of catastrophic accidental poisonings and severe chemical burns because containers can be mistaken for drinking water",
+        "Beverage bottles make chemicals evaporate into gold",
+        "It causes the chemical to turn into soda",
+        "Beverage bottles are too heavy to carry"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Decanting into drinking bottles frequently causes fatal ingestion accidents; all secondary containers must have complete GHS hazard labels.",
+        "Incorrect. Unlabelled beverage containers lead to fatal accidental poisonings and burns.",
+        "Incorrect. Unlabelled beverage containers lead to fatal accidental poisonings and burns.",
+        "Incorrect. Unlabelled beverage containers lead to fatal accidental poisonings and burns."
+      ],
+      "correctExplanation": "Decanting into drinking bottles frequently causes fatal ingestion accidents; all secondary containers must have complete GHS hazard labels.",
+      "incorrectExplanation": "Incorrect. Unlabelled beverage containers lead to fatal accidental poisonings and burns."
+    },
+    {
+      "id": 22441,
+      "courseId": 716,
+      "orderIndex": 3,
+      "question": "Which section of a 16-section Safety Data Sheet (SDS) contains mandatory information regarding Personal Protective Equipment (PPE) and exposure limits?",
+      "options": [
+        "Section 8: Exposure Controls / Personal Protection",
+        "Section 1: Identification only",
+        "Section 16: Other Information",
+        "Section 12: Ecological Information"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Section 8 explicitly specifies required respirator types, chemical glove materials (e.g. nitrile, butyl), and ventilation requirements.",
+        "Incorrect. Section 8 details mandatory exposure controls and PPE requirements.",
+        "Incorrect. Section 8 details mandatory exposure controls and PPE requirements.",
+        "Incorrect. Section 8 details mandatory exposure controls and PPE requirements."
+      ],
+      "correctExplanation": "Section 8 explicitly specifies required respirator types, chemical glove materials (e.g. nitrile, butyl), and ventilation requirements.",
+      "incorrectExplanation": "Incorrect. Section 8 details mandatory exposure controls and PPE requirements."
+    },
+    {
+      "id": 22442,
+      "courseId": 716,
+      "orderIndex": 4,
+      "question": "What hazardous chemical reaction occurs if strong industrial acids are stored in direct contact with strong cyanide or sulfide compounds?",
+      "options": [
+        "They react violently to generate lethal, toxic hydrogen cyanide or hydrogen sulfide gases",
+        "They turn into pure drinking milk",
+        "They freeze into solid ice",
+        "They produce harmless bubbles of oxygen"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Acids reacting with cyanides release deadly hydrogen cyanide gas, which is fatal within seconds of inhalation.",
+        "Incorrect. Mixing acids with cyanides or sulfides produces lethal toxic gases.",
+        "Incorrect. Mixing acids with cyanides or sulfides produces lethal toxic gases.",
+        "Incorrect. Mixing acids with cyanides or sulfides produces lethal toxic gases."
+      ],
+      "correctExplanation": "Acids reacting with cyanides release deadly hydrogen cyanide gas, which is fatal within seconds of inhalation.",
+      "incorrectExplanation": "Incorrect. Mixing acids with cyanides or sulfides produces lethal toxic gases."
+    },
+    {
+      "id": 22443,
+      "courseId": 716,
+      "orderIndex": 5,
+      "question": "What is the standard capacity requirement for secondary containment bunds and spill pallets storing industrial chemical drums?",
+      "options": [
+        "Capable of holding at least 110% of the volume of the largest single container stored within the bund",
+        "Capable of holding 10% of the container volume",
+        "Zero containment required if drums have lids",
+        "A cardboard box placed underneath the drum"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "110% secondary containment guarantees that complete structural failure of the largest drum is captured entirely.",
+        "Incorrect. Secondary bunding must hold at least 110% of the largest stored container volume.",
+        "Incorrect. Secondary bunding must hold at least 110% of the largest stored container volume.",
+        "Incorrect. Secondary bunding must hold at least 110% of the largest stored container volume."
+      ],
+      "correctExplanation": "110% secondary containment guarantees that complete structural failure of the largest drum is captured entirely.",
+      "incorrectExplanation": "Incorrect. Secondary bunding must hold at least 110% of the largest stored container volume."
+    },
+    {
+      "id": 22444,
+      "courseId": 716,
+      "orderIndex": 6,
+      "question": "What is the immediate first action a chemical handler must take upon discovering a major hazardous liquid chemical spill on the factory floor?",
+      "options": [
+        "Alert nearby workers, evacuate the immediate danger zone, and ensure appropriate chemical PPE (gloves, goggles, respirator) is donned before attempting containment",
+        "Wash the chemical into the floor drain with high-pressure tap water",
+        "Taste the chemical to identify what it is",
+        "Walk through the spill with bare feet"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Worker safety and PPE donning take absolute precedence before executing spill containment procedures.",
+        "Incorrect. Alerting workers and donning proper PPE is the mandatory first step before containment.",
+        "Incorrect. Alerting workers and donning proper PPE is the mandatory first step before containment.",
+        "Incorrect. Alerting workers and donning proper PPE is the mandatory first step before containment."
+      ],
+      "correctExplanation": "Worker safety and PPE donning take absolute precedence before executing spill containment procedures.",
+      "incorrectExplanation": "Incorrect. Alerting workers and donning proper PPE is the mandatory first step before containment."
+    },
+    {
+      "id": 22445,
+      "courseId": 716,
+      "orderIndex": 7,
+      "question": "How should used chemical-absorbent pads, booms, and contaminated neutralization granules be disposed of after cleaning up a chemical spill?",
+      "options": [
+        "Sealed in heavy-duty yellow hazardous waste bags, labelled with the chemical identity, and collected by licensed hazardous waste disposal contractors",
+        "Thrown into the regular cafeteria compost bin",
+        "Burned in an open fire pit behind the factory",
+        "Flushed down employee toilets"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Spent spill absorbents carry hazardous chemicals and must be managed under certified hazardous waste manifests.",
+        "Incorrect. Used chemical absorbents are classified as hazardous waste and require certified disposal.",
+        "Incorrect. Used chemical absorbents are classified as hazardous waste and require certified disposal.",
+        "Incorrect. Used chemical absorbents are classified as hazardous waste and require certified disposal."
+      ],
+      "correctExplanation": "Spent spill absorbents carry hazardous chemicals and must be managed under certified hazardous waste manifests.",
+      "incorrectExplanation": "Incorrect. Used chemical absorbents are classified as hazardous waste and require certified disposal."
+    },
+    {
+      "id": 22446,
+      "courseId": 716,
+      "orderIndex": 8,
+      "question": "How frequently must emergency chemical eye wash stations and safety showers be inspected and flushed in industrial workplaces?",
+      "options": [
+        "Weekly routine inspections and flushing to ensure unobstructed access, proper water pressure, and clear sediment-free water",
+        "Once every 10 years",
+        "Only after an employee gets acid in their eyes",
+        "Eye wash stations never require testing"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Weekly activation purges stagnant rust and confirms immediate functionality during life-threatening chemical exposure emergencies.",
+        "Incorrect. Emergency eyewash stations and safety showers must be inspected and flushed weekly.",
+        "Incorrect. Emergency eyewash stations and safety showers must be inspected and flushed weekly.",
+        "Incorrect. Emergency eyewash stations and safety showers must be inspected and flushed weekly."
+      ],
+      "correctExplanation": "Weekly activation purges stagnant rust and confirms immediate functionality during life-threatening chemical exposure emergencies.",
+      "incorrectExplanation": "Incorrect. Emergency eyewash stations and safety showers must be inspected and flushed weekly."
+    },
+    {
+      "id": 9134,
+      "courseId": 731,
+      "orderIndex": 1,
+      "question": "What is the primary operational objective of Lean Green Manufacturing: Waste Elimination?",
+      "options": [
+        "To generate unnecessary paperwork that slows down daily workplace tasks",
+        "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+        "To replace all human employees with automated robots",
+        "To eliminate all customer interactions permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! The objective is rigorous operational efficiency and compliance.",
+      "incorrectExplanation": "Incorrect. The focus is establishing standardized, compliant, and efficient workflows."
+    },
+    {
+      "id": 9135,
+      "courseId": 731,
+      "orderIndex": 2,
+      "question": "Why are standardized operating procedures (SOPs) critical for sustainable workplace execution?",
+      "options": [
+        "They are only created for decorative office displays",
+        "They prevent employees from ever taking breaks",
+        "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+        "They make simple tasks impossible to finish"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! SOPs provide operational consistency and audit trails.",
+      "incorrectExplanation": "Incorrect. SOPs ensure consistent quality, safety, and verifiable compliance."
+    },
+    {
+      "id": 9136,
+      "courseId": 731,
+      "orderIndex": 3,
+      "question": "How should unexpected technical exceptions or process deviations be handled on the job?",
+      "options": [
+        "Logged immediately in the tracking register and escalated according to the defined response protocol",
+        "Ignored completely hoping no one notices",
+        "Concealed from team supervisors",
+        "Blamed on external vendors without investigation"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Formal logging and escalation ensure rapid remediation.",
+      "incorrectExplanation": "Incorrect. Process deviations must be logged and escalated promptly."
+    },
+    {
+      "id": 9137,
+      "courseId": 731,
+      "orderIndex": 4,
+      "question": "What is the primary commercial benefit of implementing continuous resource efficiency measures?",
+      "options": [
+        "Increased employee turnover",
+        "Guaranteed bankruptcy within 30 days",
+        "Higher municipal landfill penalty taxes",
+        "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Resource efficiency lowers costs and strengthens enterprise resilience.",
+      "incorrectExplanation": "Incorrect. Efficiency lowers operating expenses and strengthens compliance."
+    },
+    {
+      "id": 9138,
+      "courseId": 731,
+      "orderIndex": 5,
+      "question": "What role does accurate data collection and baseline measurement play in workplace sustainability?",
+      "options": [
+        "It is purely an aesthetic exercise with zero business value",
+        "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+        "It is only performed when an inspector is standing in the building",
+        "It replaces the need for actual equipment maintenance"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Accurate data provides the factual foundation for continuous improvement.",
+      "incorrectExplanation": "Incorrect. Reliable data measurement is vital for tracking progress and identifying waste."
+    },
+    {
+      "id": 9139,
+      "courseId": 731,
+      "orderIndex": 6,
+      "question": "How should departmental teams coordinate when managing cross-functional sustainability initiatives?",
+      "options": [
+        "Send anonymous complaint letters to the executive board",
+        "Refuse to communicate with any other department",
+        "Compete destructively for the same resources without coordination",
+        "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Shared KPIs and transparent alignment drive cross-functional success.",
+      "incorrectExplanation": "Incorrect. Collaboration requires clear communication, shared KPIs, and defined accountability."
+    },
+    {
+      "id": 9140,
+      "courseId": 731,
+      "orderIndex": 7,
+      "question": "What is the risk of implementing superficial environmental claims without operational verification?",
+      "options": [
+        "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+        "Automatic award of international sustainability prizes",
+        "Instant elimination of corporate taxes",
+        "Zero consequences under all circumstances"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! False claims trigger severe legal and reputational greenwashing penalties.",
+      "incorrectExplanation": "Incorrect. Superficial claims lead to severe greenwashing penalties and loss of stakeholder trust."
+    },
+    {
+      "id": 9141,
+      "courseId": 731,
+      "orderIndex": 8,
+      "question": "How does periodic management review support continuous improvement in workplace sustainability?",
+      "options": [
+        "It is a legal formality with no practical purpose",
+        "It allows managers to cancel all future sustainability efforts",
+        "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+        "It ensures that no process changes are ever permitted"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Management reviews drive continuous optimization and resource allocation.",
+      "incorrectExplanation": "Incorrect. Regular reviews ensure goals are met and processes are continually improved."
+    },
+    {
+      "id": 20474,
+      "courseId": 732,
+      "orderIndex": 1,
+      "question": "Why are traditional multi-layer flexible pouches constructed of PET, Aluminum Foil, and Polyethylene (PE) considered unrecyclable in standard municipal recycling systems?",
+      "options": [
+        "Because aluminum dissolves plastic over time",
+        "Because the tightly bonded incompatible material layers (polyester, metal, polyolefin) cannot be separated economically during mechanical shredding and washing",
+        "Because food residues make plastic permanently radioactive",
+        "Because flexible pouches are too light to be weighed"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Aluminum is chemically stable and does not dissolve polymers.",
+        "Correct. Incompatible material layers cannot be separated in mechanical recycling wash plants.",
+        "Incorrect. Food residue is washed off; it does not cause radioactivity.",
+        "Incorrect. Packaging weight is unrelated to mechanical recyclability."
+      ],
+      "correctExplanation": "Mechanical recycling requires single-polymer streams. Multi-material laminates cannot be separated in wash tanks, and melting them together results in an immiscible, brittle, worthless degraded polymer mix.",
+      "incorrectExplanation": "Multi-material laminates cannot be mechanically separated into pure polymer streams during recycling."
+    },
+    {
+      "id": 20475,
+      "courseId": 732,
+      "orderIndex": 2,
+      "question": "What is the primary recyclability benefit of using Mono-Material (e.g., all-PE or all-PP) flexible packaging structures?",
+      "options": [
+        "They allow packaging to be recycled into high-quality secondary polymer pellets within existing mechanical recycling infrastructure",
+        "They allow the packaging to be legally dumped into the ocean",
+        "They make packaging 100% invisible to human eyes",
+        "They eliminate the need for printing inks"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Mono-material structures integrate cleanly into standard mechanical recycling wash and extrusion lines.",
+        "Incorrect. Plastic packaging must never be discarded into marine environments.",
+        "Incorrect. Mono-materials have standard optical properties and are fully visible.",
+        "Incorrect. Printing inks are still used, though sustainable water/solvent-based inks are preferred."
+      ],
+      "correctExplanation": "Mono-material packaging melts cleanly into a homogeneous recycled resin stream, enabling high-value closed-loop recycling without polymer contamination.",
+      "incorrectExplanation": "Mono-materials process cleanly in mechanical recycling streams without material incompatibility."
+    },
+    {
+      "id": 20476,
+      "courseId": 732,
+      "orderIndex": 3,
+      "question": "Why are standard carbon black pigments problematic for automated plastic recycling sorting facilities?",
+      "options": [
+        "They explode when exposed to water.",
+        "Carbon black absorbs the near-infrared (NIR) light spectrum used by optical sorters, making black plastic containers undetectable and causing them to be sent to landfill as residue.",
+        "Carbon black turns all plastics into solid metal.",
+        "They make the plastic too slippery for conveyor belts."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Carbon black is chemically inert in water.",
+        "Correct. Carbon black absorbs NIR light, blinding optical sorting sensors in recycling facilities.",
+        "Incorrect. Carbon black is a carbon pigment, not a metallic converter.",
+        "Incorrect. Friction characteristics are managed by slip additives, not pigmentation."
+      ],
+      "correctExplanation": "Near-infrared (NIR) optical sorting relies on reflected light wavelengths to identify polymer types. Carbon black absorbs all NIR radiation, rendering black bottles invisible to sorting lasers.",
+      "incorrectExplanation": "Carbon black absorbs NIR sorting beams, preventing optical identification in automated sorting plants."
+    },
+    {
+      "id": 20477,
+      "courseId": 732,
+      "orderIndex": 4,
+      "question": "What does PCR stand for in sustainable packaging engineering, and what is its role?",
+      "options": [
+        "Polymer Chemical Resistance; it measures acid strength",
+        "Post-Consumer Recycled resin; it incorporates reclaimed consumer plastic waste back into new packaging to displace virgin fossil plastic",
+        "Primary Corrugated Ratio; it calculates cardboard thickness",
+        "Pressure Container Rating; it tests aerosol cans"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Chemical resistance is evaluated by solvent testing, not PCR.",
+        "Correct. Post-Consumer Recycled (PCR) resin displaces virgin fossil polymer, driving a circular economy.",
+        "Incorrect. Corrugate board measurement uses grammage and burst ratings.",
+        "Incorrect. Aerosol ratings use bar/psi pressure standards."
+      ],
+      "correctExplanation": "PCR (Post-Consumer Recycled) resin is plastic derived from items discarded by consumers after use, processed back into pellets to reduce virgin fossil oil extraction.",
+      "incorrectExplanation": "PCR stands for Post-Consumer Recycled material, closing the loop on plastic packaging."
+    },
+    {
+      "id": 20478,
+      "courseId": 732,
+      "orderIndex": 5,
+      "question": "What is the primary objective of packaging 'right-sizing' and cube optimization in transport logistics?",
+      "options": [
+        "To make shipping boxes as large as possible to impress customers",
+        "To eliminate empty void space inside shipping cartons and maximize pallet utilization, reducing corrugate consumption and freight transport emissions",
+        "To increase the weight of trucks so they drive slower",
+        "To use more plastic bubble wrap inside every carton"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Oversized boxes waste corrugated material and inflate shipping costs.",
+        "Correct. Eliminating void space optimizes pallet density, lowers corrugate usage, and cuts freight fuel.",
+        "Incorrect. Increasing vehicle weight increases fuel consumption and carbon emissions.",
+        "Incorrect. Right-sizing eliminates the need for plastic void-fill materials."
+      ],
+      "correctExplanation": "Right-sizing eliminates 'shipping air,' increasing pallet packaging density, reducing corrugated board usage, and cutting transportation fuel per unit shipped.",
+      "incorrectExplanation": "Right-sizing minimizes unused headspace in shipping boxes, improving transport efficiency and saving materials."
+    },
+    {
+      "id": 20479,
+      "courseId": 732,
+      "orderIndex": 6,
+      "question": "Under Extended Producer Responsibility (EPR) packaging frameworks, what is the primary obligation of manufacturing and brand-owner companies?",
+      "options": [
+        "They have zero responsibility once the product leaves the factory gate.",
+        "They are legally and financially responsible for the collection, sorting, and end-of-life recycling management of the packaging they introduce into the market.",
+        "They must personally visit every consumer's home to collect empty wrappers.",
+        "They are exempt from all environmental taxation."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Traditional 'throwaway' producer detachment is replaced by EPR regulations.",
+        "Correct. EPR mandates that producers finance the end-of-life collection and recycling of packaging materials.",
+        "Incorrect. Collection is managed through organized Producer Responsibility Organizations (PROs), not home visits.",
+        "Incorrect. EPR imposes mandatory eco-modulated fees on non-recyclable packaging."
+      ],
+      "correctExplanation": "EPR schemes mandate that producers fund or physically organize post-consumer packaging collection and recycling, incentivizing eco-design through modulated fee structures.",
+      "incorrectExplanation": "EPR places financial and operational responsibility for post-consumer waste management onto the brand producers."
+    },
+    {
+      "id": 20480,
+      "courseId": 732,
+      "orderIndex": 7,
+      "question": "Why is it critical to use water-washable, alkali-soluble adhesives for labels on PET bottles?",
+      "options": [
+        "Because water-washable adhesives permanently dye the plastic pink",
+        "Because permanent insoluble glues remain stuck to PET flakes during recycling wash baths, contaminating the recycled resin and causing yellowing or charring during re-extrusion",
+        "Because washable glue makes labels fall off before customers buy the product",
+        "Because washable glue turns the label into pure gold"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Washable adhesives do not dye plastic.",
+        "Correct. Alkali-soluble adhesives release cleanly in recycling wash tanks, preventing adhesive contamination of PET flakes.",
+        "Incorrect. Formulated adhesives maintain bond strength during shelf-life and release only in hot caustic wash baths.",
+        "Incorrect. Washable glues are standard industrial polymers, not precious metals."
+      ],
+      "correctExplanation": "In PET recycling plants, bottles are shredded and hot-washed at 85°C with caustic soda. Alkali-soluble glues detach cleanly, allowing labels to float away while pure PET sinks.",
+      "incorrectExplanation": "Insoluble adhesives contaminate recycled PET flakes, causing severe quality defects and black specks during re-pelletization."
+    },
+    {
+      "id": 20481,
+      "courseId": 732,
+      "orderIndex": 8,
+      "question": "In a sustainable packaging engineering review, what represents verifiable technical proof of a successful lightweighting initiative?",
+      "options": [
+        "A sketch drawn on a napkin with no dimensions",
+        "Documented pre- and post-redesign grammage measurements, verified material cost reduction, and certified passing results from standardized ASTM/ISTA transit drop and compression tests",
+        "A customer feedback survey asking if the box looks stylish",
+        "A statement from the marketing team that the package is 100% green"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Informal sketches do not constitute verified engineering data.",
+        "Correct. Quantitative weight data, cost tracking, and certified transit test results provide auditable proof of performance.",
+        "Incorrect. Aesthetics do not verify mechanical protection or material savings.",
+        "Incorrect. Unsubstantiated marketing claims violate anti-greenwashing standards."
+      ],
+      "correctExplanation": "Verifiable packaging validation combines quantitative weight measurements (grams per unit) with certified laboratory transit performance testing proving structural integrity.",
+      "incorrectExplanation": "Subjective marketing claims do not validate packaging engineering; empirical weight reduction and structural testing data are required."
+    },
+    {
+      "id": 20506,
+      "courseId": 733,
+      "orderIndex": 1,
+      "question": "What is the primary operational and environmental drawback of the traditional commercial synthetic refrigerant R404A?",
+      "options": [
+        "It has an extremely low Global Warming Potential (GWP = 0).",
+        "It has a very high Global Warming Potential (GWP = 3,922), meaning that 1 kg leaked into the atmosphere has the equivalent climate impact of nearly 4 tonnes of CO2.",
+        "It turns into solid gold inside pipes.",
+        "It cannot freeze water below 10°C."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. R404A has an exceptionally high GWP, not zero.",
+        "Correct. R404A has a GWP of 3,922, creating massive climate liability upon leakage.",
+        "Incorrect. Refrigerants are chemical fluorocarbons, not precious metals.",
+        "Incorrect. R404A is a low-temperature refrigerant capable of reaching -35°C."
+      ],
+      "correctExplanation": "R404A is a potent greenhouse gas with a GWP of 3,922. Leaking systems cause massive Scope 1 emissions and face international regulatory phase-outs under the Kigali Amendment.",
+      "incorrectExplanation": "R404A has an exceptionally high GWP of 3,922, making refrigerant leaks major contributors to climate change."
+    },
+    {
+      "id": 20507,
+      "courseId": 733,
+      "orderIndex": 2,
+      "question": "How does retrofitting transparent glass doors onto open multi-deck supermarket dairy and beverage chillers affect store energy consumption?",
+      "options": [
+        "It increases refrigeration power consumption by 50%.",
+        "It reduces display case thermal infiltration and compressor electrical energy consumption by 30% to 45%, while stabilizing internal product temperatures.",
+        "It stops the refrigeration system from working completely.",
+        "It has zero measurable impact on energy or temperature."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Glass doors reduce compressor load and electricity, never increase.",
+        "Correct. Glass doors cut thermal infiltration, reducing refrigeration power by 30% to 45%.",
+        "Incorrect. Refrigeration systems operate with significantly higher efficiency and reliability with doors.",
+        "Incorrect. The energy reduction is immediate, significant, and verified worldwide."
+      ],
+      "correctExplanation": "Glass doors block continuous room air entrainment, cutting thermal infiltration load on compressors by 30% to 45%, eliminating aisle condensation, and maintaining steady food temperatures.",
+      "incorrectExplanation": "Glass doors eliminate warm air infiltration, delivering dramatic 30-45% electrical energy savings."
+    },
+    {
+      "id": 20508,
+      "courseId": 733,
+      "orderIndex": 3,
+      "question": "What is the engineering principle behind 'Floating Head Pressure' control on central refrigeration compressor racks?",
+      "options": [
+        "Making the compressor float in a pool of water",
+        "Allowing the condensing pressure and temperature to dynamically drop during cooler ambient outdoor temperatures (rather than holding a fixed high pressure), drastically reducing compressor power draw",
+        "Keeping the condenser fans permanently turned off",
+        "Heating the condenser coils with electric heaters"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Floating refers to variable pressure setpoints, not physical buoyancy.",
+        "Correct. Lowering condensing pressure during cool ambient conditions reduces compressor compression ratio and power consumption.",
+        "Incorrect. Condenser fans are actively modulated using VFDs to maintain optimal condensing temperatures.",
+        "Incorrect. Heating condensers increases discharge pressure and wastes energy."
+      ],
+      "correctExplanation": "Floating head pressure allows the condensing setpoint to follow ambient temperature down during night and winter hours, reducing the compressor pressure ratio and saving 2% to 3% energy per °C drop.",
+      "incorrectExplanation": "Floating head pressure reduces compressor lift by lowering condensing temperature when outdoor ambient conditions are cool."
+    },
+    {
+      "id": 20509,
+      "courseId": 733,
+      "orderIndex": 4,
+      "question": "Why are Electronically Commutated (EC) fan motors preferred over standard shaded-pole motors in commercial supermarket display cases and evaporators?",
+      "options": [
+        "Because EC motors consume 60% to 70% less electricity, generate far less waste heat inside the refrigerated cabinet, and have longer operational lifespans",
+        "Because EC motors run on gasoline instead of electricity",
+        "Because shaded-pole motors are illegal worldwide",
+        "Because EC motors spin backwards automatically"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. EC motors consume 60% to 70% less power and drastically reduce internal cabinet parasitic heat load.",
+        "Incorrect. EC motors are high-efficiency electrical motors, not internal combustion engines.",
+        "Incorrect. Shaded-pole motors are inefficient but not universally illegal.",
+        "Incorrect. EC motor rotation is programmed for correct airflow direction."
+      ],
+      "correctExplanation": "Shaded-pole motors are only 15-20% efficient, dissipating 80% of energy as heat inside the cold case. EC motors are brushless DC motors with 65-70% efficiency, cutting motor power and reducing the internal heat that the compressor must remove.",
+      "incorrectExplanation": "EC motors are highly efficient brushless DC motors that slash direct electrical draw and eliminate parasitic heat inside cold cabinets."
+    },
+    {
+      "id": 20510,
+      "courseId": 733,
+      "orderIndex": 5,
+      "question": "What is the primary function of an Electronic Expansion Valve (EEV) compared to a traditional mechanical Thermostatic Expansion Valve (TXV)?",
+      "options": [
+        "To heat the refrigerant before entering the compressor",
+        "To modulate refrigerant flow precisely with micro-stepper motor control, maintaining optimal minimum stable superheat across wide variations in operating load and condensing pressure",
+        "To inject water into the refrigerant circuit",
+        "To make the pipes vibrate loudly"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. EEVs modulate cooling fluid flow; they do not heat refrigerant.",
+        "Correct. EEVs dynamically optimize evaporator superheat across variable load and condensing conditions.",
+        "Incorrect. Water inside a refrigeration circuit causes freezing, ice blockages, and acid formation.",
+        "Incorrect. EEVs operate smoothly without inducing pipe vibration."
+      ],
+      "correctExplanation": "EEVs provide fast, precise microprocessor-controlled modulation of refrigerant injection, ensuring maximum evaporator coil utilization with low stable superheat (3K-5K) without liquid floodback risk.",
+      "incorrectExplanation": "EEVs use precision electronic stepper motors to maintain exact superheat and optimize evaporator efficiency under changing loads."
+    },
+    {
+      "id": 20511,
+      "courseId": 733,
+      "orderIndex": 6,
+      "question": "What is the standard regulatory maximum target for annual refrigerant leakage rates in well-maintained commercial supermarket refrigeration systems?",
+      "options": [
+        "Over 50% per year is normal and expected",
+        "Below 5% to 8% per year",
+        "100% complete loss every month",
+        "Refrigerant systems never lose any refrigerant under any circumstances"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. 50% leak rate represents severe operational failure and massive emissions.",
+        "Correct. Well-managed systems maintain annual leakage below 5% to 8% through proactive leak management.",
+        "Incorrect. Losing 100% charge monthly is an intolerable financial and environmental disaster.",
+        "Incorrect. Mechanical vibration and thermal cycling cause minor leaks unless proactively managed."
+      ],
+      "correctExplanation": "World-class supermarket operators maintain annual leakage rates below 5% through robust vibration damping, brazing standards, automatic leak sniffers, and scheduled maintenance.",
+      "incorrectExplanation": "Best-practice commercial refrigeration targets annual leakage rates below 5% to 8%."
+    },
+    {
+      "id": 20512,
+      "courseId": 733,
+      "orderIndex": 7,
+      "question": "Why is deploying thermal night blinds on open display cases during store closing hours an essential operational discipline?",
+      "options": [
+        "To hide products from nocturnal store ghosts",
+        "To create a reflective thermal radiation and convection barrier that reduces display case refrigeration load by 20% to 30% during non-trading hours",
+        "To turn the display cases into oven warmers",
+        "To lock the shelves so employees cannot clean them"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Night blinds serve a physical thermodynamic purpose, not superstition.",
+        "Correct. Night blinds reflect radiant heat and block convection, reducing overnight cooling load by 20% to 30%.",
+        "Incorrect. Display cases maintain cold temperatures, not heating.",
+        "Incorrect. Night blinds are easily retracted for shelf stocking and cleaning."
+      ],
+      "correctExplanation": "Woven aluminum thermal night blinds prevent ambient warm air infiltration and block infrared radiant heat transfer, cutting case refrigeration load by 20% to 30% throughout the night.",
+      "incorrectExplanation": "Night blinds provide thermal insulation and radiation reflection, slashing overnight compressor power consumption."
+    },
+    {
+      "id": 20513,
+      "courseId": 733,
+      "orderIndex": 8,
+      "question": "When validating a completed commercial refrigeration leak remediation and pressure optimization project, what constitutes auditable evidence?",
+      "options": [
+        "An empty refrigerant cylinder left in the loading bay",
+        "Logged nitrogen pressure decay test certificates, calibrated electronic sniffer survey reports, F-Gas digital logbook entries, and recorded reductions in compressor running kW",
+        "A handwritten note saying 'All fixed'",
+        "A customer comment that the ice cream feels cold"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Discarded cylinders do not prove leak-tight system integrity.",
+        "Correct. Pressure test logs, electronic sniffing records, F-Gas registers, and metered kW reduction provide verified proof.",
+        "Incorrect. Informal notes carry zero technical compliance validity.",
+        "Incorrect. Subjective customer comments do not verify thermodynamic efficiency or leak containment."
+      ],
+      "correctExplanation": "Auditable engineering compliance requires pressure test records, electronic sniffing survey reports, updated F-Gas statutory registers, and metered electrical power baseline data.",
+      "incorrectExplanation": "Technical proof requires formal test records, statutory refrigerant logs, and metered energy reductions."
+    },
+    {
+      "id": 9158,
+      "courseId": 734,
+      "orderIndex": 1,
+      "question": "What is the primary operational objective of Retail Food Waste & Dynamic Markdown Management?",
+      "options": [
+        "To generate unnecessary paperwork that slows down daily workplace tasks",
+        "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+        "To replace all human employees with automated robots",
+        "To eliminate all customer interactions permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! The objective is rigorous operational efficiency and compliance.",
+      "incorrectExplanation": "Incorrect. The focus is establishing standardized, compliant, and efficient workflows."
+    },
+    {
+      "id": 9159,
+      "courseId": 734,
+      "orderIndex": 2,
+      "question": "Why are standardized operating procedures (SOPs) critical for sustainable workplace execution?",
+      "options": [
+        "They are only created for decorative office displays",
+        "They prevent employees from ever taking breaks",
+        "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+        "They make simple tasks impossible to finish"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! SOPs provide operational consistency and audit trails.",
+      "incorrectExplanation": "Incorrect. SOPs ensure consistent quality, safety, and verifiable compliance."
+    },
+    {
+      "id": 9160,
+      "courseId": 734,
+      "orderIndex": 3,
+      "question": "How should unexpected technical exceptions or process deviations be handled on the job?",
+      "options": [
+        "Logged immediately in the tracking register and escalated according to the defined response protocol",
+        "Ignored completely hoping no one notices",
+        "Concealed from team supervisors",
+        "Blamed on external vendors without investigation"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Formal logging and escalation ensure rapid remediation.",
+      "incorrectExplanation": "Incorrect. Process deviations must be logged and escalated promptly."
+    },
+    {
+      "id": 9161,
+      "courseId": 734,
+      "orderIndex": 4,
+      "question": "What is the primary commercial benefit of implementing continuous resource efficiency measures?",
+      "options": [
+        "Increased employee turnover",
+        "Guaranteed bankruptcy within 30 days",
+        "Higher municipal landfill penalty taxes",
+        "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Resource efficiency lowers costs and strengthens enterprise resilience.",
+      "incorrectExplanation": "Incorrect. Efficiency lowers operating expenses and strengthens compliance."
+    },
+    {
+      "id": 9162,
+      "courseId": 734,
+      "orderIndex": 5,
+      "question": "What role does accurate data collection and baseline measurement play in workplace sustainability?",
+      "options": [
+        "It is purely an aesthetic exercise with zero business value",
+        "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+        "It is only performed when an inspector is standing in the building",
+        "It replaces the need for actual equipment maintenance"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Accurate data provides the factual foundation for continuous improvement.",
+      "incorrectExplanation": "Incorrect. Reliable data measurement is vital for tracking progress and identifying waste."
+    },
+    {
+      "id": 9163,
+      "courseId": 734,
+      "orderIndex": 6,
+      "question": "How should departmental teams coordinate when managing cross-functional sustainability initiatives?",
+      "options": [
+        "Send anonymous complaint letters to the executive board",
+        "Refuse to communicate with any other department",
+        "Compete destructively for the same resources without coordination",
+        "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Shared KPIs and transparent alignment drive cross-functional success.",
+      "incorrectExplanation": "Incorrect. Collaboration requires clear communication, shared KPIs, and defined accountability."
+    },
+    {
+      "id": 9164,
+      "courseId": 734,
+      "orderIndex": 7,
+      "question": "What is the risk of implementing superficial environmental claims without operational verification?",
+      "options": [
+        "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+        "Automatic award of international sustainability prizes",
+        "Instant elimination of corporate taxes",
+        "Zero consequences under all circumstances"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! False claims trigger severe legal and reputational greenwashing penalties.",
+      "incorrectExplanation": "Incorrect. Superficial claims lead to severe greenwashing penalties and loss of stakeholder trust."
+    },
+    {
+      "id": 9165,
+      "courseId": 734,
+      "orderIndex": 8,
+      "question": "How does periodic management review support continuous improvement in workplace sustainability?",
+      "options": [
+        "It is a legal formality with no practical purpose",
+        "It allows managers to cancel all future sustainability efforts",
+        "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+        "It ensures that no process changes are ever permitted"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Management reviews drive continuous optimization and resource allocation.",
+      "incorrectExplanation": "Incorrect. Regular reviews ensure goals are met and processes are continually improved."
+    },
+    {
+      "id": 9166,
+      "courseId": 735,
+      "orderIndex": 1,
+      "question": "What is the primary operational objective of Eliminating Single-Use Plastics in Retail?",
+      "options": [
+        "To generate unnecessary paperwork that slows down daily workplace tasks",
+        "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+        "To replace all human employees with automated robots",
+        "To eliminate all customer interactions permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! The objective is rigorous operational efficiency and compliance.",
+      "incorrectExplanation": "Incorrect. The focus is establishing standardized, compliant, and efficient workflows."
+    },
+    {
+      "id": 9167,
+      "courseId": 735,
+      "orderIndex": 2,
+      "question": "Why are standardized operating procedures (SOPs) critical for sustainable workplace execution?",
+      "options": [
+        "They are only created for decorative office displays",
+        "They prevent employees from ever taking breaks",
+        "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+        "They make simple tasks impossible to finish"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! SOPs provide operational consistency and audit trails.",
+      "incorrectExplanation": "Incorrect. SOPs ensure consistent quality, safety, and verifiable compliance."
+    },
+    {
+      "id": 9168,
+      "courseId": 735,
+      "orderIndex": 3,
+      "question": "How should unexpected technical exceptions or process deviations be handled on the job?",
+      "options": [
+        "Logged immediately in the tracking register and escalated according to the defined response protocol",
+        "Ignored completely hoping no one notices",
+        "Concealed from team supervisors",
+        "Blamed on external vendors without investigation"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Formal logging and escalation ensure rapid remediation.",
+      "incorrectExplanation": "Incorrect. Process deviations must be logged and escalated promptly."
+    },
+    {
+      "id": 9169,
+      "courseId": 735,
+      "orderIndex": 4,
+      "question": "What is the primary commercial benefit of implementing continuous resource efficiency measures?",
+      "options": [
+        "Increased employee turnover",
+        "Guaranteed bankruptcy within 30 days",
+        "Higher municipal landfill penalty taxes",
+        "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Resource efficiency lowers costs and strengthens enterprise resilience.",
+      "incorrectExplanation": "Incorrect. Efficiency lowers operating expenses and strengthens compliance."
+    },
+    {
+      "id": 9170,
+      "courseId": 735,
+      "orderIndex": 5,
+      "question": "What role does accurate data collection and baseline measurement play in workplace sustainability?",
+      "options": [
+        "It is purely an aesthetic exercise with zero business value",
+        "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+        "It is only performed when an inspector is standing in the building",
+        "It replaces the need for actual equipment maintenance"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Accurate data provides the factual foundation for continuous improvement.",
+      "incorrectExplanation": "Incorrect. Reliable data measurement is vital for tracking progress and identifying waste."
+    },
+    {
+      "id": 9171,
+      "courseId": 735,
+      "orderIndex": 6,
+      "question": "How should departmental teams coordinate when managing cross-functional sustainability initiatives?",
+      "options": [
+        "Send anonymous complaint letters to the executive board",
+        "Refuse to communicate with any other department",
+        "Compete destructively for the same resources without coordination",
+        "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Shared KPIs and transparent alignment drive cross-functional success.",
+      "incorrectExplanation": "Incorrect. Collaboration requires clear communication, shared KPIs, and defined accountability."
+    },
+    {
+      "id": 9172,
+      "courseId": 735,
+      "orderIndex": 7,
+      "question": "What is the risk of implementing superficial environmental claims without operational verification?",
+      "options": [
+        "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+        "Automatic award of international sustainability prizes",
+        "Instant elimination of corporate taxes",
+        "Zero consequences under all circumstances"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! False claims trigger severe legal and reputational greenwashing penalties.",
+      "incorrectExplanation": "Incorrect. Superficial claims lead to severe greenwashing penalties and loss of stakeholder trust."
+    },
+    {
+      "id": 9173,
+      "courseId": 735,
+      "orderIndex": 8,
+      "question": "How does periodic management review support continuous improvement in workplace sustainability?",
+      "options": [
+        "It is a legal formality with no practical purpose",
+        "It allows managers to cancel all future sustainability efforts",
+        "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+        "It ensures that no process changes are ever permitted"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Management reviews drive continuous optimization and resource allocation.",
+      "incorrectExplanation": "Incorrect. Regular reviews ensure goals are met and processes are continually improved."
+    },
+    {
+      "id": 20458,
+      "courseId": 749,
+      "orderIndex": 1,
+      "question": "Over the typical 10 to 15 year operational lifespan of an industrial electric motor, what percentage of the total lifecycle cost is represented by electrical energy consumption?",
+      "options": [
+        "Approximately 5% to 10%",
+        "Approximately 25% to 30%",
+        "Approximately 50% to 60%",
+        "Approximately 95% to 96%"
+      ],
+      "correctOption": 3,
+      "optionFeedback": [
+        "Incorrect. Initial purchase price accounts for only 2-3%, not 5-10%.",
+        "Incorrect. Electricity costs are far higher than 25-30% of total lifecycle cost.",
+        "Incorrect. Energy consumption significantly exceeds 50-60%.",
+        "Correct. Electricity accounts for 95% to 96% of a continuously operated motor's total lifecycle cost."
+      ],
+      "correctExplanation": "In continuously operated industrial motors, the initial purchase price is only ~2-3% and maintenance is ~2%, while electricity consumption accounts for 95% to 96% of total lifecycle expenditure.",
+      "incorrectExplanation": "Electricity consumption dwarfs all other motor costs; review the lifecycle cost breakdown."
+    },
+    {
+      "id": 20459,
+      "courseId": 749,
+      "orderIndex": 2,
+      "question": "According to the Affinity Laws for centrifugal pumps and fans, how does shaft power vary with rotational speed (N)?",
+      "options": [
+        "Power is directly proportional to speed (P ~ N).",
+        "Power is proportional to the square of speed (P ~ N²).",
+        "Power is proportional to the cube of speed (P ~ N³).",
+        "Power is inversely proportional to speed (P ~ 1/N)."
+      ],
+      "correctOption": 2,
+      "optionFeedback": [
+        "Incorrect. Flow rate varies directly with speed (Q ~ N), not power.",
+        "Incorrect. Head or pressure varies with the square of speed (H ~ N²).",
+        "Correct. Shaft power varies with the cube of speed (P ~ N³), providing dramatic energy savings when speed is reduced.",
+        "Incorrect. Power increases with speed, not inversely."
+      ],
+      "correctExplanation": "The cube law (P ~ N³) means that reducing pump or fan speed by 20% drops electrical power draw by nearly 50% (0.8³ = 0.512), making VFD speed control far more efficient than mechanical throttling.",
+      "incorrectExplanation": "Flow is proportional to speed (N), pressure to N², and power to the cube of speed (N³)."
+    },
+    {
+      "id": 20460,
+      "courseId": 749,
+      "orderIndex": 3,
+      "question": "What is the primary operational penalty of operating an oversized electric motor at low load factor (e.g., <35% of rated capacity)?",
+      "options": [
+        "The motor generates excessive voltage back into the power grid.",
+        "Both the operating efficiency and power factor drop drastically, causing higher energy losses and reactive current draw.",
+        "The motor instantly reverses direction.",
+        "The motor freezes mechanically."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Induction motors do not feed voltage back during underloaded motoring state.",
+        "Correct. Severe underloading causes both electrical efficiency and power factor to drop significantly.",
+        "Incorrect. Direction of rotation depends on phase sequence, not load factor.",
+        "Incorrect. Underloaded motors run cooler and will not freeze."
+      ],
+      "correctExplanation": "Induction motors operate at peak efficiency and power factor between 60% and 85% load. Severe underloading causes the power factor to plummet and increases specific electrical losses.",
+      "incorrectExplanation": "Underloaded induction motors suffer severe degradation in power factor and efficiency, drawing excess magnetizing current."
+    },
+    {
+      "id": 20461,
+      "courseId": 749,
+      "orderIndex": 4,
+      "question": "Why is rewinding an old standard efficiency (IE1) failed motor under 37 kW generally poor long-term energy economics?",
+      "options": [
+        "Because rewound motors cannot spin clockwise.",
+        "Because thermal stripping of stator windings typically degrades motor efficiency by 1% to 2%, and new IE3/IE4 motors save enough electricity to quickly offset the price difference.",
+        "Because rewind shops are legally prohibited worldwide.",
+        "Because rewinding changes the motor voltage from 400V to 12V."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Rewound motors operate in either direction depending on wiring.",
+        "Correct. Rewinding degrades efficiency by 1-2%; installing a new IE3/IE4 motor saves far more electricity over its lifetime.",
+        "Incorrect. Motor rewinding is legal and common, but often uneconomic for smaller motors.",
+        "Incorrect. Rewinding preserves the original design voltage rating."
+      ],
+      "correctExplanation": "Stator core damage during burnout and winding replacement reduces motor efficiency by 1-2%. Since electricity is 95% of lifecycle cost, an efficient new IE3 motor easily pays back the extra cost.",
+      "incorrectExplanation": "Rewinding reduces core efficiency, locking in higher electricity costs over thousands of operating hours."
+    },
+    {
+      "id": 20462,
+      "courseId": 749,
+      "orderIndex": 5,
+      "question": "What is the primary benefit of maintaining an overall plant power factor between 0.95 and 0.98 using Automatic Power Factor Correction (APFC)?",
+      "options": [
+        "It converts alternating current (AC) directly into pure hydrogen gas.",
+        "It eliminates utility kVA maximum demand penalties, frees up transformer capacity, and reduces I²R cable heating losses.",
+        "It eliminates the need to pay for active electrical energy (kWh).",
+        "It allows the factory to operate without any electrical grounding."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Power factor correction does not generate hydrogen gas.",
+        "Correct. APFC capacitors supply local magnetizing current, eliminating utility penalties and reducing cable I²R losses.",
+        "Incorrect. Active energy (kWh) is still consumed to do mechanical work.",
+        "Incorrect. Electrical grounding is mandatory for personnel safety regardless of power factor."
+      ],
+      "correctExplanation": "High power factor minimizes reactive current (kVAR), reducing apparent power (kVA) demand charges from utilities, lowering cable resistive heat losses, and freeing capacity.",
+      "incorrectExplanation": "Power factor correction reduces reactive current and eliminates demand penalties, but active kWh energy must still be paid for."
+    },
+    {
+      "id": 20463,
+      "courseId": 749,
+      "orderIndex": 6,
+      "question": "When converting a constant-speed pump with a throttled discharge valve to a variable-speed drive (VFD), how should the physical throttling valve be set?",
+      "options": [
+        "Closed completely 100%",
+        "Kept throttled at 50% to maintain high pressure",
+        "Opened fully 100% so all flow control is handled by modulating motor speed",
+        "Removed and replaced with a smaller pipe diameter"
+      ],
+      "correctOption": 2,
+      "optionFeedback": [
+        "Incorrect. Closing the valve completely prevents any fluid from flowing.",
+        "Incorrect. Leaving the valve throttled maintains artificial friction loss, wasting energy.",
+        "Correct. Opening the valve fully eliminates mechanical restriction, allowing the VFD to modulate flow with minimum energy.",
+        "Incorrect. Restricting pipe diameter increases velocity and frictional head loss."
+      ],
+      "correctExplanation": "The throttling valve must be opened 100% to eliminate artificial friction losses. The VFD modulates motor speed to maintain exact flow or pressure setpoints efficiently.",
+      "incorrectExplanation": "Leaving a valve throttled when using a VFD defeats the purpose by continuing to burn energy against mechanical friction."
+    },
+    {
+      "id": 20464,
+      "courseId": 749,
+      "orderIndex": 7,
+      "question": "What is a Sankey diagram used for in an industrial energy audit?",
+      "options": [
+        "To draw the architectural floor plan of the factory cafeteria",
+        "To visually depict energy flows through a facility, where the width of arrows is proportional to the quantity of energy entering, transforming, and exiting as useful work or losses",
+        "To calculate the monthly payroll of maintenance employees",
+        "To schedule shift rotations for security staff"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Architectural layout is handled by CAD building drawings.",
+        "Correct. Sankey diagrams map energy flows and losses with arrow widths proportional to energy quantities.",
+        "Incorrect. Payroll calculations use accounting software, not thermodynamic diagrams.",
+        "Incorrect. Shift scheduling is an HR workflow, unrelated to energy balance diagrams."
+      ],
+      "correctExplanation": "Sankey diagrams illustrate energy balances, showing total primary energy inputs and mapping them visually into end uses, conversion inefficiencies, and waste streams.",
+      "incorrectExplanation": "Sankey diagrams are quantitative visual energy balance maps showing where energy enters and where it is lost."
+    },
+    {
+      "id": 20465,
+      "courseId": 749,
+      "orderIndex": 8,
+      "question": "Which measurement tool is essential for accurately capturing three-phase active power (kW), reactive power (kVAR), power factor, and harmonic distortion during a motor audit?",
+      "options": [
+        "A simple non-contact AC voltage detection pen",
+        "A three-phase digital power quality analyzer with Rogowski current coils",
+        "A handheld laser distance measure",
+        "A chemical litmus paper strip"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Voltage pens only indicate live wires and provide zero quantitative measurements.",
+        "Correct. A 3-phase power quality logger captures true RMS kW, kVAR, power factor, and harmonics.",
+        "Incorrect. Laser measures record physical distance, not electrical parameters.",
+        "Incorrect. Litmus paper tests chemical acidity/alkalinity, not electrical power."
+      ],
+      "correctExplanation": "A true-RMS three-phase power quality analyzer measures real-time voltage, current, true power factor, active/reactive/apparent power, and harmonic THD simultaneously.",
+      "incorrectExplanation": "Voltage pens only indicate presence of voltage; true energy auditing requires a 3-phase power quality analyzer."
+    },
+    {
+      "id": 20482,
+      "courseId": 750,
+      "orderIndex": 1,
+      "question": "How much energy is saved when manufacturing products from secondary recycled aluminum compared to refining primary aluminum from bauxite ore?",
+      "options": [
+        "Approximately 5% to 10%",
+        "Approximately 25% to 30%",
+        "Approximately 50% to 60%",
+        "Approximately 90% to 95%"
+      ],
+      "correctOption": 3,
+      "optionFeedback": [
+        "Incorrect. Aluminum recycling achieves vastly higher energy savings than 5-10%.",
+        "Incorrect. Secondary aluminum saves far more than 25-30% energy.",
+        "Incorrect. Energy savings exceed 50-60% by a wide margin.",
+        "Correct. Secondary aluminum saves approximately 90% to 95% of the energy needed for primary smelting."
+      ],
+      "correctExplanation": "Recycling aluminum requires only melting the metal, bypassing the massive electrical energy required for Hall-Héroult bauxite electrolysis, saving 90% to 95% of energy and associated emissions.",
+      "incorrectExplanation": "Secondary aluminum remelting avoids bauxite electrolysis, delivering an extraordinary 90-95% energy reduction."
+    },
+    {
+      "id": 20483,
+      "courseId": 750,
+      "orderIndex": 2,
+      "question": "What is 'Industrial Symbiosis' in the context of circular manufacturing?",
+      "options": [
+        "Factories competing aggressively to drive each other out of business",
+        "A collaborative network where the waste by-products, residual heat, or effluent of one industrial enterprise become the raw material feedstock or utility for another nearby facility",
+        "A biological disease affecting factory workers",
+        "A software program that automatically deletes factory records"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Industrial symbiosis is collaborative, not destructive competition.",
+        "Correct. Industrial symbiosis exchanges waste materials, water, and residual energy between co-located enterprises.",
+        "Incorrect. Symbiosis here refers to industrial material sharing, not medical pathology.",
+        "Incorrect. It is a material flow concept, not administrative software."
+      ],
+      "correctExplanation": "Industrial symbiosis mirrors natural ecological food webs, transforming waste streams (e.g., slag, fly ash, spent solvents, waste heat) into valuable inputs for adjacent industrial processes.",
+      "incorrectExplanation": "Industrial symbiosis connects distinct industries so one company's waste serves as another's raw material."
+    },
+    {
+      "id": 20484,
+      "courseId": 750,
+      "orderIndex": 3,
+      "question": "When substituting virgin polymer resin with post-industrial recycled (PIR) regrind, why is measuring the Melt Flow Index (MFI) essential?",
+      "options": [
+        "To check the color of the plastic under sunlight",
+        "To verify polymer viscosity and flow behavior under heat, ensuring consistent mold filling without flashing or short-shots",
+        "To determine if the plastic is flammable in water",
+        "To calculate the total weight of the factory building"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Color is evaluated by spectrophotometry, not MFI.",
+        "Correct. MFI measures melt viscosity to ensure stable processing and prevent molding defects.",
+        "Incorrect. MFI measures rheology, not water flammability.",
+        "Incorrect. MFI is a resin property, unrelated to structural building weight."
+      ],
+      "correctExplanation": "Thermal recycling degrades polymer molecular chains, altering the Melt Flow Index (MFI). If MFI shifts significantly, injection molding and extrusion machines will produce defective parts.",
+      "incorrectExplanation": "MFI measures polymer melt viscosity, which is critical for process stability during molding and extrusion."
+    },
+    {
+      "id": 20485,
+      "courseId": 750,
+      "orderIndex": 4,
+      "question": "Which bio-based renewable solvent is commonly used to substitute petroleum-derived chlorinated or aromatic degreasing solvents in industrial cleaning?",
+      "options": [
+        "Pure concentrated battery sulfuric acid",
+        "Bio-derived Ethyl Lactate or d-Limonene (citrus terpene)",
+        "Liquid nitrogen",
+        "Crude petroleum bunker fuel"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Sulfuric acid is a corrosive mineral acid, not an organic cleaning solvent.",
+        "Correct. Ethyl lactate and d-limonene provide high-solvency bio-based alternatives to toxic petrochemical degreasers.",
+        "Incorrect. Liquid nitrogen is a cryogenic coolant, not a solvent.",
+        "Incorrect. Bunker fuel is heavy petroleum, the opposite of a green cleaning solvent."
+      ],
+      "correctExplanation": "Ethyl lactate (from corn/sugar fermentation) and d-limonene (from citrus peels) offer high solvency power, biodegradability, low toxicity, and zero ozone depletion, replacing toxic petrochemical solvents.",
+      "incorrectExplanation": "Ethyl lactate and citrus terpenes are proven bio-solvents with high Kauri-Butanol solvency power and low toxicity."
+    },
+    {
+      "id": 20486,
+      "courseId": 750,
+      "orderIndex": 5,
+      "question": "What is the primary risk of using unsegregated, mixed-alloy aluminum scrap in precision industrial extrusion or casting?",
+      "options": [
+        "The metal becomes completely weightless.",
+        "Cross-contamination of incompatible alloying elements (e.g., zinc in 6000-series alloy) causes severe embrittlement, hot cracking, and loss of structural properties.",
+        "The metal turns into plastic inside the furnace.",
+        "The factory electricity grid automatically shuts down."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Metal density is governed by physics; it does not become weightless.",
+        "Correct. Mixing alloy grades introduces tramp element contamination, causing embrittlement and cracking.",
+        "Incorrect. Aluminum remains a metallic element; it cannot transmute into polymer.",
+        "Incorrect. Scrap chemistry does not trigger electrical grid shutdowns."
+      ],
+      "correctExplanation": "Mixing different aluminum alloy series (e.g., 2000, 6000, 7000) contaminates alloy chemistry. Tramp elements like zinc, iron, or copper cannot be removed easily and destroy mechanical ductility.",
+      "incorrectExplanation": "Mixing alloys causes chemical contamination, resulting in cracking, porosity, and failure to meet mechanical specifications."
+    },
+    {
+      "id": 20487,
+      "courseId": 750,
+      "orderIndex": 6,
+      "question": "How can industrial manufacturing plants utilize supplementary cementitious materials (SCMs) like sugarcane bagasse ash, pulverized fly ash, or blast furnace slag?",
+      "options": [
+        "By dumping them directly into local drinking water reservoirs",
+        "By replacing 20% to 50% of carbon-intensive Portland cement clinker in concrete and building blocks, cutting embodied carbon while improving long-term durability",
+        "By burning them as high-energy rocket fuel",
+        "By feeding them to factory guard dogs"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Dumping mineral ash in reservoirs violates water protection laws.",
+        "Correct. SCMs substitute for energy-intensive Portland clinker, reducing embodied carbon by up to 50% in building products.",
+        "Incorrect. Mineral ash is non-combustible and cannot be used as fuel.",
+        "Incorrect. Mineral ashes are non-nutritive and hazardous to ingest."
+      ],
+      "correctExplanation": "Pozzolanic mineral by-products (bagasse ash, slag, fly ash) react with calcium hydroxide in cement to form strong calcium silicate hydrates, displacing virgin clinker and cutting carbon.",
+      "incorrectExplanation": "Industrial ashes and slags serve as Supplementary Cementitious Materials (SCMs), replacing clinker in concrete."
+    },
+    {
+      "id": 20488,
+      "courseId": 750,
+      "orderIndex": 7,
+      "question": "What is the function of chemical 'compatibilizers' when blending secondary recycled polymers with virgin resins?",
+      "options": [
+        "To make the plastic smell like perfume",
+        "To bridge interfacial tension between immiscible polymer phases, preventing phase separation and restoring tensile and impact mechanical strength",
+        "To make the plastic completely water-soluble",
+        "To increase the weight of the plastic by 500%"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Fragrance additives handle scent, not structural compatibilization.",
+        "Correct. Compatibilizers bond immiscible polymer phases at the molecular level, restoring mechanical strength.",
+        "Incorrect. Compatibilizers do not make standard polyolefins water-soluble.",
+        "Incorrect. Compatibilizers are added in small percentages (1-5%) and do not drastically alter density."
+      ],
+      "correctExplanation": "Recycled plastics often contain traces of incompatible polymers (e.g., PP in PE). Compatibilizers (block or graft copolymers) chemically bond the two phases, preventing brittle failure.",
+      "incorrectExplanation": "Compatibilizers improve interfacial bonding between different polymer phases, preventing mechanical failure."
+    },
+    {
+      "id": 20489,
+      "courseId": 750,
+      "orderIndex": 8,
+      "question": "When presenting a circular material substitution business case to plant leadership, what is the most convincing combination of evidence?",
+      "options": [
+        "A verbal promise that the new material is completely green",
+        "Validated lab mechanical/chemical test data showing specification parity, verified cost-per-kg savings, supply security agreements, and quantified Scope 3 carbon reduction",
+        "A glossy sales brochure from an overseas supplier without sample testing",
+        "A threat to shut down the plant if the material is not approved immediately"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Verbal promises carry zero technical or financial weight.",
+        "Correct. Comprehensive lab validation, financial modeling, supply SLAs, and carbon data provide compelling evidence.",
+        "Incorrect. Sales brochures without empirical internal testing do not prove compatibility.",
+        "Incorrect. Threats violate professional governance and do not build technical consensus."
+      ],
+      "correctExplanation": "A rigorous engineering business case integrates laboratory performance data, financial cost modeling, supplier reliability SLAs, and verified LCA carbon accounting.",
+      "incorrectExplanation": "Technical data, financial savings, and supply assurance form the essential foundation for executive approval."
+    },
+    {
+      "id": 20514,
+      "courseId": 751,
+      "orderIndex": 1,
+      "question": "What is the recommended benchmark Lighting Power Density (LPD) for modern, highly efficient commercial retail sales floors using premium LED technology?",
+      "options": [
+        "50 to 75 W/m²",
+        "25 to 35 W/m²",
+        "8 to 12 W/m²",
+        "0.1 to 0.5 W/m²"
+      ],
+      "correctOption": 2,
+      "optionFeedback": [
+        "Incorrect. 50-75 W/m² represents obsolete incandescent lighting with massive energy waste.",
+        "Incorrect. 25-35 W/m² is the legacy fluorescent/halogen baseline.",
+        "Correct. 8 to 12 W/m² is the international benchmark for energy-efficient LED retail design.",
+        "Incorrect. 0.1-0.5 W/m² is too dim for commercial retail merchandise visibility."
+      ],
+      "correctExplanation": "High-efficacy retail LED systems achieve superior visual merchandise illumination (300-500 lux general, 800+ lux accent) at an efficient Lighting Power Density of 8 to 12 W/m², compared to 25-35 W/m² for legacy lighting.",
+      "incorrectExplanation": "Modern LED retail lighting benchmarks achieve excellent visual impact at 8 to 12 W/m²."
+    },
+    {
+      "id": 20515,
+      "courseId": 751,
+      "orderIndex": 2,
+      "question": "What is the 'thermal interactive effect' between retail lighting and air conditioning systems?",
+      "options": [
+        "Lighting makes air conditioning units turn into heaters",
+        "Every Watt of inefficient lighting installed on a sales floor generates waste heat that must be removed by the air conditioning system, adding approximately 0.3 Watts of additional cooling energy load",
+        "Air conditioners generate light inside the ducts",
+        "Lighting and HVAC have zero thermodynamic relationship"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Lighting generates heat; it does not change AC refrigeration cycles.",
+        "Correct. Inefficient lighting adds direct heat load, requiring an additional ~0.3W of AC cooling per Watt of lighting.",
+        "Incorrect. Air conditioning systems do not produce illumination.",
+        "Incorrect. All electrical energy in lighting dissipates as heat into the conditioned building space."
+      ],
+      "correctExplanation": "Almost all electrical energy consumed by lighting converts into heat. In cooling-dominated climates, reducing lighting wattage delivers a double benefit by cutting lighting power and reducing AC chiller cooling load.",
+      "incorrectExplanation": "Lighting heat directly increases the thermal load on air conditioning systems, multiplying energy consumption."
+    },
+    {
+      "id": 20516,
+      "courseId": 751,
+      "orderIndex": 3,
+      "question": "Why is a high Color Rendering Index (CRI > 90) essential when selecting sustainable LED luminaires for retail fashion and apparel stores?",
+      "options": [
+        "Because high CRI makes light bulbs consume zero electricity",
+        "Because high CRI ensures accurate, vibrant color representation of fabrics and merchandise without requiring excessive general over-illumination or high wattage",
+        "Because low CRI lights explode when turned on",
+        "Because CRI measures the physical weight of the fixture"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. CRI measures spectral color fidelity, not electrical power consumption.",
+        "Correct. High CRI (>90) accurately renders merchandise colors, enhancing product visual appeal efficiently.",
+        "Incorrect. Low CRI lights are safe mechanically, but render colors poorly (dull/grayish).",
+        "Incorrect. Fixture weight is an independent mechanical specification."
+      ],
+      "correctExplanation": "High CRI (especially R9 red rendering) reveals true fabric colors and textures naturally, allowing retailers to achieve stunning visual merchandise appeal at lower overall lux levels.",
+      "incorrectExplanation": "CRI measures color accuracy; high CRI (>90) displays merchandise colors vibrantly without needing wasteful over-illumination."
+    },
+    {
+      "id": 20517,
+      "courseId": 751,
+      "orderIndex": 4,
+      "question": "What is the primary energy benefit of implementing 'Daylight Harvesting' controls near store perimeter windows and glazed storefronts?",
+      "options": [
+        "It automatically charges solar batteries inside the light bulbs",
+        "Photo-sensors continuously monitor incoming natural daylight and automatically dim or turn off perimeter electric lights, saving up to 50% to 70% of lighting energy in perimeter zones during daytime",
+        "It makes the store completely dark during sunny days",
+        "It turns window glass into tinted sunglasses permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Daylight harvesting dims lighting; it does not rely on fixture batteries.",
+        "Correct. Photosensors dim perimeter electric lighting when natural sunlight is available, saving 50% to 70% power.",
+        "Incorrect. Total illuminance remains steady because natural and artificial light combine seamlessly.",
+        "Incorrect. Electrochromic glass is a separate window technology, distinct from lighting harvesting."
+      ],
+      "correctExplanation": "Daylight harvesting utilizes natural ambient sunlight by dimming electric luminaires proportionally, maintaining constant comfortable illumination with minimal electrical consumption.",
+      "incorrectExplanation": "Daylight harvesting dims perimeter electric lights when natural sunlight provides adequate illumination."
+    },
+    {
+      "id": 20518,
+      "courseId": 751,
+      "orderIndex": 5,
+      "question": "What is the recommended indoor retail cooling temperature setpoint to avoid 'refrigerated store syndrome' while optimizing energy efficiency in tropical climates?",
+      "options": [
+        "16.0°C to 18.0°C",
+        "23.5°C to 24.5°C",
+        "32.0°C to 35.0°C",
+        "Zero degrees Celsius"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. 16-18°C causes severe overcooling, customer discomfort, and massive energy waste.",
+        "Correct. 23.5°C to 24.5°C provides optimal thermal comfort and high energy efficiency.",
+        "Incorrect. 32-35°C is uncomfortably hot and humid for retail customers.",
+        "Incorrect. Freezing temperatures are for cold storage food freezers, not human retail stores."
+      ],
+      "correctExplanation": "Maintaining retail comfort setpoints between 23.5°C and 24.5°C provides comfortable thermal conditions for clothed shoppers without overcooling, saving 15% to 25% in chiller power.",
+      "incorrectExplanation": "Cooling below 22°C causes thermal shock for shoppers entering from tropical warmth and wastes substantial chiller energy."
+    },
+    {
+      "id": 20519,
+      "courseId": 751,
+      "orderIndex": 6,
+      "question": "What does Demand-Controlled Ventilation (DCV) utilizing indoor CO2 sensors accomplish in a retail store HVAC system?",
+      "options": [
+        "It converts carbon dioxide into liquid perfume.",
+        "It modulates the volume of outside fresh air introduced based on real-time occupant density, avoiding the massive energy penalty of conditioning excessive hot/humid outdoor air when store occupancy is low.",
+        "It stops all air from moving inside the store.",
+        "It turns the store into a greenhouse for growing vegetables."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. DCV regulates ventilation volume; it does not chemically synthesize fragrance.",
+        "Correct. DCV dynamically adjusts outdoor air dampers based on CO2 levels, avoiding conditioning excess outdoor air.",
+        "Incorrect. Indoor air continues to circulate through filtration and cooling coils.",
+        "Incorrect. DCV is an indoor air quality and HVAC control strategy, not agriculture."
+      ],
+      "correctExplanation": "Conditioning hot, humid outside air consumes huge energy. DCV uses CO2 sensors to introduce fresh air only as needed by the actual number of customers present, ensuring IAQ while saving energy.",
+      "incorrectExplanation": "DCV modulates outdoor air intake to match real-time occupancy, avoiding conditioning unneeded outside air."
+    },
+    {
+      "id": 20520,
+      "courseId": 751,
+      "orderIndex": 7,
+      "question": "What is the function of an automated Building Management System (BMS) 'Night Setback / Sweep' routine in commercial retail operations?",
+      "options": [
+        "To turn on all lights at maximum brightness at 3:00 AM",
+        "To execute an automated sequence 15-30 minutes after closing that shuts down non-essential sales floor lighting, turns off display screens, and shifts HVAC to setback mode, eliminating after-hours phantom energy waste",
+        "To delete all customer credit card numbers",
+        "To lock all employees inside the store overnight"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Night routines eliminate lighting, not increase it.",
+        "Correct. Automated night sweeps shut down non-essential lighting, displays, and HVAC after closing.",
+        "Incorrect. BMS manages physical building services, not POS financial databases.",
+        "Incorrect. Emergency egress doors remain fully functional under life safety codes."
+      ],
+      "correctExplanation": "Automated BMS sweeps guarantee that after-hours cleaning, stocking, or vacant periods do not operate with daytime power baseloads, preventing human forgetfulness from wasting energy.",
+      "incorrectExplanation": "BMS night sweeps automate after-hours lighting and HVAC shutdowns to eliminate baseload waste."
+    },
+    {
+      "id": 20521,
+      "courseId": 751,
+      "orderIndex": 8,
+      "question": "When presenting a completed retail store lighting and HVAC energy audit, what represents verifiable technical proof of performance?",
+      "options": [
+        "A testimonial from a customer who says the store feels cozy",
+        "Calculated Lighting Power Density (LPD in W/m²) verified by photometric layouts, calibrated sub-metered electrical consumption data showing pre- and post-retrofit kWh, and BMS setpoint logs",
+        "A picture of an LED bulb on a retail shelf",
+        "A flyer claiming the store is 100% eco-friendly"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Subjective feedback does not satisfy quantitative engineering standards.",
+        "Correct. Photometric LPD calculations, sub-metered electrical data, and BMS setpoint logs provide auditable proof.",
+        "Incorrect. Product photographs do not verify installed facility performance.",
+        "Incorrect. Unsubstantiated marketing flyers carry zero technical validity."
+      ],
+      "correctExplanation": "Auditable energy validation requires quantitative LPD calculations, certified photometric plans, sub-metered electrical billing data, and logged BMS temperature setpoint records.",
+      "incorrectExplanation": "Verified proof requires quantitative engineering metrics: LPD, sub-metered kWh reduction, and BMS operational logs."
+    },
+    {
+      "id": 20522,
+      "courseId": 752,
+      "orderIndex": 1,
+      "question": "What is the primary function of a retailer's Supplier ESG Code of Conduct?",
+      "options": [
+        "To dictate the personal clothing style of factory owners",
+        "To establish mandatory, legally binding contractual requirements regarding fair wages, working hours, prohibition of child/forced labor, worker health and safety, and environmental protection across all merchandise vendors",
+        "To guarantee that suppliers receive 100% profit margins",
+        "To replace the retailer's commercial pricing contracts"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Codes of conduct regulate operational ethics, not personal attire.",
+        "Correct. The Code of Conduct establishes legally binding standards for human rights, labor, safety, and environmental compliance.",
+        "Incorrect. Commercial margins are negotiated independently in buying agreements.",
+        "Incorrect. It operates alongside commercial agreements as a governance framework."
+      ],
+      "correctExplanation": "A Supplier ESG Code of Conduct sets clear, enforceable minimum ethical, labor, safety, and environmental standards that vendors must uphold as a condition of doing business.",
+      "incorrectExplanation": "The Supplier Code of Conduct defines mandatory standards for labor rights, worker safety, and environmental compliance."
+    },
+    {
+      "id": 20523,
+      "courseId": 752,
+      "orderIndex": 2,
+      "question": "What does a SMETA 4-Pillar ethical trade audit evaluate in a manufacturing supplier facility?",
+      "options": [
+        "Only the exterior paint color of the factory",
+        "Labor Standards, Health & Safety, Environmental Assessment, and Business Ethics",
+        "The personal political views of the company directors",
+        "The speed of the factory delivery trucks"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. SMETA audits internal workplace operations, not cosmetic building paint.",
+        "Correct. SMETA 4-Pillar audits Labor, Health & Safety, Environment, and Business Ethics.",
+        "Incorrect. Political beliefs are not evaluated in standardized social audits.",
+        "Incorrect. Vehicle mechanics are outside the scope of social compliance audits."
+      ],
+      "correctExplanation": "SMETA 4-Pillar is the global standard audit methodology covering: (1) Labor Standards, (2) Health & Safety, (3) Environmental Management, and (4) Business Integrity.",
+      "incorrectExplanation": "SMETA 4-Pillar evaluates Labor Standards, Health & Safety, Environment, and Business Ethics."
+    },
+    {
+      "id": 20524,
+      "courseId": 752,
+      "orderIndex": 3,
+      "question": "What does the Global Organic Textile Standard (GOTS) certification verify on an apparel product?",
+      "options": [
+        "That the clothing can be washed in cold water only",
+        "That the product contains a minimum percentage of certified organic natural fibers, processed without hazardous toxic chemicals, with strict wastewater treatment and full compliance with social labor criteria across the supply chain",
+        "That the garment was manufactured entirely by robots with zero humans involved",
+        "That the clothing is completely fireproof"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. GOTS covers agricultural and chemical processing, not simple washing instructions.",
+        "Correct. GOTS verifies organic fiber origin, non-toxic processing chemistry, and social labor compliance.",
+        "Incorrect. GOTS apparel involves human textile craft and guarantees fair labor rights.",
+        "Incorrect. Organic textile certification is distinct from flame-retardant industrial PPE standards."
+      ],
+      "correctExplanation": "GOTS is the gold standard for organic textiles, certifying organic farming origin, strict non-toxic chemical processing (no heavy metals, formaldehyde, or toxic dyes), wastewater treatment, and fair labor.",
+      "incorrectExplanation": "GOTS certifies organic fiber content, non-toxic chemical processing, and ethical labor standards from farm to finished garment."
+    },
+    {
+      "id": 20525,
+      "courseId": 752,
+      "orderIndex": 4,
+      "question": "Under international advertising standards and anti-greenwashing regulations (e.g., ISO 14021), what makes a retail product claim like '100% Eco-Friendly' non-compliant?",
+      "options": [
+        "It is written in English instead of French.",
+        "It is a vague, unspecific, unsubstantiated general claim that cannot be verified or defined, misleading consumers regarding the true environmental impact.",
+        "The word 'Eco' is legally trademarked by a private individual.",
+        "Green letters are illegal on product boxes."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Language requirements depend on local jurisdiction, but vagueness is the core violation.",
+        "Correct. Vague claims like 'eco-friendly' are deceptive unless backed by specific, verified evidence.",
+        "Incorrect. 'Eco' is a generic prefix, not a private trademark.",
+        "Incorrect. Font colors are unrestricted; the text claim itself must be substantiated."
+      ],
+      "correctExplanation": "General environmental benefit claims ('eco-friendly,' 'green,' 'sustainable') are prohibited unless accompanied by specific, verifiable, and substantiated qualifiers explaining the exact benefit.",
+      "incorrectExplanation": "Vague claims without specific substantiation violate consumer protection and anti-greenwashing rules."
+    },
+    {
+      "id": 20526,
+      "courseId": 752,
+      "orderIndex": 5,
+      "question": "What is the primary difference between an OEKO-TEX Standard 100 certification and an organic certification like GOTS?",
+      "options": [
+        "OEKO-TEX certifies that the finished textile product has been tested and verified free from harmful levels of toxic substances and allergens (consumer chemical safety), whereas GOTS also certifies organic agricultural origin and social criteria.",
+        "OEKO-TEX is only for shoes, while GOTS is only for hats.",
+        "OEKO-TEX means the product is made of pure wood.",
+        "GOTS certifies only synthetic polyester fabrics."
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. OEKO-TEX certifies product chemical safety; GOTS certifies organic farming, processing, and social labor.",
+        "Incorrect. Both standards apply across apparel, home textiles, and accessories.",
+        "Incorrect. OEKO-TEX applies to textiles and leather, not raw timber.",
+        "Incorrect. GOTS is strictly for natural organic fibers (cotton, wool, linen), not synthetic polyester."
+      ],
+      "correctExplanation": "OEKO-TEX Standard 100 tests finished textiles for harmful chemical residues (azo dyes, formaldehyde, phthalates, heavy metals). GOTS goes further by requiring organic farming origin and social labor audits.",
+      "incorrectExplanation": "OEKO-TEX Standard 100 focuses on chemical safety and absence of toxic residues, whereas GOTS includes organic agriculture and labor."
+    },
+    {
+      "id": 20527,
+      "courseId": 752,
+      "orderIndex": 6,
+      "question": "If an ethical trade audit reveals a 'Zero-Tolerance' violation (e.g., child labor or bonded forced labor) at a supplier's facility, what is the immediate required response?",
+      "options": [
+        "Offer the supplier a bonus payment to keep it secret.",
+        "Trigger an immediate executive escalation, freeze new orders, ensure the immediate protection and remediation of the affected individuals, and mandate an emergency remediation plan with independent verification.",
+        "Wait 12 months for the next scheduled audit.",
+        "Send an email asking the supplier to fix it whenever they have free time."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Bribery or cover-ups constitute severe corporate crime.",
+        "Correct. Immediate order freeze, victim protection/remediation, and emergency independent verification are mandatory.",
+        "Incorrect. Waiting 12 months violates statutory human rights due diligence laws.",
+        "Incorrect. Passive emails fail the legal standard for immediate duty of care and due diligence."
+      ],
+      "correctExplanation": "Zero-tolerance violations require immediate commercial intervention, order freezing, victim welfare protection/remediation, and independent verification before any business relationship can resume.",
+      "incorrectExplanation": "Zero-tolerance breaches demand immediate order freezing, victim remediation, and strict executive intervention."
+    },
+    {
+      "id": 20528,
+      "courseId": 752,
+      "orderIndex": 7,
+      "question": "What does the Forest Stewardship Council (FSC) certification guarantee on paper, cardboard packaging, and timber products?",
+      "options": [
+        "That the tree was grown in a plastic greenhouse",
+        "That the wood and fiber originate from responsibly managed forests that provide environmental, social, and economic benefits, with verified chain of custody preventing illegal deforestation",
+        "That the paper is made of solid stone",
+        "That the timber never gets wet in the rain"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. FSC certifies natural and plantation forest stewardship, not indoor greenhouses.",
+        "Correct. FSC verifies sustainable forest management, biodiversity protection, and legal chain of custody.",
+        "Incorrect. FSC applies to cellulose wood fiber products, not mineral stone paper.",
+        "Incorrect. FSC is a sustainable forestry standard, not a waterproofing chemical coating."
+      ],
+      "correctExplanation": "FSC certification ensures that forestry operations preserve biological diversity, protect indigenous land rights, maintain forest productivity, and prevent illegal deforestation.",
+      "incorrectExplanation": "FSC certifies responsible forest management and auditable chain-of-custody tracking."
+    },
+    {
+      "id": 20529,
+      "courseId": 752,
+      "orderIndex": 8,
+      "question": "When documenting a sustainable retail category sourcing achievement, what represents verifiable proof of compliance?",
+      "options": [
+        "A picture of a green leaf posted on the company website",
+        "An auditable compliance dossier containing signed Supplier Codes of Conduct, third-party ethical audit reports (SMETA), and authenticated Transaction Certificates matching SKU purchase orders",
+        "A verbal promise from a sales agent over the phone",
+        "A handwritten note in a buyer's notebook"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Graphic images do not provide legal or compliance verification.",
+        "Correct. Signed codes of conduct, third-party audit reports, and authenticated transaction certificates provide auditable proof.",
+        "Incorrect. Verbal promises cannot be audited or legally defended.",
+        "Incorrect. Informal personal notes do not constitute formal corporate compliance records."
+      ],
+      "correctExplanation": "Verifiable proof requires documentary reconciliation: signed contractual codes of conduct, independent third-party audit reports, and certified transaction certificates matching invoiced SKU quantities.",
+      "incorrectExplanation": "Auditable compliance requires signed contracts, accredited third-party audit certificates, and batch transaction records."
+    },
+    {
+      "id": 20490,
+      "courseId": 775,
+      "orderIndex": 1,
+      "question": "What is the primary operational indicator that a packed-bed wet scrubber has clogged spray nozzles or fouled packing media?",
+      "options": [
+        "The scrubber paint color turns blue.",
+        "A significant increase in differential gas pressure across the tower and an uneven, reduced liquid recirculation flow rate.",
+        "The scrubber fan generates electricity back into the grid.",
+        "The exhaust air turns into pure steam with zero moisture."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Scrubber exterior paint does not indicate internal hydraulic clogging.",
+        "Correct. Elevated gas differential pressure and reduced liquid flow indicate fouled packing or blocked spray nozzles.",
+        "Incorrect. Scrubber blowers consume power; they do not generate grid electricity.",
+        "Incorrect. Scrubber exhaust is saturated with water vapor, not dry steam."
+      ],
+      "correctExplanation": "Fouling in the packing media restricts gas flow (increasing delta-P), while clogged spray nozzles disrupt liquid distribution, drastically reducing pollutant absorption efficiency.",
+      "incorrectExplanation": "Clogged packing restricts airflow (higher delta-P) and plugged nozzles cause erratic liquid flow rates."
+    },
+    {
+      "id": 20491,
+      "courseId": 775,
+      "orderIndex": 2,
+      "question": "What does 'breakthrough' signify in an industrial activated carbon adsorption VOC control system?",
+      "options": [
+        "The carbon has formed solid diamonds under pressure.",
+        "The adsorption sites on the activated carbon are fully saturated, causing the VOC concentration in the exhaust stack to rise rapidly toward the inlet concentration.",
+        "The carbon has caught fire and burned away completely.",
+        "The exhaust fan has reached maximum supersonic speed."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Industrial carbon filters do not generate diamond crystals.",
+        "Correct. Breakthrough occurs when saturated carbon can no longer adsorb VOCs, allowing toxic vapors to escape.",
+        "Incorrect. Bed fires are a separate catastrophic thermal hazard, distinct from breakthrough.",
+        "Incorrect. Breakthrough is an adsorption capacity phenomenon, not a fan velocity state."
+      ],
+      "correctExplanation": "Breakthrough occurs when carbon pores are fully loaded with organic molecules. Unadsorbed VOC vapors pass straight through the bed, requiring immediate carbon bed changeout or thermal desorption.",
+      "incorrectExplanation": "Breakthrough means the carbon bed is exhausted and no longer captures volatile organic compounds."
+    },
+    {
+      "id": 20492,
+      "courseId": 775,
+      "orderIndex": 3,
+      "question": "What does an abnormally low differential pressure (delta-P near zero) across an operating fabric baghouse dust collector typically indicate?",
+      "options": [
+        "The filter bags are operating with 100% maximum filtration efficiency.",
+        "Filter bags are torn, punctured, or have slipped off the tube sheet, allowing unfiltered dusty air to blow directly out the stack.",
+        "The dust has permanently dissolved into the air.",
+        "The exhaust fan is running in reverse at triple speed."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Intact filter bags always exhibit measurable airflow resistance.",
+        "Correct. Near-zero delta-P signifies torn or dislodged filter bags, causing particulate bypass.",
+        "Incorrect. Particulate matter does not dissolve in gas streams.",
+        "Incorrect. Fan direction does not explain zero resistance across a baghouse plenum."
+      ],
+      "correctExplanation": "Clean filter media always creates a baseline resistance (0.5 to 1.0 kPa). A drop to zero delta-P indicates broken, detached, or torn filter bags that bypass filtration entirely.",
+      "incorrectExplanation": "Near-zero delta-P indicates torn or missing filter bags, allowing particulates to escape into the atmosphere."
+    },
+    {
+      "id": 20493,
+      "courseId": 775,
+      "orderIndex": 4,
+      "question": "Why is the practice of 'air dilution' (mixing ambient fresh air into a chimney stack to lower measured pollutant ppm) strictly prohibited under environmental regulations?",
+      "options": [
+        "Because ambient air is too expensive to purchase",
+        "Because dilution reduces the measured concentration without reducing the total mass of toxic pollutants discharged into the atmosphere and ecosystem",
+        "Because mixing air creates radioactive isotopes",
+        "Because dilution fans make too much mechanical noise"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Ambient air is free, but dilution is an illegal circumvention method.",
+        "Correct. Dilution masks concentration without reducing the total mass of toxic pollutants emitted into the atmosphere.",
+        "Incorrect. Mixing air streams does not create nuclear radioactivity.",
+        "Incorrect. Noise is an unrelated acoustic factor; the issue is fraudulent emission masking."
+      ],
+      "correctExplanation": "Environmental clean air laws enforce mass emission limits (kg/hour) as well as concentration limits. Dilution masks concentration without abating the actual quantity of pollutants entering the environment.",
+      "incorrectExplanation": "Dilution is an illegal circumvention technique that does not reduce the total mass of discharged airborne contaminants."
+    },
+    {
+      "id": 20494,
+      "courseId": 775,
+      "orderIndex": 5,
+      "question": "What is the recommended minimum transport velocity inside industrial ventilation ducts conveying heavy industrial dusts (e.g., sawdust, metal grindings, silica)?",
+      "options": [
+        "1 to 2 m/s",
+        "5 to 7 m/s",
+        "18 to 22 m/s",
+        "100 to 150 m/s"
+      ],
+      "correctOption": 2,
+      "optionFeedback": [
+        "Incorrect. 1-2 m/s is too slow; dust will settle immediately in the duct.",
+        "Incorrect. 5-7 m/s is adequate only for gaseous vapors, not solid particulates.",
+        "Correct. 18 to 22 m/s maintains aerodynamic suspension, preventing dust settling and duct fires.",
+        "Incorrect. 100+ m/s creates extreme friction loss, pipe erosion, and excessive fan energy consumption."
+      ],
+      "correctExplanation": "Duct transport velocities of 18 to 22 m/s keep heavy particulates suspended in the airflow, preventing settling inside duct runs that causes blockages and dangerous combustible dust fire hazards.",
+      "incorrectExplanation": "Velocities below 15 m/s allow heavy dust to settle in ductwork, creating severe fire and clogging hazards."
+    },
+    {
+      "id": 20495,
+      "courseId": 775,
+      "orderIndex": 6,
+      "question": "In a wet chemical scrubber treating acidic gases (e.g., hydrochloric acid or sulfur dioxide), what chemical reagent is continuously dosed to maintain neutralization?",
+      "options": [
+        "Concentrated nitric acid",
+        "Sodium Hydroxide (NaOH / Caustic Soda) or hydrated lime",
+        "Diesel fuel",
+        "Distilled vinegar"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Adding nitric acid would add more acid fumes to the scrubber.",
+        "Correct. Sodium hydroxide (NaOH) or lime neutralizes acidic gases, converting them into stable soluble salts.",
+        "Incorrect. Hydrocarbons must never be added to scrubbers due to explosion risks.",
+        "Incorrect. Vinegar is acidic (acetic acid) and will not neutralize acidic gases."
+      ],
+      "correctExplanation": "Acidic fumes are neutralized by alkaline solutions (NaOH, lime), which react to form harmless dissolved salts and water, maintaining the scrubbing liquid at an alkaline pH (8.5–9.5).",
+      "incorrectExplanation": "Alkaline reagents like sodium hydroxide or lime neutralize acidic gas streams in absorption scrubbers."
+    },
+    {
+      "id": 20496,
+      "courseId": 775,
+      "orderIndex": 7,
+      "question": "What is the primary function of a local exhaust ventilation (LEV) capture hood positioned over an open chemical mixing tank?",
+      "options": [
+        "To heat the liquid inside the tank",
+        "To capture toxic vapors and dust at the point of generation before they enter the worker's breathing zone or disperse into the workplace",
+        "To illuminate the tank with bright light",
+        "To measure the weight of the chemicals"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Exhaust hoods do not heat process liquids.",
+        "Correct. LEV capture hoods capture contaminants at the source before they reach worker breathing zones.",
+        "Incorrect. Hoods are ventilation fixtures, not lighting systems.",
+        "Incorrect. Weighing is handled by load cells, not exhaust ventilation."
+      ],
+      "correctExplanation": "Capture hoods create aerodynamic suction directly at the emission point, entraining hazardous fumes and preventing them from reaching worker breathing zones.",
+      "incorrectExplanation": "LEV capture hoods draw contaminants away at the source to protect worker health."
+    },
+    {
+      "id": 20497,
+      "courseId": 775,
+      "orderIndex": 8,
+      "question": "When documenting compliance with statutory national air quality emission limits, what represents verifiable technical proof?",
+      "options": [
+        "A certificate from an accredited environmental testing laboratory using isokinetic stack sampling methods, calibrated continuous emission monitoring (CEMS) logs, and maintenance records of abatement devices",
+        "A verbal opinion from a neighbor that the air smells fine today",
+        "A picture of clear blue sky taken from a mobile phone",
+        "A sticker on the boiler stating 'Eco-Friendly'"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Accredited isokinetic laboratory test reports, calibrated CEMS logs, and maintenance records provide legally defensible proof.",
+        "Incorrect. Subjective neighbor opinions do not satisfy technical or legal standards.",
+        "Incorrect. Blue sky photographs cannot detect colorless toxic gases or fine particulates.",
+        "Incorrect. Marketing stickers carry zero regulatory compliance validity."
+      ],
+      "correctExplanation": "Defensible compliance requires isokinetic stack sampling by ISO 17025 accredited testing laboratories, continuous CEMS telemetry data, and documented pollution control equipment logs.",
+      "incorrectExplanation": "Statutory clean air compliance requires accredited isokinetic sampling reports and calibrated CEMS data."
+    },
+    {
+      "id": 20498,
+      "courseId": 776,
+      "orderIndex": 1,
+      "question": "What is the primary difference between 'Tier 1' and 'Tier 2' suppliers in an industrial supply chain?",
+      "options": [
+        "Tier 1 suppliers are located on the ground floor, while Tier 2 suppliers are on the second floor of a factory.",
+        "Tier 1 suppliers sell directly to your company (direct contractual relationship), while Tier 2 suppliers sell raw materials or sub-components to your Tier 1 suppliers.",
+        "Tier 1 suppliers only supply water, while Tier 2 suppliers only supply electricity.",
+        "Tier 2 suppliers are always illegal companies."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Supply chain tiers denote commercial relationships, not building floors.",
+        "Correct. Tier 1 suppliers sell directly to you; Tier 2 suppliers sell to your Tier 1 suppliers.",
+        "Incorrect. Supply chain tiers apply to all physical and service inputs, not specific utilities.",
+        "Incorrect. Tier 2 suppliers are standard commercial sub-contractors and component vendors."
+      ],
+      "correctExplanation": "Tier 1 vendors have direct commercial contracts with the OEM/manufacturer. Tier 2 vendors supply components or raw materials to Tier 1 vendors, forming deeper tiers of the supply chain.",
+      "incorrectExplanation": "Tier 1 represents direct vendors; Tier 2 represents sub-suppliers to Tier 1."
+    },
+    {
+      "id": 20499,
+      "courseId": 776,
+      "orderIndex": 2,
+      "question": "How does the 'Mass Balance' Chain of Custody (CoC) model operate in sustainable commodity supply chains (e.g., palm oil, certified cotton, recycled plastics)?",
+      "options": [
+        "Certified and non-certified physical materials are allowed to mix during processing, but the exact volume of certified finished goods sold is strictly tracked and cannot exceed certified input volumes purchased.",
+        "Every single molecule must be physically separated and kept under armed guard at all times.",
+        "No records are kept, and companies guess how much sustainable material was used.",
+        "The material is weighed only once a year on a bathroom scale."
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Mass Balance allows physical mixing while enforcing strict volumetric credit reconciliation.",
+        "Incorrect. Physical separation back to a single source is Identity Preserved (IP), not Mass Balance.",
+        "Incorrect. Mass Balance requires rigorous, audited ledger reconciliation.",
+        "Incorrect. Mass balance uses calibrated industrial weighing and lot tracking systems."
+      ],
+      "correctExplanation": "Mass balance allows physical mixing in continuous processing (refineries, mills) while maintaining strict volumetric accounting, ensuring that output claims match verified sustainable input volumes.",
+      "incorrectExplanation": "Mass balance allows physical mixing while enforcing strict volumetric reconciliation between certified inputs and outputs."
+    },
+    {
+      "id": 20500,
+      "courseId": 776,
+      "orderIndex": 3,
+      "question": "What is a 'Digital Product Passport' (DPP) as mandated by emerging international sustainability and circular economy regulations?",
+      "options": [
+        "A travel passport allowing factory machines to go on vacation",
+        "A standardized digital record accessible via QR code or RFID that contains verified product information on material composition, origin, recycled content, repairability, and carbon footprint across its lifecycle",
+        "A photograph of the company CEO saved on a USB drive",
+        "An advertisement posted on social media"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. DPP is a digital product data architecture, not human travel documentation.",
+        "Correct. DPP provides standardized digital transparency on material origin, recycled content, and lifecycle footprint.",
+        "Incorrect. Executive photos do not provide product technical sustainability data.",
+        "Incorrect. DPP is an auditable regulatory compliance dataset, not marketing social media."
+      ],
+      "correctExplanation": "A Digital Product Passport (DPP) provides digitally accessible, auditable data on a product's bill of materials, recycled content, environmental footprint, and circular dismantling instructions.",
+      "incorrectExplanation": "DPP is a standardized digital dataset providing transparent product sustainability and material lifecycle data."
+    },
+    {
+      "id": 20501,
+      "courseId": 776,
+      "orderIndex": 4,
+      "question": "What is the primary role of a 'Transaction Certificate' (TC) in verified supply chains (such as GOTS, GRS, or FSC)?",
+      "options": [
+        "It acts as a receipt for lunch at a restaurant.",
+        "It is an official third-party certified document linking a specific shipment batch of raw materials to a certified supplier and verifying its chain-of-custody credentials.",
+        "It exempts companies from paying all taxes forever.",
+        "It is a business card handed out by sales representatives."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. TCs are specialized supply chain compliance documents, not meal receipts.",
+        "Correct. TCs provide verified third-party proof that a specific batch meets certified sustainability standards.",
+        "Incorrect. TCs verify material provenance; they do not alter national corporate taxation.",
+        "Incorrect. TCs are legally auditable compliance certificates, not marketing cards."
+      ],
+      "correctExplanation": "Transaction Certificates (TCs) issued by accredited certification bodies (e.g., Control Union, Intertek) prove that a specific physical consignment of material complies with sustainability standards.",
+      "incorrectExplanation": "Transaction Certificates provide auditable third-party proof that a specific batch meets certified chain-of-custody criteria."
+    },
+    {
+      "id": 20502,
+      "courseId": 776,
+      "orderIndex": 5,
+      "question": "When conducting a risk-based supplier ESG audit, what does a 'Corrective Action Plan' (CAP) establish?",
+      "options": [
+        "An agreement to forgive all supplier violations with zero changes required",
+        "A formal, time-bound roadmap detailing the specific root-cause remediation steps, responsible owners, and re-audit milestones required to fix identified non-conformances",
+        "A financial bonus paid to suppliers who fail audits",
+        "A schedule for the supplier to shut down permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. CAPs require active remediation, not passive forgiveness.",
+        "Correct. A CAP specifies root-cause fixes, responsible managers, and deadlines to close audit non-conformances.",
+        "Incorrect. Penalties or remediation mandates apply, not bonuses for failure.",
+        "Incorrect. CAPs aim to bring suppliers into compliance, not necessarily liquidate their operations."
+      ],
+      "correctExplanation": "A CAP outlines clear corrective actions, responsible personnel, and strict completion deadlines (e.g., 30–60 days) to rectify labor, safety, or environmental non-conformances identified in audits.",
+      "incorrectExplanation": "A Corrective Action Plan defines time-bound milestones and root-cause solutions to rectify audit non-conformances."
+    },
+    {
+      "id": 20503,
+      "courseId": 776,
+      "orderIndex": 6,
+      "question": "What is the primary risk of relying solely on supplier 'Self-Assessment Questionnaires' (SAQs) without independent verification or document audits?",
+      "options": [
+        "Suppliers might write in blue ink instead of black ink.",
+        "Self-assessments often reflect aspirational claims rather than operational reality, creating massive blind spots for forced labor, environmental violations, or fraud.",
+        "SAQs make the supplier's products 10 times more expensive.",
+        "SAQs cause computer servers to run out of memory."
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Ink color is an irrelevant cosmetic detail.",
+        "Correct. Unverified SAQs create major blind spots as vendors may self-report compliance while hiding violations.",
+        "Incorrect. Questionnaires do not alter product pricing directly.",
+        "Incorrect. SAQ forms consume negligible digital storage."
+      ],
+      "correctExplanation": "Unverified SAQs suffer from self-reporting bias. Robust due diligence requires combining SAQs with third-party on-site audits (e.g., SMETA), satellite deforestation monitoring, and batch testing.",
+      "incorrectExplanation": "Self-assessments without verification create high risk of unspotted compliance breaches and greenwashing."
+    },
+    {
+      "id": 20504,
+      "courseId": 776,
+      "orderIndex": 7,
+      "question": "Under modern supply chain due diligence laws (such as EU CSDDD or German LkSG), what must a purchasing company do when a Tier 1 supplier is found to have severe human rights or child labor violations?",
+      "options": [
+        "Immediately publish praise for the supplier on social media",
+        "Execute immediate intervention: require rapid cessation of the violation, implement a strict corrective action plan, support remediation, and suspend or terminate the commercial contract if non-compliance persists",
+        "Pretend the company never noticed the audit report",
+        "Offer the supplier a 50% price increase"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Praising severe violations incurs massive regulatory fines and brand destruction.",
+        "Correct. Companies must intervene immediately, demand remediation, support victims, and terminate contracts if non-compliance persists.",
+        "Incorrect. Willful blindness constitutes a direct violation of due diligence laws.",
+        "Incorrect. Commercial rewards must never be given for human rights violations."
+      ],
+      "correctExplanation": "Due diligence laws legally mandate immediate remediation, victim support, corrective action timelines, and escalation to contract termination if the supplier fails to eliminate severe human rights abuses.",
+      "incorrectExplanation": "Statutory due diligence requires immediate intervention, remediation plans, and contractual escalation/termination."
+    },
+    {
+      "id": 20505,
+      "courseId": 776,
+      "orderIndex": 8,
+      "question": "What is the most defensible proof of an established supply chain traceability system during an international trade customs audit?",
+      "options": [
+        "A verbal statement from the purchasing officer that all suppliers are trustworthy",
+        "An end-to-end digital traceability ledger linking finished product lot numbers to certified Tier 1/Tier 2 Transaction Certificates, bills of lading, and verified geolocated raw material origin data",
+        "A picture of the supplier's company logo",
+        "An email containing a funny meme about shipping"
+      ],
+      "correctOption": 1,
+      "optionFeedback": [
+        "Incorrect. Verbal statements are legally inadmissible during customs audits.",
+        "Correct. Auditable digital ledgers linking lot numbers to transaction certificates and geolocated origin data provide full legal defense.",
+        "Incorrect. Logos do not prove chain of custody or material provenance.",
+        "Incorrect. Informal communications carry zero legal or compliance validity."
+      ],
+      "correctExplanation": "Customs authorities require auditable document trails linking product batch numbers to verified transaction certificates, shipping manifests, and geolocated origin evidence.",
+      "incorrectExplanation": "Customs compliance requires complete documentary and batch reconciliation tracing back to verified origins."
+    }
+  ],
+  "sha256": "4bca021f61bf87b17f9a56ae4d2911efe608c6bbc93e0b3b5fad7cc13fe717a6"
+}

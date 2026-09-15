@@ -5,15 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Building2, ShieldCheck, CheckCircle2, ArrowLeft, Loader2, Sparkles, Award, Users } from "lucide-react";
+import { Building2, ShieldCheck, CheckCircle2, ArrowLeft, Loader2, Sparkles, PhoneCall, Users, Award, BookOpen } from "lucide-react";
 import { customFetch } from "@workspace/api-client-react";
 import { useToast } from "@/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import {
   calculateDynamicPricing,
-  calculateYearlyPricing,
   PlanCode,
   BillingInterval,
+  CANONICAL_EMPLOYEE_BANDS,
 } from "@/config/pricing";
 
 interface PublicPlansResponse {
@@ -28,13 +28,11 @@ export default function Subscribe() {
   const queryClient = useQueryClient();
 
   const urlParams = new URLSearchParams(window.location.search);
-  const initialPlanCode = (urlParams.get("planCode") || "PROFESSIONAL").toUpperCase() as PlanCode;
   const initialBandCode = urlParams.get("bandCode") || "UP_TO_25";
   const initialInterval = (urlParams.get("billingInterval") || "MONTHLY").toUpperCase() === "YEARLY" ? "YEARLY" : "MONTHLY";
   const initialCountParam = urlParams.get("employeeCount");
   const initialCount = initialCountParam ? parseInt(initialCountParam, 10) : initialBandCode === "OVER_120" ? 150 : 25;
 
-  const [selectedPlanCode, setSelectedPlanCode] = useState<PlanCode>(initialPlanCode);
   const [selectedBandCode, setSelectedBandCode] = useState<string>(initialBandCode);
   const [employeeCount, setEmployeeCount] = useState<number>(initialCount);
   const [billingInterval, setBillingInterval] = useState<BillingInterval>(initialInterval);
@@ -54,32 +52,25 @@ export default function Subscribe() {
       .catch(() => {});
   }, []);
 
-  const activePlan = pricingData?.plans.find(p => p.code === selectedPlanCode) || {
-    code: selectedPlanCode,
-    name: selectedPlanCode === "ESSENTIAL" ? "Essential" : selectedPlanCode === "COMPLETE" ? "Complete" : "Professional",
-    description: "Sustainability corporate learning package",
-    tagline: null,
-  };
+  // Sync band when employee count changes
+  useEffect(() => {
+    if (employeeCount <= 25) setSelectedBandCode("UP_TO_25");
+    else if (employeeCount <= 50) setSelectedBandCode("FROM_26_TO_50");
+    else if (employeeCount <= 80) setSelectedBandCode("FROM_51_TO_80");
+    else if (employeeCount <= 120) setSelectedBandCode("FROM_81_TO_120");
+    else setSelectedBandCode("OVER_120");
+  }, [employeeCount]);
 
-  const activeBand = pricingData?.employeeBands.find(b => b.code === selectedBandCode) || {
-    code: selectedBandCode,
-    label: selectedBandCode === "UP_TO_25" ? "Up to 25 employees" : selectedBandCode === "OVER_120" ? "121+ employees" : "Corporate team",
-    requiresTailoredQuote: false,
-  };
-
-  const priceRecord = pricingData?.prices.find(p => p.planCode === selectedPlanCode && p.bandCode === selectedBandCode);
-  const fallbackBase = selectedBandCode === "UP_TO_25" ? 3000 : selectedBandCode === "FROM_26_TO_50" ? 4500 : selectedBandCode === "FROM_51_TO_80" ? 5000 : selectedBandCode === "FROM_81_TO_120" ? 6250 : 7500;
-  const standardBaseMonthly = priceRecord?.monthlyAmountMUR || fallbackBase;
+  const activeBand = CANONICAL_EMPLOYEE_BANDS.find(b => b.code === selectedBandCode) || CANONICAL_EMPLOYEE_BANDS[0];
+  const isOver120 = selectedBandCode === "OVER_120" || employeeCount > 120;
 
   // Dynamic price calculation
-  const dynamicPricing = calculateDynamicPricing(selectedPlanCode, employeeCount, selectedBandCode !== "OVER_120" ? standardBaseMonthly : undefined);
+  const dynamicPricing = calculateDynamicPricing("COMPLETE", employeeCount);
 
   const baseMonthlyMUR = dynamicPricing.finalMonthly;
-  const yearlyUndiscounted = dynamicPricing.undiscountedYearly;
   const yearlySavingsMUR = dynamicPricing.yearlyDiscount;
   const yearlyFinalMUR = dynamicPricing.finalYearly;
   const yearlyEquivalentMonthlyMUR = dynamicPricing.equivalentMonthlyYearly;
-  const isOver120 = selectedBandCode === "OVER_120" || employeeCount > 120;
 
   const handleSubscribeSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,9 +89,9 @@ export default function Subscribe() {
       const res = await customFetch<{ message: string }>("/api/subscriptions/onboard", {
         method: "POST",
         body: JSON.stringify({
-          planCode: selectedPlanCode,
+          planCode: "COMPLETE",
           employeeBandCode: selectedBandCode,
-          billingInterval: billingInterval,
+          billingInterval: isOver120 ? "MONTHLY" : billingInterval,
           companyName: companyName,
           industry: industry,
           employeeCount: employeeCount,
@@ -108,12 +99,18 @@ export default function Subscribe() {
       });
 
       setIsSuccess(true);
-      setSuccessMessage(res?.message || "Your Elevio subscription request has been received.");
+      setSuccessMessage(
+        isOver120
+          ? "Your tailored enterprise quote request has been received. An enterprise specialist will contact you shortly."
+          : (res?.message || "Your Elevio subscription request has been received.")
+      );
       queryClient.invalidateQueries({ queryKey: ["/api/subscriptions/company"] });
 
       toast({
-        title: "Subscription Request Confirmed",
-        description: "Your selected plan and transparent subscription price have been registered.",
+        title: isOver120 ? "Quote Request Received" : "Subscription Request Confirmed",
+        description: isOver120
+          ? "Our enterprise team will reach out with a tailored quote for your organization."
+          : "Your transparent company subscription has been registered.",
       });
 
       setTimeout(() => {
@@ -144,7 +141,7 @@ export default function Subscribe() {
               Confirm Your Company Subscription
             </h1>
             <p className="text-muted-foreground text-sm mt-1">
-              Complete your organization setup with transparent, self-service commercial billing.
+              One standard all-inclusive ELEVIO Skills subscription with transparent company-size pricing.
             </p>
           </div>
 
@@ -155,10 +152,10 @@ export default function Subscribe() {
                 <Card className="border-emerald-500/30 bg-emerald-500/5 text-center p-8 backdrop-blur-md">
                   <CardHeader className="flex flex-col items-center">
                     <div className="h-16 w-16 bg-emerald-500/10 rounded-full flex items-center justify-center text-emerald-600 mb-4 animate-pulse">
-                      <Sparkles className="h-8 w-8" />
+                      {isOver120 ? <PhoneCall className="h-8 w-8" /> : <Sparkles className="h-8 w-8" />}
                     </div>
                     <CardTitle className="text-2xl font-bold text-foreground font-serif">
-                      Subscription Request Received!
+                      {isOver120 ? "Quote Request Received!" : "Subscription Request Received!"}
                     </CardTitle>
                     <CardDescription className="text-muted-foreground text-base max-w-md mt-2">
                       {successMessage}
@@ -180,7 +177,7 @@ export default function Subscribe() {
                         Company & Organization Details
                       </CardTitle>
                       <CardDescription>
-                        Set up your organization account for Elevio training tracking.
+                        Set up your organization account for ELEVIO Skills corporate training.
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
@@ -188,7 +185,7 @@ export default function Subscribe() {
                         <Label htmlFor="companyName">Organization / Company Name</Label>
                         <Input
                           id="companyName"
-                          placeholder="e.g. Rogers Group Ltd"
+                          placeholder="e.g. Rogers Group Ltd, LUX Resorts, MCB"
                           required
                           value={companyName}
                           onChange={(e) => setCompanyName(e.target.value)}
@@ -205,7 +202,7 @@ export default function Subscribe() {
                         />
                       </div>
 
-                      {/* Headcount Input (especially for >120 organizations) */}
+                      {/* Headcount Input */}
                       <div className="space-y-2 pt-2 border-t">
                         <div className="flex items-center justify-between">
                           <Label htmlFor="employeeCount" className="flex items-center gap-1.5">
@@ -213,7 +210,7 @@ export default function Subscribe() {
                             Total Employees to Train
                           </Label>
                           <span className="text-xs text-muted-foreground">
-                            Included seats: <strong className="text-foreground">{dynamicPricing.includedCapacity}</strong>
+                            Included seats: <strong className="text-foreground">{activeBand.maxEmployees ? `Up to ${activeBand.maxEmployees}` : "Custom allowance"}</strong>
                           </span>
                         </div>
                         <Input
@@ -226,74 +223,79 @@ export default function Subscribe() {
                             const val = parseInt(e.target.value, 10);
                             if (!isNaN(val)) {
                               setEmployeeCount(Math.max(1, val));
-                              if (val > 120 && selectedBandCode !== "OVER_120") {
-                                setSelectedBandCode("OVER_120");
-                              }
                             }
                           }}
                         />
-                        {isOver120 && employeeCount > 250 && (
+                        {isOver120 ? (
+                          <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-xs text-amber-800 dark:text-amber-300">
+                            <strong>Custom Enterprise Plan (121+ Employees):</strong> An enterprise quote will be tailored to your specific organizational scale.
+                          </div>
+                        ) : (
                           <p className="text-xs text-emerald-700 dark:text-emerald-400 font-medium">
-                            Base tier (250 seats) + {dynamicPricing.additionalBlocks} supplementary 50-employee block{dynamicPricing.additionalBlocks > 1 ? "s" : ""}.
+                            Assigned to: <strong>{activeBand.label}</strong> (max {activeBand.maxEmployees} learner seats)
                           </p>
                         )}
                       </div>
 
-                      {/* Billing Interval Selection */}
-                      <div className="space-y-2 pt-2 border-t">
-                        <Label>Billing Frequency</Label>
-                        <div className="grid grid-cols-2 gap-3">
-                          <button
-                            type="button"
-                            onClick={() => setBillingInterval("MONTHLY")}
-                            className={`p-3 rounded-xl border text-sm font-semibold transition-all flex flex-col items-start ${
-                              billingInterval === "MONTHLY"
-                                ? "border-emerald-600 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                                : "border-border text-muted-foreground hover:bg-muted/40"
-                            }`}
-                          >
-                            <span>Monthly Billing</span>
-                            <span className="text-[11px] font-normal opacity-80">Flexible monthly payments</span>
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => setBillingInterval("YEARLY")}
-                            className={`p-3 rounded-xl border text-sm font-semibold transition-all flex flex-col items-start relative ${
-                              billingInterval === "YEARLY"
-                                ? "border-emerald-600 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                                : "border-border text-muted-foreground hover:bg-muted/40"
-                            }`}
-                          >
-                            <span className="flex items-center gap-1.5">
-                              Yearly Billing
-                              <span className="text-[10px] bg-emerald-600 text-white font-bold px-1.5 py-0.2 rounded-md">Save 10%</span>
-                            </span>
-                            <span className="text-[11px] font-normal opacity-80">Paid once per year</span>
-                          </button>
+                      {/* Billing Interval Selection (only for standard bands) */}
+                      {!isOver120 && (
+                        <div className="space-y-2 pt-2 border-t">
+                          <Label>Billing Frequency</Label>
+                          <div className="grid grid-cols-2 gap-3">
+                            <button
+                              type="button"
+                              onClick={() => setBillingInterval("MONTHLY")}
+                              className={`p-3 rounded-xl border text-sm font-semibold transition-all flex flex-col items-start ${
+                                billingInterval === "MONTHLY"
+                                  ? "border-emerald-600 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
+                                  : "border-border text-muted-foreground hover:bg-muted/40"
+                              }`}
+                            >
+                              <span>Monthly Billing</span>
+                              <span className="text-[11px] font-normal opacity-80">Flexible monthly payments</span>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setBillingInterval("YEARLY")}
+                              className={`p-3 rounded-xl border text-sm font-semibold transition-all flex flex-col items-start relative ${
+                                billingInterval === "YEARLY"
+                                  ? "border-emerald-600 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
+                                  : "border-border text-muted-foreground hover:bg-muted/40"
+                              }`}
+                            >
+                              <span className="flex items-center gap-1.5">
+                                Yearly Billing
+                                <span className="text-[10px] bg-emerald-600 text-white font-bold px-1.5 py-0.2 rounded-md">Save 10%</span>
+                              </span>
+                              <span className="text-[11px] font-normal opacity-80">Paid once per year</span>
+                            </button>
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       {/* Selected Plan Summary Bar */}
                       <div className="bg-muted/50 border rounded-xl p-4 space-y-2">
                         <div className="flex justify-between items-center text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                          <span>Selected Commercial Plan</span>
-                          <span className="text-primary">{activePlan.name}</span>
+                          <span>Subscription Offer</span>
+                          <span className="text-primary font-bold">Standard ELEVIO Skills</span>
                         </div>
                         <div className="flex justify-between items-center text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                          <span>Employee Band / Headcount</span>
-                          <span className="text-foreground">{isOver120 ? `${employeeCount} employees (${dynamicPricing.includedCapacity} max seats)` : activeBand.label}</span>
+                          <span>Employee Band / Capacity</span>
+                          <span className="text-foreground">{activeBand.label} ({employeeCount} employee{employeeCount > 1 ? "s" : ""})</span>
                         </div>
-                        <div className="flex justify-between items-center text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                          <span>Billing Interval</span>
-                          <span className="text-emerald-700 dark:text-emerald-400 font-bold">{billingInterval === "YEARLY" ? "Yearly (10% Off)" : "Monthly"}</span>
-                        </div>
+                        {!isOver120 && (
+                          <div className="flex justify-between items-center text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                            <span>Billing Interval</span>
+                            <span className="text-emerald-700 dark:text-emerald-400 font-bold">{billingInterval === "YEARLY" ? "Yearly (10% Off)" : "Monthly"}</span>
+                          </div>
+                        )}
                       </div>
                     </CardContent>
 
                     <CardFooter className="flex-col gap-4 border-t pt-6 bg-muted/30">
                       <div className="flex items-center gap-2 text-xs text-muted-foreground w-full">
                         <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
-                        <span>Corporate training records, learner certificates, and compliance exports included.</span>
+                        <span>All 136 sustainability courses, certificates, and compliance exports included.</span>
                       </div>
                       <Button
                         type="submit"
@@ -303,8 +305,10 @@ export default function Subscribe() {
                         {isSubmitting ? (
                           <>
                             <Loader2 className="h-5 w-5 animate-spin" />
-                            Submitting subscription request...
+                            Submitting request...
                           </>
+                        ) : isOver120 ? (
+                          "Request Tailored Quote"
                         ) : billingInterval === "YEARLY" ? (
                           `Confirm Subscription — MUR ${yearlyFinalMUR.toLocaleString()}/year`
                         ) : (
@@ -322,21 +326,25 @@ export default function Subscribe() {
               <Card className="border-emerald-500/20 bg-emerald-500/5">
                 <CardHeader>
                   <CardTitle className="text-xl font-serif">Subscription Summary</CardTitle>
-                  <CardDescription>Review your selected access and transparent pricing.</CardDescription>
+                  <CardDescription>Full platform access for your organization.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="flex justify-between items-start pb-4 border-b">
                     <div>
-                      <h3 className="font-bold text-lg text-foreground">{activePlan.name} Plan</h3>
+                      <h3 className="font-bold text-lg text-foreground">Standard Subscription</h3>
                       <p className="text-xs text-muted-foreground mt-0.5">
-                        {isOver120 ? `${employeeCount} employees (Up to ${dynamicPricing.includedCapacity} seats)` : activeBand.label}
+                        {isOver120 ? `${employeeCount} employees (Custom Quote)` : activeBand.label}
                       </p>
                     </div>
                     <div className="text-right">
                       <span className="font-extrabold text-lg text-emerald-700 dark:text-emerald-400 block">
-                        {billingInterval === "YEARLY" ? `MUR ${yearlyFinalMUR.toLocaleString()}/year` : `MUR ${baseMonthlyMUR.toLocaleString()}/mo`}
+                        {isOver120
+                          ? "Tailored Quote"
+                          : billingInterval === "YEARLY"
+                          ? `MUR ${yearlyFinalMUR.toLocaleString()}/year`
+                          : `MUR ${baseMonthlyMUR.toLocaleString()}/mo`}
                       </span>
-                      {billingInterval === "YEARLY" && (
+                      {!isOver120 && billingInterval === "YEARLY" && (
                         <div className="space-y-0.5 text-right mt-1">
                           <span className="text-[11px] text-emerald-700 dark:text-emerald-400 font-bold block">
                             Save MUR {yearlySavingsMUR.toLocaleString()} per year
@@ -350,56 +358,54 @@ export default function Subscribe() {
                   </div>
 
                   <div className="space-y-3">
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Included Learning Access</p>
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">All-Inclusive Curriculum Access</p>
                     <ul className="space-y-2 text-xs text-muted-foreground">
+                      <li className="flex gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>All 136 canonical sustainability & ESG literacy courses</span>
+                      </li>
                       <li className="flex gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span>ELH-01 to ELH-12 Core Sustainability Certificate</span>
                       </li>
-                      {(selectedPlanCode === "PROFESSIONAL" || selectedPlanCode === "COMPLETE") && (
-                        <>
-                          <li className="flex gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                            <span>Sustainability in Action courses (ELH-13 to ELH-23)</span>
-                          </li>
-                          <li className="flex gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                            <span>Departmental courses (HR, Finance, Ops, Facilities, Sales)</span>
-                          </li>
-                        </>
-                      )}
-                      {selectedPlanCode === "COMPLETE" && (
-                        <li className="flex gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                          <span>Leadership courses & advanced organisational reporting</span>
-                        </li>
-                      )}
+                      <li className="flex gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>Departmental tracks (HR, Finance, Operations, Facilities, Sales)</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>Verifiable certificates & compliance audit export reports</span>
+                      </li>
+                      <li className="flex gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>Automated learner progress tracking & manager dashboards</span>
+                      </li>
                     </ul>
                   </div>
 
                   <div className="pt-4 border-t space-y-2 text-xs">
                     <div className="flex justify-between text-muted-foreground">
-                      <span>{billingInterval === "YEARLY" ? "Yearly Subscription" : "Monthly Subscription"}</span>
+                      <span>Plan Model</span>
+                      <span className="font-semibold text-foreground">Company Size Tier</span>
+                    </div>
+                    <div className="flex justify-between text-muted-foreground">
+                      <span>Learner Seat Limit</span>
                       <span className="font-semibold text-foreground">
-                        {billingInterval === "YEARLY" ? `MUR ${yearlyFinalMUR.toLocaleString()}` : `MUR ${baseMonthlyMUR.toLocaleString()}`}
+                        {activeBand.maxEmployees ? `${activeBand.maxEmployees} employees` : "Custom Contract"}
                       </span>
                     </div>
-                    {isOver120 && employeeCount > 250 && (
-                      <div className="flex justify-between text-muted-foreground">
-                        <span>Supplementary Capacity</span>
-                        <span className="font-semibold text-emerald-700 dark:text-emerald-400">
-                          +{dynamicPricing.additionalBlocks * 50} extra seats
-                        </span>
-                      </div>
-                    )}
                     <div className="flex justify-between text-muted-foreground">
                       <span>Currency</span>
                       <span className="font-semibold text-foreground">MUR (Mauritian Rupee)</span>
                     </div>
                     <div className="flex justify-between pt-4 border-t text-base font-bold text-foreground">
-                      <span>{billingInterval === "YEARLY" ? "Yearly Total" : "Monthly Total"}</span>
+                      <span>{isOver120 ? "Pricing" : billingInterval === "YEARLY" ? "Yearly Total" : "Monthly Total"}</span>
                       <span className="text-emerald-700 dark:text-emerald-400">
-                        {billingInterval === "YEARLY" ? `MUR ${yearlyFinalMUR.toLocaleString()}/year` : `MUR ${baseMonthlyMUR.toLocaleString()}/mo`}
+                        {isOver120
+                          ? "Contact us for quote"
+                          : billingInterval === "YEARLY"
+                          ? `MUR ${yearlyFinalMUR.toLocaleString()}/year`
+                          : `MUR ${baseMonthlyMUR.toLocaleString()}/mo`}
                       </span>
                     </div>
                   </div>

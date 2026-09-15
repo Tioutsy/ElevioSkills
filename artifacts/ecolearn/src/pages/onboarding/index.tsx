@@ -57,44 +57,18 @@ const APPROVED_BANDS = [
   { code: "OVER_120", label: "Over 120 employees", maxCount: null, defaultCount: 150, monthlyPrice: null, isQuote: true },
 ];
 
-const APPROVED_PLANS = [
-  {
-    code: "ESSENTIAL" as PlanCode,
-    name: "Essential ESG",
-    tagline: "Foundational compliance & ESG readiness",
-    features: [
-      "Access to core ESG compliance modules",
-      "Standard employee progress tracking",
-      "Verifiable completion certificates",
-      "Automated compliance audit reports",
-    ],
-  },
-  {
-    code: "PROFESSIONAL" as PlanCode,
-    name: "Professional Growth",
-    tagline: "Comprehensive learning & workplace action",
-    badge: "Recommended",
-    features: [
-      "Complete 12-course sustainability library",
-      "Workplace micro-action tracking & review",
-      "Department-level compliance filters",
-      "Automated manager reminder workflows",
-      "Priority customer support",
-    ],
-  },
-  {
-    code: "COMPLETE" as PlanCode,
-    name: "Complete Enterprise",
-    tagline: "Full platform scale & bespoke alignment",
-    features: [
-      "All current & future ELEVIO SKILLS courses",
-      "Executive ESG board scorecards & metrics",
-      "Dedicated account success manager",
-      "HRIS / SSO single-sign-on integration",
-      "Custom challenge builder",
-    ],
-  },
-];
+const STANDARD_PLAN = {
+  code: "STANDARD" as PlanCode,
+  name: "ELEVIO Skills Subscription",
+  tagline: "All-inclusive corporate sustainability & ESG literacy platform",
+  features: [
+    "Full access to 136 canonical sustainability & ESG courses",
+    "ELH-01 to ELH-12 Core Sustainability Certificate",
+    "Specialized modules for HR, Finance, Operations & Leadership",
+    "Verified learner certificates & corporate audit exports",
+    "Real-time company analytics & manager oversight dashboards",
+  ],
+};
 
 export default function OnboardingPage() {
   const { isSignedIn, isLoaded } = useAuth();
@@ -182,7 +156,7 @@ export default function OnboardingPage() {
   }, [employeeCount]);
 
   const currentBand = APPROVED_BANDS.find((b) => b.code === selectedBandCode) || APPROVED_BANDS[0];
-  const selectedPlan = APPROVED_PLANS.find((p) => p.code === selectedPlanCode) || APPROVED_PLANS[0];
+  const selectedPlan = STANDARD_PLAN;
 
   // STEP 1 Submission: Save Company Details
   const handleSaveCompanyDetails = async () => {
@@ -222,7 +196,7 @@ export default function OnboardingPage() {
       const res = await customFetch<{ outcome: string; stage: string }>("/api/onboarding/select-plan", {
         method: "POST",
         body: JSON.stringify({
-          planCode: selectedPlanCode,
+          planCode: "COMPLETE", // Standard full curriculum code
           employeeBandCode: selectedBandCode,
           employeeCount,
           billingInterval: "MONTHLY",
@@ -359,14 +333,14 @@ export default function OnboardingPage() {
           </Badge>
           <h1 className="text-2xl md:text-3xl font-bold font-serif text-foreground">
             {step === 1 && "Set Up Your Company"}
-            {step === 2 && "Choose Your Subscription Plan"}
+            {step === 2 && "Select Company Size & Subscription"}
             {step === 3 && "Review Order & Confirm Plan"}
             {step === 4 && "Tailored Enterprise Quote"}
             {step === 5 && "Subscription Order Placed"}
           </h1>
           <p className="text-sm text-muted-foreground max-w-lg mx-auto">
             {step === 1 && "Enter your company details to create your secure corporate workspace."}
-            {step === 2 && "Select the plan and employee tier tailored for your organisation."}
+            {step === 2 && "Pricing is based strictly on your organization size. Full access to all 136 courses included."}
             {step === 3 && "Review the exact monthly price before proceeding."}
             {step === 4 && "Our team will reach out to tailor a custom plan for your organisation size."}
             {step === 5 && "Your subscription order has been recorded."}
@@ -573,16 +547,16 @@ export default function OnboardingPage() {
           </div>
         )}
 
-        {/* STEP 2: Choose Plan & Employee Band */}
+        {/* STEP 2: Choose Employee Band */}
         {step === 2 && (
           <div className="space-y-6">
             {/* Employee Band Selection */}
             <div className="bg-card border rounded-2xl p-6 md:p-8 shadow-sm space-y-5">
               <div>
                 <span className="text-xs uppercase tracking-wider font-semibold text-emerald-600">Step 2 of 3</span>
-                <h2 className="text-xl font-bold font-serif mt-1">Select Employee Band</h2>
+                <h2 className="text-xl font-bold font-serif mt-1">Select Your Company Size</h2>
                 <p className="text-sm text-muted-foreground">
-                  Pricing is calculated strictly per company, per month based on your team size.
+                  Standard ELEVIO Skills subscription includes full access to all 136 sustainability & ESG courses for every employee.
                 </p>
               </div>
 
@@ -614,58 +588,19 @@ export default function OnboardingPage() {
               </div>
             </div>
 
-            {/* Plan Packages */}
-            <div className="bg-card border rounded-2xl p-6 md:p-8 shadow-sm space-y-5">
+            {/* Standard Inclusions Card */}
+            <div className="bg-card border rounded-2xl p-6 md:p-8 shadow-sm space-y-4">
               <div>
-                <h2 className="text-xl font-bold font-serif">Select Package</h2>
-                <p className="text-sm text-muted-foreground">Choose the curriculum depth for your team.</p>
+                <h3 className="text-lg font-bold font-serif">{selectedPlan.name}</h3>
+                <p className="text-xs text-muted-foreground">{selectedPlan.tagline}</p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {APPROVED_PLANS.map((plan) => {
-                  const isSelected = selectedPlanCode === plan.code;
-                  return (
-                    <div
-                      key={plan.code}
-                      onClick={() => setSelectedPlanCode(plan.code)}
-                      className={`cursor-pointer border rounded-2xl p-5 flex flex-col justify-between transition-all ${
-                        isSelected
-                          ? "border-emerald-600 bg-emerald-50/30 dark:bg-emerald-950/20 shadow-md ring-2 ring-emerald-600/20"
-                          : "hover:bg-muted/30 border-border"
-                      }`}
-                    >
-                      <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <h3 className="font-bold text-base">{plan.name}</h3>
-                          {plan.badge && (
-                            <Badge className="bg-emerald-600 text-white text-[10px] px-1.5 py-0.5">
-                              {plan.badge}
-                            </Badge>
-                          )}
-                        </div>
-                        <p className="text-xs text-muted-foreground mb-4">{plan.tagline}</p>
-                        <ul className="space-y-2 text-xs text-muted-foreground">
-                          {plan.features.map((f, i) => (
-                            <li key={i} className="flex items-start gap-1.5">
-                              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                              <span>{f}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="pt-5 mt-4 border-t">
-                        <Button
-                          type="button"
-                          variant={isSelected ? "default" : "outline"}
-                          className={`w-full text-xs font-semibold ${isSelected ? "bg-emerald-600 hover:bg-emerald-700 text-white" : ""}`}
-                        >
-                          {isSelected ? "Selected" : "Select Plan"}
-                        </Button>
-                      </div>
-                    </div>
-                  );
-                })}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                {selectedPlan.features.map((f, i) => (
+                  <div key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span>{f}</span>
+                  </div>
+                ))}
               </div>
             </div>
 

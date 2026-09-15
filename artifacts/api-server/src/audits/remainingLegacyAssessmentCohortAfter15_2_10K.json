@@ -1,0 +1,269 @@
+{
+  "generatedAt": "2026-09-07T18:53:55.384Z",
+  "sprint": "15.2.10K",
+  "status": "REMAINING_LEGACY_RECONCILIATION",
+  "remainingCourseCount": 16,
+  "proofEnterpriseReadyExcluded": true,
+  "recommendedFinalPartition": {
+    "finalCohort": "Sprint 15.2.10L (Catalogue Final Remediation & Closure)",
+    "targetCoursesCount": 16,
+    "targetCourses": [
+      "ELH-01",
+      "ELH-02",
+      "ELH-03",
+      "ELH-04",
+      "ELH-05",
+      "ELH-06",
+      "ELH-07",
+      "ELH-08",
+      "ELH-09",
+      "ELH-10",
+      "ELH-11",
+      "ELH-132",
+      "ELH-133",
+      "ELH-134",
+      "ELH-135",
+      "ELH-136"
+    ],
+    "notes": "The remaining 16 legacy-accepted courses represent the final cohort required to achieve 100% (136/136) enterprise-ready catalogue status."
+  },
+  "remainingCourses": [
+    {
+      "index": 1,
+      "courseId": 1,
+      "courseCode": "ELH-01",
+      "title": "Sustainability Foundations & ESG Core Principles",
+      "version": 2,
+      "passingScore": 80,
+      "scoredQuestionCount": 8,
+      "completeFeedbackCount": 8,
+      "principalDefects": [
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 2,
+      "courseId": 2,
+      "courseCode": "ELH-02",
+      "title": "Waste Sorting & the Mauritian Bin System",
+      "version": 2,
+      "passingScore": 80,
+      "scoredQuestionCount": 8,
+      "completeFeedbackCount": 8,
+      "principalDefects": [
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 3,
+      "courseId": 3,
+      "courseCode": "ELH-03",
+      "title": "Energy Efficiency at Work",
+      "version": 2,
+      "passingScore": 80,
+      "scoredQuestionCount": 10,
+      "completeFeedbackCount": 10,
+      "principalDefects": [
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 4,
+      "courseId": 4,
+      "courseCode": "ELH-04",
+      "title": "Water Conservation",
+      "version": 2,
+      "passingScore": 80,
+      "scoredQuestionCount": 10,
+      "completeFeedbackCount": 10,
+      "principalDefects": [
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 5,
+      "courseId": 5,
+      "courseCode": "ELH-05",
+      "title": "Sustainable Purchasing for Non-Specialists",
+      "version": 2,
+      "passingScore": 80,
+      "scoredQuestionCount": 10,
+      "completeFeedbackCount": 10,
+      "principalDefects": [
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 6,
+      "courseId": 6,
+      "courseCode": "ELH-06",
+      "title": "Green Office Practices",
+      "version": 2,
+      "passingScore": 80,
+      "scoredQuestionCount": 10,
+      "completeFeedbackCount": 10,
+      "principalDefects": [
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 7,
+      "courseId": 7,
+      "courseCode": "ELH-07",
+      "title": "Resource Efficiency: Circular Economy & Zero-Waste Strategy",
+      "version": 2,
+      "passingScore": 80,
+      "scoredQuestionCount": 8,
+      "completeFeedbackCount": 8,
+      "principalDefects": [
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 8,
+      "courseId": 8,
+      "courseCode": "ELH-08",
+      "title": "Biodiversity in Mauritius",
+      "version": 2,
+      "passingScore": 80,
+      "scoredQuestionCount": 10,
+      "completeFeedbackCount": 10,
+      "principalDefects": [
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 9,
+      "courseId": 9,
+      "courseCode": "ELH-09",
+      "title": "ESG Basics",
+      "version": 2,
+      "passingScore": 80,
+      "scoredQuestionCount": 10,
+      "completeFeedbackCount": 10,
+      "principalDefects": [
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 10,
+      "courseId": 10,
+      "courseCode": "ELH-10",
+      "title": "Environmental Compliance",
+      "version": 2,
+      "passingScore": 80,
+      "scoredQuestionCount": 10,
+      "completeFeedbackCount": 10,
+      "principalDefects": [
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 11,
+      "courseId": 11,
+      "courseCode": "ELH-11",
+      "title": "Circular Economy",
+      "version": 2,
+      "passingScore": 80,
+      "scoredQuestionCount": 10,
+      "completeFeedbackCount": 10,
+      "principalDefects": [
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 12,
+      "courseId": 770,
+      "courseCode": "ELH-132",
+      "title": "CSRD & European Sustainability Reporting Standards (ESRS)",
+      "version": 1,
+      "passingScore": 70,
+      "scoredQuestionCount": 8,
+      "completeFeedbackCount": 0,
+      "principalDefects": [
+        "Passing score non-standard (70% vs 80%)",
+        "Incomplete option feedback (0/8)",
+        "Version 1 awaiting monotonic upgrade to v2",
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 13,
+      "courseId": 743,
+      "courseCode": "ELH-133",
+      "title": "Advanced GHG Accounting: Scope 1, 2 & 3 Emissions",
+      "version": 2,
+      "passingScore": 75,
+      "scoredQuestionCount": 8,
+      "completeFeedbackCount": 8,
+      "principalDefects": [
+        "Passing score non-standard (75% vs 80%)",
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 14,
+      "courseId": 806,
+      "courseCode": "ELH-134",
+      "title": "Biodiversity & Nature-Related Disclosures (TNFD)",
+      "version": 1,
+      "passingScore": 70,
+      "scoredQuestionCount": 8,
+      "completeFeedbackCount": 0,
+      "principalDefects": [
+        "Passing score non-standard (70% vs 80%)",
+        "Incomplete option feedback (0/8)",
+        "Version 1 awaiting monotonic upgrade to v2",
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 15,
+      "courseId": 807,
+      "courseCode": "ELH-135",
+      "title": "Internal Carbon Pricing & Carbon Budgeting",
+      "version": 1,
+      "passingScore": 70,
+      "scoredQuestionCount": 8,
+      "completeFeedbackCount": 0,
+      "principalDefects": [
+        "Passing score non-standard (70% vs 80%)",
+        "Incomplete option feedback (0/8)",
+        "Version 1 awaiting monotonic upgrade to v2",
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    },
+    {
+      "index": 16,
+      "courseId": 771,
+      "courseCode": "ELH-136",
+      "title": "Corporate Net-Zero Transition Planning & Science-Based Targets (SBTi)",
+      "version": 1,
+      "passingScore": 70,
+      "scoredQuestionCount": 8,
+      "completeFeedbackCount": 0,
+      "principalDefects": [
+        "Passing score non-standard (70% vs 80%)",
+        "Incomplete option feedback (0/8)",
+        "Version 1 awaiting monotonic upgrade to v2",
+        "Requires scenario grounding, Bloom's cognitive depth upgrade, and strict 2/2/2/2 key distribution"
+      ],
+      "appearedInPriorCohort": false
+    }
+  ]
+}

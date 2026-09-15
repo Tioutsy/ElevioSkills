@@ -1,8 +1,7 @@
-import { RemediatedCourseDataBatch3E } from "./batch3e_part1";
-import { PART1_COURSES } from "./batch3e_part1";
+import { RemediatedCourseDataBatch3E, BATCH_3E_COURSES } from "../lib/ensureBatch3ERemediation.js";
 
 export const BATCH3E_DATA_A: RemediatedCourseDataBatch3E[] = [
-  ...PART1_COURSES, // ELH-103, ELH-104, ELH-107
+  ...BATCH_3E_COURSES.slice(0, 3), // ELH-103, ELH-104, ELH-107
 
   // 4. ELH-108
   {

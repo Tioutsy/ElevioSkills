@@ -1,0 +1,142 @@
+{
+  "auditSprint": "15.2.10L",
+  "auditTimestamp": "2026-09-07T19:07:50.000Z",
+  "subject": "Primary Source Evidence & Framework Verification for Advanced Courses (Group L2: ELH-132 through ELH-136)",
+  "evidenceRecords": [
+    {
+      "courseCode": "ELH-132",
+      "courseTitle": "CSRD & European Sustainability Reporting Standards (ESRS)",
+      "framework": "Corporate Sustainability Reporting Directive (Directive (EU) 2022/2464) & ESRS Set 1 Delegated Regulation (EU) 2023/2772",
+      "authoritativeSource": "European Financial Reporting Advisory Group (EFRAG) & European Commission",
+      "sourceUrl": "https://www.efrag.org/lab6",
+      "effectiveDate": "Phased from 1 January 2024 (large PIEs) through 2028 (non-EU parents)",
+      "verifiedKeyClaims": [
+        {
+          "claim": "Double Materiality Mandate",
+          "details": "Enterprises must assess and report both Impact Materiality (inside-out impacts on people and environment) and Financial Materiality (outside-in risks and opportunities affecting company cash flows, value creation, and cost of capital). Either dimension suffices to make an ESG topic material.",
+          "status": "MANDATORY_FOR_IN_SCOPE_ENTITIES"
+        },
+        {
+          "claim": "Standard Architecture & Mandatory Disclosures",
+          "details": "ESRS 1 (General Requirements) and ESRS 2 (General Disclosures) are mandatory for all reporting entities. Topical standards (ESRS E1–E5, S1–S4, G1) are subject to materiality assessment.",
+          "status": "MANDATORY"
+        },
+        {
+          "claim": "Third-Party Assurance Requirements",
+          "details": "Mandatory limited assurance initially, with potential transition to reasonable assurance over time under ISAE 3000 / ISSA 5000 standards.",
+          "status": "STATUTORY_REQUIREMENT"
+        },
+        {
+          "claim": "Mauritian / Non-EU Corporate Applicability",
+          "details": "Mauritian standalone entities without EU securities listings or EU turnover >€150M are NOT directly legally bound by CSRD. However, they face mandatory information requests from EU tier-1 corporate customers reporting on upstream Scope 3 value chains.",
+          "status": "CONTEXT_DEPENDENT_VALUE_CHAIN"
+        }
+      ]
+    },
+    {
+      "courseCode": "ELH-133",
+      "courseTitle": "Advanced GHG Accounting: Scope 1, 2 & 3 Emissions",
+      "framework": "GHG Protocol Corporate Accounting and Reporting Standard, Scope 2 Guidance (2015), and Corporate Value Chain (Scope 3) Standard (2011)",
+      "authoritativeSource": "World Resources Institute (WRI) & World Business Council for Sustainable Development (WBCSD)",
+      "sourceUrl": "https://ghgprotocol.org/corporate-standard",
+      "effectiveDate": "Established international accounting standard",
+      "verifiedKeyClaims": [
+        {
+          "claim": "Organizational Boundaries (Operational Control vs Equity Share)",
+          "details": "Operational Control approach accounts for 100% of GHG emissions from operations over which the company has full authority to introduce and implement operating policies; Equity Share accounts for emissions proportional to equity percentage.",
+          "status": "STANDARD_ACCOUNTING_RULE"
+        },
+        {
+          "claim": "Scope 2 Dual Reporting Requirement",
+          "details": "Companies operating in electricity markets with contractual energy attribute certificates (EACs/RECs/GOs/PPAs) must report Scope 2 using BOTH Location-Based (grid average emission factor) and Market-Based (contractual supplier-specific factors) methods.",
+          "status": "MANDATORY_UNDER_GHG_PROTOCOL"
+        },
+        {
+          "claim": "Scope 3 Value Chain Categories",
+          "details": "Scope 3 encompasses 15 distinct categories: Categories 1–8 upstream (e.g., purchased goods, capital goods, upstream transportation, business travel) and Categories 9–15 downstream (e.g., downstream logistics, processing/use/end-of-life of sold products, investments).",
+          "status": "STANDARD_CLASSIFICATION"
+        },
+        {
+          "claim": "Global Warming Potential (GWP) and Gas Accounting",
+          "details": "All 7 Kyoto greenhouse gases (CO2, CH4, N2O, HFCs, PFCs, SF6, NF3) must be converted into metric tons of carbon dioxide equivalent (tCO2e) using IPCC Assessment Report (AR5/AR6) 100-year GWP metrics.",
+          "status": "TECHNICAL_STANDARD"
+        }
+      ]
+    },
+    {
+      "courseCode": "ELH-134",
+      "courseTitle": "Biodiversity & Nature-Related Disclosures (TNFD)",
+      "framework": "Taskforce on Nature-related Financial Disclosures (TNFD) Recommendations v1.0",
+      "authoritativeSource": "Taskforce on Nature-related Financial Disclosures",
+      "sourceUrl": "https://tnfd.global/publication/recommendations-of-the-tnfd/",
+      "effectiveDate": "September 2023 (v1.0 Final Recommendations)",
+      "verifiedKeyClaims": [
+        {
+          "claim": "LEAP Assessment Methodology",
+          "details": "The LEAP approach is structured in 4 iterative phases: Locate the interface with nature across priority biomes and geographic locations; Evaluate dependencies and impacts on natural assets; Assess material physical, transition, and systemic nature risks and opportunities; Prepare to respond and report metrics/targets.",
+          "status": "RECOMMENDED_CORE_METHODOLOGY"
+        },
+        {
+          "claim": "Interoperability with ISSB & CSRD",
+          "details": "TNFD recommendations are built directly on the 4 TCFD/ISSB pillars (Governance, Strategy, Risk & Impact Management, Metrics & Targets) and align directly with ESRS E4 (Biodiversity & Ecosystems) and Kunming-Montreal GBF Target 15.",
+          "status": "VOLUNTARY_ALIGNMENT"
+        },
+        {
+          "claim": "Core Global Nature Metrics",
+          "details": "Includes 14 Core Global Disclosure Metrics covering land/freshwater/ocean use change, water withdrawal and consumption in water-stressed basins, pollution of air, soil, and water, and species extinction risk impacts.",
+          "status": "FRAMEWORK_METRICS"
+        }
+      ]
+    },
+    {
+      "courseCode": "ELH-135",
+      "courseTitle": "Internal Carbon Pricing & Carbon Budgeting",
+      "framework": "World Bank Carbon Pricing Leadership Coalition (CPLC) & High-Level Commission on Carbon Prices Guidelines",
+      "authoritativeSource": "World Bank / CDP Guidance on Internal Carbon Pricing",
+      "sourceUrl": "https://www.worldbank.org/en/programs/pricing-carbon",
+      "effectiveDate": "Established corporate finance and decarbonization standard",
+      "verifiedKeyClaims": [
+        {
+          "claim": "Mechanisms: Shadow Price vs Internal Fee vs Internal Cap-and-Trade",
+          "details": "Shadow Price applies a theoretical carbon cost per ton ($/tCO2e) to DCF/NPV hurdle rate calculations without actual cash transfers, evaluating investment resilience against future carbon regulation. An Internal Carbon Fee levies real cash charges on business units based on their emissions, channeling funds into a dedicated internal clean technology investment fund.",
+          "status": "FINANCIAL_GOVERNANCE_STANDARD"
+        },
+        {
+          "claim": "Price Level Setting & Escalation",
+          "details": "Carbon prices must be material and progressive (e.g., escalating annually toward $50–$100+/tCO2e by 2030) to influence capital allocation and prevent locking in carbon-intensive infrastructure.",
+          "status": "BEST_PRACTICE_FINANCIAL_POLICY"
+        },
+        {
+          "claim": "Carbon Budgeting Allocation",
+          "details": "Departments are assigned physical carbon budgets (tCO2e) alongside financial budgets; exceeding carbon quotas requires internal carbon fee surcharges or formal executive reallocation.",
+          "status": "OPERATIONAL_CONTROL"
+        }
+      ]
+    },
+    {
+      "courseCode": "ELH-136",
+      "courseTitle": "Corporate Net-Zero Transition Planning & Science-Based Targets (SBTi)",
+      "framework": "SBTi Corporate Net-Zero Standard (v1.2) & GHG Protocol Corporate Value Chain Standard",
+      "authoritativeSource": "Science Based Targets initiative (SBTi: CDP, UN Global Compact, WRI, WWF)",
+      "sourceUrl": "https://sciencebasedtargets.org/net-zero",
+      "effectiveDate": "Current Corporate Net-Zero Standard v1.2",
+      "verifiedKeyClaims": [
+        {
+          "claim": "Near-Term vs Long-Term Science-Based Targets",
+          "details": "Near-term targets (5–10 years) require halving emissions aligned with 1.5°C pathways (minimum 4.2% annual linear reduction for Scope 1 & 2). Long-term net-zero targets (by 2050 latest) require 90%+ absolute deep decarbonization across Scopes 1, 2, and 3.",
+          "status": "MANDATORY_FOR_SBTI_VALIDATION"
+        },
+        {
+          "claim": "Strict Prohibition on Offsets for Reduction Targets",
+          "details": "Carbon credits / offsets cannot be counted as emissions reductions toward near-term or long-term science-based targets. Only direct value-chain emissions reductions qualify. Carbon credits may only be used for Beyond Value Chain Mitigation (BVCM) or permanent neutralization of residual unabated emissions (<10%) at the net-zero target date.",
+          "status": "STRICT_SBTI_CRITERIA"
+        },
+        {
+          "claim": "Scope 3 Target Boundary",
+          "details": "If Scope 3 represents 40% or more of total emissions (Scopes 1, 2, and 3), a formal Scope 3 near-term target covering at least 67% of Scope 3 emissions is mandatory for SBTi validation.",
+          "status": "MANDATORY_CRITERION"
+        }
+      ]
+    }
+  ]
+}

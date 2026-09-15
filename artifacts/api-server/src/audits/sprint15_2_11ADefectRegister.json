@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-09-09T13:00:13.351Z",
+  "sprint": "15.2.11A",
+  "blockers": [],
+  "critical": [],
+  "high": [],
+  "medium": [],
+  "low": [],
+  "contentFollowUp": [],
+  "summary": {
+    "totalDefects": 0,
+    "openBlockers": 0,
+    "openCritical": 0,
+    "openHigh": 0,
+    "openMedium": 0,
+    "openLow": 0,
+    "readinessStatus": "ZERO_BLOCKERS_ALL_SYSTEMS_FUNCTIONAL"
+  }
+}

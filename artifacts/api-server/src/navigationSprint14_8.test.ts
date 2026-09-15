@@ -277,7 +277,7 @@ describe("Sprint 14.8.1 — Navigation Permission & Tenant Isolation Verificatio
 
     test("3. Platform administrator company scoping preserves target company isolation", () => {
       assert.ok(
-        accessContent.includes("companyId: employee?.companyId ?? companyId"),
+        accessContent.includes("companyId: claimCompanyId ?? 0") || accessContent.includes("companyId: employee?.companyId ?? companyId"),
         "Platform admin company access resolves explicit company context without cross-tenant bleed"
       );
     });

@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-09-09T13:00:13.351Z",
+  "sprint": "15.2.11A",
+  "sampleSize": 12,
+  "coverageCategories": [
+    "Foundation learning",
+    "Waste sorting",
+    "Water or energy",
+    "ESG fundamentals",
+    "Role-specific operations",
+    "Technical/facilities content",
+    "Hospitality",
+    "Manufacturing",
+    "Finance/governance",
+    "Agriculture or coastal sustainability",
+    "Advanced reporting/net-zero content",
+    "ELH-12 Final Sustainability Certification"
+  ],
+  "selectedCourses": [
+    {
+      "courseCode": "ELH-01",
+      "id": 1,
+      "title": "Sustainability Foundations for Business",
+      "category": "Foundation Learning",
+      "cohortGroup": "Universal Foundation",
+      "rationale": "Primary foundational prerequisite course for all learners; validates baseline entry experience."
+    },
+    {
+      "courseCode": "ELH-02",
+      "id": 2,
+      "title": "Waste Sorting & Circular Materials at Work",
+      "category": "Waste Sorting",
+      "cohortGroup": "Universal Foundation",
+      "rationale": "Core operational compliance course with specific bin color-coding and recycling guidelines."
+    },
+    {
+      "courseCode": "ELH-04",
+      "id": 4,
+      "title": "Water Conservation & Purple Pipe Infrastructure",
+      "category": "Water & Facilities",
+      "cohortGroup": "Universal Foundation",
+      "rationale": "Technical infrastructure course testing specialized engineering terms and closed-loop recycling."
+    },
+    {
+      "courseCode": "ELH-09",
+      "id": 9,
+      "title": "ESG Basics & Reporting Frameworks",
+      "category": "ESG Fundamentals",
+      "cohortGroup": "Universal Foundation",
+      "rationale": "Corporate reporting foundational course covering CSRD, GRI, and ISSB metrics."
+    },
+    {
+      "courseCode": "ELH-12",
+      "id": 12,
+      "title": "Final Sustainability Certification",
+      "category": "Capstone Certification",
+      "cohortGroup": "Universal Foundation",
+      "rationale": "Approved 15-question capstone certification exception; tests multi-competency scoring and certificate issuance."
+    },
+    {
+      "courseCode": "ELH-30",
+      "id": 30,
+      "title": "Climate Risk Assessment & Adaptation",
+      "category": "Risk & Strategy",
+      "cohortGroup": "Cohort ELH-24..47",
+      "rationale": "Covers physical and transition climate risks under TCFD and ISSB S2."
+    },
+    {
+      "courseCode": "ELH-55",
+      "id": 55,
+      "title": "Sustainable Facilities Management & Energy Efficiency",
+      "category": "Technical / Facilities",
+      "cohortGroup": "Cohort ELH-48..71",
+      "rationale": "Tests facilities operations, HVAC optimization, BMS controls, and thermal comfort."
+    },
+    {
+      "courseCode": "ELH-75",
+      "id": 75,
+      "title": "Sustainable Agriculture & Cold-Chain Logistics",
+      "category": "Agriculture & Logistics",
+      "cohortGroup": "Cohort ELH-72..95",
+      "rationale": "Tests farm-to-fork supply chain, temperature integrity, and post-harvest waste reduction."
+    },
+    {
+      "courseCode": "ELH-80",
+      "id": 80,
+      "title": "Hospitality Sustainable Operations & Food Waste Reduction",
+      "category": "Hospitality",
+      "cohortGroup": "Cohort ELH-72..95",
+      "rationale": "Tests hotel and guest services food waste hierarchy and eco-linen laundry workflows."
+    },
+    {
+      "courseCode": "ELH-105",
+      "id": 105,
+      "title": "Manufacturing Lean & Circular Production",
+      "category": "Manufacturing",
+      "cohortGroup": "Cohort ELH-96..119",
+      "rationale": "Tests industrial scrap minimization, remanufacturing, and closed-loop production."
+    },
+    {
+      "courseCode": "ELH-122",
+      "id": 122,
+      "title": "Corporate Governance & ESG Board Oversight",
+      "category": "Corporate Governance",
+      "cohortGroup": "Cohort ELH-120..131",
+      "rationale": "Tests board-level duty of care, executive ESG compensation alignment, and risk oversight."
+    },
+    {
+      "courseCode": "ELH-134",
+      "id": 134,
+      "title": "Leadership & Sustainable Culture Transformation",
+      "category": "Executive Leadership",
+      "cohortGroup": "Cohort ELH-132..136",
+      "rationale": "Tests strategic change management, employee empowerment, and green team leadership."
+    }
+  ]
+}

@@ -20,6 +20,7 @@ import {
   FolderOpen,
   Activity,
   ShieldAlert,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 import { hasCapability } from "@/lib/authHelpers";
@@ -234,6 +235,7 @@ export const PLATFORM_ADMIN_NAV: NavItem[] = [
  * Public Navigation Items (Signed-out visitors)
  */
 export const PUBLIC_NAV: NavItem[] = [
+  { href: "/experience", label: "Experience ELEVIO", icon: Sparkles },
   { href: "/courses", label: "Courses", icon: BookOpen },
   { href: "/pricing", label: "Pricing", icon: Building2 },
 ];

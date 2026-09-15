@@ -1,0 +1,137 @@
+{
+  "timestamp": "2026-09-05T06:48:51.002Z",
+  "stage": "PRE_REMEDIATION",
+  "sprint": "15.2.10C",
+  "counts": {
+    "totalCanonicalCourses": 136,
+    "totalCourseQuestions": 1208,
+    "cohortCourseQuestions": 96,
+    "totalAttempts": 16,
+    "totalEnrollments": 22,
+    "totalCertificates": 6,
+    "totalBadges": 133,
+    "totalScoreLedgerRecords": 6
+  },
+  "cohortCourses": [
+    {
+      "id": 195,
+      "courseCode": "ELH-30",
+      "title": "Climate Risk & Workplace Resilience",
+      "version": 2,
+      "passingScore": 75,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 197,
+      "courseCode": "ELH-31",
+      "title": "Sustainable Tourism Foundations",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 212,
+      "courseCode": "ELH-32",
+      "title": "Energy Management for Frontline Hospitality Teams",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 221,
+      "courseCode": "ELH-33",
+      "title": "Water Conservation & Stewardship in Hotels",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 225,
+      "courseCode": "ELH-34",
+      "title": "Waste Minimisation & Single-Use Reduction in Hospitality",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 710,
+      "courseCode": "ELH-35",
+      "title": "Sustainable Housekeeping Operations",
+      "version": 2,
+      "passingScore": 75,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 945,
+      "courseCode": "ELH-24",
+      "title": "Sustainability for Human Resources Teams",
+      "version": 2,
+      "passingScore": 75,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 946,
+      "courseCode": "ELH-25",
+      "title": "Sustainability for Finance & Accounting Teams",
+      "version": 2,
+      "passingScore": 75,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 947,
+      "courseCode": "ELH-26",
+      "title": "Sustainability for Procurement and Purchasing Teams",
+      "version": 2,
+      "passingScore": 75,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 948,
+      "courseCode": "ELH-29",
+      "title": "Sustainability for Operations and Frontline Teams",
+      "version": 2,
+      "passingScore": 75,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 949,
+      "courseCode": "ELH-27",
+      "title": "Sustainability for Facilities and Property Teams",
+      "version": 2,
+      "passingScore": 75,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 950,
+      "courseCode": "ELH-28",
+      "title": "Sustainability for Sales and Marketing Teams",
+      "version": 2,
+      "passingScore": 75,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    }
+  ]
+}

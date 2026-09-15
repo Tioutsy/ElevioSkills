@@ -16,10 +16,7 @@ import { getCompanyAccess, CompanyAccess } from "../lib/access";
 import { resolveBandCodeFromEmployeeCount } from "../lib/ensureHybridSubscriptions";
 import {
   calculateSubscriptionPricing,
-  calculateEnterprisePricing,
   calculateAuthoritativePricing,
-  BASE_PRICING_121_250,
-  ADDITIONAL_BLOCK_PRICE_MONTHLY,
 } from "../lib/subscriptionPricingService";
 
 const router = Router();
@@ -68,13 +65,6 @@ router.get("/public-plans", async (_req, res): Promise<void> => {
       features: features.filter(f => f.subscriptionPlanId === p.id && f.isEnabled).map(f => f.featureCode),
     })),
     employeeBands: bands,
-    enterprisePricingRules: {
-      baseCapacity: 250,
-      blockSize: 50,
-      baseMonthlyPrices: BASE_PRICING_121_250,
-      additionalBlockMonthlyPrices: ADDITIONAL_BLOCK_PRICE_MONTHLY,
-      annualDiscountPercentage: 10,
-    },
     prices: prices.map(pr => {
       const monthlyAmountNum = pr.monthlyAmount ? parseFloat(pr.monthlyAmount) : null;
       const yearlyCalc = calculateSubscriptionPricing(monthlyAmountNum, "YEARLY", pr.requiresTailoredQuote);
@@ -290,7 +280,11 @@ router.post("/onboard", async (req, res): Promise<void> => {
     return;
   }
 
-  const initialStatus = "PENDING_PAYMENT";
+  const isOver120 = band.code === "OVER_120" || (rawCount !== undefined && rawCount > 120);
+  const initialStatus = isOver120 ? "CUSTOM_QUOTE_REQUIRED" : "PENDING_PAYMENT";
+  const pricingSource = isOver120 ? "TAILORED" : "STANDARD";
+  const agreedMonthly = isOver120 ? null : pricingBreakdown.finalMonthlyAmount.toFixed(2);
+  const agreedYearly = isOver120 ? null : pricingBreakdown.finalYearlyAmount.toFixed(2);
 
   const [sub] = await db
     .insert(companySubscriptionsTable)
@@ -302,9 +296,9 @@ router.post("/onboard", async (req, res): Promise<void> => {
       currency: "MUR",
       billingInterval: pricingBreakdown.billingInterval,
       discountPercentage: String(pricingBreakdown.discountPercentage),
-      agreedMonthlyAmount: pricingBreakdown.finalMonthlyAmount.toFixed(2),
-      agreedYearlyAmount: pricingBreakdown.finalYearlyAmount.toFixed(2),
-      pricingSource: "STANDARD",
+      agreedMonthlyAmount: agreedMonthly,
+      agreedYearlyAmount: agreedYearly,
+      pricingSource,
     })
     .onConflictDoUpdate({
       target: [companySubscriptionsTable.companyId],
@@ -314,9 +308,9 @@ router.post("/onboard", async (req, res): Promise<void> => {
         status: initialStatus,
         billingInterval: pricingBreakdown.billingInterval,
         discountPercentage: String(pricingBreakdown.discountPercentage),
-        agreedMonthlyAmount: pricingBreakdown.finalMonthlyAmount.toFixed(2),
-        agreedYearlyAmount: pricingBreakdown.finalYearlyAmount.toFixed(2),
-        pricingSource: "STANDARD",
+        agreedMonthlyAmount: agreedMonthly,
+        agreedYearlyAmount: agreedYearly,
+        pricingSource,
         updatedAt: new Date(),
       },
     })
@@ -357,10 +351,12 @@ router.post("/onboard", async (req, res): Promise<void> => {
     plan,
     employeeBand: band,
     pricingBreakdown,
-    resolvedMonthlyAmountMUR: pricingBreakdown.finalMonthlyAmount,
-    resolvedFinalAmountMUR: pricingBreakdown.finalAmountDue,
-    isTailoredQuote: false,
-    message: "Subscription request received. Please complete payment to activate full access.",
+    resolvedMonthlyAmountMUR: isOver120 ? null : pricingBreakdown.finalMonthlyAmount,
+    resolvedFinalAmountMUR: isOver120 ? null : pricingBreakdown.finalAmountDue,
+    isTailoredQuote: isOver120,
+    message: isOver120
+      ? "Custom quote request received. Our enterprise team will be in touch shortly."
+      : "Subscription request received. Please complete payment to activate full access.",
   });
 });
 

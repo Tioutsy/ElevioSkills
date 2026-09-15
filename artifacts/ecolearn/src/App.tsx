@@ -42,6 +42,7 @@ import Pricing from "@/pages/pricing";
 // import InsightsArticleDetail from "@/pages/Insights/article-detail";
 // import MauritiusResourcesList from "@/pages/Insights/mauritius-resources";
 // import MauritiusResourceDetail from "@/pages/Insights/mauritius-resource-detail";
+import ExperiencePage from "@/pages/experience";
 import Certificates from "@/pages/certificates";
 import VerifyCertificate from "@/pages/certificates/verify";
 import CompanyDashboard from "@/pages/company";
@@ -479,6 +480,7 @@ function ClerkProviderWithRoutes() {
             <Route path="/ranking"><Redirect to="/company-ranking" /></Route>
             {/* /impact — Intentionally disabled. Redirect authenticated users to dashboard. */}
             <Route path="/impact"><Redirect to="/dashboard" /></Route>
+            <Route path="/experience" component={ExperiencePage} />
             <Route path="/pricing" component={Pricing} />
             <Route path="/privacy" component={PrivacyPolicy} />
             <Route path="/privacy-policy" component={PrivacyPolicy} />

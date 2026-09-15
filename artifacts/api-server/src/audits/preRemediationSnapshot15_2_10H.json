@@ -1,0 +1,2321 @@
+{
+  "capturedAt": "2026-09-07T17:54:02.981Z",
+  "sprint": "15.2.10H",
+  "canonicalCourseCount": 136,
+  "catalogueScoredQuestionCount": 1208,
+  "diagnosticItemCount": 88,
+  "historicalLearnerData": {
+    "attemptsCount": 16,
+    "enrollmentsCount": 22,
+    "certificatesCount": 6,
+    "badgeDefinitionsCount": 133,
+    "scoreLedgerCount": 6
+  },
+  "cohortMetadata": [
+    {
+      "courseCode": "ELH-84",
+      "courseId": 739,
+      "title": "Commercial Fleet Electrification & EV Charging",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "100% position 0 answer keys [8, 0, 0, 0]",
+        "Needs commercial fleet charging depot scenarios on peak shaving, smart load management, total cost of ownership (TCO), grid interconnection, and battery degradation prevention"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with fleet electrification scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-85",
+      "courseId": 718,
+      "title": "Sustainable Warehouse Operations",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "100% position 0 answer keys [8, 0, 0, 0]",
+        "Needs logistics warehouse scenarios on high-bay LED daylight harvesting, electric material handling equipment (MHE), rooftop solar PV integration, thermal insulation, and pallet recycling"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with green warehouse operations scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-86",
+      "courseId": 740,
+      "title": "Route Optimization & Logistics Efficiency",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "100% position 0 answer keys [8, 0, 0, 0]",
+        "Needs transport routing scenarios on dynamic multi-stop sequencing, empty backhaul elimination, telematics idle reduction, and urban delivery time window constraints"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with route optimization logistics scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-87",
+      "courseId": 761,
+      "title": "Regenerative Agriculture & Soil Health",
+      "currentVersion": 1,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 70,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 70%",
+        "Missing optionFeedback arrays (0/8 completed)",
+        "Needs agricultural field scenarios on no-till farming, multi-species cover cropping, soil organic matter (SOM) testing, mycorrhizal fungi preservation, and rotational grazing"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "DEFICIENT_FEEDBACK",
+      "proposedRemediation": "Upgrade from v1 to v2, author 8 scored questions with regenerative agriculture scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-88",
+      "courseId": 762,
+      "title": "Smart Irrigation & Agricultural Water Efficiency",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "100% position 0 answer keys [8, 0, 0, 0]",
+        "Needs irrigation engineering scenarios on soil moisture tensiometers, evapotranspiration (ET0) scheduling, precision drip irrigation, fertigation control, and saline water management"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with precision irrigation scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-89",
+      "courseId": 780,
+      "title": "Organic Fertilizers & Biological Pest Management",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "100% position 0 answer keys [8, 0, 0, 0]",
+        "Needs IPM and bio-input scenarios on beneficial predatory insects, compost tea maturation, pheromone mating disruption, biopesticide storage, and economic injury thresholds"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with biological pest management and organic fertilizer scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-90",
+      "courseId": 781,
+      "title": "Post-Harvest Loss Reduction & Cold Storage",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "100% position 0 answer keys [8, 0, 0, 0]",
+        "Needs post-harvest food supply chain scenarios on precooling methods, modified atmosphere packaging (MAP), ethylene scrubbers, relative humidity control, and sanitizing wash routines"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with post-harvest cold storage scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-91",
+      "courseId": 763,
+      "title": "Sustainable Aquaculture & Responsible Fish Farming",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "100% position 0 answer keys [8, 0, 0, 0]",
+        "Needs aquaculture farm management scenarios on recirculating aquaculture systems (RAS), feed conversion ratio (FCR), fish-in-fish-out (FIFO) ratio, dissolved oxygen monitoring, and ASC certification criteria"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with sustainable aquaculture management scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-92",
+      "courseId": 782,
+      "title": "Mangrove & Coastal Ecosystem Protection in Agriculture",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "100% position 0 answer keys [8, 0, 0, 0]",
+        "Needs coastal agro-ecosystem scenarios on mangrove riparian buffer zones, hypersaline drainage prevention, blue carbon sequestration, sediment traps, and coastal storm surge buffering"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with coastal ecosystem and mangrove protection scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-93",
+      "courseId": 764,
+      "title": "Agrochemical Safety & Runoff Prevention",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "100% position 0 answer keys [8, 0, 0, 0]",
+        "Needs farm chemical safety scenarios on triple-rinsing pesticide containers, secondary containment, buffer zones from surface water, drift-reduction nozzles, and personal protective equipment (PPE)"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with agrochemical safety and runoff prevention scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-94",
+      "courseId": 783,
+      "title": "Agri-Food Carbon Footprinting & Certification",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "100% position 0 answer keys [8, 0, 0, 0]",
+        "Needs farm carbon accounting scenarios on GHG Protocol FLAG guidance (forest, land, and agriculture), enteric fermentation emissions, N2O fertilizer emissions, and organic/GlobalG.A.P./Rainforest Alliance certification audits"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with agricultural carbon footprinting and certification scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    },
+    {
+      "courseCode": "ELH-95",
+      "courseId": 741,
+      "title": "Green Software Engineering & Cloud Efficiency",
+      "currentVersion": 2,
+      "expectedVersion": 2,
+      "currentQuestionCount": 8,
+      "expectedQuestionCount": 8,
+      "currentPassingScore": 75,
+      "expectedPassingScore": 80,
+      "identifiedDefects": [
+        "Passing score non-standard at 75%",
+        "100% position 0 answer keys [8, 0, 0, 0]",
+        "Needs software engineering scenarios on Software Carbon Intensity (SCI) specification, carbon-aware workload scheduling, serverless auto-scaling, cloud region grid carbon intensity, and algorithm time-space efficiency"
+      ],
+      "historicalEnrollments": 0,
+      "historicalAttempts": 0,
+      "qualityClassification": "UNSTANDARDIZED_THRESHOLD",
+      "proposedRemediation": "Remediate 8 scored questions with green software and cloud optimization scenarios, 4-element optionFeedback, balanced answer keys (2/2/2/2), and standardize passing score to 80%."
+    }
+  ],
+  "cohortCourses": [
+    {
+      "id": 739,
+      "code": "ELH-84",
+      "title": "Commercial Fleet Electrification & EV Charging",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 718,
+      "code": "ELH-85",
+      "title": "Sustainable Warehouse Operations",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 740,
+      "code": "ELH-86",
+      "title": "Route Optimization & Logistics Efficiency",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 761,
+      "code": "ELH-87",
+      "title": "Regenerative Agriculture & Soil Health",
+      "version": 1,
+      "passingScore": 70
+    },
+    {
+      "id": 762,
+      "code": "ELH-88",
+      "title": "Smart Irrigation & Agricultural Water Efficiency",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 780,
+      "code": "ELH-89",
+      "title": "Organic Fertilizers & Biological Pest Management",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 781,
+      "code": "ELH-90",
+      "title": "Post-Harvest Loss Reduction & Cold Storage",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 763,
+      "code": "ELH-91",
+      "title": "Sustainable Aquaculture & Responsible Fish Farming",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 782,
+      "code": "ELH-92",
+      "title": "Mangrove & Coastal Ecosystem Protection in Agriculture",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 764,
+      "code": "ELH-93",
+      "title": "Agrochemical Safety & Runoff Prevention",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 783,
+      "code": "ELH-94",
+      "title": "Agri-Food Carbon Footprinting & Certification",
+      "version": 2,
+      "passingScore": 75
+    },
+    {
+      "id": 741,
+      "code": "ELH-95",
+      "title": "Green Software Engineering & Cloud Efficiency",
+      "version": 2,
+      "passingScore": 75
+    }
+  ],
+  "cohortQuestions": [
+    {
+      "id": 23970,
+      "courseId": 718,
+      "orderIndex": 1,
+      "question": "What is the typical energy reduction achieved by replacing legacy metal-halide high-bay lighting with motion-sensor dimmable LED systems in warehouse aisles?",
+      "options": [
+        "65% to 80% reduction in electricity consumption",
+        "Less than 2% reduction",
+        "A 50% increase in electricity use",
+        "Exactly zero change in energy consumption"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Sensor-controlled LED high-bays consistently reduce warehouse lighting energy by 65-80%.",
+        "Incorrect. The savings are dramatic, far exceeding 2%.",
+        "Incorrect. LEDs consume vastly less power than metal-halide lamps.",
+        "Incorrect. Lighting energy drops immediately upon LED retrofit."
+      ],
+      "correctExplanation": "Combining high-efficiency LED chips with occupancy sensors that dim or turn off fixtures in empty aisles delivers 65–80% energy savings.",
+      "incorrectExplanation": "Smart LED high-bays provide massive energy reductions due to high luminous efficacy and instant occupancy-based dimming."
+    },
+    {
+      "id": 23971,
+      "courseId": 718,
+      "orderIndex": 2,
+      "question": "What is the primary operational advantage of lithium-ion electric forklifts over legacy lead-acid battery forklifts?",
+      "options": [
+        "Opportunity fast charging during breaks without battery swapping, zero toxic acid off-gassing, and 30% higher energy efficiency",
+        "They can run on dirty river water instead of electricity",
+        "They require weekly manual acid refills by operators",
+        "They are legally exempt from driver safety licensing"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Opportunity charging, zero acid fumes, and superior energy efficiency make lithium-ion ideal for modern warehouses.",
+        "Incorrect. Forklifts run on electrical battery power, not river water.",
+        "Incorrect. Lithium batteries are sealed and require zero acid topping.",
+        "Incorrect. Operator safety licensing remains mandatory."
+      ],
+      "correctExplanation": "Lithium-ion forklift batteries allow fast opportunity charging during 15-minute breaks, require zero battery swapping rooms, and omit hazardous acid fumes.",
+      "incorrectExplanation": "Lithium-ion technology eliminates hazardous battery changing rooms, acid maintenance, and charging downtime."
+    },
+    {
+      "id": 23972,
+      "courseId": 718,
+      "orderIndex": 3,
+      "question": "In a closed-loop distribution network (warehouse to owned retail branches), what is the most effective circular packaging intervention?",
+      "options": [
+        "Replacing single-use plastic stretch wrap with heavy-duty reusable Velcro pallet wraps returned via reverse logistics",
+        "Using extra layers of non-recyclable PVC tape on every carton",
+        "Wrapping pallets in single-use aluminum foil",
+        "Throwing all wooden pallets away after a single delivery run"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Reusable pallet wraps eliminate single-use plastic film waste in dedicated closed-loop distribution routes.",
+        "Incorrect. Extra PVC tape increases non-recyclable plastic waste.",
+        "Incorrect. Aluminum foil is expensive and unsuited for pallet containment.",
+        "Incorrect. Single-use disposal of pallets is extremely wasteful."
+      ],
+      "correctExplanation": "Reusable pallet wraps eliminate hundreds of rolls of plastic film in closed-loop systems, paying for themselves within a few months.",
+      "incorrectExplanation": "Closed-loop networks allow reusable containment wraps to cycle hundreds of times via reverse logistics."
+    },
+    {
+      "id": 23973,
+      "courseId": 718,
+      "orderIndex": 4,
+      "question": "How do dock door seals and high-speed rollup doors reduce warehouse operating costs?",
+      "options": [
+        "They minimize conditioned air loss and prevent humid outdoor air infiltration during loading and unloading",
+        "They make the building completely soundproof to loud music",
+        "They eliminate the need for warehouse security guards",
+        "They increase the physical height of the building ceiling"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Dock seals prevent thermal energy leakage and humidity ingress, stabilizing internal temperatures.",
+        "Incorrect. Soundproofing is not the primary thermal objective.",
+        "Incorrect. Security protocols remain independent of dock seals.",
+        "Incorrect. Seals do not alter structural building dimensions."
+      ],
+      "correctExplanation": "Dock seals and fast-acting doors seal the perimeter around docked trailers, preventing conditioned air loss and cutting HVAC loads.",
+      "incorrectExplanation": "Perimeter dock seals stop thermal infiltration and humidity ingress during cargo loading operations."
+    },
+    {
+      "id": 23974,
+      "courseId": 718,
+      "orderIndex": 5,
+      "question": "What is 'Pallet Pooling' (e.g. CHEP / LPR) and how does it promote circular economy principles in logistics?",
+      "options": [
+        "A shared rental model where standardized pallets are continuously repaired, reused, and circulated across supply chain partners rather than purchased as single-use disposable items",
+        "Flooding the warehouse floor with water to float pallets into place",
+        "Storing pallets exclusively outdoors in rain to rot naturally",
+        "Burning damaged pallets on site for warehouse heating"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Shared pallet pooling maximizes asset reuse, minimizes timber consumption, and eliminates single-use wooden waste.",
+        "Incorrect. Pallet pooling is a commercial sharing model, not hydraulic floating.",
+        "Incorrect. Allowing pallets to rot is pure asset destruction.",
+        "Incorrect. Burning pallets produces toxic emissions and wastes timber assets."
+      ],
+      "correctExplanation": "Pallet pooling replaces single-use pallets with a managed circular rental system where standardized pallets are repaired and reused for years.",
+      "incorrectExplanation": "Pallet pooling is a circular sharing-economy model that maximizes timber asset lifecycle through managed repair and reuse."
+    },
+    {
+      "id": 23975,
+      "courseId": 718,
+      "orderIndex": 6,
+      "question": "What is the environmental and financial benefit of installing an on-site baler for clean plastic film (LDPE) and corrugated cardboard?",
+      "options": [
+        "It compacts recyclables into dense bales, reducing waste storage volume, cutting disposal truck trips, and generating scrap sale revenue",
+        "It shreds documents to hide inventory discrepancies",
+        "It converts cardboard into diesel fuel directly on site",
+        "It eliminates the need to clean the warehouse floor"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Baling recyclables transforms waste costs into commodity revenue and reduces collection transport trips.",
+        "Incorrect. Balers are for recycling, not document concealment.",
+        "Incorrect. Balers do not synthesize liquid diesel fuel.",
+        "Incorrect. Floor sanitation remains standard practice."
+      ],
+      "correctExplanation": "Baling clean LDPE and cardboard compacts recyclables, turning waste disposal fees into profitable commodity recycling sales.",
+      "incorrectExplanation": "Onsite balers compact recyclable materials for efficient transport and higher commodity rebate value."
+    },
+    {
+      "id": 23976,
+      "courseId": 718,
+      "orderIndex": 7,
+      "question": "How does applying a reflective 'Cool Roof' coating on a warehouse corrugated metal roof improve environmental performance?",
+      "options": [
+        "It reflects solar radiation, reducing indoor temperatures by 3–6°C and cutting cooling/ventilation energy demands",
+        "It makes the warehouse invisible to commercial satellites",
+        "It generates high-voltage electricity directly from rainwater",
+        "It prevents birds from flying over the building"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. High-reflectivity roof coatings reduce indoor thermal heat gain by 3-6°C and lower cooling energy needs.",
+        "Incorrect. Cool roofs do not block satellite visibility.",
+        "Incorrect. Coatings reflect sunlight and do not generate hydro-electricity.",
+        "Incorrect. Cool roofs do not impact bird flight paths."
+      ],
+      "correctExplanation": "High-albedo cool roof coatings reflect up to 85% of solar heat, significantly lowering indoor ambient temperatures and HVAC cooling loads.",
+      "incorrectExplanation": "Cool roof coatings reflect solar thermal radiation to reduce heat gain through roof sheets."
+    },
+    {
+      "id": 23977,
+      "courseId": 718,
+      "orderIndex": 8,
+      "question": "Why is rooftop solar PV particularly well-suited for large commercial warehouse and distribution facilities?",
+      "options": [
+        "Warehouses possess vast, unshaded horizontal roof expanses that directly align with daytime facility power and charging demands",
+        "Warehouses are legally required to provide free electricity to neighboring residential homes",
+        "Solar panels make the building immune to structural earthquakes",
+        "Solar panels eliminate the need for warehouse fire sprinkler systems"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Large horizontal roof areas provide prime capacity for on-site clean solar energy generation.",
+        "Incorrect. Commercial rooftop generation is for on-site and grid export, not free neighborhood supply.",
+        "Incorrect. Solar panels do not provide earthquake immunity.",
+        "Incorrect. Fire safety sprinkler systems remain mandatory."
+      ],
+      "correctExplanation": "Large unobstructed warehouse roofs provide ideal real estate for rooftop solar PV, offsetting daytime refrigeration, lighting, and EV charging loads.",
+      "incorrectExplanation": "Expansive flat roof surface area makes warehouses ideal for high-capacity on-site solar generation."
+    },
+    {
+      "id": 23962,
+      "courseId": 739,
+      "orderIndex": 1,
+      "question": "In commercial fleet financial evaluations, what does Total Cost of Ownership (TCO) include?",
+      "options": [
+        "Vehicle acquisition (CapEx), energy/fuel costs, scheduled maintenance, insurance, taxes, charging infrastructure, and estimated residual resale value",
+        "Only the initial sticker purchase price shown on the dealer showroom floor",
+        "Exclusively the cost of replacing worn tires every three years",
+        "The personal commuting expenses of the company directors"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Comprehensive TCO models all capital, operational, infrastructure, and residual value elements.",
+        "Incorrect. Sticker price alone ignores massive multi-year fuel and maintenance operational savings.",
+        "Incorrect. Tire wear is only a minor component of total operating cost.",
+        "Incorrect. Executive commuting is separate from commercial fleet asset TCO."
+      ],
+      "correctExplanation": "TCO models the complete lifecycle cost: purchase, electricity vs diesel fuel savings, reduced maintenance, charging infrastructure, and resale value.",
+      "incorrectExplanation": "TCO evaluates all direct and indirect financial costs over the operational life of the commercial asset."
+    },
+    {
+      "id": 23963,
+      "courseId": 739,
+      "orderIndex": 2,
+      "question": "Why do commercial battery electric vehicles (EVs) require significantly lower routine maintenance than internal combustion diesel vehicles?",
+      "options": [
+        "EVs have over 90% fewer moving parts in the drivetrain, with no engine oil, spark plugs, timing belts, fuel injectors, or exhaust aftertreatment systems",
+        "EVs are legally exempt from brake inspections and tire replacements",
+        "EV motors never experience friction or wear of any kind",
+        "EV maintenance is completely covered for life by local electric utility companies"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Drastically fewer moving parts and regenerative braking cut routine fleet maintenance costs by 50-60%.",
+        "Incorrect. Safety inspections for brakes and tires remain mandatory.",
+        "Incorrect. Mechanical wear still occurs in bearings and suspension, though powertrain wear is vastly lower.",
+        "Incorrect. Utilities do not provide free vehicle maintenance."
+      ],
+      "correctExplanation": "Electric powertrains eliminate complex engine components, gearboxes, and exhaust filters, while regenerative braking dramatically extends brake pad life.",
+      "incorrectExplanation": "The simplicity of electric motors and regenerative braking eliminates high-cost mechanical failure points common in diesel engines."
+    },
+    {
+      "id": 23964,
+      "courseId": 739,
+      "orderIndex": 3,
+      "question": "What is the primary function of 'Smart Charging / Dynamic Load Management' in a commercial EV fleet depot?",
+      "options": [
+        "To automatically adjust charging speeds and schedules across multiple vehicles to avoid exceeding building peak power limits and utilize lower off-peak tariffs",
+        "To make charging cables flash with decorative LED lighting",
+        "To discharge all vehicle batteries into the ground every night",
+        "To charge vehicles only when drivers are actively sitting inside the cabin"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Smart charging caps peak power draw and optimizes charging during low-cost off-peak hours.",
+        "Incorrect. Smart charging is an electrical power management system, not decorative lighting.",
+        "Incorrect. Deliberate battery discharging wastes energy and degrades cells.",
+        "Incorrect. Fleet vehicles charge unattended overnight."
+      ],
+      "correctExplanation": "Dynamic load management balances electrical capacity, prevents expensive peak utility demand penalties, and charges vehicles during cheapest night hours.",
+      "incorrectExplanation": "Smart charging software manages power allocation to keep total depot demand within electrical service panel limits."
+    },
+    {
+      "id": 23965,
+      "courseId": 739,
+      "orderIndex": 4,
+      "question": "What is 'Cabin Pre-Conditioning' and why is it recommended for electric delivery fleets?",
+      "options": [
+        "Heating or cooling the vehicle interior while still plugged into the depot grid charger, preserving full battery capacity for driving range",
+        "Cleaning the seats with chemical disinfectant before every shift",
+        "Removing passenger seats to reduce vehicle weight",
+        "Repainting the vehicle dashboard in light colors"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Grid pre-conditioning preserves onboard battery energy for route driving, maximizing effective range.",
+        "Incorrect. Pre-conditioning refers to thermal climate management, not physical cleaning.",
+        "Incorrect. Seat removal is unrelated to thermal pre-conditioning.",
+        "Incorrect. Dashboard painting does not manage cabin thermal energy."
+      ],
+      "correctExplanation": "Pre-conditioning uses grid electricity to reach target cabin temperature before departure, saving 15–20% of onboard battery energy for driving range.",
+      "incorrectExplanation": "Thermal pre-conditioning draws power from the grid rather than the battery to achieve optimal cabin temperature prior to departure."
+    },
+    {
+      "id": 23966,
+      "courseId": 739,
+      "orderIndex": 5,
+      "question": "How does 'Regenerative Braking' improve the operational efficiency of commercial electric delivery vehicles?",
+      "options": [
+        "It converts vehicle kinetic energy back into electrical energy during deceleration, recharging the battery and reducing friction brake wear",
+        "It sprays water on the tires to cool them down during high-speed driving",
+        "It uses exhaust gases to spin an auxiliary turbocharger",
+        "It disconnects the electric motor to allow the vehicle to coast with zero control"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Regenerative braking captures kinetic energy, recharges the battery, and significantly extends brake life.",
+        "Incorrect. Regenerative braking is electrical, not a water cooling spray.",
+        "Incorrect. EVs have zero exhaust gases or turbochargers.",
+        "Incorrect. Regenerative braking provides controlled deceleration rather than free-wheeling."
+      ],
+      "correctExplanation": "Regenerative braking uses the electric motor in reverse as a generator, recovering up to 20% of kinetic energy into the battery while saving brake pads.",
+      "incorrectExplanation": "Regenerative braking recaptures kinetic energy that would otherwise be lost as waste friction heat."
+    },
+    {
+      "id": 23967,
+      "courseId": 739,
+      "orderIndex": 6,
+      "question": "When assessing daily commercial routes for EV conversion, which operating characteristic makes a route ideal for immediate electrification?",
+      "options": [
+        "Predictable daily mileage (<180 km), high stop-and-go urban traffic, and dedicated overnight dwell time (>8 hours) at a central depot",
+        "Unpredictable trans-continental journeys with no known charging stops",
+        "Overloaded transport exceeding maximum gross vehicle weight by 50%",
+        "Continuous 24-hour operation with zero stopping time at the home depot"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Predictable mileage, urban regenerative opportunities, and overnight dwell time create the perfect EV operational profile.",
+        "Incorrect. Unpredictable long-distance routes require mature public fast-charging networks.",
+        "Incorrect. Overloading violates safety laws and damages all vehicle types.",
+        "Incorrect. Zero dwell time prevents cost-effective overnight depot charging."
+      ],
+      "correctExplanation": "Predictable routes with urban stop-and-go (high regen recovery) and overnight depot dwell times provide the ideal business case for EV conversion.",
+      "incorrectExplanation": "Predictable distance within single-charge battery capacity combined with reliable overnight depot charging offers the highest ROI."
+    },
+    {
+      "id": 23968,
+      "courseId": 739,
+      "orderIndex": 7,
+      "question": "What is the primary battery degradation mitigation practice for lithium-ion commercial fleet vehicles?",
+      "options": [
+        "Setting routine charging limits to 80–90% for daily operations, avoiding prolonged storage at 100% state-of-charge, and minimizing excessive DC fast charging",
+        "Draining the battery to exactly 0% every night before charging to 100%",
+        "Exposing the battery pack to direct heat lamps in the garage",
+        "Washing the battery terminals with saltwater weekly"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Managing state-of-charge limits (20-80/90%) and prioritizing AC overnight charging maximizes battery longevity.",
+        "Incorrect. Deep discharge to 0% accelerates cell degradation in lithium-ion chemistry.",
+        "Incorrect. Excessive heat severely degrades lithium-ion battery health.",
+        "Incorrect. Saltwater causes catastrophic corrosion and short circuits."
+      ],
+      "correctExplanation": "Operating lithium batteries primarily between 20% and 80-90% and relying on AC overnight charging minimizes thermal and chemical stress on cells.",
+      "incorrectExplanation": "Deep discharges to 0% and continuous 100% top-offs accelerate lithium cell degradation."
+    },
+    {
+      "id": 23969,
+      "courseId": 739,
+      "orderIndex": 8,
+      "question": "What is the main environmental and circularity benefit of 'Second-Life EV Battery Applications'?",
+      "options": [
+        "Repurposing retired vehicle batteries (with 70–80% residual capacity) as stationary energy storage for commercial solar microgrids before final recycling",
+        "Disposing of retired batteries in municipal landfills to decompose",
+        "Incinerating old batteries in industrial boilers for thermal heat",
+        "Crushing batteries into road paving gravel"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Second-life stationary storage extends battery productive life by 7-10 years prior to closed-loop mineral recycling.",
+        "Incorrect. Landfilling batteries causes toxic heavy metal pollution and is illegal.",
+        "Incorrect. Battery incineration releases toxic fumes and destroys critical minerals.",
+        "Incorrect. Batteries contain hazardous materials and cannot be used as aggregate."
+      ],
+      "correctExplanation": "Second-life applications utilize retired EV batteries for stationary solar storage for an additional 7–10 years, maximizing resource productivity.",
+      "incorrectExplanation": "Batteries retired from transport still retain substantial capacity for stationary energy storage before material recycling."
+    },
+    {
+      "id": 23978,
+      "courseId": 740,
+      "orderIndex": 1,
+      "question": "What is the primary operational objective of dynamic algorithmic vehicle routing in logistics?",
+      "options": [
+        "To calculate the most efficient sequence of delivery stops and routes, minimizing total kilometers travelled, fuel consumption, and traffic delays",
+        "To force all delivery vehicles to travel at exactly 120 km/h at all times",
+        "To ensure delivery trucks only drive on toll highways",
+        "To randomize delivery schedules so competitors cannot predict fleet movements"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Dynamic routing minimizes total distance travelled, fuel burn, and idle delays across multi-stop manifests.",
+        "Incorrect. Routing algorithms enforce safe statutory speed limits.",
+        "Incorrect. Toll avoidance or optimization is balanced against time and distance.",
+        "Incorrect. Routing is designed for efficiency and reliability, not randomisation."
+      ],
+      "correctExplanation": "Dynamic routing optimizes stop order, road selection, and cargo clustering to minimize vehicle kilometers travelled and emissions.",
+      "incorrectExplanation": "Algorithmic routing minimizes distance, time, and fuel burn while meeting customer delivery time windows."
+    },
+    {
+      "id": 23979,
+      "courseId": 740,
+      "orderIndex": 2,
+      "question": "How does excessive commercial vehicle engine idling impact operational costs and fleet sustainability?",
+      "options": [
+        "It consumes 1 to 2 litres of fuel per hour with zero transport output, causes engine soot buildup, and generates unnecessary greenhouse gases",
+        "It recharges the vehicle fuel tank automatically",
+        "It cleans the exhaust catalytic converter through cold airflow",
+        "It makes the engine run 50% cooler during highway driving"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Idling burns 1-2 litres of fuel per hour, causes engine cylinder glazing, and produces pure waste emissions.",
+        "Incorrect. Idling consumes fuel and never recharges tanks.",
+        "Incorrect. Idling clogs particulate filters and catalytic converters.",
+        "Incorrect. Prolonged idling causes heat soak and engine wear."
+      ],
+      "correctExplanation": "Stationary idling burns 1–2 L/hr of fuel, accelerates engine wear and oil contamination, and generates pure waste emissions.",
+      "incorrectExplanation": "Idling burns fuel without moving cargo, creating unnecessary financial expense and air pollution."
+    },
+    {
+      "id": 23980,
+      "courseId": 740,
+      "orderIndex": 3,
+      "question": "What is 'Geographic Territory Clustering' in delivery dispatch planning?",
+      "options": [
+        "Grouping customer delivery orders by dense geographic zones so a single vehicle serves a tight cluster before moving to the next area",
+        "Painting delivery trucks in camouflage colors to match rural foliage",
+        "Only delivering packages to customers with postal codes ending in even numbers",
+        "Restricting delivery operations exclusively to coastal beaches"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Geographic clustering maximizes delivery density and eliminates wasteful cross-town driving overlaps.",
+        "Incorrect. Clustering is an algorithmic planning process, not vehicle painting.",
+        "Incorrect. Clustering serves all customers within contiguous spatial zones.",
+        "Incorrect. Clustering applies across all commercial delivery territories."
+      ],
+      "correctExplanation": "Geographic clustering groups nearby deliveries together, drastically cutting stem mileage (distance between depot and delivery area) and inter-stop travel.",
+      "incorrectExplanation": "Clustering ensures vehicles operate in compact geographic zones to eliminate cross-town overlapping."
+    },
+    {
+      "id": 23981,
+      "courseId": 740,
+      "orderIndex": 4,
+      "question": "How does driver 'Eco-Driving' training (smooth acceleration, anticipatory braking, speed governance) affect fleet fuel efficiency?",
+      "options": [
+        "It consistently delivers 10% to 15% reductions in fuel consumption and lowers vehicle maintenance costs",
+        "It increases fuel consumption by 50%",
+        "It causes premature transmission failure",
+        "It has zero measurable impact on vehicle fuel burn"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Eco-driving delivers verified 10-15% fuel savings and reduces brake and tire wear.",
+        "Incorrect. Smooth driving saves fuel rather than increasing consumption.",
+        "Incorrect. Eco-driving reduces mechanical stress on transmissions.",
+        "Incorrect. Telematics data consistently proves significant fuel reductions."
+      ],
+      "correctExplanation": "Anticipatory driving and smooth throttle control reduce kinetic energy waste and aerodynamic drag, cutting fuel burn by 10–15%.",
+      "incorrectExplanation": "Eco-driving techniques are proven across global fleets to deliver sustained 10–15% fuel and carbon savings."
+    },
+    {
+      "id": 23982,
+      "courseId": 740,
+      "orderIndex": 5,
+      "question": "Why do advanced routing algorithms utilize 'Right-Turn / Easy-Access Prioritization' in left-hand drive regions (or Left-Turn in right-hand drive Mauritius)?",
+      "options": [
+        "To minimize waiting time and idling at busy unsignalized intersections when crossing oncoming traffic",
+        "Because commercial delivery trucks are physically incapable of turning against traffic",
+        "To force trucks to drive in endless circular loops",
+        "Because traffic laws prohibit commercial vehicles from crossing opposing lanes"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Minimizing turns across opposing traffic reduces idle wait times, saves fuel, and cuts accident risks.",
+        "Incorrect. Vehicles can turn, but crossing opposing lanes incurs high idle delays.",
+        "Incorrect. Routing sequences stops logically rather than creating loops.",
+        "Incorrect. Turning is legal, but crossing traffic creates congestion delays."
+      ],
+      "correctExplanation": "Avoiding turns across opposing traffic lanes eliminates long idle waiting times, cuts intersection collision risks, and saves fuel.",
+      "incorrectExplanation": "Prioritizing turns that do not cross oncoming traffic lanes reduces idle delay at intersections and improves safety."
+    },
+    {
+      "id": 23983,
+      "courseId": 740,
+      "orderIndex": 6,
+      "question": "What is the function of 'Speed Governing / Speed Limiting' in commercial fleet energy management?",
+      "options": [
+        "Capping maximum vehicle speed to optimal efficiency thresholds (e.g. 80–90 km/h), since fuel consumption increases exponentially above 90 km/h due to aerodynamic drag",
+        "Preventing vehicles from driving uphill on steep mountain roads",
+        "Limiting vehicle reverse speed to 0.1 km/h",
+        "Shutting down the engine whenever the vehicle enters a tunnel"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Speed governing prevents high-speed aerodynamic drag losses and saves up to 12% in highway fuel burn.",
+        "Incorrect. Speed limiters do not reduce uphill engine torque.",
+        "Incorrect. Reverse gear speeds are managed mechanically.",
+        "Incorrect. Speed limiters do not shut off engines in tunnels."
+      ],
+      "correctExplanation": "Aerodynamic drag increases with the square of speed; capping highway speeds at 80–90 km/h yields dramatic fuel savings and improves safety.",
+      "incorrectExplanation": "Speed limiters prevent excessive high-speed driving where aerodynamic drag rapidly degrades fuel efficiency."
+    },
+    {
+      "id": 23984,
+      "courseId": 740,
+      "orderIndex": 7,
+      "question": "What role does automated pre-arrival customer notification (SMS / ETA tracking) play in logistics efficiency?",
+      "options": [
+        "It ensures customer receiving staff are ready upon vehicle arrival, reducing unloading dwell time and eliminating failed delivery re-attempts",
+        "It requires customers to pay for their delivery in physical gold coins",
+        "It cancels the delivery if the customer does not reply within 10 seconds",
+        "It allows customers to remotely steer the delivery vehicle"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Pre-arrival notifications slash unloading dwell times and eliminate costly failed delivery attempts.",
+        "Incorrect. ETA alerts are for operational coordination, not currency mandates.",
+        "Incorrect. Alerts provide visibility rather than arbitrary cancellations.",
+        "Incorrect. Remote steering is impossible and dangerous."
+      ],
+      "correctExplanation": "Pre-arrival ETA notifications prepare dock staff for immediate offloading, slashing vehicle dwell times and eliminating costly secondary delivery runs.",
+      "incorrectExplanation": "Real-time ETA communication eliminates unloading bottlenecks and prevents failed first-time delivery attempts."
+    },
+    {
+      "id": 23985,
+      "courseId": 740,
+      "orderIndex": 8,
+      "question": "How should fleet telematics data be used to report Scope 1 greenhouse gas emissions under the GHG Protocol?",
+      "options": [
+        "By multiplying exact primary diesel/petrol consumption data (litres logged from fuel cards/CAN-bus) by fuel-specific emission factors (e.g. 2.68 kg CO2e/L for diesel)",
+        "By guessing the emissions based on the color of the delivery truck",
+        "By dividing annual company profits by the number of tires on the vehicle",
+        "By assuming fleet emissions are always exactly zero if vehicles are washed weekly"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Multiplying verified fuel litres by standard chemical emission factors provides auditable Scope 1 data.",
+        "Incorrect. Vehicle color has zero relationship to carbon emissions.",
+        "Incorrect. Financial profits do not measure physical fuel combustion.",
+        "Incorrect. Vehicle washing does not eliminate tailpipe carbon emissions."
+      ],
+      "correctExplanation": "Scope 1 emissions are accurately quantified by multiplying actual fuel volume consumed by verified fuel carbon intensity factors.",
+      "incorrectExplanation": "The GHG Protocol requires primary fuel consumption data multiplied by standard chemical emission factors."
+    },
+    {
+      "id": 24042,
+      "courseId": 741,
+      "orderIndex": 1,
+      "question": "What is the primary factor determining the Software Carbon Intensity (SCI) of a cloud application?",
+      "options": [
+        "The operational energy consumed by compute/networking combined with the embodied carbon of underlying hardware.",
+        "The visual color scheme and font typeface selected for the customer-facing frontend UI.",
+        "The total market capitalization and stock price valuation of the cloud service provider.",
+        "The physical distance between software developers and the cloud sales representative office."
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. SCI accounts for operational energy emissions and embodied hardware manufacturing carbon.",
+        "Incorrect. Visual design choices alone do not dictate compute energy intensity.",
+        "Incorrect. Provider valuation is completely unrelated to workload carbon intensity.",
+        "Incorrect. Distance to sales offices has zero bearing on digital infrastructure carbon."
+      ],
+      "correctExplanation": "SCI accounts for operational energy emissions and embodied hardware manufacturing carbon.",
+      "incorrectExplanation": "SCI measures physical energy consumption and embodied hardware carbon per functional unit."
+    },
+    {
+      "id": 24043,
+      "courseId": 741,
+      "orderIndex": 2,
+      "question": "Which architecture pattern is most effective for eliminating idle cloud compute energy during low-traffic periods?",
+      "options": [
+        "Event-driven serverless architecture that scales compute execution down to zero when idle.",
+        "Provisioning oversized dedicated bare-metal instances on permanent 3-year upfront leases.",
+        "Setting application servers to poll backend database tables continuously every 500 milliseconds.",
+        "Disabling automated health checks and load balancers to reduce network telemetry logs."
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Event-driven architectures ensure compute resources consume energy only during active processing.",
+        "Incorrect. Oversized dedicated instances consume maximum power regardless of workload volume.",
+        "Incorrect. Rapid polling keeps CPUs continuously active, wasting significant energy.",
+        "Incorrect. Disabling health checks compromises system reliability without addressing idle compute."
+      ],
+      "correctExplanation": "Event-driven architectures ensure compute resources consume energy only during active processing.",
+      "incorrectExplanation": "Serverless architectures eliminate idle energy by executing compute only when triggered."
+    },
+    {
+      "id": 24044,
+      "courseId": 741,
+      "orderIndex": 3,
+      "question": "Why does switching to modern ARM-based cloud processors (e.g., AWS Graviton / Ampere) improve cloud sustainability?",
+      "options": [
+        "ARM architectures deliver comparable compute performance with significantly lower electrical power consumption per cycle.",
+        "ARM processors do not require electrical current or physical cooling systems in data centers.",
+        "ARM servers are manufactured entirely from biodegradable organic agricultural fibers.",
+        "ARM cloud instances legally exempt companies from calculating their Scope 3 greenhouse gas emissions."
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Modern ARM chips offer up to 30-40% superior energy efficiency over traditional legacy x86 architectures.",
+        "Incorrect. All semiconductor chips require power and cooling; ARM is simply more energy-efficient.",
+        "Incorrect. Processors are made of silicon, copper, and specialized metals, not agricultural fibers.",
+        "Incorrect. Architecture choice does not exempt organizations from GHG accounting standards."
+      ],
+      "correctExplanation": "Modern ARM chips offer up to 30-40% superior energy efficiency over traditional legacy x86 architectures.",
+      "incorrectExplanation": "ARM architectures achieve higher instructions-per-watt efficiency."
+    },
+    {
+      "id": 24045,
+      "courseId": 741,
+      "orderIndex": 4,
+      "question": "What is the operational purpose of carbon-aware computing and workload time-shifting?",
+      "options": [
+        "Executing non-urgent batch jobs during hours when local grid electricity has high renewable energy and low carbon intensity.",
+        "Permanently deleting all historical system log records after 60 seconds of execution.",
+        "Preventing end-users from accessing web applications outside standard banking business hours.",
+        "Transferring all software compilation tasks to unmonitored public personal laptops."
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Carbon-aware computing runs workloads when renewable energy supply on the local grid is highest.",
+        "Incorrect. Log retention is governed by compliance and troubleshooting needs.",
+        "Incorrect. User-facing applications must remain available; time shifting applies to batch jobs.",
+        "Incorrect. Unmonitored laptops compromise security and traceability."
+      ],
+      "correctExplanation": "Carbon-aware computing schedules compute during periods of maximum renewable grid generation.",
+      "incorrectExplanation": "Time shifting aligns energy demand with clean renewable grid generation."
+    },
+    {
+      "id": 24046,
+      "courseId": 741,
+      "orderIndex": 5,
+      "question": "Which action represents an effective data transmission optimization to reduce network energy waste?",
+      "options": [
+        "Enabling payload compression (Gzip/Brotli) and caching static assets on edge Content Delivery Networks (CDNs).",
+        "Streaming uncompressed 4K raw video files for simple monochrome background icons.",
+        "Requiring clients to redownload all JavaScript bundles on every single page navigation.",
+        "Converting all text-based API responses into unindexed high-resolution bitmap images."
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Compression and edge caching minimize bytes transferred and reduce transit router power consumption.",
+        "Incorrect. Uncompressed streaming drastically inflates data transit and energy demand.",
+        "Incorrect. Disabling caching multiplies server requests and wasted transit energy.",
+        "Incorrect. Bitmap responses increase payload sizes by orders of magnitude."
+      ],
+      "correctExplanation": "Compression and edge caching minimize bytes transferred and reduce transit router power consumption.",
+      "incorrectExplanation": "Reducing data transfer volume directly lowers network transmission energy."
+    },
+    {
+      "id": 24047,
+      "courseId": 741,
+      "orderIndex": 6,
+      "question": "In a cloud environment, what is a 'zombie' or 'orphaned' resource?",
+      "options": [
+        "An allocated cloud resource (such as an unattached storage volume or idle test VM) that consumes power and cost without serving active traffic.",
+        "A cyber-security malware script that permanently alters data center hardware cooling fans.",
+        "A specialized open-source license used exclusively for artificial intelligence research.",
+        "A cloud server physically located in a maritime vessel or offshore platform."
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Orphaned disks, idle IP addresses, and forgotten test VMs represent pure digital waste.",
+        "Incorrect. Orphaned resources are abandoned configuration items, not hardware malware.",
+        "Incorrect. The term refers to idle, unmanaged cloud infrastructure assets.",
+        "Incorrect. Physical location does not define whether a resource is orphaned."
+      ],
+      "correctExplanation": "Orphaned disks, idle IP addresses, and forgotten test VMs represent pure digital waste.",
+      "incorrectExplanation": "Zombie resources are abandoned cloud assets consuming power and incurring costs."
+    },
+    {
+      "id": 24048,
+      "courseId": 741,
+      "orderIndex": 7,
+      "question": "How should an engineering team integrate green software practices into their CI/CD deployment pipelines?",
+      "options": [
+        "By adding automated checks that monitor container image sizes, bundle bloat, and benchmark query execution times before merging code.",
+        "By disabling automated builds and requiring all software to be compiled manually once a year.",
+        "By removing version control history and deleting previous Git commit branches entirely.",
+        "By requiring developers to shut down their production databases during daily standup meetings."
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. CI/CD guardrails prevent code bloat and performance regressions before deployment to production.",
+        "Incorrect. Manual annual compilation impairs security and operational agility.",
+        "Incorrect. Deleting Git history destroys repository traceability without improving cloud runtime efficiency.",
+        "Incorrect. Shutting down production during standups causes severe customer outages."
+      ],
+      "correctExplanation": "CI/CD guardrails prevent code bloat and performance regressions before deployment to production.",
+      "incorrectExplanation": "Automated CI/CD checks prevent software bloat and performance regressions."
+    },
+    {
+      "id": 24049,
+      "courseId": 741,
+      "orderIndex": 8,
+      "question": "What is the recommended 30-day workplace commitment for software engineering teams completing this course?",
+      "options": [
+        "Audit cloud resource utilization, terminate orphaned storage volumes, and automate non-production environment shutdowns.",
+        "Decommission all company web applications and return exclusively to paper-based carbon ledger books.",
+        "Cancel all cloud subscriptions immediately without migrating application data or services.",
+        "Mandate that all software code comments be translated into Latin to reduce digital character storage."
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. This structured plan delivers immediate, measurable cost and carbon reductions.",
+        "Incorrect. Reverting to paper ledgers is regressive and operationally unviable.",
+        "Incorrect. Cancelling infrastructure without migration causes catastrophic business failure.",
+        "Incorrect. Translating comments into Latin has zero sustainability value."
+      ],
+      "correctExplanation": "This structured plan delivers immediate, measurable cost and carbon reductions.",
+      "incorrectExplanation": "A 30-day cloud right-sizing plan targets idle resources and automated scheduling."
+    },
+    {
+      "id": 9374,
+      "courseId": 761,
+      "orderIndex": 1,
+      "question": "What is the primary operational objective of Regenerative Agriculture & Soil Health?",
+      "options": [
+        "To generate unnecessary paperwork that slows down daily workplace tasks",
+        "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+        "To replace all human employees with automated robots",
+        "To eliminate all customer interactions permanently"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! The objective is rigorous operational efficiency and compliance.",
+      "incorrectExplanation": "Incorrect. The focus is establishing standardized, compliant, and efficient workflows."
+    },
+    {
+      "id": 9375,
+      "courseId": 761,
+      "orderIndex": 2,
+      "question": "Why are standardized operating procedures (SOPs) critical for sustainable workplace execution?",
+      "options": [
+        "They are only created for decorative office displays",
+        "They prevent employees from ever taking breaks",
+        "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+        "They make simple tasks impossible to finish"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! SOPs provide operational consistency and audit trails.",
+      "incorrectExplanation": "Incorrect. SOPs ensure consistent quality, safety, and verifiable compliance."
+    },
+    {
+      "id": 9376,
+      "courseId": 761,
+      "orderIndex": 3,
+      "question": "How should unexpected technical exceptions or process deviations be handled on the job?",
+      "options": [
+        "Logged immediately in the tracking register and escalated according to the defined response protocol",
+        "Ignored completely hoping no one notices",
+        "Concealed from team supervisors",
+        "Blamed on external vendors without investigation"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Formal logging and escalation ensure rapid remediation.",
+      "incorrectExplanation": "Incorrect. Process deviations must be logged and escalated promptly."
+    },
+    {
+      "id": 9377,
+      "courseId": 761,
+      "orderIndex": 4,
+      "question": "What is the primary commercial benefit of implementing continuous resource efficiency measures?",
+      "options": [
+        "Increased employee turnover",
+        "Guaranteed bankruptcy within 30 days",
+        "Higher municipal landfill penalty taxes",
+        "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Resource efficiency lowers costs and strengthens enterprise resilience.",
+      "incorrectExplanation": "Incorrect. Efficiency lowers operating expenses and strengthens compliance."
+    },
+    {
+      "id": 9378,
+      "courseId": 761,
+      "orderIndex": 5,
+      "question": "What role does accurate data collection and baseline measurement play in workplace sustainability?",
+      "options": [
+        "It is purely an aesthetic exercise with zero business value",
+        "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+        "It is only performed when an inspector is standing in the building",
+        "It replaces the need for actual equipment maintenance"
+      ],
+      "correctOption": 1,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Accurate data provides the factual foundation for continuous improvement.",
+      "incorrectExplanation": "Incorrect. Reliable data measurement is vital for tracking progress and identifying waste."
+    },
+    {
+      "id": 9379,
+      "courseId": 761,
+      "orderIndex": 6,
+      "question": "How should departmental teams coordinate when managing cross-functional sustainability initiatives?",
+      "options": [
+        "Send anonymous complaint letters to the executive board",
+        "Refuse to communicate with any other department",
+        "Compete destructively for the same resources without coordination",
+        "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+      ],
+      "correctOption": 3,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Shared KPIs and transparent alignment drive cross-functional success.",
+      "incorrectExplanation": "Incorrect. Collaboration requires clear communication, shared KPIs, and defined accountability."
+    },
+    {
+      "id": 9380,
+      "courseId": 761,
+      "orderIndex": 7,
+      "question": "What is the risk of implementing superficial environmental claims without operational verification?",
+      "options": [
+        "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+        "Automatic award of international sustainability prizes",
+        "Instant elimination of corporate taxes",
+        "Zero consequences under all circumstances"
+      ],
+      "correctOption": 0,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! False claims trigger severe legal and reputational greenwashing penalties.",
+      "incorrectExplanation": "Incorrect. Superficial claims lead to severe greenwashing penalties and loss of stakeholder trust."
+    },
+    {
+      "id": 9381,
+      "courseId": 761,
+      "orderIndex": 8,
+      "question": "How does periodic management review support continuous improvement in workplace sustainability?",
+      "options": [
+        "It is a legal formality with no practical purpose",
+        "It allows managers to cancel all future sustainability efforts",
+        "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+        "It ensures that no process changes are ever permitted"
+      ],
+      "correctOption": 2,
+      "optionFeedback": null,
+      "correctExplanation": "Correct! Management reviews drive continuous optimization and resource allocation.",
+      "incorrectExplanation": "Incorrect. Regular reviews ensure goals are met and processes are continually improved."
+    },
+    {
+      "id": 23986,
+      "courseId": 762,
+      "orderIndex": 1,
+      "question": "What is the typical water application efficiency of a well-maintained precision drip irrigation system compared to surface flood irrigation?",
+      "options": [
+        "90% to 95% efficiency for drip, compared to 45% to 55% for surface flood",
+        "Drip irrigation is 20% less efficient than flood irrigation",
+        "Both methods have identical 100% efficiency",
+        "Drip irrigation only works in indoor greenhouses and has 0% outdoor efficiency"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Precision drip irrigation achieves 90-95% efficiency by delivering water directly to root zones without runoff.",
+        "Incorrect. Drip irrigation is vastly superior in efficiency to flood methods.",
+        "Incorrect. Flood irrigation suffers from severe runoff and percolation losses.",
+        "Incorrect. Drip irrigation is widely used outdoors for orchards, vegetables, and field crops."
+      ],
+      "correctExplanation": "Drip irrigation delivers water directly to plant root zones with 90–95% efficiency, virtually eliminating runoff and evaporative losses.",
+      "incorrectExplanation": "Drip irrigation achieves 90–95% application efficiency, nearly doubling the efficiency of conventional flood irrigation."
+    },
+    {
+      "id": 23987,
+      "courseId": 762,
+      "orderIndex": 2,
+      "question": "In agronomic water budgeting, how is Crop Evapotranspiration (ETc) calculated using the FAO-56 standard?",
+      "options": [
+        "ETc = Reference Evapotranspiration (ETo) x Crop Coefficient (Kc)",
+        "ETc = Total farm surface area divided by the height of the tractor",
+        "ETc = Annual rainfall multiplied by the cost of fertilizer",
+        "ETc = Number of irrigation workers multiplied by hours worked"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. ETc = ETo x Kc is the universally recognized scientific standard for crop water requirement calculation.",
+        "Incorrect. Tractor dimensions have zero relationship to plant water transpiration.",
+        "Incorrect. Fertilizer price does not determine plant hydrological demand.",
+        "Incorrect. Labor hours do not calculate plant evapotranspiration."
+      ],
+      "correctExplanation": "The FAO-56 formula multiplies atmospheric evaporative demand (ETo) by the specific crop development stage coefficient (Kc).",
+      "incorrectExplanation": "Crop water demand is calculated by multiplying reference evapotranspiration (ETo) by the crop-specific coefficient (Kc)."
+    },
+    {
+      "id": 23988,
+      "courseId": 762,
+      "orderIndex": 3,
+      "question": "What is the operational function of a 'Soil Moisture Tensiometer' in precision agriculture?",
+      "options": [
+        "To measure the soil water suction tension (in kPa or centibars), indicating how hard plant roots must work to extract moisture",
+        "To measure the sugar content of tree leaves",
+        "To test the electrical voltage of overhead powerlines",
+        "To measure the wind speed across the farm boundary"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Tensiometers measure soil moisture tension, allowing operators to trigger irrigation only when soil enters the dry threshold.",
+        "Incorrect. Sugar content is measured with a refractometer/Brix meter.",
+        "Incorrect. Tensiometers measure soil water tension, not powerline voltage.",
+        "Incorrect. Wind speed is measured with an anemometer."
+      ],
+      "correctExplanation": "Tensiometers measure soil water tension in kPa; low values (0–10 kPa) indicate saturated soil, while high values (>60 kPa) signal drought stress.",
+      "incorrectExplanation": "Tensiometers measure soil matric potential to provide real-time data on soil moisture availability to plant roots."
+    },
+    {
+      "id": 23989,
+      "courseId": 762,
+      "orderIndex": 4,
+      "question": "Why is early morning (05:00–08:00) or late afternoon the optimal time window for agricultural irrigation?",
+      "options": [
+        "Low ambient temperatures and minimal wind drastically reduce evaporative water losses and droplet drift",
+        "Water flows twice as fast through pipes during morning hours",
+        "Pumping water in the morning changes its chemical pH from acid to alkaline",
+        "Solar radiation is dangerous to PVC plastic pipes only in the early morning"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Early morning irrigation minimizes wind drift and solar evaporation, maximizing water infiltration.",
+        "Incorrect. Hydraulic flow velocity is determined by pump pressure, not time of day.",
+        "Incorrect. Time of day does not alter chemical water pH.",
+        "Incorrect. Solar UV affects plastic pipes primarily during intense midday sun."
+      ],
+      "correctExplanation": "Cool temperatures, high relative humidity, and low wind during early morning minimize evaporation, ensuring maximum water reaches the soil.",
+      "incorrectExplanation": "Irrigating during cool, calm hours prevents up to 30% of water from evaporating into the atmosphere before entering the soil."
+    },
+    {
+      "id": 23990,
+      "courseId": 762,
+      "orderIndex": 5,
+      "question": "How does applying organic straw or woodchip mulching around crops contribute to agricultural water efficiency?",
+      "options": [
+        "It shades the soil surface, reducing soil evaporation by up to 50%, suppressing weed competition, and moderating root temperatures",
+        "It converts soil into concrete to prevent earthworms from moving",
+        "It poisons all soil microbes to stop water consumption",
+        "It doubles the amount of chemical herbicide required"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Organic mulching reduces soil moisture evaporation by up to 50% while improving soil biological health.",
+        "Incorrect. Mulch enriches soil structure rather than hardening it.",
+        "Incorrect. Organic mulch nurtures beneficial soil microorganisms.",
+        "Incorrect. Mulch suppresses weeds naturally, reducing herbicide requirements."
+      ],
+      "correctExplanation": "Organic mulch forms a protective thermal and physical barrier that suppresses soil evaporation, stops weeds from stealing water, and builds soil organic matter.",
+      "incorrectExplanation": "Mulching conserves soil moisture by shielding the soil surface from direct sun and wind exposure."
+    },
+    {
+      "id": 23991,
+      "courseId": 762,
+      "orderIndex": 6,
+      "question": "What is the primary benefit of 'Solar PV Direct-Drive Pumping' in agricultural irrigation systems?",
+      "options": [
+        "It powers water pumps directly from solar panels during daylight hours without batteries, eliminating expensive diesel fuel combustion and generator maintenance",
+        "It creates artificial rainclouds directly above the crop canopy",
+        "It eliminates the need for water storage ponds or pipes",
+        "It heats irrigation water to boiling point to cook the crops in the field"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Solar direct-drive pumping eliminates diesel fuel expenses and greenhouse emissions in farm water distribution.",
+        "Incorrect. Solar panels do not create artificial meteorological rain.",
+        "Incorrect. Storage reservoirs and pipes remain essential for distribution.",
+        "Incorrect. Water temperature remains ambient; boiling water would kill crops."
+      ],
+      "correctExplanation": "Solar direct-drive pumps convert sunlight into hydraulic energy, pumping water directly into storage tanks or drip lines with zero fuel costs and zero carbon emissions.",
+      "incorrectExplanation": "Solar pumping replaces polluting diesel generators with clean, reliable solar electricity perfectly matched with daytime irrigation demand."
+    },
+    {
+      "id": 23992,
+      "courseId": 762,
+      "orderIndex": 7,
+      "question": "What maintenance procedure prevents mineral scale (calcium carbonate) and biological biofilm clogging in drip irrigation emitters?",
+      "options": [
+        "Periodic line flushing, backwashing disc/screen filters, and controlled low-dose acid or chlorination injection treatments",
+        "Filling the irrigation pipes with engine motor oil",
+        "Pounding drip tubes with metal hammers to crush the plastic emitters",
+        "Ignoring the system until all pipes burst from pressure"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Filter backwashing, lateral flushing, and controlled acid/chlorine pulses prevent emitter clogging.",
+        "Incorrect. Motor oil contaminates agricultural soil and crops.",
+        "Incorrect. Physical hammering destroys emitter mechanisms.",
+        "Incorrect. Lack of maintenance leads to catastrophic irrigation failure."
+      ],
+      "correctExplanation": "Regular filtration maintenance, lateral flushing, and periodic mild acid/chlorine pulses dissolve carbonate scale and clear algal biofilm from emitter orifices.",
+      "incorrectExplanation": "Proper drip maintenance relies on routine filtration cleaning, pipe flushing, and chemical scale prevention."
+    },
+    {
+      "id": 23993,
+      "courseId": 762,
+      "orderIndex": 8,
+      "question": "Why is over-irrigation (applying excess water beyond soil holding capacity) harmful to crops and the environment?",
+      "options": [
+        "It causes root suffocation (anaerobic hypoxia), leaches valuable fertilizers into groundwater aquifers, and wastes pumping energy",
+        "It causes crops to grow 500% too fast for harvest machinery",
+        "It converts fresh water into solid granite rock underground",
+        "It makes the farm legally exempt from paying water tariffs"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Over-irrigation causes root hypoxia, promotes fungal root rot, leaches nitrates into groundwater, and wastes energy.",
+        "Incorrect. Over-watering stunts crop growth rather than accelerating it.",
+        "Incorrect. Water saturation does not create granite rock.",
+        "Incorrect. Over-irrigation increases water billing costs."
+      ],
+      "correctExplanation": "Over-watering saturates soil pore spaces, starving roots of oxygen, and leaches nitrate fertilizers into groundwater, causing pollution and nutrient loss.",
+      "incorrectExplanation": "Excess irrigation drowns root systems, promotes fungal diseases, wastes water, and causes severe groundwater nutrient leaching."
+    },
+    {
+      "id": 24010,
+      "courseId": 763,
+      "orderIndex": 1,
+      "question": "What is the 'Feed Conversion Ratio' (FCR) in aquaculture operations?",
+      "options": [
+        "The ratio of total dry feed fed (in kg) divided by the wet weight gained by the fish (in kg), where a lower number indicates higher efficiency",
+        "The speed at which the automatic feed dispenser rotates per minute",
+        "The percentage of feed pellets that float on the water surface",
+        "The distance between the feed storage warehouse and the rearing tanks"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. FCR = kg feed / kg gain; minimizing FCR saves feed costs and prevents excess water pollution.",
+        "Incorrect. Dispenser motor RPM is mechanical speed, not FCR.",
+        "Incorrect. Pellet buoyancy is physical floatability, not FCR.",
+        "Incorrect. Warehouse distance is unrelated to biological feed conversion."
+      ],
+      "correctExplanation": "FCR measures biological feed efficiency (e.g. 1.2 kg feed to produce 1.0 kg fish); lower FCR reduces operating costs and nutrient pollution.",
+      "incorrectExplanation": "FCR is the universal metric calculating the mass of feed required to generate one unit of animal body mass."
+    },
+    {
+      "id": 24011,
+      "courseId": 763,
+      "orderIndex": 2,
+      "question": "How does a closed-loop Recirculating Aquaculture System (RAS) compare to traditional open flow-through coastal ponds?",
+      "options": [
+        "RAS re-filters and recycles 90% to 99% of system water through mechanical and biological filters, drastically reducing water extraction and eliminating wild marine pollution",
+        "RAS consumes 10 times more fresh river water than open ponds",
+        "RAS eliminates the need for fish to breathe oxygen",
+        "RAS can only operate in zero-gravity space stations"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. RAS recycles 90-99% of water, providing tight biosecurity, temperature control, and zero ocean discharge.",
+        "Incorrect. RAS consumes drastically less water than open flow-through ponds.",
+        "Incorrect. Dissolved oxygen monitoring remains critical in RAS.",
+        "Incorrect. RAS is a standard commercial terrestrial technology deployed globally."
+      ],
+      "correctExplanation": "RAS recycles up to 99% of water via biofilters, drum screens, and UV disinfection, providing complete biosecurity and environmental containment.",
+      "incorrectExplanation": "RAS systems filter and reuse water continuously, reducing water consumption by over 90% compared to flow-through systems."
+    },
+    {
+      "id": 24012,
+      "courseId": 763,
+      "orderIndex": 3,
+      "question": "In a biological nitrification filter, which beneficial bacteria convert toxic Total Ammonia Nitrogen (TAN) into Nitrite (NO2-), and which convert Nitrite into non-toxic Nitrate (NO3-)?",
+      "options": [
+        "Nitrosomonas converts ammonia to nitrite; Nitrobacter converts nitrite to nitrate",
+        "E. coli converts ammonia to pure sugar; Salmonella converts sugar to alcohol",
+        "Yeast converts ammonia into plastic pellets",
+        "Algae converts ammonia directly into solid gold"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Nitrosomonas and Nitrobacter bacteria maintain the biological nitrogen cycle in aquaculture biofilters.",
+        "Incorrect. E. coli and Salmonella are enteric pathogens, not nitrifying biofilter bacteria.",
+        "Incorrect. Yeast carries out alcoholic fermentation, not nitrification.",
+        "Incorrect. Algae absorbs nutrients, but does not synthesize elemental gold."
+      ],
+      "correctExplanation": "Aerobic nitrifying bacteria (Nitrosomonas and Nitrobacter) perform the two-stage biological conversion of lethal ammonia into harmless nitrate.",
+      "incorrectExplanation": "Nitrosomonas oxidizes ammonia into nitrite, and Nitrobacter oxidizes toxic nitrite into non-toxic nitrate."
+    },
+    {
+      "id": 24013,
+      "courseId": 763,
+      "orderIndex": 4,
+      "question": "What is the primary ecological hazard of relying heavily on wild-caught 'forage fish' (anchovies, sardines) for commercial aquaculture feed pellets?",
+      "options": [
+        "It depletes marine food webs, starving wild predators (seabirds, marine mammals, larger pelagic fish) and threatening marine biodiversity",
+        "It causes fish to turn into plants",
+        "It makes the fish tanks freeze into solid ice",
+        "It doubles the salinity of the Indian Ocean"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Forage fish overexploitation collapses marine food webs and deprives wild marine wildlife of prey.",
+        "Incorrect. Fishmeal does not alter animal taxonomy.",
+        "Incorrect. Diet composition has no effect on water freezing point.",
+        "Incorrect. Fish feed does not alter global ocean salinity."
+      ],
+      "correctExplanation": "Overfishing small pelagic forage fish for fishmeal disrupts the entire marine trophic pyramid and depletes wild fisheries.",
+      "incorrectExplanation": "Excessive fishmeal demand drives overfishing of critical forage fish stocks at the base of marine food webs."
+    },
+    {
+      "id": 24014,
+      "courseId": 763,
+      "orderIndex": 5,
+      "question": "What is 'Integrated Multi-Trophic Aquaculture' (IMTA) and how does it mimic natural circular ecosystems?",
+      "options": [
+        "Co-culturing fed species (finfish) with extractive species (filter-feeding shellfish and seaweeds) that absorb solid organic waste and dissolved inorganic nutrients",
+        "Stacking fish tanks 50 stories high in skyscrapers",
+        "Feeding fish exclusively with electronic computer chips",
+        "Breeding fish with wings so they can fly between ponds"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. IMTA utilizes shellfish and seaweed to bio-filter fish waste nutrients into valuable commercial seafood crops.",
+        "Incorrect. IMTA is biological co-culturing, not high-rise architecture.",
+        "Incorrect. Fish require biological nutrients, not electronics.",
+        "Incorrect. IMTA involves aquatic co-culture, not avian hybridization."
+      ],
+      "correctExplanation": "IMTA balances fed aquaculture (fish) with extractive aquaculture (mussels/sea cucumbers filtering solids; seaweeds extracting nitrogen/phosphorus).",
+      "incorrectExplanation": "IMTA utilizes waste from one species as nutritional feed for another lower-trophic organism, creating a zero-waste circular loop."
+    },
+    {
+      "id": 24015,
+      "courseId": 763,
+      "orderIndex": 6,
+      "question": "Why is underwater camera and acoustic sensor monitoring recommended during automated aquaculture feeding?",
+      "options": [
+        "To detect when fish reach satiation and immediately stop feed dispensing, preventing unconsumed pellets from decomposing into toxic ammonia on the tank bottom",
+        "To broadcast live television entertainment to the fish",
+        "To count the exact number of scales on each individual fish",
+        "To scare wild birds away with flashing camera lights"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Real-time visual/acoustic feeding telemetry prevents feed waste, lowers FCR, and stops ammonia spikes.",
+        "Incorrect. Cameras are for monitoring, not animal entertainment.",
+        "Incorrect. Cameras monitor feeding behavior rather than counting individual scales.",
+        "Incorrect. Flash lighting is not used to deter birds."
+      ],
+      "correctExplanation": "Real-time feeding telemetry detects uneaten pellets falling past the feeding zone, shutting off feeders to prevent costly waste and water fouling.",
+      "incorrectExplanation": "Feedback monitoring halts feeding when fish are satiated, preventing feed waste and water quality deterioration."
+    },
+    {
+      "id": 24016,
+      "courseId": 763,
+      "orderIndex": 7,
+      "question": "What is the primary operational biosecurity protocol for preventing disease outbreaks in aquaculture hatcheries without using prophylactic antibiotics?",
+      "options": [
+        "Strict footwear disinfection footbaths, water UV/ozone sterilization, quarantined broodstock screening, and optimal stocking densities",
+        "Dosing rearing water with human prescription antibiotics every morning",
+        "Painting all fish with waterproof chemical sealant",
+        "Allowing wild seabirds to swim freely in the hatchery tanks"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Water UV sterilization, footbaths, and quarantine maintain biosecurity without creating antibiotic resistance.",
+        "Incorrect. Prophylactic antibiotic misuse is banned under international sustainable aquaculture standards.",
+        "Incorrect. Chemical sealants are toxic and suffocate fish.",
+        "Incorrect. Wild birds are disease vectors that must be physically excluded from hatcheries."
+      ],
+      "correctExplanation": "Preventative biosecurity (UV filtration, quarantine, footbaths, low stress stocking) eliminates pathogen entry without generating antibiotic-resistant bacteria.",
+      "incorrectExplanation": "Physical containment, water sterilization, and stress reduction prevent disease naturally without relying on hazardous antibiotics."
+    },
+    {
+      "id": 24017,
+      "courseId": 763,
+      "orderIndex": 8,
+      "question": "What international standard verifies responsible, environmentally sustainable, and socially certified seafood farming practices?",
+      "options": [
+        "Aquaculture Stewardship Council (ASC) and Best Aquaculture Practices (BAP) certification",
+        "The International Heavy Boxing Association",
+        "The Global Petroleum Exporters Guild",
+        "The International Fast Food Marketing Association"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. ASC and BAP standards verify environmental stewardship, biosecurity, and social compliance across seafood supply chains.",
+        "Incorrect. Sports associations do not certify aquaculture sustainability.",
+        "Incorrect. Petroleum guilds do not govern sustainable seafood standards.",
+        "Incorrect. Fast food marketing associations do not conduct farm environmental audits."
+      ],
+      "correctExplanation": "ASC and BAP provide independent third-party audits verifying water quality, non-destructive siting, feed sustainability, and worker welfare.",
+      "incorrectExplanation": "ASC and BAP are the globally recognized independent certification standards for responsible aquaculture."
+    },
+    {
+      "id": 24026,
+      "courseId": 764,
+      "orderIndex": 1,
+      "question": "What is the mandatory secondary containment capacity required for an agrochemical storage bund?",
+      "options": [
+        "At least 110% of the volume of the largest stored container, or 25% of the total aggregate stored volume, whichever is greater",
+        "Exactly 5% of the smallest container stored",
+        "Bunding is completely optional if the floor is painted green",
+        "Zero capacity (chemicals should be stored directly on permeable gravel)"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. 110% capacity ensures complete liquid containment even if the largest stored vessel fails catastrophically.",
+        "Incorrect. 5% capacity is grossly inadequate for spill containment.",
+        "Incorrect. Paint does not provide physical liquid bunding capacity.",
+        "Incorrect. Permeable gravel allows chemicals to leach directly into groundwater."
+      ],
+      "correctExplanation": "Secondary containment bunds must hold 110% of the largest vessel volume to safely capture catastrophic drum ruptures during storage.",
+      "incorrectExplanation": "Standard chemical safety regulations mandate 110% secondary containment of the largest container to prevent soil and water contamination."
+    },
+    {
+      "id": 24027,
+      "courseId": 764,
+      "orderIndex": 2,
+      "question": "What is the universally mandated 'Triple-Rinsing' protocol for empty liquid pesticide containers?",
+      "options": [
+        "Empty container into spray tank, fill 20–25% with water, secure cap, shake vigorously for 30 seconds, pour rinsate into spray tank, repeat 3 times, and puncture container",
+        "Rinse the container once with petrol and dump it in a river",
+        "Wipe the outside of the container with a dry rag",
+        "Leave container open in the sun for 10 minutes"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Triple-rinsing removes 99.9% of chemical residues and ensures all paid product goes into the spray tank.",
+        "Incorrect. Petrol creates explosive hazards and dumping in rivers is criminal pollution.",
+        "Incorrect. Wiping with a rag leaves toxic chemical concentrate inside the bottle.",
+        "Incorrect. Sun exposure does not clean internal chemical residues."
+      ],
+      "correctExplanation": "Triple-rinsing removes over 99.9% of chemical residues, transferring active ingredients into the spray tank where they belong while preparing the container for safe recycling.",
+      "incorrectExplanation": "The international FAO triple-rinsing standard requires three consecutive water rinses with rinsate returned to the spray tank, followed by puncturing."
+    },
+    {
+      "id": 24028,
+      "courseId": 764,
+      "orderIndex": 3,
+      "question": "Why must empty pesticide containers ALWAYS be physically punctured (crushed or perforated) after triple-rinsing?",
+      "options": [
+        "To permanently render them unusable for storing food, cooking oil, animal feed, or domestic drinking water",
+        "To make them look decorative in the farm garden",
+        "To allow rainwater to fill the empty containers",
+        "To convert the plastic into high-octane gasoline"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Puncturing prevents dangerous domestic reuse of contaminated chemical packaging for food or drinking water.",
+        "Incorrect. Puncturing is a vital life-safety control, not garden decoration.",
+        "Incorrect. Containers should be stored dry in locked recycling bins.",
+        "Incorrect. Puncturing does not synthesize gasoline."
+      ],
+      "correctExplanation": "Puncturing container bottoms prevents the deadly practice of reusing toxic pesticide jugs for domestic food, beverage, or water storage.",
+      "incorrectExplanation": "Puncturing is a mandatory safety rule to ensure hazardous chemical packaging is never reused for domestic or agricultural storage."
+    },
+    {
+      "id": 24029,
+      "courseId": 764,
+      "orderIndex": 4,
+      "question": "What is the primary operational hazard of spraying agrochemicals when wind speeds exceed 15 km/h (approx. 4 m/s)?",
+      "options": [
+        "Severe off-target spray drift onto neighboring organic crops, sensitive water bodies, schools, and non-target beneficial pollinator insects",
+        "The tractor wheels spinning in reverse gear",
+        "The pesticide liquid turning into solid copper wire",
+        "Sprayer nozzles overheating and melting"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Excessive wind causes dangerous off-target drift, polluting watercourses and neighboring communities.",
+        "Incorrect. Wind speed does not alter tractor mechanical drive gears.",
+        "Incorrect. Spray drift is liquid droplet movement, not copper wire formation.",
+        "Incorrect. Nozzles operate under liquid hydraulic pressure and do not melt from wind."
+      ],
+      "correctExplanation": "High winds blow fine chemical spray droplets hundreds of meters off-target, contaminating non-target ecosystems, neighboring farms, and residential areas.",
+      "incorrectExplanation": "Wind speeds above 15 km/h cause severe spray drift, legal liability, and non-target crop contamination."
+    },
+    {
+      "id": 24030,
+      "courseId": 764,
+      "orderIndex": 5,
+      "question": "Which material provides the correct chemical-resistant barrier for gloves used when handling and mixing concentrated organophosphate and carbamate pesticides?",
+      "options": [
+        "Unlined, heavy-duty Nitrile, Neoprene, or Butyl rubber gauntlet gloves",
+        "Porous woven cotton gardening gloves",
+        "Thin disposable plastic sandwich bags",
+        "Knitted wool winter gloves"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Heavy-duty nitrile or butyl rubber gloves prevent dermal chemical absorption.",
+        "Incorrect. Cotton gloves absorb chemicals and hold poison against the skin.",
+        "Incorrect. Thin sandwich bags tear easily and offer zero chemical breakthrough protection.",
+        "Incorrect. Knitted wool is highly porous and absorbs chemical concentrates."
+      ],
+      "correctExplanation": "Nitrile and butyl rubber provide impermeable chemical resistance; cotton and leather absorb and hold toxic concentrates directly against the skin.",
+      "incorrectExplanation": "Fabric and leather gloves absorb pesticides, accelerating dermal absorption through the skin into the bloodstream."
+    },
+    {
+      "id": 24031,
+      "courseId": 764,
+      "orderIndex": 6,
+      "question": "What is the first step in responding to a chemical spill in an agricultural mixing and loading area?",
+      "options": [
+        "Ensure personal safety, check for injured personnel, don full PPE, and stop the source of the leak (e.g. uprighting a tipped container)",
+        "Wash the spilled chemical into the nearest stormwater canal with a firehose",
+        "Cover the spill with dry leaves and set it on fire",
+        "Taste the chemical to determine which pesticide was spilled"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Ensure personal safety, don PPE, isolate the leak source, and contain with dry absorbents.",
+        "Incorrect. Hosing chemicals into drains causes severe aquatic environmental crime.",
+        "Incorrect. Setting chemical spills on fire releases lethal toxic fumes.",
+        "Incorrect. Tasting chemicals causes fatal acute poisoning."
+      ],
+      "correctExplanation": "Safety is paramount: don PPE, eliminate the source (upright container), and deploy dry absorbents rather than washing chemicals into drains.",
+      "incorrectExplanation": "First responders must protect themselves with PPE, stop the leak source, and contain the spill with dry absorbents."
+    },
+    {
+      "id": 24032,
+      "courseId": 764,
+      "orderIndex": 7,
+      "question": "How do 'Air-Induction (Low-Drift) Spray Nozzles' reduce agrochemical drift compared to standard fine mist nozzles?",
+      "options": [
+        "They produce larger, air-filled droplets that are heavier and less prone to wind drift, while shattering upon leaf impact to provide complete coverage",
+        "They turn the spray liquid into solid pellets that bounce off the ground",
+        "They heat the pesticide spray to 200°C",
+        "They spray chemicals only in an upward direction toward the sky"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Air-induction nozzles cut fine driftable droplets (<100 microns) by 75%, keeping chemicals on target.",
+        "Incorrect. Nozzles spray liquid droplets, not solid bouncing pellets.",
+        "Incorrect. Nozzles operate at ambient liquid temperature.",
+        "Incorrect. Nozzles target the crop canopy downwards."
+      ],
+      "correctExplanation": "Air-induction nozzles mix air into spray droplets to create coarse, drift-resistant droplets that collapse on contact, reducing drift by up to 75%.",
+      "incorrectExplanation": "Air-induction technology creates larger, heavier droplets that resist wind drift while maintaining good biological coverage."
+    },
+    {
+      "id": 24033,
+      "courseId": 764,
+      "orderIndex": 8,
+      "question": "What document must be legally available on-site for every commercial chemical stored on an agricultural enterprise under GHS regulations?",
+      "options": [
+        "A current 16-section Safety Data Sheet (SDS) provided by the chemical manufacturer in an accessible location",
+        "A handwritten receipt from the local hardware shop",
+        "A newspaper article discussing pest management",
+        "A signed photograph of the company founder"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. 16-section Safety Data Sheets (SDS) are statutory requirements for every stored chemical substance.",
+        "Incorrect. Store receipts do not contain hazard, first aid, or toxicological information.",
+        "Incorrect. Newspaper articles carry zero statutory compliance authority.",
+        "Incorrect. Photographs provide no chemical safety data."
+      ],
+      "correctExplanation": "The 16-section GHS Safety Data Sheet provides mandatory statutory information on hazard identification, toxicology, PPE, first aid, and spill control.",
+      "incorrectExplanation": "Safety Data Sheets (SDS) are mandatory legal documents detailing chemical hazards, first aid, PPE, and emergency handling protocols."
+    },
+    {
+      "id": 23994,
+      "courseId": 780,
+      "orderIndex": 1,
+      "question": "What is the foundational principle of Integrated Pest Management (IPM)?",
+      "options": [
+        "Combining cultural, physical, and biological controls to keep pest populations below the Economic Injury Level, using targeted soft chemicals only as a last resort",
+        "Spraying chemical pesticides on a rigid calendar schedule regardless of whether pests are present",
+        "Attempting the complete global extinction of all insect species",
+        "Banning all farm machinery and harvesting crops exclusively with bare hands"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. IPM integrates ecological, physical, and biological methods, reserving selective chemicals as a last resort.",
+        "Incorrect. Calendar spraying is the opposite of IPM and causes chemical resistance.",
+        "Incorrect. IPM manages pest balance rather than attempting species eradication.",
+        "Incorrect. IPM is compatible with modern mechanized agricultural equipment."
+      ],
+      "correctExplanation": "IPM uses a tiered hierarchy of cultural, mechanical, and biological controls, utilizing chemical pesticides only when pests exceed economic damage thresholds.",
+      "incorrectExplanation": "IPM manages pests ecologically to keep damage below economic injury levels rather than relying on routine calendar chemical spraying."
+    },
+    {
+      "id": 23995,
+      "courseId": 780,
+      "orderIndex": 2,
+      "question": "What is the 'Economic Threshold Level' (ETL) in agricultural pest scouting?",
+      "options": [
+        "The pest population density at which management action must be taken to prevent pests from reaching the Economic Injury Level where crop loss exceeds control cost",
+        "The total financial value of the farm tractor fleet",
+        "The minimum price at which vegetables can be sold in local markets",
+        "The amount of tax owed by the farm to the national revenue authority"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. The Economic Threshold defines the exact pest density triggering control before economic damage occurs.",
+        "Incorrect. ETL is a crop protection metric, not equipment valuation.",
+        "Incorrect. ETL is unrelated to retail market price setting.",
+        "Incorrect. Tax calculations are separate from agronomic pest thresholds."
+      ],
+      "correctExplanation": "The Economic Threshold is the actionable pest density trigger point where the cost of treatment is less than the projected financial crop damage.",
+      "incorrectExplanation": "ETL is an ecological-economic metric indicating when pest damage justifies the cost of a control intervention."
+    },
+    {
+      "id": 23996,
+      "courseId": 780,
+      "orderIndex": 3,
+      "question": "What temperature range must be maintained in a thermophilic compost pile for at least 3 consecutive days to destroy weed seeds and plant pathogens?",
+      "options": [
+        "55°C to 65°C (131°F to 149°F)",
+        "15°C to 20°C (room temperature)",
+        "100°C to 120°C (boiling point)",
+        "Below 0°C (freezing point)"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Sustained temperatures of 55-65°C effectively pasteurize pathogens and weed seeds.",
+        "Incorrect. Room temperature fails to sanitize pathogens or weed seeds.",
+        "Incorrect. Boiling temperatures kill all beneficial compost microbiology.",
+        "Incorrect. Freezing halts biological decomposition entirely."
+      ],
+      "correctExplanation": "Maintaining 55–65°C for 3–15 days sanitizes weed seeds and pathogenic bacteria while preserving beneficial spore-forming heat-tolerant microbes.",
+      "incorrectExplanation": "Thermophilic composting requires sustained temperatures between 55°C and 65°C to kill pathogens without sterilizing beneficial biology."
+    },
+    {
+      "id": 23997,
+      "courseId": 780,
+      "orderIndex": 4,
+      "question": "What is the optimal Carbon-to-Nitrogen (C:N) ratio for building an active aerobic compost pile?",
+      "options": [
+        "Approximately 25:1 to 30:1 (25 to 30 parts brown carbon to 1 part green nitrogen)",
+        "1:100 (almost pure nitrogen with zero carbon)",
+        "500:1 (pure dry sawdust with zero nitrogen)",
+        "The C:N ratio has zero effect on biological composting speed"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. A 25:1 to 30:1 C:N ratio fuels optimal microbial digestion without ammonia off-gassing or stalled breakdown.",
+        "Incorrect. Excess nitrogen (1:100) causes anaerobic slime and foul ammonia gas release.",
+        "Incorrect. Excess carbon (500:1) stalls decomposition for months due to nitrogen starvation.",
+        "Incorrect. The C:N ratio is the fundamental driver of composting biological kinetics."
+      ],
+      "correctExplanation": "A 25:1 to 30:1 C:N ratio provides the ideal balance of energy (carbon) and protein/enzymes (nitrogen) for rapid aerobic bacterial decomposition.",
+      "incorrectExplanation": "Microorganisms require 25–30 parts of carbon for every 1 part of nitrogen to efficiently synthesize cellular proteins and multiply."
+    },
+    {
+      "id": 23998,
+      "courseId": 780,
+      "orderIndex": 5,
+      "question": "How do 'Floral Insectary Strips' planted along farm boundaries contribute to biological pest management?",
+      "options": [
+        "They provide continuous nectar and pollen resources that sustain beneficial predatory insects (ladybugs, lacewings, parasitic wasps) between pest outbreaks",
+        "They emit high-voltage radio signals that stun flying beetles",
+        "They absorb 100% of incoming sunlight so pests cannot see the crop",
+        "They make the farm boundaries completely legal-proof against all trespassers"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Floral insectaries provide nectar and habitat that sustain natural predator populations to control crop pests.",
+        "Incorrect. Plants do not emit electrical radio jamming signals.",
+        "Incorrect. Floral strips do not block sunlight from crops.",
+        "Incorrect. Insectary strips are ecological habitats, not legal boundary fences."
+      ],
+      "correctExplanation": "Flowering plants (e.g. alyssum, marigold, fennel) feed adult beneficial predators with nectar and pollen, maintaining resident populations ready to devour crop pests.",
+      "incorrectExplanation": "Insectary strips provide essential habitat and floral nutrition to maintain self-sustaining populations of beneficial predator insects."
+    },
+    {
+      "id": 23999,
+      "courseId": 780,
+      "orderIndex": 6,
+      "question": "What is 'Bacillus thuringiensis' (Bt) and how is it used in sustainable biological crop protection?",
+      "options": [
+        "A naturally occurring soil bacterium that produces specific crystal proteins toxic to caterpillar larvae when ingested, while harmless to humans, bees, and birds",
+        "A synthetic radioactive chemical manufactured from heavy crude oil",
+        "A plastic polymer sprayed on leaves to make them waterproof",
+        "A chemical weedkiller that destroys broadleaf plants"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Bt is an approved biological control targeting caterpillar pests with zero harm to beneficial pollinators and humans.",
+        "Incorrect. Bt is a biological bacterium, not a synthetic petroleum chemical.",
+        "Incorrect. Bt is a microbial pathogen, not a plastic leaf coating.",
+        "Incorrect. Bt controls insect larvae, not weed plants."
+      ],
+      "correctExplanation": "Bt is a highly specific bio-pesticide whose endotoxins dissolve the gut lining of chewing caterpillars while posing zero toxicity to non-target wildlife and humans.",
+      "incorrectExplanation": "Bacillus thuringiensis is a naturally occurring biological pathogen that targets specific pest larvae with zero mammalian or pollinator toxicity."
+    },
+    {
+      "id": 24000,
+      "courseId": 780,
+      "orderIndex": 7,
+      "question": "What is the primary operational hazard of spraying broad-spectrum synthetic chemical pesticides on an agricultural crop?",
+      "options": [
+        "Destruction of beneficial natural predators leading to secondary pest resurgence, accelerated chemical resistance, and toxic chemical residue contamination",
+        "Crops turning into blue liquid instantly",
+        "Farm machinery engines refusing to start",
+        "Rainfall turning into solid ice cubes during summer"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Broad-spectrum chemicals eradicate natural predators, create resistant pests, and leave hazardous chemical residues.",
+        "Incorrect. Crops do not liquefy from pesticide spraying.",
+        "Incorrect. Chemical sprays do not mechanically disable tractor engines.",
+        "Incorrect. Pesticides have no meteorological impact on freezing rainfall."
+      ],
+      "correctExplanation": "Broad-spectrum pesticides eradicate natural biocontrol agents, accelerating pest immunity and trapping farmers in a costly cycle of escalating chemical dependency.",
+      "incorrectExplanation": "Broad-spectrum chemicals destroy ecological balance, wipe out pollinators, and create resistant super-pests."
+    },
+    {
+      "id": 24001,
+      "courseId": 780,
+      "orderIndex": 8,
+      "question": "How does increasing Soil Organic Matter (SOM) through compost applications improve farm drought resilience?",
+      "options": [
+        "Every 1% increase in soil organic matter enables soil to hold up to 180,000 to 200,000 litres of additional plant-available water per hectare",
+        "Soil organic matter repels all water to keep roots completely dry",
+        "Organic matter turns agricultural topsoil into hard concrete paving",
+        "Compost causes all plant roots to grow upward into the air"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Soil organic matter functions as a sponge, holding up to 200,000 litres of water per hectare for each 1% SOM increase.",
+        "Incorrect. Organic matter absorbs and retains moisture rather than repelling it.",
+        "Incorrect. Organic compost creates loose, friable, well-aerated soil structure.",
+        "Incorrect. Organic soil encourages deep downward root penetration."
+      ],
+      "correctExplanation": "Soil organic matter acts like a biological sponge; a 1% increase in SOM dramatically expands soil water retention and nutrient cation exchange capacity.",
+      "incorrectExplanation": "Humus and organic matter create porous soil structure that stores immense volumes of plant-available water during dry spells."
+    },
+    {
+      "id": 24002,
+      "courseId": 781,
+      "orderIndex": 1,
+      "question": "What are the three primary categories of post-harvest produce loss in fresh horticulture?",
+      "options": [
+        "Mechanical damage (bruising/cuts), physiological breakdown (respiration/chilling), and pathological decay (fungal/bacterial rot)",
+        "Financial theft, currency inflation, and corporate bankruptcy",
+        "Over-polishing, excessive diamond coating, and golden packaging",
+        "Solar flares, tectonic plate movement, and volcanic ash"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Mechanical trauma, physiological stress, and pathological decay account for virtually all fresh produce spoilage.",
+        "Incorrect. Financial factors are separate from biological produce loss.",
+        "Incorrect. Packaging concepts are unrelated to biological loss vectors.",
+        "Incorrect. Geological events are unrelated to routine post-harvest handling."
+      ],
+      "correctExplanation": "Post-harvest produce loss stems from physical mechanical trauma, physiological moisture/respiration stress, and biological pathogen decay.",
+      "incorrectExplanation": "Mechanical, physiological, and pathological factors represent the three core scientific vectors of post-harvest crop loss."
+    },
+    {
+      "id": 24003,
+      "courseId": 781,
+      "orderIndex": 2,
+      "question": "What is 'Field Heat' and why is rapid pre-cooling critical immediately after crop harvest?",
+      "options": [
+        "The sensible thermal heat energy accumulated in harvested produce from sunlight and ambient air, which accelerates respiration and spoilage if not rapidly removed",
+        "The heat generated by tractor diesel exhaust pipes in the field",
+        "The temperature of groundwater pumped from deep underground aquifers",
+        "The friction heat created by workers walking across the field"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Field heat drives rapid respiration and spoilage; rapid pre-cooling preserves produce sugar content and firmness.",
+        "Incorrect. Field heat is produce thermal energy, not engine exhaust.",
+        "Incorrect. Groundwater temperature is separate from crop field heat.",
+        "Incorrect. Footstep friction has no impact on crop thermal dynamics."
+      ],
+      "correctExplanation": "Field heat dramatically accelerates crop metabolism and cellular breakdown; removing it within 2 hours of harvest quadruples produce shelf life.",
+      "incorrectExplanation": "Field heat is the residual ambient thermal energy that drives rapid post-harvest respiration and moisture loss."
+    },
+    {
+      "id": 24004,
+      "courseId": 781,
+      "orderIndex": 3,
+      "question": "What physiological disorder occurs when chilling-sensitive tropical crops (such as tomatoes, bananas, cucumbers, and mangoes) are stored below 7°C to 10°C?",
+      "options": [
+        "Chilling Injury (causing surface pitting, internal browning, water-soaked tissue, and failure to ripen)",
+        "Spontaneous combustion of the fruit flesh",
+        "Instant conversion of sugars into pure alcohol",
+        "Doubling of the crop weight within 1 hour"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Chilling injury permanently damages cellular membranes in tropical produce, ruining marketability.",
+        "Incorrect. Cold storage prevents combustion rather than causing it.",
+        "Incorrect. Fermentation occurs during anaerobic conditions, not simple chilling.",
+        "Incorrect. Cold storage does not increase crop mass."
+      ],
+      "correctExplanation": "Chilling injury disrupts cellular membrane permeability in tropical crops, causing pitting, discoloration, off-flavors, and rapid bacterial collapse upon re-warming.",
+      "incorrectExplanation": "Tropical and subtropical crops suffer physiological chilling damage at cold temperatures above freezing (below 7–10°C)."
+    },
+    {
+      "id": 24005,
+      "courseId": 781,
+      "orderIndex": 4,
+      "question": "What is 'Ethylene Gas' (C2H4) in post-harvest produce management?",
+      "options": [
+        "A naturally occurring gaseous plant hormone that accelerates ripening, senescence, leaf yellowing, and tissue softening in sensitive crops",
+        "A synthetic chemical sprayed on produce to make it turn purple",
+        "A toxic pesticide used to kill burrowing rodents in grain silos",
+        "An industrial refrigerant used exclusively inside compressor motors"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Ethylene gas accelerates ripening and decay; isolating ethylene producers from sensitive crops is vital.",
+        "Incorrect. Ethylene is a natural gas, not a cosmetic purple dye.",
+        "Incorrect. Ethylene is a plant hormone, not a rodenticide poison.",
+        "Incorrect. Ethylene is emitted by ripening fruit, distinct from industrial refrigerants."
+      ],
+      "correctExplanation": "Ethylene is a potent plant hormone; high ethylene producers (apples, bananas, mangoes) accelerate premature ripening and decay if stored with sensitive crops (greens, carrots).",
+      "incorrectExplanation": "Ethylene gas acts as a natural ripening hormone that triggers rapid aging and spoilage in ethylene-sensitive crops."
+    },
+    {
+      "id": 24006,
+      "courseId": 781,
+      "orderIndex": 5,
+      "question": "Why is high Relative Humidity (90% to 98% RH) essential inside cold storage rooms for fresh leafy vegetables and berries?",
+      "options": [
+        "To prevent transpiration moisture loss, wilting, and shrinkage, which reduces saleable produce weight and destroys crisp texture",
+        "To encourage rapid fungal mold growth across all vegetable surfaces",
+        "To rust the metal cold room wall panels as quickly as possible",
+        "To make the floor dangerously slippery for forklift drivers"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. High humidity (90-98%) stops water evaporation from fresh produce, preventing wilting and loss of saleable weight.",
+        "Incorrect. Proper air circulation and sanitation prevent fungal growth at high humidity.",
+        "Incorrect. Corrosion prevention is managed through stainless steel/insulated panels.",
+        "Incorrect. High humidity is for produce preservation, not floor hazards."
+      ],
+      "correctExplanation": "High relative humidity stops the dry refrigerated air from drawing water out of tender plant tissues, preventing wilting and weight loss.",
+      "incorrectExplanation": "Perishable greens lose moisture rapidly to dry air; maintaining 90–98% RH prevents wilting and loss of saleable weight."
+    },
+    {
+      "id": 24007,
+      "courseId": 781,
+      "orderIndex": 6,
+      "question": "How does gentle harvesting and using smooth, vented plastic crates reduce post-harvest losses compared to rough handling?",
+      "options": [
+        "It eliminates skin abrasions and puncture wounds that act as primary entry pathways for fungal pathogens and bacterial soft rot",
+        "It doubles the sugar content of harvested fruit instantly",
+        "It changes the physical color of the vegetable from green to gold",
+        "It allows vegetables to be harvested 3 months before they are ripe"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Smooth plastic crates prevent mechanical skin wounds, blocking microbial pathogen entry and rot.",
+        "Incorrect. Crate handling does not alter internal sugar synthesis.",
+        "Incorrect. Crate smoothness does not change produce pigmentation.",
+        "Incorrect. Harvest maturity standards must still be met."
+      ],
+      "correctExplanation": "Intact produce skin provides natural biological defense; smooth plastic crates prevent micro-wounds where rot fungi (Botrytis, Rhizopus) enter.",
+      "incorrectExplanation": "Preventing skin punctures and bruising stops fungal and bacterial pathogens from infecting and rotting the produce."
+    },
+    {
+      "id": 24008,
+      "courseId": 781,
+      "orderIndex": 7,
+      "question": "What is the primary technological advantage of 'Solar-Powered Micro-Cold Rooms' for rural smallholder agricultural communities?",
+      "options": [
+        "They provide localized off-grid cold storage directly at farm collection hubs using solar PV and thermal ice battery storage, preventing distress selling and spoilage",
+        "They can fly to international export markets autonomously",
+        "They generate fresh drinking water from dry sand",
+        "They eliminate the need for agricultural farm labor"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Solar micro-cold rooms provide reliable, off-grid cooling at farm collection points, slashing rural post-harvest loss.",
+        "Incorrect. Micro-cold rooms are stationary modular buildings, not aircraft.",
+        "Incorrect. Cold rooms preserve produce and do not synthesize water from sand.",
+        "Incorrect. Packhouse sorting and handling labor remains essential."
+      ],
+      "correctExplanation": "Solar micro-cold rooms utilize off-grid solar energy with thermal ice bank storage to preserve produce at rural farm gates where grid power is unreliable.",
+      "incorrectExplanation": "Decentralized solar cold rooms prevent post-harvest spoilage and price collapse at rural collection points."
+    },
+    {
+      "id": 24009,
+      "courseId": 781,
+      "orderIndex": 8,
+      "question": "Why is sanitizing packhouse wash water (e.g. maintaining 50–100 ppm free chlorine at pH 6.5–7.0) critical during produce post-harvest washing?",
+      "options": [
+        "To prevent cross-contamination, ensuring that fungal spores and bacteria washed off a single rotten vegetable do not inoculate clean healthy produce in the wash tank",
+        "To bleach the vegetable skin to a brilliant pure white color",
+        "To remove all natural vitamins from the vegetable flesh",
+        "To increase the weight of the produce by 50% through chemical absorption"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Maintaining active sanitizer in wash water prevents recirculating pathogen spores from infecting healthy produce.",
+        "Incorrect. Sanitization is for microbial safety, not cosmetic bleaching.",
+        "Incorrect. Proper sanitization preserves nutritional value while preventing decay.",
+        "Incorrect. Produce does not absorb excess weight from sanitized water."
+      ],
+      "correctExplanation": "Without sanitizer, dump tanks become pathogen baths that inoculate thousands of healthy vegetables with soft-rot bacteria through stem scars.",
+      "incorrectExplanation": "Water sanitation kills waterborne pathogens to prevent cross-contamination during hydro-cooling and post-harvest washing."
+    },
+    {
+      "id": 24018,
+      "courseId": 782,
+      "orderIndex": 1,
+      "question": "What is the primary ecological function of mangrove ecosystems in tropical coastal environments?",
+      "options": [
+        "They trap terrestrial sediments, filter agricultural runoff, buffer shorelines against cyclone storm surges, and provide critical nursery habitats for marine fish",
+        "They produce industrial plastic resin directly from sea water",
+        "They generate toxic volcanic ash that drives fish away from the coast",
+        "They consume 100% of all oxygen in the atmosphere"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Mangroves trap sediment, protect shorelines from storms, store blue carbon, and nurse juvenile marine fish.",
+        "Incorrect. Mangroves are living trees, not petroleum plastic factories.",
+        "Incorrect. Mangroves do not produce volcanic materials.",
+        "Incorrect. Mangroves produce oxygen through photosynthesis and sequester carbon."
+      ],
+      "correctExplanation": "Mangroves act as vital biological kidneys that filter agricultural sediment, protect coasts from erosion, and shelter juvenile reef fish.",
+      "incorrectExplanation": "Mangrove forests are highly productive intertidal ecosystems providing essential sediment filtration, coastal defense, and marine nursery functions."
+    },
+    {
+      "id": 24019,
+      "courseId": 782,
+      "orderIndex": 2,
+      "question": "What is 'Blue Carbon' in global climate change mitigation?",
+      "options": [
+        "Carbon dioxide captured and stored in coastal and marine ecosystems, including mangroves, seagrass meadows, and tidal salt marshes",
+        "Carbon emissions produced exclusively by luxury cruise ships",
+        "Coal that has been painted blue for cosmetic marketing purposes",
+        "Carbon dioxide stored in carbonated blue soda drinks"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Blue carbon refers to immense long-term carbon storage in coastal mangrove and seagrass sediments.",
+        "Incorrect. Cruise ship emissions are fossil greenhouse gases, not blue carbon sinks.",
+        "Incorrect. Painted coal is a marketing gimmick, not a carbon sink.",
+        "Incorrect. Carbonated beverages are temporary dissolved gas, not long-term sequestration."
+      ],
+      "correctExplanation": "Blue carbon refers to coastal vegetated ecosystems (mangroves, seagrasses) that bury carbon in anaerobic sediments for centuries at rates up to 10x faster than land forests.",
+      "incorrectExplanation": "Blue carbon is the scientific term for carbon sequestered and permanently stored by coastal wetland and marine ecosystems."
+    },
+    {
+      "id": 24020,
+      "courseId": 782,
+      "orderIndex": 3,
+      "question": "What is the purpose of planting dense Vetiver grass (Chrysopogon zizanioides) contour hedges across sloping coastal farmland?",
+      "options": [
+        "Its massive, deep vertical root network (2–3 meters) anchors topsoil, slowing runoff velocity and filtering out suspended agricultural silt",
+        "It attracts dangerous wild predators to scare away farm workers",
+        "It turns the field soil into flammable petroleum oil",
+        "It prevents rainclouds from forming over the farm"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Deep-rooted Vetiver contour hedges physically arrest soil erosion and trap sediment before it reaches waterways.",
+        "Incorrect. Vetiver is a non-invasive grass that does not attract dangerous wildlife.",
+        "Incorrect. Vetiver is a soil-stabilizing plant, not a petroleum source.",
+        "Incorrect. Plants do not alter meteorological cloud formation."
+      ],
+      "correctExplanation": "Vetiver grass forms dense living bio-dams whose massive roots anchor soil, slashing erosion by up to 90% and trapping fertile topsoil on the field.",
+      "incorrectExplanation": "Vetiver contour hedges physically block soil erosion and filter runoff before sediment can enter coastal lagoons."
+    },
+    {
+      "id": 24021,
+      "courseId": 782,
+      "orderIndex": 4,
+      "question": "What causes 'Saltwater Intrusion' in coastal agricultural freshwater aquifers?",
+      "options": [
+        "Excessive pumping of groundwater that lowers the freshwater table, allowing denser ocean seawater to migrate inland into borehole wells",
+        "Leaving sprinkler hoses running during high tide",
+        "Adding salt to vehicle tires before driving on farm roads",
+        "Planting coconuts along the coastal road"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Over-pumping groundwater lowers hydrostatic pressure, pulling seawater into coastal freshwater wells.",
+        "Incorrect. Sprinklers do not pull seawater into underground aquifers.",
+        "Incorrect. Vehicle tires do not affect deep hydrogeological salinity.",
+        "Incorrect. Coconut trees do not cause aquifer salinization."
+      ],
+      "correctExplanation": "Under the Ghyben-Herzberg relation, over-extracting coastal groundwater pulls the saltwater interface upward, permanently contaminating freshwater wells with salt.",
+      "incorrectExplanation": "Over-pumping groundwater depletes freshwater pressure heads, drawing dense seawater into agricultural aquifers."
+    },
+    {
+      "id": 24022,
+      "courseId": 782,
+      "orderIndex": 5,
+      "question": "Why is excessive fine silt and mud runoff devastating to coral reefs in coastal lagoons?",
+      "options": [
+        "Suspended sediment blocks sunlight needed by symbiotic zooxanthellae algae for photosynthesis, and settling silt smothers and chokes live coral polyps",
+        "Silt turns coral skeletons into pure liquid water",
+        "Silt makes ocean water too cold for tropical fish to swim",
+        "Silt causes coral reefs to grow 20 meters taller in one day"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Silt blocks light required for coral photosynthesis and physically suffocates live coral polyps.",
+        "Incorrect. Silt physically smothers coral rather than dissolving skeletons into water.",
+        "Incorrect. Sediment increases turbidity, but does not alter macro-ocean thermal mass.",
+        "Incorrect. Sediment kills corals rather than accelerating vertical growth."
+      ],
+      "correctExplanation": "Coral polyps rely on symbiotic photosynthetic algae; sediment plumes block vital light and bury coral polyps, causing coral bleaching and reef death.",
+      "incorrectExplanation": "Turbid agricultural runoff starves coral of sunlight and physically buries the living polyps beneath suffocating sediment layers."
+    },
+    {
+      "id": 24023,
+      "courseId": 782,
+      "orderIndex": 6,
+      "question": "What is the recommended minimum width for a multi-tiered coastal riparian buffer zone along agricultural fields bordering sensitive marine waterways?",
+      "options": [
+        "15 to 30 meters of undisturbed native vegetation (grasses, shrubs, and canopy trees)",
+        "10 millimeters (1 centimeter)",
+        "500 kilometers",
+        "Zero meters (crops planted directly into the water edge)"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. A 15-30 meter vegetative buffer provides optimal sediment filtration and nutrient uptake capacity.",
+        "Incorrect. 1 centimeter is completely ineffective for runoff filtration.",
+        "Incorrect. 500 km is an unrealistic continental dimension.",
+        "Incorrect. Planting to the water edge causes extreme soil collapse and direct chemical runoff."
+      ],
+      "correctExplanation": "A 15–30 meter multi-tiered buffer zone provides sufficient filtration distance to trap over 85% of agricultural sediment, nitrogen, and pesticide runoff.",
+      "incorrectExplanation": "Ecological guidelines mandate a 15–30 meter permanent vegetative buffer to effectively filter agricultural runoff before it reaches watercourses."
+    },
+    {
+      "id": 24024,
+      "courseId": 782,
+      "orderIndex": 7,
+      "question": "What is a 'Sediment Retention Basin / Silt Trap' and how does it function on a coastal farm?",
+      "options": [
+        "An engineered pond that slows the velocity of stormwater runoff, allowing heavy suspended soil particles to settle by gravity before water exits to the sea",
+        "An underground incinerator that burns mud at 1,000°C",
+        "A giant electric vacuum cleaner that flies over fields during rainstorms",
+        "A chemical tank that dissolves soil into invisible gas"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Sediment basins slow runoff velocity, allowing gravity settling to capture soil before water discharges into lagoons.",
+        "Incorrect. Silt traps use physical gravity settling, not thermal incineration.",
+        "Incorrect. Sediment basins are earthworks, not airborne machinery.",
+        "Incorrect. Silt is physically captured and periodically excavated for soil reuse."
+      ],
+      "correctExplanation": "Sediment basins detain turbulent runoff, reducing water velocity so that suspended silt and clay drop out of suspension, preventing lagoon pollution.",
+      "incorrectExplanation": "Sediment retention basins utilize gravity settling to remove suspended agricultural soil particles from stormwater runoff."
+    },
+    {
+      "id": 24025,
+      "courseId": 782,
+      "orderIndex": 8,
+      "question": "Under Mauritian environmental legislation and international conventions, what legal protection status applies to native mangrove wetlands?",
+      "options": [
+        "Mangroves are strictly protected coastal forestry ecosystems where unauthorized clearing, cutting, infilling, or pollution is a criminal offense",
+        "Mangroves are classified as agricultural weeds that must be eradicated by farmers",
+        "Mangroves may be cleared freely by anyone without permits",
+        "Mangroves are only protected on private golf courses"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Mangroves are strictly protected by law; illegal clearing incurs heavy criminal penalties and mandatory restoration.",
+        "Incorrect. Mangroves are vital ecological habitats, never classified as weeds.",
+        "Incorrect. Unauthorized mangrove destruction is strictly illegal.",
+        "Incorrect. Legal protection applies universally across all public and private coastal lands."
+      ],
+      "correctExplanation": "Mangroves are protected intertidal habitats under national environmental and forestry statutes; destruction incurs severe criminal fines and mandatory restoration orders.",
+      "incorrectExplanation": "Mangroves enjoy strict legal protection due to their critical ecological role in coastal protection and marine fisheries."
+    },
+    {
+      "id": 24034,
+      "courseId": 783,
+      "orderIndex": 1,
+      "question": "Why is Nitrous Oxide (N2O) emissions management the top priority in agricultural carbon footprinting?",
+      "options": [
+        "Nitrous oxide has a Global Warming Potential (GWP) 273 times greater than CO2 over a 100-year timescale and is directly driven by synthetic nitrogen fertilizer application",
+        "Nitrous oxide makes crops turn invisible",
+        "Nitrous oxide is produced exclusively by electric battery vehicles",
+        "Nitrous oxide has zero impact on global climate change"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. N2O is 273 times more potent than CO2, making fertilizer efficiency the top priority in agricultural decarbonization.",
+        "Incorrect. N2O is an invisible atmospheric gas, but does not affect crop optical properties.",
+        "Incorrect. N2O is emitted from soil and biological processes, not electric vehicles.",
+        "Incorrect. N2O is a major driver of global climate change and stratospheric ozone depletion."
+      ],
+      "correctExplanation": "N2O is an extremely potent greenhouse gas (GWP 273); synthetic nitrogen fertilizer over-application drives intense microbial nitrification and denitrification pulses.",
+      "incorrectExplanation": "N2O has a 100-year Global Warming Potential of 273, making even small fertilizer losses major contributors to total farm carbon footprints."
+    },
+    {
+      "id": 24035,
+      "courseId": 783,
+      "orderIndex": 2,
+      "question": "What does the '4R Nutrient Stewardship' framework stand for in sustainable agronomy?",
+      "options": [
+        "Right Source, Right Rate, Right Time, Right Place",
+        "Run, Rest, Repeat, Retire",
+        "Remove, Replace, Repaint, Resell",
+        "Random, Rapid, Reckless, Redundant"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Right Source, Right Rate, Right Time, and Right Place is the foundational framework for nutrient efficiency.",
+        "Incorrect. The 4Rs refer to agronomic nutrient management, not physical exercise.",
+        "Incorrect. The 4Rs are chemical nutrient principles, not equipment maintenance steps.",
+        "Incorrect. Precision stewardship is the exact opposite of random application."
+      ],
+      "correctExplanation": "The 4R framework optimizes fertilizer efficiency: applying the right fertilizer type, at the right dosage, at the right crop growth stage, targeted at the root zone.",
+      "incorrectExplanation": "4R Nutrient Stewardship is the global agronomic standard for maximizing crop nutrient uptake while minimizing environmental losses."
+    },
+    {
+      "id": 24036,
+      "courseId": 783,
+      "orderIndex": 3,
+      "question": "In farm-gate product carbon footprint accounting (ISO 14067), what is the standard 'Functional Unit' for agricultural produce?",
+      "options": [
+        "Kilograms of CO2 equivalent per kilogram (or tonne) of harvested, saleable crop (e.g. kg CO2e / kg produce)",
+        "Number of leaves per tree",
+        "Total square meters of the farmer's house",
+        "Number of tractor wheels on the farm"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. kg CO2e per kg (or tonne) of marketable produce is the international standard functional unit in agri-food LCA.",
+        "Incorrect. Leaf count is not a standard functional unit for commercial trade.",
+        "Incorrect. Residential building size is unrelated to crop mass carbon intensity.",
+        "Incorrect. Machinery wheel count does not measure product carbon intensity."
+      ],
+      "correctExplanation": "Product carbon footprints normalize total lifecycle emissions to a standard mass unit of marketable produce (kg CO2e / kg product).",
+      "incorrectExplanation": "Functional units standardize emissions per unit of delivered output (e.g. kg CO2e/kg tomato, kg CO2e/kg sugar)."
+    },
+    {
+      "id": 24037,
+      "courseId": 783,
+      "orderIndex": 4,
+      "question": "How does 'Split-Fertigation' (applying small doses of fertilizer dissolved in drip irrigation water throughout the season) reduce greenhouse gas emissions?",
+      "options": [
+        "It matches nutrient availability directly to daily plant uptake rates, preventing massive soil nitrogen surpluses that trigger N2O denitrification spikes",
+        "It cools the soil down to freezing temperature",
+        "It turns the fertilizer into solid stone",
+        "It makes weeds grow 10 times faster than the crop"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Synchronizing nutrient delivery with crop demand eliminates excess soil nitrogen and prevents N2O emissions.",
+        "Incorrect. Fertigation does not alter soil temperature to freezing.",
+        "Incorrect. Nutrients remain dissolved in bio-available liquid form.",
+        "Incorrect. Targeted drip fertigation delivers nutrients to crop roots while starving surface weeds."
+      ],
+      "correctExplanation": "Small, continuous fertigation doses ensure plant roots absorb nutrients immediately, leaving no excess nitrogen in soil to volatilize into N2O or leach into aquifers.",
+      "incorrectExplanation": "Precision fertigation synchronizes nutrient delivery with crop demand curves, preventing the excess nitrogen concentrations that drive N2O formation."
+    },
+    {
+      "id": 24038,
+      "courseId": 783,
+      "orderIndex": 5,
+      "question": "What is 'Soil Organic Carbon (SOC) Sequestration' in regenerative agriculture?",
+      "options": [
+        "The process where cover crops, compost, and minimal tillage capture atmospheric CO2 via photosynthesis and store it as stable organic humus in the soil profile",
+        "Burying plastic bags of charcoal in the field",
+        "Spraying black petroleum paint over farm topsoil",
+        "Pumping toxic industrial exhaust directly into agricultural furrows"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Photosynthesis and organic matter additions store atmospheric carbon as stable soil humus.",
+        "Incorrect. Plastic bag burial is waste disposal, not biological soil carbon sequestration.",
+        "Incorrect. Paint application is toxic and damages soil microbiology.",
+        "Incorrect. Exhaust gas pumping is hazardous and unfeasible."
+      ],
+      "correctExplanation": "Regenerative soil practices build stable soil humus, pulling carbon from the atmosphere and locking it in the soil for decades while improving soil fertility.",
+      "incorrectExplanation": "Soil carbon sequestration utilizes biological photosynthesis and root exudates to build stable soil organic matter and draw down CO2."
+    },
+    {
+      "id": 24039,
+      "courseId": 783,
+      "orderIndex": 6,
+      "question": "What is the role of 'Nitrification Inhibitors' (e.g. DCD, nitrapyrin) when blended with synthetic nitrogen fertilizers?",
+      "options": [
+        "They temporarily slow the biological conversion of ammonium to nitrate by soil bacteria, reducing leaching and cutting N2O emissions by 30% to 50%",
+        "They speed up soil erosion during rainstorms",
+        "They make fertilizers glow in the dark",
+        "They eliminate all earthworms from the agricultural field"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Nitrification inhibitors delay ammonium conversion, cutting N2O emissions by 30-50% and improving nitrogen use efficiency.",
+        "Incorrect. Inhibitors do not cause soil erosion.",
+        "Incorrect. Inhibitors are biochemical compounds, not luminescent dyes.",
+        "Incorrect. Inhibitors target specific bacteria and do not harm earthworms at label rates."
+      ],
+      "correctExplanation": "Inhibitors slow Nitrosomonas bacteria, keeping nitrogen in the stable ammonium (NH4+) form longer, allowing more time for plant uptake and slashing N2O emissions.",
+      "incorrectExplanation": "Nitrification inhibitors delay the conversion of ammonium to nitrate, reducing both nitrate leaching and nitrous oxide emissions."
+    },
+    {
+      "id": 24040,
+      "courseId": 783,
+      "orderIndex": 7,
+      "question": "How does installing GPS Auto-Steer guidance on agricultural tractors reduce farm Scope 1 fuel emissions?",
+      "options": [
+        "It eliminates pass-to-pass overlapping during tillage, planting, and spraying, reducing total field tractor driving distance and diesel burn by 10% to 15%",
+        "It allows tractors to operate without diesel fuel entirely",
+        "It makes tractors drive at 200 km/h in the field",
+        "It turns the tractor into an unmanned flying drone"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. GPS guidance eliminates swath overlaps, cutting tractor fuel burn and operating hours by 10-15%.",
+        "Incorrect. Auto-steer guides steering but engines still consume fuel.",
+        "Incorrect. Field operations maintain safe, calibrated working speeds.",
+        "Incorrect. Auto-steer guides ground tractors, not aircraft."
+      ],
+      "correctExplanation": "GPS auto-steer eliminates steering overlaps and skips, ensuring every implement pass is exact, saving 10–15% in tractor operating time, diesel fuel, and inputs.",
+      "incorrectExplanation": "Precision GPS guidance eliminates redundant implement overlap, cutting diesel consumption, machine hours, and input waste."
+    },
+    {
+      "id": 24041,
+      "courseId": 783,
+      "orderIndex": 8,
+      "question": "Why are major global food brands requiring farm suppliers to calculate farm-gate carbon footprints under verified standards (e.g. GHG Protocol / SBTi)?",
+      "options": [
+        "Because agricultural raw materials account for 60% to 80% of food corporations' total Scope 3 emissions, making farm decarbonization essential for net-zero targets",
+        "Because corporate executives want to force farmers to close their businesses",
+        "Because carbon accounting replaces the need to deliver physical food crops",
+        "Because agricultural carbon accounting is legally banned in all international markets"
+      ],
+      "correctOption": 0,
+      "optionFeedback": [
+        "Correct. Agricultural inputs represent 60-80% of food brand Scope 3 emissions, driving supplier carbon verification mandates.",
+        "Incorrect. Brands seek supplier partnerships to decarbonize supply chains, not close them.",
+        "Incorrect. Physical food delivery remains the core commercial activity.",
+        "Incorrect. Carbon accounting is increasingly mandatory under statutory ESG frameworks."
+      ],
+      "correctExplanation": "Food companies have vast Scope 3 footprints rooted in agricultural supply chains; partner decarbonization is mandatory to achieve Science-Based Targets (SBTi).",
+      "incorrectExplanation": "Agricultural raw materials represent the largest share of food brands' Scope 3 emissions, driving mandatory supplier carbon accounting."
+    }
+  ],
+  "sha256": "84bd4205507162a123c1ade33d01aada9d3bffaca9cc97594986a41967ebf0be"
+}

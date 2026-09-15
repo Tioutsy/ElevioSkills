@@ -1,12 +1,6 @@
 export type BillingInterval = "MONTHLY" | "YEARLY";
 export type PlanCode = "ESSENTIAL" | "PROFESSIONAL" | "COMPLETE";
 
-export interface EnterprisePricingInput {
-  planCode: string;
-  employeeCount: number;
-  billingInterval?: string | null;
-}
-
 export interface EnterprisePricingBreakdown {
   packageIdentifier: PlanCode;
   employeeCount: number;
@@ -14,7 +8,7 @@ export interface EnterprisePricingBreakdown {
   additionalEmployeeCount: number;
   additionalBlockSize: number;
   additionalBlocks: number;
-  baseMonthlyPrice: number;
+  baseMonthlyPrice: number | null;
   pricePerAdditionalBlock: number;
   additionalMonthlyAmount: number;
   finalMonthlyAmount: number;
@@ -27,7 +21,13 @@ export interface EnterprisePricingBreakdown {
   currency: string;
   includedMaxEmployees: number;
   annualSavings: number;
+  annualSavingsMUR: number;
   equivalentMonthlyAmount: number;
+  equivalentMonthlyMUR: number;
+  bandCode: string;
+  isTailoredQuote?: boolean;
+  requiresTailoredQuote?: boolean;
+  tailoredQuoteMessage?: string;
 }
 
 export interface PricingCalculationResult {
@@ -44,36 +44,35 @@ export interface PricingCalculationResult {
   includedMaxEmployees?: number;
 }
 
-export const BASE_PRICING_121_250: Record<PlanCode, number> = {
-  ESSENTIAL: 7500,
-  PROFESSIONAL: 9500,
-  COMPLETE: 12500,
+export const APPROVED_BAND_PRICING: Record<string, number | null> = {
+  UP_TO_25: 3000,
+  FROM_26_TO_50: 4500,
+  FROM_51_TO_80: 5000,
+  FROM_81_TO_120: 6250,
+  OVER_120: null,
 };
 
-export const ADDITIONAL_BLOCK_PRICE_MONTHLY: Record<PlanCode, number> = {
-  ESSENTIAL: 1000,
-  PROFESSIONAL: 1250,
-  COMPLETE: 1500,
-};
-
-export const STANDARD_BAND_PRICING: Record<PlanCode, Record<string, number>> = {
+export const STANDARD_BAND_PRICING: Record<PlanCode, Record<string, number | null>> = {
   ESSENTIAL: {
     UP_TO_25: 3000,
     FROM_26_TO_50: 4500,
     FROM_51_TO_80: 5000,
     FROM_81_TO_120: 6250,
+    OVER_120: null,
   },
   PROFESSIONAL: {
-    UP_TO_25: 4500,
-    FROM_26_TO_50: 6500,
-    FROM_51_TO_80: 7500,
-    FROM_81_TO_120: 9000,
+    UP_TO_25: 3000,
+    FROM_26_TO_50: 4500,
+    FROM_51_TO_80: 5000,
+    FROM_81_TO_120: 6250,
+    OVER_120: null,
   },
   COMPLETE: {
-    UP_TO_25: 6000,
-    FROM_26_TO_50: 9000,
-    FROM_51_TO_80: 11000,
-    FROM_81_TO_120: 13500,
+    UP_TO_25: 3000,
+    FROM_26_TO_50: 4500,
+    FROM_51_TO_80: 5000,
+    FROM_81_TO_120: 6250,
+    OVER_120: null,
   },
 };
 
@@ -82,6 +81,7 @@ export const BAND_CAPACITY_LIMITS: Record<string, number> = {
   FROM_26_TO_50: 50,
   FROM_51_TO_80: 80,
   FROM_81_TO_120: 120,
+  OVER_120: 120,
 };
 
 export function normalizeBillingInterval(rawInterval?: string | null): BillingInterval {
@@ -97,93 +97,25 @@ export function normalizeBillingInterval(rawInterval?: string | null): BillingIn
 }
 
 export function normalizePlanCode(rawPlanCode?: string | null): PlanCode {
-  if (!rawPlanCode) throw new Error("Plan code is required.");
+  if (!rawPlanCode) return "COMPLETE";
   const normalized = rawPlanCode.trim().toUpperCase() as PlanCode;
   if (normalized === "ESSENTIAL" || normalized === "PROFESSIONAL" || normalized === "COMPLETE") {
     return normalized;
   }
-  throw new Error(`Unsupported package: "${rawPlanCode}". Supported values are "ESSENTIAL", "PROFESSIONAL", and "COMPLETE".`);
+  return "COMPLETE";
 }
 
 /**
- * Authoritative Server-Side Pricing Engine for Companies with >120 Employees.
- * Base capacity: 121–250 employees.
- * Additional blocks: +50 employees per started block above 250.
- * Yearly billing: Exactly 10% discount on total annual amount.
- */
-export function calculateEnterprisePricing(input: EnterprisePricingInput): EnterprisePricingBreakdown {
-  const planCode = normalizePlanCode(input.planCode);
-  const billingInterval = normalizeBillingInterval(input.billingInterval);
-
-  const count = input.employeeCount;
-  if (count === undefined || count === null || typeof count !== "number" || isNaN(count)) {
-    throw new Error("Missing or invalid employee count.");
-  }
-  if (!Number.isInteger(count)) {
-    throw new Error("Employee count must be an integer.");
-  }
-  if (count <= 0) {
-    throw new Error("Employee count must be greater than zero.");
-  }
-  if (count > 100000) {
-    throw new Error("Employee count exceeds maximum supported organization size.");
-  }
-
-  const baseMonthlyPrice = BASE_PRICING_121_250[planCode];
-  const pricePerAdditionalBlock = ADDITIONAL_BLOCK_PRICE_MONTHLY[planCode];
-  const baseEmployeeCapacity = 250;
-  const additionalBlockSize = 50;
-
-  let additionalEmployeeCount = 0;
-  let additionalBlocks = 0;
-
-  if (count > 250) {
-    additionalEmployeeCount = count - 250;
-    additionalBlocks = Math.ceil(additionalEmployeeCount / additionalBlockSize);
-  }
-
-  const additionalMonthlyAmount = additionalBlocks * pricePerAdditionalBlock;
-  const finalMonthlyAmount = baseMonthlyPrice + additionalMonthlyAmount;
-
-  const undiscountedAnnualTotal = finalMonthlyAmount * 12;
-  const discountPercentage = 10;
-  const discountAmount = Math.round(undiscountedAnnualTotal * 0.10);
-  const finalYearlyAmount = undiscountedAnnualTotal - discountAmount;
-  const annualSavings = discountAmount;
-  const equivalentMonthlyAmount = Math.round((finalYearlyAmount / 12) * 100) / 100;
-
-  const finalAmountDue = billingInterval === "YEARLY" ? finalYearlyAmount : finalMonthlyAmount;
-  const includedMaxEmployees = count <= 250 ? 250 : 250 + additionalBlocks * additionalBlockSize;
-
-  return {
-    packageIdentifier: planCode,
-    employeeCount: count,
-    baseEmployeeCapacity,
-    additionalEmployeeCount,
-    additionalBlockSize,
-    additionalBlocks,
-    baseMonthlyPrice,
-    pricePerAdditionalBlock,
-    additionalMonthlyAmount,
-    finalMonthlyAmount,
-    undiscountedAnnualTotal,
-    discountPercentage: billingInterval === "YEARLY" ? discountPercentage : 0,
-    discountAmount: billingInterval === "YEARLY" ? discountAmount : 0,
-    finalYearlyAmount,
-    billingInterval,
-    finalAmountDue,
-    currency: "MUR",
-    includedMaxEmployees,
-    annualSavings,
-    equivalentMonthlyAmount,
-  };
-}
-
-/**
- * Universal Authoritative Pricing Resolver for Any Headcount & Band.
+ * Universal Authoritative Pricing Resolver based on Employee Headcount & Band.
+ * Standard monthly pricing:
+ * - Up to 25 employees: MUR 3,000/month (MUR 32,400/year)
+ * - 26–50 employees: MUR 4,500/month (MUR 48,600/year)
+ * - 51–80 employees: MUR 5,000/month (MUR 54,000/year)
+ * - 81–120 employees: MUR 6,250/month (MUR 67,500/year)
+ * - 121+ employees: Contact us for a tailored quote (no calculated public formula).
  */
 export function calculateAuthoritativePricing(opts: {
-  planCode: string;
+  planCode?: string;
   employeeCount?: number;
   bandCode?: string;
   billingInterval?: string | null;
@@ -193,7 +125,6 @@ export function calculateAuthoritativePricing(opts: {
   let count = opts.employeeCount;
 
   if (count === undefined || count === null || isNaN(count)) {
-    // Derive headcount from bandCode if count not provided
     if (opts.bandCode === "UP_TO_25") count = 25;
     else if (opts.bandCode === "FROM_26_TO_50") count = 50;
     else if (opts.bandCode === "FROM_51_TO_80") count = 80;
@@ -202,62 +133,96 @@ export function calculateAuthoritativePricing(opts: {
     else count = 25;
   }
 
-  if (count <= 120) {
-    let standardMonthly = 3000;
-    let includedMax = 25;
-
-    if (count <= 25) {
-      standardMonthly = STANDARD_BAND_PRICING[planCode].UP_TO_25;
-      includedMax = 25;
-    } else if (count <= 50) {
-      standardMonthly = STANDARD_BAND_PRICING[planCode].FROM_26_TO_50;
-      includedMax = 50;
-    } else if (count <= 80) {
-      standardMonthly = STANDARD_BAND_PRICING[planCode].FROM_51_TO_80;
-      includedMax = 80;
-    } else {
-      standardMonthly = STANDARD_BAND_PRICING[planCode].FROM_81_TO_120;
-      includedMax = 120;
-    }
-
-    const undiscountedAnnualTotal = standardMonthly * 12;
-    const discountAmount = Math.round(undiscountedAnnualTotal * 0.10);
-    const finalYearlyAmount = undiscountedAnnualTotal - discountAmount;
-    const finalAmountDue = billingInterval === "YEARLY" ? finalYearlyAmount : standardMonthly;
-
+  // 121+ employees: Tailored Quote Required (No generated public formula)
+  if (count > 120 || opts.bandCode === "OVER_120") {
     return {
       packageIdentifier: planCode,
       employeeCount: count,
-      baseEmployeeCapacity: includedMax,
+      baseEmployeeCapacity: 120,
       additionalEmployeeCount: 0,
-      additionalBlockSize: 50,
+      additionalBlockSize: 0,
       additionalBlocks: 0,
-      baseMonthlyPrice: standardMonthly,
-      pricePerAdditionalBlock: ADDITIONAL_BLOCK_PRICE_MONTHLY[planCode],
+      baseMonthlyPrice: null,
+      pricePerAdditionalBlock: 0,
       additionalMonthlyAmount: 0,
-      finalMonthlyAmount: standardMonthly,
-      undiscountedAnnualTotal,
-      discountPercentage: billingInterval === "YEARLY" ? 10 : 0,
-      discountAmount: billingInterval === "YEARLY" ? discountAmount : 0,
-      finalYearlyAmount,
+      finalMonthlyAmount: 0,
+      undiscountedAnnualTotal: 0,
+      discountPercentage: 0,
+      discountAmount: 0,
+      finalYearlyAmount: 0,
       billingInterval,
-      finalAmountDue,
+      finalAmountDue: 0,
       currency: "MUR",
-      includedMaxEmployees: includedMax,
-      annualSavings: discountAmount,
-      equivalentMonthlyAmount: Math.round((finalYearlyAmount / 12) * 100) / 100,
+      includedMaxEmployees: 120,
+      annualSavings: 0,
+      annualSavingsMUR: 0,
+      equivalentMonthlyAmount: 0,
+      equivalentMonthlyMUR: 0,
+      bandCode: "OVER_120",
+      isTailoredQuote: true,
+      requiresTailoredQuote: true,
+      tailoredQuoteMessage: "Contact us for a tailored quote",
     };
   }
 
-  return calculateEnterprisePricing({
-    planCode,
+  let standardMonthly = 3000;
+  let includedMax = 25;
+  let bandCode = "UP_TO_25";
+
+  if (count <= 25) {
+    standardMonthly = APPROVED_BAND_PRICING.UP_TO_25 || 3000;
+    includedMax = 25;
+    bandCode = "UP_TO_25";
+  } else if (count <= 50) {
+    standardMonthly = APPROVED_BAND_PRICING.FROM_26_TO_50 || 4500;
+    includedMax = 50;
+    bandCode = "FROM_26_TO_50";
+  } else if (count <= 80) {
+    standardMonthly = APPROVED_BAND_PRICING.FROM_51_TO_80 || 5000;
+    includedMax = 80;
+    bandCode = "FROM_51_TO_80";
+  } else {
+    standardMonthly = APPROVED_BAND_PRICING.FROM_81_TO_120 || 6250;
+    includedMax = 120;
+    bandCode = "FROM_81_TO_120";
+  }
+
+  const undiscountedAnnualTotal = standardMonthly * 12;
+  const discountAmount = Math.round(undiscountedAnnualTotal * 0.10);
+  const finalYearlyAmount = undiscountedAnnualTotal - discountAmount;
+  const finalAmountDue = billingInterval === "YEARLY" ? finalYearlyAmount : standardMonthly;
+
+  return {
+    packageIdentifier: planCode,
     employeeCount: count,
+    baseEmployeeCapacity: includedMax,
+    additionalEmployeeCount: 0,
+    additionalBlockSize: 0,
+    additionalBlocks: 0,
+    baseMonthlyPrice: standardMonthly,
+    pricePerAdditionalBlock: 0,
+    additionalMonthlyAmount: 0,
+    finalMonthlyAmount: standardMonthly,
+    undiscountedAnnualTotal,
+    discountPercentage: billingInterval === "YEARLY" ? 10 : 0,
+    discountAmount: billingInterval === "YEARLY" ? discountAmount : 0,
+    finalYearlyAmount,
     billingInterval,
-  });
+    finalAmountDue,
+    currency: "MUR",
+    includedMaxEmployees: includedMax,
+    annualSavings: discountAmount,
+    annualSavingsMUR: discountAmount,
+    equivalentMonthlyAmount: Math.round((finalYearlyAmount / 12) * 100) / 100,
+    equivalentMonthlyMUR: Math.round((finalYearlyAmount / 12) * 100) / 100,
+    bandCode,
+    isTailoredQuote: false,
+    requiresTailoredQuote: false,
+  };
 }
 
 /**
- * Standard legacy wrapper for fixed base amounts.
+ * Standard calculation helper for fixed monthly base amounts.
  */
 export function calculateSubscriptionPricing(
   monthlyBasePrice: number | null | undefined,
@@ -298,7 +263,7 @@ export function calculateSubscriptionPricing(
     };
   }
 
-  // YEARLY billing: 10% discount on equivalent 12-month total
+  // YEARLY billing: Exactly 10% discount on equivalent 12-month total
   const undiscountedTotal = basePrice * 12;
   const discountPercentage = 10;
   const discountAmount = Math.round(undiscountedTotal * 0.10);
@@ -319,3 +284,4 @@ export function calculateSubscriptionPricing(
     isTailoredQuote: false,
   };
 }
+

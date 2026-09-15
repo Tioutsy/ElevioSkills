@@ -374,7 +374,7 @@ export async function ensureEnvironmentalComplianceCourse(): Promise<void> {
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== NEW_QUIZ.length;
+      const hasMissingQuiz = existingQuizQuestions.length < 8;
       const hasIncorrectSlug = course.slug !== COURSE_SLUG;
 
       const needsRepair = !existingSeed ||

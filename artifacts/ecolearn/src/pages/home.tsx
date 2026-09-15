@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { CourseImage } from "@/components/CourseImage";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowRight, Leaf, ShieldCheck, TrendingUp, PlayCircle, BookOpen, Award, BarChart3 } from "lucide-react";
+import { ArrowRight, Leaf, ShieldCheck, TrendingUp, PlayCircle, BookOpen, Award, BarChart3, Sparkles } from "lucide-react";
 import { useGetFeaturedCourses } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion } from "framer-motion";
@@ -32,15 +32,23 @@ export default function Home() {
               <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
                 {t("home.hero_sub")}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild className="h-12 px-8 text-base">
-                  <Link href="/courses">{t("home.explore_courses")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 mb-4">
+                <Button size="lg" asChild className="h-12 px-8 text-base bg-emerald-700 hover:bg-emerald-800 text-white font-semibold shadow-md">
+                  <Link href="/experience">
+                    <Sparkles className="mr-2 h-4 w-4" />
+                    Experience ELEVIO
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="h-12 px-8 text-base border-primary/20 hover:bg-primary/5">
-                  <Link href="/pricing">{t("home.view_corporate_plans")}</Link>
+                <Button size="lg" variant="outline" asChild className="h-12 px-8 text-base border-primary/30 hover:bg-primary/5">
+                  <Link href="/pricing">View Pricing</Link>
                 </Button>
               </div>
-              
+              <div className="text-xs text-muted-foreground">
+                <Link href="/courses" className="hover:underline inline-flex items-center gap-1">
+                  Or explore all 136 courses in our catalogue →
+                </Link>
+              </div>
             </div>
             
             <div className="relative lg:ml-auto">
@@ -190,9 +198,16 @@ export default function Home() {
           <p className="text-emerald-100/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             Train your team, track progress and maintain clear sustainability learning records — all in one place.
           </p>
-          <div className="flex justify-center">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button size="lg" asChild className="bg-white text-emerald-950 hover:bg-emerald-50 h-12 px-8 text-base font-semibold rounded-xl shadow-lg transition-all">
-              <Link href="/pricing">View Corporate Plans</Link>
+              <Link href="/experience">
+                <Sparkles className="mr-2 h-4 w-4 text-emerald-700" />
+                Experience ELEVIO
+                <ArrowRight className="ml-2 h-4 w-4 text-emerald-700" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild className="border-white/30 text-white hover:bg-white/10 h-12 px-8 text-base font-medium rounded-xl">
+              <Link href="/pricing">View Pricing</Link>
             </Button>
           </div>
         </div>

@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-09-07T19:21:07.400Z",
+  "sprint": "15.2.10L",
+  "finalDetermination": "ASSESSMENT REMEDIATION COMPLETE — 136/136 COURSES ENTERPRISE READY",
+  "closureMetrics": {
+    "canonicalCourses": 136,
+    "persistedScoredQuestions": 1208,
+    "isolatedDiagnosticQuestions": 88,
+    "enterpriseReadyCourses": 136,
+    "legacyAcceptedCourses": 0,
+    "version2Courses": 135,
+    "version1Courses": 1,
+    "passingScoreStandardizedTo80Courses": 136,
+    "historicalIntegrity": {
+      "quizAttempts": 16,
+      "enrollments": 22,
+      "certificates": 6,
+      "badgeDefinitions": 133,
+      "scoreLedgers": 6
+    }
+  },
+  "cohortSummary": {
+    "cohort15_2_10L_GroupL1_FoundationCount": 11,
+    "cohort15_2_10L_GroupL2_AdvancedCount": 5,
+    "cohort15_2_10L_TotalCourses": 16,
+    "cohort15_2_10L_TotalQuestions": 144
+  }
+}

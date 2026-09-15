@@ -1,0 +1,137 @@
+{
+  "timestamp": "2026-09-05T06:34:42.077Z",
+  "stage": "POST_REMEDIATION",
+  "sprint": "15.2.10B",
+  "counts": {
+    "totalCanonicalCourses": 136,
+    "totalCourseQuestions": 1208,
+    "cohortCourseQuestions": 121,
+    "totalAttempts": 16,
+    "totalEnrollments": 22,
+    "totalCertificates": 6,
+    "totalBadges": 133,
+    "totalScoreLedgerRecords": 6
+  },
+  "cohortCourses": [
+    {
+      "id": 12,
+      "courseCode": "ELH-12",
+      "title": "Final Sustainability Certification",
+      "version": 1,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 15,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 13,
+      "courseCode": "ELH-13",
+      "title": "Sustainability Action Planning",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 10,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 14,
+      "courseCode": "ELH-14",
+      "title": "Setting Departmental Sustainability Goals",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 10,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 102,
+      "courseCode": "ELH-21",
+      "title": "Building Employee Engagement in Sustainability",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 10,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 114,
+      "courseCode": "ELH-16",
+      "title": "Communicating Sustainability at Work",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 10,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 120,
+      "courseCode": "ELH-18",
+      "title": "Sustainability Data Collection and Evidence",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 10,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 143,
+      "courseCode": "ELH-22",
+      "title": "Creating and Running Effective Green Teams",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 10,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 161,
+      "courseCode": "ELH-19",
+      "title": "Reviewing Sustainability Performance and Taking Corrective Action",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 162,
+      "courseCode": "ELH-15",
+      "title": "Building a Workplace Sustainability Team",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 10,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 163,
+      "courseCode": "ELH-17",
+      "title": "Tracking Sustainability Actions and Progress",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 10,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 164,
+      "courseCode": "ELH-20",
+      "title": "Sustainability Roles, Responsibilities and Accountability",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 10,
+      "hasFourOptionFeedback": true
+    },
+    {
+      "id": 944,
+      "courseCode": "ELH-23",
+      "title": "Planning and Delivering Workplace Sustainability Initiatives",
+      "version": 2,
+      "passingScore": 80,
+      "isPublished": true,
+      "questionCount": 8,
+      "hasFourOptionFeedback": true
+    }
+  ]
+}

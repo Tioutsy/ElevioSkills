@@ -17,6 +17,7 @@ import {
   Award,
   ChevronDown,
   MoreHorizontal,
+  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuthRole } from "@/lib/authHelpers";
@@ -83,6 +84,7 @@ export function Navbar() {
 
   // Contract variables for audit tests compatibility
   const navLinks = [
+    { href: "/experience", label: "Experience ELEVIO", icon: Sparkles },
     { href: "/courses", label: t("nav.courses") || "Courses", icon: BookOpen },
     { href: "/pricing", label: t("nav.pricing") || "Pricing", icon: Building2 },
   ];
@@ -122,6 +124,7 @@ export function Navbar() {
           : []),
       ]
     : [
+        { href: "/experience", label: "Experience ELEVIO", icon: Sparkles },
         { href: "/courses", label: t("nav.courses") || "Courses", icon: BookOpen },
         { href: "/pricing", label: t("nav.pricing") || "Pricing", icon: Building2 },
       ];

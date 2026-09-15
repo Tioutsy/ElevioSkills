@@ -36,6 +36,17 @@ import { ensureEsgDataCourse } from "./lib/ensureEsgDataCourse";
 import { ensureEsgInMyJobCourse } from "./lib/ensureEsgInMyJobCourse";
 import { ensureAppliedCourseBadges } from "./lib/ensureAppliedCourseBadges";
 import { ensureWorkplaceSustainabilityLeadershipCourse } from "./lib/ensureWorkplaceSustainabilityLeadershipCourse";
+import { ensureCohort15_2_10BRemediation } from "./lib/ensureCohort15_2_10BRemediation";
+import { ensureCohort15_2_10CRemediation } from "./lib/ensureCohort15_2_10CRemediation";
+import { ensureCohort15_2_10DRemediation } from "./lib/ensureCohort15_2_10DRemediation";
+import { ensureCohort15_2_10ERemediation } from "./lib/ensureCohort15_2_10ERemediation";
+import { ensureCohort15_2_10FRemediation } from "./lib/ensureCohort15_2_10FRemediation";
+import { ensureCohort15_2_10GRemediation } from "./lib/ensureCohort15_2_10GRemediation";
+import { ensureCohort15_2_10HRemediation } from "./lib/ensureCohort15_2_10HRemediation";
+import { ensureCohort15_2_10IRemediation } from "./lib/ensureCohort15_2_10IRemediation";
+import { ensureCohort15_2_10JRemediation } from "./lib/ensureCohort15_2_10JRemediation";
+import { ensureCohort15_2_10KRemediation } from "./lib/ensureCohort15_2_10KRemediation";
+import { ensureCohort15_2_10LRemediation } from "./lib/ensureCohort15_2_10LRemediation";
 import { seedInitialSectors } from "./routes/platformAdmin";
 import { ensureCatalogueSkeletons } from "./lib/ensureCatalogueSkeletons";
 import { ensureCoreSustainabilityPath } from "./lib/ensureCoreSustainabilityPath";
@@ -158,6 +169,17 @@ async function start(): Promise<void> {
     await ensureHybridSubscriptions();
     await ensureInsightsMigrated();
     await ensureCourseImages();
+    await ensureCohort15_2_10BRemediation();
+    await ensureCohort15_2_10CRemediation();
+    await ensureCohort15_2_10DRemediation();
+    await ensureCohort15_2_10ERemediation();
+    await ensureCohort15_2_10FRemediation();
+    await ensureCohort15_2_10GRemediation();
+    await ensureCohort15_2_10HRemediation();
+    await ensureCohort15_2_10IRemediation();
+    await ensureCohort15_2_10JRemediation();
+    await ensureCohort15_2_10KRemediation();
+    await ensureCohort15_2_10LRemediation();
     logger.info("Database initialization and course seeding completed.");
 
     // Start background email outbox dispatch worker loop

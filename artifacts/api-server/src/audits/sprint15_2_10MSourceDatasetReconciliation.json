@@ -1,0 +1,173 @@
+{
+  "sprint": "Sprint 15.2.10M",
+  "auditDate": "2026-09-09T12:24:08.674Z",
+  "sourceDatasets": {
+    "cohort15_2_10l_group_l1_part1.ts": {
+      "coursesCount": 6,
+      "courses": [
+        {
+          "courseId": 1,
+          "courseCode": "ELH-01",
+          "title": "Sustainability Foundations & ESG Core Principles",
+          "questionCount": 8
+        },
+        {
+          "courseId": 2,
+          "courseCode": "ELH-02",
+          "title": "Waste Sorting & the Mauritian Bin System",
+          "questionCount": 8
+        },
+        {
+          "courseId": 3,
+          "courseCode": "ELH-03",
+          "title": "Energy Efficiency at Work",
+          "questionCount": 10
+        },
+        {
+          "courseId": 4,
+          "courseCode": "ELH-04",
+          "title": "Water Conservation",
+          "questionCount": 10
+        },
+        {
+          "courseId": 5,
+          "courseCode": "ELH-05",
+          "title": "Sustainable Purchasing for Non-Specialists",
+          "questionCount": 10
+        },
+        {
+          "courseId": 6,
+          "courseCode": "ELH-06",
+          "title": "Green Office Practices",
+          "questionCount": 10
+        }
+      ],
+      "rawQuestionCount": 56,
+      "uniqueQuestionsCount": 56,
+      "scoredQuestionsCount": 56,
+      "duplicateKeyCount": 0,
+      "overwrittenKeyCount": 0,
+      "nonScoredEntryCount": 0,
+      "actualRecordsApplied": 56,
+      "finalRecordsPersisted": 56
+    },
+    "cohort15_2_10l_group_l1_part2.ts": {
+      "coursesCount": 5,
+      "courses": [
+        {
+          "courseId": 7,
+          "courseCode": "ELH-07",
+          "title": "ESG Governance, Ethics & Anti-Corruption",
+          "questionCount": 8
+        },
+        {
+          "courseId": 8,
+          "courseCode": "ELH-08",
+          "title": "Corporate Social Responsibility (CSR) & Community Engagement",
+          "questionCount": 10
+        },
+        {
+          "courseId": 9,
+          "courseCode": "ELH-09",
+          "title": "Stakeholder Engagement & Materiality Assessment",
+          "questionCount": 10
+        },
+        {
+          "courseId": 10,
+          "courseCode": "ELH-10",
+          "title": "Green Building Design & LEED Certification Essentials",
+          "questionCount": 10
+        },
+        {
+          "courseId": 11,
+          "courseCode": "ELH-11",
+          "title": "Sustainable Transportation & Fleet Electrification",
+          "questionCount": 10
+        }
+      ],
+      "rawQuestionCount": 48,
+      "uniqueQuestionsCount": 48,
+      "scoredQuestionsCount": 48,
+      "duplicateKeyCount": 0,
+      "overwrittenKeyCount": 0,
+      "nonScoredEntryCount": 0,
+      "actualRecordsApplied": 48,
+      "finalRecordsPersisted": 48
+    },
+    "cohort15_2_10l_group_l2_data.ts": {
+      "coursesCount": 5,
+      "courses": [
+        {
+          "courseId": 770,
+          "courseCode": "ELH-132",
+          "title": "Advanced Sustainability Reporting: CSRD & ESRS Standards",
+          "questionCount": 8
+        },
+        {
+          "courseId": 743,
+          "courseCode": "ELH-133",
+          "title": "Advanced GHG Accounting: Scope 3 Value Chain Emissions",
+          "questionCount": 8
+        },
+        {
+          "courseId": 806,
+          "courseCode": "ELH-134",
+          "title": "Advanced Biodiversity & Nature-Positive Business: TNFD Framework",
+          "questionCount": 8
+        },
+        {
+          "courseId": 807,
+          "courseCode": "ELH-135",
+          "title": "Advanced Carbon Accounting & Internal Carbon Pricing Strategies",
+          "questionCount": 8
+        },
+        {
+          "courseId": 771,
+          "courseCode": "ELH-136",
+          "title": "Advanced Science-Based Targets (SBTi) & Net-Zero Transition Planning",
+          "questionCount": 8
+        }
+      ],
+      "rawQuestionCount": 40,
+      "uniqueQuestionsCount": 40,
+      "scoredQuestionsCount": 40,
+      "duplicateKeyCount": 0,
+      "overwrittenKeyCount": 0,
+      "nonScoredEntryCount": 0,
+      "actualRecordsApplied": 40,
+      "finalRecordsPersisted": 40
+    }
+  },
+  "discrepancyReconciliation": {
+    "explanation": "The reported counts reflect domain-specific instructional depth where Universal Foundation courses (ELH-03..06 and ELH-08..11) feature 10 scenario questions each, while ELH-01, ELH-02, ELH-07, and Advanced Reporting courses (ELH-132..136) maintain 8 scenario questions each. Total Sprint L scope delivers exactly 144 scored questions across 16 target courses.",
+    "groupL1Part1": {
+      "targetCourses": "ELH-01 through ELH-06 (6 courses)",
+      "breakdown": "ELH-01 (8), ELH-02 (8), ELH-03 (10), ELH-04 (10), ELH-05 (10), ELH-06 (10)",
+      "totalQuestions": 56,
+      "standard8QuestionComparison": 48,
+      "differenceReason": "ELH-03 through ELH-06 each contain 10 questions for deeper HVAC, water, purchasing, and green office scenario coverage (+8 questions total)"
+    },
+    "groupL1Part2": {
+      "targetCourses": "ELH-07 through ELH-11 (5 courses)",
+      "breakdown": "ELH-07 (8), ELH-08 (10), ELH-09 (10), ELH-10 (10), ELH-11 (10)",
+      "totalQuestions": 48,
+      "standard8QuestionComparison": 40,
+      "differenceReason": "ELH-08 through ELH-11 each contain 10 questions for biodiversity, ESG basics, compliance, and circular economy coverage (+8 questions total)"
+    },
+    "groupL2": {
+      "targetCourses": "ELH-132 through ELH-136 (5 courses)",
+      "breakdown": "ELH-132 (8), ELH-133 (8), ELH-134 (8), ELH-135 (8), ELH-136 (8)",
+      "totalQuestions": 40,
+      "standard8QuestionComparison": 40,
+      "differenceReason": "Exact match with 8 questions per course"
+    },
+    "catalogueTotalSummary": {
+      "totalCanonicalCourses": 136,
+      "totalCanonicalScoredQuestions": 1129,
+      "totalLegacyArchivedQuestionsInDb": 79,
+      "totalScoredQuestionsInDb": 1208,
+      "totalDiagnosticQuestionsInBank": 88,
+      "totalDiagnosticPairsInBank": 44
+    }
+  }
+}

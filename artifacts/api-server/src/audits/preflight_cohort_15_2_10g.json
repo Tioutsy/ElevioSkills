@@ -1,0 +1,2197 @@
+{
+  "timestamp": "2026-09-07T16:56:49.359Z",
+  "sprint": "15.2.10G",
+  "catalogueSummary": {
+    "canonicalCourses": 136,
+    "scoredQuestions": 1208,
+    "diagnosticQuestions": 88,
+    "historicalAttempts": 16,
+    "historicalEnrollments": 22,
+    "historicalCertificates": 6,
+    "historicalBadges": 133,
+    "historicalScoreLedgers": 6
+  },
+  "cohortDetails": [
+    {
+      "id": 753,
+      "code": "ELH-72",
+      "title": "Green eCommerce, Last-Mile Delivery & Packaging",
+      "level": "Applied Workplace Practice",
+      "version": 1,
+      "passingScore": 70,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedbackComplete": "0/8",
+      "scenarioCount": 2,
+      "applicationCount": 4,
+      "learningObjectives": [
+        "Master core operational benchmarks in Green eCommerce, Last-Mile Delivery & Packaging",
+        "Implement standardized compliance checklists and monitoring routines",
+        "Identify resource efficiency and cost reduction opportunities",
+        "Prepare audit-ready records compliant with relevant standards"
+      ],
+      "questions": [
+        {
+          "id": 9310,
+          "orderIndex": 1,
+          "question": "What is the primary operational objective of Green eCommerce, Last-Mile Delivery & Packaging?",
+          "options": [
+            "To generate unnecessary paperwork that slows down daily workplace tasks",
+            "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+            "To replace all human employees with automated robots",
+            "To eliminate all customer interactions permanently"
+          ],
+          "correctOption": 1,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! The objective is rigorous operational efficiency and compliance.",
+          "incorrectExplanation": "Incorrect. The focus is establishing standardized, compliant, and efficient workflows."
+        },
+        {
+          "id": 9311,
+          "orderIndex": 2,
+          "question": "Why are standardized operating procedures (SOPs) critical for sustainable workplace execution?",
+          "options": [
+            "They are only created for decorative office displays",
+            "They prevent employees from ever taking breaks",
+            "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+            "They make simple tasks impossible to finish"
+          ],
+          "correctOption": 2,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! SOPs provide operational consistency and audit trails.",
+          "incorrectExplanation": "Incorrect. SOPs ensure consistent quality, safety, and verifiable compliance."
+        },
+        {
+          "id": 9312,
+          "orderIndex": 3,
+          "question": "How should unexpected technical exceptions or process deviations be handled on the job?",
+          "options": [
+            "Logged immediately in the tracking register and escalated according to the defined response protocol",
+            "Ignored completely hoping no one notices",
+            "Concealed from team supervisors",
+            "Blamed on external vendors without investigation"
+          ],
+          "correctOption": 0,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! Formal logging and escalation ensure rapid remediation.",
+          "incorrectExplanation": "Incorrect. Process deviations must be logged and escalated promptly."
+        },
+        {
+          "id": 9313,
+          "orderIndex": 4,
+          "question": "What is the primary commercial benefit of implementing continuous resource efficiency measures?",
+          "options": [
+            "Increased employee turnover",
+            "Guaranteed bankruptcy within 30 days",
+            "Higher municipal landfill penalty taxes",
+            "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+          ],
+          "correctOption": 3,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! Resource efficiency lowers costs and strengthens enterprise resilience.",
+          "incorrectExplanation": "Incorrect. Efficiency lowers operating expenses and strengthens compliance."
+        },
+        {
+          "id": 9314,
+          "orderIndex": 5,
+          "question": "What role does accurate data collection and baseline measurement play in workplace sustainability?",
+          "options": [
+            "It is purely an aesthetic exercise with zero business value",
+            "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+            "It is only performed when an inspector is standing in the building",
+            "It replaces the need for actual equipment maintenance"
+          ],
+          "correctOption": 1,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! Accurate data provides the factual foundation for continuous improvement.",
+          "incorrectExplanation": "Incorrect. Reliable data measurement is vital for tracking progress and identifying waste."
+        },
+        {
+          "id": 9315,
+          "orderIndex": 6,
+          "question": "How should departmental teams coordinate when managing cross-functional sustainability initiatives?",
+          "options": [
+            "Send anonymous complaint letters to the executive board",
+            "Refuse to communicate with any other department",
+            "Compete destructively for the same resources without coordination",
+            "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+          ],
+          "correctOption": 3,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! Shared KPIs and transparent alignment drive cross-functional success.",
+          "incorrectExplanation": "Incorrect. Collaboration requires clear communication, shared KPIs, and defined accountability."
+        },
+        {
+          "id": 9316,
+          "orderIndex": 7,
+          "question": "What is the risk of implementing superficial environmental claims without operational verification?",
+          "options": [
+            "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+            "Automatic award of international sustainability prizes",
+            "Instant elimination of corporate taxes",
+            "Zero consequences under all circumstances"
+          ],
+          "correctOption": 0,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! False claims trigger severe legal and reputational greenwashing penalties.",
+          "incorrectExplanation": "Incorrect. Superficial claims lead to severe greenwashing penalties and loss of stakeholder trust."
+        },
+        {
+          "id": 9317,
+          "orderIndex": 8,
+          "question": "How does periodic management review support continuous improvement in workplace sustainability?",
+          "options": [
+            "It is a legal formality with no practical purpose",
+            "It allows managers to cancel all future sustainability efforts",
+            "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+            "It ensures that no process changes are ever permitted"
+          ],
+          "correctOption": 2,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! Management reviews drive continuous optimization and resource allocation.",
+          "incorrectExplanation": "Incorrect. Regular reviews ensure goals are met and processes are continually improved."
+        }
+      ]
+    },
+    {
+      "id": 777,
+      "code": "ELH-73",
+      "title": "Sustainable Quick-Service Restaurant (QSR) Operations",
+      "level": "Applied Workplace Practice",
+      "version": 1,
+      "passingScore": 70,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "feedbackComplete": "0/8",
+      "scenarioCount": 2,
+      "applicationCount": 4,
+      "learningObjectives": [
+        "Master core operational benchmarks in Sustainable Quick-Service Restaurant (QSR) Operations",
+        "Implement standardized compliance checklists and monitoring routines",
+        "Identify resource efficiency and cost reduction opportunities",
+        "Prepare audit-ready records compliant with relevant standards"
+      ],
+      "questions": [
+        {
+          "id": 9502,
+          "orderIndex": 1,
+          "question": "What is the primary operational objective of Sustainable Quick-Service Restaurant (QSR) Operations?",
+          "options": [
+            "To generate unnecessary paperwork that slows down daily workplace tasks",
+            "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+            "To replace all human employees with automated robots",
+            "To eliminate all customer interactions permanently"
+          ],
+          "correctOption": 1,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! The objective is rigorous operational efficiency and compliance.",
+          "incorrectExplanation": "Incorrect. The focus is establishing standardized, compliant, and efficient workflows."
+        },
+        {
+          "id": 9503,
+          "orderIndex": 2,
+          "question": "Why are standardized operating procedures (SOPs) critical for sustainable workplace execution?",
+          "options": [
+            "They are only created for decorative office displays",
+            "They prevent employees from ever taking breaks",
+            "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+            "They make simple tasks impossible to finish"
+          ],
+          "correctOption": 2,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! SOPs provide operational consistency and audit trails.",
+          "incorrectExplanation": "Incorrect. SOPs ensure consistent quality, safety, and verifiable compliance."
+        },
+        {
+          "id": 9504,
+          "orderIndex": 3,
+          "question": "How should unexpected technical exceptions or process deviations be handled on the job?",
+          "options": [
+            "Logged immediately in the tracking register and escalated according to the defined response protocol",
+            "Ignored completely hoping no one notices",
+            "Concealed from team supervisors",
+            "Blamed on external vendors without investigation"
+          ],
+          "correctOption": 0,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! Formal logging and escalation ensure rapid remediation.",
+          "incorrectExplanation": "Incorrect. Process deviations must be logged and escalated promptly."
+        },
+        {
+          "id": 9505,
+          "orderIndex": 4,
+          "question": "What is the primary commercial benefit of implementing continuous resource efficiency measures?",
+          "options": [
+            "Increased employee turnover",
+            "Guaranteed bankruptcy within 30 days",
+            "Higher municipal landfill penalty taxes",
+            "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+          ],
+          "correctOption": 3,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! Resource efficiency lowers costs and strengthens enterprise resilience.",
+          "incorrectExplanation": "Incorrect. Efficiency lowers operating expenses and strengthens compliance."
+        },
+        {
+          "id": 9506,
+          "orderIndex": 5,
+          "question": "What role does accurate data collection and baseline measurement play in workplace sustainability?",
+          "options": [
+            "It is purely an aesthetic exercise with zero business value",
+            "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+            "It is only performed when an inspector is standing in the building",
+            "It replaces the need for actual equipment maintenance"
+          ],
+          "correctOption": 1,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! Accurate data provides the factual foundation for continuous improvement.",
+          "incorrectExplanation": "Incorrect. Reliable data measurement is vital for tracking progress and identifying waste."
+        },
+        {
+          "id": 9507,
+          "orderIndex": 6,
+          "question": "How should departmental teams coordinate when managing cross-functional sustainability initiatives?",
+          "options": [
+            "Send anonymous complaint letters to the executive board",
+            "Refuse to communicate with any other department",
+            "Compete destructively for the same resources without coordination",
+            "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+          ],
+          "correctOption": 3,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! Shared KPIs and transparent alignment drive cross-functional success.",
+          "incorrectExplanation": "Incorrect. Collaboration requires clear communication, shared KPIs, and defined accountability."
+        },
+        {
+          "id": 9508,
+          "orderIndex": 7,
+          "question": "What is the risk of implementing superficial environmental claims without operational verification?",
+          "options": [
+            "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+            "Automatic award of international sustainability prizes",
+            "Instant elimination of corporate taxes",
+            "Zero consequences under all circumstances"
+          ],
+          "correctOption": 0,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! False claims trigger severe legal and reputational greenwashing penalties.",
+          "incorrectExplanation": "Incorrect. Superficial claims lead to severe greenwashing penalties and loss of stakeholder trust."
+        },
+        {
+          "id": 9509,
+          "orderIndex": 8,
+          "question": "How does periodic management review support continuous improvement in workplace sustainability?",
+          "options": [
+            "It is a legal formality with no practical purpose",
+            "It allows managers to cancel all future sustainability efforts",
+            "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+            "It ensures that no process changes are ever permitted"
+          ],
+          "correctOption": 2,
+          "optionFeedback": null,
+          "correctExplanation": "Correct! Management reviews drive continuous optimization and resource allocation.",
+          "incorrectExplanation": "Incorrect. Regular reviews ensure goals are met and processes are continually improved."
+        }
+      ]
+    },
+    {
+      "id": 778,
+      "code": "ELH-74",
+      "title": "Circular Textiles & Sustainable Fashion Retailing",
+      "level": "Role Specialist",
+      "version": 2,
+      "passingScore": 75,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        2,
+        6,
+        0,
+        0
+      ],
+      "feedbackComplete": "8/8",
+      "scenarioCount": 3,
+      "applicationCount": 0,
+      "learningObjectives": [
+        "Master core operational benchmarks in Circular Textiles & Sustainable Fashion Retailing",
+        "Implement standardized compliance checklists and monitoring routines",
+        "Identify resource efficiency and cost reduction opportunities",
+        "Prepare audit-ready records compliant with relevant standards"
+      ],
+      "questions": [
+        {
+          "id": 20530,
+          "orderIndex": 1,
+          "question": "Why are blended fabrics containing cotton, polyester, and elastane (e.g., 60/35/5 poly-cotton-elastane) considered a major barrier to circular textile recycling?",
+          "options": [
+            "Because blended fabrics are too cold to touch",
+            "Because the chemically distinct synthetic and natural fibers are intimately inter-spun and cannot be economically separated by mechanical shredders or standard chemical depolymerization systems",
+            "Because elastane turns cotton into glass",
+            "Because blended fabrics are legally prohibited from being washed"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Fabric thermal touch has zero bearing on recycling chemistry.",
+            "Correct. Incompatible fiber blends cannot be separated into pure streams for mechanical or chemical recycling.",
+            "Incorrect. Elastane is a polyurethane polymer, not a silicate glass converter.",
+            "Incorrect. Blended fabrics are washable, but difficult to recycle at end of life."
+          ],
+          "correctExplanation": "Mechanical shredding destroys fiber length in multi-material blends, while chemical recycling requires pure single-polymer feeds. Blended fibers result in degraded, unmarketable down-cycled material.",
+          "incorrectExplanation": "Inter-spun synthetic and natural blends cannot be separated into pure fiber streams, preventing closed-loop recycling."
+        },
+        {
+          "id": 20531,
+          "orderIndex": 2,
+          "question": "What is the primary advantage of mono-material garment design (e.g., 100% organic cotton fabric with 100% cellulosic thread and removable hardware)?",
+          "options": [
+            "The garment can be fed directly into mechanical fiber-to-fiber or chemical recycling streams without complex, labor-intensive fiber separation",
+            "The garment becomes completely waterproof without any coatings",
+            "The garment never needs to be ironed",
+            "The garment can be sold for $10,000 per unit"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Mono-material garments integrate seamlessly into textile-to-textile recycling systems without fiber separation.",
+            "Incorrect. Waterproofing depends on fabric structure and DWR treatments, not mono-materiality.",
+            "Incorrect. Wrinkle resistance is a fiber/finish characteristic.",
+            "Incorrect. Mono-materials are commercially cost-competitive for mainstream retail."
+          ],
+          "correctExplanation": "Mono-material apparel can be shredded and re-spun into new high-quality yarn without contamination, enabling true closed-loop textile-to-textile recycling.",
+          "incorrectExplanation": "Mono-materials process cleanly through recycling equipment without fiber contamination."
+        },
+        {
+          "id": 20532,
+          "orderIndex": 3,
+          "question": "What is 'Design for Disassembly' (DfD) in sustainable apparel engineering?",
+          "options": [
+            "Designing clothes that fall apart after one wear",
+            "Engineering garments with easily detachable metal buttons, removable zippers, and dissolvable sewing threads to facilitate rapid sorting and recycling at end-of-life",
+            "Refusing to sew seams together",
+            "Designing clothing that can only be worn upside down"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. DfD aims for durability during use, followed by easy dismantling at end of life.",
+            "Correct. DfD uses removable hardware and smart stitching to enable fast trim removal before recycling.",
+            "Incorrect. DfD garments have strong, robust seams during customer use.",
+            "Incorrect. DfD refers to material dismantling, not wearing orientation."
+          ],
+          "correctExplanation": "Design for Disassembly ensures that incompatible trims (metal zips, plastic rivets, composite buttons) can be rapidly unclipped or dissolved, leaving pure clean fabric for recycling.",
+          "incorrectExplanation": "Design for Disassembly facilitates the quick, non-destructive removal of hardware and trims before recycling."
+        },
+        {
+          "id": 20533,
+          "orderIndex": 4,
+          "question": "What standard verifies the chain of custody and percentage of verified post-consumer recycled content in textile products?",
+          "options": [
+            "The International Barcode Standard (EAN)",
+            "Global Recycled Standard (GRS) or Recycled Claim Standard (RCS)",
+            "The Food and Drug Administration (FDA) label",
+            "The Highway Transport Code"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Barcodes track retail inventory, not certified material provenance.",
+            "Correct. GRS and RCS verify third-party chain of custody and recycled content percentages.",
+            "Incorrect. FDA regulates food and pharmaceutical safety, not textile recycling.",
+            "Incorrect. Highway codes regulate vehicle traffic, not textile chemistry."
+          ],
+          "correctExplanation": "GRS and RCS provide third-party certified chain-of-custody tracking verifying the exact percentage of recycled content (post-consumer or post-industrial) from recycler to final garment.",
+          "incorrectExplanation": "GRS and RCS are the globally recognized standards for tracking and verifying recycled content in textiles."
+        },
+        {
+          "id": 20534,
+          "orderIndex": 5,
+          "question": "What is the primary environmental hazard associated with conventional Per- and Polyfluoroalkyl Substances (PFAS) historically used in Durable Water Repellent (DWR) rainwear coatings?",
+          "options": [
+            "They cause fabrics to turn into pure sugar.",
+            "They are highly persistent 'forever chemicals' that never degrade in the environment, bioaccumulate in human blood and wildlife, and pose serious toxic health risks.",
+            "They make clothes too light to wear.",
+            "They cause clothes to glow bright green in the dark."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. PFAS are synthetic fluorochemicals, not carbohydrates.",
+            "Correct. PFAS are toxic, bioaccumulative 'forever chemicals' that resist environmental breakdown.",
+            "Incorrect. PFAS coatings add microscopic weight, not weightlessness.",
+            "Incorrect. PFAS do not exhibit visible phosphorescence."
+          ],
+          "correctExplanation": "PFAS chemistry contains carbon-fluorine bonds that resist natural degradation, contaminating drinking water aquifers and causing cancer, liver damage, and endocrine disruption.",
+          "incorrectExplanation": "PFAS are toxic 'forever chemicals' that persist indefinitely in nature and bioaccumulate in living organisms."
+        },
+        {
+          "id": 20535,
+          "orderIndex": 6,
+          "question": "How do modern waterless or low-liquor dyeing technologies (such as supercritical CO2 dyeing or ozone bleaching) benefit textile manufacturing?",
+          "options": [
+            "They eliminate 90% to 100% of process water consumption, eliminate chemical salt discharges, and cut thermal drying energy",
+            "They make all clothes completely colorless and transparent",
+            "They require pouring crude oil directly onto fabrics",
+            "They double the water consumption of the dyehouse"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Supercritical CO2 and ozone finishing eliminate process water usage, chemical salts, and drying energy.",
+            "Incorrect. Advanced waterless dyeing delivers deep, vibrant, colorfast shades.",
+            "Incorrect. Supercritical CO2 uses reclaimed carbon dioxide, not crude oil.",
+            "Incorrect. Waterless technology eliminates water use, rather than increasing it."
+          ],
+          "correctExplanation": "Supercritical CO2 uses pressurized liquid carbon dioxide as the dye solvent, dissolving dyes without a single drop of water and recycling 95% of the CO2 gas after dyeing.",
+          "incorrectExplanation": "Supercritical CO2 and ozone finishing eliminate water usage and chemical effluent discharge in textile dyeing."
+        },
+        {
+          "id": 20536,
+          "orderIndex": 7,
+          "question": "In a retail circular fashion business model, what is 'Recommerce'?",
+          "options": [
+            "Throwing all unsold merchandise into a trash incinerator",
+            "A formalized business channel where a brand collects, inspects, refurbishes, and resells authenticated pre-owned garments, creating a high-margin secondary revenue stream while extending product life",
+            "Selling stolen merchandise on the black market",
+            "Sending advertising spam emails to random people"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Incineration is linear waste destruction, the opposite of recommerce.",
+            "Correct. Recommerce refurbishes and resells pre-owned garments, creating circular revenue and extending product lifespan.",
+            "Incorrect. Recommerce is a legitimate, verified corporate retail channel.",
+            "Incorrect. Recommerce is a physical product resale model, not email marketing."
+          ],
+          "correctExplanation": "Recommerce (reverse commerce) monetizes the secondary market directly, keeping garments in active circulation, capturing high resale margins, and attracting eco-conscious consumers.",
+          "incorrectExplanation": "Recommerce refers to the formal collection, refurbishment, and resale of pre-owned branded clothing."
+        },
+        {
+          "id": 20537,
+          "orderIndex": 8,
+          "question": "What represents the most rigorous evidence of a circular textile collection in a retail sustainability audit?",
+          "options": [
+            "A fashion influencer stating that the clothes feel eco-friendly",
+            "Documented bill of materials proving >98% mono-material composition, certified GRS Transaction Certificates for recycled inputs, ZDHC Level 3 chemical compliance test reports, and third-party garment take-back sorting records",
+            "A green hangtag made of uncertified cardboard",
+            "A promise that the clothes will naturally dissolve in rain"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Influencer testimonials carry zero technical compliance validity.",
+            "Correct. Technical BOM data, GRS transaction certificates, ZDHC lab tests, and take-back sorting logs provide auditable proof.",
+            "Incorrect. Uncertified hangtags do not prove garment circularity or chemical safety.",
+            "Incorrect. Garments dissolving in rain indicates product failure, not circular design."
+          ],
+          "correctExplanation": "Auditable circularity requires technical BOM specifications, verified third-party chain-of-custody transaction certificates (GRS), chemical laboratory tests (ZDHC), and verifiable take-back diversion metrics.",
+          "incorrectExplanation": "Technical proof requires verified BOM mono-materiality, certified GRS certificates, ZDHC chemical tests, and audited take-back logs."
+        }
+      ]
+    },
+    {
+      "id": 736,
+      "code": "ELH-75",
+      "title": "Sustainable Lending & Green Credit Underwriting",
+      "level": "Role Specialist",
+      "version": 2,
+      "passingScore": 75,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        0,
+        8,
+        0,
+        0
+      ],
+      "feedbackComplete": "8/8",
+      "scenarioCount": 8,
+      "applicationCount": 0,
+      "learningObjectives": [
+        "Apply Loan Market Association (LMA) Green Loan and Sustainability-Linked Loan Principles",
+        "Structure meaningful SPTs (Sustainability Performance Targets) and interest rate margin step-down/step-up ratchets",
+        "Verify Use of Proceeds and independent Second Party Opinions (SPOs)",
+        "Audit annual borrower sustainability compliance reporting and penalty clauses"
+      ],
+      "questions": [
+        {
+          "id": 20538,
+          "orderIndex": 1,
+          "question": "Under the LMA Green Loan Principles (GLP), what is the mandatory requirement regarding the 'Use of Proceeds'?",
+          "options": [
+            "Proceeds may be spent on general executive bonuses without restriction.",
+            "100% of the net loan proceeds must be strictly dedicated and ring-fenced to finance or refinance eligible green projects with clear environmental benefits.",
+            "Proceeds must only be used to purchase lottery tickets.",
+            "The borrower can spend the funds on fossil fuel coal mines as long as they plant one tree."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Executive compensation cannot be funded with green loan proceeds.",
+            "Correct. 100% of green loan proceeds must be strictly dedicated to eligible green projects with verified environmental benefits.",
+            "Incorrect. Gambling is an excluded activity in all responsible banking frameworks.",
+            "Incorrect. Fossil coal mining is an explicit exclusion category under international green lending standards."
+          ],
+          "correctExplanation": "The cornerstone of a Green Loan is that 100% of proceeds are dedicated to clearly defined, eligible green projects (e.g., renewable energy, energy efficiency, clean transport) and tracked in a dedicated sub-account.",
+          "incorrectExplanation": "Green Loans require 100% of proceeds to be ring-fenced for eligible green projects under the Green Loan Principles."
+        },
+        {
+          "id": 20539,
+          "orderIndex": 2,
+          "question": "How does a Sustainability-Linked Loan (SLL) fundamentally differ from a Use-of-Proceeds Green Loan?",
+          "options": [
+            "SLLs can only be issued in foreign currency.",
+            "SLL funds can be used for general corporate purposes, but the loan interest margin adjusts dynamically based on the borrower's achievement of pre-agreed Sustainability Performance Targets (SPTs).",
+            "SLLs do not require repayment of loan principal.",
+            "SLLs are only available to non-profit charities."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. SLLs can be structured in any commercial currency.",
+            "Correct. SLLs fund general operations while tying loan interest margin to verified performance against Sustainability Performance Targets.",
+            "Incorrect. SLLs are standard commercial debt obligations requiring full principal repayment.",
+            "Incorrect. SLLs are primarily used by commercial corporations and industrial enterprises."
+          ],
+          "correctExplanation": "Unlike Green Loans which require specific ring-fenced asset use, SLLs provide general corporate working capital, incentivizing company-wide sustainability performance via interest rate pricing ratchets.",
+          "incorrectExplanation": "SLLs finance general corporate purposes with interest margins tied to verified Sustainability Performance Targets (SPTs)."
+        },
+        {
+          "id": 20540,
+          "orderIndex": 3,
+          "question": "What criteria must a Key Performance Indicator (KPI) meet to be credible under the Sustainability-Linked Loan Principles (SLLP)?",
+          "options": [
+            "It must be trivial, easy to achieve without any effort, and kept completely secret from auditors.",
+            "It must be core and material to the borrower's primary business operations, externally verifiable, and benchmarked against ambitious, science-based performance trajectories.",
+            "It must only measure the CEO's golf handicap.",
+            "It must change every single week randomly."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Trivial or secret targets constitute severe greenwashing.",
+            "Correct. SLL KPIs must be material, ambitious, externally verifiable, and benchmarked against science-based trajectories.",
+            "Incorrect. Irrelevant personal metrics are excluded from corporate sustainable finance.",
+            "Incorrect. KPIs must remain stable and consistent over the multi-year loan tenor."
+          ],
+          "correctExplanation": "Credible SLL KPIs must address material ESG topics (e.g., Scope 1-3 GHG intensity, water efficiency, workforce safety), be measurable, and feature ambitious targets beyond business-as-usual.",
+          "incorrectExplanation": "SLL KPIs must be material, ambitious, measurable, and independently verifiable."
+        },
+        {
+          "id": 20541,
+          "orderIndex": 4,
+          "question": "What is the role of a 'Second-Party Opinion' (SPO) or independent external review in sustainable debt underwriting?",
+          "options": [
+            "To predict the stock market price of the borrower next year",
+            "To provide independent, accredited third-party verification that the borrower's green finance framework and project eligibility criteria strictly align with international green principles and taxonomies",
+            "To replace the bank's credit risk committee entirely",
+            "To manage the bank's social media accounts"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. SPOs assess environmental framework integrity, not equity stock prices.",
+            "Correct. An SPO independently verifies that the financing framework aligns with international green standards and taxonomies.",
+            "Incorrect. The bank's credit committee retains full authority over financial credit risk decisions.",
+            "Incorrect. SPO providers are specialized ESG rating agencies, not marketing consultants."
+          ],
+          "correctExplanation": "An SPO issued by recognized external experts (e.g., Sustainalytics, ISS-ESG, Moody's ESG) validates that the financing structure, taxonomy alignment, and reporting commitments comply with established green standards.",
+          "incorrectExplanation": "Second-Party Opinions provide accredited external validation of green financing frameworks and taxonomy alignment."
+        },
+        {
+          "id": 20542,
+          "orderIndex": 5,
+          "question": "How does a typical 'pricing ratchet' operate in a Sustainability-Linked Loan credit agreement?",
+          "options": [
+            "The bank randomly increases interest rates whenever the loan officer is unhappy.",
+            "The borrower receives an interest margin discount (e.g., -10 to -25 bps) if they meet verified annual SPTs, and faces a margin step-up penalty (e.g., +10 to +25 bps) if they fail to meet the targets.",
+            "The loan interest rate becomes zero permanently under all conditions.",
+            "The bank forgives the entire loan principal automatically."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Rate adjustments must strictly follow formulaic loan agreement schedules.",
+            "Correct. The pricing ratchet adjusts interest margin downward for achieving SPTs and upward for missing targets.",
+            "Incorrect. Commercial banks cannot provide zero-cost capital without risking insolvency.",
+            "Incorrect. SLL pricing adjustments affect margin only, not principal forgiveness."
+          ],
+          "correctExplanation": "The pricing ratchet provides a clear financial incentive structure: a two-way margin adjustment (step-down discount for meeting targets, step-up penalty for missing targets) verified by an independent auditor.",
+          "incorrectExplanation": "Pricing ratchets adjust the loan interest margin based on verified achievement or failure of annual Sustainability Performance Targets."
+        },
+        {
+          "id": 20543,
+          "orderIndex": 6,
+          "question": "What is the primary function of a 'Green Taxonomy' (such as the EU Taxonomy or National Green Taxonomies)?",
+          "options": [
+            "A dictionary of botanical names for tropical flowers",
+            "A standardized classification system defining clear technical screening criteria for which economic activities and investments can objectively be classified as environmentally sustainable",
+            "A tax on painting buildings green",
+            "A government list of banned books"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. A financial green taxonomy classifies economic investments, not biological botany.",
+            "Correct. Green Taxonomies define clear technical criteria determining which investments qualify as environmentally sustainable.",
+            "Incorrect. Taxonomies are classification systems, not municipal paint taxes.",
+            "Incorrect. Taxonomies govern sustainable finance capital allocation, not literature."
+          ],
+          "correctExplanation": "Green Taxonomies provide scientific, rule-based technical thresholds (e.g., g CO2e/kWh limits, energy efficiency ratings) establishing what qualifies as 'green,' eliminating ambiguity and greenwashing.",
+          "incorrectExplanation": "Green Taxonomies establish technical, science-based screening criteria to classify environmentally sustainable economic activities."
+        },
+        {
+          "id": 20544,
+          "orderIndex": 7,
+          "question": "What is the consequence if a borrower breaches an ESG Information Covenant by failing to provide the required annual verified Green Loan Allocation & Impact Report?",
+          "options": [
+            "The bank must immediately destroy all loan records.",
+            "It constitutes an Event of Default or Review Event under the credit agreement, allowing the lender to freeze further drawdowns, reclassify the loan as conventional debt, or trigger mandatory remediation.",
+            "The borrower is rewarded with a free vacation.",
+            "Nothing happens; ESG covenants have zero legal force."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Destroying records violates banking regulatory and legal compliance laws.",
+            "Correct. Covenant breach triggers formal review events, drawdown freezes, and potential declassification of the green facility.",
+            "Incorrect. Covenant defaults incur contractual remedies, not rewards.",
+            "Incorrect. Properly drafted ESG covenants are fully enforceable legal obligations in credit agreements."
+          ],
+          "correctExplanation": "ESG covenants are legally binding credit obligations. Failure to deliver audited impact or allocation reports triggers formal contractual remedies, credit review events, and loss of green classification status.",
+          "incorrectExplanation": "Breaching ESG information covenants triggers contractual review events, drawdown freezes, and potential declassification."
+        },
+        {
+          "id": 20545,
+          "orderIndex": 8,
+          "question": "When documenting a completed Green Loan underwriting package for Credit Committee approval, what represents the gold standard of technical evidence?",
+          "options": [
+            "A marketing brochure downloaded from the borrower's website",
+            "A formal Green Financing Framework, verified Technical Due Diligence report confirming taxonomy compliance, signed credit agreement containing ring-fencing covenants, and an independent Second-Party Opinion (SPO)",
+            "A verbal promise from the borrower's CEO",
+            "A picture of a solar panel taken from a moving car"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Marketing brochures carry zero technical or legal underwriting validity.",
+            "Correct. A formal green framework, technical engineering validation, contractual covenants, and an independent SPO provide defensible proof.",
+            "Incorrect. Verbal promises cannot be audited by regulators or credit risk committees.",
+            "Incorrect. Informal photos do not verify technical capacity, grid connection, or financial allocation."
+          ],
+          "correctExplanation": "Rigorous credit packages combine the borrower's formal green framework, technical engineering due diligence reports, binding contractual ring-fencing covenants, and an accredited Second-Party Opinion.",
+          "incorrectExplanation": "Auditable green underwriting requires formal frameworks, engineering validation, contractual covenants, and independent SPO verification."
+        }
+      ]
+    },
+    {
+      "id": 737,
+      "code": "ELH-76",
+      "title": "ESG Risk Integration in Commercial Credit",
+      "level": "Role Specialist",
+      "version": 2,
+      "passingScore": 75,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        0,
+        8,
+        0,
+        0
+      ],
+      "feedbackComplete": "8/8",
+      "scenarioCount": 8,
+      "applicationCount": 1,
+      "learningObjectives": [
+        "Assess physical climate risk exposure (coastal flooding, extreme heat) on borrower collateral assets",
+        "Model transition climate risk and carbon pricing impacts on borrower debt service coverage ratios (DSCR)",
+        "Integrate ESG risk scorecards into credit rating models and Probability of Default (PD) matrices",
+        "Conduct scenario analysis compliant with NGFS (Network for Greening the Financial System) frameworks"
+      ],
+      "questions": [
+        {
+          "id": 20546,
+          "orderIndex": 1,
+          "question": "Under the Equator Principles IV framework, what defines a 'Category A' project finance or commercial credit transaction?",
+          "options": [
+            "Projects with zero environmental impact that require no review",
+            "Projects with potential significant adverse environmental and social risks and/or impacts that are diverse, irreversible, or unprecedented (e.g., large chemical plants, thermal power, mining)",
+            "Projects involving only the purchase of office stationery",
+            "Projects that have already paid all their taxes"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Zero-risk projects are classified as Category C.",
+            "Correct. Category A denotes projects with potential significant, diverse, irreversible environmental and social risks.",
+            "Incorrect. Office supplies represent low-risk Category C activities.",
+            "Incorrect. Tax compliance is an independent fiscal matter, distinct from environmental risk categorization."
+          ],
+          "correctExplanation": "Category A transactions carry the highest risk profile, requiring full Environmental and Social Impact Assessments (ESIA), independent consultant reviews, and comprehensive management plans.",
+          "incorrectExplanation": "Equator Principles Category A denotes projects with significant, diverse, irreversible environmental and social impacts."
+        },
+        {
+          "id": 20547,
+          "orderIndex": 2,
+          "question": "What is the primary objective of a Phase I Environmental Site Assessment (ESA) conducted during commercial real estate mortgage underwriting?",
+          "options": [
+            "To determine the interior paint color scheme of the building",
+            "To identify Recognized Environmental Conditions (RECs)—such as historical chemical spills, soil/groundwater contamination, underground storage tanks, or hazardous materials—that could create severe financial and cleanup liabilities",
+            "To calculate the annual property taxes owed to the municipality",
+            "To inspect the building's electrical light fixtures"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Paint aesthetics are reviewed by interior decorators, not environmental auditors.",
+            "Correct. Phase I ESAs identify historical contamination and environmental liabilities that could impair collateral value.",
+            "Incorrect. Property tax assessments are conducted via municipal tax records.",
+            "Incorrect. Light fixtures are reviewed during electrical energy audits, not environmental liability assessments."
+          ],
+          "correctExplanation": "A Phase I ESA reviews historical land use, aerial photographs, regulatory databases, and physical site conditions to identify environmental contamination liabilities before a bank accepts land as collateral.",
+          "incorrectExplanation": "Phase I ESAs identify Recognized Environmental Conditions (RECs) and historical contamination liabilities on commercial properties."
+        },
+        {
+          "id": 20548,
+          "orderIndex": 3,
+          "question": "How does Climate Transition Risk (e.g., introducing a $50/tonne carbon tax or regulatory fossil fuel phase-outs) directly impact a borrower's creditworthiness?",
+          "options": [
+            "It automatically increases the borrower's cash in the bank.",
+            "It increases operating and compliance expenses, compressing EBITDA margins and lowering the Debt Service Coverage Ratio (DSCR), which increases the borrower's Probability of Default (PD).",
+            "It makes the borrower's products completely weightless.",
+            "It eliminates all competition in the market."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Transition costs reduce cash reserves unless the borrower decarbonizes.",
+            "Correct. Transition costs compress EBITDA margins and lower DSCR, directly increasing credit default probability.",
+            "Incorrect. Physical weight is governed by material mass, not carbon economics.",
+            "Incorrect. Transition risks affect all non-decarbonized competitors across high-emission sectors."
+          ],
+          "correctExplanation": "Carbon taxes and compliance costs increase operating expenses for high-emitting borrowers. If revenues cannot offset these costs, cash flow and DSCR degrade, directly increasing default risk.",
+          "incorrectExplanation": "Transition risks increase operational and compliance costs, compressing cash flows and increasing borrower default risk."
+        },
+        {
+          "id": 20549,
+          "orderIndex": 4,
+          "question": "What is 'Lender Environmental Liability' risk for a commercial bank?",
+          "options": [
+            "The risk that bank branch employees forget to recycle paper",
+            "The legal risk that a bank, upon foreclosing and taking ownership of contaminated real estate collateral, becomes legally responsible for millions of dollars in environmental cleanup and remediation costs",
+            "The risk that rain falls on the bank's roof",
+            "The risk that the bank spends too much money buying solar calculators"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Branch recycling is an internal operational practice, not lender liability risk.",
+            "Correct. Foreclosing on contaminated collateral can expose lenders to statutory liability for environmental remediation costs.",
+            "Incorrect. Normal rainfall is a standard weather event, not legal liability.",
+            "Incorrect. Office stationery costs are minor administrative expenditures."
+          ],
+          "correctExplanation": "Under environmental liability statutes, foreclosing lenders that enter the chain of title can be deemed 'owners/operators,' making them strictly liable for clean-up costs that may far exceed the loan value.",
+          "incorrectExplanation": "Foreclosing on contaminated collateral exposes the lender to statutory environmental remediation liabilities."
+        },
+        {
+          "id": 20550,
+          "orderIndex": 5,
+          "question": "Why is Climate Physical Risk (e.g., sea level rise, increased tropical cyclone intensity) a critical concern when underwriting long-tenor mortgages for coastal resort properties?",
+          "options": [
+            "Because tourists dislike sunny weather",
+            "Because unmitigated coastal erosion, storm surge flooding, and uninsurable weather damage directly impair physical asset integrity, reduce commercial occupancy revenues, and collapse collateral valuation",
+            "Because coastal resorts consume zero electricity",
+            "Because beach sand turns into solid ice in the tropics"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Tourism relies on pleasant coastal climates, but extreme weather halts operations.",
+            "Correct. Storm surge damage, erosion, and insurance uninsurability destroy revenue and impair collateral asset valuation.",
+            "Incorrect. Coastal resorts are heavy consumers of electrical power and cooling.",
+            "Incorrect. Tropical beach environments do not experience glacial freezing."
+          ],
+          "correctExplanation": "Coastal assets face rising sea levels and intense storm surges. Severe damage, business interruption, and skyrocketing insurance premiums undermine borrower revenue and collateral recovery value.",
+          "incorrectExplanation": "Physical climate risks cause structural damage, revenue interruption, and collateral value destruction on coastal assets."
+        },
+        {
+          "id": 20551,
+          "orderIndex": 6,
+          "question": "What is the primary role of a 'Condition Precedent' (CP) related to environmental risk in a commercial loan credit agreement?",
+          "options": [
+            "A suggestion that the borrower can ignore if they choose",
+            "A mandatory, non-negotiable requirement that the borrower must fulfill (e.g., obtaining required environmental permits, closing Phase I RECs, providing insurance) BEFORE the bank will disburse any loan funds",
+            "A requirement that only applies after the loan is 100% repaid",
+            "A congratulatory card sent to the borrower"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. CPs are mandatory legal obligations, not optional suggestions.",
+            "Correct. A Condition Precedent requires verified environmental compliance or risk mitigation before any loan funds can be disbursed.",
+            "Incorrect. Post-repayment terms are irrelevant to credit risk mitigation during loan life.",
+            "Incorrect. CPs are formal legal contractual clauses in loan documentation."
+          ],
+          "correctExplanation": "Conditions Precedent (CPs) must be completely satisfied before loan disbursement. Making environmental compliance a CP ensures environmental risks are eliminated before the bank releases capital.",
+          "incorrectExplanation": "Conditions Precedent must be satisfied before funds are disbursed, ensuring critical risk mitigations are in place."
+        },
+        {
+          "id": 20552,
+          "orderIndex": 7,
+          "question": "How should a credit risk officer adjust underwriting parameters when assessing a corporate borrower operating in a high-ESG-risk industry with unmanaged environmental liabilities?",
+          "options": [
+            "Lower the interest rate to zero and remove all collateral requirements.",
+            "Increase the credit risk rating (higher PD), apply a higher collateral haircut, require environmental insurance naming the bank as loss payee, and increase the minimum required Debt Service Coverage Ratio (DSCR).",
+            "Pretend the environmental risks do not exist to maintain good client relations.",
+            "Recommend the client to another bank immediately without conducting an evaluation."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Relaxing terms on high-risk borrowers guarantees heavy credit write-offs.",
+            "Correct. Increase the risk rating, apply higher collateral haircuts, require environmental insurance, and enforce higher DSCR covenants.",
+            "Incorrect. Ignoring known material risks violates fiduciary banking duties.",
+            "Incorrect. Credit officers must evaluate and structure risk rather than simply evading analysis."
+          ],
+          "correctExplanation": "High ESG risk requires defensive credit structuring: adjusting internal ratings, pricing for risk via higher spreads, tightening covenants, mandating insurance, and requiring robust DSCR buffers.",
+          "incorrectExplanation": "Unmanaged ESG risk requires tighter underwriting: higher risk rating, increased collateral haircuts, insurance, and higher DSCR thresholds."
+        },
+        {
+          "id": 20553,
+          "orderIndex": 8,
+          "question": "What represents the most credible evidence of comprehensive ESG risk integration in a Commercial Credit Memorandum submitted to Credit Committee?",
+          "options": [
+            "A single checkmark next to the word 'Environment' on a one-page form",
+            "A completed standardized ESG Risk Scorecard, a formal Equator Principles categorization, documented Phase I Environmental Site Assessment findings for collateral, and climate carbon-price sensitivity stress-test results with tailored credit covenants",
+            "A photograph of a tree planted in the borrower's front yard",
+            "A statement that the borrower's managing director attended a sustainability conference"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Superficial checkmarks fail regulatory credit due diligence standards.",
+            "Correct. A standardized ESG scorecard, Equator categorization, Phase I ESA findings, climate stress testing, and tailored covenants provide comprehensive proof.",
+            "Incorrect. Landscaping photos do not assess corporate balance sheet environmental liabilities.",
+            "Incorrect. Conference attendance does not mitigate commercial credit default risks."
+          ],
+          "correctExplanation": "Defensible credit underwriting combines standardized quantitative scorecards, environmental site assessments, climate cash-flow stress testing, and tailored legal covenants.",
+          "incorrectExplanation": "Auditable credit governance requires quantitative ESG scoring, environmental due diligence, climate stress modeling, and enforceable loan covenants."
+        }
+      ]
+    },
+    {
+      "id": 754,
+      "code": "ELH-77",
+      "title": "TCFD & Climate Financial Risk Disclosures",
+      "level": "Specialist",
+      "version": 2,
+      "passingScore": 75,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        1,
+        7,
+        0,
+        0
+      ],
+      "feedbackComplete": "8/8",
+      "scenarioCount": 4,
+      "applicationCount": 0,
+      "learningObjectives": [
+        "Master core operational benchmarks in TCFD & Climate Financial Risk Disclosures",
+        "Implement standardized compliance checklists and monitoring routines",
+        "Identify resource efficiency and cost reduction opportunities",
+        "Prepare audit-ready records compliant with relevant standards"
+      ],
+      "questions": [
+        {
+          "id": 20554,
+          "orderIndex": 1,
+          "question": "What are the four core pillars of the Task Force on Climate-related Financial Disclosures (TCFD) and IFRS S2 framework?",
+          "options": [
+            "Marketing, Advertising, Public Relations, and Sponsorships",
+            "Governance, Strategy, Risk Management, and Metrics & Targets",
+            "Procurement, Warehousing, Distribution, and Retail",
+            "Taxation, Auditing, Payroll, and Legal"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Marketing and PR are promotional functions, distinct from financial risk disclosure.",
+            "Correct. Governance, Strategy, Risk Management, and Metrics & Targets constitute the four TCFD pillars.",
+            "Incorrect. Supply chain logistics are operational components, not disclosure pillars.",
+            "Incorrect. Standard corporate administration is distinct from climate financial reporting architecture."
+          ],
+          "correctExplanation": "TCFD and IFRS S2 are structured around four fundamental interconnected pillars: Governance (oversight), Strategy (scenario planning), Risk Management (ERM integration), and Metrics & Targets (GHG accounting).",
+          "incorrectExplanation": "The four TCFD/IFRS S2 pillars are Governance, Strategy, Risk Management, and Metrics & Targets."
+        },
+        {
+          "id": 20555,
+          "orderIndex": 2,
+          "question": "Why is 'Forward-Looking Scenario Analysis' (e.g., modeling a 1.5°C transition scenario and a >3°C physical scenario) required under TCFD and IFRS S2?",
+          "options": [
+            "Because historical financial data cannot predict unprecedented physical and regulatory changes resulting from future climate change",
+            "To create science-fiction stories for entertainment",
+            "To eliminate the need for accounting audits",
+            "To guarantee that the company's stock price never drops"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Historical data cannot predict unprecedented future climate disruptions; scenario modeling tests strategic resilience.",
+            "Incorrect. Climate scenarios are rigorous, science-based financial modeling tools, not fictional literature.",
+            "Incorrect. Independent financial and sustainability audits remain mandatory.",
+            "Incorrect. Scenario modeling assesses risk; it does not guarantee stock market returns."
+          ],
+          "correctExplanation": "Climate change creates non-linear, unprecedented structural disruptions (carbon taxes, catastrophic weather, technology shifts). Historical accounting cannot capture these dynamics; forward-looking scenario modeling evaluates business model resilience.",
+          "incorrectExplanation": "Scenario analysis stress-tests future business resilience against non-linear climate risks that historical data cannot predict."
+        },
+        {
+          "id": 20556,
+          "orderIndex": 3,
+          "question": "What is the primary difference between Climate 'Transition Risks' and Climate 'Physical Risks' in TCFD reporting?",
+          "options": [
+            "Transition risks relate to sports transitions, while physical risks relate to weightlifting.",
+            "Transition risks stem from the economic, legal, technological, and policy shifts required to decarbonize (e.g., carbon taxes, EV mandates), while Physical risks stem from the direct physical impacts of climate change (e.g., floods, storms, droughts, sea level rise).",
+            "Transition risks only happen in winter, while physical risks happen in summer.",
+            "There is zero difference; they are identical terms."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. These are formal financial risk categories, unrelated to athletics.",
+            "Correct. Transition risks arise from policy, technology, and market shifts; Physical risks arise from weather and climate hazards.",
+            "Incorrect. Climate risks operate across multi-year and multi-decadal financial horizons regardless of season.",
+            "Incorrect. They represent fundamentally distinct financial risk transmission channels."
+          ],
+          "correctExplanation": "Transition risks arise from shifting toward a low-carbon economy (carbon pricing, stranded fossil assets, market shifts). Physical risks arise from actual climate weather events (acute storms/floods, chronic heat/sea level rise).",
+          "incorrectExplanation": "Transition risks arise from decarbonization policies and markets; physical risks arise from meteorological and climatic events."
+        },
+        {
+          "id": 20557,
+          "orderIndex": 4,
+          "question": "Under the GHG Protocol and TCFD reporting standards, what constitutes 'Scope 3' greenhouse gas emissions?",
+          "options": [
+            "Emissions from the company's on-site backup diesel generator",
+            "Indirect greenhouse gas emissions that occur across the company's value chain, including purchased raw materials, supplier manufacturing, business travel, customer product use, and end-of-life disposal",
+            "Emissions from breathing inside office buildings",
+            "Purchased grid electricity consumption"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. On-site generator emissions are direct Scope 1 emissions.",
+            "Correct. Scope 3 covers all indirect upstream and downstream value chain emissions across 15 standard categories.",
+            "Incorrect. Human respiration is part of the natural biological carbon cycle and excluded from corporate GHG accounting.",
+            "Incorrect. Purchased grid electricity is categorized as Scope 2 emissions."
+          ],
+          "correctExplanation": "Scope 1 covers direct emissions (company boilers/vehicles), Scope 2 covers purchased electricity/steam, and Scope 3 covers all upstream and downstream value chain emissions, often accounting for 70% to 90% of total footprint.",
+          "incorrectExplanation": "Scope 3 encompasses all indirect value chain emissions (upstream supply chain and downstream product use/disposal)."
+        },
+        {
+          "id": 20558,
+          "orderIndex": 5,
+          "question": "What is the primary function of an Internal Carbon Price (ICP) in corporate capital expenditure (CapEx) decision-making?",
+          "options": [
+            "A mandatory tax paid directly to the local police department",
+            "A shadow price or fee (e.g., $50 to $100 per tonne of CO2e) applied internally to evaluate the financial viability of proposed capital projects, penalizing high-carbon investments and incentivizing energy efficiency",
+            "A price charged to employees for drinking coffee",
+            "An illegal scheme to hide corporate profits"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. ICP is an internal corporate financial modeling tool, not a municipal tax.",
+            "Correct. An internal carbon price applies a shadow carbon cost to project cash flows, incentivizing low-carbon CapEx.",
+            "Incorrect. Office refreshments are standard administrative overhead.",
+            "Incorrect. ICP is an established, transparent corporate risk-management best practice recognized by the World Bank."
+          ],
+          "correctExplanation": "An Internal Carbon Price (shadow carbon pricing) incorporates future carbon tax liabilities into project NPV calculations, steering capital investments toward low-carbon and energy-efficient assets.",
+          "incorrectExplanation": "Internal Carbon Pricing assigns a monetary value to carbon emissions to future-proof CapEx decisions against regulatory transition risks."
+        },
+        {
+          "id": 20559,
+          "orderIndex": 6,
+          "question": "What does a 'Science-Based Target' (SBTi) signify in corporate climate metrics?",
+          "options": [
+            "A target guessed by a company astrologer",
+            "An emissions reduction target that is independently validated and strictly aligned with the decarbonization pathway required to limit global warming to 1.5°C above pre-industrial levels per the Paris Agreement",
+            "A promise to buy science textbooks for schools",
+            "A target that requires increasing carbon emissions by 10% every year"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. SBTi targets are based on peer-reviewed climate physics and economic modeling.",
+            "Correct. SBTi targets are independently validated to ensure emissions cuts align with the 1.5°C Paris Agreement trajectory.",
+            "Incorrect. Educational philanthropy is distinct from corporate greenhouse gas reduction targets.",
+            "Incorrect. SBTi requires rapid absolute emissions reductions, never increases."
+          ],
+          "correctExplanation": "Science-Based Targets (SBTi) align corporate carbon reduction trajectories with climate science budgets (typically 4.2% annual linear absolute reduction for 1.5°C alignment), avoiding arbitrary or symbolic goals.",
+          "incorrectExplanation": "Science-Based Targets align corporate emissions reductions with the global 1.5°C Paris Agreement trajectory."
+        },
+        {
+          "id": 20560,
+          "orderIndex": 7,
+          "question": "Under IFRS S2 climate governance standards, what is the mandatory board-level disclosure requirement?",
+          "options": [
+            "Disclosing the names of all board members' pet animals",
+            "Disclosing the governance bodies or individuals responsible for oversight of climate-related risks and opportunities, how responsibilities are reflected in terms of reference, and how the board monitors climate metrics and targets",
+            "Board members must sign a declaration that they never use electricity",
+            "The board must delegate all decisions to an external social media manager"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Personal pet disclosures are irrelevant to corporate governance.",
+            "Correct. IFRS S2 requires clear disclosure of board oversight structures, committee responsibilities, and monitoring of climate targets.",
+            "Incorrect. Board members oversee enterprise decarbonization, not personal electricity abstention.",
+            "Incorrect. Governance oversight cannot be abdicated to marketing personnel."
+          ],
+          "correctExplanation": "IFRS S2 requires transparent disclosure of board oversight structures, committee charters, climate expertise, review frequency, and how climate performance is integrated into executive remuneration.",
+          "incorrectExplanation": "IFRS S2 mandates disclosure of board oversight mechanisms, committee charters, and management's role in climate risk governance."
+        },
+        {
+          "id": 20561,
+          "orderIndex": 8,
+          "question": "What constitutes auditable proof of a compliant TCFD / IFRS S2 climate report during an annual financial and sustainability assurance audit?",
+          "options": [
+            "A flyer claiming the company is carbon-free without supporting calculations",
+            "A published Climate Disclosure report aligned with all 11 TCFD recommendations, supported by documented 1.5°C/4°C scenario models, third-party verified Scope 1-3 GHG inventories (ISO 14064-3 / ISAE 3000), and board minutes approving the climate strategy",
+            "A verbal statement from the marketing department",
+            "A photograph of a blue sky on the annual report cover"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Marketing flyers without quantitative methodologies carry zero audit validity.",
+            "Correct. Published disclosures covering all 11 TCFD points, supported by scenario models, assured GHG data, and board minutes provide auditable proof.",
+            "Incorrect. Verbal statements cannot be verified by financial auditors.",
+            "Incorrect. Cover graphics are aesthetic and carry no reporting compliance validity."
+          ],
+          "correctExplanation": "Auditable compliance requires full alignment across all 11 TCFD recommendations, paired with third-party verified GHG emissions inventories (ISAE 3000 assurance) and documented scenario modeling.",
+          "incorrectExplanation": "Auditable compliance requires complete TCFD alignment, verified GHG inventories, scenario documentation, and board minutes."
+        }
+      ]
+    },
+    {
+      "id": 755,
+      "code": "ELH-78",
+      "title": "Carbon Markets, Offsets & Credit Verification",
+      "level": "Specialist",
+      "version": 2,
+      "passingScore": 75,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        0,
+        8,
+        0,
+        0
+      ],
+      "feedbackComplete": "8/8",
+      "scenarioCount": 4,
+      "applicationCount": 1,
+      "learningObjectives": [
+        "Master core operational benchmarks in Carbon Markets, Offsets & Credit Verification",
+        "Implement standardized compliance checklists and monitoring routines",
+        "Identify resource efficiency and cost reduction opportunities",
+        "Prepare audit-ready records compliant with relevant standards"
+      ],
+      "questions": [
+        {
+          "id": 20562,
+          "orderIndex": 1,
+          "question": "What does the principle of 'Additionality' mean in carbon credit verification?",
+          "options": [
+            "Adding more numbers together on a calculator",
+            "The greenhouse gas reduction or removal would NOT have occurred in the absence of the carbon credit financial incentive, and is not required by existing laws or business-as-usual economics",
+            "Planting trees only in addition to existing buildings",
+            "Buying double the amount of credits required"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Additionality is an environmental economics concept, not basic arithmetic.",
+            "Correct. Additionality means the climate mitigation would not have happened without the carbon credit finance.",
+            "Incorrect. Tree location is a biological siting issue, not the definition of additionality.",
+            "Incorrect. Purchasing volume is separate from project additionality verification."
+          ],
+          "correctExplanation": "Additionality is the core integrity requirement: if a project would have happened anyway (due to legal mandates, commercial viability, or standard practice), it is not additional and cannot generate valid carbon credits.",
+          "incorrectExplanation": "Additionality requires proving that the greenhouse gas reduction would not have occurred without the carbon credit revenue."
+        },
+        {
+          "id": 20563,
+          "orderIndex": 2,
+          "question": "What is the primary risk associated with 'Permanence and Reversal' in biological nature-based carbon projects (e.g., forestry, soil carbon)?",
+          "options": [
+            "Trees might grow too tall and touch the sky.",
+            "Carbon stored in biological biomass can be prematurely released back into the atmosphere due to wildfires, disease outbreaks, severe drought, or illegal logging, reversing the climate benefit.",
+            "Trees absorb too much oxygen at night.",
+            "Soil carbon turns into solid gold under pressure."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Biological tree growth is limited by natural species physics.",
+            "Correct. Biological carbon can be reversed by fires, pests, or logging, requiring buffer pool insurance.",
+            "Incorrect. Net photosynthesis sequestering CO2 vastly exceeds respiration in healthy forests.",
+            "Incorrect. Biological carbon forms organic humus, not precious mineral metals."
+          ],
+          "correctExplanation": "Biological carbon storage is vulnerable to physical reversals (fire, rot, logging). High-integrity standards require projects to contribute 15% to 30% of credits into a shared 'buffer pool' to insure against reversals.",
+          "incorrectExplanation": "Biological carbon storage faces reversal risks from fires, decay, and logging, requiring pooled buffer reserves."
+        },
+        {
+          "id": 20564,
+          "orderIndex": 3,
+          "question": "Which carbon credit registry standard is recognized globally for verifying high-permanence engineered Carbon Dioxide Removal (CDR) technologies (e.g., biochar, enhanced weathering, mineralization)?",
+          "options": [
+            "The International Driver's License Registry",
+            "Puro.earth (Puro Standard)",
+            "The Local Town Hall Building Permits Office",
+            "The International Postal Union"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Motor vehicle registries have no role in carbon standards.",
+            "Correct. Puro.earth is the premier accredited standard for engineered, high-permanence carbon removal.",
+            "Incorrect. Municipal offices handle local construction, not carbon credit registries.",
+            "Incorrect. Postal agencies manage physical mail delivery."
+          ],
+          "correctExplanation": "Puro.earth is the leading specialized crediting standard and registry for durable, engineered Carbon Dioxide Removal (CORCs: CO2 Removal Certificates) with 100+ to 1,000+ year permanence.",
+          "incorrectExplanation": "Puro.earth specializes in standards and registries for engineered, durable carbon dioxide removal (CDR)."
+        },
+        {
+          "id": 20565,
+          "orderIndex": 4,
+          "question": "What is a 'Corresponding Adjustment' under Article 6 of the Paris Agreement, and why is it essential?",
+          "options": [
+            "An adjustment to make all airplane seats larger",
+            "An accounting adjustment where the host country un-counts an exported carbon credit from its national greenhouse gas inventory, preventing 'Double Counting' where both the host country and the foreign buyer claim the same emissions reduction",
+            "An adjustment to the calendar year from 12 to 14 months",
+            "A discount given to tourists buying souvenirs"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Article 6 is an international treaty mechanism, unrelated to airline seating.",
+            "Correct. Corresponding Adjustments prevent double counting between the host nation's NDC and the buyer's carbon claim.",
+            "Incorrect. The Gregorian calendar remains standard.",
+            "Incorrect. It is a sovereign greenhouse gas accounting mechanism, not retail discounting."
+          ],
+          "correctExplanation": "Article 6 Corresponding Adjustments prevent double counting: if country A sells a carbon credit to company B in country C, country A must adjust its national emissions ledger upwards so both parties do not claim the same ton.",
+          "incorrectExplanation": "Corresponding Adjustments prevent double counting between national greenhouse gas inventories and international buyers."
+        },
+        {
+          "id": 20566,
+          "orderIndex": 5,
+          "question": "What does the 'Oxford Principles for Net Zero Aligned Carbon Offsetting' recommend regarding corporate offset portfolio strategy over time?",
+          "options": [
+            "Buying only the cheapest possible credits and ignoring quality",
+            "Progressively shifting corporate procurement from short-lived emissions avoidance credits toward long-duration, permanent Carbon Dioxide Removal (CDR) with geological storage",
+            "Stopping all internal decarbonization and buying 100% offsets forever",
+            "Only offsetting emissions on leap years"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Cheap, low-quality credits create severe greenwashing liabilities.",
+            "Correct. The Oxford Principles advise shifting portfolios over time toward durable, permanent Carbon Dioxide Removal (CDR).",
+            "Incorrect. Internal direct decarbonization must always remain the highest priority.",
+            "Incorrect. Carbon accounting requires annual continuous reconciliation."
+          ],
+          "correctExplanation": "The Oxford Principles outline a transition pathway: prioritize internal reductions first, and progressively shift residual offset purchases from avoidance toward durable, permanent carbon removals (biochar, DACS, mineralization).",
+          "incorrectExplanation": "The Oxford Principles mandate shifting offset portfolios from avoidance toward durable carbon removals over time."
+        },
+        {
+          "id": 20567,
+          "orderIndex": 6,
+          "question": "What is the mandatory final step required when a company utilizes carbon credits to claim compensation for residual emissions?",
+          "options": [
+            "Re-selling the carbon credits to another company on eBay",
+            "Permanently 'Retiring' the unique serialized carbon credits on the public registry in the company's name, ensuring they can never be traded, reused, or claimed again",
+            "Printing the certificate and putting it in a picture frame while leaving the credits active for sale",
+            "Deleting the registry account"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Re-selling retired credits constitutes illegal duplicate selling and commercial fraud.",
+            "Correct. Permanent public registry retirement burns the unique serial numbers, ensuring the credit cannot be reused.",
+            "Incorrect. Framing a paper while leaving credits active on market allows double counting.",
+            "Incorrect. Account deletion does not execute formal credit retirement."
+          ],
+          "correctExplanation": "Retirement takes the credit out of circulation permanently. The public registry marks the specific serial numbers as 'Retired,' specifying the beneficiary and purpose to prevent double-claiming.",
+          "incorrectExplanation": "Credits must be permanently retired on the public registry to prevent double-selling or duplicate claims."
+        },
+        {
+          "id": 20568,
+          "orderIndex": 7,
+          "question": "What is 'Leakage' in carbon project accounting?",
+          "options": [
+            "Water leaking from a water pipe in the office",
+            "An unintended increase in greenhouse gas emissions outside the project's accounting boundary as a direct result of the project's activities (e.g., protecting a forest area causes loggers to move to an adjacent unprotected forest)",
+            "Gasoline leaking from a car engine",
+            "Refrigerant gas escaping from a display chiller"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Hydraulic plumbing is separate from carbon boundary leakage.",
+            "Correct. Leakage occurs when a project displaces carbon-emitting activities outside its boundary, eroding net benefits.",
+            "Incorrect. Vehicle mechanical leaks are physical fuel losses.",
+            "Incorrect. Refrigerant leaks are Scope 1 fugitive emissions, distinct from project boundary leakage."
+          ],
+          "correctExplanation": "Activity-shifting leakage occurs when project interventions simply displace carbon-emitting activities to other locations, cancelling out the net climate benefit unless properly monitored and deducted.",
+          "incorrectExplanation": "Leakage refers to the displacement of emissions outside the project boundary as a result of project activities."
+        },
+        {
+          "id": 20569,
+          "orderIndex": 8,
+          "question": "When presenting a carbon credit procurement dossier to corporate auditors, what represents verifiable proof of high-integrity offsetting?",
+          "options": [
+            "A verbal statement from a carbon broker promising that the credits are genuine",
+            "An auditable dossier containing the verified Project Design Document (PDD), third-party VVB validation reports, proof of additionality, and an official Public Registry Retirement Certificate displaying unique immutable serial numbers",
+            "A picture of a baby panda downloaded from the internet",
+            "A receipt for a donation made to a local soccer club"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Verbal broker claims carry zero legal or audit validity.",
+            "Correct. Validated PDDs, VVB audit reports, additionality proofs, and official registry retirement certificates provide auditable proof.",
+            "Incorrect. Wildlife photos do not prove carbon sequestration or legal ownership.",
+            "Incorrect. Community donations are philanthropic contributions, not verified carbon offsets."
+          ],
+          "correctExplanation": "Auditors require verified PDD documentation, third-party VVB verification audit reports, additionality proofs, and official public registry serialization retirement certificates.",
+          "incorrectExplanation": "Auditable proof requires validated project documents, VVB audit reports, and public registry retirement certificates."
+        }
+      ]
+    },
+    {
+      "id": 738,
+      "code": "ELH-79",
+      "title": "Anti-Greenwashing in Financial Products",
+      "level": "Role Specialist",
+      "version": 2,
+      "passingScore": 75,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        1,
+        6,
+        0,
+        1
+      ],
+      "feedbackComplete": "8/8",
+      "scenarioCount": 5,
+      "applicationCount": 0,
+      "learningObjectives": [
+        "Comply with EU Sustainable Finance Disclosure Regulation (SFDR Article 6, 8, 9) requirements",
+        "Verify that marketing claims match underlying portfolio investment mandates and ESG methodologies",
+        "Identify high-risk greenwashing traps in naming conventions and marketing collateral",
+        "Establish internal ESG compliance sign-off workflows prior to public product launches"
+      ],
+      "questions": [
+        {
+          "id": 20570,
+          "orderIndex": 1,
+          "question": "Under the EU Sustainable Finance Disclosure Regulation (SFDR), what distinguishes an 'Article 9' fund from an 'Article 8' fund?",
+          "options": [
+            "Article 9 funds can only invest in real estate, while Article 8 funds invest in stocks.",
+            "An Article 9 fund has an explicit, dedicated 'Sustainable Investment Objective' (requiring 100% sustainable investments, excluding cash/hedging), whereas an Article 8 fund merely 'promotes environmental or social characteristics.'",
+            "Article 9 funds are exempt from all financial regulations.",
+            "Article 8 funds are legally prohibited from making any profit."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. SFDR applies across all asset classes (equities, fixed income, real estate, private equity).",
+            "Correct. Article 9 mandates a dedicated sustainable investment objective (100% sustainable assets), whereas Article 8 promotes E/S characteristics.",
+            "Incorrect. Article 9 funds face the highest level of regulatory scrutiny and reporting.",
+            "Incorrect. Article 8 funds are commercial investments targeting standard market returns."
+          ],
+          "correctExplanation": "Article 9 ('Dark Green') funds have an explicit sustainable objective (100% sustainable assets), whereas Article 8 ('Light Green') funds promote E/S characteristics as part of a broader investment strategy.",
+          "incorrectExplanation": "Article 9 funds require a dedicated sustainable investment objective (100% sustainable assets), whereas Article 8 funds promote E/S characteristics."
+        },
+        {
+          "id": 20571,
+          "orderIndex": 2,
+          "question": "Under ESMA Fund Naming Guidelines, what is the minimum percentage of investments required to meet verified sustainability criteria if a fund uses terms like 'ESG', 'Sustainable', or 'Impact' in its name?",
+          "options": [
+            "At least 5%",
+            "At least 25%",
+            "At least 50%",
+            "At least 80%"
+          ],
+          "correctOption": 3,
+          "optionFeedback": [
+            "Incorrect. 5% is completely inadequate and constitutes deceptive naming.",
+            "Incorrect. 25% is far below the mandatory regulatory threshold.",
+            "Incorrect. 50% is insufficient under ESMA fund naming rules.",
+            "Correct. ESMA mandates that at least 80% of fund assets must meet verified sustainability criteria to use ESG terms in the fund name."
+          ],
+          "correctExplanation": "ESMA mandates a minimum 80% threshold: at least 80% of fund investments must meet the environmental, social, or sustainable investment objectives reflected in the fund's name.",
+          "incorrectExplanation": "ESMA Fund Naming Guidelines mandate that at least 80% of assets meet the sustainability criteria reflected in the fund name."
+        },
+        {
+          "id": 20572,
+          "orderIndex": 3,
+          "question": "What is the 'Do No Significant Harm' (DNSH) principle in European sustainable finance regulation?",
+          "options": [
+            "A rule that fund managers cannot harm their computers",
+            "A mandatory test ensuring that an investment that contributes to one environmental objective (e.g., climate mitigation) does not cause significant adverse harm to any of the other environmental objectives (e.g., water, circular economy, biodiversity)",
+            "A requirement that all investors must be doctors",
+            "A rule stating that companies cannot fire bad employees"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. DNSH governs environmental and social externalities, not office IT equipment.",
+            "Correct. The DNSH test ensures an investment contributing to one green objective does not significantly harm other environmental or social areas.",
+            "Incorrect. The medical Hippocratic oath is separate from financial DNSH standards.",
+            "Incorrect. Employment law operates independently of environmental DNSH screening."
+          ],
+          "correctExplanation": "Under the EU Taxonomy and SFDR, an investment cannot be classified as sustainable if its positive contribution in one area causes significant environmental or social harm in another (DNSH principle).",
+          "incorrectExplanation": "The DNSH principle ensures that economic activities contributing to one sustainability goal do not significantly harm other environmental objectives."
+        },
+        {
+          "id": 20573,
+          "orderIndex": 4,
+          "question": "What are 'Principal Adverse Impacts' (PAI) under the Sustainable Finance Disclosure Regulation (SFDR)?",
+          "options": [
+            "Negative impacts on the bank's stock price caused by bad news",
+            "Mandatory negative metrics and indicators measuring the adverse impacts that investment decisions have on sustainability factors (e.g., GHG emissions, water pollution, biodiversity loss, gender pay gap)",
+            "Minor technical errors in financial accounting spreadsheets",
+            "Losses caused by interest rate changes"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Stock price volatility is a financial market risk, not a sustainability PAI.",
+            "Correct. PAIs measure the negative externalities that investment decisions have on environmental and social sustainability factors.",
+            "Incorrect. Spreadsheet errors are operational accounting bugs.",
+            "Incorrect. Interest rate changes are market risks, distinct from sustainability PAIs."
+          ],
+          "correctExplanation": "PAI indicators capture the negative externalities of investee companies (carbon footprint, hazardous waste, human rights violations), requiring asset managers to disclose how they monitor and mitigate these adverse impacts.",
+          "incorrectExplanation": "PAIs are mandatory metrics assessing the negative environmental and social impacts of investee companies in a portfolio."
+        },
+        {
+          "id": 20574,
+          "orderIndex": 5,
+          "question": "What constitutes 'Green Bleaching' in sustainable asset management?",
+          "options": [
+            "Washing green clothes with bleach in the laundry",
+            "When an asset manager deliberately downplays, under-reports, or declassifies a fund's sustainability features to avoid regulatory reporting burdens or greenwashing scrutiny",
+            "Painting financial reports with green watercolor paint",
+            "Selling all the bank's computers"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Laundry practices are completely unrelated to financial compliance.",
+            "Correct. Green bleaching occurs when asset managers downplay sustainability features to avoid regulatory burdens and legal scrutiny.",
+            "Incorrect. Document formatting is distinct from regulatory positioning.",
+            "Incorrect. IT hardware management is unrelated to fund classification strategy."
+          ],
+          "correctExplanation": "Green bleaching is the opposite of greenwashing: fund managers understate or disguise genuine green characteristics to avoid strict SFDR Article 8/9 disclosure requirements and legal liability.",
+          "incorrectExplanation": "Green bleaching occurs when asset managers deliberately understate sustainability features to evade complex regulatory compliance obligations."
+        },
+        {
+          "id": 20575,
+          "orderIndex": 6,
+          "question": "What is the core regulatory standard for sustainability claims made in financial product marketing materials and client pitch books?",
+          "options": [
+            "Marketing materials can say anything as long as the legal prospectus is buried in fine print.",
+            "All marketing claims must be fair, clear, not misleading, and strictly consistent with the legally binding investment strategy described in the formal fund prospectus.",
+            "Marketing materials must always be written in poetry.",
+            "Marketing materials can only be shown to bank employees."
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Fine print disclaimers do not protect firms from misleading marketing claims.",
+            "Correct. All marketing promotions must be fair, clear, not misleading, and fully consistent with binding prospectus terms.",
+            "Incorrect. Marketing must use clear professional language, not poetry.",
+            "Incorrect. Client-facing marketing is distributed to external retail and institutional investors."
+          ],
+          "correctExplanation": "Securities regulations require marketing materials to be fair, clear, and not misleading. Disclaimers in fine print cannot cure misleading, exaggerated, or unsubstantiated headlines.",
+          "incorrectExplanation": "Marketing claims must be fair, clear, not misleading, and fully aligned with binding prospectus terms."
+        },
+        {
+          "id": 20576,
+          "orderIndex": 7,
+          "question": "Under international human rights and governance safeguards (e.g., UN Guiding Principles, OECD Guidelines), what must an SFDR Article 8 or 9 fund verify regarding investee companies?",
+          "options": [
+            "That investee companies follow 'Good Governance Practices' and comply with Minimum Social Safeguards regarding labor rights, anti-corruption, and human rights.",
+            "That all investee company executives have university degrees in botany.",
+            "That investee companies never pay any taxes.",
+            "That investee companies operate only on islands."
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Investee companies must adhere to Good Governance standards and Minimum Social Safeguards.",
+            "Incorrect. Executive academic disciplines are not regulatory compliance criteria.",
+            "Incorrect. Tax compliance is a mandatory component of Good Governance.",
+            "Incorrect. Geographical headquarters do not determine governance compliance."
+          ],
+          "correctExplanation": "SFDR strictly mandates that companies held in Article 8 or 9 funds must follow good governance (sound management structures, employee relations, remuneration, tax compliance) and respect minimum human rights safeguards.",
+          "incorrectExplanation": "Investee companies must follow Good Governance practices and comply with Minimum Social Safeguards."
+        },
+        {
+          "id": 20577,
+          "orderIndex": 8,
+          "question": "When presenting a completed compliance review of an ESG investment fund to the Chief Risk Officer or regulatory auditor, what represents the most credible evidence of anti-greenwashing diligence?",
+          "options": [
+            "A verbal statement from the marketing manager promising that the ad was well-intentioned",
+            "A signed Pre-Issuance Compliance Review Report verifying 80%+ asset eligibility, PAI tracking data, DNSH screening logs, and a clause-by-clause reconciliation between marketing claims and the binding fund prospectus",
+            "A screenshot of a social media post with five green heart emojis",
+            "A letter from an investor saying they like the fund's name"
+          ],
+          "correctOption": 1,
+          "optionFeedback": [
+            "Incorrect. Good intentions carry zero legal defense during regulatory enforcement actions.",
+            "Correct. Documented pre-issuance reviews, 80%+ asset screening logs, PAI data, and prospectus reconciliation provide auditable proof.",
+            "Incorrect. Emojis and social media posts do not constitute regulatory compliance records.",
+            "Incorrect. Subjective investor sentiment does not verify regulatory disclosure compliance."
+          ],
+          "correctExplanation": "Auditable compliance requires documented pre-issuance review reports, asset-level screening logs, PAI tracking datasets, and formal clause-by-clause prospectus reconciliation.",
+          "incorrectExplanation": "Auditable anti-greenwashing compliance requires documented pre-issuance reviews, asset screening logs, and prospectus reconciliation."
+        }
+      ]
+    },
+    {
+      "id": 756,
+      "code": "ELH-80",
+      "title": "Sustainable Wealth Management & ESG Advisory",
+      "level": "D3 Applied",
+      "version": 2,
+      "passingScore": 75,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        8,
+        0,
+        0,
+        0
+      ],
+      "feedbackComplete": "8/8",
+      "scenarioCount": 6,
+      "applicationCount": 2,
+      "learningObjectives": [
+        "Conduct structured ESG suitability profiling and client sustainability preference assessments.",
+        "Evaluate Article 8/9 fund documentation and green thematic mandates against verifiable ESG metrics.",
+        "Apply the double materiality lens across private wealth asset allocations and real asset portfolios.",
+        "Detect and mitigate greenwashing risks in wealth management product shelf onboarding.",
+        "Establish a 30-day workplace action commitment for client ESG disclosure and advisory reporting."
+      ],
+      "questions": [
+        {
+          "id": 23938,
+          "orderIndex": 1,
+          "question": "What is the primary objective of client ESG suitability profiling in wealth management?",
+          "options": [
+            "To systematically capture and document an investor's sustainability preferences, values, and exclusion constraints alongside financial objectives",
+            "To force all high-net-worth clients into high-risk venture capital renewables",
+            "To eliminate all international equities from client portfolios",
+            "To ensure client investments only yield tax-exempt local municipal returns"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Capturing sustainability preferences alongside risk tolerance is essential for regulatory compliance and fiduciary duty.",
+            "Incorrect. ESG profiling does not mandate venture capital allocations.",
+            "Incorrect. Global diversification is maintained across compliant ESG assets.",
+            "Incorrect. Tax status is separate from sustainability suitability profiling."
+          ],
+          "correctExplanation": "Client ESG profiling systematically integrates the investor's sustainability preferences, risk appetite, and exclusion criteria into portfolio design.",
+          "incorrectExplanation": "ESG profiling does not force specific asset classes; it aligns client values and fiduciary objectives with verified investment parameters."
+        },
+        {
+          "id": 23939,
+          "orderIndex": 2,
+          "question": "Under SFDR / international disclosure classifications, how is an Article 9 fund distinguished from an Article 8 fund?",
+          "options": [
+            "Article 9 funds have explicit, measurable sustainable investment as their core objective, whereas Article 8 funds promote environmental or social characteristics",
+            "Article 9 funds invest 100% in government treasuries, while Article 8 funds invest in real estate",
+            "Article 8 funds have higher management fees and no reporting requirements",
+            "Article 9 funds are exempt from anti-greenwashing regulatory scrutiny"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Article 9 mandates explicit sustainable investment objectives, whereas Article 8 covers products promoting environmental/social characteristics.",
+            "Incorrect. Article 9 is not restricted to government bonds.",
+            "Incorrect. Article 8 funds carry substantial disclosure obligations.",
+            "Incorrect. Article 9 funds face the highest level of regulatory scrutiny."
+          ],
+          "correctExplanation": "Article 9 ('dark green') funds have sustainable investment as their primary objective with binding impact metrics, whereas Article 8 ('light green') promotes E/S characteristics.",
+          "incorrectExplanation": "Article 9 specifically designates products with a dedicated sustainable investment objective and rigorous non-financial KPI verification."
+        },
+        {
+          "id": 23940,
+          "orderIndex": 3,
+          "question": "What does the concept of 'Double Materiality' require wealth advisors and asset managers to evaluate?",
+          "options": [
+            "Both how sustainability issues financially impact the company (financial materiality) and how the company impacts society and the environment (impact materiality)",
+            "Calculating investment returns twice using two different accounting currencies",
+            "Verifying that management fees are divided equally between the bank and the client",
+            "Ensuring that both equity and debt instruments are held in equal dollar proportions"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Double materiality examines inward financial risk and outward societal/environmental impact.",
+            "Incorrect. Currency conversion is unrelated to double materiality.",
+            "Incorrect. Fee structures have no bearing on materiality assessments.",
+            "Incorrect. Asset allocation balance is separate from double materiality."
+          ],
+          "correctExplanation": "Double materiality looks at financial materiality (risks to company value) and environmental/social impact materiality (externalities caused by the company).",
+          "incorrectExplanation": "Double materiality refers to the dual perspectives of financial risk to the portfolio and operational impact on people and planet."
+        },
+        {
+          "id": 23941,
+          "orderIndex": 4,
+          "question": "When assessing a green bond issued by an infrastructure firm, which document provides legal proof of how capital will be spent?",
+          "options": [
+            "The Green Bond Framework and independent Second-Party Opinion (SPO) defining eligible Use of Proceeds",
+            "A press release published on the issuer's corporate website",
+            "The CEO's personal social media statements regarding clean energy",
+            "A generic stock exchange listing certificate"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Green Bond Frameworks and Second-Party Opinions provide objective, audited verification of eligible projects.",
+            "Incorrect. Press releases are unverified marketing materials.",
+            "Incorrect. Social media commentary carries zero audit validity.",
+            "Incorrect. Listing certificates only confirm trading authorization, not green compliance."
+          ],
+          "correctExplanation": "The Green Bond Framework and independent SPO provide verifiable legal assurance on ring-fenced Use of Proceeds and annual allocation reporting.",
+          "incorrectExplanation": "Press releases and executive statements lack the legal enforceability and independent audit verification of an SPO and Green Bond Framework."
+        },
+        {
+          "id": 23942,
+          "orderIndex": 5,
+          "question": "Which of the following portfolio characteristics represents a classic indicator of potential greenwashing in an equity fund?",
+          "options": [
+            "High ESG overall fund score driven by tech stocks while top holdings include unhedged thermal coal expansions with no transition plan",
+            "Transparent reporting of Scope 1, 2, and 3 emissions with third-party assurance",
+            "Active proxy voting against management on climate resolutions",
+            "Exclusion of controversial weapons and tobacco companies"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Inflated ratings masking active carbon-intensive expansion without transition targets indicate greenwashing.",
+            "Incorrect. Transparent Scope 1-3 disclosures indicate good practice.",
+            "Incorrect. Active climate voting demonstrates stewardship.",
+            "Incorrect. Strict negative screening is a valid baseline approach."
+          ],
+          "correctExplanation": "Relying on synthetic top-level scores while ignoring heavy fossil fuel expansion without transition criteria is a common greenwashing indicator.",
+          "incorrectExplanation": "Transparent carbon accounting, active proxy voting, and strict negative screening are standard best practices, not greenwashing."
+        },
+        {
+          "id": 23943,
+          "orderIndex": 6,
+          "question": "What is the primary fiduciary risk if a wealth advisor markets an investment as 'carbon neutral' without verifying offset quality?",
+          "options": [
+            "Breach of regulatory consumer protection rules and liability for misrepresentation if offsets prove unverified or double-counted",
+            "Automatic doubling of the client's corporate income tax rate",
+            "Immediate cancellation of the client's commercial bank accounts",
+            "A mandatory requirement to purchase physical solar panels for the bank branch"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Misleading sustainability claims violate statutory consumer protection and financial conduct regulations.",
+            "Incorrect. Misrepresentation does not alter corporate tax rates.",
+            "Incorrect. Bank accounts are not automatically frozen for marketing errors.",
+            "Incorrect. Penalties are legal/regulatory rather than physical asset mandates."
+          ],
+          "correctExplanation": "Unverified carbon neutral claims expose advisors and institutions to regulatory enforcement, fines for misleading conduct, and reputational damage.",
+          "incorrectExplanation": "The risk is legal and regulatory liability for misleading marketing and misrepresentation of financial products."
+        },
+        {
+          "id": 23944,
+          "orderIndex": 7,
+          "question": "In sustainable portfolio construction, how should Principal Adverse Impact (PAI) indicators be utilized?",
+          "options": [
+            "To measure and disclose the negative externalities of investments on environmental and social factors like GHG emissions and biodiversity",
+            "To maximize short-term derivative trading volume",
+            "To eliminate all operational expenses from fund management",
+            "To replace standard financial balance sheets with narrative blog posts"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. PAI metrics ensure transparent accounting of negative externalities across environmental and social dimensions.",
+            "Incorrect. PAIs are unrelated to derivative trading.",
+            "Incorrect. PAIs do not alter operational fund expense accounting.",
+            "Incorrect. PAIs complement rather than replace financial statements."
+          ],
+          "correctExplanation": "PAI indicators systematically quantify negative real-world impacts such as carbon intensity, water usage, hazardous waste, and gender pay gaps.",
+          "incorrectExplanation": "PAIs are standardized metrics for measuring negative impacts of portfolio companies on sustainability factors."
+        },
+        {
+          "id": 23945,
+          "orderIndex": 8,
+          "question": "What is the recommended operational step when onboarding a new ESG-themed fund onto a wealth management platform?",
+          "options": [
+            "Perform formal due diligence reviewing underlying holdings, SFDR disclosure documents, independent ESG ratings, and active engagement policies",
+            "Rely exclusively on the asset manager's glossy sales presentation",
+            "List the product immediately if competitor banks are offering it",
+            "Categorize the fund as sustainable based solely on its marketing name"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Institutional gatekeeping requires thorough technical due diligence and verification of underlying portfolio assets.",
+            "Incorrect. Marketing decks are not objective evidence.",
+            "Incorrect. Competitor offerings do not waive institutional compliance duty.",
+            "Incorrect. Fund naming conventions can be misleading without underlying analysis."
+          ],
+          "correctExplanation": "Formal due diligence with independent holding analysis and regulatory documentation review is essential for institutional gatekeeping.",
+          "incorrectExplanation": "Relying on sales presentations or product names without independent technical verification constitutes a breakdown in product governance."
+        }
+      ]
+    },
+    {
+      "id": 757,
+      "code": "ELH-81",
+      "title": "Green Freight & Multimodal Cargo Optimization",
+      "level": "D3 Applied",
+      "version": 2,
+      "passingScore": 75,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        8,
+        0,
+        0,
+        0
+      ],
+      "feedbackComplete": "8/8",
+      "scenarioCount": 1,
+      "applicationCount": 0,
+      "learningObjectives": [
+        "Calculate freight carbon intensity using the Global Logistics Emissions Council (GLEC) standard.",
+        "Optimize container payload utilization and volumetric cube efficiency to minimize transport trips.",
+        "Evaluate modal shift feasibility (road to coastal shipping/rail) for regional freight corridors.",
+        "Implement green carrier selection scorecards with verified fuel efficiency standards.",
+        "Establish a 30-day workplace action plan for logistics route consolidation and load optimization."
+      ],
+      "questions": [
+        {
+          "id": 23946,
+          "orderIndex": 1,
+          "question": "Under the Global Logistics Emissions Council (GLEC) framework, what metric is universally used to benchmark freight carbon intensity?",
+          "options": [
+            "Grams of CO2 equivalent per tonne-kilometer (gCO2e/t-km)",
+            "Litres of diesel burned per calendar month",
+            "Total gross weight of the truck driver and passengers",
+            "Number of shipping containers stored in the warehouse yard"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. gCO2e/t-km is the international GLEC standard for freight carbon intensity.",
+            "Incorrect. Total fuel litres alone does not account for cargo payload mass or distance efficiency.",
+            "Incorrect. Passenger weight is not the commercial freight metric.",
+            "Incorrect. Yard container count does not measure transport carbon intensity."
+          ],
+          "correctExplanation": "Grams of CO2e per tonne-kilometer (gCO2e/t-km) accounts for both payload weight and distance travelled across all freight modes.",
+          "incorrectExplanation": "Standard freight carbon accounting normalizes emissions against payload mass and distance (tonne-kilometers)."
+        },
+        {
+          "id": 23947,
+          "orderIndex": 2,
+          "question": "Which freight transport mode generally produces the lowest carbon intensity per tonne-kilometer for international bulk cargo?",
+          "options": [
+            "Maritime container ocean shipping (10–25 gCO2e/t-km)",
+            "Dedicated air cargo freighter (500–800 gCO2e/t-km)",
+            "Light commercial petrol delivery vans (200–350 gCO2e/t-km)",
+            "Inter-island helicopter cargo transport (1,200+ gCO2e/t-km)"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Maritime shipping offers the lowest emissions per tonne-km due to immense volume efficiency.",
+            "Incorrect. Air freight is the most carbon-intensive mode.",
+            "Incorrect. Light vans have high emissions per unit mass.",
+            "Incorrect. Helicopters have extreme fuel burn per unit payload."
+          ],
+          "correctExplanation": "Maritime ocean shipping achieves the lowest carbon intensity due to massive scale economies and energy-efficient water displacement.",
+          "incorrectExplanation": "Air freight and light road vehicles have vastly higher carbon intensity per tonne-kilometer than container ships."
+        },
+        {
+          "id": 23948,
+          "orderIndex": 3,
+          "question": "What is the primary benefit of improving trailer 'volumetric cube utilization' from 50% to 85%?",
+          "options": [
+            "It reduces the total number of truck trips required for a given freight volume, cutting fuel consumption and carbon emissions proportionally",
+            "It increases the highway speed limit for the freight carrier",
+            "It eliminates the legal requirement for vehicle roadworthiness certificates",
+            "It automatically doubles the driver's overtime pay"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Maximizing volume fill directly eliminates redundant delivery runs and diesel burn.",
+            "Incorrect. Load efficiency does not alter statutory speed limits.",
+            "Incorrect. Vehicle inspection laws remain mandatory regardless of load.",
+            "Incorrect. Load optimization reduces rather than inflates excess overtime."
+          ],
+          "correctExplanation": "Higher cube utilization consolidates cargo into fewer vehicle movements, directly reducing fuel burn, driver hours, and greenhouse gas emissions.",
+          "incorrectExplanation": "Cube utilization optimizes space efficiency to eliminate unnecessary vehicle trips and reduce emissions."
+        },
+        {
+          "id": 23949,
+          "orderIndex": 4,
+          "question": "What does 'backhaul optimization' refer to in commercial freight management?",
+          "options": [
+            "Securing paying cargo or supplier returns for delivery vehicles on their return journey rather than running empty",
+            "Driving delivery trucks in reverse gear to reduce odometer readings",
+            "Only dispatching deliveries during late-night hours without streetlights",
+            "Refueling vehicles only at the rear of the distribution terminal"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Backhauling utilizes return capacity to eliminate wasteful empty miles.",
+            "Incorrect. Backhaul is not about driving in reverse.",
+            "Incorrect. Night dispatching is separate from backhaul load optimization.",
+            "Incorrect. Fuel station location is irrelevant to backhaul cargo capture."
+          ],
+          "correctExplanation": "Backhaul management captures return cargo on return legs, eliminating empty mileage and reducing transport cost per unit.",
+          "incorrectExplanation": "Backhaul optimization focuses on utilizing return capacity to prevent empty vehicle travel."
+        },
+        {
+          "id": 23950,
+          "orderIndex": 5,
+          "question": "When developing a Green Carrier Scorecard for third-party logistics (3PL) contractors, which criteria should carry significant weight?",
+          "options": [
+            "Fleet Euro emissions standard / EV adoption, verified fuel monitoring data, driver eco-training, and GLEC-compliant carbon reporting",
+            "The color of the carrier's corporate logo and marketing slogans",
+            "The personal relationship between the freight broker and the purchasing officer",
+            "The lowest initial quote regardless of fleet age or maintenance history"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Technical fleet standards, verified data, and driver training are core pillars of green logistics procurement.",
+            "Incorrect. Branding colors have zero environmental validity.",
+            "Incorrect. Personal relationships undermine fair procurement governance.",
+            "Incorrect. Low-bid selection often locks in old, polluting, and inefficient vehicle fleets."
+          ],
+          "correctExplanation": "A robust green scorecard evaluates fleet efficiency standards, verified fuel metrics, driver eco-training, and verifiable emissions data.",
+          "incorrectExplanation": "Objective environmental scorecards evaluate verified operational criteria rather than marketing claims or price-only metrics."
+        },
+        {
+          "id": 23951,
+          "orderIndex": 6,
+          "question": "What is the operational impact of applying 3D palletization and container load planning software?",
+          "options": [
+            "It maximizes space utilization, prevents cargo crushing, and identifies optimal stacking configurations before physical loading",
+            "It generates animated cartoons for marketing brochures",
+            "It increases warehouse electricity consumption by 500%",
+            "It eliminates the need for shipping documentation"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Digital load planning ensures optimal volumetric packing and safe weight distribution.",
+            "Incorrect. Software is used for technical loading optimization, not cartoons.",
+            "Incorrect. Load planning software runs on standard low-power computers.",
+            "Incorrect. Legal shipping documentation remains mandatory."
+          ],
+          "correctExplanation": "3D load planning software models optimal cargo arrangements to maximize volumetric density, prevent load damage, and ensure axle weight balance.",
+          "incorrectExplanation": "Load planning software prevents 'shipping air' and improves safety and space efficiency."
+        },
+        {
+          "id": 23952,
+          "orderIndex": 7,
+          "question": "How does aerodynamic retrofitting (such as trailer side skirts and boat tails) impact long-haul heavy freight trucks?",
+          "options": [
+            "It reduces aerodynamic drag at highway speeds, cutting fuel consumption by 4% to 8%",
+            "It increases engine noise while having zero effect on fuel burn",
+            "It allows trucks to fly over congested traffic bottlenecks",
+            "It reduces the cargo capacity of the trailer by 50%"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Aerodynamic fairings provide proven 4-8% fuel efficiency gains on highway routes.",
+            "Incorrect. Aerodynamics reduce wind turbulence and noise.",
+            "Incorrect. Trailer fairings do not enable flight.",
+            "Incorrect. Exterior fairings do not reduce internal cargo cubic volume."
+          ],
+          "correctExplanation": "Side skirts and rear fairings smooth airflow around the trailer, delivering 4–8% diesel fuel savings at highway speeds.",
+          "incorrectExplanation": "Aerodynamic fairings reduce drag and fuel burn on regional and highway haulage routes."
+        },
+        {
+          "id": 23953,
+          "orderIndex": 8,
+          "question": "Why is Scope 3 Category 4 (Upstream Transportation and Distribution) critical in corporate greenhouse gas accounting?",
+          "options": [
+            "Because third-party freight often represents a major share of product lifecycle carbon footprint, requiring collaborative carrier engagement to reduce",
+            "Because tax authorities require transport emissions to be excluded from annual financial reports",
+            "Because Scope 3 emissions only apply to companies operating commercial airlines",
+            "Because third-party logistics data is legally exempt from international ESG disclosure standards"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Scope 3 Category 4 captures material third-party freight emissions requiring active supply chain decarbonization.",
+            "Incorrect. Scope 3 emissions are increasingly disclosed in statutory ESG filings.",
+            "Incorrect. Scope 3 applies across all sectors, not just airlines.",
+            "Incorrect. Transport data is a core component of mandatory ESG disclosure frameworks."
+          ],
+          "correctExplanation": "Upstream transportation is a significant Scope 3 emission source for manufacturing and retail companies, requiring active supplier and carrier collaboration.",
+          "incorrectExplanation": "Upstream transport is a material Scope 3 category under the GHG Protocol and international reporting standards."
+        }
+      ]
+    },
+    {
+      "id": 779,
+      "code": "ELH-82",
+      "title": "Maritime Port & Shipping Sustainability Practices",
+      "level": "D3 Applied",
+      "version": 2,
+      "passingScore": 75,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        8,
+        0,
+        0,
+        0
+      ],
+      "feedbackComplete": "8/8",
+      "scenarioCount": 4,
+      "applicationCount": 0,
+      "learningObjectives": [
+        "Apply MARPOL Annex VI regulations and IMO 2023 greenhouse gas strategy requirements.",
+        "Evaluate shore-to-ship power (cold ironing) operational requirements and berthed vessel emission reductions.",
+        "Inspect ballast water management systems (BWMS) to prevent invasive aquatic species introduction.",
+        "Implement port air quality monitoring, low-sulfur fuel verification, and cargo handling electrification.",
+        "Establish a 30-day workplace action plan for terminal energy efficiency and marine pollution prevention."
+      ],
+      "questions": [
+        {
+          "id": 23954,
+          "orderIndex": 1,
+          "question": "What is the primary global sulfur limit for marine bunker fuel under IMO MARPOL Annex VI (effective since 2020)?",
+          "options": [
+            "0.50% m/m (mass by mass) outside Emission Control Areas, and 0.10% m/m within ECAs",
+            "3.50% m/m globally with no restrictions",
+            "15.0% m/m for all commercial container ships",
+            "0.00% (zero sulfur required globally for all vessels)"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. 0.50% is the global standard and 0.10% applies in ECAs under MARPOL Annex VI.",
+            "Incorrect. 3.50% was the obsolete pre-2020 limit.",
+            "Incorrect. 15% is extremely toxic and completely illegal.",
+            "Incorrect. 0.00% is not currently mandated for conventional fuels."
+          ],
+          "correctExplanation": "IMO 2020 established a global ceiling of 0.50% sulfur in marine fuel (and 0.10% in dedicated Emission Control Areas) to cut SOx air pollution.",
+          "incorrectExplanation": "The global MARPOL sulfur limit is 0.50% m/m outside ECAs and 0.10% within designated ECAs."
+        },
+        {
+          "id": 23955,
+          "orderIndex": 2,
+          "question": "What is 'Cold Ironing' (Shore-to-Ship Power / Onshore Power Supply) in port operations?",
+          "options": [
+            "Connecting berthed vessels to the shoreside electrical grid, allowing auxiliary diesel engines to be completely shut down during port stays",
+            "Freezing metal container hulls to prevent rust and marine fouling",
+            "Using industrial steam irons to clean crew uniforms",
+            "Cooling bunker fuel tanks with liquid nitrogen"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Shore-to-ship power enables docked vessels to shut down diesel generators, slashing local port emissions.",
+            "Incorrect. Cold ironing is electrical connection, not cryogenic metal treatment.",
+            "Incorrect. The term is unrelated to laundry operations.",
+            "Incorrect. Fuel is not cooled with liquid nitrogen."
+          ],
+          "correctExplanation": "Cold ironing connects ships to shoreside electric power so they can turn off diesel generators while docked, eliminating port air and noise emissions.",
+          "incorrectExplanation": "Cold ironing is the maritime industry term for providing shoreside electrical power to docked ships."
+        },
+        {
+          "id": 23956,
+          "orderIndex": 3,
+          "question": "Why does the IMO Ballast Water Management Convention mandate onboard treatment systems (BWMS)?",
+          "options": [
+            "To neutralize harmful aquatic organisms and pathogens before discharge, preventing ecological destruction from invasive alien species",
+            "To convert seawater into commercial drinking water for export",
+            "To increase the speed of the cargo vessel by 50 knots",
+            "To bleach the internal steel ballast tanks for cosmetic inspection"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Neutralizing marine organisms in ballast water protects native coastal ecosystems and fisheries.",
+            "Incorrect. Ballast treatment is for biosecurity, not commercial bottling.",
+            "Incorrect. Ballast systems do not affect propulsion speed.",
+            "Incorrect. Chemical bleaching is not the purpose of BWMS."
+          ],
+          "correctExplanation": "Ballast water treatment neutralizes invasive marine species (e.g. toxic algae, predatory crabs) that cause billions in ecological and fishery damage.",
+          "incorrectExplanation": "The Ballast Water Convention aims to stop the global spread of invasive aquatic organisms across coastal ecosystems."
+        },
+        {
+          "id": 23957,
+          "orderIndex": 4,
+          "question": "What is the primary document that vessel masters must present to prove the legal sulfur content and quantity of fuel received during bunkering?",
+          "options": [
+            "Bunker Delivery Note (BDN) accompanied by a sealed representative fuel sample (MARPOL sample)",
+            "A handwritten fuel receipt from the local fuel attendant",
+            "The ship captain's personal diary entry",
+            "A photograph of the fuel barge taken from the bridge"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. The BDN and sealed MARPOL sample constitute official statutory proof of fuel compliance.",
+            "Incorrect. Informal handwritten notes lack legal validity under maritime regulations.",
+            "Incorrect. Personal diaries are not statutory compliance records.",
+            "Incorrect. Photographs do not verify fuel chemical composition."
+          ],
+          "correctExplanation": "The Bunker Delivery Note (BDN) and sealed MARPOL representative sample provide statutory legal evidence of fuel specifications and sulfur content.",
+          "incorrectExplanation": "BDNs and sealed MARPOL fuel samples are mandatory statutory records required under MARPOL Annex VI."
+        },
+        {
+          "id": 23958,
+          "orderIndex": 5,
+          "question": "What is the function of oil-water separators in port terminal drainage and vessel bilge systems?",
+          "options": [
+            "To filter oily residues from wastewater to below 15 parts per million (ppm) before discharge, in compliance with MARPOL Annex I",
+            "To mix oil and water into an emulsified foam for fire drills",
+            "To heat fuel oil to increase evaporation into the atmosphere",
+            "To separate drinking water from seawater in the ship's galley"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Oil-water separators ensure discharges remain strictly below the statutory 15 ppm oil content ceiling.",
+            "Incorrect. Separators prevent rather than create oil emulsions.",
+            "Incorrect. Hydrocarbon evaporation is hazardous and illegal.",
+            "Incorrect. Separators treat oily wastewater, not galley drinking water."
+          ],
+          "correctExplanation": "Oil-water separators remove hydrocarbons to ensure discharged bilge/drainage water does not exceed the legal 15 ppm limit under MARPOL Annex I.",
+          "incorrectExplanation": "Oil-water separators are pollution prevention devices designed to treat oily runoff to below 15 ppm."
+        },
+        {
+          "id": 23959,
+          "orderIndex": 6,
+          "question": "How does electrifying Rubber-Tired Gantry (e-RTG) container cranes benefit terminal environmental performance?",
+          "options": [
+            "It replaces diesel generators with grid/solar electricity, cutting quayside diesel consumption, local particulate smog, and maintenance costs",
+            "It allows cranes to operate without trained human operators",
+            "It doubles the weight of individual shipping containers automatically",
+            "It eliminates the need for container stacking yards"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. e-RTG conversion eliminates yard diesel exhaust, cuts noise, and improves operational energy efficiency.",
+            "Incorrect. Electrification does not remove the need for qualified operators.",
+            "Incorrect. Cranes do not alter physical container mass.",
+            "Incorrect. Stacking yards remain essential for container staging."
+          ],
+          "correctExplanation": "e-RTGs replace onboard diesel generators with electric busbar/cable systems, eliminating direct exhaust emissions and cutting yard noise by 60%.",
+          "incorrectExplanation": "e-RTG electrification eliminates direct yard diesel combustion and reduces noise pollution."
+        },
+        {
+          "id": 23960,
+          "orderIndex": 7,
+          "question": "Under the OPRC 1990 convention, what is the mandatory immediate response when an oil sheen is sighted during quayside fuel bunkering?",
+          "options": [
+            "Immediate emergency shutdown of fuel transfer pumps, valve closure, deployment of containment booms/absorbents, and official port notification",
+            "Pouring chemical dispersants onto the water to sink the oil before inspectors arrive",
+            "Waiting 24 hours to see if ocean currents disperse the oil naturally",
+            "Switching on deck spotlights to evaporate the oil with heat"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. Emergency shutdown and containment are the mandatory immediate first steps for any marine oil spill.",
+            "Incorrect. Dispersants are illegal in shallow coastal waters without express environmental authority approval.",
+            "Incorrect. Delayed response leads to severe shoreline and coral reef contamination.",
+            "Incorrect. Spotlights cannot evaporate heavy marine fuel oil."
+          ],
+          "correctExplanation": "Immediate pump shutdown, containment deployment, and emergency notification prevent small leaks from spreading into catastrophic coastal spills.",
+          "incorrectExplanation": "Any release of oil requires immediate shutdown, physical containment, and official port escalation."
+        },
+        {
+          "id": 23961,
+          "orderIndex": 8,
+          "question": "What is the primary objective of the IMO 2023 Strategy on Reduction of GHG Emissions from Ships?",
+          "options": [
+            "To achieve net-zero greenhouse gas emissions from international shipping by or around, i.e. close to 2050, with indicative checkpoints for 2030 and 2040",
+            "To ban all international maritime trade by 2030",
+            "To replace all steel ships with wooden sailing vessels by 2025",
+            "To exempt cruise ships from all environmental accounting"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Correct. The IMO 2023 strategy commits global shipping to net-zero greenhouse gas emissions by or around 2050.",
+            "Incorrect. The strategy decarbonizes trade rather than banning maritime transport.",
+            "Incorrect. Modern clean technology (ammonia, methanol, wind-assist) will be used, not wooden ships.",
+            "Incorrect. Cruise ships are subject to strict IMO GHG requirements."
+          ],
+          "correctExplanation": "The IMO 2023 GHG strategy sets a net-zero target for international shipping by or around 2050, with 20–30% reduction by 2030 and 70–80% by 2040.",
+          "incorrectExplanation": "The revised IMO strategy commits global shipping to net-zero GHG emissions by ~2050 with stringent interim milestones."
+        }
+      ]
+    },
+    {
+      "id": 717,
+      "code": "ELH-83",
+      "title": "Eco-Driving & Fleet Fuel Efficiency",
+      "level": "Applied Workplace Practice",
+      "version": 1,
+      "passingScore": 80,
+      "questionsCount": 8,
+      "enrollmentsCount": 0,
+      "attemptsCount": 0,
+      "keyDistribution": [
+        8,
+        0,
+        0,
+        0
+      ],
+      "feedbackComplete": "8/8",
+      "scenarioCount": 2,
+      "applicationCount": 1,
+      "learningObjectives": [
+        "Apply progressive gear shifting and maintain engine RPM in the optimal green band (1,000-1,500 RPM).",
+        "Anticipate traffic flow to maximize vehicle kinetic momentum and eliminate aggressive braking.",
+        "Eliminate excessive vehicle idling (shutdown policy for stops >60 seconds).",
+        "Maintain optimal tire pressure to prevent rolling resistance fuel penalties.",
+        "Utilize in-cab telematics feedback scores to track smooth acceleration and cornering.",
+        "Complete 8 scenario-based assessment questions on commercial fleet eco-driving."
+      ],
+      "questions": [
+        {
+          "id": 22447,
+          "orderIndex": 1,
+          "question": "What is the primary driving technique for maintaining optimal fuel efficiency in modern commercial diesel vehicles?",
+          "options": [
+            "Progressive gear shifting to keep engine RPM in the optimal torque 'green band' (typically 1,100 to 1,500 RPM)",
+            "Revving the engine to the redline before shifting gears",
+            "Driving exclusively in neutral with the clutch depressed",
+            "Accelerating at maximum throttle from every stop"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Diesel engines deliver peak torque at low RPM; shifting early keeps the engine in its most efficient thermodynamic zone.",
+            "Incorrect. Shifting early to keep RPM in the 1,100–1,500 range optimizes diesel fuel efficiency.",
+            "Incorrect. Shifting early to keep RPM in the 1,100–1,500 range optimizes diesel fuel efficiency.",
+            "Incorrect. Shifting early to keep RPM in the 1,100–1,500 range optimizes diesel fuel efficiency."
+          ],
+          "correctExplanation": "Diesel engines deliver peak torque at low RPM; shifting early keeps the engine in its most efficient thermodynamic zone.",
+          "incorrectExplanation": "Incorrect. Shifting early to keep RPM in the 1,100–1,500 range optimizes diesel fuel efficiency."
+        },
+        {
+          "id": 22448,
+          "orderIndex": 2,
+          "question": "How does excessive vehicle idling impact commercial fleet operational costs and engine health?",
+          "options": [
+            "Idling burns 1.5 to 2.0 litres of fuel per hour with zero distance covered, while accelerating carbon deposits and engine cylinder glazing",
+            "Idling recharges the fuel tank with free diesel",
+            "Idling repairs engine spark plugs automatically",
+            "Idling has zero impact on fuel or engines"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Idling wastes fuel, increases emissions, and causes incomplete combustion soot buildup inside diesel particulate filters (DPFs).",
+            "Incorrect. Heavy idling wastes 1.5–2.0 L/hr and accelerates engine cylinder wear.",
+            "Incorrect. Heavy idling wastes 1.5–2.0 L/hr and accelerates engine cylinder wear.",
+            "Incorrect. Heavy idling wastes 1.5–2.0 L/hr and accelerates engine cylinder wear."
+          ],
+          "correctExplanation": "Idling wastes fuel, increases emissions, and causes incomplete combustion soot buildup inside diesel particulate filters (DPFs).",
+          "incorrectExplanation": "Incorrect. Heavy idling wastes 1.5–2.0 L/hr and accelerates engine cylinder wear."
+        },
+        {
+          "id": 22449,
+          "orderIndex": 3,
+          "question": "What happens to fuel consumption when an electronic fuel-injected commercial vehicle coasts in gear with the accelerator pedal released?",
+          "options": [
+            "The engine ECU cuts fuel injection to zero (0.0 L/100km) while vehicle momentum keeps the engine spinning",
+            "The vehicle consumes double fuel",
+            "The engine turns off permanently",
+            "The tires inflate with air"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Modern vehicle ECUs cut fuel injection completely during decelerative coasting in gear, delivering zero fuel burn.",
+            "Incorrect. Decelerating in gear triggers automatic fuel cutoff (0.0 L/100km fuel consumption).",
+            "Incorrect. Decelerating in gear triggers automatic fuel cutoff (0.0 L/100km fuel consumption).",
+            "Incorrect. Decelerating in gear triggers automatic fuel cutoff (0.0 L/100km fuel consumption)."
+          ],
+          "correctExplanation": "Modern vehicle ECUs cut fuel injection completely during decelerative coasting in gear, delivering zero fuel burn.",
+          "incorrectExplanation": "Incorrect. Decelerating in gear triggers automatic fuel cutoff (0.0 L/100km fuel consumption)."
+        },
+        {
+          "id": 22450,
+          "orderIndex": 4,
+          "question": "How does maintaining correct manufacturer tire inflation pressures directly reduce vehicle operating costs?",
+          "options": [
+            "It minimizes rolling resistance, saving 2% to 4% in fuel consumption while extending tire tread life and preventing blowouts",
+            "It makes the vehicle drive without tires",
+            "It converts the vehicle into an airplane",
+            "It removes the need to change engine oil"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Properly inflated tires roll easily without excessive friction, cutting fuel burn and prolonging casing life.",
+            "Incorrect. Correct tire inflation cuts rolling resistance, saving 2–4% in fuel and extending tire life.",
+            "Incorrect. Correct tire inflation cuts rolling resistance, saving 2–4% in fuel and extending tire life.",
+            "Incorrect. Correct tire inflation cuts rolling resistance, saving 2–4% in fuel and extending tire life."
+          ],
+          "correctExplanation": "Properly inflated tires roll easily without excessive friction, cutting fuel burn and prolonging casing life.",
+          "incorrectExplanation": "Incorrect. Correct tire inflation cuts rolling resistance, saving 2–4% in fuel and extending tire life."
+        },
+        {
+          "id": 22451,
+          "orderIndex": 5,
+          "question": "What is the recommended operational rule regarding vehicle idling during commercial deliveries or waiting periods?",
+          "options": [
+            "Turn off the engine if stationary waiting is expected to exceed 60 seconds (unless operating specialized PTO refrigeration equipment)",
+            "Leave the engine running for at least 3 hours",
+            "Rev the engine to maximum speed every 2 minutes",
+            "Never turn off the engine during a working day"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Restarting a warm commercial engine uses less fuel than 10 seconds of idling; the 60-second rule saves immense fuel.",
+            "Incorrect. The standard eco-driving policy mandates shutting off engines for stops >60 seconds.",
+            "Incorrect. The standard eco-driving policy mandates shutting off engines for stops >60 seconds.",
+            "Incorrect. The standard eco-driving policy mandates shutting off engines for stops >60 seconds."
+          ],
+          "correctExplanation": "Restarting a warm commercial engine uses less fuel than 10 seconds of idling; the 60-second rule saves immense fuel.",
+          "incorrectExplanation": "Incorrect. The standard eco-driving policy mandates shutting off engines for stops >60 seconds."
+        },
+        {
+          "id": 22452,
+          "orderIndex": 6,
+          "question": "Why is driving with aggressive, rapid acceleration and late, harsh braking detrimental to fleet sustainability?",
+          "options": [
+            "It increases fuel consumption by up to 30%, multiplies tire and brake pad wear, and significantly increases traffic accident risk",
+            "It cleans the engine exhaust pipe",
+            "It makes the vehicle lighter",
+            "It cools down the braking rotors"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Aggressive driving converts expensive chemical fuel into wasted brake friction heat and dramatically increases collision risk.",
+            "Incorrect. Aggressive driving spikes fuel burn by up to 30% and accelerates brake wear.",
+            "Incorrect. Aggressive driving spikes fuel burn by up to 30% and accelerates brake wear.",
+            "Incorrect. Aggressive driving spikes fuel burn by up to 30% and accelerates brake wear."
+          ],
+          "correctExplanation": "Aggressive driving converts expensive chemical fuel into wasted brake friction heat and dramatically increases collision risk.",
+          "incorrectExplanation": "Incorrect. Aggressive driving spikes fuel burn by up to 30% and accelerates brake wear."
+        },
+        {
+          "id": 22453,
+          "orderIndex": 7,
+          "question": "How do fleet telematics scorecards (measuring harsh braking, speeding, and idle time) benefit drivers?",
+          "options": [
+            "They provide objective feedback to support safe, smooth driving habits, reducing driving stress and qualifying drivers for eco-bonuses",
+            "They secretly reduce driver salaries",
+            "They lock the vehicle steering wheel during turns",
+            "They disable vehicle headlights at night"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Telematics scorecards gamify defensive eco-driving, rewarding drivers for safety, smoothness, and fuel efficiency.",
+            "Incorrect. Telematics provide objective feedback to promote driver safety and fuel conservation rewards.",
+            "Incorrect. Telematics provide objective feedback to promote driver safety and fuel conservation rewards.",
+            "Incorrect. Telematics provide objective feedback to promote driver safety and fuel conservation rewards."
+          ],
+          "correctExplanation": "Telematics scorecards gamify defensive eco-driving, rewarding drivers for safety, smoothness, and fuel efficiency.",
+          "incorrectExplanation": "Incorrect. Telematics provide objective feedback to promote driver safety and fuel conservation rewards."
+        },
+        {
+          "id": 22454,
+          "orderIndex": 8,
+          "question": "How does aerodynamic drag affect commercial vehicle fuel consumption at highway speeds (e.g. 80-90 km/h)?",
+          "options": [
+            "Aerodynamic drag increases exponentially with speed, accounting for over 50% of total vehicle engine power requirement on highways",
+            "Aerodynamic drag disappears on highways",
+            "Vehicles produce electricity from air drag",
+            "Speed has zero relationship to aerodynamic drag"
+          ],
+          "correctOption": 0,
+          "optionFeedback": [
+            "Aerodynamic resistance increases with the square of vehicle speed, making moderate highway cruising speeds significantly more fuel-efficient.",
+            "Incorrect. Aerodynamic drag increases exponentially with speed, requiring >50% of engine power at highway speeds.",
+            "Incorrect. Aerodynamic drag increases exponentially with speed, requiring >50% of engine power at highway speeds.",
+            "Incorrect. Aerodynamic drag increases exponentially with speed, requiring >50% of engine power at highway speeds."
+          ],
+          "correctExplanation": "Aerodynamic resistance increases with the square of vehicle speed, making moderate highway cruising speeds significantly more fuel-efficient.",
+          "incorrectExplanation": "Incorrect. Aerodynamic drag increases exponentially with speed, requiring >50% of engine power at highway speeds."
+        }
+      ]
+    }
+  ]
+}

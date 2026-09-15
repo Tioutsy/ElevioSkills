@@ -1,0 +1,2341 @@
+[
+  {
+    "code": "ELH-48",
+    "id": 711,
+    "title": "Smart Building Automation & BMS Optimization",
+    "version": 2,
+    "passingScore": 75,
+    "learningObjectives": [
+      "Audit and eliminate manual BMS software overrides and schedule drift across commercial facilities.",
+      "Program dynamic enthalpy economizers and night purge ventilation algorithms to exploit favorable ambient conditions.",
+      "Deploy automated Fault Detection and Diagnostics (FDD) rules to identify stuck valves and simultaneous heating/cooling.",
+      "Establish systematic annual sensor calibration protocols for temperature, humidity, CO2, and pressure transducers."
+    ],
+    "lessons": [
+      {
+        "id": 17907,
+        "title": "1. BMS Architecture, Override Audits & Schedule Hygiene"
+      },
+      {
+        "id": 17908,
+        "title": "2. Advanced Control Strategies: Economizers & Night Purge"
+      },
+      {
+        "id": 17909,
+        "title": "3. Automated Fault Detection & Diagnostics (FDD)"
+      },
+      {
+        "id": 17910,
+        "title": "4. Interactive Decision Scenarios: Building Automation Dilemmas"
+      },
+      {
+        "id": 17911,
+        "title": "5. BMS Governance & 30-Day Automation Optimization Plan"
+      }
+    ],
+    "questions": [
+      {
+        "id": 22831,
+        "orderIndex": 0,
+        "question": "What is 'BMS Override Drift' and why is it a primary cause of commercial building energy waste?",
+        "options": [
+          "When computers physically slide off the operator desk.",
+          "When operators place equipment control loops into permanent manual software overrides to solve temporary hot/cold calls, leaving systems running 24/7 indefinitely.",
+          "When electrical power lines drift across the street.",
+          "When air conditioning air flows backwards into water pipes."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Override drift is a software control governance failure, not physical furniture movement.",
+          "Correct! Forgotten manual software overrides run equipment continuously, wasting 15-30% of total building energy.",
+          "Incorrect. Power lines are physical infrastructure, unrelated to BMS control loops.",
+          "Incorrect. Hydronic and airflow systems are isolated mechanical circuits."
+        ],
+        "correctExplanation": "Override drift occurs when temporary manual overrides are forgotten, leaving fans, pumps, and chillers running continuously during unoccupied hours.",
+        "incorrectExplanation": "Override drift refers to forgotten manual software overrides running equipment 24/7 in empty buildings."
+      },
+      {
+        "id": 22832,
+        "orderIndex": 1,
+        "question": "Why is dual-enthalpy measurement (temperature and relative humidity) essential when programming air economizer free cooling in tropical climates?",
+        "options": [
+          "Because dry-bulb temperature alone ignores moisture content; cool outdoor air with 95% humidity will overload indoor dehumidification systems if introduced.",
+          "Because enthalpy measurements make building fans run at supersonic speeds.",
+          "Because dry-bulb sensors are illegal in commercial buildings.",
+          "Because enthalpy measurements convert outdoor air into pure oxygen."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Correct! Dual-enthalpy prevents drawing in cool but highly humid tropical air that causes indoor mold and moisture damage.",
+          "Incorrect. Economizers modulate standard commercial airflow, not supersonic speeds.",
+          "Incorrect. Dry-bulb temperature sensors are standard components.",
+          "Incorrect. Economizers circulate outdoor atmospheric air; they do not alter oxygen concentration."
+        ],
+        "correctExplanation": "Tropical air can be 22°C but 95% relative humidity; measuring total enthalpy prevents drawing in moist air that causes indoor condensation and mold.",
+        "incorrectExplanation": "Dual-enthalpy ensures outdoor air is both cool and dry before activating free-cooling dampers."
+      },
+      {
+        "id": 22833,
+        "orderIndex": 2,
+        "question": "What is 'Simultaneous Heating and Cooling' and how does Fault Detection and Diagnostics (FDD) identify it?",
+        "options": [
+          "When a room has a refrigerator and a microwave oven.",
+          "When cooling valves and heating coils operate at the same time in the same zone due to overlapping setpoints or deadband failure; detected by FDD comparing valve positions and temperature sensors.",
+          "When building occupants drink hot coffee in an air-conditioned room.",
+          "When the sun shines through window glass."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Kitchen appliances are standard occupant conveniences, not HVAC simultaneous heating/cooling.",
+          "Correct! FDD algorithms identify when chilled water valves and heating elements operate concurrently, eliminating severe energy waste.",
+          "Incorrect. Occupant beverages do not alter central HVAC mechanical staging.",
+          "Incorrect. Solar gain is an external thermal load, not internal mechanical conflict."
+        ],
+        "correctExplanation": "Simultaneous heating and cooling occurs when mechanical cooling and heating fight each other in the same zone; FDD flags conflicting valve commands and abnormal thermal gradients.",
+        "incorrectExplanation": "Simultaneous heating and cooling wastes massive energy when heating and cooling actuators operate concurrently in the same space."
+      },
+      {
+        "id": 22834,
+        "orderIndex": 3,
+        "question": "What is the primary operational benefit of programming Night Purge Ventilation in commercial buildings during pre-dawn hours (4:00 AM–6:00 AM)?",
+        "options": [
+          "It scares away nocturnal birds from the building roof.",
+          "It flushes out trapped heat and cools down structural concrete thermal mass using cool outdoor morning air, reducing chiller startup load by 15% to 25%.",
+          "It increases the building heating bill.",
+          "It replaces the need for morning office vacuuming."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Night purge operates inside air distribution systems, unrelated to outdoor birds.",
+          "Correct! Flushing warm indoor air with cool pre-dawn air pre-cools building thermal mass, cutting morning chiller startup loads by 15-25%.",
+          "Incorrect. Night purge is used in cooling-dominated facilities to reduce cooling energy.",
+          "Incorrect. Night purge ventilates air; it does not perform physical floor cleaning."
+        ],
+        "correctExplanation": "Night purge flushes warm indoor air and cools structural concrete with cool morning air, significantly lowering chiller load when work begins.",
+        "incorrectExplanation": "Night purge utilizes cool pre-dawn air to pre-cool structural thermal mass, reducing peak electrical demand during morning startup."
+      },
+      {
+        "id": 22835,
+        "orderIndex": 4,
+        "question": "What is 'Alarm Fatigue' in BMS operations and how can Alarm Rationalization resolve it?",
+        "options": [
+          "When building alarm bells run out of electrical battery power.",
+          "When operators are overwhelmed by thousands of nuisance non-critical alarms, causing them to ignore all alarms; resolved by filtering, prioritizing, and widening nuisance deadbands.",
+          "When building alarms play soft lullaby music.",
+          "When fire alarms activate every 10 seconds legally."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Alarm fatigue is human cognitive overload, not hardware battery depletion.",
+          "Correct! Alarm rationalization eliminates nuisance alarms and categorizes alerts by true urgency, ensuring critical failures are not missed.",
+          "Incorrect. BMS alarms provide audio/visual warnings, not music.",
+          "Incorrect. Frequent false fire alarms indicate sensor faults and violate life safety standards."
+        ],
+        "correctExplanation": "Alarm fatigue occurs when excessive nuisance alerts cause operators to ignore the console; rationalization categorizes alarms by criticality and eliminates noise.",
+        "incorrectExplanation": "Alarm rationalization filters nuisance alerts into clear priority tiers, ensuring critical life-safety and equipment alarms receive immediate action."
+      },
+      {
+        "id": 22836,
+        "orderIndex": 5,
+        "question": "How does VAV (Variable Air Volume) Static Pressure Reset save supply fan energy?",
+        "options": [
+          "By turning off all building ventilation fans permanently.",
+          "By dynamically modulating fan speed to maintain the lowest duct static pressure required to satisfy the single most open VAV damper, rather than maintaining a constant high pressure.",
+          "By blowing air at maximum pressure 24/7.",
+          "By pressurizing air conditioning ducts with steam."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Ventilation fans must operate to maintain indoor air quality.",
+          "Correct! Static pressure reset reduces fan speed to match actual demand, cutting supply fan power by 20-30% under fan affinity laws.",
+          "Incorrect. Constant maximum pressure causes high energy waste and noisy terminal dampers.",
+          "Incorrect. Ductwork circulates cooled air, not high-pressure steam."
+        ],
+        "correctExplanation": "Static pressure reset dynamically lowers fan speed until the most demanding VAV damper is ~90% open, minimizing fan power according to fan affinity laws.",
+        "incorrectExplanation": "Dynamic static pressure reset minimizes fan energy by trimming duct pressure to match real-time terminal box requirements."
+      },
+      {
+        "id": 22837,
+        "orderIndex": 6,
+        "question": "Why is annual calibration of zone CO2 sensors critical for Demand-Controlled Ventilation (DCV)?",
+        "options": [
+          "Because CO2 sensors turn into smoke detectors if not calibrated.",
+          "Because optical CO2 sensors drift over time; an uncalibrated sensor reading falsely high forces excessive fresh air intake, while reading falsely low causes occupant drowsiness and poor IAQ.",
+          "Because CO2 sensors consume 50 kW of electricity if uncalibrated.",
+          "Because uncalibrated sensors change building room numbers."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. CO2 sensors measure carbon dioxide concentration; smoke detectors operate on optical or ionization principles.",
+          "Correct! Calibrated CO2 sensors ensure accurate ventilation, preventing costly over-ventilation and poor indoor air quality.",
+          "Incorrect. CO2 sensors are low-voltage electronic devices consuming under 2 Watts.",
+          "Incorrect. Sensors measure gas concentration; they do not interact with room signage."
+        ],
+        "correctExplanation": "Sensor drift distorts outdoor air ventilation rates; false high readings waste immense cooling energy, while false low readings cause poor air quality and cognitive fatigue.",
+        "incorrectExplanation": "CO2 sensor calibration ensures fresh air ventilation matches actual occupancy without wasting energy on over-ventilation."
+      },
+      {
+        "id": 22838,
+        "orderIndex": 7,
+        "question": "Which action should a BMS Facility Engineer prioritize during their first 30 days of automation optimization?",
+        "options": [
+          "Delete the BMS operating software from the main server.",
+          "Audit all manual software overrides, program automated 4-hour timeout limits, and conduct an alarm rationalization review.",
+          "Lock all building thermostats at 16°C permanently.",
+          "Turn off all building safety exhaust fans."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Deleting BMS software destroys building automation and central control.",
+          "Correct! Auditing overrides, enforcing automated timeouts, and rationalizing alarms establishes immediate operational control.",
+          "Incorrect. Chilling spaces to 16°C causes massive energy waste and severe occupant complaints.",
+          "Incorrect. Disabling safety exhaust creates dangerous environmental and fire hazards."
+        ],
+        "correctExplanation": "The first 30 days must focus on eliminating manual override drift, setting timeout guardrails, and cleaning up the alarm console.",
+        "incorrectExplanation": "Initial focus must center on override audits, timeout automation, and alarm rationalization."
+      }
+    ]
+  },
+  {
+    "code": "ELH-49",
+    "id": 712,
+    "title": "Construction Site Environmental Controls",
+    "version": 2,
+    "passingScore": 75,
+    "learningObjectives": [
+      "Formulate and implement a site-specific Erosion and Sediment Control Plan (ESCP) complying with national environmental regulations.",
+      "Deploy effective sediment barriers, silt fences, and sediment retention basins before ground disturbance.",
+      "Implement continuous dust suppression protocols (wheel wash stations, water misting, stabilized haul roads).",
+      "Establish secondary containment bunding (110% capacity) for all on-site fuel, hydraulic oil, and hazardous chemical storage."
+    ],
+    "lessons": [
+      {
+        "id": 17912,
+        "title": "1. Statutory Environmental Obligations & Site Management Plans"
+      },
+      {
+        "id": 17913,
+        "title": "2. Erosion, Sedimentation & Stormwater Runoff Control"
+      },
+      {
+        "id": 17914,
+        "title": "3. Dust Suppression, Noise & Chemical Bunding"
+      },
+      {
+        "id": 17915,
+        "title": "4. Interactive Decision Scenarios: Site Environmental Dilemmas"
+      },
+      {
+        "id": 17916,
+        "title": "5. Site Inspection Checklists & 30-Day Environmental Action Plan"
+      }
+    ],
+    "questions": [
+      {
+        "id": 22839,
+        "orderIndex": 0,
+        "question": "What is the primary statutory purpose of a Construction Environmental Management Plan (CEMP)?",
+        "options": [
+          "To design the interior furniture layout of the site office.",
+          "To systematically identify environmental risks, define physical control measures, and ensure full compliance with EIA license conditions and national environmental laws.",
+          "To calculate the total financial profits of the main contractor.",
+          "To eliminate the need for architectural construction drawings."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. CEMP governs environmental risk management, not office furniture design.",
+          "Correct! The CEMP operationalizes environmental compliance and mitigates pollution risks across the construction lifecycle.",
+          "Incorrect. Financial accounting is managed through commercial contracts, not the CEMP.",
+          "Incorrect. Architectural and engineering drawings remain mandatory for structural delivery."
+        ],
+        "correctExplanation": "A CEMP establishes the mandatory operational controls and monitoring protocols required to prevent environmental harm and comply with statutory EIA licenses.",
+        "incorrectExplanation": "A CEMP provides the environmental governance framework ensuring compliance with EIA licenses and environmental legislation."
+      },
+      {
+        "id": 22840,
+        "orderIndex": 1,
+        "question": "How must a geotextile silt fence be installed to function effectively as a sediment barrier?",
+        "options": [
+          "Laid loosely on top of grass without any trenching or stakes.",
+          "Trenched into the ground at least 150mm deep, backfilled with compacted soil, and staked on the downslope side along slope contour perimeters.",
+          "Hung from the branches of nearby trees.",
+          "Placed across the middle of a high-velocity river."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Untrenched fabric allows sediment runoff to flow directly underneath.",
+          "Correct! Trenching at least 150mm deep and staking securely along contours ensures effective sediment capture.",
+          "Incorrect. Silt fences must be grounded along soil perimeters, not hung in trees.",
+          "Incorrect. Silt fences are designed for sheet runoff, not high-velocity stream channels."
+        ],
+        "correctExplanation": "Silt fences must be trenched 150mm into the ground and staked to prevent muddy water from flowing underneath the fabric.",
+        "incorrectExplanation": "Proper silt fence installation requires trenching into the ground to prevent undercutting by runoff."
+      },
+      {
+        "id": 22841,
+        "orderIndex": 2,
+        "question": "Why is concrete washout slurry (pH > 12) considered hazardous to site soil and groundwater if not contained in lined pits?",
+        "options": [
+          "Because it turns soil into pure gold.",
+          "Because it is highly caustic, leaches toxic heavy metals, and severely alters soil and groundwater pH, killing plant microbiomes and aquatic life.",
+          "Because concrete water is too cold for local bacteria.",
+          "Because it attracts dangerous wild sharks onto the construction site."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Concrete slurry is a polluting waste, not precious metal.",
+          "Correct! Concrete washout is highly caustic (pH 12+) and leaches toxic metals, requiring strict containment in lined washout pits.",
+          "Incorrect. Temperature is not the primary hazard; chemical alkalinity and heavy metal toxicity are.",
+          "Incorrect. Land-based construction sites are isolated from marine predators."
+        ],
+        "correctExplanation": "Concrete washout has a caustic pH of 12+ (similar to liquid bleach) and leaches metals, severely damaging soil ecology and contaminating groundwater aquifers.",
+        "incorrectExplanation": "Caustic concrete washout water alters soil pH and contaminates groundwater unless contained in impermeable lined pits."
+      },
+      {
+        "id": 22842,
+        "orderIndex": 3,
+        "question": "What is the standard required secondary containment capacity for on-site diesel fuel storage bunds?",
+        "options": [
+          "10% of tank capacity.",
+          "110% of the single largest tank capacity (or 25% of aggregate storage volume, whichever is greater).",
+          "0% (single-walled unbunded plastic drums placed on soil).",
+          "500%."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. 10% capacity is completely inadequate to contain a fuel tank breach.",
+          "Correct! 110% secondary containment ensures complete spill capture and prevents soil and aquifer contamination.",
+          "Incorrect. Storing fuel without bunding is a severe environmental violation.",
+          "Incorrect. 500% is excessive for standard civil engineering secondary containment."
+        ],
+        "correctExplanation": "Environmental regulations require secondary containment bunds to hold 110% of the largest tank capacity to capture catastrophic leaks and rainfall buffer.",
+        "incorrectExplanation": "Secondary containment bunds must hold 110% of the largest tank capacity to ensure complete spill capture."
+      },
+      {
+        "id": 22843,
+        "orderIndex": 4,
+        "question": "What is the most effective operational method for preventing fugitive dust emissions from construction haul roads and vehicle exits?",
+        "options": [
+          "Encouraging trucks to drive at 100 km/h across dry dirt roads.",
+          "Operating an automated tire wheel wash bay at site gates, surfacing haul roads with crushed aggregate, and regular water bowser misting.",
+          "Banning all trucks from leaving the construction site permanently.",
+          "Lighting fires on the haul roads."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. High vehicle speeds generate massive clouds of hazardous dust and cause site accidents.",
+          "Correct! Automated wheel washes, gravel-stabilized roads, and water misting effectively control dust and road tracking.",
+          "Incorrect. Vehicle movement is required for site logistics.",
+          "Incorrect. Open burning on construction sites is strictly illegal."
+        ],
+        "correctExplanation": "Wheel wash stations prevent mud tracking onto public roads, while gravel surfaces and water bowser misting suppress airborne PM10/PM2.5 dust.",
+        "incorrectExplanation": "Gravel stabilization, wheel wash bays, and water misting combine to eliminate fugitive dust and road mud tracking."
+      },
+      {
+        "id": 22844,
+        "orderIndex": 5,
+        "question": "When should sediment buildup behind a perimeter silt fence be cleared out by maintenance crews?",
+        "options": [
+          "Only after the silt fence collapses completely into the neighbor's property.",
+          "When accumulated sediment reaches one-third to one-half (33–50%) of the fence height, restoring retention capacity before the next storm.",
+          "Never; sediment must be left to accumulate indefinitely.",
+          "Every 5 minutes regardless of weather."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Waiting for structural collapse causes severe environmental contamination and clean-up costs.",
+          "Correct! Clearing sediment at 33-50% fence height prevents fence failure and maintains stormwater capacity.",
+          "Incorrect. Accumulated sediment eventually overspills and tears the fabric.",
+          "Incorrect. Routine inspections determine maintenance timing based on actual sediment depth."
+        ],
+        "correctExplanation": "Clearing sediment when it reaches 33–50% height prevents structural fence failure and ensures adequate storm retention capacity.",
+        "incorrectExplanation": "Maintenance protocols require desilting when sediment reaches 33-50% height to prevent fence overtopping and collapse."
+      },
+      {
+        "id": 22845,
+        "orderIndex": 6,
+        "question": "How should mobile diesel generators and fuel transfer pumps be protected against ground leaks on a construction site?",
+        "options": [
+          "Placed directly over open stormwater trenches.",
+          "Stationed inside impermeable, chemical-resistant drip trays equipped with oil-absorbent pads and rain covers.",
+          "Buried underground in wet soil.",
+          "Left unmonitored in dense vegetation."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Placing equipment over storm drains allows direct fuel runoff into waterways.",
+          "Correct! Impermeable drip trays and spill kits catch equipment drips and prevent soil contamination.",
+          "Incorrect. Direct soil contact allows oil to leach into groundwater aquifers.",
+          "Incorrect. Unmonitored machinery in vegetation creates fire and environmental contamination risks."
+        ],
+        "correctExplanation": "Mobile machinery must sit in secondary containment drip trays to catch fuel drips and hydraulic oil leaks before they penetrate soil.",
+        "incorrectExplanation": "Drip trays with absorbent spill pads prevent localized oil and fuel drips from contaminating soil and groundwater."
+      },
+      {
+        "id": 22846,
+        "orderIndex": 7,
+        "question": "Which action should a Construction Environmental Officer prioritize within the first 30 days of mobilization?",
+        "options": [
+          "Demolish all neighboring buildings without permits.",
+          "Inspect and trench perimeter silt fences, install a lined concrete washout pit, and verify 110% bunding for all fuel storage tanks.",
+          "Allow subcontractors to dump waste in local mangrove wetlands.",
+          "Turn off all site drinking water systems."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Unpermitted demolition is illegal and violates civil safety laws.",
+          "Correct! Silt fences, lined concrete washouts, and 110% fuel bunding establish core statutory environmental safeguards.",
+          "Incorrect. Dumping in wetlands is a severe criminal environmental offense.",
+          "Incorrect. Providing clean drinking water is a basic statutory worker health and safety requirement."
+        ],
+        "correctExplanation": "The first 30 days of mobilization require establishing physical environmental controls: trenched silt fences, concrete washouts, and fuel bunds.",
+        "incorrectExplanation": "Initial site environmental setup focuses on sediment fences, lined washout pits, and secondary fuel bunds."
+      }
+    ]
+  },
+  {
+    "code": "ELH-50",
+    "id": 728,
+    "title": "Sustainable Building Materials & Low-Carbon Concrete",
+    "version": 2,
+    "passingScore": 75,
+    "learningObjectives": [
+      "Calculate upfront embodied carbon (EN 15978 Modules A1-A5) using Environmental Product Declarations (EPDs)",
+      "Specify low-carbon blended concretes replacing Ordinary Portland Cement (OPC) with GGBS and calcined clays",
+      "Verify Chain of Custody certifications (FSC / PEFC) for mass timber and engineered wood structures",
+      "Conduct cradle-to-gate material lifecycle assessments (LCA) for major development projects"
+    ],
+    "lessons": [
+      {
+        "id": 16037,
+        "title": "1. Embodied Carbon Fundamentals & The Cement Challenge"
+      },
+      {
+        "id": 16038,
+        "title": "2. Environmental Product Declarations (EPDs) & Material Selection"
+      },
+      {
+        "id": 16039,
+        "title": "3. Mass Timber, Bio-Based Materials & Recycled Aggregates"
+      },
+      {
+        "id": 16040,
+        "title": "4. Interactive Decision Scenarios: Structural Decarbonization Dilemmas"
+      },
+      {
+        "id": 16041,
+        "title": "5. Materials Governance & 30-Day Decarbonization Plan"
+      }
+    ],
+    "questions": [
+      {
+        "id": 20024,
+        "orderIndex": 0,
+        "question": "What is 'Embodied Carbon' (A1–A5 lifecycle stages) in building construction?",
+        "options": [
+          "The electricity consumed by occupants while living in the completed building.",
+          "The greenhouse gas emissions generated during raw material extraction, manufacturing, transport, and on-site assembly of building products before occupancy.",
+          "The carbon absorbed by trees in a national park.",
+          "The carbon emissions of employee personal vehicles on weekends."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Electricity consumed during building operation is operational carbon (B6 stage), not embodied carbon.",
+          "Correct! Embodied carbon represents the upfront emissions from material extraction, manufacturing, transport, and construction (A1–A5).",
+          "Incorrect. Tree carbon absorption is biological biogenic carbon sequestration.",
+          "Incorrect. Personal weekend commuting is outside the building material scope."
+        ],
+        "correctExplanation": "Embodied carbon encompasses the upfront greenhouse gas footprint generated by material manufacturing, shipping, and construction (A1–A5).",
+        "incorrectExplanation": "Embodied carbon refers to the emissions generated from raw material extraction to final on-site construction."
+      },
+      {
+        "id": 20025,
+        "orderIndex": 1,
+        "question": "How does replacing Ordinary Portland Cement (OPC) with Ground Granulated Blast-furnace Slag (GGBS) reduce concrete's carbon footprint?",
+        "options": [
+          "It increases cement kiln fuel consumption by 300%.",
+          "GGBS is an industrial byproduct of steel manufacturing; replacing clinker with GGBS eliminates high-temperature limestone calcination emissions, cutting concrete carbon by up to 60%.",
+          "GGBS makes concrete dissolve in rainwater.",
+          "GGBS turns concrete into plastic."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. GGBS reduces cement manufacturing fuel consumption because it is a byproduct that does not require re-calcination.",
+          "Correct! Replacing clinker with byproduct GGBS avoids limestone calcination, slashing concrete embodied carbon by up to 60%.",
+          "Incorrect. GGBS produces highly durable, dense, water-resistant concrete.",
+          "Incorrect. GGBS is an inorganic mineral binder, not a synthetic polymer."
+        ],
+        "correctExplanation": "GGBS repurposes an industrial byproduct, displacing carbon-intensive clinker and eliminating the direct fossil fuel and calcination emissions of cement kilns.",
+        "incorrectExplanation": "Using GGBS as a clinker substitute avoids high-temperature limestone calcination, cutting embodied carbon by 50-60%."
+      },
+      {
+        "id": 20026,
+        "orderIndex": 2,
+        "question": "What is an Environmental Product Declaration (EPD) under ISO 14025 / EN 15804 standards?",
+        "options": [
+          "A marketing brochure written by an advertising agency.",
+          "An independently third-party verified, standardized declaration quantifying a building product's environmental impacts and Global Warming Potential (GWP) across its lifecycle.",
+          "A receipt for paying local property taxes.",
+          "An architectural building permit issued by a municipal council."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. EPDs are standardized engineering life-cycle assessments, not subjective marketing brochures.",
+          "Correct! EPDs provide independently verified, standardized data on product carbon footprint (GWP) and environmental impacts.",
+          "Incorrect. Tax receipts document municipal revenue, not environmental product lifecycles.",
+          "Incorrect. Building permits authorize construction; EPDs disclose product material impacts."
+        ],
+        "correctExplanation": "An EPD is a standardized, third-party audited lifecycle assessment document quantifying a product's verified environmental footprint.",
+        "incorrectExplanation": "EPDs are independently verified lifecycle assessments that provide standardized Global Warming Potential data."
+      },
+      {
+        "id": 20027,
+        "orderIndex": 3,
+        "question": "Why is sustainably certified Mass Timber (e.g. Cross-Laminated Timber) considered a low-carbon structural alternative to concrete and steel?",
+        "options": [
+          "Because wood trees emit massive amounts of carbon when growing.",
+          "Timber sequesters and stores atmospheric CO2 within the building structure over its lifetime and requires significantly less manufacturing energy than steel or cement.",
+          "Because timber structures last only two weeks before decomposing.",
+          "Because timber is completely immune to fire without treatment."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Growing trees absorb carbon dioxide from the atmosphere through photosynthesis.",
+          "Correct! Certified timber locks sequestered carbon into building structures and requires far less energy to manufacture than concrete or steel.",
+          "Incorrect. Engineered mass timber structures are engineered for 50-100+ year design lifespans.",
+          "Incorrect. Mass timber chars predictably, providing fire resistance, but requires standard fire design."
+        ],
+        "correctExplanation": "Trees absorb atmospheric CO2 as they grow, locking biogenic carbon into timber building elements while avoiding the heavy manufacturing footprint of steel and concrete.",
+        "incorrectExplanation": "Timber sequesters carbon within the building and requires far less fossil energy to process than cement or virgin steel."
+      },
+      {
+        "id": 20028,
+        "orderIndex": 4,
+        "question": "What is an appropriate application for recycled crushed concrete aggregates on a civil construction site?",
+        "options": [
+          "High-stress post-tensioned bridge cables.",
+          "Road sub-base, non-structural site fill, retaining wall backfill, and non-structural blinding concrete.",
+          "Interior decorative crystal chandeliers.",
+          "Drinking water filtration media."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Bridge cables require high-tensile steel wire, not crushed aggregate.",
+          "Correct! Road sub-base, fill, and blinding layers are ideal applications that reuse concrete rubble and protect virgin quarries.",
+          "Incorrect. Lighting fixtures require glass and metal components.",
+          "Incorrect. Concrete aggregates are alkaline and unsuitable for drinking water filtration."
+        ],
+        "correctExplanation": "Recycled concrete aggregate is ideally suited for road sub-bases, backfill, and blinding layers, diverting rubble from landfills while preserving virgin quarry rock.",
+        "incorrectExplanation": "Crushed concrete is proven for civil applications like road sub-base, blinding concrete, and drainage fill."
+      },
+      {
+        "id": 20029,
+        "orderIndex": 5,
+        "question": "Why does high-GGBS concrete perform exceptionally well in coastal marine environments such as Mauritius?",
+        "options": [
+          "Because GGBS dissolves instantly in saltwater.",
+          "GGBS produces a denser, less permeable pore structure that resists chloride ion penetration and sulfate attack, protecting steel reinforcement from corrosion.",
+          "Because GGBS attracts marine fish to the foundations.",
+          "Because GGBS increases concrete drying shrinkage by 500%."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. GGBS produces highly durable, insoluble concrete binders.",
+          "Correct! Refined pore microstructure blocks chloride ions, providing superior corrosion protection for marine and coastal foundations.",
+          "Incorrect. Concrete foundations provide structural support, not marine feeding attractants.",
+          "Incorrect. High-GGBS mixes reduce thermal heat of hydration, minimizing thermal cracking risks in mass foundations."
+        ],
+        "correctExplanation": "GGBS refines the concrete pore network, drastically reducing permeability and blocking chloride penetration, extending marine foundation life.",
+        "incorrectExplanation": "GGBS creates low-permeability concrete that resists chloride attack and prevents rebar corrosion in coastal environments."
+      },
+      {
+        "id": 20030,
+        "orderIndex": 6,
+        "question": "What is 'Design for Deconstruction' (DfD) in sustainable structural engineering?",
+        "options": [
+          "Designing a building to collapse during the opening ribbon ceremony.",
+          "Designing structural connections and material assemblies to be easily disassembled, recovered, and reused at the end of the building's life without destruction.",
+          "Using low-quality mortar so walls crumble easily.",
+          "Omitting all bolts and welds from steel structures."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Structural design always guarantees safety and longevity during operating life.",
+          "Correct! Bolted, modular connections allow structural components to be disassembled and reused in the circular economy.",
+          "Incorrect. Mortar must meet structural strength and safety standards.",
+          "Incorrect. Bolted connections must be fully engineered to handle structural loads."
+        ],
+        "correctExplanation": "Design for Deconstruction uses bolted, modular connections and standardized components to allow future building disassembly and circular material reuse.",
+        "incorrectExplanation": "DfD designs structural elements with demountable connections to enable circular material salvage at end of life."
+      },
+      {
+        "id": 20031,
+        "orderIndex": 7,
+        "question": "Which action should a Structural Project Manager prioritize during their first 30 days of material decarbonization?",
+        "options": [
+          "Order all construction materials from unvetted suppliers without specifications.",
+          "Establish maximum GWP carbon ceilings for concrete mixes, mandate Type III EPDs in tenders, and specify 20% recycled aggregate in civil site works.",
+          "Ban all cement from civil construction sites permanently.",
+          "Use ocean beach sand for structural concrete mixing."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Unvetted purchasing locks in high embodied carbon and structural quality risks.",
+          "Correct! GWP ceilings, mandatory EPDs, and recycled aggregate quotas establish structural decarbonization governance.",
+          "Incorrect. Cementitious binders remain necessary for structural stability; the goal is low-carbon SCM replacement.",
+          "Incorrect. Beach sand contains chlorides that destroy steel rebar and is strictly prohibited by building codes."
+        ],
+        "correctExplanation": "The first 30 days require establishing concrete GWP carbon ceilings, demanding EPDs in tenders, and introducing recycled aggregates.",
+        "incorrectExplanation": "Initial materials decarbonization focuses on concrete GWP limits, EPD tender requirements, and recycled aggregate mandates."
+      }
+    ]
+  },
+  {
+    "code": "ELH-51",
+    "id": 729,
+    "title": "Indoor Environmental Quality & Well-Being",
+    "version": 1,
+    "passingScore": 70,
+    "learningObjectives": [
+      "Manage indoor CO2 concentrations below 800 ppm using demand-controlled ventilation",
+      "Specify zero/low-VOC paints, adhesives, and composite wood materials",
+      "Implement biophilic design elements to enhance workplace cognitive function",
+      "Balance indoor environmental quality (IEQ) with HVAC energy efficiency"
+    ],
+    "lessons": [
+      {
+        "id": 8474,
+        "title": "1. Foundations of Indoor Environmental Quality & Well-Being"
+      },
+      {
+        "id": 8475,
+        "title": "2. Operational Standards & Technical Workflows"
+      },
+      {
+        "id": 8476,
+        "title": "3. Strategic Implementation & Resource Management"
+      },
+      {
+        "id": 8477,
+        "title": "4. Practical Workplace Decision Scenarios"
+      },
+      {
+        "id": 8478,
+        "title": "5. Risk Mitigation & Verification Protocols"
+      },
+      {
+        "id": 8479,
+        "title": "6. Continuous Improvement & Audit Readiness"
+      }
+    ],
+    "questions": [
+      {
+        "id": 9118,
+        "orderIndex": 1,
+        "question": "What is the primary operational objective of Indoor Environmental Quality & Well-Being?",
+        "options": [
+          "To generate unnecessary paperwork that slows down daily workplace tasks",
+          "To establish standardized, compliant, and resource-efficient workflows that optimize operational performance and reduce environmental impact",
+          "To replace all human employees with automated robots",
+          "To eliminate all customer interactions permanently"
+        ],
+        "correctOption": 1,
+        "optionFeedback": null,
+        "correctExplanation": "Correct! The objective is rigorous operational efficiency and compliance.",
+        "incorrectExplanation": "Incorrect. The focus is establishing standardized, compliant, and efficient workflows."
+      },
+      {
+        "id": 9119,
+        "orderIndex": 2,
+        "question": "Why are standardized operating procedures (SOPs) critical for sustainable workplace execution?",
+        "options": [
+          "They are only created for decorative office displays",
+          "They prevent employees from ever taking breaks",
+          "They ensure consistent quality, reduce operational errors, and establish verifiable audit trails across shifts",
+          "They make simple tasks impossible to finish"
+        ],
+        "correctOption": 2,
+        "optionFeedback": null,
+        "correctExplanation": "Correct! SOPs provide operational consistency and audit trails.",
+        "incorrectExplanation": "Incorrect. SOPs ensure consistent quality, safety, and verifiable compliance."
+      },
+      {
+        "id": 9120,
+        "orderIndex": 3,
+        "question": "How should unexpected technical exceptions or process deviations be handled on the job?",
+        "options": [
+          "Logged immediately in the tracking register and escalated according to the defined response protocol",
+          "Ignored completely hoping no one notices",
+          "Concealed from team supervisors",
+          "Blamed on external vendors without investigation"
+        ],
+        "correctOption": 0,
+        "optionFeedback": null,
+        "correctExplanation": "Correct! Formal logging and escalation ensure rapid remediation.",
+        "incorrectExplanation": "Incorrect. Process deviations must be logged and escalated promptly."
+      },
+      {
+        "id": 9121,
+        "orderIndex": 4,
+        "question": "What is the primary commercial benefit of implementing continuous resource efficiency measures?",
+        "options": [
+          "Increased employee turnover",
+          "Guaranteed bankruptcy within 30 days",
+          "Higher municipal landfill penalty taxes",
+          "Lower utility and operating costs combined with enhanced regulatory compliance and brand value"
+        ],
+        "correctOption": 3,
+        "optionFeedback": null,
+        "correctExplanation": "Correct! Resource efficiency lowers costs and strengthens enterprise resilience.",
+        "incorrectExplanation": "Incorrect. Efficiency lowers operating expenses and strengthens compliance."
+      },
+      {
+        "id": 9122,
+        "orderIndex": 5,
+        "question": "What role does accurate data collection and baseline measurement play in workplace sustainability?",
+        "options": [
+          "It is purely an aesthetic exercise with zero business value",
+          "It provides verifiable evidence to track progress, identify anomalies, and support executive decision-making",
+          "It is only performed when an inspector is standing in the building",
+          "It replaces the need for actual equipment maintenance"
+        ],
+        "correctOption": 1,
+        "optionFeedback": null,
+        "correctExplanation": "Correct! Accurate data provides the factual foundation for continuous improvement.",
+        "incorrectExplanation": "Incorrect. Reliable data measurement is vital for tracking progress and identifying waste."
+      },
+      {
+        "id": 9123,
+        "orderIndex": 6,
+        "question": "How should departmental teams coordinate when managing cross-functional sustainability initiatives?",
+        "options": [
+          "Send anonymous complaint letters to the executive board",
+          "Refuse to communicate with any other department",
+          "Compete destructively for the same resources without coordination",
+          "Establish regular alignment meetings, shared KPIs, and transparent responsibility matrices"
+        ],
+        "correctOption": 3,
+        "optionFeedback": null,
+        "correctExplanation": "Correct! Shared KPIs and transparent alignment drive cross-functional success.",
+        "incorrectExplanation": "Incorrect. Collaboration requires clear communication, shared KPIs, and defined accountability."
+      },
+      {
+        "id": 9124,
+        "orderIndex": 7,
+        "question": "What is the risk of implementing superficial environmental claims without operational verification?",
+        "options": [
+          "Severe legal penalties, reputational damage, and loss of customer and investor trust (greenwashing)",
+          "Automatic award of international sustainability prizes",
+          "Instant elimination of corporate taxes",
+          "Zero consequences under all circumstances"
+        ],
+        "correctOption": 0,
+        "optionFeedback": null,
+        "correctExplanation": "Correct! False claims trigger severe legal and reputational greenwashing penalties.",
+        "incorrectExplanation": "Incorrect. Superficial claims lead to severe greenwashing penalties and loss of stakeholder trust."
+      },
+      {
+        "id": 9125,
+        "orderIndex": 8,
+        "question": "How does periodic management review support continuous improvement in workplace sustainability?",
+        "options": [
+          "It is a legal formality with no practical purpose",
+          "It allows managers to cancel all future sustainability efforts",
+          "It evaluates performance trends against targets, reallocates resources, and updates SOPs based on lessons learned",
+          "It ensures that no process changes are ever permitted"
+        ],
+        "correctOption": 2,
+        "optionFeedback": null,
+        "correctExplanation": "Correct! Management reviews drive continuous optimization and resource allocation.",
+        "incorrectExplanation": "Incorrect. Regular reviews ensure goals are met and processes are continually improved."
+      }
+    ]
+  },
+  {
+    "code": "ELH-52",
+    "id": 747,
+    "title": "Sustainable Property Facility Operations",
+    "version": 2,
+    "passingScore": 75,
+    "learningObjectives": [
+      "Master core operational benchmarks in Sustainable Property Facility Operations",
+      "Implement standardized compliance checklists and monitoring routines",
+      "Identify resource efficiency and cost reduction opportunities",
+      "Prepare audit-ready records compliant with relevant standards"
+    ],
+    "lessons": [
+      {
+        "id": 16042,
+        "title": "1. Energy Benchmarking & Energy Use Intensity (EUI)"
+      },
+      {
+        "id": 16043,
+        "title": "2. Facility Water Balance Audits & Irrigation Optimization"
+      },
+      {
+        "id": 16044,
+        "title": "3. Green Preventive Maintenance (PM) & Asset Life-Extension"
+      },
+      {
+        "id": 16045,
+        "title": "4. Interactive Decision Scenarios: Facility Operations Dilemmas"
+      },
+      {
+        "id": 16046,
+        "title": "5. Property Operations Governance & 30-Day Facility Action Plan"
+      }
+    ],
+    "questions": [
+      {
+        "id": 20032,
+        "orderIndex": 0,
+        "question": "What is Energy Use Intensity (EUI) and how is it calculated for commercial buildings?",
+        "options": [
+          "The number of light bulbs divided by building height.",
+          "Total annual building energy consumption (kWh) divided by Gross Floor Area (GFA in m2), expressed as kWh/m2/year.",
+          "The cost of the building elevator divided by monthly rent.",
+          "The volume of water in the fire sprinkler tank."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. EUI measures total energy consumption per unit of floor area, not fixture count.",
+          "Correct! Annual kWh divided by Gross Floor Area (m2) gives Energy Use Intensity (kWh/m2/year).",
+          "Incorrect. Elevator cost is a capital expense, unrelated to operational energy intensity.",
+          "Incorrect. Sprinkler volume is a life-safety metric, not an energy benchmark."
+        ],
+        "correctExplanation": "EUI normalizes total annual energy use by gross floor area (kWh/m2/year), providing the universal benchmark for commercial building energy efficiency.",
+        "incorrectExplanation": "EUI is calculated as Total Annual Energy (kWh) divided by Gross Floor Area (m2)."
+      },
+      {
+        "id": 20033,
+        "orderIndex": 1,
+        "question": "How can a facility engineering team detect hidden underground water supply pipe leaks without digging up the property?",
+        "options": [
+          "By smelling the building exterior walls.",
+          "By closing all internal building fixtures at midnight, observing the main utility meter for continuous unmetered flow, and deploying acoustic leak detection equipment.",
+          "By painting the water pipes green.",
+          "By turning off the electricity supply to the building."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Pressurized clean water leaks in soil cannot be detected by smell.",
+          "Correct! Midnight static flow checks and acoustic sensors pinpoint buried leaks without destructive excavation.",
+          "Incorrect. Painting pipes provides corrosion protection but does not detect buried leaks.",
+          "Incorrect. Electrical shutoffs do not affect pressurized hydraulic water lines."
+        ],
+        "correctExplanation": "Midnight static pressure testing verifies baseline flow during zero occupancy, while acoustic listening devices pinpoint buried pipe fractures.",
+        "incorrectExplanation": "Midnight isolation testing and acoustic listening sensors locate pressurized pipe leaks without destructive digging."
+      },
+      {
+        "id": 20034,
+        "orderIndex": 2,
+        "question": "Why should commercial landscape irrigation systems be programmed to operate only during night or early morning hours (before 6:00 AM)?",
+        "options": [
+          "Because plants are afraid of daylight.",
+          "Irrigating during peak daylight hours (10:00 AM–4:00 PM) loses up to 50% of water to solar evaporation and wind drift before it reaches root zones.",
+          "Because irrigation pumps only run in the dark.",
+          "Because night water has higher mineral content."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Plants photosynthesize in daylight; irrigation timing is driven by evaporation physics.",
+          "Correct! Night and early morning watering prevents 50% water loss from solar evaporation and wind drift.",
+          "Incorrect. Electrical pumps operate at any time commanded by timers or BMS.",
+          "Incorrect. Water mineral content is constant regardless of time of day."
+        ],
+        "correctExplanation": "Irrigating during hot daytime hours causes severe evaporation and wind drift loss; night/early morning irrigation maximizes root absorption.",
+        "incorrectExplanation": "Nighttime and early morning irrigation prevents severe evaporative losses caused by midday heat and wind."
+      },
+      {
+        "id": 20035,
+        "orderIndex": 3,
+        "question": "How does dirty, clogged Air Handling Unit (AHU) air filters impact building operating efficiency?",
+        "options": [
+          "They make the fans spin faster while consuming less power.",
+          "They increase aerodynamic static resistance, forcing supply fan motors to draw 15% to 25% more electrical energy while reducing airflow and cooling capacity.",
+          "They convert dirty air into pure fragrance.",
+          "They turn off all building computer networks."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Increased resistance always increases electrical power draw on fan motors.",
+          "Correct! High filter resistance forces fans to draw 15-25% more power while starving occupied zones of cooling airflow.",
+          "Incorrect. Dirty filters trap dust and mold, degrading indoor air quality.",
+          "Incorrect. Air filters are mechanical filtration media with no IT network interaction."
+        ],
+        "correctExplanation": "Clogged filters increase duct static pressure, forcing fan motors to consume significantly more power while degrading cooling delivery.",
+        "incorrectExplanation": "Dirty filters increase static pressure drop, forcing fan motors to work harder and wasting significant electrical power."
+      },
+      {
+        "id": 20036,
+        "orderIndex": 4,
+        "question": "What is the most effective operational strategy for eliminating recyclable waste contamination in multi-tenant commercial office buildings?",
+        "options": [
+          "Removing all recycling bins and forcing everyone to use one landfill bin.",
+          "Replacing individual desk trash bins with centralized multi-stream sorting stations featuring clear visual icon signage, and providing dedicated pantry food waste caddies.",
+          "Searching tenant backpacks as they leave the building.",
+          "Fining the cleaning staff whenever a plastic bottle is found."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Removing recycling bins guarantees 100% landfill dumping, violating ESG commitments.",
+          "Correct! Centralized sorting hubs with visual icons and pantry compost bins eliminate contamination at the source.",
+          "Incorrect. Searching employee bags violates civil rights and workplace trust.",
+          "Incorrect. Penalizing cleaners fails to address the root cause of tenant improper sorting."
+        ],
+        "correctExplanation": "Centralized sorting stations with clear visual icon signage force conscious sorting, while desk-side bins encourage mindless mixed dumping.",
+        "incorrectExplanation": "Centralizing sorting stations and providing dedicated food waste caddies dramatically increases recycling purity."
+      },
+      {
+        "id": 20037,
+        "orderIndex": 5,
+        "question": "Why is infrared thermographic scanning of main electrical distribution switchboards considered an essential sustainability and safety practice?",
+        "options": [
+          "It makes the switchboard look high-tech in annual reports.",
+          "It detects loose electrical connections, phase imbalances, and overheating components before they cause energy loss, equipment burnout, or electrical fires.",
+          "It cools down the electrical switchboard automatically.",
+          "It charges the building batteries with infrared light."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Thermography is an electrical engineering diagnostic tool, not marketing photography.",
+          "Correct! Thermographic scans identify loose connections and phase imbalances, preventing resistive energy loss and catastrophic electrical fires.",
+          "Incorrect. Thermography measures thermal radiation; it does not cool equipment.",
+          "Incorrect. Thermal imaging cameras detect heat; they do not charge batteries."
+        ],
+        "correctExplanation": "Loose electrical lugs generate high resistive heat (I2R power losses); thermographic imaging pinpoints hot spots for tightening before fire or failure occurs.",
+        "incorrectExplanation": "Thermographic scanning identifies resistive overheating from loose connections, preventing electrical fires and power waste."
+      },
+      {
+        "id": 20038,
+        "orderIndex": 6,
+        "question": "How do faucet aerators reduce commercial building water consumption?",
+        "options": [
+          "By shutting off water permanently in executive offices.",
+          "By mixing air into the water stream, reducing flow rate from 9–12 L/min to 1.5–2.0 L/min while maintaining comfortable washing pressure and sensory volume.",
+          "By turning tap water into sparkling mineral water.",
+          "By heating the water to 100°C."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Aerators maintain operational water service for handwashing.",
+          "Correct! Aerators mix air into the flow, cutting water use by up to 75% while maintaining excellent sensory wash pressure.",
+          "Incorrect. Aerators do not carbonate water.",
+          "Incorrect. Aerators do not alter water temperature."
+        ],
+        "correctExplanation": "Aerators inject air into the water flow, slashing water volume by up to 75% without compromising handwashing sensory comfort.",
+        "incorrectExplanation": "Faucet aerators blend air into the water stream, reducing flow from ~9 L/min to ~2 L/min while preserving spray pressure."
+      },
+      {
+        "id": 20039,
+        "orderIndex": 7,
+        "question": "Which action should a Commercial Facility Manager prioritize within their first 30 days of sustainable property remediation?",
+        "options": [
+          "Shut down all building elevators and lock the front doors.",
+          "Calculate the building baseline EUI (kWh/m2/year), execute a midnight static water leak test, and embed green checkpoints in CMMS work orders.",
+          "Repaint the parking lot lines using non-standard fluorescent colors.",
+          "Discard all historical utility invoices."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Shutting down building access violates commercial leasing contracts.",
+          "Correct! EUI benchmarking, midnight water testing, and green PM work orders establish immediate operational control.",
+          "Incorrect. Parking line paint provides zero energy or water efficiency benefit.",
+          "Incorrect. Discarding utility invoices destroys historical audit trails and violates accounting standards."
+        ],
+        "correctExplanation": "The first 30 days must focus on establishing baseline EUI, running water leak diagnostics, and embedding green maintenance checkpoints.",
+        "incorrectExplanation": "Initial facility remediation prioritizes EUI benchmarking, water leak testing, and green PM integration in CMMS."
+      }
+    ]
+  },
+  {
+    "code": "ELH-53",
+    "id": 773,
+    "title": "Green Building Retrofits & Decarbonization Pathways",
+    "version": 2,
+    "passingScore": 75,
+    "learningObjectives": [
+      "Master core operational benchmarks in Green Building Retrofits & Decarbonization Pathways",
+      "Implement standardized compliance checklists and monitoring routines",
+      "Identify resource efficiency and cost reduction opportunities",
+      "Prepare audit-ready records compliant with relevant standards"
+    ],
+    "lessons": [
+      {
+        "id": 16047,
+        "title": "1. Deep Energy Retrofit Principles & ASHRAE Level II Auditing"
+      },
+      {
+        "id": 16048,
+        "title": "2. Envelope Thermal Upgrades & Window Film Retrofits"
+      },
+      {
+        "id": 16049,
+        "title": "3. Electrification with Heat Pumps & Rooftop Solar PV"
+      },
+      {
+        "id": 16050,
+        "title": "4. Interactive Decision Scenarios: Decarbonization Trade-Offs"
+      },
+      {
+        "id": 16051,
+        "title": "5. Retrofit Capital Governance & 30-Day Decarbonization Plan"
+      }
+    ],
+    "questions": [
+      {
+        "id": 20040,
+        "orderIndex": 0,
+        "question": "Why is it an essential engineering principle to execute building envelope retrofits before replacing central cooling plant equipment?",
+        "options": [
+          "Because windows are always cheaper than painting walls.",
+          "Passive envelope upgrades reduce peak thermal cooling loads, allowing the new mechanical chiller plant to be right-sized at lower capacity, saving massive capital and operating energy.",
+          "Because chillers cannot operate if windows have glass in them.",
+          "Because envelope retrofits are completely free of charge."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Equipment sequencing is driven by thermodynamic load matching, not arbitrary pricing.",
+          "Correct! Reducing envelope heat gain lowers peak cooling tonnage, enabling right-sized, highly efficient mechanical equipment.",
+          "Incorrect. Chillers provide cooling to conditioned enclosed spaces with windows.",
+          "Incorrect. Envelope upgrades require capital investment that delivers high payback."
+        ],
+        "correctExplanation": "Reducing thermal loads through window films and roof insulation shrinks the required chiller tonnage, avoiding purchasing oversized equipment.",
+        "incorrectExplanation": "Lowering thermal loads first allows downsizing of mechanical equipment, saving significant upfront capital and operating power."
+      },
+      {
+        "id": 20041,
+        "orderIndex": 1,
+        "question": "What is the primary thermodynamic advantage of spectrally selective window films on existing single-glazed commercial windows?",
+        "options": [
+          "They turn window glass completely pitch black like a darkroom.",
+          "They block 60% to 75% of infrared solar heat gain (lowering SHGC to < 0.35) while maintaining high visible light transmission (> 70%) and occupant views.",
+          "They generate electricity from rainfall.",
+          "They prevent sound from entering the building completely."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Spectrally selective films maintain high visible light transmission, avoiding dark, gloomy interiors.",
+          "Correct! Micro-ceramic films reject 60-75% of solar heat gain while preserving daylight and occupant views at 15% of replacement cost.",
+          "Incorrect. Window films are optical coatings, not piezoelectric rain generators.",
+          "Incorrect. Acoustic dampening requires heavy laminated double-glazing, not thin films."
+        ],
+        "correctExplanation": "Spectrally selective films reject invisible infrared heat while allowing visible light through, cutting cooling loads without darkening interiors.",
+        "incorrectExplanation": "Spectrally selective films block infrared solar heat while preserving natural daylighting and external views."
+      },
+      {
+        "id": 20042,
+        "orderIndex": 2,
+        "question": "How does an electrified commercial heat pump (COP 3.5–4.5) compare to a conventional diesel fuel boiler for domestic hot water generation?",
+        "options": [
+          "Heat pumps burn diesel fuel three times faster than boilers.",
+          "Heat pumps extract ambient heat from the air/water and deliver 3.5 to 4.5 kWh of heat for every 1 kWh of electricity, cutting operating carbon by over 70% compared to fossil boilers.",
+          "Heat pumps produce cold water only.",
+          "Diesel boilers produce zero carbon emissions."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Heat pumps are fully electrified and consume zero on-site fossil fuels.",
+          "Correct! Heat pumps deliver 3.5-4.5 units of heat per unit of electricity, slashing operational carbon and eliminating diesel combustion.",
+          "Incorrect. Heat pumps generate hot water up to 60-65°C for domestic use.",
+          "Incorrect. Diesel combustion releases significant greenhouse gases and particulate soot."
+        ],
+        "correctExplanation": "Heat pumps move heat rather than generating it from combustion, delivering 350–450% efficiency (COP 3.5–4.5) and eliminating fossil fuel emissions.",
+        "incorrectExplanation": "Heat pumps achieve COP 3.5-4.5 by moving ambient heat, eliminating on-site diesel combustion and cutting carbon emissions by over 70%."
+      },
+      {
+        "id": 20043,
+        "orderIndex": 3,
+        "question": "What is a Marginal Abatement Cost Curve (MACC) and how is it used in property portfolio decarbonization?",
+        "options": [
+          "A decorative architectural floor pattern.",
+          "A quantitative financial graph ranking carbon reduction initiatives by their cost-effectiveness (Cost per Tonne of CO2 abated), identifying projects that save money vs those requiring capital.",
+          "A list of corporate board member names.",
+          "A municipal zoning boundary map."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. MACC is a financial and carbon management decision tool, not architectural decor.",
+          "Correct! MACCs rank initiatives by net cost per tonne of CO2 abated, allowing executives to prioritize self-funding, high-yield retrofits.",
+          "Incorrect. Board lists do not provide financial carbon abatement analytics.",
+          "Incorrect. Zoning maps outline land use designations, not carbon economics."
+        ],
+        "correctExplanation": "A MACC ranks emissions reduction projects from negative cost (net savings, e.g. LED/BMS) to positive cost (e.g. deep facade rebuilds), optimizing capital allocation.",
+        "incorrectExplanation": "MACCs rank decarbonization projects by net cost per tonne of CO2 abated, guiding capital allocation across portfolios."
+      },
+      {
+        "id": 20044,
+        "orderIndex": 4,
+        "question": "What is the primary function of a high Solar Reflectance Index (SRI > 80) 'Cool Roof' coating in tropical commercial properties?",
+        "options": [
+          "To make the roof slippery for safety inspections.",
+          "To reflect solar radiation back into the atmosphere, lowering roof surface temperatures by 20–25°C and reducing top-floor cooling loads by 15% to 20%.",
+          "To collect rainwater in solid ice blocks.",
+          "To increase heat absorption into the building interior."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Roof coatings are formulated with non-slip textures for maintenance access.",
+          "Correct! High SRI coatings reflect solar rays, lowering roof temperatures by 20-25°C and cutting top-floor cooling loads significantly.",
+          "Incorrect. Cool roofs reduce surface temperature; they do not freeze rainwater in the tropics.",
+          "Incorrect. The goal is solar reflection, not thermal heat absorption."
+        ],
+        "correctExplanation": "High SRI cool roof coatings reflect solar radiation and emit absorbed heat, keeping roof surfaces cool and lowering top-floor cooling demand.",
+        "incorrectExplanation": "Cool roof coatings reflect solar radiation, lowering roof surface temperatures and reducing heat transfer into top-floor tenant suites."
+      },
+      {
+        "id": 20045,
+        "orderIndex": 5,
+        "question": "When structural roof load capacity is constrained, how can a commercial property maximize on-site solar PV generation?",
+        "options": [
+          "Install solar panels on underground parking garage floors.",
+          "Deploy ultralight frameless solar modules with direct purlin clamp attachments, and build solar canopies over outdoor surface parking carports.",
+          "Cancel all solar energy plans immediately.",
+          "Hang solar panels from the side of the building with rope."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Underground garages receive zero solar irradiance.",
+          "Correct! Ultralight purlin clamping and solar parking canopies expand generation capacity without compromising structural safety.",
+          "Incorrect. Abandoning solar forfeits clean energy and long-term utility cost hedging.",
+          "Incorrect. Unengineered rope mounting creates catastrophic structural and wind-hazard risks."
+        ],
+        "correctExplanation": "Using lightweight structural attachments on roofs and building solar canopies over surface parking lots maximizes solar capacity safely within engineering limits.",
+        "incorrectExplanation": "Ultralight mounting and parking canopy solar arrays expand photovoltaic capacity without overloading existing roof decks."
+      },
+      {
+        "id": 20046,
+        "orderIndex": 6,
+        "question": "What is the recommended 3-phase sequencing strategy for a multi-year commercial property deep retrofit roadmap?",
+        "options": [
+          "Phase 1: Buy nuclear reactor; Phase 2: Buy wind turbines; Phase 3: Paint building.",
+          "Phase 1 (Quick Wins: BMS/LED/plumbing); Phase 2 (Passive Envelope: Window films/Cool roofs); Phase 3 (Electrification & Renewables: Heat pumps/Chiller right-sizing/Solar PV).",
+          "Execute all phases randomly without scheduling.",
+          "Phase 1: Demolish building; Phase 2: Leave site vacant for 10 years."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Nuclear reactors are not commercial building retrofit technologies.",
+          "Correct! Moving from quick wins to envelope optimization to mechanical right-sizing and solar PV creates a self-funding decarbonization pathway.",
+          "Incorrect. Random sequencing leads to equipment oversizing and capital waste.",
+          "Incorrect. Demolition destroys embodied carbon and business value."
+        ],
+        "correctExplanation": "Phasing from quick wins to envelope reduction to mechanical right-sizing and solar creates a self-funding sequence that minimizes capital outlay.",
+        "incorrectExplanation": "Sequencing from low-cost quick wins to envelope efficiency to mechanical right-sizing and solar maximizes ROI and energy yield."
+      },
+      {
+        "id": 20047,
+        "orderIndex": 7,
+        "question": "Which action should an Asset Manager prioritize during their first 30 days of commercial property decarbonization planning?",
+        "options": [
+          "Double the building electricity consumption to test the transformers.",
+          "Perform an ASHRAE Level II energy audit, calculate window film ROI, and assess roof structural capacity for solar PV.",
+          "Cut all electrical wiring in the building.",
+          "Evict all tenants without notice."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Wasting electricity inflates operating costs and carbon emissions.",
+          "Correct! Energy auditing, window film modeling, and solar structural checks establish a rigorous capital decarbonization plan.",
+          "Incorrect. Cutting wiring causes commercial shutdown and life-safety hazards.",
+          "Incorrect. Unlawful evictions destroy property revenue and violate commercial real estate laws."
+        ],
+        "correctExplanation": "The first 30 days must establish the empirical foundation: ASHRAE Level II audit, window film financial modeling, and solar roof assessment.",
+        "incorrectExplanation": "Initial planning focuses on energy audits, envelope ROI calculations, and solar structural feasibility."
+      }
+    ]
+  },
+  {
+    "code": "ELH-54",
+    "id": 774,
+    "title": "Sustainable Property HVAC & Chiller Optimization",
+    "version": 2,
+    "passingScore": 75,
+    "learningObjectives": [
+      "Master core operational benchmarks in Sustainable Property HVAC & Chiller Optimization",
+      "Implement standardized compliance checklists and monitoring routines",
+      "Identify resource efficiency and cost reduction opportunities",
+      "Prepare audit-ready records compliant with relevant standards"
+    ],
+    "lessons": [
+      {
+        "id": 16052,
+        "title": "1. Hydronic Architecture: Primary-Secondary vs Variable Primary Flow (VPF)"
+      },
+      {
+        "id": 16053,
+        "title": "2. Dynamic Chilled Water & Condenser Water Resets"
+      },
+      {
+        "id": 16054,
+        "title": "3. Airside Efficiency: AHU Coil Maintenance & Pressure Optimization"
+      },
+      {
+        "id": 16055,
+        "title": "4. Interactive Decision Scenarios: HVAC Optimization Dilemmas"
+      },
+      {
+        "id": 16056,
+        "title": "5. HVAC Governance & 30-Day Chiller Plant Action Plan"
+      }
+    ],
+    "questions": [
+      {
+        "id": 20048,
+        "orderIndex": 0,
+        "question": "What is the primary operational advantage of Variable Primary Flow (VPF) pumping compared to traditional Primary-Secondary pumping in commercial chiller plants?",
+        "options": [
+          "VPF uses three times more pumps and piping.",
+          "VPF eliminates secondary distribution pumps and decoupling mixing losses, cutting hydronic pumping electricity by 25% to 35% with lower capital installation costs.",
+          "VPF converts chilled water into hot steam automatically.",
+          "VPF requires no electrical pumps whatsoever."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. VPF simplifies piping and reduces total pump count.",
+          "Correct! VPF eliminates secondary pumps and decoupling bridge mixing losses, cutting pumping energy by 25-35%.",
+          "Incorrect. VPF circulates chilled water for cooling; it does not generate steam.",
+          "Incorrect. Hydronic systems require electrical pumps to circulate water."
+        ],
+        "correctExplanation": "VPF uses a single set of variable-speed pumps to circulate water through chillers and distribution loops, eliminating secondary pumps and decoupling energy penalties.",
+        "incorrectExplanation": "VPF eliminates dedicated secondary pumps and decoupling bridge mixing losses, cutting pumping power by 25-35%."
+      },
+      {
+        "id": 20049,
+        "orderIndex": 1,
+        "question": "How much does chiller compressor efficiency typically improve for every 1.0°C increase in Chilled Water Supply Temperature (CHWST)?",
+        "options": [
+          "0.0% (no effect)",
+          "Approximately 2.5% to 3.0% improvement in chiller compressor efficiency",
+          "50.0% improvement",
+          "100.0% improvement"
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Evaporator temperature directly governs compressor thermodynamic lift.",
+          "Correct! Every 1.0°C increase in chilled water supply temperature improves compressor efficiency by 2.5–3.0%.",
+          "Incorrect. 50% improvement per °C violates thermodynamic laws.",
+          "Incorrect. Total energy cannot be eliminated while equipment operates."
+        ],
+        "correctExplanation": "Raising evaporator temperature reduces compressor lift, improving chiller thermodynamic efficiency by ~2.5–3.0% per °C increase.",
+        "incorrectExplanation": "Higher chilled water supply temperature reduces compressor lift, saving 2.5-3.0% in chiller power per °C."
+      },
+      {
+        "id": 20050,
+        "orderIndex": 2,
+        "question": "Why must Chilled Water Supply Temperature (CHWST) reset algorithms include an active humidity override limit in humid tropical climates?",
+        "options": [
+          "Because humidity makes the BMS computer catch fire.",
+          "Supplying warmer chilled water (e.g. 10°C) reduces coil dehumidification capacity; without a humidity limit, indoor relative humidity will exceed 65% RH, causing mold and occupant discomfort.",
+          "Because humid air cannot pass through air filters.",
+          "Because humidity makes lighting fixtures stop working."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Humidity does not cause computer fires in standard IT rooms.",
+          "Correct! Warmer chilled water reduces dehumidification; humidity overrides ensure water stays cold during humid weather to prevent mold.",
+          "Incorrect. Humid air flows through filters but contains water vapor.",
+          "Incorrect. Humidity does not interrupt electrical lighting circuits."
+        ],
+        "correctExplanation": "Cooling coils must drop below the air dewpoint to condense moisture; raising water temperature too high stops dehumidification, causing severe mold growth.",
+        "incorrectExplanation": "Warmer water impairs dehumidification; an active humidity override locks water cold during high humidity to prevent indoor mold outbreaks."
+      },
+      {
+        "id": 20051,
+        "orderIndex": 3,
+        "question": "What is the critical safety mechanism required on a Variable Primary Flow (VPF) chiller plant to prevent evaporator tube freeze-up during low-load conditions?",
+        "options": [
+          "An open window in the plant room.",
+          "A fast-acting automated modulating bypass valve controlled by a precision magnetic flow meter to maintain minimum manufacturer evaporator tube velocity.",
+          "A diesel fuel burner attached to the evaporator barrel.",
+          "Turning off all plant safety alarms."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Plant room windows have no effect on internal hydronic tube velocity.",
+          "Correct! A fast-acting modulating bypass valve maintains minimum safe evaporator flow, preventing catastrophic freeze-up.",
+          "Incorrect. Evaporator barrels are cooling heat exchangers, not fuel burners.",
+          "Incorrect. Disabling safety alarms causes catastrophic equipment damage."
+        ],
+        "correctExplanation": "A fast-acting bypass valve opens automatically if building demand drops, ensuring water velocity through the evaporator never falls below the freeze-up threshold.",
+        "incorrectExplanation": "An automated modulating bypass valve maintains safe minimum water flow through chiller barrels during low-load conditions."
+      },
+      {
+        "id": 20052,
+        "orderIndex": 4,
+        "question": "How does installing germicidal UV-C lamps on AHU cooling coil banks improve ongoing HVAC efficiency?",
+        "options": [
+          "It turns the air handler into a tanning bed.",
+          "It continuously eradicates mold and biofilm from coil fins, maintaining design heat transfer coefficients and preventing airside static pressure increases without chemical washing.",
+          "It heats the supply air to 100°C.",
+          "It increases electrical fan power consumption by 500%."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. UV-C is enclosed inside air handlers for biological disinfection, not human tanning.",
+          "Correct! Continuous UV-C irradiation eliminates microbial biofilm, preserving coil heat transfer and low fan static pressure drop.",
+          "Incorrect. UV-C produces negligible heat in the airflow.",
+          "Incorrect. Clean coils reduce fan static pressure, saving fan electrical power."
+        ],
+        "correctExplanation": "UV-C irradiation destroys biological slime on coil surfaces 24/7, keeping coils aerodynamically clean and thermally efficient.",
+        "incorrectExplanation": "UV-C eliminates mold biofilm on cooling coils, maintaining peak heat transfer and low airside static pressure."
+      },
+      {
+        "id": 20053,
+        "orderIndex": 5,
+        "question": "What is an excellent pumping power efficiency benchmark for a modern Variable Primary Flow (VPF) commercial chiller plant?",
+        "options": [
+          "Less than 0.08 kW/TR of chilled water pumping power",
+          "1.50 kW/TR",
+          "10.0 kW/TR",
+          "50.0 kW/TR"
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Correct! < 0.08 kW/TR represents a modern, optimized Variable Primary Flow pumping benchmark.",
+          "Incorrect. 1.50 kW/TR is higher than the entire chiller plant power consumption.",
+          "Incorrect. 10.0 kW/TR is absurdly high and represents catastrophic system failure.",
+          "Incorrect. 50.0 kW/TR is mathematically invalid for commercial pumping."
+        ],
+        "correctExplanation": "In an optimized VPF system, chilled water pumping power should be under 0.08 kW/TR (compared to 0.15–0.25 kW/TR in legacy primary-secondary systems).",
+        "incorrectExplanation": "High-efficiency VPF systems achieve chilled water pumping power benchmarks of < 0.08 kW per ton of cooling."
+      },
+      {
+        "id": 20054,
+        "orderIndex": 6,
+        "question": "How does VAV supply fan static pressure reset reduce fan electrical energy consumption?",
+        "options": [
+          "By turning off the fan motor every 2 minutes.",
+          "Under the Fan Affinity Laws, reducing fan speed to match the minimum pressure required by the most demanding VAV damper cuts fan power by the cube of the speed reduction.",
+          "By increasing duct pressure to maximum all night.",
+          "By filling air ducts with water."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Rapid cycling damages electric motors and creates erratic airflow.",
+          "Correct! Fan Affinity Laws dictate that fan power drops with the cube of speed reduction, making static pressure reset highly lucrative.",
+          "Incorrect. Maximum pressure wastes maximum fan energy and causes terminal noise.",
+          "Incorrect. Air distribution ducts carry air, not water."
+        ],
+        "correctExplanation": "Fan power varies with the cube of speed (Fan Affinity Laws); trimming static pressure to match real-time demand yields massive power savings.",
+        "incorrectExplanation": "Trimming static pressure allows fan speed reductions that yield cubic power savings under the Fan Affinity Laws."
+      },
+      {
+        "id": 20055,
+        "orderIndex": 7,
+        "question": "Which action should a Lead HVAC Engineer prioritize during their first 30 days of chiller plant optimization?",
+        "options": [
+          "Disconnect all flow meters and temperature sensors from the BMS.",
+          "Audit hydronic pumping architecture for VPF conversion, implement dynamic CHWST reset with humidity overrides, and inspect AHU coil differential pressures.",
+          "Set all cooling tower fans to reverse direction permanently.",
+          "Pour soap into the chilled water system."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Disconnecting telemetry destroys automated control.",
+          "Correct! Evaluating VPF, implementing CHWST resets with humidity limits, and auditing coils establishes immediate efficiency gains.",
+          "Incorrect. Reversing fans destroys heat rejection capacity.",
+          "Incorrect. Soap causes foaming, cavitation, and pump destruction in closed hydronic loops."
+        ],
+        "correctExplanation": "The first 30 days should focus on evaluating VPF feasibility, programming CHWST resets with humidity safety, and auditing coil differential pressures.",
+        "incorrectExplanation": "Initial HVAC optimization focuses on pumping architecture, dynamic resets with humidity limits, and coil cleanliness."
+      }
+    ]
+  },
+  {
+    "code": "ELH-55",
+    "id": 713,
+    "title": "Legionella & Water System Safety in Facilities",
+    "version": 2,
+    "passingScore": 75,
+    "learningObjectives": [
+      "Develop and maintain an audit-ready Water Safety Plan (WSP) complying with statutory public health standards.",
+      "Enforce mandatory thermal regimes (hot water storage >= 60°C, distribution >= 50°C, cold water < 20°C).",
+      "Manage cooling tower automated biocidal chemical dosing (oxidizing + non-oxidizing alternating regimes).",
+      "Identify and eliminate stagnant piping dead-legs and execute weekly flushing of low-use fixtures."
+    ],
+    "lessons": [
+      {
+        "id": 17917,
+        "title": "1. Legionella Microbiology, Risk Factors & Water Safety Plans (WSP)"
+      },
+      {
+        "id": 17918,
+        "title": "2. Thermal Control Regimes & Domestic Hot Water Systems"
+      },
+      {
+        "id": 17919,
+        "title": "3. Cooling Tower Biocides, Drift Eliminators & Dead-Leg Elimination"
+      },
+      {
+        "id": 17920,
+        "title": "4. Interactive Decision Scenarios: Water Safety Crises"
+      },
+      {
+        "id": 17921,
+        "title": "5. Water Safety Governance & 30-Day Compliance Action Plan"
+      }
+    ],
+    "questions": [
+      {
+        "id": 22847,
+        "orderIndex": 0,
+        "question": "What is the optimal water temperature proliferation range for Legionella pneumophila bacteria?",
+        "options": [
+          "Sub-zero freezing temperatures (-10°C to 0°C).",
+          "Between 20°C and 45°C (with peak rapid proliferation occurring between 32°C and 42°C).",
+          "Boiling water at 100°C.",
+          "Above 80°C."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Freezing temperatures render bacteria dormant but do not kill them.",
+          "Correct! Legionella proliferates rapidly between 20°C and 45°C, making temperature control the primary defense.",
+          "Incorrect. Boiling water (100°C) instantly pasteurizes and kills all Legionella bacteria.",
+          "Incorrect. Temperatures above 60°C kill Legionella within minutes."
+        ],
+        "correctExplanation": "Legionella multiplies rapidly in warm water between 20°C and 45°C; temperatures above 60°C kill the bacteria rapidly.",
+        "incorrectExplanation": "Legionella proliferates in warm stagnant water between 20°C and 45°C, with peak growth between 32°C and 42°C."
+      },
+      {
+        "id": 22848,
+        "orderIndex": 1,
+        "question": "What is the statutory thermal control standard for commercial domestic hot water storage and circulating loop return temperatures?",
+        "options": [
+          "Stored at 30°C and returned at 25°C.",
+          "Stored in the calorifier/boiler at minimum 60°C, and circulating loop return maintained at minimum 50°C.",
+          "Stored at 15°C and returned at 10°C.",
+          "Turned off completely on weekends."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. 30°C storage sits directly in the center of the dangerous Legionella proliferation zone.",
+          "Correct! 60°C storage and 50°C circulating return ensures complete thermal pasteurization across the distribution network.",
+          "Incorrect. 15°C is cold water distribution, not domestic hot water.",
+          "Incorrect. Shutting down hot water creates stagnant warm conditions that incubate bacteria."
+        ],
+        "correctExplanation": "International health standards require storing water at >= 60°C and maintaining return loops at >= 50°C to ensure continuous thermal pasteurization.",
+        "incorrectExplanation": "Statutory standards require storage >= 60°C and loop return >= 50°C to pasteurize water and kill bacteria."
+      },
+      {
+        "id": 22849,
+        "orderIndex": 2,
+        "question": "What is the purpose of Thermostatic Mixing Valves (TMVs) in a facility with 60°C hot water distribution?",
+        "options": [
+          "To increase water pressure by 500%.",
+          "To blend 60°C pasteurized water with cold water down to a safe 38°C–41°C at the point of use, preventing severe scalding while maintaining loop pasteurization.",
+          "To carbonate the shower water.",
+          "To freeze the water into ice cubes."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. TMVs regulate thermal temperature, not hydraulic pressure.",
+          "Correct! TMVs blend 60°C water down to 38-41°C at the tap, preventing scalding while keeping the main loop thermally safe.",
+          "Incorrect. TMVs do not carbonate water.",
+          "Incorrect. TMVs supply warm water for bathing and handwashing."
+        ],
+        "correctExplanation": "TMVs protect occupants from scalding by blending 60°C water down to 38–41°C right at the fixture, allowing the main piping network to stay pasteurized.",
+        "incorrectExplanation": "TMVs blend hot water down to safe handwashing temperatures (38-41°C) at the fixture, preventing scald burns."
+      },
+      {
+        "id": 22850,
+        "orderIndex": 3,
+        "question": "Why is an alternating dual-biocide program (oxidizing + non-oxidizing biocide) recommended for evaporative cooling towers?",
+        "options": [
+          "To change the color of the cooling tower water every week.",
+          "Oxidizing biocides maintain continuous disinfection, while periodic non-oxidizing shock dosing penetrates biofilms and prevents bacteria from developing chemical resistance.",
+          "Because biocides are used to clean office carpets.",
+          "Because non-oxidizing biocides turn water into gasoline."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Biocide programs are designed for microbial disinfection, not aesthetic coloring.",
+          "Correct! Continuous oxidizers combined with non-oxidizing shocks eliminate biofilm and prevent bacterial immunity.",
+          "Incorrect. Industrial water biocides are restricted to closed water systems, not carpets.",
+          "Incorrect. Biocides are antimicrobial chemical agents, not petroleum fuels."
+        ],
+        "correctExplanation": "Oxidizers provide continuous halogen residual; periodic non-oxidizer shocks disrupt resilient biofilm slime layers and prevent microbial adaptation.",
+        "incorrectExplanation": "Dual biocide programs combine continuous oxidizing control with periodic non-oxidizing shocks to eliminate resistant biofilms."
+      },
+      {
+        "id": 22851,
+        "orderIndex": 4,
+        "question": "What is a plumbing 'Dead-Leg' and why does it represent a severe Legionella infection hazard?",
+        "options": [
+          "A broken table leg in the staff cafeteria.",
+          "A redundant or rarely used pipe section where water stagnates at ambient room temperature, allowing bacteria to multiply in biofilm and seed into active supply lines.",
+          "A pressurized fire sprinkler nozzle.",
+          "A drainage pipe running to the municipal sewer."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Dead-leg is a plumbing term for stagnant pipe sections, not furniture.",
+          "Correct! Stagnant dead-legs lack disinfectant residual and temperature control, creating bacterial incubators that seed active lines.",
+          "Incorrect. Fire sprinkler nozzles are life-safety suppression devices.",
+          "Incorrect. Gravity drainage pipes carry wastewater away and do not supply potable water."
+        ],
+        "correctExplanation": "Dead-legs are stagnant pipe stubs where disinfectant dissipates and water cools into the 20–45°C growth zone, contaminating the main water supply.",
+        "incorrectExplanation": "Dead-legs are stagnant pipe segments that breed bacteria and continuously contaminate active drinking and bathing loops."
+      },
+      {
+        "id": 22852,
+        "orderIndex": 5,
+        "question": "What is the primary operational function of certified Drift Eliminators in cooling tower installations?",
+        "options": [
+          "To make the cooling tower spin in high winds.",
+          "To trap and remove water droplets from the exhaust airstream, limiting aerosol drift loss to < 0.005% of circulating flow to prevent airborne Legionella transmission.",
+          "To filter sunlight out of the cooling tower basin.",
+          "To prevent birds from drinking cooling tower water."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Cooling tower structures are stationary; only internal fans rotate.",
+          "Correct! High-efficiency drift eliminators limit aerosol discharge to < 0.005% of flow, blocking airborne pathogen transmission.",
+          "Incorrect. Drift eliminators manage exhaust airflow, not sunlight filtration.",
+          "Incorrect. Drift eliminators sit in the exhaust plenum to capture water droplets."
+        ],
+        "correctExplanation": "Drift eliminators force exhaust air through tortuous paths to capture water droplets, limiting aerosol discharge to < 0.005% of flow.",
+        "incorrectExplanation": "Drift eliminators capture aerosol droplets before discharge, preventing airborne transmission of waterborne pathogens."
+      },
+      {
+        "id": 22853,
+        "orderIndex": 6,
+        "question": "What emergency remediation protocol is required when laboratory testing confirms Legionella counts exceeding 1,000 CFU/L in a commercial hot water system?",
+        "options": [
+          "Spray room freshener in all guest corridors.",
+          "Isolate the affected wing, execute thermal pasteurization (flushing at >= 60°C for 30 minutes) or chemical hyper-chlorination (20–50 ppm), and re-sample after 48 hours.",
+          "Drain all swimming pools on the property.",
+          "Paint the water heater red."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Room fresheners do not disinfect contaminated plumbing networks.",
+          "Correct! System isolation, thermal pasteurization at >= 60°C, and shock chlorination is the mandatory emergency decontamination standard.",
+          "Incorrect. Swimming pools have independent filtration and chlorination systems.",
+          "Incorrect. Boiler exterior paint provides zero internal microbiological disinfection."
+        ],
+        "correctExplanation": "Counts > 1,000 CFU/L require immediate isolation, thermal pasteurization at >= 60°C or shock chlorination at 20–50 ppm, and post-treatment re-testing.",
+        "incorrectExplanation": "High Legionella counts demand immediate isolation, thermal pasteurization or chemical shock dosing, and verified re-sampling."
+      },
+      {
+        "id": 22854,
+        "orderIndex": 7,
+        "question": "Which action should a Facilities Director prioritize during their first 30 days of water safety program execution?",
+        "options": [
+          "Turn off all water testing and destroy previous lab records.",
+          "Audit domestic hot water calorifier and return temperatures against the 60°C/50°C standard, inspect cooling tower drift eliminators, and eliminate plumbing dead-legs.",
+          "Replace all copper piping with uncertified garden hoses.",
+          "Allow cooling towers to operate without any chemical biocides."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Destroying water records violates statutory public health laws.",
+          "Correct! Auditing thermal temperatures (60°C/50°C), checking cooling tower drift eliminators, and eliminating dead-legs establishes core safety governance.",
+          "Incorrect. Garden hoses are unrated for potable hot water distribution and leach toxic chemicals.",
+          "Incorrect. Operating towers without biocides creates imminent public health hazards."
+        ],
+        "correctExplanation": "The first 30 days must focus on auditing the 60°C/50°C thermal regime, inspecting cooling tower drift eliminators, and removing stagnant dead-legs.",
+        "incorrectExplanation": "Initial water safety focus prioritizes thermal temperature audits, cooling tower drift inspections, and dead-leg remediation."
+      }
+    ]
+  },
+  {
+    "code": "ELH-56",
+    "id": 748,
+    "title": "Sustainable Building Certifications (LEED/BREEAM)",
+    "version": 2,
+    "passingScore": 75,
+    "learningObjectives": [
+      "Master core operational benchmarks in Sustainable Building Certifications (LEED/BREEAM)",
+      "Implement standardized compliance checklists and monitoring routines",
+      "Identify resource efficiency and cost reduction opportunities",
+      "Prepare audit-ready records compliant with relevant standards"
+    ],
+    "lessons": [
+      {
+        "id": 16062,
+        "title": "1. Rating System Comparison: LEED v4.1, BREEAM & IFC EDGE"
+      },
+      {
+        "id": 16063,
+        "title": "2. Credit Optimization & The Scorecard Economics"
+      },
+      {
+        "id": 16064,
+        "title": "3. Fundamental & Enhanced Building Commissioning (Cx)"
+      },
+      {
+        "id": 16065,
+        "title": "4. Interactive Decision Scenarios: Certification Delivery Dilemmas"
+      },
+      {
+        "id": 16066,
+        "title": "5. Certification Governance & 30-Day Project Launch Plan"
+      }
+    ],
+    "questions": [
+      {
+        "id": 20064,
+        "orderIndex": 0,
+        "question": "What is the consequence of failing to achieve a mandatory prerequisite in the LEED rating system?",
+        "options": [
+          "The project pays a $50 administrative fee and continues normally.",
+          "The entire project is completely disqualified from receiving LEED certification, regardless of how many other points were earned.",
+          "The project is automatically awarded Platinum certification.",
+          "The project is converted into a residential apartment."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Prerequisites cannot be bypassed by paying administrative fees.",
+          "Correct! Prerequisites are mandatory; failing a single prerequisite disqualifies the entire project from certification.",
+          "Incorrect. Platinum certification requires 80+ points and 100% prerequisite compliance.",
+          "Incorrect. Building occupancy class is independent of certification scoring."
+        ],
+        "correctExplanation": "Prerequisites are absolute mandatory baselines; failing even one prerequisite disqualifies the project from certification.",
+        "incorrectExplanation": "LEED prerequisites are non-negotiable mandatory baselines; failure of any prerequisite prevents certification."
+      },
+      {
+        "id": 20065,
+        "orderIndex": 1,
+        "question": "Why is it an essential best practice to target a 5-point buffer above your target certification tier threshold on the credit scorecard?",
+        "options": [
+          "Because rating bodies require projects to donate 5 points to charity.",
+          "To absorb potential credit denials, documentation rejections, or calculation adjustments during rigorous third-party technical audit reviews without dropping below the target tier.",
+          "Because scorecards with buffers look more colorful.",
+          "Because scorecards without buffers are illegal."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Certification points cannot be donated or transferred.",
+          "Correct! A 5-point buffer absorbs auditor point deductions, ensuring the project achieves its target certification tier reliably.",
+          "Incorrect. Scorecard modeling is driven by risk management, not visual colors.",
+          "Incorrect. Buffer points are a risk mitigation strategy, not a statutory legal requirement."
+        ],
+        "correctExplanation": "Third-party reviewers routinely deny or question borderline credits; a 5-point buffer ensures the project achieves its target rating (e.g. Gold at 60 points) even if points are lost.",
+        "incorrectExplanation": "Targeting a 5-point cushion protects the target certification rating against inevitable auditor point deductions."
+      },
+      {
+        "id": 20066,
+        "orderIndex": 2,
+        "question": "What is the primary role of an independent Commissioning Agent (CxA) during green building certification?",
+        "options": [
+          "To design the landscaping garden.",
+          "To act as an independent quality assurance engineer verifying that building mechanical, electrical, plumbing, and renewable systems are installed, calibrated, and performing according to design intent.",
+          "To sell commercial real estate leases.",
+          "To manage payroll for site construction workers."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Landscape design is performed by landscape architects.",
+          "Correct! The CxA provides independent technical quality assurance, verifying that HVAC, electrical, and plumbing systems perform to design intent.",
+          "Incorrect. Leasing is managed by commercial real estate brokers.",
+          "Incorrect. Construction payroll is managed by contractor HR and accounting."
+        ],
+        "correctExplanation": "The CxA conducts independent functional performance testing to verify that complex building systems operate efficiently and meet design intent.",
+        "incorrectExplanation": "The Commissioning Agent performs independent functional testing to ensure building systems operate at peak efficiency."
+      },
+      {
+        "id": 20067,
+        "orderIndex": 3,
+        "question": "How does the IFC EDGE certification system differ from LEED and BREEAM?",
+        "options": [
+          "IFC EDGE requires buildings to be painted completely yellow.",
+          "IFC EDGE is a streamlined, quantitative standard focusing specifically on achieving minimum 20% resource efficiency in Energy, Water, and Embodied Material Carbon, optimized for emerging markets and green finance.",
+          "IFC EDGE applies only to wooden treehouses.",
+          "IFC EDGE requires 50 years of continuous documentation before certification."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Paint colors have no connection to EDGE certification standards.",
+          "Correct! IFC EDGE focuses on minimum 20% savings in Energy, Water, and Embodied Carbon, providing a fast pathway to green finance.",
+          "Incorrect. EDGE applies across residential, commercial, hospitality, and healthcare buildings.",
+          "Incorrect. EDGE provides fast pre-construction and post-construction certification pathways."
+        ],
+        "correctExplanation": "IFC EDGE focuses strictly on quantifiable resource efficiency (20% savings in Energy, Water, and Materials), making it highly accessible for emerging markets and green mortgages.",
+        "incorrectExplanation": "IFC EDGE focuses on a universal 20% resource efficiency threshold across Energy, Water, and Materials to unlock green finance."
+      },
+      {
+        "id": 20068,
+        "orderIndex": 4,
+        "question": "What documentation is mandatory to claim Construction Waste Management diversion credits under LEED or BREEAM?",
+        "options": [
+          "A verbal promise from the site foreman.",
+          "Weighbridge tickets, recycling facility receipts, and monthly waste diversion manifests documenting exact tonnages diverted from landfills.",
+          "A photograph of a single trash bin.",
+          "A newspaper article about recycling."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Verbal promises fail third-party documentation audits.",
+          "Correct! Verified weighbridge slips and monthly tonnage manifests are mandatory evidence for waste diversion credits.",
+          "Incorrect. Single photos do not prove quantitative tonnage diversion.",
+          "Incorrect. General news articles provide no project-specific empirical evidence."
+        ],
+        "correctExplanation": "Third-party certification bodies require empirical weighbridge receipts and diversion manifests showing verified tonnages diverted from landfill.",
+        "incorrectExplanation": "Waste diversion credits require documented weighbridge receipts and verified monthly tonnage manifests."
+      },
+      {
+        "id": 20069,
+        "orderIndex": 5,
+        "question": "Why is Building Enclosure / Envelope Commissioning (including air tightness blower door testing) included in Enhanced Commissioning?",
+        "options": [
+          "To make the building completely airtight so no oxygen can enter.",
+          "To verify that facade air barriers and thermal insulation are installed without gaps or thermal bridging, preventing uncontrolled infiltration of hot humid air and conditioned air leakage.",
+          "To test window glass breaking strength with hammers.",
+          "To ensure doors make a loud noise when closing."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Ventilation systems supply controlled fresh air; enclosure testing targets uncontrolled envelope leakage.",
+          "Correct! Enclosure commissioning verifies airtight, thermally continuous facades, preventing uncontrolled humidity infiltration and energy waste.",
+          "Incorrect. Enclosure testing uses non-destructive pressure and thermographic methods.",
+          "Incorrect. Door acoustics are architectural fit-out details, not thermal envelope testing."
+        ],
+        "correctExplanation": "Envelope commissioning and air tightness testing verify that the building skin is properly sealed, preventing humidity infiltration and energy loss.",
+        "incorrectExplanation": "Envelope commissioning ensures facade air barriers and insulation are properly sealed, preventing air leakage and condensation."
+      },
+      {
+        "id": 20070,
+        "orderIndex": 6,
+        "question": "What is the primary commercial business benefit of achieving international green building certification (such as LEED Gold) for a commercial office development?",
+        "options": [
+          "It makes the building invisible from the street.",
+          "It commands higher rental rates (typically 5–10% premium), achieves faster tenant leasing velocity, reduces operational utility costs, and attracts multinational ESG-mandated corporate tenants.",
+          "It eliminates the need to pay local property taxes.",
+          "It allows the developer to avoid building foundations."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Certified buildings are prominent, high-profile commercial assets.",
+          "Correct! Green certifications command rental premiums, accelerate tenant leasing, cut utility costs, and attract institutional ESG corporate tenants.",
+          "Incorrect. Certified properties remain subject to standard statutory tax obligations.",
+          "Incorrect. Structural foundations remain mandatory under civil building codes."
+        ],
+        "correctExplanation": "Certified green buildings achieve higher rents, lower vacancy, lower operating costs, and satisfy tenant corporate ESG leasing mandates.",
+        "incorrectExplanation": "Certified properties achieve premium rents, higher occupancy, lower utility operating costs, and attract premium corporate tenants."
+      },
+      {
+        "id": 20071,
+        "orderIndex": 7,
+        "question": "Which action should a Project Director prioritize during their first 30 days of green building certification planning?",
+        "options": [
+          "Wait until construction is 100% complete before thinking about certification.",
+          "Convene an integrative design credit scorecard workshop, appoint an independent Commissioning Agent (CxA), and embed certification deliverables in design contracts.",
+          "Fire the architect and cancel all engineering design drawings.",
+          "Purchase thousands of plastic green ribbons to decorate the site."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Waiting until construction completion makes certification dramatically more expensive and risks prerequisite failure.",
+          "Correct! Early scorecard workshops, CxA appointment, and contractual integration lock in low-cost certification success from day one.",
+          "Incorrect. Professional architectural and MEP design is essential for building delivery.",
+          "Incorrect. Decorative ribbons provide zero rating system points or environmental benefit."
+        ],
+        "correctExplanation": "The first 30 days must focus on early integrative design workshops, scorecard risk budgeting, and appointing the Commissioning Agent.",
+        "incorrectExplanation": "Early scorecard feasibility workshops, CxA appointment, and contract clause integration ensure cost-effective certification delivery."
+      }
+    ]
+  },
+  {
+    "code": "ELH-57",
+    "id": 714,
+    "title": "Industrial Energy Efficiency & Compressed Air",
+    "version": 2,
+    "passingScore": 80,
+    "learningObjectives": [
+      "Quantify compressed air generation cost and electrical power conversion losses.",
+      "Conduct ultrasonic leak surveys and establish tag-and-repair maintenance programs.",
+      "Lower plant operating discharge pressure to reduce artificial demand and compressor power.",
+      "Sequence multiple compressors using VFD trim units to eliminate unloaded idling power.",
+      "Complete 8 scenario-based assessment questions on industrial compressed air efficiency."
+    ],
+    "lessons": [
+      {
+        "id": 17613,
+        "title": "The True Cost of Industrial Compressed Air"
+      },
+      {
+        "id": 17614,
+        "title": "Ultrasonic Leak Detection & Tagging"
+      },
+      {
+        "id": 17615,
+        "title": "System Pressure Reduction & Artificial Demand"
+      },
+      {
+        "id": 17616,
+        "title": "Compressor Staging & VFD Trim Units"
+      },
+      {
+        "id": 17617,
+        "title": "Heat Recovery from Compressor Oil Coolers"
+      },
+      {
+        "id": 17618,
+        "title": "Plant Air Audit & Maintenance Action Plan"
+      }
+    ],
+    "questions": [
+      {
+        "id": 22423,
+        "orderIndex": 1,
+        "question": "Approximately what percentage of the electrical energy fed into an industrial air compressor is converted into useful mechanical pneumatic work?",
+        "options": [
+          "Only 10% to 15% (with 85% to 90% lost as low-grade waste heat)",
+          "100% (zero energy is lost)",
+          "75% useful mechanical power",
+          "50% mechanical and 50% sound"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Compressed air is an extremely inefficient energy vector; ~90% of electricity turns into heat during compression.",
+          "Incorrect. Compressed air is notoriously lossy, converting only 10–15% of electricity into useful work.",
+          "Incorrect. Compressed air is notoriously lossy, converting only 10–15% of electricity into useful work.",
+          "Incorrect. Compressed air is notoriously lossy, converting only 10–15% of electricity into useful work."
+        ],
+        "correctExplanation": "Compressed air is an extremely inefficient energy vector; ~90% of electricity turns into heat during compression.",
+        "incorrectExplanation": "Incorrect. Compressed air is notoriously lossy, converting only 10–15% of electricity into useful work."
+      },
+      {
+        "id": 22424,
+        "orderIndex": 2,
+        "question": "How does reducing the main header discharge pressure of an industrial compressor affect compressor energy consumption?",
+        "options": [
+          "Every 1 bar (14.5 psi) reduction in system operating pressure reduces compressor electricity consumption by approximately 7%",
+          "It increases electricity draw by 50%",
+          "It causes the motor to spin backwards",
+          "Pressure reduction has zero effect on electrical consumption"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Lowering operating pressure reduces the compression ratio and compressor motor work, saving ~7% power per bar.",
+          "Incorrect. Reducing system pressure saves approximately 7% electrical energy per bar reduction.",
+          "Incorrect. Reducing system pressure saves approximately 7% electrical energy per bar reduction.",
+          "Incorrect. Reducing system pressure saves approximately 7% electrical energy per bar reduction."
+        ],
+        "correctExplanation": "Lowering operating pressure reduces the compression ratio and compressor motor work, saving ~7% power per bar.",
+        "incorrectExplanation": "Incorrect. Reducing system pressure saves approximately 7% electrical energy per bar reduction."
+      },
+      {
+        "id": 22425,
+        "orderIndex": 3,
+        "question": "Why are rotary screw compressors operating in 'unloaded / idle' mode a major source of factory energy waste?",
+        "options": [
+          "An unloaded compressor consumes 25% to 40% of its full-load electrical power while delivering zero useful compressed air",
+          "They convert lubricating oil into diesel fuel",
+          "They draw electricity directly from lightning strikes",
+          "They cause the plant water pipes to vibrate"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Unloaded machines continue spinning against internal mechanical friction without doing useful work.",
+          "Incorrect. Unloaded screw compressors waste 25–40% of full-load power while producing zero air.",
+          "Incorrect. Unloaded screw compressors waste 25–40% of full-load power while producing zero air.",
+          "Incorrect. Unloaded screw compressors waste 25–40% of full-load power while producing zero air."
+        ],
+        "correctExplanation": "Unloaded machines continue spinning against internal mechanical friction without doing useful work.",
+        "incorrectExplanation": "Incorrect. Unloaded screw compressors waste 25–40% of full-load power while producing zero air."
+      },
+      {
+        "id": 22426,
+        "orderIndex": 4,
+        "question": "What instrument is the industry benchmark for locating compressed air leaks during active factory production shifts?",
+        "options": [
+          "Ultrasonic acoustic leak detector",
+          "Infrared security camera",
+          "Mercury glass thermometer",
+          "Digital kitchen scale"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Ultrasonic detectors isolate the high-frequency turbulence of escaping air even in noisy factory environments.",
+          "Incorrect. Ultrasonic detectors are the gold standard for pinpointing air leaks amid factory noise.",
+          "Incorrect. Ultrasonic detectors are the gold standard for pinpointing air leaks amid factory noise.",
+          "Incorrect. Ultrasonic detectors are the gold standard for pinpointing air leaks amid factory noise."
+        ],
+        "correctExplanation": "Ultrasonic detectors isolate the high-frequency turbulence of escaping air even in noisy factory environments.",
+        "incorrectExplanation": "Incorrect. Ultrasonic detectors are the gold standard for pinpointing air leaks amid factory noise."
+      },
+      {
+        "id": 22427,
+        "orderIndex": 5,
+        "question": "What is 'artificial demand' in industrial compressed air systems?",
+        "options": [
+          "Excess air volume consumed by unregulated production tools and leaks simply because the system is operated at higher pressure than needed",
+          "Air purchased from foreign countries",
+          "Air stored inside employee lockers",
+          "Computer-generated air consumption"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Higher pressure forces more air through every nozzle, tool, and leak, inflating air consumption without productive gain.",
+          "Incorrect. Artificial demand is the wasted excess flow forced through tools and leaks due to over-pressurization.",
+          "Incorrect. Artificial demand is the wasted excess flow forced through tools and leaks due to over-pressurization.",
+          "Incorrect. Artificial demand is the wasted excess flow forced through tools and leaks due to over-pressurization."
+        ],
+        "correctExplanation": "Higher pressure forces more air through every nozzle, tool, and leak, inflating air consumption without productive gain.",
+        "incorrectExplanation": "Incorrect. Artificial demand is the wasted excess flow forced through tools and leaks due to over-pressurization."
+      },
+      {
+        "id": 22428,
+        "orderIndex": 6,
+        "question": "How can manufacturing plants capture waste heat generated by large rotary screw air compressors?",
+        "options": [
+          "By installing liquid-to-liquid plate heat exchangers on the compressor lubricant cooling circuit to generate hot water for boilers or cleaning",
+          "By venting hot exhaust air directly into employee offices",
+          "By pouring ice over the compressor motor",
+          "By painting the compressor casing with black paint"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Oil-circuit heat exchangers recover up to 80% of input electrical energy as useful hot water (up to 70°C).",
+          "Incorrect. Plate heat exchangers on the oil loop capture valuable thermal energy for boiler feedwater or sanitation.",
+          "Incorrect. Plate heat exchangers on the oil loop capture valuable thermal energy for boiler feedwater or sanitation.",
+          "Incorrect. Plate heat exchangers on the oil loop capture valuable thermal energy for boiler feedwater or sanitation."
+        ],
+        "correctExplanation": "Oil-circuit heat exchangers recover up to 80% of input electrical energy as useful hot water (up to 70°C).",
+        "incorrectExplanation": "Incorrect. Plate heat exchangers on the oil loop capture valuable thermal energy for boiler feedwater or sanitation."
+      },
+      {
+        "id": 22429,
+        "orderIndex": 7,
+        "question": "What is the recommended operational practice for non-production weekend periods in manufacturing facilities?",
+        "options": [
+          "Install automated motorized isolation valves to isolate unused distribution headers and shut down non-essential compressors",
+          "Leave all compressors running at maximum pressure 24/7",
+          "Vent the entire compressed air storage tank into the parking lot",
+          "Fill the air tanks with water"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Header isolation prevents system leaks from draining storage tanks and triggering unneeded weekend compressor cycling.",
+          "Incorrect. Automated header isolation valves prevent overnight leak losses and compressor cycling.",
+          "Incorrect. Automated header isolation valves prevent overnight leak losses and compressor cycling.",
+          "Incorrect. Automated header isolation valves prevent overnight leak losses and compressor cycling."
+        ],
+        "correctExplanation": "Header isolation prevents system leaks from draining storage tanks and triggering unneeded weekend compressor cycling.",
+        "incorrectExplanation": "Incorrect. Automated header isolation valves prevent overnight leak losses and compressor cycling."
+      },
+      {
+        "id": 22430,
+        "orderIndex": 8,
+        "question": "Why should compressed air intake filters be located in cool, dry outdoor ambient air rather than hot factory plant rooms?",
+        "options": [
+          "Cold air is denser, requiring less mechanical energy to compress a given mass of air compared to hot plant room air",
+          "Outdoor air is 100% pure nitrogen",
+          "Compressors overheat if intake air is cold",
+          "Cold air eliminates the need for lubricating oil"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Every 3°C reduction in intake air temperature improves compressor thermodynamic efficiency by ~1%.",
+          "Incorrect. Denser, cooler intake air requires less compression energy per kg of air.",
+          "Incorrect. Denser, cooler intake air requires less compression energy per kg of air.",
+          "Incorrect. Denser, cooler intake air requires less compression energy per kg of air."
+        ],
+        "correctExplanation": "Every 3°C reduction in intake air temperature improves compressor thermodynamic efficiency by ~1%.",
+        "incorrectExplanation": "Incorrect. Denser, cooler intake air requires less compression energy per kg of air."
+      }
+    ]
+  },
+  {
+    "code": "ELH-58",
+    "id": 715,
+    "title": "Boiler & Steam System Optimization",
+    "version": 2,
+    "passingScore": 80,
+    "learningObjectives": [
+      "Tune burner air-to-fuel ratios to achieve optimal flue gas O2 (3-4%) without unburned CO.",
+      "Conduct ultrasonic and thermal infrared steam trap surveys to identify leaking traps.",
+      "Maximize condensate return volume and temperature to reduce boiler water treatment and fuel.",
+      "Implement automated Total Dissolved Solids (TDS) blowdown control with flash steam recovery.",
+      "Install economizers to capture waste flue gas heat for boiler feedwater pre-heating.",
+      "Complete 8 scenario-based assessment questions on industrial steam efficiency."
+    ],
+    "lessons": [
+      {
+        "id": 17619,
+        "title": "Thermodynamics of Industrial Steam"
+      },
+      {
+        "id": 17620,
+        "title": "Burner Combustion Tuning & Flue Gas Analysis"
+      },
+      {
+        "id": 17621,
+        "title": "Steam Trap Testing: Ultrasonic & Thermal Surveys"
+      },
+      {
+        "id": 17622,
+        "title": "Condensate Return & Hot Well Management"
+      },
+      {
+        "id": 17623,
+        "title": "Automated TDS Blowdown & Flash Steam Recovery"
+      },
+      {
+        "id": 17624,
+        "title": "Industrial Steam System Maintenance Plan"
+      }
+    ],
+    "questions": [
+      {
+        "id": 22431,
+        "orderIndex": 1,
+        "question": "Why does operating an industrial boiler with excessively high combustion air (e.g. stack O2 > 10%) waste substantial fuel?",
+        "options": [
+          "Excess air cools the combustion chamber and carries valuable thermal energy directly out the exhaust chimney stack",
+          "Excess air turns steam into ice cubes",
+          "It makes the boiler grow larger physically",
+          "Excess air eliminates the need for water"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Excess air absorbs heat during combustion and dumps it into the atmosphere via the stack, lowering thermal efficiency.",
+          "Incorrect. High excess air carries thermal energy out the chimney, inflating fuel burn.",
+          "Incorrect. High excess air carries thermal energy out the chimney, inflating fuel burn.",
+          "Incorrect. High excess air carries thermal energy out the chimney, inflating fuel burn."
+        ],
+        "correctExplanation": "Excess air absorbs heat during combustion and dumps it into the atmosphere via the stack, lowering thermal efficiency.",
+        "incorrectExplanation": "Incorrect. High excess air carries thermal energy out the chimney, inflating fuel burn."
+      },
+      {
+        "id": 22432,
+        "orderIndex": 2,
+        "question": "What is the primary function of a steam trap in an industrial steam distribution loop?",
+        "options": [
+          "To automatically discharge condensed water (condensate) and non-condensable gases while preventing live steam from escaping",
+          "To add cold tap water into the steam pipe",
+          "To trap mice and insects in the boilerhouse",
+          "To decrease the pressure of steam to zero"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Steam traps discharge condensate to prevent water hammer while sealing the pipe against live steam losses.",
+          "Incorrect. Steam traps purge condensate and air without allowing live steam to escape.",
+          "Incorrect. Steam traps purge condensate and air without allowing live steam to escape.",
+          "Incorrect. Steam traps purge condensate and air without allowing live steam to escape."
+        ],
+        "correctExplanation": "Steam traps discharge condensate to prevent water hammer while sealing the pipe against live steam losses.",
+        "incorrectExplanation": "Incorrect. Steam traps purge condensate and air without allowing live steam to escape."
+      },
+      {
+        "id": 22433,
+        "orderIndex": 3,
+        "question": "Why is returning hot condensate (e.g. at 80°C to 90°C) to the boiler feedwater tank highly advantageous for plant efficiency?",
+        "options": [
+          "It significantly reduces the fuel energy required to generate steam and reuses expensive treated, demineralized boiler water",
+          "It eliminates the need for boiler operators",
+          "It converts the boiler into a refrigeration chiller",
+          "It allows the plant to run without fuel"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Every 6°C increase in feedwater temperature saves ~1% boiler fuel, while returning pure condensate eliminates raw makeup water treatment.",
+          "Incorrect. Condensate return saves substantial fuel energy and reuses purified demineralized water.",
+          "Incorrect. Condensate return saves substantial fuel energy and reuses purified demineralized water.",
+          "Incorrect. Condensate return saves substantial fuel energy and reuses purified demineralized water."
+        ],
+        "correctExplanation": "Every 6°C increase in feedwater temperature saves ~1% boiler fuel, while returning pure condensate eliminates raw makeup water treatment.",
+        "incorrectExplanation": "Incorrect. Condensate return saves substantial fuel energy and reuses purified demineralized water."
+      },
+      {
+        "id": 22434,
+        "orderIndex": 4,
+        "question": "How does installing a flue gas economizer on an industrial boiler chimney improve energy efficiency?",
+        "options": [
+          "It transfers waste heat from the hot exhaust gases into pre-heating incoming cold boiler feedwater",
+          "It turns exhaust smoke into solid coal",
+          "It generates solar electricity from the chimney",
+          "It paints the boiler exterior automatically"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Economizers recover waste heat from the stack gas, boosting overall boiler thermal efficiency by 4% to 6%.",
+          "Incorrect. Economizers pre-heat boiler feedwater using waste flue gas heat.",
+          "Incorrect. Economizers pre-heat boiler feedwater using waste flue gas heat.",
+          "Incorrect. Economizers pre-heat boiler feedwater using waste flue gas heat."
+        ],
+        "correctExplanation": "Economizers recover waste heat from the stack gas, boosting overall boiler thermal efficiency by 4% to 6%.",
+        "incorrectExplanation": "Incorrect. Economizers pre-heat boiler feedwater using waste flue gas heat."
+      },
+      {
+        "id": 22435,
+        "orderIndex": 5,
+        "question": "What failure mode occurs when a mechanical thermodynamic or inverted bucket steam trap fails in the 'open' position?",
+        "options": [
+          "It continuously blows live, high-pressure steam directly into the condensate return system, resulting in severe fuel waste and backpressure issues",
+          "It causes the steam pipe to freeze",
+          "It turns steam into liquid nitrogen",
+          "It creates an electrical short circuit in the factory"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Blow-through trap failures vent live steam into low-pressure condensate lines, wasting immense thermal energy.",
+          "Incorrect. Traps failing open blow live steam into condensate lines, wasting thousands in fuel.",
+          "Incorrect. Traps failing open blow live steam into condensate lines, wasting thousands in fuel.",
+          "Incorrect. Traps failing open blow live steam into condensate lines, wasting thousands in fuel."
+        ],
+        "correctExplanation": "Blow-through trap failures vent live steam into low-pressure condensate lines, wasting immense thermal energy.",
+        "incorrectExplanation": "Incorrect. Traps failing open blow live steam into condensate lines, wasting thousands in fuel."
+      },
+      {
+        "id": 22436,
+        "orderIndex": 6,
+        "question": "Why should bare, uninsulated steam valves, flanges, and piping headers be fitted with removable thermal insulation jackets?",
+        "options": [
+          "Uninsulated steam surfaces radiate massive thermal heat into ambient air, and insulation jackets typically pay for themselves within 2 to 4 months",
+          "Insulation jackets make pipes look colourful for visitors",
+          "Uninsulated pipes attract electrical lightning",
+          "Insulation jackets prevent steam from moving inside the pipe"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "A single uninsulated 4-inch steam valve can lose over 1,500 kWh of thermal energy annually to ambient air.",
+          "Incorrect. Removable jackets prevent immense radiant heat loss from bare steam valves and flanges.",
+          "Incorrect. Removable jackets prevent immense radiant heat loss from bare steam valves and flanges.",
+          "Incorrect. Removable jackets prevent immense radiant heat loss from bare steam valves and flanges."
+        ],
+        "correctExplanation": "A single uninsulated 4-inch steam valve can lose over 1,500 kWh of thermal energy annually to ambient air.",
+        "incorrectExplanation": "Incorrect. Removable jackets prevent immense radiant heat loss from bare steam valves and flanges."
+      },
+      {
+        "id": 22437,
+        "orderIndex": 7,
+        "question": "What is the benefit of installing an automated Total Dissolved Solids (TDS) boiler blowdown controller over manual bottom blowdown?",
+        "options": [
+          "It continuously measures water electrical conductivity and bleeds only the exact amount of water needed to prevent scale, avoiding excess hot water waste",
+          "It removes the need to treat boiler water with chemicals",
+          "It increases steam pressure by 500%",
+          "It turns boiler water into drinking mineral water"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Automated TDS control maintains exact chemical limits without the large energy losses of intermittent manual dumping.",
+          "Incorrect. Automated conductivity blowdown avoids the energy and water waste of manual dump valves.",
+          "Incorrect. Automated conductivity blowdown avoids the energy and water waste of manual dump valves.",
+          "Incorrect. Automated conductivity blowdown avoids the energy and water waste of manual dump valves."
+        ],
+        "correctExplanation": "Automated TDS control maintains exact chemical limits without the large energy losses of intermittent manual dumping.",
+        "incorrectExplanation": "Incorrect. Automated conductivity blowdown avoids the energy and water waste of manual dump valves."
+      },
+      {
+        "id": 22438,
+        "orderIndex": 8,
+        "question": "What hazardous phenomenon in steam lines is prevented by proper condensate drainage through functional steam traps?",
+        "options": [
+          "Water hammer (hydraulic shock waves caused by steam propelling slugs of condensed water at high velocity, which can rupture pipe fittings)",
+          "Steam pipes turning into rubber",
+          "Boilers floating into the air",
+          "Water freezing into ice inside active steam pipes"
+        ],
+        "correctOption": 0,
+        "optionFeedback": [
+          "Water hammer occurs when condensate slugs travel at steam velocity, creating catastrophic mechanical pipe shock.",
+          "Incorrect. Steam traps prevent lethal water hammer shockwaves by continuously removing condensate slugs.",
+          "Incorrect. Steam traps prevent lethal water hammer shockwaves by continuously removing condensate slugs.",
+          "Incorrect. Steam traps prevent lethal water hammer shockwaves by continuously removing condensate slugs."
+        ],
+        "correctExplanation": "Water hammer occurs when condensate slugs travel at steam velocity, creating catastrophic mechanical pipe shock.",
+        "incorrectExplanation": "Incorrect. Steam traps prevent lethal water hammer shockwaves by continuously removing condensate slugs."
+      }
+    ]
+  },
+  {
+    "code": "ELH-59",
+    "id": 730,
+    "title": "Industrial Wastewater & Effluent Treatment",
+    "version": 2,
+    "passingScore": 75,
+    "learningObjectives": [
+      "Monitor and control Chemical Oxygen Demand (COD), Biological Oxygen Demand (BOD), and Total Suspended Solids (TSS)",
+      "Optimize coagulant (poly-aluminum chloride) and polymer dosing in dissolved air flotation (DAF) units",
+      "Troubleshoot biological activated sludge and Membrane Bioreactor (MBR) operations",
+      "Design closed-loop wastewater recycling systems to achieve Zero Liquid Discharge (ZLD)"
+    ],
+    "lessons": [
+      {
+        "id": 16304,
+        "title": "Applied Workplace Hook: Protecting Ecosystems and Compliance"
+      },
+      {
+        "id": 16305,
+        "title": "Diagnose the Situation: Parameter Testing & ETP Failure Modes"
+      },
+      {
+        "id": 16306,
+        "title": "Apply the Process: 4-Step ETP Optimization SOP"
+      },
+      {
+        "id": 16307,
+        "title": "Decision Scenarios: Applied Workplace Judgement"
+      },
+      {
+        "id": 16308,
+        "title": "Workplace Action: 30-Day Effluent Compliance Commitment"
+      }
+    ],
+    "questions": [
+      {
+        "id": 20450,
+        "orderIndex": 1,
+        "question": "What is the key difference between Chemical Oxygen Demand (COD) and Biological Oxygen Demand (BOD5) in wastewater analysis?",
+        "options": [
+          "COD measures only dissolved salt ions, while BOD measures total water temperature.",
+          "COD measures the total oxygen equivalent required to chemically oxidize all organic compounds, while BOD5 measures the oxygen consumed by microorganisms to degrade biodegradable organics over 5 days.",
+          "COD is always lower than BOD5 in raw industrial wastewater.",
+          "BOD5 is measured in seconds, while COD takes two weeks to test."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. COD measures organic oxidation demand, not inorganic salt ions.",
+          "Correct. COD measures total chemical oxidizability, whereas BOD5 measures 5-day biodegradable organic consumption.",
+          "Incorrect. COD is almost always higher than BOD5 due to non-biodegradable organics.",
+          "Incorrect. COD testing takes ~2 hours via chemical digestion; BOD5 requires 5 days of incubation."
+        ],
+        "correctExplanation": "COD uses a strong chemical oxidant (potassium dichromate) to break down virtually all organic matter, whereas BOD5 measures the biochemical oxidation of biodegradable fraction by bacteria over 5 days. COD is virtually always higher than or equal to BOD5.",
+        "incorrectExplanation": "COD chemically oxidizes total organics, whereas BOD5 measures biologically degradable matter over 5 days."
+      },
+      {
+        "id": 20451,
+        "orderIndex": 2,
+        "question": "What is the primary purpose of conducting a standardized 'Jar Test' in an industrial effluent treatment plant?",
+        "options": [
+          "To clean glass beakers in the laboratory",
+          "To determine the optimum coagulant type, chemical dosage, and pH required to achieve rapid floc formation and clear supernatant",
+          "To measure the electrical conductivity of city potable water",
+          "To test the breaking strength of glass jars under hydraulic pressure"
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Jar testing is a chemical process optimization procedure, not glassware maintenance.",
+          "Correct. Jar tests identify the exact coagulant/polymer dosing and pH for optimal solids flocculation and clarity.",
+          "Incorrect. Conductivity testing uses electrical probes, not multi-paddle jar test apparatus.",
+          "Incorrect. Jar testing has nothing to do with mechanical strength testing of glass."
+        ],
+        "correctExplanation": "Jar testing simulates the plant flash-mix, coagulation, flocculation, and settling process at bench scale to find the precise chemical dosing that minimizes cost and maximizes pollutant removal.",
+        "incorrectExplanation": "Jar tests determine optimum chemical coagulant/flocculant dosing and pH for effective solids precipitation."
+      },
+      {
+        "id": 20452,
+        "orderIndex": 3,
+        "question": "What does a Sludge Volume Index (SVI) greater than 150 mL/g typically indicate in an activated sludge aeration basin?",
+        "options": [
+          "The sludge is settling exceptionally fast and dense.",
+          "Filamentous sludge bulking is occurring, resulting in poor settling and risk of sludge washout over clarifier weirs.",
+          "The aeration tank is completely sterile with zero bacterial life.",
+          "The wastewater has turned into drinking water."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Fast, dense settling is characterized by low SVI (<80 mL/g).",
+          "Correct. An SVI > 150 mL/g signifies filamentous bulking and poor sludge compaction in clarifiers.",
+          "Incorrect. High SVI indicates an overabundance of filamentous bacteria, not sterility.",
+          "Incorrect. SVI is an operational settling index for sludge, not an indicator of potable water."
+        ],
+        "correctExplanation": "An SVI > 150 mL/g indicates light, fluffy, poorly settling sludge typically caused by filamentous bacterial overgrowth (bulking), creating severe clarifier carryover problems.",
+        "incorrectExplanation": "High SVI (>150 mL/g) indicates sludge bulking and poor settling characteristics in clarifiers."
+      },
+      {
+        "id": 20453,
+        "orderIndex": 4,
+        "question": "What is the operational purpose of an equalization basin in an industrial ETP?",
+        "options": [
+          "To evaporate all wastewater into the atmosphere so zero liquid remains",
+          "To buffer fluctuations in flow rate, pH spikes, temperature, and organic concentration, providing a stable, consistent feed to downstream treatment units",
+          "To store finished treated water before drinking",
+          "To freeze the water for solid waste transport"
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Equalization basins do not rely on open-air evaporation for disposal.",
+          "Correct. Equalization buffers hydraulic surges, temperature variations, pH shocks, and concentration spikes.",
+          "Incorrect. Equalization handles raw contaminated wastewater, not potable water storage.",
+          "Incorrect. Wastewater freezing is not used in standard industrial ETP operations."
+        ],
+        "correctExplanation": "Equalization tanks provide hydraulic retention and continuous mechanical mixing to homogenize variable batch discharges into a steady, neutral influent stream.",
+        "incorrectExplanation": "Equalization buffers hydraulic surges, pH extremes, and chemical spikes to protect sensitive biological and chemical stages."
+      },
+      {
+        "id": 20454,
+        "orderIndex": 5,
+        "question": "What is the optimal dissolved oxygen (DO) concentration range in a standard aerobic activated sludge aeration basin?",
+        "options": [
+          "0.0 mg/L (strictly anoxic)",
+          "0.2 to 0.5 mg/L",
+          "2.0 to 3.0 mg/L",
+          "15.0 to 20.0 mg/L (hyper-saturation)"
+        ],
+        "correctOption": 2,
+        "optionFeedback": [
+          "Incorrect. 0.0 mg/L is anoxic/anaerobic, causing bacterial suffocation and septic odours.",
+          "Incorrect. DO below 1.0 mg/L stresses aerobic bacteria and promotes filamentous bulking.",
+          "Correct. 2.0 to 3.0 mg/L provides optimal microbial respiration while avoiding blower energy waste.",
+          "Incorrect. Hyper-saturation is unnecessary, costly, and can shear delicate biological flocs."
+        ],
+        "correctExplanation": "Maintaining DO between 2.0 and 3.0 mg/L ensures aerobic heterotrophic and nitrifying bacteria have adequate oxygen for respiration while avoiding the massive electrical energy waste of over-aeration.",
+        "incorrectExplanation": "DO below 1.5 mg/L triggers filamentous bulking; DO above 3.5 mg/L wastes significant blower electricity without added treatment benefit."
+      },
+      {
+        "id": 20455,
+        "orderIndex": 6,
+        "question": "If an accidental concentrated chemical solvent spill enters the plant drain system, what is the operator's primary immediate responsibility?",
+        "options": [
+          "Immediately pump the spill through the biological aeration tank to get rid of it quickly.",
+          "Isolate the spill into an emergency containment tank, notify the ETP supervisor, and prevent shock toxic loading of the biological system.",
+          "Turn off all monitoring instruments to avoid logging alarms.",
+          "Discharge the raw spill into the public municipal street gutter."
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Pumping solvents to aeration causes total biological die-off and long-term plant shutdown.",
+          "Correct. Isolate the spill into emergency containment immediately to protect biological biomass and prevent permit breaches.",
+          "Incorrect. Disabling alarms violates safety, EHS procedures, and environmental law.",
+          "Incorrect. Discharging chemical spills to street gutters is an illegal criminal offense."
+        ],
+        "correctExplanation": "Toxic solvent surges kill biological biomass. Isolating the shock load in an emergency holding basin allows controlled, metered bleeding or off-site specialist hazardous waste disposal.",
+        "incorrectExplanation": "Shock loads must be contained and isolated to prevent catastrophic biological process failure or illegal environmental discharge."
+      },
+      {
+        "id": 20456,
+        "orderIndex": 7,
+        "question": "Which tertiary treatment technology is most effective for removing dissolved ionic salts and colour molecules to enable high-grade industrial water reuse?",
+        "options": [
+          "Coarse mechanical bar screens",
+          "Reverse Osmosis (RO) membrane filtration preceded by Ultrafiltration (UF)",
+          "Standard sand settling pit",
+          "Open air gravity settling pond"
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Bar screens only catch large physical debris (rags, plastic pieces).",
+          "Correct. UF followed by Reverse Osmosis (RO) rejects dissolved ions, heavy metals, and residual dyes for high-purity water reuse.",
+          "Incorrect. Sand pits remove only settleable suspended particulates.",
+          "Incorrect. Settling ponds do not remove dissolved ionic solids or chemical colour."
+        ],
+        "correctExplanation": "Reverse Osmosis uses semi-permeable membranes under high pressure to reject dissolved ions, dyes, and organic molecules, producing high-purity permeate suitable for boiler feed or process reuse.",
+        "incorrectExplanation": "Gravity settling and sand filtration cannot remove dissolved salts or molecular dyes; membrane filtration (RO) is required."
+      },
+      {
+        "id": 20457,
+        "orderIndex": 8,
+        "question": "What is the minimum documentation standard required to prove compliance with statutory industrial discharge permits?",
+        "options": [
+          "A note written on a whiteboard that is erased daily",
+          "Accredited third-party laboratory test certificates, calibrated continuous online monitoring logs (pH, flow, turbidity), and chain-of-custody sample records",
+          "A signed letter from a vendor stating their machinery is clean",
+          "Photographs of clear water in a drinking cup"
+        ],
+        "correctOption": 1,
+        "optionFeedback": [
+          "Incorrect. Whiteboard notes provide zero auditable historical traceability.",
+          "Correct. Accredited laboratory analysis, calibrated online logs, and documented chain-of-custody establish legally defensible compliance.",
+          "Incorrect. Equipment vendor letters cannot certify ongoing operational effluent quality.",
+          "Incorrect. Visual clarity alone does not verify COD, heavy metals, surfactants, or dissolved toxicity."
+        ],
+        "correctExplanation": "Statutory proof requires certified independent lab analysis, time-stamped online monitoring data, and documented sample chain-of-custody records.",
+        "incorrectExplanation": "Informal notes or vendor letters do not meet regulatory legal standards for environmental discharge compliance."
+      }
+    ]
+  }
+]
