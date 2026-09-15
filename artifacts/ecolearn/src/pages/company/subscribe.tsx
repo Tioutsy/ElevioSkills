@@ -15,6 +15,7 @@ import {
   BillingInterval,
   CANONICAL_EMPLOYEE_BANDS,
 } from "@/config/pricing";
+import { trackCommercialEvent, captureAndPersistAttribution } from "@/lib/commercialAnalytics";
 
 interface PublicPlansResponse {
   plans: Array<{ id: number; code: string; name: string; description: string; tagline: string | null }>;
@@ -45,6 +46,14 @@ export default function Subscribe() {
   const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
+    captureAndPersistAttribution();
+    trackCommercialEvent("subscription_band_viewed", {
+      companySizeBand: initialBandCode,
+      billingCycle: initialInterval,
+      source: "subscribe_page",
+      authenticatedState: "authenticated",
+    });
+
     customFetch<PublicPlansResponse>("/api/subscriptions/public-plans")
       .then((res) => {
         if (res) setPricingData(res);
@@ -96,6 +105,14 @@ export default function Subscribe() {
           industry: industry,
           employeeCount: employeeCount,
         }),
+      });
+
+      trackCommercialEvent("subscription_checkout_reached", {
+        companySizeBand: selectedBandCode,
+        billingCycle: isOver120 ? "MONTHLY" : billingInterval,
+        employeeCount,
+        authenticatedState: "company_admin",
+        source: "subscribe_page",
       });
 
       setIsSuccess(true);

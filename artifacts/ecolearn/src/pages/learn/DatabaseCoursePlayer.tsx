@@ -35,6 +35,7 @@ import {
 import { useLanguage } from "@/context/LanguageContext";
 import { useQuery } from "@tanstack/react-query";
 import { customFetch } from "@workspace/api-client-react";
+import { trackCommercialEvent } from "@/lib/commercialAnalytics";
 import {
   TextView,
   CalloutView,
@@ -106,6 +107,22 @@ export default function DatabaseCoursePlayer({
   const courseId = isPreview
     ? (previewCourseId ?? 0)
     : (rawEnrollment?.course?.id ?? fallbackCourse?.id ?? 0);
+
+  // Track learner course progression signal
+  useEffect(() => {
+    if (courseId && !isPreview) {
+      trackCommercialEvent(
+        "learner_course_started",
+        {
+          courseId,
+          courseCode: (rawEnrollment?.course as any)?.courseCode || (fallbackCourse as any)?.courseCode,
+          authenticatedState: "employee",
+          source: "course_player",
+        },
+        { dedupKey: `elevio_learner_course_${courseId}` }
+      );
+    }
+  }, [courseId, isPreview, rawEnrollment, fallbackCourse]);
 
   // If user opened player via course ID and enrollment wasn't found, auto-enroll in background
   useEffect(() => {

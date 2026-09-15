@@ -86,21 +86,29 @@ describe("Sprint 16.1 — Experience ELEVIO Autonomous Product Proof Verificatio
   // 3. COMPLETE 8-SCREEN INTERACTIVE JOURNEY IMPLEMENTATION
   // ─────────────────────────────────────────────────────────────────────────────
   describe("3. Interactive Experience Screens & Content Verification", () => {
-    test("Screen 1: Welcome & Introduction sets everyday decisions context", () => {
+    test("Screen 1: Welcome & Introduction sets everyday decisions context and uses defensible commercial language", () => {
       assert.ok(experienceContent.includes("Sustainability at work starts with everyday decisions"), "Must contain introduction title");
       assert.ok(experienceContent.includes("Start the Experience"), "Must provide CTA to start experience");
+      assert.ok(experienceContent.includes("Audit-Ready Training Records"), "Must use Audit-Ready Training Records");
+      assert.ok(experienceContent.includes("resource use and operational impact"), "Must use resource use and operational impact");
+      assert.equal(experienceContent.includes("Automated Compliance"), false, "Must not claim Automated Compliance");
     });
 
-    test("Screen 2: Workplace Situation presents realistic Mauritian office observation", () => {
+    test("Screen 2: Workplace Situation presents 16:9 photographic visual and realistic Mauritian office observation", () => {
       assert.ok(experienceContent.includes("The Empty Meeting Room"), "Must contain realistic situation title");
+      assert.ok(experienceContent.includes("experience-meeting-room.jpg"), "Must include 16:9 scenario image asset");
+      assert.ok(experienceContent.includes("Empty modern corporate meeting room after a meeting"), "Must provide descriptive alt text for accessibility");
       assert.ok(experienceContent.includes("Ebène office"), "Must reference realistic workplace setting");
       assert.ok(experienceContent.includes("What would you notice or prioritise first?"), "Must ask observation question");
     });
 
-    test("Screen 3: Practical Learning provides ELEVIO-style business & energy insight", () => {
+    test("Screen 3: Practical Learning provides defensible qualitative business & energy insight without unsupported claims", () => {
       assert.ok(experienceContent.includes("The Cumulative Cost of Unoccupied Rooms"), "Must present micro-lesson title");
       assert.ok(experienceContent.includes("Last Out"), "Must explain the Last Out protocol");
-      assert.ok(experienceContent.includes("45% to 65%"), "Must cite realistic commercial energy data");
+      assert.ok(experienceContent.includes("consuming electricity without providing business value"), "Must use defensible qualitative energy consumption language");
+      assert.equal(experienceContent.includes("45% to 65%"), false, "Must not include unsupported 45-65% claim");
+      assert.equal(experienceContent.includes("MUR 1,200 to MUR 1,800"), false, "Must not include unsupported MUR estimate");
+      assert.equal(experienceContent.includes("8% to 15%"), false, "Must not include unsupported 8-15% reduction claim");
     });
 
     test("Screen 4: Decision Scenario presents plausible workplace challenge", () => {
@@ -109,15 +117,19 @@ describe("Sprint 16.1 — Experience ELEVIO Autonomous Product Proof Verificatio
       assert.ok(experienceContent.includes("Single-Use"), "Must include realistic operational choices");
     });
 
-    test("Screen 5: Immediate Explanatory Feedback explains principles without shaming", () => {
+    test("Screen 5: Immediate Explanatory Feedback explains principles without shaming or universal categorical claims", () => {
       assert.ok(experienceContent.includes("Immediate Explanatory Feedback"), "Must provide feedback header");
       assert.ok(experienceContent.includes("Local Sourcing"), "Must explain local sourcing principle");
       assert.ok(experienceContent.includes("Waste Prevention"), "Must explain waste hierarchy principle");
+      assert.equal(experienceContent.includes("Mare Chicose"), false, "Must not make unsubstantiated Mare Chicose waste volume claims");
+      assert.equal(experienceContent.includes("thousands of printed sheets"), false, "Must not make unsupported thousands of sheets claim");
     });
 
     test("Screen 6: Learner Perspective Preview demonstrates employee interface and verifiable certificate", () => {
       assert.ok(experienceContent.includes("This is what ELEVIO looks like for your employees"), "Must contain employee view header");
-      assert.ok(experienceContent.includes("Verifiable Certificate of Competence"), "Must show certificate preview");
+      assert.ok(experienceContent.includes("Short, focused learning designed for the working day"), "Must use canonical learning duration description");
+      assert.ok(experienceContent.includes("Verifiable Certificate of Completion"), "Must show certificate preview");
+      assert.equal(experienceContent.includes("10-minute sessions"), false, "Must not claim fixed 10-minute duration");
     });
 
     test("Screen 7: Manager Perspective & Training Evidence Preview demonstrates reporting", () => {

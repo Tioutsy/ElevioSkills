@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import { trackCommercialEvent, captureAndPersistAttribution } from "@/lib/commercialAnalytics";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
@@ -41,6 +42,53 @@ export default function ExperiencePage() {
 
   const totalScreens = 8;
   const progressPercent = Math.round((currentScreen / totalScreens) * 100);
+
+  // Capture UTM / source attribution and track experience start on mount
+  useEffect(() => {
+    captureAndPersistAttribution();
+    trackCommercialEvent(
+      "experience_started",
+      {
+        experienceStep: "screen_1_intro",
+        source: "experience",
+        authenticatedState: "anonymous",
+      },
+      { dedupKey: "elevio_exp_start_session" }
+    );
+  }, []);
+
+  // Track step progression and completion
+  useEffect(() => {
+    const stepMap: Record<number, string> = {
+      1: "screen_1_intro",
+      2: "screen_2_situation",
+      3: "screen_3_context",
+      4: "screen_4_decision",
+      5: "screen_5_feedback",
+      6: "screen_6_completion",
+      7: "screen_7_dashboard",
+      8: "screen_8_commercial",
+    };
+    const stepKey = stepMap[currentScreen] || `screen_${currentScreen}`;
+
+    trackCommercialEvent("experience_step_viewed", {
+      experienceStep: stepKey,
+      source: "experience",
+      authenticatedState: "anonymous",
+    });
+
+    if (currentScreen === 8) {
+      trackCommercialEvent(
+        "experience_completed",
+        {
+          experienceStep: stepKey,
+          source: "experience",
+          authenticatedState: "anonymous",
+        },
+        { dedupKey: "elevio_exp_completed_session" }
+      );
+    }
+  }, [currentScreen]);
 
   const handleNext = () => {
     if (currentScreen < totalScreens) {
@@ -146,7 +194,7 @@ export default function ExperiencePage() {
                     </div>
                     <h3 className="font-semibold text-sm">Immediate Feedback</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">
-                      Instant explanations connect daily workplace habits to cost and carbon savings.
+                      Instant explanations connect daily workplace habits to resource use and operational impact.
                     </p>
                   </CardContent>
                 </Card>
@@ -156,9 +204,9 @@ export default function ExperiencePage() {
                     <div className="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 flex items-center justify-center font-bold">
                       <ShieldCheck className="h-5 w-5" />
                     </div>
-                    <h3 className="font-semibold text-sm">Automated Compliance</h3>
+                    <h3 className="font-semibold text-sm">Audit-Ready Training Records</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">
-                      Auditable records and ESG completion certificates tracked in one company dashboard.
+                      Verifiable completion records and auditable training evidence tracked in one company dashboard.
                     </p>
                   </CardContent>
                 </Card>
@@ -194,8 +242,18 @@ export default function ExperiencePage() {
                   The Empty Meeting Room
                 </h2>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Read the scenario below and select the observation you would address first.
+                  Examine the workplace setting below and select the observation you would address first.
                 </p>
+              </div>
+
+              {/* 16:9 Realistic Scenario Visual */}
+              <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-border shadow-md bg-muted/30">
+                <img
+                  src="/images/experience-meeting-room.jpg"
+                  alt="Empty modern corporate meeting room after a meeting with lights and presentation screen left on, and documents and beverage cups on the conference table"
+                  className="w-full h-full object-cover object-center"
+                  loading="eager"
+                />
               </div>
 
               {/* Situation Narrative Card */}
@@ -306,10 +364,10 @@ export default function ExperiencePage() {
                   </CardHeader>
                   <CardContent className="space-y-3 text-xs md:text-sm text-muted-foreground leading-relaxed">
                     <p>
-                      In commercial buildings across Mauritius, <strong>air conditioning and lighting account for 45% to 65%</strong> of total monthly electricity expenditure.
+                      Air conditioning, lighting, and office equipment left running in unoccupied spaces continue consuming electricity without providing business value.
                     </p>
                     <p>
-                      A single 24,000 BTU meeting room AC left running continuously over a 60-hour weekend wastes approximately <strong>MUR 1,200 to MUR 1,800</strong> in unnecessary power while emitting avoidable Scope 2 emissions.
+                      When meeting spaces and workstations operate unattended over weekends and evenings, avoidable energy consumption accumulates directly into higher corporate utility overhead.
                     </p>
                   </CardContent>
                 </Card>
@@ -326,9 +384,9 @@ export default function ExperiencePage() {
                       ELEVIO trains employees in simple 30-second closing routines:
                     </p>
                     <ul className="space-y-1.5 list-disc list-inside text-foreground font-medium">
-                      <li>Adjust AC thermostat to 24°C or shut off when leaving</li>
-                      <li>Power down projector displays and meeting lights</li>
-                      <li>Clear confidential papers into secure shredding</li>
+                      <li>Adjust AC thermostat to standard eco settings or turn off</li>
+                      <li>Power down projector displays and meeting room lights</li>
+                      <li>Clear confidential papers into secure collection</li>
                       <li>Separate beverage recyclables from general waste</li>
                     </ul>
                   </CardContent>
@@ -339,7 +397,7 @@ export default function ExperiencePage() {
               <div className="p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/5 text-emerald-950 dark:text-emerald-200 text-xs md:text-sm flex items-start gap-3">
                 <Lightbulb className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div>
-                  <strong>The Business Value:</strong> When an entire organisation of 50–100 employees adopts these micro-actions consistently, typical companies achieve <strong>8% to 15% reductions</strong> in facility energy overhead with zero capital investment.
+                  <strong>The Business Value:</strong> When teams across an organisation consistently adopt simple closing protocols, companies eliminate avoidable energy waste and reinforce responsible workplace habits with zero capital investment.
                 </div>
               </div>
 
@@ -496,16 +554,16 @@ export default function ExperiencePage() {
                   <div className="p-3 bg-background/80 rounded-lg border text-foreground space-y-2">
                     <div className="font-semibold text-xs text-primary uppercase tracking-wider">Key Principles Demonstrated:</div>
                     <ul className="space-y-1.5 list-disc list-inside text-xs">
-                      <li><strong>Local Sourcing:</strong> Partnering with local Mauritian suppliers strengthens the local circular economy while reducing long-distance transportation emissions.</li>
-                      <li><strong>Waste Prevention Over Disposal:</strong> Washable tableware and water carafes completely eliminate hundreds of single-use plastic items from reaching Mare Chicose landfill.</li>
-                      <li><strong>Digital Distribution:</strong> Providing workshop slides via QR code saves thousands of printed sheets and allows real-time document updates.</li>
-                      <li><strong>Professional Standard:</strong> High-quality presentation and client hospitality are preserved without compromising budget or environmental standards.</li>
+                      <li><strong>Local Sourcing:</strong> Working with local suppliers strengthens community partnerships and simplifies delivery logistics while supporting the local economy.</li>
+                      <li><strong>Waste Prevention:</strong> Choosing washable tableware and reusable water carafes prevents unnecessary single-use waste at the source rather than managing disposal later.</li>
+                      <li><strong>Digital Distribution:</strong> Providing workshop slides digitally via QR code reduces unnecessary paper use and allows attendees to access live document updates.</li>
+                      <li><strong>Professional Standard:</strong> High-quality presentation and client hospitality are preserved without compromising budget or practical workplace standards.</li>
                     </ul>
                   </div>
 
                   {decisionChoice === 3 && (
                     <p className="text-xs text-amber-800 dark:text-amber-300 font-medium">
-                      Note on Option C: Single-use items flown in by air cargo frequently generate more supply-chain carbon than the waste they prevent. Reusable local solutions are always preferred in ESG hierarchy.
+                      Note on Option C: Disposable items often carry hidden procurement and supply-chain costs. Where practical, durable and reusable options are preferred over single-use alternatives.
                     </p>
                   )}
                   {decisionChoice === 4 && (
@@ -551,7 +609,7 @@ export default function ExperiencePage() {
                 </Badge>
               </div>
               <p className="text-sm text-muted-foreground">
-                Clean, distraction-free micro-learning completed in 10-minute sessions on mobile or desktop.
+                Short, focused learning designed for the working day, accessible on mobile or desktop.
               </p>
 
               {/* Simulated Learner Experience Card */}
@@ -582,7 +640,7 @@ export default function ExperiencePage() {
                       <span className="font-bold text-sm">Workplace Sustainability Foundations</span>
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      Core ESG literacy, waste reduction, energy efficiency & workplace compliance.
+                      Core sustainability principles, waste reduction, energy efficiency & workplace standards.
                     </p>
                   </div>
                   <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
@@ -602,10 +660,10 @@ export default function ExperiencePage() {
                     <Award className="h-5 w-5" />
                   </div>
                   <div className="font-serif font-bold text-sm text-foreground">
-                    Verifiable Certificate of Competence
+                    Verifiable Certificate of Completion
                   </div>
                   <p className="text-xs text-muted-foreground max-w-md mx-auto">
-                    Every employee who passes the required assessment earns a secure certificate with a unique verification code and QR code for corporate audits.
+                    Every employee who passes the required assessment earns a verifiable certificate with a unique code for company training records.
                   </p>
                 </div>
               </div>
@@ -645,7 +703,7 @@ export default function ExperiencePage() {
                 </Badge>
               </div>
               <p className="text-sm text-muted-foreground">
-                Real-time tracking of employee participation, department completion rates, and compliance records.
+                Real-time tracking of employee participation, department completion rates, and training records.
               </p>
 
               {/* Company Dashboard Preview Card */}
@@ -737,7 +795,7 @@ export default function ExperiencePage() {
                 <div className="p-4 rounded-xl border bg-muted/20 text-xs text-muted-foreground flex items-start gap-3">
                   <ShieldCheck className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-foreground">Why This Matters for B2B Buyers:</strong> Training your team is only part of the process. ELEVIO gives your company a verifiable audit trail of who completed what and when—ready for corporate sustainability reports, board scorecards, and regulatory compliance.
+                    <strong className="text-foreground">Why This Matters for B2B Buyers:</strong> Training your team is only part of the process. ELEVIO gives your company a verifiable audit trail of who completed what and when—ready for company sustainability reports, board scorecards, and internal reviews.
                   </div>
                 </div>
               </div>
@@ -771,7 +829,7 @@ export default function ExperiencePage() {
                   You've experienced ELEVIO.
                 </h1>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  Your employees learn through short, practical workplace situations. Your company tracks participation, completion, and compliance records from one unified workspace.
+                  Your employees learn through short, practical workplace situations. Your company tracks participation, completion, and training records from one unified workspace.
                 </p>
               </div>
 
@@ -822,6 +880,13 @@ export default function ExperiencePage() {
                   size="lg"
                   asChild
                   className="w-full sm:w-auto h-12 px-8 text-md font-semibold bg-emerald-700 hover:bg-emerald-800 text-white shadow-md gap-2"
+                  onClick={() => {
+                    trackCommercialEvent("experience_pricing_clicked", {
+                      experienceStep: "screen_8_commercial",
+                      source: "experience",
+                      authenticatedState: "anonymous",
+                    });
+                  }}
                 >
                   <Link href="/pricing?source=experience">
                     <span>Train Your Team — View Pricing</span>
@@ -834,6 +899,13 @@ export default function ExperiencePage() {
                   variant="outline"
                   asChild
                   className="w-full sm:w-auto h-12 px-8 text-md font-medium border-border hover:bg-muted/40"
+                  onClick={() => {
+                    trackCommercialEvent("experience_catalogue_clicked", {
+                      experienceStep: "screen_8_commercial",
+                      source: "experience",
+                      authenticatedState: "anonymous",
+                    });
+                  }}
                 >
                   <Link href="/courses">
                     <span>Explore All 136 Courses</span>

@@ -16,6 +16,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { ShieldAlert } from "lucide-react";
+import { trackCommercialEvent, captureAndPersistAttribution, trackCommercialPageView } from "@/lib/commercialAnalytics";
 
 if (import.meta.env.VITE_API_URL) {
   setBaseUrl(import.meta.env.VITE_API_URL);
@@ -185,8 +186,25 @@ function SignInPage() {
 function SignUpPage() {
   const params = new URLSearchParams(window.location.search);
   const inviteToken = params.get("invite") || params.get("token");
-  // After Clerk completes sign-up, redirect to accept-invitation if an invite token is present,
-  // otherwise begin guided company administrator onboarding.
+
+  useEffect(() => {
+    captureAndPersistAttribution();
+    try {
+      if (typeof window !== "undefined" && window.sessionStorage) {
+        window.sessionStorage.setItem("elevio_pending_signup_reg", "true");
+      }
+    } catch {}
+
+    trackCommercialEvent(
+      "signup_started",
+      {
+        source: params.get("source") || "direct",
+        authenticatedState: "anonymous",
+      },
+      { dedupKey: "elevio_signup_started" }
+    );
+  }, []);
+
   const postSignUpUrl = inviteToken
     ? `${basePath}/join?token=${encodeURIComponent(inviteToken)}`
     : params.get("redirect_url") || `${basePath}/onboarding`;
@@ -418,6 +436,20 @@ function ClerkApiTokenBridge({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }
 
+function CommercialNavigationListener() {
+  const [location] = useLocation();
+  const lastPathRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (lastPathRef.current !== location) {
+      lastPathRef.current = location;
+      trackCommercialPageView(location);
+    }
+  }, [location]);
+
+  return null;
+}
+
 function ClerkProviderWithRoutes() {
   const [, setLocation] = useLocation();
 
@@ -431,6 +463,7 @@ function ClerkProviderWithRoutes() {
       routerPush={(to) => setLocation(stripBase(to))}
       routerReplace={(to) => setLocation(stripBase(to), { replace: true })}
     >
+      <CommercialNavigationListener />
       <QueryClientProvider client={queryClient}>
   <ClerkApiTokenBridge>
     <LanguageProvider>

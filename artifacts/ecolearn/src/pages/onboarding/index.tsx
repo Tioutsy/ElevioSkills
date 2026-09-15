@@ -23,6 +23,7 @@ import {
   Loader2,
 } from "lucide-react";
 import { PlanCode } from "@/config/pricing";
+import { trackCommercialEvent, captureAndPersistAttribution } from "@/lib/commercialAnalytics";
 
 interface OnboardingStatusResponse {
   stage: "NO_COMPANY" | "PLAN_REQUIRED" | "PAYMENT_PENDING" | "CUSTOM_QUOTE_REQUIRED" | "COMPLETED";
@@ -135,6 +136,43 @@ export default function OnboardingPage() {
           setStep(2);
         } else {
           setStep(1);
+          trackCommercialEvent("company_setup_started", {
+            authenticatedState: "company_admin",
+            source: "onboarding",
+          }, { dedupKey: `elevio_company_setup_${user?.id || 'anon'}` });
+        }
+
+        // Track signup completed ONLY for genuinely new registrations arriving from signup flow
+        if (user?.id) {
+          let isNewRegistration = false;
+          try {
+            if (typeof window !== "undefined" && window.sessionStorage) {
+              if (window.sessionStorage.getItem("elevio_pending_signup_reg") === "true") {
+                isNewRegistration = true;
+                window.sessionStorage.removeItem("elevio_pending_signup_reg");
+              }
+            }
+          } catch {}
+
+          // Fallback: check if user account was created in the last 10 minutes and has no existing company
+          if (!isNewRegistration && (user as any)?.createdAt) {
+            const createdMs = new Date((user as any).createdAt).getTime();
+            if (Date.now() - createdMs < 10 * 60 * 1000 && !res.hasCompany) {
+              isNewRegistration = true;
+            }
+          }
+
+          if (isNewRegistration) {
+            trackCommercialEvent("signup_completed", {
+              authenticatedState: "authenticated",
+              source: "onboarding",
+            }, { dedupKey: `elevio_signup_completed_${user.id}` });
+          }
+
+          trackCommercialEvent("onboarding_started", {
+            authenticatedState: "company_admin",
+            source: "onboarding",
+          }, { dedupKey: `elevio_onboarding_started_${user.id}` });
         }
       } catch (err) {
         console.error("Failed to load onboarding status:", err);
@@ -143,6 +181,7 @@ export default function OnboardingPage() {
       }
     }
 
+    captureAndPersistAttribution();
     loadStatus();
   }, [isLoaded, isSignedIn, setLocation]);
 
@@ -179,6 +218,14 @@ export default function OnboardingPage() {
         }),
       });
 
+      // Authoritative trigger: company record successfully persisted on backend
+      trackCommercialEvent("company_created", {
+        companySizeBand: selectedBandCode,
+        employeeCount,
+        authenticatedState: "company_admin",
+        source: "onboarding",
+      }, { dedupKey: `elevio_company_created_${companyName.trim().toLowerCase()}` });
+
       setStep(2);
     } catch (err: any) {
       setErrorMessage(err.message || "Failed to save company details. Please try again.");
@@ -201,6 +248,14 @@ export default function OnboardingPage() {
           employeeCount,
           billingInterval: "MONTHLY",
         }),
+      });
+
+      trackCommercialEvent("subscription_band_selected", {
+        companySizeBand: selectedBandCode,
+        employeeCount,
+        billingCycle: "MONTHLY",
+        authenticatedState: "company_admin",
+        source: "onboarding",
       });
 
       if (res.outcome === "tailored_quote_required" || selectedBandCode === "OVER_120") {
@@ -229,6 +284,15 @@ export default function OnboardingPage() {
       await customFetch("/api/onboarding/confirm-order", {
         method: "POST",
         body: JSON.stringify({ agreedToTerms: true }),
+      });
+
+      // Track pre-payment checkout boundary reached
+      trackCommercialEvent("subscription_checkout_reached", {
+        companySizeBand: selectedBandCode,
+        employeeCount,
+        billingCycle: "MONTHLY",
+        authenticatedState: "company_admin",
+        source: "onboarding",
       });
 
       // Move to payment finalisation state

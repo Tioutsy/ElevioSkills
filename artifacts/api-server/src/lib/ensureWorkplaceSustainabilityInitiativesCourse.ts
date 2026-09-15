@@ -9,7 +9,7 @@ import {
   quizAttemptsTable,
   lessonProgressTable,
 } from "@workspace/db";
-import { eq, and, inArray } from "drizzle-orm";
+import { eq, and, inArray, or } from "drizzle-orm";
 import { logger } from "./logger";
 
 const COURSE_SLUG = "planning-and-delivering-workplace-sustainability-initiatives";
@@ -518,55 +518,76 @@ export async function ensureWorkplaceSustainabilityInitiativesCourse(): Promise<
 
   let courseId: number;
 
-  const [upserted] = await db
-    .insert(coursesTable)
-    .values({
-      courseCode: COURSE_META.courseCode,
-      title: COURSE_TITLE,
-      slug: COURSE_SLUG,
-      description: COURSE_META.description,
-      fullDescription: COURSE_META.fullDescription,
-      categoryId: COURSE_META.categoryId,
-      durationMinutes: COURSE_META.durationMinutes,
-      priceUsd: COURSE_META.priceUsd,
-      level: COURSE_META.level,
-      isFeatured: COURSE_META.isFeatured,
-      thumbnailUrl: COURSE_META.thumbnailUrl,
-      intendedRoles: COURSE_META.intendedRoles,
-      learningObjectives: COURSE_META.learningObjectives,
-      includesCertificate: COURSE_META.includesCertificate,
-      passingScore: COURSE_META.passingScore,
-      completionMessage: COURSE_META.completionMessage,
-      badgeName: COURSE_META.badgeName,
-      badgeDescription: COURSE_META.badgeDescription,
-      isPublished: true,
-      status: "published",
-    })
-    .onConflictDoUpdate({
-      target: coursesTable.slug,
-      set: {
+  const [existingCourse] = await db
+    .select()
+    .from(coursesTable)
+    .where(
+      or(
+        eq(coursesTable.slug, COURSE_SLUG),
+        eq(coursesTable.courseCode, COURSE_META.courseCode)
+      )
+    )
+    .limit(1);
+
+  if (existingCourse) {
+    const [updated] = await db
+      .update(coursesTable)
+      .set({
         courseCode: COURSE_META.courseCode,
         title: COURSE_TITLE,
+        slug: COURSE_SLUG,
         description: COURSE_META.description,
         fullDescription: COURSE_META.fullDescription,
+        categoryId: COURSE_META.categoryId,
         durationMinutes: COURSE_META.durationMinutes,
+        priceUsd: COURSE_META.priceUsd,
         level: COURSE_META.level,
+        isFeatured: COURSE_META.isFeatured,
         thumbnailUrl: COURSE_META.thumbnailUrl,
-        learningObjectives: COURSE_META.learningObjectives,
         intendedRoles: COURSE_META.intendedRoles,
+        learningObjectives: COURSE_META.learningObjectives,
+        includesCertificate: COURSE_META.includesCertificate,
+        passingScore: COURSE_META.passingScore,
         completionMessage: COURSE_META.completionMessage,
         badgeName: COURSE_META.badgeName,
         badgeDescription: COURSE_META.badgeDescription,
-        passingScore: COURSE_META.passingScore,
         isPublished: true,
         status: "published",
         updatedAt: new Date(),
-      },
-    })
-    .returning({ id: coursesTable.id });
+      })
+      .where(eq(coursesTable.id, existingCourse.id))
+      .returning({ id: coursesTable.id });
+    courseId = updated.id;
+  } else {
+    const [inserted] = await db
+      .insert(coursesTable)
+      .values({
+        courseCode: COURSE_META.courseCode,
+        title: COURSE_TITLE,
+        slug: COURSE_SLUG,
+        description: COURSE_META.description,
+        fullDescription: COURSE_META.fullDescription,
+        categoryId: COURSE_META.categoryId,
+        durationMinutes: COURSE_META.durationMinutes,
+        priceUsd: COURSE_META.priceUsd,
+        level: COURSE_META.level,
+        isFeatured: COURSE_META.isFeatured,
+        thumbnailUrl: COURSE_META.thumbnailUrl,
+        intendedRoles: COURSE_META.intendedRoles,
+        learningObjectives: COURSE_META.learningObjectives,
+        includesCertificate: COURSE_META.includesCertificate,
+        passingScore: COURSE_META.passingScore,
+        completionMessage: COURSE_META.completionMessage,
+        badgeName: COURSE_META.badgeName,
+        badgeDescription: COURSE_META.badgeDescription,
+        isPublished: true,
+        status: "published",
+      })
+      .returning({ id: coursesTable.id });
+    courseId = inserted.id;
+  }
 
-  courseId = upserted.id;
-  logger.info(`Upserted ELH-23 course record (ID: ${courseId}).`);
+  logger.info(`Resolved ELH-23 course record (ID: ${courseId}).`);
 
   // 2. Ensure badge definition
   await db

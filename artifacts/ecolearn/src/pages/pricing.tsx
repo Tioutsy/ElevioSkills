@@ -23,6 +23,7 @@ import {
   EmployeeBandConfig,
 } from "@/config/pricing";
 import { useLanguage } from "@/context/LanguageContext";
+import { trackCommercialEvent, captureAndPersistAttribution } from "@/lib/commercialAnalytics";
 
 interface PublicPriceRecord {
   id: number;
@@ -43,6 +44,15 @@ export default function Pricing() {
 
   useEffect(() => {
     let isMounted = true;
+    captureAndPersistAttribution();
+    const searchParams = new URLSearchParams(window.location.search);
+    const internalSource = searchParams.get("source") || "direct";
+
+    trackCommercialEvent("pricing_viewed", {
+      source: internalSource,
+      authenticatedState: isSignedIn ? "authenticated" : "anonymous",
+    });
+
     customFetch<{ employeeBands: any[]; prices: PublicPriceRecord[] }>("/api/subscriptions/public-plans")
       .then((res) => {
         if (isMounted && res && res.employeeBands && res.employeeBands.length > 0) {
@@ -70,7 +80,27 @@ export default function Pricing() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [isSignedIn]);
+
+  const handleSelectBand = (bandCode: string) => {
+    setSelectedBandCode(bandCode);
+    trackCommercialEvent("subscription_band_selected", {
+      companySizeBand: bandCode,
+      billingCycle: billingInterval,
+      source: new URLSearchParams(window.location.search).get("source") || "direct",
+      authenticatedState: isSignedIn ? "authenticated" : "anonymous",
+    });
+  };
+
+  const handleIntervalChange = (newInterval: BillingInterval) => {
+    setBillingInterval(newInterval);
+    trackCommercialEvent("subscription_band_selected", {
+      companySizeBand: selectedBandCode,
+      billingCycle: newInterval,
+      source: new URLSearchParams(window.location.search).get("source") || "direct",
+      authenticatedState: isSignedIn ? "authenticated" : "anonymous",
+    });
+  };
 
   const getCheckoutUrl = (bandCode: string) => {
     const targetUrl = `/company/subscribe?bandCode=${bandCode}&billingInterval=${billingInterval}`;
@@ -109,11 +139,11 @@ export default function Pricing() {
           <div className="inline-flex items-center bg-muted p-1.5 rounded-2xl border gap-1 shadow-sm">
             <button
               type="button"
-              onClick={() => setBillingInterval("MONTHLY")}
+              onClick={() => handleIntervalChange("MONTHLY")}
               className={cn(
-                "px-6 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2",
+                "px-4 py-1.5 rounded-full text-xs font-semibold transition-all",
                 billingInterval === "MONTHLY"
-                  ? "bg-primary text-primary-foreground shadow-sm"
+                  ? "bg-emerald-700 text-white shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
@@ -121,11 +151,11 @@ export default function Pricing() {
             </button>
             <button
               type="button"
-              onClick={() => setBillingInterval("YEARLY")}
+              onClick={() => handleIntervalChange("YEARLY")}
               className={cn(
-                "px-6 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2",
+                "px-4 py-1.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5",
                 billingInterval === "YEARLY"
-                  ? "bg-emerald-600 text-white shadow-sm"
+                  ? "bg-emerald-700 text-white shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
@@ -154,7 +184,7 @@ export default function Pricing() {
             return (
               <div
                 key={band.code}
-                onClick={() => setSelectedBandCode(band.code)}
+                onClick={() => handleSelectBand(band.code)}
                 className={cn(
                   "bg-card border rounded-3xl p-6 flex flex-col justify-between transition-all relative cursor-pointer",
                   isSelected

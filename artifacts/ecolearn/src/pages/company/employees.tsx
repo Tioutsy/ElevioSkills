@@ -67,6 +67,7 @@ import { useUser } from "@clerk/react";
 import { hasCapability, useAuthRole } from "@/lib/authHelpers";
 import { useLanguage } from "@/context/LanguageContext";
 import { customFetch } from "@workspace/api-client-react";
+import { trackCommercialEvent } from "@/lib/commercialAnalytics";
 
 const EMPTY_INVITE_FORM = {
   firstName: "",
@@ -854,6 +855,10 @@ export default function CompanyEmployees() {
                   if (file && (file.name.endsWith(".csv") || file.type === "text/csv")) {
                     setBulkUploadFile(file);
                     setBulkErrorMessage(null);
+                    trackCommercialEvent("employee_import_started", {
+                      authenticatedState: "company_admin",
+                      source: "company_employees",
+                    });
                   } else {
                     setBulkErrorMessage("Please upload a .csv file.");
                   }
@@ -867,7 +872,14 @@ export default function CompanyEmployees() {
                   className="hidden"
                   onChange={(e) => {
                     const file = e.target.files?.[0];
-                    if (file) { setBulkUploadFile(file); setBulkErrorMessage(null); }
+                    if (file) {
+                      setBulkUploadFile(file);
+                      setBulkErrorMessage(null);
+                      trackCommercialEvent("employee_import_started", {
+                        authenticatedState: "company_admin",
+                        source: "company_employees",
+                      });
+                    }
                   }}
                 />
                 {bulkUploadFile ? (
@@ -1004,6 +1016,31 @@ export default function CompanyEmployees() {
                       });
                       setBulkResult(result);
                       invalidateAll();
+
+                      const importedCount = (result as any)?.importedCount || 0;
+                      const skippedCount = (result as any)?.skippedCount || 0;
+
+                      trackCommercialEvent("employee_import_completed", {
+                        importSuccessCount: importedCount,
+                        importSkippedCount: skippedCount,
+                        authenticatedState: "company_admin",
+                        source: "company_employees",
+                      });
+
+                      trackCommercialEvent("employee_invitation_sent", {
+                        employeeCount: importedCount,
+                        authenticatedState: "company_admin",
+                        source: "company_employees",
+                      });
+
+                      const hadNoPriorTeam = (!employees || employees.length === 0) && (!invitations || invitations.length === 0);
+                      if (hadNoPriorTeam && importedCount > 0) {
+                        trackCommercialEvent("first_employee_invited", {
+                          employeeCount: importedCount,
+                          authenticatedState: "company_admin",
+                          source: "company_employees",
+                        }, { dedupKey: `elevio_first_employee_invited` });
+                      }
                     } catch (err: any) {
                       let msg = err?.message || "Upload failed. Please check your file and try again.";
                       try {
@@ -1034,11 +1071,24 @@ export default function CompanyEmployees() {
         onOpenChange={setIsInviteOpen}
         pending={inviteEmployee.isPending}
         onInvite={async (formData) => {
+          const hadNoPriorTeam = (!employees || employees.length === 0) && (!invitations || invitations.length === 0);
           try {
             const result = await inviteEmployee.mutateAsync(formData);
             setIsInviteOpen(false);
             setCreatedInvite(result);
             invalidateAll();
+
+            trackCommercialEvent("employee_invitation_sent", {
+              authenticatedState: "company_admin",
+              source: "company_employees",
+            });
+
+            if (hadNoPriorTeam) {
+              trackCommercialEvent("first_employee_invited", {
+                authenticatedState: "company_admin",
+                source: "company_employees",
+              }, { dedupKey: `elevio_first_employee_invited` });
+            }
             toast({
               title: "Invitation Created",
               description: `Invitation generated for ${formData.email}.`,
