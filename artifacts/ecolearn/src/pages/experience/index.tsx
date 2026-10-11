@@ -844,7 +844,7 @@ export default function ExperiencePage() {
                     <div className="space-y-1.5 p-3.5 rounded-xl border bg-muted/20">
                       <div className="font-semibold text-foreground flex items-center gap-1.5">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                        136 Canonical Courses
+                        All Sustainability Courses
                       </div>
                       <p className="text-muted-foreground text-xs leading-relaxed">
                         Full access to core sustainability, ESG data, leadership, and departmental curriculums.
@@ -908,7 +908,7 @@ export default function ExperiencePage() {
                   }}
                 >
                   <Link href="/courses">
-                    <span>Explore All 136 Courses</span>
+                    <span>Explore All Courses</span>
                   </Link>
                 </Button>
               </div>

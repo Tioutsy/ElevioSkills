@@ -63,7 +63,7 @@ const STANDARD_PLAN = {
   name: "ELEVIO Skills Subscription",
   tagline: "All-inclusive corporate sustainability & ESG literacy platform",
   features: [
-    "Full access to 136 canonical sustainability & ESG courses",
+    "Full access to all sustainability & ESG courses",
     "ELH-01 to ELH-12 Core Sustainability Certificate",
     "Specialized modules for HR, Finance, Operations & Leadership",
     "Verified learner certificates & corporate audit exports",
@@ -404,7 +404,7 @@ export default function OnboardingPage() {
           </h1>
           <p className="text-sm text-muted-foreground max-w-lg mx-auto">
             {step === 1 && "Enter your company details to create your secure corporate workspace."}
-            {step === 2 && "Pricing is based strictly on your organization size. Full access to all 136 courses included."}
+            {step === 2 && "Pricing is based strictly on your organization size. Full access to all courses included."}
             {step === 3 && "Review the exact monthly price before proceeding."}
             {step === 4 && "Our team will reach out to tailor a custom plan for your organisation size."}
             {step === 5 && "Your subscription order has been recorded."}
@@ -620,7 +620,7 @@ export default function OnboardingPage() {
                 <span className="text-xs uppercase tracking-wider font-semibold text-emerald-600">Step 2 of 3</span>
                 <h2 className="text-xl font-bold font-serif mt-1">Select Your Company Size</h2>
                 <p className="text-sm text-muted-foreground">
-                  Standard ELEVIO Skills subscription includes full access to all 136 sustainability & ESG courses for every employee.
+                  Standard ELEVIO Skills subscription includes full access to all sustainability & ESG courses for every employee.
                 </p>
               </div>
 

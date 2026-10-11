@@ -17,11 +17,21 @@ export interface RecommendationInput {
     trainingPriorities: string[];
   };
   learner: {
-    department: string;
-    roleCategory: string;
-    jobTitle: string;
+    employeeId: number | string;
+    companyId: number | string;
+    department?: string;
+    roleCategory?: string;
+    jobTitle?: string;
+    seniority?: string;
     completedCourseIds: number[];
     assignedCourseIds: number[];
+    assessmentWeaknesses?: string[];
+    assessmentStrengths?: string[];
+    knowledgeProfile?: {
+      strengths: string[];
+      gaps: string[];
+      criticalGaps: string[];
+    };
   };
   availableCourses: CourseCatalogItem[];
 }

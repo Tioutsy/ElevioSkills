@@ -7,13 +7,11 @@ import {
   planFeatureEntitlementsTable,
   companySubscriptionsTable,
   companiesTable,
-  employeesTable,
   coursesTable,
   categoriesTable,
 } from "@workspace/db";
-import { eq, and, inArray, sql } from "drizzle-orm";
+import { eq, and, inArray } from "drizzle-orm";
 import { logger } from "./logger";
-import { ensureDefaultCompanyLists } from "./companyListService";
 
 export const PLANS_CONFIG = [
   {
@@ -74,7 +72,7 @@ export const BANDS_CONFIG = [
   },
   {
     code: "OVER_120",
-    label: "121+ employees",
+    label: "Over 120 employees",
     minimumEmployees: 121,
     maximumEmployees: null,
     displayOrder: 5,
@@ -91,17 +89,17 @@ export const PRICING_MATRIX: Record<string, Record<string, number | null>> = {
     OVER_120: null,
   },
   PROFESSIONAL: {
-    UP_TO_25: 3000,
-    FROM_26_TO_50: 4500,
-    FROM_51_TO_80: 5000,
-    FROM_81_TO_120: 6250,
+    UP_TO_25: 4500,
+    FROM_26_TO_50: 6500,
+    FROM_51_TO_80: 7500,
+    FROM_81_TO_120: 9000,
     OVER_120: null,
   },
   COMPLETE: {
-    UP_TO_25: 3000,
-    FROM_26_TO_50: 4500,
-    FROM_51_TO_80: 5000,
-    FROM_81_TO_120: 6250,
+    UP_TO_25: 6000,
+    FROM_26_TO_50: 9000,
+    FROM_51_TO_80: 11000,
+    FROM_81_TO_120: 13500,
     OVER_120: null,
   },
 };
@@ -232,7 +230,7 @@ export async function ensureHybridSubscriptions(): Promise<void> {
       }
     }
 
-    // 4. Seed Course Entitlements — Standard subscription includes all canonical published courses
+    // 4. Seed Course Entitlements
     const allCourses = await db.select({
       id: coursesTable.id,
       courseCode: coursesTable.courseCode,
@@ -243,40 +241,31 @@ export async function ensureHybridSubscriptions(): Promise<void> {
     const professionalPlanId = planIdMap.get("PROFESSIONAL")!;
     const completePlanId = planIdMap.get("COMPLETE")!;
 
-    const existingEntitlements = await db
-      .select({
-        subscriptionPlanId: planCourseEntitlementsTable.subscriptionPlanId,
-        courseId: planCourseEntitlementsTable.courseId,
-      })
-      .from(planCourseEntitlementsTable);
-
-    const existingKeySet = new Set(
-      existingEntitlements.map(e => `${e.subscriptionPlanId}:${e.courseId}`)
-    );
-
-    const toInsert: Array<{ subscriptionPlanId: number; courseId: number; accessType: string }> = [];
-    const planIds = [essentialPlanId, professionalPlanId, completePlanId];
+    // Category slugs
+    const coreCategory = await db.select().from(categoriesTable).where(eq(categoriesTable.slug, "core-sustainability-certificate")).then(r => r[0]);
+    const actionCategory = await db.select().from(categoriesTable).where(eq(categoriesTable.slug, "sustainability-in-action")).then(r => r[0]);
+    const departmentCategory = await db.select().from(categoriesTable).where(eq(categoriesTable.slug, "sustainability-by-department")).then(r => r[0]);
+    const leadershipCategory = await db.select().from(categoriesTable).where(eq(categoriesTable.slug, "leadership-and-sustainability-management")).then(r => r[0]);
 
     for (const course of allCourses) {
-      for (const pId of planIds) {
-        if (!existingKeySet.has(`${pId}:${course.id}`)) {
-          toInsert.push({
-            subscriptionPlanId: pId,
-            courseId: course.id,
-            accessType: "INCLUDED",
-          });
-        }
-      }
-    }
+      const code = course.courseCode || "";
+      const isCore = (code >= "ELH-01" && code <= "ELH-12") || (Boolean(coreCategory?.id) && Boolean(course.categoryId) && course.categoryId === coreCategory?.id);
 
-    if (toInsert.length > 0) {
-      // Chunk in blocks of 100 for fast safe execution
-      for (let i = 0; i < toInsert.length; i += 100) {
-        const chunk = toInsert.slice(i, i + 100);
-        await db.insert(planCourseEntitlementsTable).values(chunk).onConflictDoNothing();
+      // Essential Plan: Core courses (ELH-01..12)
+      if (isCore) {
+        await upsertCourseEntitlement(essentialPlanId, course.id);
       }
-    }
 
+      // Professional Plan: Essential + Action + Department
+      const isAction = (code >= "ELH-13" && code <= "ELH-23") || (Boolean(actionCategory?.id) && Boolean(course.categoryId) && course.categoryId === actionCategory?.id);
+      const isDepartment = (code >= "ELH-24" && code <= "ELH-30") || (Boolean(departmentCategory?.id) && Boolean(course.categoryId) && course.categoryId === departmentCategory?.id);
+      if (isCore || isAction || isDepartment) {
+        await upsertCourseEntitlement(professionalPlanId, course.id);
+      }
+
+      // Complete Plan: All courses
+      await upsertCourseEntitlement(completePlanId, course.id);
+    }
 
     // 5. Seed Feature Entitlements
     const featureMappings: Record<string, string[]> = {
@@ -345,102 +334,6 @@ export async function ensureHybridSubscriptions(): Promise<void> {
           // Ignore duplicate conflict if inserted concurrently by another test process
         }
       }
-    }
-
-    // 7. Special Test/Platform Evaluation Exemption: Ensure Infracare company exists and has free active Complete subscription
-    let infracareCompany = companies.find(
-      (comp) =>
-        comp.name?.toLowerCase().includes("infracare") ||
-        comp.slug?.toLowerCase().includes("infracare")
-    );
-
-    if (!infracareCompany) {
-      const [newInfracare] = await db
-        .insert(companiesTable)
-        .values({
-          name: "Infracare",
-          slug: "infracare",
-          industry: "Facilities & Infrastructure",
-          maxEmployees: 250,
-        })
-        .returning();
-      infracareCompany = newInfracare;
-      logger.info({ companyId: newInfracare.id }, "Auto-provisioned Infracare company record in database");
-    }
-
-    if (infracareCompany) {
-      const topBandId = bandIdMap.get("OVER_120") || bandIdMap.get("UP_TO_25")!;
-      const existingSub = await db
-        .select()
-        .from(companySubscriptionsTable)
-        .where(eq(companySubscriptionsTable.companyId, infracareCompany.id))
-        .limit(1)
-        .then((r) => r[0]);
-
-      if (existingSub) {
-        await db
-          .update(companySubscriptionsTable)
-          .set({
-            subscriptionPlanId: completePlanId,
-            employeeBandId: topBandId,
-            status: "ACTIVE",
-            currency: "MUR",
-            agreedMonthlyAmount: "0.00",
-            agreedYearlyAmount: "0.00",
-            pricingSource: "TEST_EXEMPTION",
-          })
-          .where(eq(companySubscriptionsTable.id, existingSub.id));
-      } else {
-        await db
-          .insert(companySubscriptionsTable)
-          .values({
-            companyId: infracareCompany.id,
-            subscriptionPlanId: completePlanId,
-            employeeBandId: topBandId,
-            status: "ACTIVE",
-            currency: "MUR",
-            agreedMonthlyAmount: "0.00",
-            agreedYearlyAmount: "0.00",
-            pricingSource: "TEST_EXEMPTION",
-          })
-          .onConflictDoNothing({ target: companySubscriptionsTable.companyId });
-      }
-
-      // Ensure standard default company lists for Infracare
-      await ensureDefaultCompanyLists(infracareCompany.id);
-
-      // Check if infracare.mu@gmail.com exists as an employee, and link/promote to admin
-      const [existingEmp] = await db
-        .select()
-        .from(employeesTable)
-        .where(
-          and(
-            eq(employeesTable.companyId, infracareCompany.id),
-            sql`lower(${employeesTable.email}) = 'infracare.mu@gmail.com'`
-          )
-        )
-        .limit(1);
-
-      if (!existingEmp) {
-        await db
-          .insert(employeesTable)
-          .values({
-            companyId: infracareCompany.id,
-            name: "Infracare Administrator",
-            email: "infracare.mu@gmail.com",
-            role: "admin",
-            status: "active",
-            profileCompleted: true,
-          })
-          .onConflictDoNothing();
-      } else if (existingEmp.role !== "admin" || existingEmp.status !== "active") {
-        await db
-          .update(employeesTable)
-          .set({ role: "admin", status: "active", profileCompleted: true })
-          .where(eq(employeesTable.id, existingEmp.id));
-      }
-
-      logger.info({ companyId: infracareCompany.id, name: infracareCompany.name }, "Configured complimentary test exemption for Infracare (COMPLETE plan, Free of Charge, ACTIVE)");
     }
 
     logger.info("Successfully ensured hybrid subscription plans, bands, prices, entitlements, and company migrations.");

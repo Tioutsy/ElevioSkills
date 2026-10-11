@@ -312,7 +312,7 @@ export default function Subscribe() {
                     <CardFooter className="flex-col gap-4 border-t pt-6 bg-muted/30">
                       <div className="flex items-center gap-2 text-xs text-muted-foreground w-full">
                         <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
-                        <span>All 136 sustainability courses, certificates, and compliance exports included.</span>
+                        <span>All sustainability courses, certificates, and compliance exports included.</span>
                       </div>
                       <Button
                         type="submit"
@@ -364,10 +364,10 @@ export default function Subscribe() {
                       {!isOver120 && billingInterval === "YEARLY" && (
                         <div className="space-y-0.5 text-right mt-1">
                           <span className="text-[11px] text-emerald-700 dark:text-emerald-400 font-bold block">
-                            Save MUR {yearlySavingsMUR.toLocaleString()} per year
+                            Save MUR ${yearlySavingsMUR.toLocaleString()} per year
                           </span>
                           <span className="text-[10px] text-muted-foreground block">
-                            Equivalent to MUR {yearlyEquivalentMonthlyMUR.toLocaleString()}/month
+                            Equivalent to MUR ${yearlyEquivalentMonthlyMUR.toLocaleString()}/month
                           </span>
                         </div>
                       )}
@@ -379,7 +379,7 @@ export default function Subscribe() {
                     <ul className="space-y-2 text-xs text-muted-foreground">
                       <li className="flex gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>All 136 canonical sustainability & ESG literacy courses</span>
+                        <span>All Sustainability and ESG courses</span>
                       </li>
                       <li className="flex gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />

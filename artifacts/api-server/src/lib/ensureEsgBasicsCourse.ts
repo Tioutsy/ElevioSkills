@@ -16,30 +16,23 @@ const BADGE_SLUG = "esg-fundamentals";
 const SEED_NAME = "esg-basics-v4";
 
 const COURSE_META = {
-  courseCode: "ELH-09",
   description:
-    "Master Environmental, Social, and Governance (ESG) fundamentals, understand the E, S, and G pillars with practical workplace scenarios, and learn how everyday actions contribute to responsible business performance.",
+    "Master Environmental, Social, and Governance (ESG) basics, understand the E, S, and G pillars with practical workplace examples, and learn how individual actions contribute to organizational goals.",
   fullDescription:
-    "Designed for employees across all departments with zero prior ESG knowledge, this foundation course demystifies Environmental, Social, and Governance (ESG) principles. Discover why investors, customers, and regulators evaluate ESG performance, distinguish how E, S, and G manifest in everyday operations, navigate realistic Mauritian commercial workplace scenarios, and understand the connection between corporate strategy and daily individual responsibility.",
+    "Designed specifically for employees with zero prior ESG knowledge, this course provides a clear, practical introduction to Environmental, Social, and Governance (ESG) principles. Learn what each pillar represents, understand how ESG relates to sustainability, explore realistic Mauritius workplace scenarios, and discover how everyday workplace decisions support responsible business practices.",
   categoryId: 1,
-  durationMinutes: 25,
+  durationMinutes: 18,
   priceUsd: "1400.00",
-  level: "Foundation",
+  level: "ESG and Compliance",
   isFeatured: false,
   thumbnailUrl: "/images/courses/esg-basics.jpg",
-  intendedRoles: [
-    "All employees across all departments",
-    "New hires during onboarding",
-    "Team leads, supervisors, and department managers",
-    "Green team members and sustainability champions"
-  ],
   learningObjectives: [
     "Explain what ESG stands for and define Environmental, Social, and Governance in plain workplace language.",
-    "Distinguish Environmental (E), Social (S), and Governance (G) pillars using realistic workplace examples.",
-    "Understand why banks, investors, clients, and regulators evaluate ESG performance alongside financial profits.",
-    "Differentiate broader Sustainability (the overarching vision) from ESG (the structured management and reporting framework).",
-    "Recognize how individual employee decisions in daily routines support corporate ESG performance.",
-    "Complete 10 scenario-based assessment questions requiring practical ESG classification and ethical decisions."
+    "Distinguish Environmental (E), Social (S), and Governance (G) pillars using practical, real-world examples.",
+    "Understand the relationship between Sustainability (the goal) and ESG (the framework for management and reporting).",
+    "Identify how daily employee actions across various roles contribute to corporate ESG objectives.",
+    "Recognize that leadership holds ultimate oversight while all employees support ESG through daily decisions.",
+    "Select one practical workplace ESG commitment to practice in your daily work routine."
   ],
   includesCertificate: true,
   passingScore: 80,
@@ -47,143 +40,177 @@ const COURSE_META = {
     "Congratulations on completing ESG Basics! Remember the core formula: Environmental = impact on planet, Social = impact on people, Governance = how responsibly the company is run. ESG becomes real through the decisions you and your colleagues make every day.",
   badgeName: "ESG Foundations",
   badgeDescription:
-    "Awarded for demonstrating practical workplace ESG awareness, understanding the E, S, G pillars, and supporting responsible corporate practices."
+    "Awarded for demonstrating practical workplace ESG awareness, understanding the E, S, G pillars, and supporting responsible corporate practices.",
 };
 
 const NEW_LESSONS = [
   {
     order: 0,
-    title: "What Is ESG & Why Does It Matter?",
-    minutes: 4,
-    content: "Understand what ESG stands for, why modern businesses prioritize it, and how ESG relates to sustainability.",
+    title: "What is ESG & Why Does It Matter?",
+    minutes: 3,
+    content: "Understand what ESG stands for, why businesses care about it, and how ESG relates to sustainability.",
     blocks: [
       { id: "esg1-h1", type: "heading", position: 1, headingText: "Welcome to ESG Basics" },
-      { id: "esg1-t1", type: "short_text", position: 2, bodyText: "Imagine a busy Monday morning at work. The lights and air conditioning turn on, deliveries arrive at reception, staff collaborate on projects, customer orders are processed, and financial invoices are approved. Behind every single one of these routine operations lie decisions that impact the natural environment, human well-being, and corporate integrity. These three interconnected pillars form ESG." },
+      { id: "esg1-t1", type: "short_text", position: 2, bodyText: "Imagine arriving at work in the morning. Your company switchboard handles client calls, staff prepare reports, facilities manage air conditioning and waste, and HR introduces new team members. Behind every single one of these daily operations lie decisions that affect the environment, people, and how the company is governed. These three areas form ESG." },
       {
         id: "esg1-k1",
         type: "key_message",
         position: 3,
         headingText: "What Does ESG Stand For?",
-        bodyText: "• Environmental (E): How an organization impacts the natural planet (energy consumption, water efficiency, carbon emissions, waste recycling, biodiversity, pollution prevention).\n• Social (S): How an organization treats and values people (workplace health & safety, fair wages, training, diversity, customer privacy, contractor welfare, community relations).\n• Governance (G): How an organization makes decisions, maintains accountability, and ensures integrity (anti-bribery, ethics, accurate record-keeping, conflict of interest disclosure, board oversight)."
+        bodyText: "• Environmental (E): How a company affects and interacts with the natural planet (energy, water, waste, emissions, resources, biodiversity).\n• Social (S): How a company treats and values people (employee health & safety, fair working conditions, equal treatment, training, customers, communities).\n• Governance (G): How a company is directed, managed, and controlled with ethics, transparency, policies, compliance, and accountability."
       },
       {
         id: "esg1-t2",
         type: "short_text",
         position: 4,
-        bodyText: "Sustainability vs. ESG:\n• Sustainability is the ultimate goal: meeting the needs of the present without compromising future generations.\n• ESG is the operational and reporting framework: the measurable criteria used by banks, investors, and regulators to assess how responsibly a business operates."
+        bodyText: "ESG vs. Sustainability: What is the Difference?\n• Sustainability is the broader goal: creating long-term environmental, social, and economic value responsibly.\n• ESG is the practical framework: the specific categories companies use to measure, manage, and report their environmental, social, and governance performance."
       },
       {
         id: "esg1-d1",
         type: "decision_scenario",
         position: 5,
-        decisionIntro: "First impression challenge:",
-        decisionPrompt: "A coworker says: 'ESG is just marketing jargon for tree planting and picking up beach litter.' How should you respond?",
+        decisionIntro: "First Impression Scenario:",
+        decisionPrompt: "A colleague says: 'ESG is just another word for tree-planting and recycling.' How should you explain ESG in simple terms?",
         decisionChoices: [
-          { label: "Explain that ESG is a comprehensive operational framework covering planet (Environmental), people and safety (Social), and corporate ethics and record-keeping (Governance)", correct: true, feedback: "Spot on! Environmental issues are only one third of ESG; treating people fairly and running the company with integrity are equally critical." },
-          { label: "Agree that ESG only applies to tree planting events", correct: false, feedback: "Incorrect. Tree planting is a minor activity; ESG evaluates core business operations across all three pillars." },
-          { label: "Say that ESG is a tax penalty that only banks have to pay", correct: false, feedback: "Incorrect. ESG is an operational and management framework for all organizations." }
+          { label: "Explain that ESG is broader than environmental issues alone—it includes how we treat people (Social) and how responsibly the business is managed (Governance).", correct: true, feedback: "Exactly right! ESG covers Environmental, Social, and Governance factors together." },
+          { label: "Agree with your colleague that ESG strictly measures solar panels and recycling bins.", correct: false, feedback: "Incorrect. Environmental sustainability is only one pillar of ESG; Social and Governance are equally essential." },
+          { label: "Say that ESG is a complex tax audit that only corporate lawyers need to understand.", correct: false, feedback: "Incorrect. ESG applies to everyday operations across all workplace roles." }
         ]
       }
     ]
   },
   {
     order: 1,
-    title: "The Environmental Pillar (E): Impact on the Planet",
+    title: "Environmental (E): Impact on the Planet",
     minutes: 4,
-    content: "Explore how workplace operations affect natural resources and how employees reduce environmental footprints.",
+    content: "Explore how companies affect the natural world and how employees reduce environmental footprints.",
     blocks: [
       { id: "esg2-h1", type: "heading", position: 1, headingText: "The Environmental Pillar (E)" },
-      { id: "esg2-t1", type: "short_text", position: 2, bodyText: "The Environmental pillar evaluates how an enterprise uses natural resources and manages waste and emissions." },
+      { id: "esg2-t1", type: "short_text", position: 2, bodyText: "The Environmental pillar evaluates how a business impacts the natural environment and manages natural resources. Environmental factors affect every industry, from tech offices to manufacturing and hospitality." },
       {
         id: "esg2-k1",
         type: "key_message",
         position: 3,
-        headingText: "Everyday Environmental Areas",
-        bodyText: "• Energy & Climate: Turning off idle equipment, maintaining 24°C AC setpoints, using renewable energy.\n• Water Stewardship: Reporting leaks immediately, installing aerators, avoiding chemical discharge into storm drains.\n• Waste & Circularity: Segregating paper, cardboard, and plastics, eliminating single-use plastics, donating surplus food.\n• Biodiversity: Protecting coastal mangroves and lagoons, choosing native landscaping, shielding exterior night lights."
+        headingText: "Key Environmental Areas & Workplace Examples",
+        bodyText: "• Energy: Switching off equipment, optimizing air conditioning, using LED lighting.\n• Water: Fixing leaks promptly, installing efficient taps, avoiding water waste.\n• Waste & Materials: Sorting recyclables, reducing paper printing, eliminating single-use plastics.\n• Emissions & Transport: Optimizing logistics, encouraging remote meetings or shared transport.\n• Resources & Biodiversity: Protecting local ecosystems, choosing eco-certified paper or supplies."
       },
       {
-        id: "esg2-d1",
-        type: "decision_scenario",
+        id: "esg2-w1",
+        type: "workplace_example",
         position: 4,
-        decisionIntro: "Environmental action scenario:",
-        decisionPrompt: "You walk past a staff washroom at 4:30 PM and see water streaming continuously from a cracked sink pipe onto the floor. What is the correct Environmental action?",
-        decisionChoices: [
-          { label: "Log an urgent maintenance ticket with facilities immediately or notify the building supervisor so the valve can be isolated before gallons of potable water are wasted", correct: true, feedback: "Correct! Prompt reporting prevents continuous resource loss and water damage." },
-          { label: "Ignore it because water belongs to the municipal utility, not the company", correct: false, feedback: "Severe waste! Potable water is a scarce island resource; employees must report leaks promptly." },
-          { label: "Close the washroom door and wait until next week to see if it fixes itself", correct: false, feedback: "Incorrect. Leaks worsen over time and cause severe structural damage and resource waste." }
-        ]
+        headingText: "Office & Operations Example",
+        bodyText: "An office manager notices monthly energy bills spiking. By adjusting thermostat settings by 2°C, setting computer displays to auto-sleep, and replacing old fixtures with LEDs, the facility reduces power consumption by 15% without impacting comfort."
       }
     ]
   },
   {
     order: 2,
-    title: "The Social Pillar (S): Impact on People",
+    title: "Social (S): Impact on People",
     minutes: 4,
-    content: "Understand workplace safety, fair treatment, inclusion, customer care, and community relationships.",
+    content: "Learn how the Social pillar focuses on employee safety, fair treatment, training, and community care.",
     blocks: [
       { id: "esg3-h1", type: "heading", position: 1, headingText: "The Social Pillar (S)" },
-      { id: "esg3-t1", type: "short_text", position: 2, bodyText: "The Social pillar evaluates how an organization impacts human beings—inside the company and in the wider community." },
+      { id: "esg3-t1", type: "short_text", position: 2, bodyText: "The Social pillar focuses on people—how an organization treats its employees, customers, suppliers, and the broader community. A business cannot thrive long-term if its workforce is unsafe, mistreated, or ignored." },
       {
         id: "esg3-k1",
         type: "key_message",
         position: 3,
-        headingText: "Everyday Social Areas",
-        bodyText: "• Health & Safety: Wearing PPE, adhering to safety protocols, managing worker fatigue, maintaining psychological safety.\n• Fair Treatment & Inclusion: Equal opportunity, zero tolerance for harassment, fair wages, accessible workspaces.\n• Customer Rights & Privacy: Transparent pricing, protecting personal customer data, delivering safe products.\n• Extended Workforce: Ensuring contracted cleaners, security guards, and canteen workers have safe, humane conditions."
+        headingText: "Key Social Areas & Workplace Examples",
+        bodyText: "• Health & Safety: Wearing required protective equipment, reporting workplace hazards, fire safety drills.\n• Working Conditions & Fair Treatment: Equal opportunity, preventing harassment, fair compensation.\n• Training & Growth: Developing employee skills, onboarding new hires fairly, supporting advancement.\n• Customer Care & Privacy: Protecting personal customer data, communicating transparently.\n• Community Engagement: Supporting local community initiatives, fair local vendor sourcing."
+      },
+      {
+        id: "esg3-f1",
+        type: "memorable_fact",
+        position: 4,
+        headingText: "Did You Know? (Worth Knowing)",
+        bodyText: "According to international workplace studies, companies with high employee safety and fair treatment ratings experience 40% lower staff turnover and significantly higher productivity! Social responsibility directly strengthens workforce well-being."
       }
     ]
   },
   {
     order: 3,
-    title: "The Governance Pillar (G): Accountability & Ethics",
+    title: "Governance (G): Running Business Responsibly",
     minutes: 4,
-    content: "Examine decision-making integrity, honest record-keeping, anti-bribery, and conflict of interest disclosures.",
+    content: "Understand how Governance ensures ethical decision-making, policy adherence, and transparent reporting.",
     blocks: [
       { id: "esg4-h1", type: "heading", position: 1, headingText: "The Governance Pillar (G)" },
-      { id: "esg4-t1", type: "short_text", position: 2, bodyText: "The Governance pillar ensures that an organization is managed responsibly, legally, and ethically." },
+      { id: "esg4-t1", type: "short_text", position: 2, bodyText: "Governance covers how a company is directed, managed, and held accountable. It sets the rules, ethics, and oversight that ensure the business acts honestly, complies with policies, and protects stakeholder trust." },
       {
         id: "esg4-k1",
         type: "key_message",
         position: 3,
-        headingText: "Everyday Governance Areas",
-        bodyText: "• Record Integrity: Accurately logging meter readings, hours, and invoices without falsifying or backdating records.\n• Conflicts of Interest: Disclosing personal or family connections with suppliers transparently.\n• Anti-Bribery: Declining improper gifts or inducements from vendors during contract evaluations.\n• Whistleblower Channels: Reporting serious safety, financial, or ethical misconduct through protected escalation channels."
+        headingText: "Key Governance Areas & Workplace Examples",
+        bodyText: "• Business Ethics & Honesty: Refusing bribes, reporting improper gifts, avoiding deceptive claims.\n• Policies & Procedures: Following company guidelines, updating safety protocols, respecting compliance rules.\n• Accurate Recordkeeping: Recording work hours, financial logs, and operational reports truthfully.\n• Transparency & Accountability: Clear reporting to leadership, admitting errors or data gaps honestly.\n• Conflicts of Interest: Declaring personal relationships or connections that might influence business decisions."
+      },
+      {
+        id: "esg4-d1",
+        type: "decision_scenario",
+        position: 4,
+        decisionIntro: "Governance Decision Scenario:",
+        decisionPrompt: "An employee discovers a typo in a log sheet that understates departmental expenses. A coworker suggests ignoring it because 'nobody will notice.' What is the most responsible action?",
+        decisionChoices: [
+          { label: "Report the error to your supervisor so records remain 100% accurate and transparent.", correct: true, feedback: "Outstanding! Truthful, accurate recordkeeping is a core requirement of Governance." },
+          { label: "Ignore the typo so the departmental budget appears under budget.", correct: false, feedback: "Incorrect. Concealing data errors violates governance policies and compromises corporate integrity." },
+          { label: "Delete the log sheet entirely so no records remain.", correct: false, feedback: "Incorrect. Destroying operational records is a severe compliance violation." }
+        ]
       }
     ]
   },
   {
     order: 4,
-    title: "Why ESG Matters to Business: Investors, Customers & Talent",
-    minutes: 4,
-    content: "Understand why strong ESG performance drives competitive advantage, lower borrowing costs, and talent retention.",
+    title: "ESG in Real Life: Mauritius Workplace Scenario",
+    minutes: 3,
+    content: "Examine a realistic Mauritius business situation and classify issues into Environmental, Social, and Governance pillars.",
     blocks: [
-      { id: "esg5-h1", type: "heading", position: 1, headingText: "The Commercial Value of ESG" },
-      { id: "esg5-t1", type: "short_text", position: 2, bodyText: "ESG is not a charitable expense—it is a core business driver that directly impacts corporate resilience:" },
+      { id: "esg5-h1", type: "heading", position: 1, headingText: "Real-Life Application: Beach Resort & Corporate Office in Mauritius" },
+      { id: "esg5-t1", type: "short_text", position: 2, bodyText: "At a commercial company operating in Grand Baie, Mauritius, the operational team conducts a quarterly review. They inspect four real-world situations happening across departments." },
       {
-        id: "esg5-k1",
-        type: "key_message",
+        id: "esg5-img1",
+        type: "visual_question",
         position: 3,
-        headingText: "Four Commercial Benefits",
-        bodyText: "1. Access to Capital: Commercial banks offer lower interest rates and favorable financing for companies with strong ESG ratings.\n2. Winning Enterprise Tenders: Major corporate and government clients require verified ESG data from suppliers in RFP bids.\n3. Attracting Top Talent: Professionals choose employers committed to human well-being, equality, and environmental responsibility.\n4. Risk Reduction: Robust governance and safety systems prevent costly industrial accidents, legal penalties, and reputation damage."
+        imageUrl: "/images/courses/visual-esg-evidence-review.png",
+        caption: "Mauritius Workplace Review: Assessing Energy/Water (E), Health/Safety (S), and Policy Compliance (G).",
+        imageAlt: "Illustration of a Mauritian office desk showing energy bills, staff safety logs, policy manuals, and supplier declarations."
+      },
+      {
+        id: "esg5-d1",
+        type: "decision_scenario",
+        position: 4,
+        decisionIntro: "Multi-Pillar Classification Challenge:",
+        decisionPrompt: "The resort manager reviews 3 ongoing workplace items:\nItem A: Installing solar water heaters and rainwater harvesting on guest villas.\nItem B: Conducting mandatory ergonomics and first-aid safety workshops for kitchen staff.\nItem C: Establishing a transparent whistleblowing policy and fraud reporting hotline.\nHow are these three items classified across ESG?",
+        decisionChoices: [
+          { label: "Item A = Environmental (E), Item B = Social (S), Item C = Governance (G)", correct: true, feedback: "Spot on! Energy/water = E, health & safety = S, whistleblowing & anti-fraud policy = G. All three pillars work together for total business responsibility." },
+          { label: "All three items belong strictly to Environmental (E)", correct: false, feedback: "Incorrect. Safety workshops are Social (S) and anti-fraud policies are Governance (G). ESG is far broader than environmental topics alone!" },
+          { label: "Item A = Governance, Item B = Environmental, Item C = Social", correct: false, feedback: "Incorrect. Water/solar heaters impact the natural planet (E), safety workshops protect people (S), and ethics policies govern conduct (G)." }
+        ]
       }
     ]
   },
   {
     order: 5,
-    title: "Your Daily Workplace ESG Commitment",
+    title: "Your Role in ESG & Personal Commitment",
     minutes: 3,
-    content: "Select practical commitments to support Environmental, Social, and Governance goals in your daily role.",
+    content: "Discover how individual actions contribute to company goals and commit to a daily ESG habit.",
     blocks: [
-      { id: "esg6-h1", type: "heading", position: 1, headingText: "Pledge to Act & Operational Takeaways" },
-      { id: "esg6-t1", type: "short_text", position: 2, bodyText: "Congratulations on completing ESG Basics! Select the commitments below relevant to your daily routine." },
+      { id: "esg6-h1", type: "heading", position: 1, headingText: "Employee Role vs. Leadership Oversight" },
+      { id: "esg6-t1", type: "short_text", position: 2, bodyText: "A common misconception is that ESG is only the responsibility of senior managers or compliance directors. In reality, leadership sets policies and strategy, while everyday employees bring ESG to life through daily choices." },
+      {
+        id: "esg6-k1",
+        type: "key_message",
+        position: 3,
+        headingText: "How You Support ESG Every Day",
+        bodyText: "• Environmental (E): Turn off unused equipment, report water leaks, minimize waste.\n• Social (S): Wear required safety gear, treat all coworkers fairly, support new team members.\n• Governance (G): Follow company policies, protect confidential data, record information accurately."
+      },
       {
         id: "esg6-c1",
         type: "commitment",
-        position: 3,
-        commitmentInstruction: "Select your daily workplace ESG commitments (choose at least one):",
+        position: 4,
+        commitmentInstruction: "Select your daily workplace ESG commitment (choose at least one):",
         commitmentOptions: [
-          { value: "environmental-habits", label: "Save energy and water, sort waste properly, and report leaks promptly", description: "Support the Environmental (E) pillar." },
-          { value: "social-respect-safety", label: "Follow safety rules, wear required PPE, and treat all colleagues with respect", description: "Support the Social (S) pillar." },
-          { value: "governance-record-accuracy", label: "Follow policies, record workplace data honestly, and protect confidential information", description: "Support the Governance (G) pillar." },
-          { value: "connect-daily-choices", label: "Recognize that everyday operational choices shape our organization's ESG performance", description: "Champion sustainable culture across departments." }
+          { value: "practice-3-pillars", label: "Recognize E, S, and G factors in daily work decisions", description: "Remember that ESG includes planet, people, and governance." },
+          { value: "conserve-resources", label: "Save energy, water, and reduce waste in my workspace", description: "Contribute to company Environmental objectives." },
+          { value: "prioritize-safety-fairness", label: "Follow safety rules and treat colleagues fairly and respectfully", description: "Contribute to company Social objectives." },
+          { value: "ensure-policy-accuracy", label: "Follow company policies and record workplace data accurately", description: "Contribute to company Governance objectives." }
         ]
       }
     ]
@@ -193,133 +220,193 @@ const NEW_LESSONS = [
 const NEW_QUIZ = [
   {
     order: 1,
-    question: "What does the acronym 'ESG' stand for in plain workplace language?",
+    question: "What does ESG stand for in plain workplace language?",
     options: [
+      "Electrical, Solar, and Gas",
       "Environmental, Social, and Governance",
-      "Emergency Safety Group for corporate offices",
-      "Energy Saving Guarantee for municipal utilities",
-      "Executive Strategy Governance for board members only"
-    ],
-    correct: 0,
-    correctExplanation: "ESG stands for Environmental, Social, and Governance—three key dimensions used to measure corporate responsibility.",
-    incorrectExplanation: "Incorrect. ESG stands for Environmental, Social, and Governance."
+      "Executive Salary Guidelines",
+      "Emergency Safety Gear"
+],
+    correct: 1,
+    correctExplanation: "ESG stands for Environmental, Social, and Governance\u2014the three foundational pillars of responsible, sustainable corporate practice.",
+    incorrectExplanation: "Incorrect. ESG stands for Environmental, Social, and Governance.",
+    optionFeedback: [
+      "Incorrect. Energy sources are only one component within the Environmental pillar.",
+      "Correct. Environmental (planet stewardship), Social (people and community relationships), and Governance (ethical corporate conduct and oversight).",
+      "Incorrect. ESG is an overarching organizational framework, not executive compensation rules.",
+      "Incorrect. While safety is vital under the Social pillar, ESG represents the broader management framework."
+]
   },
   {
     order: 2,
-    question: "Which of the following actions is a direct workplace example of the Environmental (E) pillar?",
+    question: "Which of the following actions is a practical workplace example of the Environmental (E) pillar?",
     options: [
-      "Switching off unused conference room air conditioning and reporting a leaking pipe to facilities",
-      "Conducting annual performance appraisals for marketing staff",
-      "Drafting an anti-bribery policy for third-party suppliers",
-      "Filing corporate tax declarations with national authorities"
-    ],
+      "Conducting energy audits to eliminate wasteful lighting and diverting packaging waste away from landfills",
+      "Hosting an annual sports gala for executive managers only",
+      "Auditing customer invoices to ensure correct bank account numbers",
+      "Purchasing expensive office art to decorate the corporate boardroom"
+],
     correct: 0,
-    correctExplanation: "Conserving electricity and eliminating water waste directly reduce natural resource consumption under the Environmental pillar.",
-    incorrectExplanation: "Incorrect. Energy conservation and water leak reporting belong to the Environmental pillar."
+    correctExplanation: "The Environmental pillar focuses on managing and reducing an organisation's impact on the natural world, including energy and waste.",
+    incorrectExplanation: "Incorrect. Reducing energy consumption and diverting waste are core Environmental pillar actions.",
+    optionFeedback: [
+      "Correct. Energy efficiency, water conservation, greenhouse gas reduction, and waste diversion are core Environmental operational responsibilities.",
+      "Incorrect. Exclusive social events do not advance environmental stewardship or broad employee wellbeing.",
+      "Incorrect. Invoice auditing falls under standard financial Governance, not environmental management.",
+      "Incorrect. Aesthetic office decor is an interior design expense, not an environmental initiative."
+]
   },
   {
     order: 3,
-    question: "Which workplace priority is evaluated under the Social (S) pillar of ESG?",
+    question: "Which workplace situation represents a Social (S) pillar issue in an organisation?",
     options: [
-      "Providing certified safety gear (PPE), enforcing rest breaks, and ensuring fair, non-discriminatory treatment for all employees",
-      "Calculating the thermal insulation thickness of the roof",
-      "Purchasing certified high-voltage circuit breakers",
-      "Installing solar water heaters on the cafeteria roof"
-    ],
-    correct: 0,
-    correctExplanation: "Workplace health, safety, employee well-being, fair compensation, and non-discrimination are fundamental Social pillar topics.",
-    incorrectExplanation: "Incorrect. Employee safety, fair treatment, and working conditions fall under the Social pillar."
+      "Checking the refrigerant pressure gauges on an outdoor chiller unit",
+      "Installing photovoltaic solar panels on the facility roof",
+      "Ensuring fair working hours, workplace health and safety protections, and equal opportunity for all staff",
+      "Filing annual corporate financial tax statements with the revenue authority"
+],
+    correct: 2,
+    correctExplanation: "The Social pillar addresses how a company treats people\u2014employees, contractors, customers, and local communities.",
+    incorrectExplanation: "Incorrect. Fair labor practices, occupational safety, and employee equity belong to the Social pillar.",
+    optionFeedback: [
+      "Incorrect. Chiller maintenance addresses equipment performance under the Environmental pillar.",
+      "Incorrect. Solar energy installation is an Environmental pillar initiative.",
+      "Correct. Workforce wellbeing, occupational health and safety, non-discrimination, training, and fair pay are central Social responsibilities.",
+      "Incorrect. Tax compliance and financial reporting belong to the Governance pillar."
+]
   },
   {
     order: 4,
-    question: "How does an individual employee support the Governance (G) pillar in daily work?",
+    question: "How does an everyday employee contribute directly to the Governance (G) pillar in their daily work?",
     options: [
-      "By recording operational data truthfully, protecting confidential customer information, and disclosing conflicts of interest",
-      "By decorating their desk with artificial plastic plants",
-      "By turning off the office WiFi network during meetings",
-      "By walking to work instead of taking the bus"
-    ],
-    correct: 0,
-    correctExplanation: "Governance relies on honest record-keeping, adherence to policies, confidential data protection, and ethical integrity.",
-    incorrectExplanation: "Incorrect. Truthful record-keeping, policy compliance, and ethical conduct support the Governance pillar."
+      "By ignoring company financial procedures whenever deadlines are tight",
+      "By accepting cash gifts from prospective suppliers without telling anyone",
+      "By writing fictional operational data in logbooks to make departments look good",
+      "By adhering to company policies, recording operational and safety data honestly, and reporting conflicts of interest"
+],
+    correct: 3,
+    correctExplanation: "Governance depends on honest data recording, following internal controls, and operating with transparent integrity.",
+    incorrectExplanation: "Incorrect. Honest reporting, following ethical standards, and adhering to procedures support Governance.",
+    optionFeedback: [
+      "Incorrect. Bypassing financial controls violates corporate governance and creates compliance exposure.",
+      "Incorrect. Secretly accepting gifts breaches anti-bribery policies and fiduciary duties.",
+      "Incorrect. Falsifying records corrupts audit trails and exposes the company to severe regulatory penalties.",
+      "Correct. Governance is lived through everyday adherence to approved processes, truthful reporting, and transparent escalation of risks."
+]
   },
   {
     order: 5,
-    question: "What is the key difference between the overarching concept of 'Sustainability' and the framework of 'ESG'?",
+    question: "What is the relationship between individual employee actions and a company's published corporate ESG report?",
     options: [
-      "Sustainability is the broad long-term goal of balancing economic, social, and ecological health; ESG is the specific operational and reporting framework used to measure performance",
-      "Sustainability applies only to agriculture, while ESG applies only to banks",
-      "There is no difference; both terms were invented by social media influencers",
-      "Sustainability means spending money, while ESG means saving money"
-    ],
-    correct: 0,
-    correctExplanation: "Sustainability is the long-term vision; ESG provides the structured categories and metrics used to manage and disclose progress.",
-    incorrectExplanation: "Incorrect. Sustainability is the overarching goal, while ESG is the practical framework used to measure and evaluate performance."
+      "Published ESG reports are written entirely by artificial intelligence with zero connection to real workplace data",
+      "Aggregate daily employee decisions and accurate data logging generate the verified operational evidence that underpins corporate ESG disclosures",
+      "Employees are legally forbidden from reading their company's published ESG reports",
+      "Individual employees have zero influence because ESG is managed exclusively by external public relations firms"
+],
+    correct: 1,
+    correctExplanation: "Corporate ESG disclosures are only as credible as the underlying operational data collected from daily employee activities.",
+    incorrectExplanation: "Incorrect. Company ESG reports rely directly on the aggregate operational data logged by employees.",
+    optionFeedback: [
+      "Incorrect. Legitimate ESG disclosures require auditable operational records from physical facilities.",
+      "Correct. Real corporate ESG performance is built from daily sorting, energy habits, safety logs, and ethical purchasing recorded by staff on the ground.",
+      "Incorrect. Transparency requires making sustainability reports accessible to employees, investors, and the public.",
+      "Incorrect. While PR teams format communications, the underlying facts and figures derive entirely from workplace operations."
+]
   },
   {
     order: 6,
-    question: "Why do commercial banks and institutional investors evaluate a company's ESG score before approving major loans or investments?",
+    question: "Why is ESG not simply corporate philanthropy or occasional charitable donations?",
     options: [
-      "Because strong ESG performance indicates lower operational, legal, and environmental risk, protecting the financial viability of the investment",
-      "Because international law requires all banks to donate their profits to charity",
-      "Because ESG scores determine the physical color of the bank's credit cards",
-      "Because companies with high ESG scores are legally exempt from repaying loans"
-    ],
+      "ESG embeds sustainability and ethical accountability directly into core business strategies, operational processes, and risk management",
+      "Charity is strictly illegal under commercial law in Mauritius",
+      "ESG means companies are never permitted to make a financial profit",
+      "Philanthropy is managed by the police while ESG is managed by firefighters"
+],
     correct: 0,
-    correctExplanation: "ESG ratings provide insight into operational risk management, climate resilience, labor stability, and regulatory compliance.",
-    incorrectExplanation: "Incorrect. Lenders examine ESG factors to gauge risk management and long-term financial resilience."
+    correctExplanation: "Philanthropy donates surplus funds, whereas ESG governs how the company makes its money and manages operational impacts every day.",
+    incorrectExplanation: "Incorrect. ESG integrates environmental and social risk management into daily core business operations.",
+    optionFeedback: [
+      "Correct. Philanthropy focuses on giving money away; ESG focuses on how responsibly the company operates, treats workers, and manages environmental risks daily.",
+      "Incorrect. Corporate Social Responsibility (CSR) and charitable donations are standard, legal practices in Mauritius.",
+      "Incorrect. Sustainable businesses must remain commercially viable and profitable over the long term.",
+      "Incorrect. Corporate governance and sustainability are management functions, not emergency services."
+]
   },
   {
     order: 7,
-    question: "How does responsible management of third-party contracted workers (like outsourced security guards and cleaners) relate to the Social pillar?",
+    question: "Under the Social (S) pillar, why is occupational health and safety (OHS) considered a foundational responsibility rather than an optional perk?",
     options: [
-      "Organizations have a duty of care to ensure all workers on their premises have safe conditions, fair rest periods, and access to basic amenities",
-      "Contracted workers have zero legal or human rights on commercial premises",
-      "Outsourced staff should be forbidden from using company washrooms",
-      "Social responsibility applies exclusively to executive directors"
-    ],
-    correct: 0,
-    correctExplanation: "Social responsibility and human rights due diligence extend across the entire extended workforce operating on an organization's site.",
-    incorrectExplanation: "Incorrect. Due diligence requires ensuring safe, humane working conditions for all workers on site regardless of contract type."
+      "Because ensuring every worker returns home safely every day is a primary moral, legal, and operational obligation of every business",
+      "Because safety helmets make employees look more fashionable on corporate social media",
+      "Because occupational safety is only relevant on construction scaffolding above 50 meters",
+      "Because accidents have zero financial cost to commercial employers"
+],
+    correct: 2,
+    correctExplanation: "Workplace safety protects human life and dignity, forming the bedrock of the Social pillar under statutory laws like OSHA 2005.",
+    incorrectExplanation: "Incorrect. Occupational safety is a fundamental legal, moral, and operational duty under the Social pillar.",
+    optionFeedback: [
+      "Incorrect. Safety is grounded in human protection and legal duty, not public relations imagery.",
+      "Incorrect. Health and safety applies across all office, warehouse, retail, hospitality, and industrial environments.",
+      "Correct. Under the Occupational Safety and Health Act 2005 and ESG standards, protecting worker physical and mental integrity is an essential corporate duty.",
+      "Incorrect. Workplace injuries cause immense human suffering, lost productivity, medical costs, and severe legal liability."
+]
   },
   {
     order: 8,
-    question: "A supervisor tells an employee to falsify the date on an expired safety inspection log to prepare for an auditor visit. Under Governance standards, what should the employee do?",
+    question: "How does a robust whistleblower and grievance mechanism support the Governance (G) pillar?",
     options: [
-      "Refuse to falsify records; arrange for an immediate genuine inspection and report the true status transparently",
-      "Alter the date immediately to ensure the audit report looks perfect",
-      "Delete the entire computer file to hide the expired certificate",
-      "Blame a former colleague for the expired document"
-    ],
-    correct: 0,
-    correctExplanation: "Governance prohibits document falsification. Maintaining record integrity and transparency preserves corporate legal standing.",
-    incorrectExplanation: "Incorrect. Falsifying compliance documents is illegal and a severe governance breach; honest correction is required."
+      "It encourages employees to spread unsubstantiated gossip about colleagues during lunch breaks",
+      "It allows companies to delete all internal audit records without government oversight",
+      "It requires managers to approve all personal social media posts by employees",
+      "It provides a secure, confidential channel for employees to report ethical breaches, fraud, or safety hazards without fear of retaliation"
+],
+    correct: 3,
+    correctExplanation: "Confidential reporting channels allow organisations to identify and correct compliance failures before they cause severe damage.",
+    incorrectExplanation: "Incorrect. Whistleblower channels provide confidential, safe avenues to report genuine misconduct and safety risks.",
+    optionFeedback: [
+      "Incorrect. Whistleblower protections are serious legal compliance mechanisms for genuine misconduct, not workplace gossip.",
+      "Incorrect. Deleting audit records violates company laws and accounting standards.",
+      "Incorrect. Whistleblowing focuses on internal operational misconduct, not personal private communications.",
+      "Correct. Effective whistleblower policies protect integrity by enabling early detection of fraud, safety breaches, or environmental violations without fear of reprisal."
+]
   },
   {
     order: 9,
-    question: "Why is ESG not just the responsibility of senior executive leadership?",
+    question: "In what way does supply chain due diligence connect the Environmental (E) and Governance (G) pillars?",
     options: [
-      "While leadership sets strategic policies, day-to-day ESG performance is realized through the operational actions, safety habits, and integrity of every employee",
-      "Executive leaders are legally prohibited from making sustainability decisions",
-      "Only frontline employees are allowed to read company policies",
-      "Leadership is responsible only for marketing, while employees handle all legal affairs"
-    ],
+      "By requiring management to verify that contractors and suppliers comply with environmental permits, labor laws, and ethical standards",
+      "By forcing all suppliers to relocate their factories to the same street",
+      "By refusing to pay supplier invoices for twelve months to boost company cash flow",
+      "By ordering goods exclusively from foreign websites that have no registered contact address"
+],
     correct: 0,
-    correctExplanation: "ESG policies succeed or fail based on daily frontline implementation: energy conservation, safety compliance, and honest data entry.",
-    incorrectExplanation: "Incorrect. Strategy is set by leadership, but ESG outcomes depend on daily choices across the entire workforce."
+    correctExplanation: "Governance controls (audits, contracts, due diligence) enforce environmental and social standards across the supply chain.",
+    incorrectExplanation: "Incorrect. Supply chain due diligence uses governance procedures to ensure suppliers operate responsibly.",
+    optionFeedback: [
+      "Correct. Governance provides the oversight policies and contractual checks that ensure third-party vendors meet environmental compliance and ethical standards.",
+      "Incorrect. Supply chains are geographically distributed; governance audits their operational practices.",
+      "Incorrect. Unethical payment withholding damages supplier relationships and violates fair business conduct.",
+      "Incorrect. Untraceable suppliers create immense governance, counterfeit, and regulatory risks."
+]
   },
   {
     order: 10,
-    question: "How does robust ESG performance help a commercial enterprise win major client tenders?",
+    question: "How do honest, verifiable activity logs protect an organisation against accusations of greenwashing?",
     options: [
-      "Major enterprise and multinational clients require verified ESG data from suppliers to meet their own Scope 3 emissions and sustainable supply chain commitments",
-      "Clients only award contracts to companies that have the highest number of social media followers",
-      "Tenders are decided purely by lucky draw lottery systems",
-      "Clients prefer suppliers who refuse to measure their resource consumption"
-    ],
-    correct: 0,
-    correctExplanation: "Enterprise buyers increasingly mandate verified ESG compliance and carbon transparency as baseline qualifying criteria in tenders.",
-    incorrectExplanation: "Incorrect. Large buyers require verified supplier ESG data to satisfy their own regulatory and supply chain commitments."
+      "They prove that the company owns expensive luxury delivery vans",
+      "They eliminate the need to maintain employee payroll records",
+      "They provide auditable, empirical evidence that substantiates public sustainability claims and demonstrates genuine progress",
+      "They guarantee that the company will never be inspected by environmental authorities"
+],
+    correct: 2,
+    correctExplanation: "Auditable data trails prove that public environmental statements are backed by real operational facts rather than marketing exaggerations.",
+    incorrectExplanation: "Incorrect. Verifiable activity data substantiates claims with empirical evidence, preventing greenwashing.",
+    optionFeedback: [
+      "Incorrect. Asset displays do not prove environmental performance.",
+      "Incorrect. Payroll compliance is a distinct statutory obligation.",
+      "Correct. Transparent data trails allow independent auditors, customers, and regulators to verify that published green metrics reflect real operational reality.",
+      "Incorrect. Regulatory authorities retain the statutory right to inspect facilities regardless of records."
+]
   }
 ];
 
@@ -338,26 +425,25 @@ export async function ensureEsgBasicsCourse(): Promise<void> {
       if (byCode) {
         course = byCode;
       } else {
-        const [byId] = await tx
+        const [bySlug] = await tx
           .select()
           .from(coursesTable)
-          .where(eq(coursesTable.id, COURSE_ID))
+          .where(eq(coursesTable.slug, COURSE_SLUG))
           .limit(1);
-        
-        if (byId) {
-          course = byId;
+        if (bySlug) {
+          course = bySlug;
         } else {
-          const [bySlug] = await tx
+          const [byId] = await tx
             .select()
             .from(coursesTable)
-            .where(eq(coursesTable.slug, COURSE_SLUG))
+            .where(eq(coursesTable.id, COURSE_ID))
             .limit(1);
-          course = bySlug ?? null;
+          course = byId ?? null;
         }
       }
 
       if (!course) {
-        throw new Error("Course 9 not seeded by catalogue skeletons bootstrap!");
+        throw new Error("Course ELH-09 / esg-basics not seeded by catalogue skeletons bootstrap!");
       }
 
       const courseId = course.id;
@@ -380,11 +466,11 @@ export async function ensureEsgBasicsCourse(): Promise<void> {
         .where(eq(quizQuestionsTable.courseId, courseId));
 
       // 3. Evaluate integrity violations
-      const hasMissingLessons = existingLessons.length !== NEW_LESSONS.length;
+      const hasMissingLessons = existingLessons.length !== 6;
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length < 8;
+      const hasMissingQuiz = existingQuizQuestions.length !== 10;
       const hasIncorrectSlug = course.slug !== COURSE_SLUG;
 
       const needsRepair = !existingSeed ||
@@ -394,17 +480,17 @@ export async function ensureEsgBasicsCourse(): Promise<void> {
                           hasIncorrectSlug;
 
       if (!needsRepair) {
-        logger.info({ courseId, slug: COURSE_SLUG }, "ESG Basics course content and v4 integrity verified. Skipping repair to preserve administrator edits...");
+        logger.info({ courseId, slug: COURSE_SLUG }, "ESG Basics course content and v3 integrity verified. Skipping repair to preserve administrator edits...");
         return;
       }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v4 seed detected for Course 9. Re-seeding course content and lessons transactionally...");
+      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v3 seed detected for Course ELH-09. Re-seeding course content and lessons transactionally...");
 
       // 4. Resolve next recommended course dynamically by slug
       const [nextCourse] = await tx
         .select({ id: coursesTable.id })
         .from(coursesTable)
-        .where(eq(coursesTable.slug, "environmental-compliance-at-work"))
+        .where(eq(coursesTable.slug, "environmental-compliance-mauritius"))
         .limit(1);
       const nextCourseId = nextCourse?.id ?? null;
 
@@ -414,7 +500,7 @@ export async function ensureEsgBasicsCourse(): Promise<void> {
         .set({
           title: COURSE_TITLE,
           slug: COURSE_SLUG,
-          courseCode: COURSE_META.courseCode,
+          courseCode: "ELH-09",
           description: COURSE_META.description,
           fullDescription: COURSE_META.fullDescription,
           categoryId: COURSE_META.categoryId,
@@ -423,16 +509,16 @@ export async function ensureEsgBasicsCourse(): Promise<void> {
           level: COURSE_META.level,
           isFeatured: COURSE_META.isFeatured,
           thumbnailUrl: COURSE_META.thumbnailUrl,
-          intendedRoles: COURSE_META.intendedRoles,
           learningObjectives: COURSE_META.learningObjectives,
           includesCertificate: COURSE_META.includesCertificate,
           passingScore: COURSE_META.passingScore,
+          completionMessage: COURSE_META.completionMessage,
           badgeName: COURSE_META.badgeName,
           badgeDescription: COURSE_META.badgeDescription,
           recommendedNextCourseId: nextCourseId,
+          version: 2,
           isPublished: true,
           status: "published",
-          updatedAt: new Date()
         })
         .where(eq(coursesTable.id, courseId));
 
@@ -461,9 +547,7 @@ export async function ensureEsgBasicsCourse(): Promise<void> {
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
-          optionFeedback: q.options.map((_, optIdx) => 
-            optIdx === q.correct ? q.correctExplanation : q.incorrectExplanation
-          ),
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );
@@ -475,11 +559,11 @@ export async function ensureEsgBasicsCourse(): Promise<void> {
           slug: BADGE_SLUG,
           name: COURSE_META.badgeName,
           description: COURSE_META.badgeDescription,
-          icon: "layers",
+          icon: "award",
           criteriaType: "all_courses",
           threshold: 0,
           courseIds: [courseId],
-          orderIndex: 9,
+          orderIndex: 14,
         })
         .onConflictDoUpdate({
           target: badgeDefinitionsTable.slug,
@@ -490,20 +574,22 @@ export async function ensureEsgBasicsCourse(): Promise<void> {
           },
         });
 
-      // 9. Save seed marker version
-      if (!existingSeed) {
-        await tx.insert(systemSeedsTable).values({
+      // 9. Save seed marker version idempotently
+      await tx
+        .insert(systemSeedsTable)
+        .values({
           name: SEED_NAME,
-          version: 4,
+          version: 3,
+        })
+        .onConflictDoUpdate({
+          target: systemSeedsTable.name,
+          set: { version: 3 },
         });
-      } else {
-        await tx.update(systemSeedsTable).set({ version: 4 }).where(eq(systemSeedsTable.name, SEED_NAME));
-      }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "ESG Basics course v4 seed / repair transaction completed successfully.");
+      logger.info({ courseId, slug: COURSE_SLUG }, "ESG Basics course v3 seed / repair transaction completed successfully.");
     });
   } catch (err) {
-    logger.error({ err, courseId: COURSE_ID }, "Failed to ensure ESG Basics course seeding");
-    throw err;
+    logger.error({ err }, "Failed to execute idempotent seeding/repair of ESG Basics course");
   }
 }
+

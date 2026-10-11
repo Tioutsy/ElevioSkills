@@ -2,14 +2,12 @@ import React from "react";
 
 const englishTranslations: Record<string, string> = {
   // Navigation
-  "nav.home": "Home",
   "nav.courses": "Courses",
-  "nav.learning_paths": "Learning Paths",
   "nav.challenges": "Challenges",
-  // "nav.mauritius_resources": "Mauritius Rules & Resources", // Intentionally removed — product simplification.
-  // "nav.impact": "Impact", // Intentionally removed — Sprint product simplification.
+  "nav.mauritius_resources": "Mauritius Rules & Resources",
+  "nav.impact": "Impact",
   "nav.pricing": "Pricing",
-  "nav.my_learning": "My Skills",
+  "nav.my_learning": "My Learning",
   "nav.company": "Company",
   "nav.employee_reviews": "Employee Challenge Reviews",
   "nav.admin": "Admin",
@@ -45,7 +43,7 @@ const englishTranslations: Record<string, string> = {
   "footer.platform": "Platform",
   "footer.company": "Company",
   "footer.course_catalog": "Course Catalog",
-  // "footer.impact_dashboard": "Impact Dashboard", // Intentionally removed — Sprint product simplification.
+  "footer.impact_dashboard": "Impact Dashboard",
   "footer.corporate_plans": "Corporate Plans",
   "footer.verify_certificate": "Verify Certificate",
   "footer.about_us": "About Us",
@@ -92,7 +90,7 @@ const englishTranslations: Record<string, string> = {
   // Dashboard
   "dashboard.welcome": "Welcome back, {name}",
   "dashboard.welcome_sub": "Track your workplace sustainability training progress and active assignments.",
-  "dashboard.my_learning_title": "My Skills",
+  "dashboard.my_learning_title": "My Sustainability Learning",
   "dashboard.overall_progress": "Overall Progress",
   "dashboard.courses_completed": "Courses Completed",
   "dashboard.certificates_earned": "Certificates Earned",

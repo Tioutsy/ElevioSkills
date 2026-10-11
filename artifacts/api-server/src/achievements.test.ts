@@ -18,7 +18,7 @@ import {
   evaluateCourseMilestones,
   evaluateChallengeAchievements,
   ensureAchievementDefinitions,
-} from "./lib/achievementsService.js";
+} from "./lib/achievementsService";
 
 const API_BASE = "http://localhost:8082/api";
 const TEST_USER_ID = "achievements_e2e_user";

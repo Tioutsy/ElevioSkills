@@ -125,7 +125,7 @@ export default function CompanyCompliance() {
   const { data: employeesData, isLoading: isLoadingEmployees, error: employeesError, refetch: refetchEmployees } = useGetManagerTrainingEmployees(filters);
   const { data: allEmployees } = useListEmployees();
   const { data: rawCourses } = useListCourses();
-  const allCourses = useMemo(() => sortCoursesByCode(rawCourses ?? []), [rawCourses]);
+  const allCourses = useMemo<any[]>(() => sortCoursesByCode(rawCourses ?? []), [rawCourses]);
 
   // Departments list for dropdown filter
   const departments = useMemo(() => {

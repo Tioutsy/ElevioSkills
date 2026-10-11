@@ -6,6 +6,7 @@ import {
   enrollmentsTable,
   courseAssignmentsTable,
   coursePrerequisitesTable,
+  quizAttemptsTable,
 } from "@workspace/db";
 import { eq, and, or, inArray } from "drizzle-orm";
 import { CompanyAccess } from "../access";
@@ -82,8 +83,8 @@ export async function generateEmployeeRecommendations(
     .from(enrollmentsTable)
     .where(or(...enrollmentClauses));
 
-  const completedCourseIds = Array.from(
-    new Set(enrollments.filter((e) => e.status === "completed").map((e) => e.courseId))
+  const completedCourseIds: number[] = Array.from(
+    new Set(enrollments.filter((e: any) => e.status === "completed").map((e: any) => e.courseId as number))
   );
 
   const assignments = await db
@@ -91,10 +92,10 @@ export async function generateEmployeeRecommendations(
     .from(courseAssignmentsTable)
     .where(eq(courseAssignmentsTable.employeeId, emp.id));
 
-  const assignedCourseIds = Array.from(
+  const assignedCourseIds: number[] = Array.from(
     new Set([
-      ...enrollments.filter((e) => e.status === "in_progress" || e.status === "assigned").map((e) => e.courseId),
-      ...assignments.map((a) => a.courseId),
+      ...enrollments.filter((e: any) => e.status === "in_progress" || e.status === "assigned").map((e: any) => e.courseId as number),
+      ...assignments.map((a: any) => a.courseId as number),
     ])
   );
 
@@ -112,7 +113,7 @@ export async function generateEmployeeRecommendations(
     .from(coursesTable)
     .where(eq(coursesTable.isPublished, true));
 
-  const courseIds = allCourses.map((c) => c.id);
+  const courseIds: number[] = allCourses.map((c: any) => c.id as number);
 
   // Fetch prerequisites map
   const rawPrereqs = courseIds.length > 0
@@ -138,15 +139,62 @@ export async function generateEmployeeRecommendations(
     });
   }
 
-  const catalogItems: CourseCatalogItem[] = allCourses.map((c) => ({
+  const catalogItems: CourseCatalogItem[] = allCourses.map((c: any) => ({
     id: c.id,
     courseCode: c.courseCode || `ELH-${c.id}`,
     title: c.title,
     description: c.description || "",
     level: c.level || "Intermediate",
     durationMinutes: c.durationMinutes || 45,
-    prerequisites: (prereqMap.get(c.id) || []).map((p) => p.code || String(p.id)),
+    prerequisites: (prereqMap.get(c.id) || []).map((p: any) => p.code || String(p.id)),
   }));
+
+  // Fetch assessment weaknesses and strengths from quiz attempts
+  const quizClauses = [];
+  if (emp.clerkUserId) quizClauses.push(eq(quizAttemptsTable.userId, emp.clerkUserId));
+  if (emp.email) quizClauses.push(eq(quizAttemptsTable.userId, emp.email));
+
+  const assessmentWeaknesses: string[] = [];
+  const assessmentStrengths: string[] = [];
+
+  if (quizClauses.length > 0) {
+    const attempts = await db
+      .select({
+        score: quizAttemptsTable.score,
+        passed: quizAttemptsTable.passed,
+        courseId: quizAttemptsTable.courseId,
+      })
+      .from(quizAttemptsTable)
+      .where(or(...quizClauses));
+
+    const courseTitleMap = new Map(allCourses.map((c) => [c.id, c.title]));
+    for (const att of attempts) {
+      const title = courseTitleMap.get(att.courseId) || `Course #${att.courseId}`;
+      if (att.passed && att.score >= 80) {
+        assessmentStrengths.push(`Strong performance (${att.score}%) on ${title}`);
+      } else if (!att.passed || att.score < 70) {
+        assessmentWeaknesses.push(`Needs reinforcement (${att.score}%) on ${title}`);
+      }
+    }
+  }
+
+  const seniorityLevel =
+    emp.role === "admin"
+      ? "Senior Executive"
+      : emp.role === "manager"
+      ? "Managerial"
+      : "Staff";
+
+  let knowledgeProfile = { strengths: [], gaps: [], criticalGaps: [] };
+  try {
+    const { generateEmployeeSkillsProfile } = await import("./aiSkillsGapService");
+    const skillsProfile = await generateEmployeeSkillsProfile(emp.id, access);
+    if (skillsProfile?.knowledgeProfile) {
+      knowledgeProfile = skillsProfile.knowledgeProfile;
+    }
+  } catch (err: any) {
+    logger.warn({ err: err?.message }, "Failed to generate skills profile for recommendation enrichment. Proceeding with default context.");
+  }
 
   const input: RecommendationInput = {
     company: {
@@ -155,11 +203,17 @@ export async function generateEmployeeRecommendations(
       trainingPriorities: company?.trainingPriorities || [],
     },
     learner: {
+      employeeId: emp.id,
+      companyId: emp.companyId || access.companyId,
       department: emp.department || "General",
       roleCategory: emp.role || "employee",
       jobTitle: emp.jobTitle || "Employee",
+      seniority: seniorityLevel,
       completedCourseIds,
       assignedCourseIds,
+      assessmentWeaknesses,
+      assessmentStrengths,
+      knowledgeProfile,
     },
     availableCourses: catalogItems,
   };
@@ -168,8 +222,8 @@ export async function generateEmployeeRecommendations(
   const rawResult = await provider.generateRecommendation(input);
 
   // 5. Strict Grounding & Validation
-  const validCoursesMap = new Map(allCourses.map((c) => [c.id, c]));
-  const validCodeMap = new Map(allCourses.map((c) => [(c.courseCode || "").toUpperCase(), c]));
+  const validCoursesMap = new Map<number, any>(allCourses.map((c: any) => [c.id, c]));
+  const validCodeMap = new Map<string, any>(allCourses.map((c: any) => [(c.courseCode || "").toUpperCase(), c]));
   const completedSet = new Set(completedCourseIds);
 
   const verifiedList: VerifiedRecommendation[] = [];

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { customFetch } from "@workspace/api-client-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -60,7 +60,7 @@ export function SmartRecommendationDialog({
   const [error, setError] = useState<string | null>(null);
   const [selectedCourseIds, setSelectedCourseIds] = useState<number[]>([]);
 
-  const fetchRecommendations = useCallback(async () => {
+  const fetchRecommendations = async () => {
     if (!employee) return;
     setLoading(true);
     setError(null);
@@ -73,29 +73,26 @@ export function SmartRecommendationDialog({
       setData(result);
 
       // Auto-select high priority courses by default
-      const highPriority = (result.recommendations || [])
+      const highPriority = result.recommendations
         .filter((r) => r.priority === "high" || r.priority === "medium")
         .map((r) => r.courseId);
-      setSelectedCourseIds(highPriority.length > 0 ? highPriority : (result.recommendations || []).map((r) => r.courseId));
+      setSelectedCourseIds(highPriority.length > 0 ? highPriority : result.recommendations.map((r) => r.courseId));
     } catch (err: any) {
       setError(err.message || "We couldn't generate recommendations right now. You can still assign courses manually from the catalogue.");
     } finally {
       setLoading(false);
     }
-  }, [employee]);
+  };
 
-  useEffect(() => {
-    if (open && employee) {
+  const handleOpenChange = (nextOpen: boolean) => {
+    onOpenChange(nextOpen);
+    if (nextOpen && employee) {
       fetchRecommendations();
     } else {
       setData(null);
       setError(null);
       setSelectedCourseIds([]);
     }
-  }, [open, employee?.id, fetchRecommendations]);
-
-  const handleOpenChange = (nextOpen: boolean) => {
-    onOpenChange(nextOpen);
   };
 
   const toggleCourse = (id: number) => {

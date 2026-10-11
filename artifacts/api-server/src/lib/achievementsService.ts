@@ -762,7 +762,7 @@ export async function getEmployeeAchievementProgress(
       AND is_reversed = false
     ORDER BY month_key ASC;
   `);
-  const monthKeys: string[] = (activeMonthsResult.rows || activeMonthsResult).map(
+  const monthKeys: string[] = ((activeMonthsResult.rows ?? activeMonthsResult) as any[]).map(
     (r: any) => r.month_key
   );
   let maxConsecutiveMonths = 0;
@@ -982,7 +982,7 @@ export async function getCompanyRecognitionAnalytics(companyId: number): Promise
     ORDER BY b.order_index ASC;
   `);
 
-  const breakdown = (breakdownResult.rows || breakdownResult).map((r: any) => ({
+  const breakdown = ((breakdownResult.rows ?? breakdownResult) as any[]).map((r: any) => ({
     code: r.code,
     name: r.name,
     category: r.category,

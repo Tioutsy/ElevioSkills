@@ -371,8 +371,8 @@ router.post("/", async (req, res): Promise<void> => {
     .insert(coursesTable)
     .values({
       ...parsed.data,
-      priceUsd: String(parsed.data.priceUsd),
-    })
+      priceUsd: String(parsed.data.priceUsd ?? "0"),
+    } as any)
     .returning();
   res.status(201).json({ ...course, priceUsd: parseFloat(course.priceUsd) });
 });

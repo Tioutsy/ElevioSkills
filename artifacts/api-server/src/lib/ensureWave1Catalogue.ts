@@ -1695,8 +1695,8 @@ export async function ensureWave1Catalogue(): Promise<void> {
                 applicableSeniorityTiers: courseDef.applicableSeniorityTiers,
                 productionPriority: courseDef.productionPriority,
                 learningPathPurpose: courseDef.learningPathPurpose,
-                isPublished: true,
-                status: "published",
+                isPublished: parseInt(courseDef.courseCode.replace("ELH-", ""), 10) < 36,
+                status: parseInt(courseDef.courseCode.replace("ELH-", ""), 10) < 36 ? "published" : "draft",
                 updatedAt: new Date(),
               })
               .where(eq(coursesTable.id, courseId));
@@ -1766,8 +1766,8 @@ export async function ensureWave1Catalogue(): Promise<void> {
               applicableSeniorityTiers: courseDef.applicableSeniorityTiers,
               productionPriority: courseDef.productionPriority,
               learningPathPurpose: courseDef.learningPathPurpose,
-              isPublished: true,
-              status: "published",
+              isPublished: parseInt(courseDef.courseCode.replace("ELH-", ""), 10) < 36,
+              status: parseInt(courseDef.courseCode.replace("ELH-", ""), 10) < 36 ? "published" : "draft",
             })
             .returning({ id: coursesTable.id });
           courseId = inserted.id;

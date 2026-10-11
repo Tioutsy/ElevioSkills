@@ -1,69 +1,22 @@
 import { Router } from "express";
 import { db } from "@workspace/db";
-import { enrollmentsTable, coursesTable, lessonsTable, courseAssignmentsTable } from "@workspace/db";
-import { eq, and, or, inArray, sql } from "drizzle-orm";
+import { enrollmentsTable, coursesTable, lessonsTable } from "@workspace/db";
+import { eq, and, or, inArray } from "drizzle-orm";
 import { CreateEnrollmentBody } from "@workspace/api-zod";
-import { getCompanyAccess, requireCompletedProfile, sendHttpError } from "../lib/access";
+import { getCompanyAccess, sendHttpError } from "../lib/access";
 import { getAssignmentStatus } from "../lib/lms";
 
 const router = Router();
 
 router.get("/", async (req, res): Promise<void> => {
   try {
-    const access = await requireCompletedProfile(req);
+    const access = await getCompanyAccess(req);
     const clauses = [eq(enrollmentsTable.userId, access.userId)];
-
-    if (access.email) {
-      clauses.push(sql`lower(${enrollmentsTable.userId}) = ${access.email.toLowerCase()}`);
-    }
-
     if (access.employee) {
       clauses.push(eq(enrollmentsTable.employeeId, access.employee.id));
-      if (access.employee.email) {
-        clauses.push(sql`lower(${enrollmentsTable.userId}) = ${access.employee.email.toLowerCase()}`);
-      }
-
-      // Sync any active course_assignments into enrollmentsTable idempotently
-      try {
-        const assignments = await db
-          .select()
-          .from(courseAssignmentsTable)
-          .where(eq(courseAssignmentsTable.employeeId, access.employee.id));
-
-        for (const assignment of assignments) {
-          const [existing] = await db
-            .select({ id: enrollmentsTable.id })
-            .from(enrollmentsTable)
-            .where(
-              and(
-                eq(enrollmentsTable.courseId, assignment.courseId),
-                or(
-                  eq(enrollmentsTable.userId, access.userId),
-                  eq(enrollmentsTable.employeeId, access.employee.id),
-                )
-              )
-            )
-            .limit(1);
-
-          if (!existing) {
-            await db
-              .insert(enrollmentsTable)
-              .values({
-                userId: access.userId,
-                companyId: access.employee.companyId,
-                employeeId: access.employee.id,
-                courseId: assignment.courseId,
-                assignmentSource: "company",
-                dueDate: assignment.dueDate,
-                status: assignment.completedAt ? "completed" : "active",
-                completedAt: assignment.completedAt,
-                progressPct: assignment.completedAt ? 100 : 0,
-              });
-          }
-        }
-      } catch (err) {
-        // Non-blocking sync
-      }
+      clauses.push(inArray(enrollmentsTable.userId, [access.employee.email]));
+    } else if (access.email) {
+      clauses.push(eq(enrollmentsTable.userId, access.email));
     }
 
     const enrollments = await db
@@ -74,9 +27,6 @@ router.get("/", async (req, res): Promise<void> => {
         employeeId: enrollmentsTable.employeeId,
         courseId: enrollmentsTable.courseId,
         courseName: coursesTable.title,
-        courseTitle: coursesTable.title,
-        courseCode: coursesTable.courseCode,
-        courseSlug: coursesTable.slug,
         courseThumbnail: coursesTable.thumbnailUrl,
         status: enrollmentsTable.status,
         progressPct: enrollmentsTable.progressPct,
@@ -86,27 +36,27 @@ router.get("/", async (req, res): Promise<void> => {
         createdAt: enrollmentsTable.createdAt,
       })
       .from(enrollmentsTable)
-      .innerJoin(coursesTable, eq(enrollmentsTable.courseId, coursesTable.id))
+      .leftJoin(coursesTable, eq(enrollmentsTable.courseId, coursesTable.id))
       .where(or(...clauses))
-      .orderBy(sql`${enrollmentsTable.createdAt} DESC`);
+      .orderBy(enrollmentsTable.dueDate, enrollmentsTable.createdAt);
 
     res.json(
-      enrollments.map((e) => ({
-        ...e,
-        assignmentStatus: getAssignmentStatus(e),
-      }))
+      enrollments.map((enrollment) => ({
+        ...enrollment,
+        assignmentStatus: getAssignmentStatus(enrollment),
+      })),
     );
   } catch (err) {
     if (!sendHttpError(res, err)) {
-      req.log?.error({ err }, "Failed to get enrollments");
-      res.status(500).json({ error: "Failed to get enrollments" });
+      req.log?.error({ err }, "Failed to list enrollments");
+      res.status(500).json({ error: "Failed to list enrollments" });
     }
   }
 });
 
 router.post("/", async (req, res): Promise<void> => {
   try {
-    const access = await requireCompletedProfile(req);
+    const access = await getCompanyAccess(req);
     const parsed = CreateEnrollmentBody.safeParse(req.body);
     if (!parsed.success) {
       res.status(400).json({ error: parsed.error.message });
@@ -114,14 +64,9 @@ router.post("/", async (req, res): Promise<void> => {
     }
 
     const existingClauses = [eq(enrollmentsTable.userId, access.userId)];
-    if (access.email) {
-      existingClauses.push(sql`lower(${enrollmentsTable.userId}) = ${access.email.toLowerCase()}`);
-    }
     if (access.employee) {
       existingClauses.push(eq(enrollmentsTable.employeeId, access.employee.id));
-      if (access.employee.email) {
-        existingClauses.push(sql`lower(${enrollmentsTable.userId}) = ${access.employee.email.toLowerCase()}`);
-      }
+      existingClauses.push(eq(enrollmentsTable.userId, access.employee.email));
     }
 
     const [course] = await db
@@ -174,19 +119,7 @@ router.post("/", async (req, res): Promise<void> => {
     }
 
     const existing = await db
-      .select({
-        id: enrollmentsTable.id,
-        userId: enrollmentsTable.userId,
-        companyId: enrollmentsTable.companyId,
-        employeeId: enrollmentsTable.employeeId,
-        courseId: enrollmentsTable.courseId,
-        status: enrollmentsTable.status,
-        progressPct: enrollmentsTable.progressPct,
-        dueDate: enrollmentsTable.dueDate,
-        lastAccessedAt: enrollmentsTable.lastAccessedAt,
-        completedAt: enrollmentsTable.completedAt,
-        createdAt: enrollmentsTable.createdAt,
-      })
+      .select()
       .from(enrollmentsTable)
       .where(
         and(
@@ -196,31 +129,9 @@ router.post("/", async (req, res): Promise<void> => {
       );
 
     if (existing.length > 0) {
-      const existingEnrollment = existing[0]!;
-      // Link to current session credentials if not already linked
-      if (existingEnrollment.userId !== access.userId || (access.employee && !existingEnrollment.employeeId)) {
-        await db
-          .update(enrollmentsTable)
-          .set({
-            userId: access.userId,
-            employeeId: access.employee?.id ?? existingEnrollment.employeeId,
-            companyId: access.employee?.companyId ?? access.companyId ?? existingEnrollment.companyId,
-          })
-          .where(eq(enrollmentsTable.id, existingEnrollment.id));
-      }
-
-      res.status(200).json({
-        ...existingEnrollment,
-        assignmentStatus: getAssignmentStatus(existingEnrollment),
-      });
+      res.status(400).json({ error: "Already enrolled in this course" });
       return;
     }
-
-    const [targetCourse] = await db
-      .select({ version: coursesTable.version })
-      .from(coursesTable)
-      .where(eq(coursesTable.id, parsed.data.courseId))
-      .limit(1);
 
     const [enrollment] = await db
       .insert(enrollmentsTable)
@@ -229,7 +140,6 @@ router.post("/", async (req, res): Promise<void> => {
         companyId: access.employee?.companyId ?? access.companyId,
         employeeId: access.employee?.id,
         courseId: parsed.data.courseId,
-        enrolledVersion: targetCourse?.version ?? 1,
       })
       .returning();
     res.status(201).json({
@@ -246,7 +156,7 @@ router.post("/", async (req, res): Promise<void> => {
 
 router.get("/:id", async (req, res): Promise<void> => {
   try {
-    const access = await requireCompletedProfile(req);
+    const access = await getCompanyAccess(req);
     const raw = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
     const id = parseInt(raw, 10);
     if (isNaN(id)) {
@@ -254,7 +164,7 @@ router.get("/:id", async (req, res): Promise<void> => {
       return;
     }
 
-    let [enrollment] = await db
+    const [enrollment] = await db
       .select({
         id: enrollmentsTable.id,
         userId: enrollmentsTable.userId,
@@ -274,140 +184,19 @@ router.get("/:id", async (req, res): Promise<void> => {
       .leftJoin(coursesTable, eq(enrollmentsTable.courseId, coursesTable.id))
       .where(eq(enrollmentsTable.id, id));
 
-    // Fallback: If not found by enrollment ID, check if :id is a courseId for which the user is enrolled or assigned
-    if (!enrollment) {
-      const userClauses = [eq(enrollmentsTable.userId, access.userId)];
-      if (access.email) {
-        userClauses.push(sql`lower(${enrollmentsTable.userId}) = ${access.email.toLowerCase()}`);
-      }
-      if (access.employee) {
-        userClauses.push(eq(enrollmentsTable.employeeId, access.employee.id));
-        if (access.employee.email) {
-          userClauses.push(sql`lower(${enrollmentsTable.userId}) = ${access.employee.email.toLowerCase()}`);
-        }
-      }
-
-      const [courseEnrollment] = await db
-        .select({
-          id: enrollmentsTable.id,
-          userId: enrollmentsTable.userId,
-          companyId: enrollmentsTable.companyId,
-          employeeId: enrollmentsTable.employeeId,
-          courseId: enrollmentsTable.courseId,
-          courseName: coursesTable.title,
-          courseThumbnail: coursesTable.thumbnailUrl,
-          status: enrollmentsTable.status,
-          progressPct: enrollmentsTable.progressPct,
-          dueDate: enrollmentsTable.dueDate,
-          lastAccessedAt: enrollmentsTable.lastAccessedAt,
-          completedAt: enrollmentsTable.completedAt,
-          createdAt: enrollmentsTable.createdAt,
-        })
-        .from(enrollmentsTable)
-        .leftJoin(coursesTable, eq(enrollmentsTable.courseId, coursesTable.id))
-        .where(
-          and(
-            eq(enrollmentsTable.courseId, id),
-            or(...userClauses),
-          ),
-        )
-        .limit(1);
-
-      if (courseEnrollment) {
-        enrollment = courseEnrollment;
-      } else {
-        // Auto-hydrate: check if assigned or if id is a valid course in the catalogue
-        let assignment: any = null;
-        if (access.employee) {
-          const [foundAssignment] = await db
-            .select()
-            .from(courseAssignmentsTable)
-            .where(
-              and(
-                eq(courseAssignmentsTable.employeeId, access.employee.id),
-                eq(courseAssignmentsTable.courseId, id),
-              ),
-            )
-            .limit(1);
-          assignment = foundAssignment ?? null;
-        }
-
-        const [courseRecord] = await db.select().from(coursesTable).where(eq(coursesTable.id, id)).limit(1);
-
-        if (assignment || courseRecord) {
-          const targetCourseId = assignment ? assignment.courseId : courseRecord.id;
-          const [created] = await db
-            .insert(enrollmentsTable)
-            .values({
-              userId: access.userId,
-              companyId: access.employee?.companyId ?? (access.companyId ?? null),
-              employeeId: access.employee?.id ?? null,
-              courseId: targetCourseId,
-              assignmentSource: assignment ? "company" : "self",
-              dueDate: assignment?.dueDate ?? null,
-              status: assignment?.completedAt ? "completed" : "active",
-              completedAt: assignment?.completedAt ?? null,
-              progressPct: assignment?.completedAt ? 100 : 0,
-            })
-            .returning();
-
-          const [hydrated] = await db
-            .select({
-              id: enrollmentsTable.id,
-              userId: enrollmentsTable.userId,
-              companyId: enrollmentsTable.companyId,
-              employeeId: enrollmentsTable.employeeId,
-              courseId: enrollmentsTable.courseId,
-              courseName: coursesTable.title,
-              courseThumbnail: coursesTable.thumbnailUrl,
-              status: enrollmentsTable.status,
-              progressPct: enrollmentsTable.progressPct,
-              dueDate: enrollmentsTable.dueDate,
-              lastAccessedAt: enrollmentsTable.lastAccessedAt,
-              completedAt: enrollmentsTable.completedAt,
-              createdAt: enrollmentsTable.createdAt,
-            })
-            .from(enrollmentsTable)
-            .leftJoin(coursesTable, eq(enrollmentsTable.courseId, coursesTable.id))
-            .where(eq(enrollmentsTable.id, created.id));
-
-          enrollment = hydrated;
-        }
-      }
-    }
-
     if (!enrollment) {
       res.status(404).json({ error: "Enrollment not found" });
       return;
     }
 
-    const isOwner =
+    const canAccess =
+      access.role !== "employee" ||
       enrollment.userId === access.userId ||
-      (access.email && enrollment.userId && enrollment.userId.toLowerCase() === access.email.toLowerCase()) ||
-      (access.employee && (enrollment.employeeId === access.employee.id || (enrollment.userId && enrollment.userId.toLowerCase() === access.employee.email.toLowerCase())));
-
-    const isCompanyStaff =
-      access.role === "platform_admin" ||
-      access.role === "company_admin" ||
-      access.role === "manager" ||
-      (access.companyId && enrollment.companyId === access.companyId);
-
-    const canAccess = isOwner || isCompanyStaff;
+      enrollment.employeeId === access.employee?.id ||
+      Boolean(access.email && enrollment.userId === access.email);
     if (!canAccess) {
       res.status(403).json({ error: "You can only view your assigned training" });
       return;
-    }
-
-    // Auto-link enrollment to current session userId if needed
-    if (enrollment.userId !== access.userId) {
-      await db
-        .update(enrollmentsTable)
-        .set({
-          userId: access.userId,
-          employeeId: access.employee?.id ?? enrollment.employeeId,
-          companyId: access.employee?.companyId ?? access.companyId ?? enrollment.companyId,
-        })
-        .where(eq(enrollmentsTable.id, enrollment.id));
     }
 
     const [course] = await db
@@ -421,10 +210,24 @@ router.get("/:id", async (req, res): Promise<void> => {
       return;
     }
 
-    // Learners with an active or assigned enrollment can always access their course lessons
+    // Block non-admin learners from accessing unpublished courses
     const isPlatformAdmin = access.role === "platform_admin";
     if (!course.isPublished && !isPlatformAdmin) {
       res.status(403).json({ error: "This course is not published yet" });
+      return;
+    }
+
+    const { evaluateCourseAccess } = await import("../lib/courseAccessService");
+    const accessDecision = await evaluateCourseAccess(enrollment.courseId, access);
+    if (!accessDecision.allowed) {
+      res.status(403).json({
+        error: accessDecision.reason === "PREREQUISITE_REQUIRED" ? "PREREQUISITES_INCOMPLETE" : accessDecision.reason,
+        message: accessDecision.reason === "PREREQUISITE_REQUIRED"
+          ? "You must complete all prerequisite courses before accessing this course content."
+          : "Access denied.",
+        requiredPlanCode: accessDecision.requiredPlanCode,
+        requiredPlanName: accessDecision.requiredPlanName,
+      });
       return;
     }
 

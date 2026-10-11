@@ -52,10 +52,8 @@ Thumbs.db
 # Environment configurations and secrets
 .env
 .env.*
-env-*
 **/.env
 **/.env.*
-**/env-*
 !.env.example
 !**/.env.example
 
@@ -67,3 +65,7 @@ test_drizzle.ts
 verify_seed.ts
 lib/api-spec/node
 EcoLearnHub_Antigravity_12_Course_Skeleton.md
+
+# Legacy sandbox & unused lockfiles
+artifacts/mockup-sandbox/
+bun.lock

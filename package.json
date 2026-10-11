@@ -1,25 +1,33 @@
 {
-  "name": "workspace",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {
-    "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
-    "build": "pnpm run typecheck && pnpm -r --if-present run build",
-    "typecheck:libs": "tsc --build",
-    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck",
-    "db:verify": "pnpm --filter @workspace/api-server run db:verify"
-  },
+  "name": "ecolearn-hub",
+  "version": "1.0.0",
   "private": true,
-  "pnpm": {
-    "overrides": {
-      "rollup": "npm:@rollup/wasm-node@^4.60.3"
-    }
+  "type": "module",
+  "workspaces": [
+    "artifacts/*",
+    "lib/*"
+  ],
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:all": "node scripts/dev.mjs",
+    "dev:web": "npm run dev --workspace=@workspace/ecolearn",
+    "dev:api": "npm run dev --workspace=@workspace/api-server",
+    "build": "npm run build --workspace=@workspace/ecolearn",
+    "typecheck": "npm run typecheck --workspace=@workspace/ecolearn",
+    "lint": "npm run typecheck --workspace=@workspace/ecolearn",
+    "unpublish:courses": "node scripts/unpublish-courses-36-to-139.mjs"
   },
   "devDependencies": {
-    "@tailwindcss/oxide-darwin-arm64": "^4.3.0",
-    "fsevents": "^2.3.3",
-    "lightningcss-darwin-arm64": "^1.32.0",
-    "prettier": "^3.8.3",
-    "typescript": "~5.9.3"
+    "@rollup/rollup-darwin-arm64": "^4.63.3",
+    "@rollup/wasm-node": "^4.63.3",
+    "@tailwindcss/oxide-darwin-arm64": "^4.3.3",
+    "@tailwindcss/oxide-wasm32-wasi": "^4.3.3",
+    "lightningcss-darwin-arm64": "^1.33.0",
+    "lightningcss-wasm": "^1.33.0",
+    "rollup": "npm:@rollup/wasm-node@^4.63.3",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.38.3"
   }
 }

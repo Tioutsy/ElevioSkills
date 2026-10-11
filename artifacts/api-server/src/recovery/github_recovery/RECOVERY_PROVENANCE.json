@@ -1,0 +1,123 @@
+{
+  "recoveryPackageCreated": "2026-09-18T22:42:45Z",
+  "sourceRepository": "https://github.com/Tioutsy/ElevioSkills",
+  "mirrorPath": "/Users/sharonlennon/Downloads/elevio-skills-github-mirror",
+  "cloneMethod": "git clone --mirror",
+  "recoveryDirectory": "artifacts/api-server/src/recovery/github_recovery/",
+  "notice": "These files are recovered from GitHub git history. They must not be seeded to production without a compatibility review against the current schema. See compatibility_notes below.",
+
+  "recoveredFiles": [
+    {
+      "filename": "ensureBatch3BRemediation.ts",
+      "gitCommit": "359996ccb66a691e76bbd8702048e8f052aa8325",
+      "gitCommitDate": "2026-09-04T20:28:37+04:00",
+      "gitCommitMessage": "feat: complete Sprint 15.2.8 Batch 3D remediation",
+      "sizeBytes": 505854,
+      "sha256": "a98c15e56dc5a3c13ede59321360957e270f453a8a3a7e6d620e030d1b2cd81d",
+      "coursesContained": ["ELH-35", "ELH-36", "ELH-39", "ELH-43", "ELH-45", "ELH-47", "ELH-48", "ELH-49", "ELH-50", "ELH-52", "ELH-53", "ELH-54", "ELH-55", "ELH-56"],
+      "questionCount": 144,
+      "status": "Confirmed historical"
+    },
+    {
+      "filename": "ensureBatch3CRemediation.ts",
+      "gitCommit": "359996ccb66a691e76bbd8702048e8f052aa8325",
+      "gitCommitDate": "2026-09-04T20:28:37+04:00",
+      "gitCommitMessage": "feat: complete Sprint 15.2.8 Batch 3D remediation",
+      "sizeBytes": 509406,
+      "sha256": "990d8a3060d2ca35fe9c48977725f9f7c14b09d0e148a9513c860b313253a4b7",
+      "coursesContained": ["ELH-57", "ELH-58", "ELH-59", "ELH-60", "ELH-62", "ELH-63", "ELH-64", "ELH-65", "ELH-66", "ELH-67", "ELH-69", "ELH-70", "ELH-74", "ELH-75", "ELH-76", "ELH-77", "ELH-78", "ELH-79"],
+      "questionCount": 144,
+      "status": "Confirmed historical"
+    },
+    {
+      "filename": "ensureBatch3DRemediation.ts",
+      "gitCommit": "359996ccb66a691e76bbd8702048e8f052aa8325",
+      "gitCommitDate": "2026-09-04T20:28:37+04:00",
+      "gitCommitMessage": "feat: complete Sprint 15.2.8 Batch 3D remediation",
+      "sizeBytes": 479820,
+      "sha256": "d661d851d41e4479dd4bc326a4e4ad4a2a5b0e8ad063e9d416308b792dbe0753",
+      "coursesContained": ["ELH-80", "ELH-81", "ELH-82", "ELH-84", "ELH-85", "ELH-86", "ELH-88", "ELH-89", "ELH-90", "ELH-91", "ELH-92", "ELH-93", "ELH-94", "ELH-95", "ELH-96", "ELH-100", "ELH-101", "ELH-102"],
+      "questionCount": 144,
+      "status": "Confirmed historical"
+    },
+    {
+      "filename": "ensureBatch3ERemediation.ts",
+      "gitCommit": "38e7977300f607267de9b46600559bd41368a32e",
+      "gitCommitDate": "2026-09-05T00:16:53+04:00",
+      "gitCommitMessage": "feat: complete Sprint 15.2.10 Batch 3E remediation",
+      "sizeBytes": 531333,
+      "sha256": "ec9b9b0a7488b8c68d5d71737b8a1480de14dfd549c657fc1d2eb9baaa899917",
+      "coursesContained": ["ELH-103", "ELH-104", "ELH-107", "ELH-108", "ELH-109", "ELH-110", "ELH-111", "ELH-112", "ELH-113", "ELH-114", "ELH-115", "ELH-116", "ELH-119", "ELH-120", "ELH-123", "ELH-124", "ELH-125", "ELH-126", "ELH-127", "ELH-129", "ELH-133"],
+      "questionCount": 168,
+      "status": "Confirmed historical"
+    },
+    {
+      "filename": "diagnosticEngine.ts",
+      "gitCommit": "359996ccb66a691e76bbd8702048e8f052aa8325",
+      "gitCommitDate": "2026-09-04T20:28:37+04:00",
+      "gitCommitMessage": "feat: complete Sprint 15.2.8 Batch 3D remediation",
+      "sizeBytes": 88674,
+      "sha256": "0bccd00c51560b733136024ce9d2e001287c87a41363d2f2b0533c3fd2f88e5f",
+      "diagnosticQuestions": 88,
+      "equivalentPairs": 44,
+      "competencyDomains": ["COMP_ENERGY", "COMP_WATER", "COMP_CIRCULARITY", "COMP_GHG", "COMP_BIODIVERSITY", "COMP_PROCUREMENT", "COMP_SOCIAL", "COMP_GOVERNANCE", "COMP_COMPLIANCE", "COMP_RISK", "COMP_STRATEGY"],
+      "status": "Confirmed historical"
+    },
+    {
+      "filename": "courseAssessmentInventory15_2_10A.json",
+      "gitCommit": "549c6c187090faece23ee9e1db5a5efc009d2e20",
+      "gitCommitDate": "2026-09-15T17:29:08+04:00",
+      "gitCommitMessage": "feat: Sprint 16.0A commercial model truth alignment and Sprint 16.1 Experience ELEVIO autonomous product proof",
+      "sizeBytes": 132618,
+      "sha256": "6711dc9ee7a9627a78f8d225d858e4cc01d385b63d03be370d2621d10dbc1eaa",
+      "generatedFrom": "Live Neon PostgreSQL production database",
+      "generatedAt": "2026-09-05T00:00:00Z",
+      "summary": {
+        "totalCanonicalCourses": 136,
+        "coursesWithStoredQuestions": 136,
+        "totalStoredCourseAssessmentQuestions": 1208,
+        "totalDiagnosticQuestions": 88,
+        "byClassification": {"READY_END_TO_END": 136}
+      },
+      "status": "Confirmed historical — live database snapshot"
+    },
+    {
+      "filename": "ASSESSMENT_PROGRAMME_TECHNICAL_CLOSURE_15_2_10M.md",
+      "gitCommit": "549c6c187090faece23ee9e1db5a5efc009d2e20",
+      "gitCommitDate": "2026-09-15T17:29:08+04:00",
+      "sizeBytes": 7605,
+      "sha256": "edbc54dc709598acc0f6ed38cf7e2dc944f613dd162167dca3b97d2c463565a4",
+      "keyFinding": "1,208 = 1,129 active + 79 archived rows in quizQuestionsTable",
+      "status": "Confirmed historical"
+    },
+    {
+      "filename": "COURSE_ASSESSMENT_TRUTH_AUDIT_15_2_10A.md",
+      "gitCommit": "549c6c187090faece23ee9e1db5a5efc009d2e20",
+      "gitCommitDate": "2026-09-15T17:29:08+04:00",
+      "sizeBytes": 9179,
+      "sha256": "4e2dbc6dfa587fc74c01335de66f33c6718dea88aeca3ebb0527ead698e70c55",
+      "status": "Confirmed historical"
+    },
+    {
+      "filename": "ELEVIO_COURSE_INVENTORY_15_2_2.md",
+      "gitCommit": "359996ccb66a691e76bbd8702048e8f052aa8325",
+      "gitCommitDate": "2026-09-04T20:28:37+04:00",
+      "sizeBytes": 16902,
+      "sha256": "47068c83b25c57d0cc5ee5603df91a620826b616e295033e8c29af58083bb5e7",
+      "rows": 136,
+      "totalQuestionsRecorded": 1136,
+      "status": "Confirmed historical"
+    }
+  ],
+
+  "compatibility_notes": {
+    "schemaCompatibility": "The batch remediation files import via the same @workspace/db drizzle ORM schema. The quizQuestionsTable, coursesTable, and lessonsTable schemas are unchanged between the recovery commits and the current zip snapshot. However, course IDs 35–950 do not exist in the current local DB — a full Neon restore or careful re-seeding is required.",
+    "requiredBeforeSeeding": [
+      "Verify Neon production DB is accessible and confirm current row counts",
+      "Do not run batch remediation files against the local stripped DB — they expect existing course records to exist",
+      "If re-seeding from scratch: run Wave1..4 catalogue files first, then Batch 3A..3E remediation",
+      "Confirm systemSeedsTable ledger entries to prevent idempotency failures"
+    ],
+    "safeForImmediateUse": ["diagnosticEngine.ts (read-only question bank)", "All markdown audit reports (documentation only)", "courseAssessmentInventory15_2_10A.json (reference only)"]
+  }
+}

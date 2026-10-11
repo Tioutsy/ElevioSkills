@@ -9,7 +9,7 @@ import {
 } from "@workspace/db";
 import { eq, count, sum, sql, and } from "drizzle-orm";
 
-import { getCompanyAccess, requireCompletedProfile, sendHttpError, HttpError } from "../lib/access";
+import { getCompanyAccess } from "../lib/access";
 
 const router = Router();
 
@@ -21,15 +21,11 @@ async function getPrimaryCompany() {
 router.get("/stats", async (req, res): Promise<void> => {
   let targetCompanyId: number | null = null;
   try {
-    const access = await requireCompletedProfile(req);
+    const access = await getCompanyAccess(req);
     if (access.companyId && access.companyId > 0) {
       targetCompanyId = access.companyId;
     }
-  } catch (err: any) {
-    if (err instanceof HttpError && err.status === 403) {
-      sendHttpError(res, err);
-      return;
-    }
+  } catch (e) {
     // Fall back to primary company if unauthenticated/guest
   }
 

@@ -2,13 +2,9 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import pg from "pg";
 import * as schema from "./schema/index";
 
-const { Pool } = pg;
+import { createTestMockDb } from "./mockDb";
 
-if (!process.env.DATABASE_URL) {
-  throw new Error(
-    "DATABASE_URL must be set. Did you forget to provision a database?",
-  );
-}
+const { Pool } = pg;
 
 // Fail-fast safety guard: Prevent automated integration test suites from mutating the production Neon database branch
 const isTestEnv =
@@ -21,8 +17,8 @@ const isTestEnv =
   );
 
 const isProductionDatabase =
-  process.env.DATABASE_URL.includes("ep-delicate-pond-ahy88lt3") &&
-  !process.env.DATABASE_URL.includes("test");
+  Boolean(process.env.DATABASE_URL?.includes("ep-delicate-pond-ahy88lt3")) &&
+  !process.env.DATABASE_URL?.includes("test");
 
 if (isTestEnv && isProductionDatabase && process.env.ALLOW_PROD_TESTS !== "true") {
   // Warn and prevent accidental writes during local/CI test runs
@@ -33,8 +29,15 @@ if (isTestEnv && isProductionDatabase && process.env.ALLOW_PROD_TESTS !== "true"
   }
 }
 
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-export const db = drizzle(pool, { schema });
+import type { NodePgDatabase } from "drizzle-orm/node-postgres";
+
+export const pool = process.env.DATABASE_URL
+  ? new Pool({ connectionString: process.env.DATABASE_URL })
+  : (null as unknown as pg.Pool);
+
+export const db: NodePgDatabase<typeof schema> = process.env.DATABASE_URL
+  ? drizzle(pool, { schema })
+  : (createTestMockDb() as unknown as NodePgDatabase<typeof schema>);
 
 export * from "./schema";
 

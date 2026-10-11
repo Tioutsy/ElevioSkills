@@ -8,10 +8,10 @@ export interface AuthRequest extends Request {
 }
 
 export function authBypassMiddleware(req: Request, res: Response, next: NextFunction) {
-  const isProd = process.env.NODE_ENV === "production";
+  const isProdOrStaging = process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging";
   const enabled = process.env.ENABLE_TEST_AUTH_BYPASS === "true";
   
-  if (!isProd && enabled && req.headers["x-test-user-id"] && !(req as AuthRequest).auth?.userId) {
+  if (!isProdOrStaging && enabled && req.headers["x-test-user-id"] && !(req as AuthRequest).auth?.userId) {
     const testId = req.headers["x-test-user-id"] as string;
     const testEmail = req.headers["x-test-user-email"] as string || null;
     const testRole = req.headers["x-test-user-role"] as string || null;

@@ -10,11 +10,16 @@ const mockInput: RecommendationInput = {
     trainingPriorities: ["energy_efficiency", "water_conservation"],
   },
   learner: {
+    employeeId: 101,
+    companyId: 1,
     department: "Facilities",
     roleCategory: "Operations",
     jobTitle: "Facilities Manager",
+    seniority: "Management",
     completedCourseIds: [1], // ELH-01 completed
     assignedCourseIds: [2],  // ELH-02 already assigned
+    assessmentWeaknesses: ["Needs reinforcement (65%) on Waste Sorting"],
+    assessmentStrengths: ["Strong performance (90%) on Energy Efficiency"],
   },
   availableCourses: [
     { id: 1, courseCode: "ELH-01", title: "Sustainability Foundations", description: "", level: "Beginner", durationMinutes: 30, prerequisites: [] },

@@ -390,7 +390,7 @@ router.patch("/admin/companies/:companyId/service", async (req, res): Promise<vo
       return;
     }
     const raw = req.body && typeof req.body === "object" ? (req.body as Record<string, unknown>) : {};
-    const update: CompanyUpdate = {};
+    const update: Record<string, any> = {};
 
     if (hasOwn(raw, "recyclingServiceStatus")) {
       update.recyclingServiceStatus = normalizeRecyclingStatus(
@@ -651,7 +651,7 @@ router.patch("/admin/conversion-factors/:id", async (req, res): Promise<void> =>
       return;
     }
     const raw = req.body && typeof req.body === "object" ? (req.body as Record<string, unknown>) : {};
-    const update: Partial<typeof recyclingConversionFactorsTable.$inferInsert> = {};
+    const update: Record<string, any> = {};
     if (hasOwn(raw, "materialType")) {
       update.materialType = readText(raw.materialType) ?? "total";
     }

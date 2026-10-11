@@ -3,13 +3,12 @@ export type Language = "en";
 export const translations: Record<Language, Record<string, string>> = {
   en: {
     // Navigation
-    "nav.home": "Home",
     "nav.courses": "Courses",
     "nav.challenges": "Challenges",
     "nav.mauritius_resources": "Mauritius Rules & Resources",
     "nav.impact": "Impact",
     "nav.pricing": "Pricing",
-    "nav.my_learning": "My Skills",
+    "nav.my_learning": "My Learning",
     "nav.company": "Company",
     "nav.employee_reviews": "Employee Challenge Reviews",
     "nav.admin": "Admin",
@@ -92,7 +91,7 @@ export const translations: Record<Language, Record<string, string>> = {
     // Dashboard
     "dashboard.welcome": "Welcome back, {name}",
     "dashboard.welcome_sub": "Track your workplace sustainability training progress and active assignments.",
-    "dashboard.my_learning_title": "My Skills",
+    "dashboard.my_learning_title": "My Sustainability Learning",
     "dashboard.overall_progress": "Overall Progress",
     "dashboard.courses_completed": "Courses Completed",
     "dashboard.certificates_earned": "Certificates Earned",

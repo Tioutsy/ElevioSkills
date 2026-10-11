@@ -8,6 +8,12 @@ import {
 } from "@workspace/api-client-react";
 import { useCompanyLmsOverview } from "@/lib/lms-api";
 import { RecyclingImpactSection } from "@/components/recycling/RecyclingImpactSection";
+import { CompanyWorkforceIntelligenceCard } from "@/components/CompanyWorkforceIntelligenceCard";
+import { AskElevioCopilotCard } from "@/components/AskElevioCopilotCard";
+import { MonthlyManagementBriefCard } from "@/components/MonthlyManagementBriefCard";
+import { ESGWorkforceReadinessCard } from "@/components/ESGWorkforceReadinessCard";
+import { CompanyActionPlanCard } from "@/components/CompanyActionPlanCard";
+import { TrainingInsightsCard } from "@/components/TrainingInsightsCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
@@ -34,29 +40,10 @@ import {
   Trophy,
   FileSpreadsheet,
   Recycle,
-  UserPlus,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/context/LanguageContext";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import {
   Area,
   AreaChart,
@@ -137,16 +124,18 @@ function ChartCard({
   );
 }
 
-import { TrainingInsightsCard } from "@/components/TrainingInsightsCard";
+import { TrainingPrioritiesDialog } from "@/components/TrainingPrioritiesDialog";
 
 export default function CompanyDashboard() {
   const { t } = useLanguage();
-  const { data: company, isLoading: isLoadingCompany } = useGetMyCompany();
+  const { data: company, isLoading: isLoadingCompany, refetch: refetchCompany } = useGetMyCompany();
   const { data: stats, isLoading: isLoadingStats } = useGetDashboardStats();
   const { data: lmsOverview, isLoading: isLoadingLms } = useCompanyLmsOverview();
   const { data: trend, isLoading: isLoadingTrend } = useGetCompletionTrend();
   const { data: departments, isLoading: isLoadingDepts } = useGetDepartmentParticipation();
   const { data: score, isLoading: isLoadingScore } = useGetSustainabilityScore();
+
+  const [prioritiesOpen, setPrioritiesOpen] = useState(false);
 
   const trendData = trend ?? [];
   const deptData = departments ?? [];
@@ -167,10 +156,8 @@ export default function CompanyDashboard() {
   };
 
   const [subData, setSubData] = useState<any>(null);
-  const [pilotStatus, setPilotStatus] = useState<any>(null);
   useEffect(() => {
     customFetch("/api/subscriptions/company").then(res => setSubData(res)).catch(() => {});
-    customFetch("/api/company/pilot-status").then(res => setPilotStatus(res)).catch(() => {});
   }, []);
 
   const { toast } = useToast();
@@ -180,93 +167,28 @@ export default function CompanyDashboard() {
     if (esgDownloading) return;
     setEsgDownloading(true);
     try {
-      const blob = await customFetch<Blob>("/api/esg/report", {
-        method: "GET",
-        responseType: "blob",
-      });
+      const response = await fetch("/api/esg/report", { credentials: "include" });
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(text || `Request failed with status ${response.status}`);
+      }
+      const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      const safeName = (company?.name || "Elevio").replace(/[^a-z0-9-_]+/gi, "_");
-      link.download = `${safeName}_ESG_Training_Report.pdf`;
+      link.download = "ESG_Training_Report.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
-      toast({
-        title: "ESG Report Downloaded",
-        description: "Official ESG Training & Readiness Report PDF has been downloaded.",
-      });
-    } catch (err: any) {
+    } catch (err) {
       toast({
         title: "Download failed",
-        description: err?.message || "Could not download the ESG report.",
+        description: err instanceof Error ? err.message : "Could not download the ESG report.",
         variant: "destructive",
       });
     } finally {
       setEsgDownloading(false);
-    }
-  };
-
-  const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
-  const [selectedPlanCode, setSelectedPlanCode] = useState("COMPLETE");
-  const [selectedBandCode, setSelectedBandCode] = useState("UP_TO_25");
-  const [billingInterval, setBillingInterval] = useState<"MONTHLY" | "YEARLY">("MONTHLY");
-  const [billingContactName, setBillingContactName] = useState("");
-  const [billingContactEmail, setBillingContactEmail] = useState("");
-  const [companyNote, setCompanyNote] = useState("");
-  const [isSubmittingUpgrade, setIsSubmittingUpgrade] = useState(false);
-
-  const handleOpenUpgradeModal = () => {
-    if (company) {
-      setBillingContactName(company.name ? `${company.name} Administrator` : "");
-    }
-    setIsUpgradeModalOpen(true);
-  };
-
-  const handleSubmitUpgrade = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!billingContactName || !billingContactEmail) {
-      toast({
-        title: "Validation Error",
-        description: "Please enter billing contact name and email.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsSubmittingUpgrade(true);
-    try {
-      await customFetch("/api/company/upgrade-requests", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          selectedPlanCode,
-          selectedEmployeeBandCode: selectedBandCode,
-          billingInterval,
-          billingContactName,
-          billingContactEmail,
-          companyNote,
-        }),
-      });
-
-      toast({
-        title: "Upgrade Request Submitted",
-        description: "Your request has been received. Our enterprise team will contact you to confirm payment and activate your commercial subscription.",
-      });
-
-      setIsUpgradeModalOpen(false);
-      // Refresh pilot status
-      const updated = await customFetch<any>("/api/company/pilot-status");
-      setPilotStatus(updated);
-    } catch (err: any) {
-      toast({
-        title: "Submission Failed",
-        description: err?.message || "Could not submit upgrade request.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmittingUpgrade(false);
     }
   };
 
@@ -302,14 +224,17 @@ export default function CompanyDashboard() {
                   </div>
                 </Link>
               )}
+              <Button variant="outline" onClick={() => setPrioritiesOpen(true)}>
+                <Target className="mr-2 h-4 w-4 text-emerald-600" /> Training Priorities
+              </Button>
+              <Button variant="outline" asChild className="border-emerald-200 bg-emerald-50/50 hover:bg-emerald-100/50 text-emerald-800">
+                <Link href="/company/training-follow-up">
+                  <ClipboardCheck className="mr-2 h-4 w-4 text-emerald-600" /> Action Hub
+                </Link>
+              </Button>
               <Button onClick={downloadEsgReport} disabled={esgDownloading}>
                 <FileText className="mr-2 h-4 w-4" />
                 {esgDownloading ? "Downloading..." : "ESG Training Report"}
-              </Button>
-              <Button className="bg-emerald-700 hover:bg-emerald-800 text-white shadow-sm" asChild>
-                <Link href="/company/employees">
-                  <UserPlus className="mr-2 h-4 w-4" /> Invite Employees
-                </Link>
               </Button>
               <Button variant="outline" asChild>
                 <Link href="/company/employees"><Users className="mr-2 h-4 w-4" /> Manage Employees</Link>
@@ -320,190 +245,91 @@ export default function CompanyDashboard() {
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        {/* Sprint 11A: AI Training Insights Card */}
-        <TrainingInsightsCard className="mb-8" />
+        {/* AI Training Insights & Management Action Engine v1 */}
+        <TrainingInsightsCard />
 
-        {/* Sprint 12.3: 5 Distinct Pilot Lifecycle Banner States */}
-        {pilotStatus?.isPilot && pilotStatus.effectiveStatus !== "CONVERTED" && (
-          <>
-            {pilotStatus.effectiveStatus === "CONVERSION_PENDING" ? (
-              <div className="bg-indigo-500/10 border border-indigo-500/30 text-indigo-950 dark:text-indigo-200 rounded-2xl p-6 mb-8 backdrop-blur-md">
-                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-indigo-500/20 text-indigo-800 dark:text-indigo-300 border border-indigo-500/30">
-                        Upgrade Request Received
-                      </span>
-                      <span className="text-xs text-muted-foreground font-mono font-medium">
-                        {pilotStatus.upgradeRequest?.selectedPlanCode || "Complete"} Plan
-                      </span>
-                    </div>
-                    <h2 className="text-xl font-bold font-serif text-indigo-950 dark:text-indigo-100">
-                      Commercial Conversion Pending
-                    </h2>
-                    <p className="text-sm text-indigo-900/80 dark:text-indigo-300/80">
-                      Your commercial plan upgrade request has been received. Your team's learning records are preserved. Full ongoing access will be activated once payment is confirmed.
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-xl text-xs font-semibold text-indigo-900 dark:text-indigo-200 flex items-center gap-2">
-                      <Clock className="h-4 w-4 text-indigo-600" />
-                      Awaiting Payment Confirmation
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ) : pilotStatus.effectiveStatus === "EXPIRED" || pilotStatus.effectiveStatus === "REVOKED" ? (
-              <div className="bg-rose-500/10 border border-rose-500/30 text-rose-950 dark:text-rose-200 rounded-2xl p-6 mb-8 backdrop-blur-md">
-                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-rose-500/20 text-rose-800 dark:text-rose-300 border border-rose-500/30">
-                        Pilot Expired (Read-Only 60-Day Retention)
-                      </span>
-                      <span className="text-xs text-muted-foreground font-mono font-medium">
-                        {pilotStatus.learnerSeatLimit} Seats · All Records Preserved
-                      </span>
-                    </div>
-                    <h2 className="text-xl font-bold font-serif text-rose-950 dark:text-rose-100">
-                      Your Company Pilot Has Ended
-                    </h2>
-                    <p className="text-sm text-rose-900/80 dark:text-rose-300/80">
-                      Course access and employee invitations are paused, but your company’s learning records, certificates, and compliance reports remain securely preserved. Request an upgrade now to unlock full commercial access.
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-3">
-                    <Button onClick={handleOpenUpgradeModal} className="bg-rose-700 hover:bg-rose-800 text-white shadow-sm">
-                      Request an Upgrade <ArrowRight className="ml-1.5 h-4 w-4" />
-                    </Button>
-                    <Button variant="outline" asChild className="border-rose-300 dark:border-rose-800">
-                      <Link href="/company/training-evidence"><ClipboardCheck className="mr-1.5 h-4 w-4" /> View Training Records</Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ) : pilotStatus.effectiveStatus === "EXPIRING_SOON" ? (
-              <div className="bg-amber-500/10 border border-amber-500/30 text-amber-950 dark:text-amber-200 rounded-2xl p-6 mb-8 backdrop-blur-md">
-                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/30">
-                        Pilot Ending in {pilotStatus.daysRemaining} {pilotStatus.daysRemaining === 1 ? "Day" : "Days"}
-                      </span>
-                      <span className="text-xs text-muted-foreground font-mono font-medium">
-                        {pilotStatus.activeLearners} of {pilotStatus.learnerSeatLimit} seats active
-                      </span>
-                    </div>
-                    <h2 className="text-xl font-bold font-serif text-amber-950 dark:text-amber-100">
-                      Your Company Pilot Ends Soon
-                    </h2>
-                    <p className="text-sm text-amber-900/80 dark:text-amber-300/80">
-                      Your company pilot ends in {pilotStatus.daysRemaining} days. All team progress and certificates will be preserved when you upgrade. Request an upgrade to ensure uninterrupted learning.
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Button onClick={handleOpenUpgradeModal} className="bg-amber-700 hover:bg-amber-800 text-white shadow-sm">
-                      Request an Upgrade <ArrowRight className="ml-1.5 h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-950 dark:text-emerald-100 rounded-2xl p-6 mb-8 backdrop-blur-md">
-                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30">
-                        Company Pilot Pass Active
-                      </span>
-                      <span className="text-xs text-muted-foreground font-mono font-medium">
-                        {pilotStatus.learnerSeatLimit} Learner Seats Included
-                      </span>
-                    </div>
-                    <h2 className="text-xl font-bold font-serif">
-                      Your Company is Using an ELEVIO Skills Pilot
-                    </h2>
-                    <p className="text-sm opacity-90">
-                      {pilotStatus.daysRemaining} days remaining · {pilotStatus.activeLearners} of {pilotStatus.learnerSeatLimit} learner seats used. All progress transfers automatically upon conversion.
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Button onClick={handleOpenUpgradeModal} className="bg-emerald-700 hover:bg-emerald-800 text-white shadow-sm">
-                      Request an Upgrade <ArrowRight className="ml-1.5 h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            )}
-          </>
-        )}
+        {/* ESG Workforce Readiness Indicator v1 */}
+        <ESGWorkforceReadinessCard />
+
+        {/* Ask Elevio AI / Management Copilot v1 */}
+        <div className="mb-8">
+          <AskElevioCopilotCard />
+        </div>
+
+        {/* AI Company Action Plan v1 */}
+        <CompanyActionPlanCard />
+
+        {/* AI Monthly Management Brief v1 */}
+        <MonthlyManagementBriefCard />
+
+
+        {/* ESG Workforce Intelligence AI Section */}
+        <CompanyWorkforceIntelligenceCard />
 
         {/* Your Learning Access Subscription Banner */}
-        {!pilotStatus?.isPilot && (
-          subData?.status === "PENDING_PAYMENT" || subData?.status === "PENDING" ? (
-            <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-6 mb-8 backdrop-blur-md">
-              <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/30">
-                      Subscription Pending Payment
-                    </span>
-                    <span className="text-xs text-muted-foreground font-mono font-medium">
-                      {subData?.bandLabel || "Standard Contract"}
-                    </span>
-                  </div>
-                  <h2 className="text-xl font-bold font-serif text-amber-900 dark:text-amber-200">
-                    Subscription Activation Required
-                  </h2>
-                  <p className="text-sm text-amber-800/80 dark:text-amber-300/80">
-                    Your organisation account has been registered successfully. LMS course assignments and training access will unlock automatically once subscription payment is confirmed.
-                  </p>
+        {subData?.status === "PENDING_PAYMENT" || subData?.status === "PENDING" ? (
+          <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-6 mb-8 backdrop-blur-md">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/30">
+                    Subscription Pending Payment
+                  </span>
+                  <span className="text-xs text-muted-foreground font-mono font-medium">
+                    {subData?.bandLabel || "Standard Contract"}
+                  </span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="px-4 py-2 bg-amber-500/20 border border-amber-500/30 rounded-xl text-xs font-semibold text-amber-900 dark:text-amber-200 flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-amber-600" />
-                    Awaiting Settlement Confirmation
-                  </div>
+                <h2 className="text-xl font-bold font-serif text-amber-900 dark:text-amber-200">
+                  Subscription Activation Required
+                </h2>
+                <p className="text-sm text-amber-800/80 dark:text-amber-300/80">
+                  Your organisation account has been registered successfully. LMS course assignments and training access will unlock automatically once subscription payment is confirmed.
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="px-4 py-2 bg-amber-500/20 border border-amber-500/30 rounded-xl text-xs font-semibold text-amber-900 dark:text-amber-200 flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-amber-600" />
+                  Awaiting Settlement Confirmation
                 </div>
               </div>
             </div>
-          ) : (
-            <div className="bg-card border rounded-2xl p-6 shadow-sm mb-8 bg-gradient-to-r from-emerald-950/5 via-card to-card">
-              <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-emerald-600/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
-                      {subData?.planName || "Complete"} Plan Active
-                    </span>
-                    <span className="text-xs text-muted-foreground font-mono font-medium">
-                      {subData?.bandLabel || "Up to 25 employees"}
-                    </span>
-                  </div>
-                  <h2 className="text-xl font-bold font-serif">Your Commercial Learning Access</h2>
-                  <p className="text-sm text-muted-foreground">
-                    Current Contracted Subscription: <strong className="text-foreground">{subData?.planName || "Complete"}</strong> • Billing Interval: <strong className="text-emerald-700 dark:text-emerald-400">{subData?.billingInterval === "YEARLY" ? "Yearly (10% Discount Applied)" : "Monthly"}</strong> • Agreed Price: <strong className="text-foreground">{subData?.billingInterval === "YEARLY" && subData?.agreedYearlyAmountMUR ? `MUR ${subData.agreedYearlyAmountMUR.toLocaleString()}/year` : subData?.agreedMonthlyAmountMUR ? `MUR ${subData.agreedMonthlyAmountMUR.toLocaleString()}/mo` : "Standard Agreement"}</strong>
-                  </p>
+          </div>
+        ) : (
+          <div className="bg-card border rounded-2xl p-6 shadow-sm mb-8 bg-gradient-to-r from-emerald-950/5 via-card to-card">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold px-2.5 py-0.5 rounded-md bg-emerald-600/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
+                    {subData?.planName || "Complete"} Plan Active
+                  </span>
+                  <span className="text-xs text-muted-foreground font-mono font-medium">
+                    {subData?.bandLabel || "Up to 25 employees"}
+                  </span>
                 </div>
+                <h2 className="text-xl font-bold font-serif">Your Commercial Learning Access</h2>
+                <p className="text-sm text-muted-foreground">
+                  Current Contracted Subscription: <strong className="text-foreground">{subData?.planName || "Complete"}</strong> • Agreed Price: <strong className="text-foreground">{subData?.agreedMonthlyAmountMUR ? `MUR ${subData.agreedMonthlyAmountMUR.toLocaleString()}/mo` : "Standard Agreement"}</strong>
+                </p>
+              </div>
 
-                <div className="flex flex-wrap items-center gap-2 text-xs">
-                  <div className="px-3 py-1.5 rounded-xl border bg-muted/40 font-medium text-foreground flex items-center gap-1.5">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
-                    <span>Core Certificate</span>
-                  </div>
-                  <div className={cn("px-3 py-1.5 rounded-xl border font-medium flex items-center gap-1.5", (subData?.planCode === "PROFESSIONAL" || subData?.planCode === "COMPLETE") ? "bg-muted/40 text-foreground" : "bg-muted/10 text-muted-foreground opacity-60")}>
-                    {(subData?.planCode === "PROFESSIONAL" || subData?.planCode === "COMPLETE") ? <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" /> : <Lock className="h-3.5 w-3.5" />}
-                    <span>Sustainability in Action</span>
-                  </div>
-                  <Link href="/pricing">
-                    <Button variant="outline" size="sm" className="ml-2 gap-1 rounded-xl text-xs">
-                      <span>Change Plan</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Button>
-                  </Link>
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                <div className="px-3 py-1.5 rounded-xl border bg-muted/40 font-medium text-foreground flex items-center gap-1.5">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                  <span>Core Certificate</span>
                 </div>
+                <div className={cn("px-3 py-1.5 rounded-xl border font-medium flex items-center gap-1.5", (subData?.planCode === "PROFESSIONAL" || subData?.planCode === "COMPLETE") ? "bg-muted/40 text-foreground" : "bg-muted/10 text-muted-foreground opacity-60")}>
+                  {(subData?.planCode === "PROFESSIONAL" || subData?.planCode === "COMPLETE") ? <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" /> : <Lock className="h-3.5 w-3.5" />}
+                  <span>Sustainability in Action</span>
+                </div>
+                <Link href="/pricing">
+                  <Button variant="outline" size="sm" className="ml-2 gap-1 rounded-xl text-xs">
+                    <span>Change Plan</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Button>
+                </Link>
               </div>
             </div>
-          )
+          </div>
         )}
         {/* Executive KPI cards */}
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-10">
@@ -764,8 +590,8 @@ export default function CompanyDashboard() {
                   <div className="h-8 w-8 bg-secondary/10 rounded flex items-center justify-center text-secondary mb-3">
                     <GraduationCap className="h-4 w-4" />
                   </div>
-                  <h3 className="font-semibold mb-1">Training Priorities</h3>
-                  <p className="text-sm text-muted-foreground flex-1">Browse catalog to assign priority courses to your team.</p>
+                  <h3 className="font-semibold mb-1">Assign Training</h3>
+                  <p className="text-sm text-muted-foreground flex-1">Browse catalog to assign new courses.</p>
                   <ArrowRight className="h-4 w-4 text-secondary mt-2" />
                 </div>
               </Link>
@@ -794,8 +620,8 @@ export default function CompanyDashboard() {
                   <div className="h-8 w-8 bg-green-500/10 rounded flex items-center justify-center text-green-600 mb-3">
                     <Leaf className="h-4 w-4" />
                   </div>
-                  <h3 className="font-semibold mb-1">ESG Readiness</h3>
-                  <p className="text-sm text-muted-foreground flex-1">View your ESG training score and internal readiness metrics.</p>
+                  <h3 className="font-semibold mb-1">Sustainability Impact</h3>
+                  <p className="text-sm text-muted-foreground flex-1">View your ESG metrics and score.</p>
                   <ArrowRight className="h-4 w-4 text-green-600 mt-2" />
                 </div>
               </Link>
@@ -817,16 +643,6 @@ export default function CompanyDashboard() {
                   <h3 className="font-semibold mb-1">Leaderboards</h3>
                   <p className="text-sm text-muted-foreground flex-1">Celebrate your top learners and champions.</p>
                   <ArrowRight className="h-4 w-4 text-blue-600 mt-2" />
-                </div>
-              </Link>
-              <Link href="/company/challenges">
-                <div className="border rounded-lg p-4 hover:bg-muted/50 transition-colors h-full cursor-pointer flex flex-col items-start text-left">
-                  <div className="h-8 w-8 bg-emerald-500/10 rounded flex items-center justify-center text-emerald-600 mb-3">
-                    <Target className="h-4 w-4" />
-                  </div>
-                  <h3 className="font-semibold mb-1">Challenges & Missions</h3>
-                  <p className="text-sm text-muted-foreground flex-1">Activate time-bound missions and track participation.</p>
-                  <ArrowRight className="h-4 w-4 text-emerald-600 mt-2" />
                 </div>
               </Link>
               <Link href="/company/compliance">
@@ -876,115 +692,12 @@ export default function CompanyDashboard() {
         </div>
       </div>
 
-      {/* Commercial Upgrade Request Modal (Sprint 12.3 Phase 3) */}
-      <Dialog open={isUpgradeModalOpen} onOpenChange={setIsUpgradeModalOpen}>
-        <DialogContent className="sm:max-w-lg">
-          <DialogHeader>
-            <DialogTitle className="font-serif text-2xl">Request Commercial Upgrade</DialogTitle>
-            <DialogDescription>
-              Select your desired plan and employee band. All existing employee accounts, completions, certificates, and compliance reports will be seamlessly preserved upon conversion.
-            </DialogDescription>
-          </DialogHeader>
-
-          <form onSubmit={handleSubmitUpgrade} className="space-y-4 pt-2">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <Label htmlFor="plan-select">Subscription Plan</Label>
-                <Select value={selectedPlanCode} onValueChange={setSelectedPlanCode}>
-                  <SelectTrigger id="plan-select">
-                    <SelectValue placeholder="Select Plan" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="COMPLETE">Complete (All Courses + Certs)</SelectItem>
-                    <SelectItem value="PROFESSIONAL">Professional (Multi-Course)</SelectItem>
-                    <SelectItem value="ESSENTIAL">Essential (Core Course)</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-1.5">
-                <Label htmlFor="band-select">Employee Band</Label>
-                <Select value={selectedBandCode} onValueChange={setSelectedBandCode}>
-                  <SelectTrigger id="band-select">
-                    <SelectValue placeholder="Select Band" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="UP_TO_25">Up to 25 Employees</SelectItem>
-                    <SelectItem value="FROM_26_TO_50">26 to 50 Employees</SelectItem>
-                    <SelectItem value="FROM_51_TO_80">51 to 80 Employees</SelectItem>
-                    <SelectItem value="FROM_81_TO_120">81 to 120 Employees</SelectItem>
-                    <SelectItem value="OVER_120">Over 120 (Enterprise Custom)</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-
-            <div className="space-y-1.5">
-              <Label htmlFor="billing-interval">Billing Frequency</Label>
-              <Select value={billingInterval} onValueChange={(v: "MONTHLY" | "YEARLY") => setBillingInterval(v)}>
-                <SelectTrigger id="billing-interval">
-                  <SelectValue placeholder="Select Frequency" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="MONTHLY">Monthly Billing</SelectItem>
-                  <SelectItem value="YEARLY">Yearly Billing (10% Discount Applied)</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <Label htmlFor="billing-name">Billing Contact Name *</Label>
-                <Input
-                  id="billing-name"
-                  value={billingContactName}
-                  onChange={(e) => setBillingContactName(e.target.value)}
-                  placeholder="e.g. Jean Dupont"
-                  required
-                />
-              </div>
-
-              <div className="space-y-1.5">
-                <Label htmlFor="billing-email">Billing Email *</Label>
-                <Input
-                  id="billing-email"
-                  type="email"
-                  value={billingContactEmail}
-                  onChange={(e) => setBillingContactEmail(e.target.value)}
-                  placeholder="billing@company.mu"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="space-y-1.5">
-              <Label htmlFor="company-notes">Additional Notes / Purchase Order Info</Label>
-              <Textarea
-                id="company-notes"
-                value={companyNote}
-                onChange={(e) => setCompanyNote(e.target.value)}
-                placeholder="Optional billing address, VAT registration, or special requirements..."
-                rows={2}
-              />
-            </div>
-
-            <div className="bg-muted/50 border rounded-xl p-3 text-xs text-muted-foreground">
-              <p>
-                <strong>Security Guarantee:</strong> Submitting this request will not interrupt current pilot access or delete any learner records. Our team will verify and issue an invoice for payment confirmation.
-              </p>
-            </div>
-
-            <DialogFooter className="gap-2 sm:gap-0 pt-2">
-              <Button type="button" variant="outline" onClick={() => setIsUpgradeModalOpen(false)}>
-                Cancel
-              </Button>
-              <Button type="submit" disabled={isSubmittingUpgrade} className="bg-emerald-700 hover:bg-emerald-800 text-white">
-                {isSubmittingUpgrade ? "Submitting..." : "Submit Upgrade Request"}
-              </Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
-      </Dialog>
+      <TrainingPrioritiesDialog
+        open={prioritiesOpen}
+        onOpenChange={setPrioritiesOpen}
+        currentPriorities={(company as any)?.trainingPriorities || []}
+        onSaved={() => refetchCompany()}
+      />
     </Layout>
   );
 }

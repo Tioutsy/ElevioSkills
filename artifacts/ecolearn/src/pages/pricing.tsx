@@ -108,7 +108,6 @@ export default function Pricing() {
   };
 
   const standardBands = serverBands.filter((b) => !b.requiresTailoredQuote);
-  const customBand = serverBands.find((b) => b.requiresTailoredQuote) || CANONICAL_EMPLOYEE_BANDS[4];
 
   return (
     <Layout>
@@ -116,13 +115,13 @@ export default function Pricing() {
       <div className="bg-gradient-to-b from-emerald-900/10 via-background to-background pt-16 md:pt-24 pb-12 border-b">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 rounded-full mb-4">
-            <Sparkles className="h-3.5 w-3.5" /> Authoritative Commercial Plans
+            <Sparkles className="h-3.5 w-3.5" /> Elevio Commercial Plans
           </span>
           <h1 className="text-3xl md:text-5xl font-bold font-serif mb-4 text-foreground tracking-tight">
             {t("pricing.title")}
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Simple, transparent corporate subscriptions based on your team size. Every plan includes full access to our complete 136-course sustainability curriculum.
+            Simple, transparent corporate subscriptions based on your team size. Every plan includes full access to our complete sustainability curriculum.
           </p>
           <p className="text-xs text-muted-foreground mt-3 font-medium">
             All prices are in Mauritian Rupees (MUR). Fixed monthly or discounted annual billing for organisations in Mauritius.
@@ -235,10 +234,7 @@ export default function Pricing() {
                           </span>
                           <span className="text-xs text-muted-foreground">/ month</span>
                         </div>
-                        <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 block mt-1">
-                          {band.indicativePerEmployeeCopy}
-                        </span>
-                        <span className="text-[11px] text-muted-foreground block mt-0.5">
+                        <span className="text-[11px] text-muted-foreground block mt-1">
                           Fixed transparent fee
                         </span>
                       </div>
@@ -252,7 +248,7 @@ export default function Pricing() {
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-1.5">
                         <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>All 136 Sustainability & ESG courses</span>
+                        <span>All Sustainability and ESG courses</span>
                       </li>
                       <li className="flex items-start gap-1.5">
                         <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
@@ -338,7 +334,7 @@ export default function Pricing() {
               <div className="h-10 w-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
                 <BookOpen className="h-5 w-5" />
               </div>
-              <h3 className="font-bold text-lg font-serif">136 Canonical Modules</h3>
+              <h3 className="font-bold text-lg font-serif">Comprehensive Sustainability Modules</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 Complete access across Waste Sorting, Energy, Water, Green Office, Compliance, Sector Practices, and Leadership Pathways.
               </p>

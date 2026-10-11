@@ -5,8 +5,8 @@ import { eq, and, asc, or, desc, inArray } from "drizzle-orm";
 
 import { getCompanyAccess, requireCompanyAdmin, sendHttpError } from "../lib/access";
 import { calculateSustainabilityScore } from "../lib/scoring";
-import { logger } from "../lib/logger.js";
-import { evaluateChallengeAchievements } from "../lib/achievementsService.js";
+import { logger } from "../lib/logger";
+import { evaluateChallengeAchievements } from "../lib/achievementsService";
 
 const router = Router();
 
@@ -284,7 +284,7 @@ router.get("/", async (req, res): Promise<void> => {
         )
       );
 
-    const byChallenge = new Map(participations.map((p) => [p.challengeId, p]));
+    const byChallenge = new Map<number, any>(participations.map((p: any) => [p.challengeId, p]));
 
     const items = challenges.map((c) => {
       const p = byChallenge.get(c.id);

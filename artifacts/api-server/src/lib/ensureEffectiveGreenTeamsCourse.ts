@@ -210,12 +210,12 @@ const NEW_QUIZ = [
     order: 1,
     question: "What is the primary difference between a green team's MEETING ACTIVITY and its OPERATIONAL EFFECTIVENESS?",
     options: [
-      "Meeting activity measures meetings held and ideas discussed; Effectiveness measures completed actions, removed operational blockers, and verified workplace improvements",
       "Meeting activity applies to managers; Effectiveness applies to external auditors",
+      "Meeting activity measures meetings held and ideas discussed; Effectiveness measures completed actions, removed operational blockers, and verified workplace improvements",
       "Meeting activity requires catering; Effectiveness requires PowerPoint slides",
       "Meeting activity and Effectiveness are exact synonyms in corporate governance"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Meetings held = activity; Completed actions and verified improvements = effectiveness.",
     incorrectExplanation: "Incorrect. Activity measures meetings held; Effectiveness measures verified workplace delivery."
   },
@@ -223,12 +223,12 @@ const NEW_QUIZ = [
     order: 2,
     question: "What does the 'T' in the TEAMWORK operational framework stand for?",
     options: [
-      "Target a clear purpose (define written mandate, scope, and decision boundaries)",
-      "Terminate non-attending committee members immediately",
       "Transfer all environmental budgets into personal accounts",
+      "Terminate non-attending committee members immediately",
+      "Target a clear purpose (define written mandate, scope, and decision boundaries)",
       "Threaten supervisors who do not submit weekly ideas"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "T = Target a clear purpose with written mandate and decision boundaries.",
     incorrectExplanation: "Incorrect. T = Target a clear purpose."
   },
@@ -249,12 +249,12 @@ const NEW_QUIZ = [
     order: 4,
     question: "In the visual green team delivery board (`visual-sustainability-green-team-effectiveness.png`), why is 'One person holding all action folders' a high-risk operating flaw?",
     options: [
-      "Because relying on a single volunteer creates a single point of failure, causes volunteer burnout, and delays all team actions if that person is absent",
       "Because action folders must legally be stored in locked steel safes",
       "Because paper folders increase carbon emissions by 50%",
-      "Because green team coordinators are forbidden from carrying paper"
+      "Because green team coordinators are forbidden from carrying paper",
+      "Because relying on a single volunteer creates a single point of failure, causes volunteer burnout, and delays all team actions if that person is absent"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Overloading one person creates volunteer dependency and single-point failure; actions must be distributed.",
     incorrectExplanation: "Incorrect. Single-person overload creates volunteer dependency and delivery bottlenecks."
   },
@@ -262,12 +262,12 @@ const NEW_QUIZ = [
     order: 5,
     question: "How should a green team handle a proposed action that requires a 200,000 MUR capital budget approval?",
     options: [
-      "Gather evidence, cost the proposal, test a pilot if feasible, and submit a formal recommendation to the authorized manager or executive sponsor for sign-off",
       "Approve the expenditure directly during the green team meeting",
+      "Gather evidence, cost the proposal, test a pilot if feasible, and submit a formal recommendation to the authorized manager or executive sponsor for sign-off",
       "Reallocate funds from staff salary budgets without telling finance",
       "Cancel the meeting and abandon the initiative"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Capital expenses exceeding team authority must be costed, evidenced, and recommended to authorized managers.",
     incorrectExplanation: "Incorrect. Green teams recommend capital expenditures to authorized line managers."
   },
@@ -275,12 +275,12 @@ const NEW_QUIZ = [
     order: 6,
     question: "What is the role of an EXECUTIVE SPONSOR in a workplace green team?",
     options: [
-      "A senior manager who aligns team goals with company strategy, secures necessary resources, and approves or escalates budget requests",
       "An external contractor who cleans the meeting room",
       "A junior intern who orders coffee for meetings",
-      "A software algorithm that sends automated reminders"
+      "A software algorithm that sends automated reminders",
+      "A senior manager who aligns team goals with company strategy, secures necessary resources, and approves or escalates budget requests"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Executive sponsor = senior lead providing management alignment, resources, and budget sign-off.",
     incorrectExplanation: "Incorrect. Sponsor = senior manager providing alignment, resources, and sign-off."
   },
@@ -301,12 +301,12 @@ const NEW_QUIZ = [
     order: 8,
     question: "What is the correct response when an employee submits a sustainability idea that the green team CANNOT implement due to technical constraints?",
     options: [
-      "Provide clear, respectful feedback explaining why the idea cannot currently proceed, thank the employee, and record the explanation in the decision log",
       "Ignore the submission slip and pretend it was lost",
       "Publicly reprimand the employee for submitting an unrealistic idea",
+      "Provide clear, respectful feedback explaining why the idea cannot currently proceed, thank the employee, and record the explanation in the decision log",
       "Mark the idea as 'Completed' on the board to keep morale high"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Respectful, transparent explanations maintain employee trust even when ideas are declined.",
     incorrectExplanation: "Incorrect. Transparent feedback explaining reasons maintains trust."
   },
@@ -314,12 +314,12 @@ const NEW_QUIZ = [
     order: 9,
     question: "How does ELH-22 (Effective Green Teams) connect to ELH-23 (Workplace Sustainability Initiatives)?",
     options: [
-      "ELH-22 establishes the team operating discipline and decision flow; ELH-23 guides the team in selecting, planning, and executing specific high-impact initiatives",
       "ELH-22 replaces initiatives so specific projects are no longer needed",
+      "ELH-22 establishes the team operating discipline and decision flow; ELH-23 guides the team in selecting, planning, and executing specific high-impact initiatives",
       "ELH-22 is for office staff; ELH-23 is for external consultants only",
       "There is no connection between green teams and initiatives"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "ELH-22 builds team operating capability; ELH-23 guides the team in delivering specific workplace initiatives.",
     incorrectExplanation: "Incorrect. ELH-22 provides team governance; ELH-23 provides initiative delivery mechanics."
   },
@@ -327,12 +327,12 @@ const NEW_QUIZ = [
     order: 10,
     question: "What is the main takeaway of the TEAMWORK Operational Framework?",
     options: [
-      "Applying TEAMWORK (Target purpose, Ensure representation, Assign authority, Make meetings useful, Work from evidence, Organise actions, Review delivery, Keep relevant) ensures sustained team delivery",
       "Green teams should rely on unbudgeted volunteer enthusiasm and endless meetings",
       "Line managers should transfer all environmental responsibilities onto green teams",
-      "Meeting frequency is the single true measure of sustainability success"
+      "Meeting frequency is the single true measure of sustainability success",
+      "Applying TEAMWORK (Target purpose, Ensure representation, Assign authority, Make meetings useful, Work from evidence, Organise actions, Review delivery, Keep relevant) ensures sustained team delivery"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "TEAMWORK provides structured operating discipline for cross-functional representation and accountable action delivery.",
     incorrectExplanation: "Incorrect. TEAMWORK provides structured operating discipline for effective green team delivery."
   }
@@ -389,7 +389,7 @@ export async function ensureEffectiveGreenTeamsCourse(): Promise<void> {
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length < 8;
+      const hasMissingQuiz = existingQuizQuestions.length !== 10;
 
       const needsRepair = !existingSeed || hasMissingLessons || hasEmptyBlocks || hasMissingQuiz;
 

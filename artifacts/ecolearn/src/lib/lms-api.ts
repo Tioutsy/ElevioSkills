@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export type AssignmentStatus = "not_started" | "in_progress" | "completed" | "overdue";
 export type EmployeeTrainingStatus = "not_started" | "in_progress" | "completed";
@@ -643,3 +643,107 @@ export function useReviewWorkplaceAction() {
       }),
   });
 }
+
+// ─── Training Automation Policy & Execution Hooks ─────────────────────────
+
+export interface CompanyTrainingAutomationPolicy {
+  companyId: number;
+  enabled: boolean;
+  paused: boolean;
+  preDueReminderEnabled: boolean;
+  preDueReminderDays: number;
+  overdueReminderEnabled: boolean;
+  overdueReminderDays: number;
+  secondOverdueReminderEnabled: boolean;
+  secondOverdueReminderDays: number;
+  adminEscalationEnabled: boolean;
+  adminEscalationDays: number;
+  managerEscalationEnabled: boolean;
+  managerEscalationDays: number;
+  weeklySummaryEnabled: boolean;
+  updatedAt: string;
+  updatedByUserId?: string;
+}
+
+export interface TrainingAutomationPolicyResponse {
+  policy: CompanyTrainingAutomationPolicy;
+  preview: string[];
+}
+
+export interface AutomationEffectivenessMetrics {
+  totalRemindersSent: number;
+  completionsPostReminder: number;
+  completionRatePostReminder: number;
+  mostEffectiveStage: string;
+  lastRunAt: string;
+}
+
+export function useTrainingAutomationPolicy() {
+  return useQuery({
+    queryKey: ["training-automation-policy"],
+    queryFn: () => apiJson<TrainingAutomationPolicyResponse>("/api/company/training-automation/policy"),
+  });
+}
+
+export function useUpdateTrainingAutomationPolicy() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (updates: Partial<CompanyTrainingAutomationPolicy>) =>
+      apiJson<TrainingAutomationPolicyResponse>("/api/company/training-automation/policy", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updates),
+      }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["training-automation-policy"] });
+    },
+  });
+}
+
+export function usePauseTrainingAutomation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: () =>
+      apiJson<{ success: boolean; policy: CompanyTrainingAutomationPolicy }>("/api/company/training-automation/pause", {
+        method: "POST",
+      }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["training-automation-policy"] });
+    },
+  });
+}
+
+export function useResumeTrainingAutomation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: () =>
+      apiJson<{ success: boolean; policy: CompanyTrainingAutomationPolicy }>("/api/company/training-automation/resume", {
+        method: "POST",
+      }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["training-automation-policy"] });
+    },
+  });
+}
+
+export function useRunAutomationNow() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: () =>
+      apiJson<{ message: string; result: any }>("/api/company/training-automation/run-now", {
+        method: "POST",
+      }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["training-automation-policy"] });
+      queryClient.invalidateQueries({ queryKey: ["automation-effectiveness"] });
+    },
+  });
+}
+
+export function useAutomationEffectiveness() {
+  return useQuery({
+    queryKey: ["automation-effectiveness"],
+    queryFn: () => apiJson<AutomationEffectivenessMetrics>("/api/company/training-automation/effectiveness"),
+  });
+}
+

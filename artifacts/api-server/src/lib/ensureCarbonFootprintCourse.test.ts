@@ -11,7 +11,7 @@ import {
 import { eq } from "drizzle-orm";
 import { ensureCarbonFootprintCourse } from "./ensureCarbonFootprintCourse";
 
-test("Course 7 (ID 10) Seeding & Integrity Unit Tests", async () => {
+test("Course 7 Seeding & Integrity Unit Tests", async () => {
   // 1. Initial seed execution
   console.log("- Running Course 7 seeder...");
   await ensureCarbonFootprintCourse();
@@ -20,10 +20,10 @@ test("Course 7 (ID 10) Seeding & Integrity Unit Tests", async () => {
   const [course] = await db
     .select()
     .from(coursesTable)
-    .where(eq(coursesTable.id, 10))
+    .where(eq(coursesTable.id, 7))
     .limit(1);
 
-  assert.ok(course, "Course 10 must exist");
+  assert.ok(course, "Course 7 must exist");
   assert.equal(course.slug, "carbon-footprint-awareness");
   assert.equal(course.passingScore, 80);
   assert.equal(course.status, "published");
@@ -33,7 +33,7 @@ test("Course 7 (ID 10) Seeding & Integrity Unit Tests", async () => {
   const lessons = await db
     .select()
     .from(lessonsTable)
-    .where(eq(lessonsTable.courseId, 10));
+    .where(eq(lessonsTable.courseId, 7));
   assert.equal(lessons.length, 6, "Must have exactly 6 lessons");
 
   // Verify every lesson has non-empty contentBlocks
@@ -49,7 +49,7 @@ test("Course 7 (ID 10) Seeding & Integrity Unit Tests", async () => {
   const quizQuestions = await db
     .select()
     .from(quizQuestionsTable)
-    .where(eq(quizQuestionsTable.courseId, 10));
+    .where(eq(quizQuestionsTable.courseId, 7));
   assert.equal(
     quizQuestions.length,
     5,
@@ -80,7 +80,7 @@ test("Course 7 (ID 10) Seeding & Integrity Unit Tests", async () => {
   const lessonsRetry = await db
     .select()
     .from(lessonsTable)
-    .where(eq(lessonsTable.courseId, 10));
+    .where(eq(lessonsTable.courseId, 7));
   assert.equal(
     lessonsRetry.length,
     6,
@@ -90,7 +90,7 @@ test("Course 7 (ID 10) Seeding & Integrity Unit Tests", async () => {
   const quizRetry = await db
     .select()
     .from(quizQuestionsTable)
-    .where(eq(quizQuestionsTable.courseId, 10));
+    .where(eq(quizQuestionsTable.courseId, 7));
   assert.equal(
     quizRetry.length,
     5,
@@ -99,7 +99,7 @@ test("Course 7 (ID 10) Seeding & Integrity Unit Tests", async () => {
 
   // 3. Integrity guard check — repair missing questions
   console.log("- Testing integrity guard (deleting quiz questions to trigger repair)...");
-  await db.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, 10));
+  await db.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, 7));
   await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "carbon-footprint-awareness-v3"));
 
   await ensureCarbonFootprintCourse();
@@ -107,6 +107,6 @@ test("Course 7 (ID 10) Seeding & Integrity Unit Tests", async () => {
   const quizRepaired = await db
     .select()
     .from(quizQuestionsTable)
-    .where(eq(quizQuestionsTable.courseId, 10));
+    .where(eq(quizQuestionsTable.courseId, 7));
   assert.equal(quizRepaired.length, 5, "Repaired course must contain 5 questions");
 });

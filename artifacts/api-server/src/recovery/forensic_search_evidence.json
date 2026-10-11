@@ -1,0 +1,175 @@
+{
+  "activeSeedFilesCount": 34,
+  "files": [
+    {
+      "filename": "ensureActionPlanningCourse.ts",
+      "sizeBytes": 28165,
+      "sha256": "22ad10f3169ba0041b51217dd7a5521cc9e620cc27f78c86e2c09fa9aa967d8f"
+    },
+    {
+      "filename": "ensureBiodiversityCourse.ts",
+      "sizeBytes": 27241,
+      "sha256": "af8ec056616eade37275ffd829d650950266833b34bfdeaf4919a4f6c29dba51"
+    },
+    {
+      "filename": "ensureCarbonFootprintCourse.ts",
+      "sizeBytes": 27259,
+      "sha256": "1e5552b5a5f942989315ea1e72f1bc085167e499385a020b19438f773f7a0b8b"
+    },
+    {
+      "filename": "ensureCircularEconomyCourse.ts",
+      "sizeBytes": 27842,
+      "sha256": "09f746563be5412df84f14b5cf914bbf3b998fda486c4573ba60aa82dd50cdc5"
+    },
+    {
+      "filename": "ensureClimateRiskCourse.ts",
+      "sizeBytes": 29462,
+      "sha256": "f64aec28c8bce1addbf0371bd4e7cf87333ae1eaf358d195363e5afe8dbd64e2"
+    },
+    {
+      "filename": "ensureCommunicatingSustainabilityAtWorkCourse.ts",
+      "sizeBytes": 28962,
+      "sha256": "1e3cd210791350d873073e9e52964d86951fb9ece712253016588b01196380d8"
+    },
+    {
+      "filename": "ensureDepartmentalSustainabilityGoalsCourse.ts",
+      "sizeBytes": 29114,
+      "sha256": "ed458f336f373e2c24259614a36485e5aecab9f0ad74bc4919f0b9d0d22bacea"
+    },
+    {
+      "filename": "ensureEffectiveGreenTeamsCourse.ts",
+      "sizeBytes": 31889,
+      "sha256": "7b9d96b50cf3fb65b0dcf5a9e008638579b2fb78d2a7fcb6ffb28faaf1bdffeb"
+    },
+    {
+      "filename": "ensureEmployeeSustainabilityEngagementCourse.ts",
+      "sizeBytes": 31839,
+      "sha256": "18b9ff0566466c31466834fb96806c62e121706d24f8e255478e3c15df3a9544"
+    },
+    {
+      "filename": "ensureEnergyEfficiencyCourse.ts",
+      "sizeBytes": 24336,
+      "sha256": "6c8ddda3762fbafae6de9e2dc4f2ec84df62fe9a5dd5ef4bf41930c81eb36449"
+    },
+    {
+      "filename": "ensureEnvironmentalComplianceCourse.ts",
+      "sizeBytes": 27463,
+      "sha256": "c438b53d824715f69a0719c779c8069146e0163dfb7211f93d2a8814f97a014e"
+    },
+    {
+      "filename": "ensureEsgBasicsCourse.ts",
+      "sizeBytes": 25223,
+      "sha256": "93a784ab9f036397d1253adc7d304abeb10ad54dd03cd104d8064ff1ad473f6d"
+    },
+    {
+      "filename": "ensureEsgDataCourse.ts",
+      "sizeBytes": 27638,
+      "sha256": "7e9b8a99b8d04b9ba98d5dde88bd27f7ad6fe1b7e9bb472d853a5df0c573a479"
+    },
+    {
+      "filename": "ensureEsgInMyJobCourse.ts",
+      "sizeBytes": 26507,
+      "sha256": "555f5ff07f2d549a1ef3074ca1c160bec22847c52ced417dacc121f74a7e8078"
+    },
+    {
+      "filename": "ensureEthicsGovernanceCourse.ts",
+      "sizeBytes": 27605,
+      "sha256": "a12736adc55bd976e7408206462bbbd95f0f69d64fcd39b360170e2f181f786a"
+    },
+    {
+      "filename": "ensureFinalSustainabilityCertificationCourse.ts",
+      "sizeBytes": 36198,
+      "sha256": "014fdfbaa2c41c9f7d7a41fb1712b6d0c4d3987fe0b82f718c0538a0afdcb80f"
+    },
+    {
+      "filename": "ensureFoundationsCourse.ts",
+      "sizeBytes": 34104,
+      "sha256": "8b00c5d20cda56d11a5d258f952117d82ca00cb98e30e544be2d3964d3f93152"
+    },
+    {
+      "filename": "ensureGreenOfficePracticesCourse.ts",
+      "sizeBytes": 27542,
+      "sha256": "a29ba6cceb19760a0ce218dc0eb61a6134fe5f2c772a8775d3dc42196f6b79a5"
+    },
+    {
+      "filename": "ensureSocialResponsibilityAtWorkCourse.ts",
+      "sizeBytes": 28121,
+      "sha256": "99ab5d8ce70adf631717f4b4736b8bd9fbceb8280fac925cf8bafa0e378cf05d"
+    },
+    {
+      "filename": "ensureSustainabilityDataCollectionCourse.ts",
+      "sizeBytes": 30053,
+      "sha256": "f3383a609fd3f09c1702ee2e89863c2d67df7c93543a76d1f8c3545a7a571bd9"
+    },
+    {
+      "filename": "ensureSustainabilityForFacilitiesAndPropertyTeamsCourse.ts",
+      "sizeBytes": 34684,
+      "sha256": "efd77514031f8864963bf022943835e7a88d4ee5e42cce1b7acdc55278ce3438"
+    },
+    {
+      "filename": "ensureSustainabilityForFinanceTeamsCourse.ts",
+      "sizeBytes": 34572,
+      "sha256": "9285dea1eb1c231ee3cdae7a32d3d91c1a1cc6f4356ddfb55457cf871c4424dc"
+    },
+    {
+      "filename": "ensureSustainabilityForHrTeamsCourse.ts",
+      "sizeBytes": 35663,
+      "sha256": "716307408a2c0223c35339c362c2958d0098a3ded07e7d6d6fa2570897d0a621"
+    },
+    {
+      "filename": "ensureSustainabilityForOperationsAndFrontlineTeamsCourse.ts",
+      "sizeBytes": 46915,
+      "sha256": "19e237fb4a74b3b113b89c5e1660bfe8e1284fc3660c1d4a7924b3dc50eea0b4"
+    },
+    {
+      "filename": "ensureSustainabilityForProcurementAndPurchasingTeamsCourse.ts",
+      "sizeBytes": 69238,
+      "sha256": "db90e57a46b6709637525a5185fdf6193efaf17463e8a0790f9bd54c0c9dc94d"
+    },
+    {
+      "filename": "ensureSustainabilityForSalesAndMarketingTeamsCourse.ts",
+      "sizeBytes": 33103,
+      "sha256": "41a136f7e62e220c6540cadf6fad10758eb7eb45ffff84df3cba0feb43b29a06"
+    },
+    {
+      "filename": "ensureSustainabilityPerformanceReviewCourse.ts",
+      "sizeBytes": 31619,
+      "sha256": "b7ab08c0e54855dc0798e918c6159b3eb63ce77d67c46426db857031c2dc82b9"
+    },
+    {
+      "filename": "ensureSustainabilityRolesAccountabilityCourse.ts",
+      "sizeBytes": 30791,
+      "sha256": "788a193a328f93151a0d869abc2ab1b14f9d660e425ff9fc59ca55973cdf0d80"
+    },
+    {
+      "filename": "ensureSustainableProcurementCourse.ts",
+      "sizeBytes": 27280,
+      "sha256": "90e97c44c43738d0c4e3e3e690e48f3a07410fc1137193fc539eb4c910f47b79"
+    },
+    {
+      "filename": "ensureTrackingSustainabilityActionsCourse.ts",
+      "sizeBytes": 29502,
+      "sha256": "1f1065496d552aa266eed65f74db6f51ee956e3ad227e082d3552928f496dbf2"
+    },
+    {
+      "filename": "ensureWasteSortingCourse.ts",
+      "sizeBytes": 23078,
+      "sha256": "80ef4522ce7c82e1e85b7ad4bdd77bb53d9c1648486eff517954094447c40edc"
+    },
+    {
+      "filename": "ensureWaterConservationCourse.ts",
+      "sizeBytes": 25790,
+      "sha256": "4e69317684ffecd202c28c35dd259d49fb4aa305972f9f10fc545450250f9b75"
+    },
+    {
+      "filename": "ensureWorkplaceSustainabilityInitiativesCourse.ts",
+      "sizeBytes": 42463,
+      "sha256": "0293a5768c66e7177c6c523bec164a2e7b060806374394aff96598129ef7b109"
+    },
+    {
+      "filename": "ensureWorkplaceSustainabilityTeamCourse.ts",
+      "sizeBytes": 28907,
+      "sha256": "b8cba8e109ec9eba1137ea849dd4b6e147c14de4569408f1180c6965d8213edc"
+    }
+  ]
+}

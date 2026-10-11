@@ -21,6 +21,7 @@ export interface CompanyAccess {
   role: AccessRole;
   employee: Employee | null;
   isDemo: boolean;
+  companyName?: string | null;
 }
 
 export class HttpError extends Error {

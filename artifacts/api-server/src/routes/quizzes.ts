@@ -13,15 +13,9 @@ import {
 import { and, desc, eq, inArray, or } from "drizzle-orm";
 import { SubmitQuizBody } from "@workspace/api-zod";
 import { randomUUID } from "crypto";
-import { getCompanyAccess, requireCompletedProfile, sendHttpError, HttpError } from "../lib/access";
-import {
-  evaluateQuizAchievements,
-  evaluateCourseCompletionAchievements,
-  awardCourseBadge,
-  evaluateCourseMilestones,
-} from "../lib/achievementsService.js";
-import { awardQuizPassScore, awardCourseCompletionScore } from "../lib/scoringService.js";
-import { evaluateEmployeeChallengeProgress } from "../lib/challengeService.js";
+import { getCompanyAccess, sendHttpError } from "../lib/access";
+import { syncEmployeeLearningStats } from "../lib/lmsData";
+import { awardCourseBadge, evaluateCourseMilestones } from "../lib/achievementsService";
 
 const router = Router();
 
@@ -34,7 +28,11 @@ router.get("/:courseId/quiz", async (req, res): Promise<void> => {
   }
 
   const [course] = await db
-    .select({ isPublished: coursesTable.isPublished, courseCode: coursesTable.courseCode })
+    .select({
+      isPublished: coursesTable.isPublished,
+      courseCode: coursesTable.courseCode,
+      version: coursesTable.version,
+    })
     .from(coursesTable)
     .where(eq(coursesTable.id, courseId));
 
@@ -45,14 +43,9 @@ router.get("/:courseId/quiz", async (req, res): Promise<void> => {
 
   let accessContext = null;
   try {
-    const { requireCompletedProfile } = await import("../lib/access");
-    accessContext = await requireCompletedProfile(req);
-  } catch (err: any) {
-    if (err instanceof HttpError && err.status === 403) {
-      sendHttpError(res, err);
-      return;
-    }
-    // Ignore auth errors for guest accesses
+    accessContext = await getCompanyAccess(req);
+  } catch (e) {
+    // Ignore auth errors for guest/learner accesses
   }
 
   const isPlatformAdmin = accessContext?.role === "platform_admin";
@@ -85,12 +78,21 @@ router.get("/:courseId/quiz", async (req, res): Promise<void> => {
       question: quizQuestionsTable.question,
       options: quizQuestionsTable.options,
       orderIndex: quizQuestionsTable.orderIndex,
+      correctExplanation: quizQuestionsTable.correctExplanation,
+      incorrectExplanation: quizQuestionsTable.incorrectExplanation,
+      optionFeedback: quizQuestionsTable.optionFeedback,
+      practicalTakeaway: quizQuestionsTable.practicalTakeaway,
     })
     .from(quizQuestionsTable)
     .where(eq(quizQuestionsTable.courseId, courseId))
     .orderBy(quizQuestionsTable.orderIndex);
 
-  res.json({ courseId, questions });
+  res.json({
+    courseId,
+    version: course.version ?? 1,
+    totalQuestions: questions.length,
+    questions,
+  });
 });
 
 router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
@@ -102,13 +104,26 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
       return;
     }
 
-    const parsed = SubmitQuizBody.safeParse(req.body);
+    const bodyData = req.body?.data && typeof req.body.data === "object" ? req.body.data : req.body;
+    const parsed = SubmitQuizBody.safeParse(bodyData);
     if (!parsed.success) {
       res.status(400).json({ error: parsed.error.message });
       return;
     }
 
-    const access = await requireCompletedProfile(req);
+    let access: any;
+    try {
+      access = await getCompanyAccess(req);
+    } catch (e) {
+      res.status(401).json({ error: "Authentication required to submit quiz" });
+      return;
+    }
+
+    if (!access || !access.userId) {
+      res.status(401).json({ error: "Authentication required to submit quiz" });
+      return;
+    }
+
     const isPlatformAdmin = access.role === "platform_admin";
 
     const enrollmentClauses = [eq(enrollmentsTable.userId, access.userId)];
@@ -131,6 +146,33 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
       return;
     }
 
+    // Cross-tenant submission check
+    if (enrollment && access.companyId && enrollment.companyId && enrollment.companyId !== access.companyId && !isPlatformAdmin) {
+      res.status(403).json({ error: "Cross-tenant attempt submission is strictly prohibited" });
+      return;
+    }
+
+    const [course] = await db
+      .select({
+        id: coursesTable.id,
+        isPublished: coursesTable.isPublished,
+        passingScore: coursesTable.passingScore,
+        title: coursesTable.title,
+        version: coursesTable.version,
+      })
+      .from(coursesTable)
+      .where(eq(coursesTable.id, courseId));
+
+    if (!course) {
+      res.status(404).json({ error: "Course not found" });
+      return;
+    }
+
+    if (!course.isPublished && !isPlatformAdmin) {
+      res.status(403).json({ error: "Cannot submit quiz for an unpublished course" });
+      return;
+    }
+
     const { evaluateCourseAccess } = await import("../lib/courseAccessService");
     const accessDecision = await evaluateCourseAccess(courseId, access);
     if (!accessDecision.allowed) {
@@ -147,7 +189,101 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
       return;
     }
 
-    const questions = await db.select().from(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
+    // Check reuse of already-finalised attempt where retake is not authorised
+    const existingPassedAttempts = await db
+      .select()
+      .from(quizAttemptsTable)
+      .where(and(
+        eq(quizAttemptsTable.userId, access.userId),
+        eq(quizAttemptsTable.courseId, courseId),
+        eq(quizAttemptsTable.passed, true)
+      ))
+      .limit(1);
+
+    if (existingPassedAttempts.length > 0 && req.query.allowRetake !== "true" && req.body.allowRetake !== true && !isPlatformAdmin) {
+      const existingCerts = await db
+        .select()
+        .from(certificatesTable)
+        .where(and(
+          eq(certificatesTable.userId, access.userId),
+          eq(certificatesTable.courseId, courseId)
+        ))
+        .limit(1);
+      if (existingCerts.length > 0) {
+        res.status(409).json({ error: "Reuse of an already-finalised attempt where retake is not authorised" });
+        return;
+      }
+    }
+
+    // Authoritative server-side question definition
+    const questions = await db
+      .select()
+      .from(quizQuestionsTable)
+      .where(and(
+        eq(quizQuestionsTable.courseId, courseId),
+        eq(quizQuestionsTable.isArchived, false)
+      ))
+      .orderBy(quizQuestionsTable.orderIndex);
+
+    if (!questions || questions.length === 0) {
+      res.status(400).json({ error: "Assessment questions not found for this course" });
+      return;
+    }
+
+    const authorizedQuestionCount = questions.length;
+    const submittedAnswers = parsed.data.answers;
+
+    if (!Array.isArray(submittedAnswers)) {
+      res.status(400).json({ error: "Submission answers must be an array" });
+      return;
+    }
+
+    // Enforce server-authoritative denominator and question set:
+    // Reject submissions omitting required questions or submitting shortened sets
+    if (submittedAnswers.length !== authorizedQuestionCount) {
+      res.status(400).json({
+        error: `Submission answer count (${submittedAnswers.length}) does not match the authorised assessment question count (${authorizedQuestionCount}) for course ${courseId} (Version ${course.version ?? 1})`
+      });
+      return;
+    }
+
+    // Verify question IDs: reject duplicate, unknown, alien, or tampered IDs
+    const validQuestionMap = new Map(questions.map((q) => [q.id, q]));
+    const seenQuestionIds = new Set<number>();
+
+    for (const ans of submittedAnswers) {
+      if (!ans || typeof ans !== "object" || typeof ans.questionId !== "number") {
+        res.status(400).json({ error: "Invalid answer structure: questionId must be an integer" });
+        return;
+      }
+
+      if (seenQuestionIds.has(ans.questionId)) {
+        res.status(400).json({ error: `Duplicate question ID ${ans.questionId} in submission` });
+        return;
+      }
+      seenQuestionIds.add(ans.questionId);
+
+      const authorizedQ = validQuestionMap.get(ans.questionId);
+      if (!authorizedQ) {
+        res.status(400).json({
+          error: `Question ID ${ans.questionId} does not belong to course ${courseId} assessment version ${course.version ?? 1}`
+        });
+        return;
+      }
+
+      if (typeof ans.selectedOption !== "number" || ans.selectedOption < 0 || ans.selectedOption >= authorizedQ.options.length) {
+        res.status(400).json({ error: `Invalid selectedOption for question ID ${ans.questionId}` });
+        return;
+      }
+    }
+
+    // Ensure EVERY question from the authorized set was answered
+    for (const q of questions) {
+      if (!seenQuestionIds.has(q.id)) {
+        res.status(400).json({ error: `Missing answer for required question ID ${q.id}` });
+        return;
+      }
+    }
 
     const competencyScores: Record<string, { correct: number, total: number, percentage: number, passed: boolean }> = {};
     let isCertification = false;
@@ -161,70 +297,48 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
       }
     }
 
-    const questionIdMap = new Map(questions.map((q) => [q.id, q]));
-    for (const answer of parsed.data.answers) {
-      if (!questionIdMap.has(answer.questionId)) {
-        res.status(400).json({ error: "Invalid or cross-version quiz question ID submitted" });
-        return;
-      }
-    }
-
     let correctAnswers = 0;
     const incorrectSourceCourseIds: Record<number, number> = {};
 
-    for (const answer of parsed.data.answers) {
-      const question = questionIdMap.get(answer.questionId);
-      if (question) {
-        const isCorrect = question.correctOption === answer.selectedOption;
-        if (isCorrect) {
-          correctAnswers++;
-          if (question.competencyArea) {
-            competencyScores[question.competencyArea].correct++;
-          }
-        } else {
-          if (question.sourceCourseId) {
-            incorrectSourceCourseIds[question.sourceCourseId] = (incorrectSourceCourseIds[question.sourceCourseId] || 0) + 1;
-          }
+    for (const answer of submittedAnswers) {
+      const question = validQuestionMap.get(answer.questionId)!;
+      const isCorrect = question.correctOption === answer.selectedOption;
+      if (isCorrect) {
+        correctAnswers++;
+        if (question.competencyArea) {
+          competencyScores[question.competencyArea].correct++;
+        }
+      } else {
+        if (question.sourceCourseId) {
+          incorrectSourceCourseIds[question.sourceCourseId] = (incorrectSourceCourseIds[question.sourceCourseId] || 0) + 1;
         }
       }
     }
 
-    const [course] = await db
-      .select({
-        passingScore: coursesTable.passingScore,
-        title: coursesTable.title,
-        version: coursesTable.version,
-      })
-      .from(coursesTable)
-      .where(eq(coursesTable.id, courseId));
-    const passingScore = course?.passingScore ?? 70;
-    const courseVersion = course?.version ?? 1;
+    const totalQuestions = authorizedQuestionCount;
+    const effectiveCourseVersion = course.version ?? 1;
 
     let allCompetenciesPassed = true;
     for (const key of Object.keys(competencyScores)) {
-       const comp = competencyScores[key];
-       comp.percentage = comp.total > 0 ? Math.round((comp.correct / comp.total) * 100) : 0;
-       // We use >= 7 for pass threshold for 10 questions. If total is not 10, use 70%
-       comp.passed = comp.percentage >= 70;
-       if (!comp.passed) allCompetenciesPassed = false;
+      const comp = competencyScores[key];
+      comp.percentage = comp.total > 0 ? Math.round((comp.correct / comp.total) * 100) : 0;
+      comp.passed = comp.percentage >= 70;
+      if (!comp.passed) allCompetenciesPassed = false;
     }
 
-    const totalQuestions = questions.length;
     const score = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
-    
+    const passingScore = course.passingScore ?? 70;
+
     let passed = score >= passingScore;
     if (isCertification) {
-        // Enforce certification rules: overall >= 80 and all areas >= 70
-        passed = score >= 80 && allCompetenciesPassed;
+      passed = score >= 80 && allCompetenciesPassed;
     }
 
-    const enrolledContentVersion = enrollment.enrolledVersion || courseVersion;
-
     const userId = access.userId;
-    const dbAttempt = await db.insert(quizAttemptsTable).values({
+    const [dbAttempt] = await db.insert(quizAttemptsTable).values({
       userId,
       courseId,
-      courseVersion: enrolledContentVersion,
+      courseVersion: effectiveCourseVersion,
       score,
       totalQuestions,
       correctAnswers,
@@ -233,7 +347,7 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
     }).returning();
 
     let employee = access.employee;
-    if (!employee && enrollment.employeeId) {
+    if (!employee && enrollment?.employeeId) {
       const [found] = await db
         .select()
         .from(employeesTable)
@@ -244,7 +358,7 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
 
     let certificateId: number | null = null;
     if (passed) {
-      const companyId = employee?.companyId ?? enrollment.companyId ?? access.companyId;
+      const companyId = employee?.companyId ?? enrollment?.companyId ?? access.companyId;
       const [company] = await db
         .select()
         .from(companiesTable)
@@ -274,7 +388,7 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
             employeeName: employee?.name ?? "Elevio Learner",
             companyName: company?.name ?? "Elevio",
             courseId,
-            courseVersion: enrolledContentVersion,
+            courseVersion: effectiveCourseVersion,
             uniqueCode: code,
             certificateTitle,
           })
@@ -283,16 +397,18 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
       }
 
       const completedAt = new Date();
-      await db
-        .update(enrollmentsTable)
-        .set({
-          status: "completed",
-          progressPct: 100,
-          completedAt,
-          completedVersion: enrolledContentVersion,
-          lastAccessedAt: completedAt,
-        })
-        .where(eq(enrollmentsTable.id, enrollment.id));
+      if (enrollment) {
+        await db
+          .update(enrollmentsTable)
+          .set({
+            status: "completed",
+            progressPct: 100,
+            completedAt,
+            completedVersion: effectiveCourseVersion,
+            lastAccessedAt: completedAt,
+          })
+          .where(eq(enrollmentsTable.id, enrollment.id));
+      }
 
       if (employee) {
         await db
@@ -304,60 +420,7 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
               eq(courseAssignmentsTable.courseId, courseId),
             ),
           );
-
-        try {
-          const awardCompanyId = employee.companyId || enrollment.companyId || access.companyId;
-          await awardQuizPassScore({
-            companyId: awardCompanyId,
-            employeeId: employee.id,
-            clerkUserId: userId,
-            courseId,
-            courseTitle: course?.title,
-            score,
-            quizAttemptId: dbAttempt[0].id,
-          });
-
-          await awardCourseCompletionScore({
-            companyId: awardCompanyId,
-            employeeId: employee.id,
-            clerkUserId: userId,
-            courseId,
-            courseTitle: course?.title,
-            version: courseVersion,
-          });
-
-          // Query attempt count for first-try achievement check
-          const prevAttempts = await db
-            .select({ id: quizAttemptsTable.id })
-            .from(quizAttemptsTable)
-            .where(
-              and(
-                eq(quizAttemptsTable.userId, userId),
-                eq(quizAttemptsTable.courseId, courseId)
-              )
-            );
-
-          // Sprint 14.2 Achievements Evaluation (Zero additional points)
-          await evaluateQuizAchievements({
-            employee,
-            courseId,
-            scorePct: score,
-            attemptCount: prevAttempts.length || 1,
-          });
-
-          await evaluateCourseCompletionAchievements({
-            employee,
-            courseId,
-          });
-
-          // Sprint 14.3 Challenge Progress Evaluation
-          await evaluateEmployeeChallengeProgress({
-            employee,
-            clerkUserId: userId,
-          });
-        } catch (scoreErr: any) {
-          req.log?.error({ err: scoreErr?.message }, "Non-fatal error awarding ELEVIO score or evaluating achievements");
-        }
+        await syncEmployeeLearningStats(employee.id);
       }
     }
 
@@ -419,9 +482,10 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
       newAchievements
     });
   } catch (err) {
+    console.error("SUBMIT QUIZ ERR:", err);
     if (!sendHttpError(res, err)) {
       req.log?.error({ err }, "Failed to submit quiz");
-      res.status(500).json({ error: "Failed to submit quiz" });
+      res.status(500).json({ error: (err as any)?.message || "Failed to submit quiz" });
     }
   }
 });

@@ -198,7 +198,7 @@ export async function getPlatformGamificationHealth(
     ORDER BY "completedCount" DESC
     LIMIT 5;
   `);
-  const topTemplates = (topTemplatesQuery.rows || topTemplatesQuery).map((r: any) => {
+  const topTemplates = ((topTemplatesQuery.rows ?? topTemplatesQuery) as any[]).map((r: any) => {
     const act = Number(r.activatedCount || 0);
     const comp = Number(r.completedCount || 0);
     return {
@@ -250,7 +250,7 @@ export async function getPlatformGamificationHealth(
     ORDER BY (COUNT(*) FILTER (WHERE cip.passed = true AND cip.attempt_count = 1)::float / COUNT(*)::float) ASC
     LIMIT 5;
   `);
-  const highestFailureInteractions = (difficultIntQuery.rows || difficultIntQuery).map((r: any) => {
+  const highestFailureInteractions = ((difficultIntQuery.rows ?? difficultIntQuery) as any[]).map((r: any) => {
     const recs = Number(r.recordsCount || 0);
     const firstPass = Number(r.firstPassCount || 0);
     const abandoned = Number(r.abandonedCount || 0);
@@ -296,7 +296,7 @@ export async function getPlatformGamificationHealth(
     ORDER BY "earnedCount" DESC
     LIMIT 5;
   `);
-  const mostCommonAchievements = (commonBadgesQuery.rows || commonBadgesQuery).map((r: any) => ({
+  const mostCommonAchievements = ((commonBadgesQuery.rows ?? commonBadgesQuery) as any[]).map((r: any) => ({
     badgeCode: String(r.badgeCode),
     name: String(r.name),
     category: String(r.category),
@@ -639,7 +639,7 @@ export async function getCompanyGamificationAnalytics(
     ORDER BY (COUNT(*) FILTER (WHERE passed = true AND attempt_count = 1)::float / COUNT(*)::float) ASC
     LIMIT 3;
   `);
-  const difficultInteractions = (difficultIntCoQuery.rows || difficultIntCoQuery).map((r: any) => {
+  const difficultInteractions = ((difficultIntCoQuery.rows ?? difficultIntCoQuery) as any[]).map((r: any) => {
     const rc = Number(r.recordsCount || 0);
     const fp = Number(r.firstPassCount || 0);
     return {
@@ -1370,7 +1370,7 @@ export async function generateCompanyEngagementCsv(companyId: number, seasonId?:
     "Privacy Status",
   ];
 
-  const rows = (employeeData.rows || employeeData).map((e: any, idx: number) => {
+  const rows = ((employeeData.rows ?? employeeData) as any[]).map((e: any, idx: number) => {
     const currentRank = Number(e.seasonalScore) > 0 ? idx + 1 : "—";
     
     // Privacy handling

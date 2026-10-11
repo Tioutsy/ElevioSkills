@@ -22,7 +22,9 @@ export default defineConfig(({ mode }) => {
     },
     root: path.resolve(import.meta.dirname),
     server: {
-      port: 24777,
+      port: 3000,
+      host: "0.0.0.0",
+      allowedHosts: true,
       proxy: {
         "/api": {
           target: proxyTarget,
@@ -38,10 +40,8 @@ export default defineConfig(({ mode }) => {
       transformer: 'postcss',
     },
     build: {
-      outDir: path.resolve(import.meta.dirname, "dist"),
+      outDir: path.resolve(import.meta.dirname, "../../dist"),
       emptyOutDir: true,
     },
   };
 });
-
-

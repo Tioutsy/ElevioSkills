@@ -30,7 +30,7 @@ interface MauritiusResource {
 }
 
 export default function MauritiusResourceDetail() {
-  const { slug } = useParams();
+  const { slug } = useParams<{ slug: string }>();
   const [resource, setResource] = useState<MauritiusResource | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 

@@ -30,8 +30,8 @@ test("Pricing Page Per-Employee Cost Clarity Verification", () => {
 
   assert.equal(
     PER_EMPLOYEE_COST_MAP["OVER_120"],
-    "Contact us for a tailored quote",
-    "More than 120 employees must show 'Contact us for a tailored quote'"
+    "Per-employee cost calculated with your quote",
+    "More than 120 employees must show 'Per-employee cost calculated with your quote'"
   );
 
   // 2. Verify discreet calculation note exact wording

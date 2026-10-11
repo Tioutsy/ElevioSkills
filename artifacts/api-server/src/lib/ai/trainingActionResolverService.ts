@@ -10,7 +10,7 @@ import {
   notificationDeliveryLogsTable,
   auditLogsTable,
 } from "@workspace/db";
-import { eq, and, gte } from "drizzle-orm";
+import { eq, and, inArray, gte, sql } from "drizzle-orm";
 import { calculateDeterministicTrainingMetrics } from "./trainingInsightsService";
 import { dispatchNotificationDelivery } from "../notificationDeliveryService";
 import { assignTrainingToCompanyEmployees } from "../assignmentService";
@@ -129,7 +129,6 @@ export interface FollowUpAuditRecord {
 
 /**
  * Validates role and department scope for manager or admin.
- * Employees are denied access to management actions.
  */
 function assertManagementAccess(access: CompanyAccess): void {
   if (access.role === "employee") {
@@ -139,7 +138,6 @@ function assertManagementAccess(access: CompanyAccess): void {
 
 /**
  * Filter employee list based on manager department scope if applicable.
- * Prevents managers from accessing employees outside their department.
  */
 function filterEmployeesByRoleScope(employees: any[], access: CompanyAccess): any[] {
   if (access.role === "manager" && access.employee?.department) {
@@ -151,7 +149,6 @@ function filterEmployeesByRoleScope(employees: any[], access: CompanyAccess): an
 
 /**
  * Resolves available allowlisted management actions based on company metrics.
- * Actions are deterministic and data-driven — not invented by AI.
  */
 export async function resolveCompanyManagementActions(access: CompanyAccess): Promise<{
   companyId: number;
@@ -278,7 +275,6 @@ export async function resolveCompanyManagementActions(access: CompanyAccess): Pr
 
 /**
  * Returns detailed records of overdue learners for a company.
- * Scoped to manager's department if role is manager.
  */
 export async function getOverdueLearnersForCompany(
   access: CompanyAccess,
@@ -294,13 +290,13 @@ export async function getOverdueLearnersForCompany(
     .where(and(eq(employeesTable.companyId, companyId), eq(employeesTable.status, "active")));
 
   const employees = filterEmployeesByRoleScope(rawEmployees, access);
-  const empMap = new Map(employees.map((e) => [e.id, e]));
+  const empMap = new Map<number, any>(employees.map((e: any) => [e.id, e]));
   const empIds = Array.from(empMap.keys());
 
   if (empIds.length === 0) return [];
 
   const catalog = await db.select().from(coursesTable);
-  const courseMap = new Map(catalog.map((c) => [c.id, c]));
+  const courseMap = new Map<number, any>(catalog.map((c: any) => [c.id, c]));
 
   const enrollments = await db
     .select()
@@ -397,12 +393,12 @@ export async function getNotStartedLearnersForCompany(
     .where(and(eq(employeesTable.companyId, companyId), eq(employeesTable.status, "active")));
 
   const employees = filterEmployeesByRoleScope(rawEmployees, access);
-  const empMap = new Map(employees.map((e) => [e.id, e]));
+  const empMap = new Map<number, any>(employees.map((e: any) => [e.id, e]));
 
   if (empMap.size === 0) return [];
 
   const catalog = await db.select().from(coursesTable);
-  const courseMap = new Map(catalog.map((c) => [c.id, c]));
+  const courseMap = new Map<number, any>(catalog.map((c: any) => [c.id, c]));
 
   const enrollments = await db
     .select()
@@ -486,13 +482,13 @@ export async function getStrugglingLearnersForCompany(
     .where(and(eq(employeesTable.companyId, companyId), eq(employeesTable.status, "active")));
 
   const employees = filterEmployeesByRoleScope(rawEmployees, access);
-  const empMap = new Map(employees.map((e) => [e.id, e]));
-  const activeEmpIdsStr = new Set(employees.map((e) => String(e.id)));
+  const empMap = new Map<number, any>(employees.map((e: any) => [e.id, e]));
+  const activeEmpIdsStr = new Set(employees.map((e: any) => String(e.id)));
 
   if (empMap.size === 0) return [];
 
   const catalog = await db.select().from(coursesTable);
-  const courseMap = new Map(catalog.map((c) => [c.id, c]));
+  const courseMap = new Map<number, any>(catalog.map((c: any) => [c.id, c]));
 
   const quizAttempts = await db.select().from(quizAttemptsTable);
   const scopedAttempts = quizAttempts.filter((att) => att.userId && activeEmpIdsStr.has(String(att.userId)));
@@ -548,8 +544,7 @@ export async function getStrugglingLearnersForCompany(
 }
 
 /**
- * Dispatches training reminders in controlled batch with 24-hour duplicate protection.
- * State-changing action — requires explicit confirmation from the frontend before invocation.
+ * Dispatches training reminders in controlled batch with duplicate/rate-limit protection.
  */
 export async function sendTrainingReminderBatch(
   access: CompanyAccess,
@@ -611,12 +606,12 @@ export async function sendTrainingReminderBatch(
     .from(employeesTable)
     .where(and(eq(employeesTable.companyId, companyId), eq(employeesTable.status, "active")));
 
-  const empMap = new Map(activeEmployees.map((e) => [e.id, e]));
+  const empMap = new Map<number, any>(activeEmployees.map((e: any) => [e.id, e]));
 
   const catalog = await db.select().from(coursesTable);
-  const courseMap = new Map(catalog.map((c) => [c.id, c]));
+  const courseMap = new Map<number, any>(catalog.map((c: any) => [c.id, c]));
 
-  // Check recent delivery logs for 24-hour duplicate reminder protection
+  // Check recent delivery logs for duplicate reminder rate-limiting (within 24 hours)
   const recentLogs = await db
     .select()
     .from(notificationDeliveryLogsTable)
@@ -650,13 +645,13 @@ export async function sendTrainingReminderBatch(
     const course = courseMap.get(target.courseId);
     const courseTitle = course?.title || "Sustainability Training Course";
 
-    // Deduplication key — deterministic per employee/course/category/day
+    // Deduplication key
     const todayStr = now.toISOString().slice(0, 10);
     const dedupKey = `remind_comp_${companyId}_emp_${emp.id}_crs_${target.courseId}_cat_${options.category}_date_${todayStr}`;
 
-    // 24-hour rate-limit duplicate check
+    // Rate-limit duplicate check
     const recentDuplicate = recentLogs.find(
-      (l) => l.employeeId === emp.id && l.deduplicationKey === dedupKey
+      (l: any) => l.employeeId === emp.id && l.deduplicationKey === dedupKey
     );
 
     if (recentDuplicate) {
@@ -673,6 +668,7 @@ export async function sendTrainingReminderBatch(
     }
 
     // Deterministic Email Subject & Body
+    const subject = `Training reminder — ${courseTitle}`;
     const customNoteText = options.customNote ? `\n\nAdministrator Note: ${options.customNote}` : "";
     const bodyText = `Hello ${emp.name},
 
@@ -694,7 +690,7 @@ by Recyclean`;
       deduplicationKey: dedupKey,
       relatedCourseId: target.courseId,
       templateData: {
-        title: `Training reminder — ${courseTitle}`,
+        title: subject,
         message: bodyText,
         courseTitle,
       },
@@ -758,8 +754,7 @@ by Recyclean`;
 }
 
 /**
- * Assigns refresher training to selected employees.
- * Preserves historical completions and certificates — does not delete past completion records.
+ * Assigns refresher training to selected employees while preserving past completion history.
  */
 export async function assignRefresherTrainingBatch(
   access: CompanyAccess,
@@ -779,7 +774,7 @@ export async function assignRefresherTrainingBatch(
     throw new HttpError(404, "Target course for refresher assignment was not found.");
   }
 
-  // Validate employees belong to company and are in manager scope
+  // Validate employees belong to company
   const companyEmployees = await db
     .select()
     .from(employeesTable)
@@ -795,7 +790,7 @@ export async function assignRefresherTrainingBatch(
 
   const dueDateObj = options.dueDate ? new Date(options.dueDate) : null;
 
-  // Assign training using the real application assignment service
+  // Assign training using application assignment service
   const summary = await assignTrainingToCompanyEmployees({
     companyId,
     assignedByUserId: access.userId,
@@ -833,7 +828,6 @@ export async function assignRefresherTrainingBatch(
 
 /**
  * Retrieves audit history of management follow-up actions for a company.
- * Returns last 50 training-related audit events, most recent first.
  */
 export async function getManagementFollowUpHistory(
   access: CompanyAccess
@@ -862,9 +856,7 @@ export async function getManagementFollowUpHistory(
     actorRole: l.actorRole,
     targetType: l.targetType,
     targetId: l.targetId,
-    metadata: l.metadata
-      ? (typeof l.metadata === "string" ? JSON.parse(l.metadata) : (l.metadata as Record<string, unknown>))
-      : null,
+    metadata: l.metadata ? (typeof l.metadata === "string" ? JSON.parse(l.metadata) : (l.metadata as Record<string, unknown>)) : null,
     timestamp: new Date(l.createdAt).toISOString(),
   }));
 }

@@ -68,7 +68,6 @@ router.get("/learners/struggling", async (req, res): Promise<void> => {
 });
 
 // POST /api/company/training-actions/remind — Prepare & dispatch training reminders
-// REQUIRES explicit confirmation from the client before calling (requiresConfirmation: true)
 router.post("/remind", async (req, res): Promise<void> => {
   try {
     const access = await getCompanyAccess(req);
@@ -91,8 +90,6 @@ router.post("/remind", async (req, res): Promise<void> => {
 });
 
 // POST /api/company/training-actions/assign-refresher — Assign refresher training
-// REQUIRES explicit confirmation from the client before calling (requiresConfirmation: true)
-// Preserves historical completions and certificates.
 router.post("/assign-refresher", async (req, res): Promise<void> => {
   try {
     const access = await getCompanyAccess(req);

@@ -26,7 +26,7 @@ interface ArticlePost {
 }
 
 export default function InsightsArticleDetail() {
-  const { slug } = useParams();
+  const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<ArticlePost | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [relatedResources, setRelatedResources] = useState<any[]>([]);

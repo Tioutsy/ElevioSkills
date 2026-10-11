@@ -1,9 +1,13 @@
-import { test, describe } from "node:test";
+import { test, describe, before } from "node:test";
 import assert from "node:assert/strict";
 import { db, coursesTable, lessonsTable, quizQuestionsTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
+import { ensureFoundationsCourse } from "./ensureFoundationsCourse";
 
 describe("Sprint 11A — ELH-01 Sustainability Foundations Assurance & Regression Suite", () => {
+  before(async () => {
+    await ensureFoundationsCourse();
+  });
   test("1. Course ELH-01 exists with correct metadata and learning objectives", async () => {
     const [course] = await db
       .select()

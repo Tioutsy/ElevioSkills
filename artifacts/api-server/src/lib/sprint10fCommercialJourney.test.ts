@@ -42,12 +42,10 @@ describe("Sprint 10F — Commercial Journey & Green Brand Alignment Tests", () =
       assert.equal(pricingContent.includes("Get Started — Complete"), true, "Plan 3 CTA must be Get Started — Complete");
     });
 
-    test("Over-120 employee tier provides transparent pricing and direct Get Started CTAs", async () => {
+    test("Over-120 employee tier remains isolated for tailored quote request", async () => {
       const fs = await import("node:fs");
       const pricingContent = fs.readFileSync("../ecolearn/src/pages/pricing.tsx", "utf-8");
-      assert.equal(pricingContent.includes("Get Started — Essential"), true);
-      assert.equal(pricingContent.includes("Get Started — Professional"), true);
-      assert.equal(pricingContent.includes("Get Started — Complete"), true);
+      assert.equal(pricingContent.includes("Contact us for an organisation plan"), true, "Over 120 tier must retain contact action");
     });
   });
 

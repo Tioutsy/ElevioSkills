@@ -6,7 +6,7 @@ import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
 import { format } from "date-fns";
 
 export default function BlogPost() {
-  const { slug } = useParams();
+  const { slug } = useParams<{ slug: string }>();
   const { data: post, isLoading } = useGetBlogPost(slug || "");
 
   if (isLoading) {

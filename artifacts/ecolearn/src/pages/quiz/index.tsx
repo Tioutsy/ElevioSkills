@@ -11,7 +11,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function Quiz() {
   const { t } = useLanguage();
-  const { courseId } = useParams();
+  const { courseId } = useParams<{ courseId: string }>();
   const id = parseInt(courseId || "0", 10);
   const [, setLocation] = useLocation();
   const { toast } = useToast();
@@ -277,7 +277,7 @@ export default function Quiz() {
             <Button 
               size="lg"
               disabled={!hasAnsweredCurrent || submitQuiz.isPending}
-              onClick={handleNext}
+              onClick={isLastQuestion ? handleSubmit : handleNext}
             >
               {submitQuiz.isPending ? "Submitting..." : isLastQuestion ? "Submit Quiz" : "Next Question"}
             </Button>

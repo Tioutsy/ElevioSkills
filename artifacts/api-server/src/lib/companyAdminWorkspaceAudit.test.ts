@@ -27,15 +27,7 @@ describe("Sprint 8B: Company Admin Workspace, Employee Management & Training Ass
   });
 
   test("1. Server-side getCompanyAdminOverview returns company-scoped metrics and seat capacity", async () => {
-    let [comp] = await db.select().from(companiesTable).limit(1);
-    if (!comp) {
-      const [newComp] = await db
-        .insert(companiesTable)
-        .values({ name: "Infracare Test Org", slug: `infracare-test-org-${Date.now()}` })
-        .returning();
-      comp = newComp;
-    }
-    const overview = await getCompanyAdminOverview(comp.id);
+    const overview = await getCompanyAdminOverview(1);
     assert.ok(overview.companyName, "Company name must be defined");
     assert.equal(typeof overview.seatsUsed, "number", "seatsUsed must be a number");
     assert.equal(typeof overview.seatsRemaining, "number", "seatsRemaining must be a number");

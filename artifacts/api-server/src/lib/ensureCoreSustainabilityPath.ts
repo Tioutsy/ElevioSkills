@@ -111,6 +111,7 @@ export async function ensureCoreSustainabilityPath(): Promise<void> {
             providerLabel: "Elevio Recommended",
             isSystemManaged: true,
             status: "active",
+            companyId: null,
             estimatedDurationMinutes: totalDuration,
           })
           .where(eq(learningPathsTable.id, existingPath.id));
@@ -128,6 +129,7 @@ export async function ensureCoreSustainabilityPath(): Promise<void> {
             providerLabel: "Elevio Recommended",
             isSystemManaged: true,
             status: "active",
+            companyId: null,
             icon: "route",
             estimatedDurationMinutes: totalDuration,
           })

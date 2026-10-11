@@ -7,7 +7,7 @@ import {
   generateBulkCertificatesPdf,
   type CertificateData,
 } from "../lib/certificatePdf";
-import { getCompanyAccess, requireCompanyAdmin, requireCompletedProfile, sendHttpError } from "../lib/access";
+import { getCompanyAccess, requireCompanyAdmin, sendHttpError } from "../lib/access";
 
 const router = Router();
 
@@ -175,19 +175,19 @@ router.get("/:id/pdf", async (req, res): Promise<void> => {
     return;
   }
 
+  const access = await getCompanyAccess(req);
+  const isOwner =
+    cert.userId === access.userId ||
+    (access.employee && cert.employeeId === access.employee.id) ||
+    (access.companyId && cert.companyId === access.companyId) ||
+    access.role === "platform_admin";
+
+  if (!isOwner) {
+    res.status(403).json({ error: "Access denied to this certificate" });
+    return;
+  }
+
   try {
-    const access = await requireCompletedProfile(req);
-    const isOwner =
-      cert.userId === access.userId ||
-      (access.employee && cert.employeeId === access.employee.id) ||
-      (access.companyId && cert.companyId === access.companyId) ||
-      access.role === "platform_admin";
-
-    if (!isOwner) {
-      res.status(403).json({ error: "Access denied to this certificate" });
-      return;
-    }
-
     const pdfBytes = await generateCertificatePdf(toCertificateData(cert, certLocale));
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader(
@@ -196,10 +196,8 @@ router.get("/:id/pdf", async (req, res): Promise<void> => {
     );
     res.send(Buffer.from(pdfBytes));
   } catch (err) {
-    if (!sendHttpError(res, err)) {
-      req.log?.error({ err }, "Failed to generate certificate PDF");
-      res.status(500).json({ error: "Failed to generate certificate" });
-    }
+    req.log?.error({ err }, "Failed to generate certificate PDF");
+    res.status(500).json({ error: "Failed to generate certificate" });
   }
 });
 
@@ -222,30 +220,24 @@ router.get("/:id", async (req, res): Promise<void> => {
     return;
   }
 
-  try {
-    const access = await requireCompletedProfile(req);
-    const isOwner =
-      cert.userId === access.userId ||
-      (access.employee && cert.employeeId === access.employee.id) ||
-      (access.companyId && cert.companyId === access.companyId) ||
-      access.role === "platform_admin";
+  const access = await getCompanyAccess(req);
+  const isOwner =
+    cert.userId === access.userId ||
+    (access.employee && cert.employeeId === access.employee.id) ||
+    (access.companyId && cert.companyId === access.companyId) ||
+    access.role === "platform_admin";
 
-    if (!isOwner) {
-      res.status(403).json({ error: "Access denied to this certificate" });
-      return;
-    }
-
-    res.json(cert);
-  } catch (err) {
-    if (!sendHttpError(res, err)) {
-      res.status(500).json({ error: "Failed to retrieve certificate" });
-    }
+  if (!isOwner) {
+    res.status(403).json({ error: "Access denied to this certificate" });
+    return;
   }
+
+  res.json(cert);
 });
 
 router.get("/", async (req, res): Promise<void> => {
   try {
-    const access = await requireCompletedProfile(req);
+    const access = await getCompanyAccess(req);
     const clauses = [eq(certificatesTable.userId, access.userId)];
     if (access.employee) {
       clauses.push(eq(certificatesTable.employeeId, access.employee.id));

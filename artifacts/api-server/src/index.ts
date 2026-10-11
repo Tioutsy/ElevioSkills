@@ -63,8 +63,9 @@ import { ensureSchemaModifications } from "./lib/ensureSchemaModifications";
 import { ensureCourseImages } from "./lib/ensureCourseImages";
 import { verifyDatabaseIntegrity } from "./lib/verifyDatabaseIntegrity";
 import { startInvitationDispatchWorker } from "./lib/invitationDispatchWorker";
+import { unpublishCourses36to139 } from "./scripts/unpublishCourses36to139";
 
-const defaultPort = 8086;
+const defaultPort = 8080;
 const rawPort = process.env["PORT"];
 let port = defaultPort;
 
@@ -80,14 +81,9 @@ if (rawPort !== undefined && rawPort !== null && String(rawPort).trim() !== "") 
 const host = process.env["HOST"] ?? "0.0.0.0";
 
 async function start(): Promise<void> {
-  // Start HTTP listener immediately on 0.0.0.0 so Render health checks pass during startup database tasks
+  // Start HTTP listener immediately so Render health checks pass during startup database tasks
   const server = app.listen(port, host, () => {
-    logger.info({ port, host }, `Server listening on ${host}:${port}`);
-  });
-
-  server.on("error", (err: any) => {
-    logger.error({ err, port, host }, "HTTP server encountered an error while listening");
-    process.exit(1);
+    logger.info({ port, host }, `Server listening on ${host}`);
   });
 
   try {
@@ -119,7 +115,7 @@ async function start(): Promise<void> {
     // Seed challenges
     await ensureChallenges();
 
-    // Seed challenge templates (Sprint 14.3)
+    // Seed challenge templates
     await ensureChallengeTemplates();
 
     // Seed achievement definitions
@@ -162,13 +158,14 @@ async function start(): Promise<void> {
     await ensureEthicsGovernanceCourse();
     await ensureEsgDataCourse();
     await ensureEsgInMyJobCourse();
-    await ensureWorkplaceSustainabilityLeadershipCourse();
     await ensureAppliedCourseBadges();
+    await ensureWorkplaceSustainabilityLeadershipCourse();
     await ensureCoreSustainabilityPath();
     await ensureCategoriesAndAssignments();
     await ensureHybridSubscriptions();
     await ensureInsightsMigrated();
-    await ensureCourseImages();
+
+    // Sprint 15.2.10 Cohort remediations — idempotent, ledger-guarded
     await ensureCohort15_2_10BRemediation();
     await ensureCohort15_2_10CRemediation();
     await ensureCohort15_2_10DRemediation();
@@ -180,13 +177,23 @@ async function start(): Promise<void> {
     await ensureCohort15_2_10JRemediation();
     await ensureCohort15_2_10KRemediation();
     await ensureCohort15_2_10LRemediation();
-    logger.info("Database initialization and course seeding completed.");
+    await unpublishCourses36to139();
 
-    // Start background email outbox dispatch worker loop
-    startInvitationDispatchWorker();
+    // Ensure course thumbnail images are set
+    await ensureCourseImages();
+
+    logger.info("Database initialization and course seeding completed.");
   } catch (err) {
     logger.error({ err }, "Error during background database seeding sequence");
   }
+
+  // Start background invitation dispatch worker
+  startInvitationDispatchWorker();
+
+  server.on("error", (err) => {
+    logger.error({ err }, "Error listening on port");
+    process.exit(1);
+  });
 }
 
 void start();

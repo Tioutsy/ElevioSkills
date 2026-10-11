@@ -7,7 +7,7 @@ import { CheckCircle2, XCircle, Award, Calendar, User, Building2 } from "lucide-
 import { format } from "date-fns";
 
 export default function VerifyCertificate() {
-  const { code } = useParams();
+  const { code } = useParams<{ code: string }>();
   const certificateCode = code || "";
   const { data: cert, isLoading, isError } = useVerifyCertificate(certificateCode, {
     query: {

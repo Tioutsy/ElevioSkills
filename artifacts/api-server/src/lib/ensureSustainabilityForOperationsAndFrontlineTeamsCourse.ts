@@ -631,7 +631,7 @@ export async function ensureSustainabilityForOperationsAndFrontlineTeamsCourse()
 
       const hasOnlySkeletonLessons =
         existingLessons.length > 0 &&
-        existingLessons.every((l) => l.content && l.content.includes("[DRAFT SKELETON]"));
+        existingLessons.every((l) => !l.content || l.content.includes("[DRAFT SKELETON]") || l.content.includes("Comprehensive learning module content"));
 
       let existingLessonProgress: any[] = [];
       if (existingLessons.length > 0) {
@@ -643,8 +643,8 @@ export async function ensureSustainabilityForOperationsAndFrontlineTeamsCourse()
         });
       }
 
-      if (existingLessonProgress.length === 0 && (existingLessons.length === 0 || hasOnlySkeletonLessons)) {
-        if (hasOnlySkeletonLessons) {
+      if (existingLessonProgress.length === 0 && (existingLessons.length === 0 || hasOnlySkeletonLessons || existingLessons.length < 6)) {
+        if (hasOnlySkeletonLessons || existingLessons.length < 6) {
           await tx.delete(lessonsTable).where(eq(lessonsTable.courseId, actualCourseId));
         }
 
@@ -675,14 +675,14 @@ export async function ensureSustainabilityForOperationsAndFrontlineTeamsCourse()
 
       const hasOnlySkeletonQuestions =
         existingQuestions.length > 0 &&
-        existingQuestions.every((q) => q.question && q.question.includes("[DRAFT SKELETON]"));
+        existingQuestions.every((q) => !q.question || q.question.includes("[DRAFT SKELETON]") || q.question.includes("Question ") || q.question.includes("for ELH-"));
 
       const existingAttempts = await tx.query.quizAttemptsTable.findMany({
         where: eq(quizAttemptsTable.courseId, actualCourseId),
       });
 
-      if (existingAttempts.length === 0 && (existingQuestions.length === 0 || hasOnlySkeletonQuestions)) {
-        if (hasOnlySkeletonQuestions) {
+      if (existingAttempts.length === 0 && (existingQuestions.length === 0 || hasOnlySkeletonQuestions || existingQuestions.length < 5)) {
+        if (hasOnlySkeletonQuestions || existingQuestions.length < 5) {
           await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, actualCourseId));
         }
 

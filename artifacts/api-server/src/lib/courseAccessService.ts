@@ -1,11 +1,9 @@
 import {
   db,
   coursesTable,
-  companiesTable,
   companySubscriptionsTable,
   subscriptionPlansTable,
   planCourseEntitlementsTable,
-  companyPilotPassesTable,
 } from "@workspace/db";
 import { eq, and, desc } from "drizzle-orm";
 import { CompanyAccess } from "./access";
@@ -79,21 +77,6 @@ export async function evaluateCourseAccess(
     };
   }
 
-  // 3a. Infracare Complimentary Test Exemption Check
-  const [comp] = await db
-    .select({ name: companiesTable.name, slug: companiesTable.slug })
-    .from(companiesTable)
-    .where(eq(companiesTable.id, accessContext.companyId))
-    .limit(1);
-
-  const isInfracare =
-    comp?.name?.toLowerCase().includes("infracare") ||
-    Boolean(comp?.slug && comp.slug.toLowerCase().includes("infracare"));
-
-  if (isInfracare) {
-    return { allowed: true, reason: "INCLUDED_IN_PLAN" };
-  }
-
   const matchingSubs = await db
     .select({
       status: companySubscriptionsTable.status,
@@ -115,11 +98,9 @@ export async function evaluateCourseAccess(
     );
   }
 
-  const activeSub = matchingSubs.find(
-    (s) => s.status && (s.status.toUpperCase() === "ACTIVE" || s.status.toUpperCase() === "TRIAL")
-  );
+  const subscription = matchingSubs[0];
 
-  if (!activeSub) {
+  if (!subscription) {
     return {
       allowed: false,
       reason: "SUBSCRIPTION_INACTIVE",
@@ -128,36 +109,14 @@ export async function evaluateCourseAccess(
     };
   }
 
-  const subscription = activeSub;
   const companyPlanCode = subscription.planCode;
-
-  // 3b. Pilot Pass Verification (Expiry & Permitted Course Gating via central resolver)
-  const { resolveCompanyPilotEntitlement } = await import("./pilotPassService");
-  const pilotEntitlement = await resolveCompanyPilotEntitlement(accessContext.companyId);
-
-  if (pilotEntitlement.isPilot && !pilotEntitlement.isConverted) {
-    if (
-      pilotEntitlement.isExpired ||
-      pilotEntitlement.isRevoked ||
-      pilotEntitlement.effectiveStatus === "SUSPENDED" ||
-      pilotEntitlement.isReadOnly
-    ) {
-      return {
-        allowed: false,
-        reason: "SUBSCRIPTION_INACTIVE",
-        requiredPlanCode,
-        requiredPlanName,
-      };
-    }
-
-    if (!pilotEntitlement.permittedCourseIds || !pilotEntitlement.permittedCourseIds.includes(courseId)) {
-      return {
-        allowed: false,
-        reason: "PLAN_UPGRADE_REQUIRED",
-        requiredPlanCode,
-        requiredPlanName,
-      };
-    }
+  if (subscription.status !== "ACTIVE" && subscription.status !== "PENDING") {
+    return {
+      allowed: false,
+      reason: "SUBSCRIPTION_INACTIVE",
+      requiredPlanCode,
+      requiredPlanName,
+    };
   }
 
   // 4. Commercial Plan Entitlement Check

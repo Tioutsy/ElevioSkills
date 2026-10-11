@@ -1,8 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
-import { CourseImage } from "@/components/CourseImage";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowRight, Leaf, ShieldCheck, TrendingUp, PlayCircle, BookOpen, Award, BarChart3, Sparkles } from "lucide-react";
+import { ArrowRight, Leaf, ShieldCheck, TrendingUp, PlayCircle, BookOpen, Award, BarChart3, MapPin, Recycle } from "lucide-react";
 import { useGetFeaturedCourses } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion } from "framer-motion";
@@ -32,23 +31,15 @@ export default function Home() {
               <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
                 {t("home.hero_sub")}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-4">
-                <Button size="lg" asChild className="h-12 px-8 text-base bg-emerald-700 hover:bg-emerald-800 text-white font-semibold shadow-md">
-                  <Link href="/experience">
-                    <Sparkles className="mr-2 h-4 w-4" />
-                    Experience ELEVIO
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" asChild className="h-12 px-8 text-base">
+                  <Link href="/courses">{t("home.explore_courses")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="h-12 px-8 text-base border-primary/30 hover:bg-primary/5">
-                  <Link href="/pricing">View Pricing</Link>
+                <Button size="lg" variant="outline" asChild className="h-12 px-8 text-base border-primary/20 hover:bg-primary/5">
+                  <Link href="/pricing">{t("home.view_corporate_plans")}</Link>
                 </Button>
               </div>
-              <div className="text-xs text-muted-foreground">
-                <Link href="/courses" className="hover:underline inline-flex items-center gap-1">
-                  Or explore all 136 courses in our catalogue →
-                </Link>
-              </div>
+              
             </div>
             
             <div className="relative lg:ml-auto">
@@ -143,15 +134,13 @@ export default function Home() {
                   <Skeleton className="h-4 w-1/2" />
                 </div>
               ))
-            ) : featuredCourses?.map((course, idx) => (
+            ) : featuredCourses?.map((course) => (
               <Link key={course.id} href={`/courses/${course.id}`}>
                 <div className="group bg-card border rounded-2xl overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer h-full flex flex-col">
                   <div className="relative aspect-video overflow-hidden">
-                    <CourseImage 
-                      src={course.thumbnailUrl} 
-                      courseCode={(course as any).courseCode}
+                    <img 
+                      src={course.thumbnailUrl || '/images/course-esg.png'} 
                       alt={course.title} 
-                      priority={idx < 3}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3 flex gap-2">
@@ -189,6 +178,69 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Made for Mauritius */}
+      <section className="py-20 bg-muted/30 border-y">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 text-primary font-medium text-sm mb-4">
+                <MapPin className="h-4 w-4" />
+                Made for Mauritius
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold font-serif mb-4">
+                Not a generic LMS. Built for the island.
+              </h2>
+              <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+                Every module is grounded in the Mauritian waste sorting system,
+                local recyclers like Mission Verte, our own regulations, and case
+                studies from the island's industries. That local relevance is what
+                makes the training stick.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Mauritian waste sorting and recycling ecosystem",
+                  "Local regulations and compliance context",
+                  "Case studies and success stories from Mauritian companies",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <Recycle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <span className="text-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button asChild size="lg" className="h-12 px-8 text-base">
+                <Link href="/mauritius-rules-resources">
+                  See what makes us local <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { color: "bg-green-600", label: "Green", text: "Organic waste" },
+                { color: "bg-blue-600", label: "Blue", text: "Paper and card" },
+                { color: "bg-amber-500", label: "Yellow", text: "Plastics and cans" },
+                { color: "bg-slate-700", label: "Black", text: "General waste" },
+              ].map((s) => (
+                <div
+                  key={s.label}
+                  className="bg-card border rounded-2xl p-6 shadow-sm"
+                >
+                  <div
+                    className={`h-10 w-10 rounded-lg ${s.color} mb-4 flex items-center justify-center text-white`}
+                  >
+                    <Recycle className="h-5 w-5" />
+                  </div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+                    {s.label} stream
+                  </p>
+                  <p className="font-medium text-sm">{s.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-950 text-white">
         <div className="container relative mx-auto px-4 text-center">
@@ -198,16 +250,9 @@ export default function Home() {
           <p className="text-emerald-100/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             Train your team, track progress and maintain clear sustainability learning records — all in one place.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex justify-center">
             <Button size="lg" asChild className="bg-white text-emerald-950 hover:bg-emerald-50 h-12 px-8 text-base font-semibold rounded-xl shadow-lg transition-all">
-              <Link href="/experience">
-                <Sparkles className="mr-2 h-4 w-4 text-emerald-700" />
-                Experience ELEVIO
-                <ArrowRight className="ml-2 h-4 w-4 text-emerald-700" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild className="border-white/30 text-white hover:bg-white/10 h-12 px-8 text-base font-medium rounded-xl">
-              <Link href="/pricing">View Pricing</Link>
+              <Link href="/pricing">View Corporate Plans</Link>
             </Button>
           </div>
         </div>

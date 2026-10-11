@@ -488,7 +488,7 @@ export async function ensureFinalSustainabilityCertificationCourse(): Promise<vo
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length < 15;
+      const hasMissingQuiz = existingQuizQuestions.length !== 15;
       const hasDummyQuiz = existingQuizQuestions.some((q) => q.question.includes("Resource Management Scenario") || q.options.includes("Option A"));
       const hasIncorrectSlug = course.slug !== COURSE_SLUG;
 

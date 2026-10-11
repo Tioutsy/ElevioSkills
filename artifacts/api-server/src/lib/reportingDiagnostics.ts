@@ -41,7 +41,7 @@ export async function runReportingDiagnostics(): Promise<ReportingDiagnosticRepo
   const certificates = await db.select().from(certificatesTable);
   const employees = await db.select().from(employeesTable);
 
-  const empMap = new Map(employees.map(e => [e.id, e]));
+  const empMap = new Map<number, any>(employees.map(e => [e.id, e]));
 
   // 1. Audit enrollments for completedVersion
   for (const enr of enrollments) {

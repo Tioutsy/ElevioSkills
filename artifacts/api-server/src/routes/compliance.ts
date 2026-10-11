@@ -107,8 +107,8 @@ router.get("/overview", async (req, res): Promise<void> => {
       db.select().from(coursesTable),
     ]);
 
-    const employeeMap = new Map(employees.map((e) => [e.id, e]));
-    const courseMap = new Map(courses.map((c) => [c.id, c]));
+    const employeeMap = new Map<number, any>(employees.map((e: any) => [e.id, e]));
+    const courseMap = new Map<number, any>(courses.map((c: any) => [c.id, c]));
 
     const summary = {
       total: 0,
@@ -513,8 +513,8 @@ router.post("/run-retraining-scan", async (req, res): Promise<void> => {
           ),
       ]);
 
-    const employeeMap = new Map(employees.map((e) => [e.id, e]));
-    const courseMap = new Map(courses.map((c) => [c.id, c]));
+    const employeeMap = new Map<number, any>(employees.map((e: any) => [e.id, e]));
+    const courseMap = new Map<number, any>(courses.map((c: any) => [c.id, c]));
     const notifiedRecently = new Set(
       recentReminders.map((r) => `${r.employeeId}:${r.courseId ?? ""}`),
     );

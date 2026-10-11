@@ -8,8 +8,8 @@ import {
   quizAttemptsTable,
   coursesTable,
 } from "@workspace/db";
-import { eq, and } from "drizzle-orm";
-import { logger } from "../logger";
+import { eq, and, sql } from "drizzle-orm";
+import { GoogleGenAI, Type } from "@google/genai";
 
 export type AttentionPriority = "high" | "medium";
 
@@ -107,7 +107,7 @@ const insightsCache = new Map<number, { data: CompanyTrainingInsights; timestamp
 const CACHE_TTL_MS = 15 * 60 * 1000;
 
 /**
- * Calculates deterministic platform training metrics directly from real database tables.
+ * Calculates deterministic platform training metrics directly from database tables.
  */
 export async function calculateDeterministicTrainingMetrics(companyId: number): Promise<{
   companyName: string;
@@ -154,7 +154,7 @@ export async function calculateDeterministicTrainingMetrics(companyId: number): 
 
   // Fetch catalog courses
   const catalog = await db.select().from(coursesTable);
-  const coursesMap = new Map(catalog.map((c) => [c.id, c]));
+  const coursesMap = new Map<number, any>(catalog.map((c) => [c.id, c]));
 
   // Filter scoped to active employees
   const scopedAssignments = assignments.filter((a) => activeEmployeeIds.has(a.employeeId));
@@ -243,7 +243,7 @@ export async function calculateDeterministicTrainingMetrics(companyId: number): 
     overallCompletionPct,
   };
 
-  // Fetch Quiz Attempts (all, then scope by active employee userId)
+  // Fetch Quiz Attempts
   const quizAttempts = await db.select().from(quizAttemptsTable);
   const activeEmpIdsStr = new Set(employees.map((e) => String(e.id)));
 
@@ -343,7 +343,7 @@ export async function calculateDeterministicTrainingMetrics(companyId: number): 
 
     coursePerformance.push({
       courseId: cId,
-      courseCode: courseObj.courseCode || `COURSE-${cId}`,
+      courseCode: courseObj.courseCode,
       title: courseObj.title,
       assignedCount: stats.assignedCount,
       startedCount: stats.startedCount,
@@ -417,7 +417,6 @@ export async function calculateDeterministicTrainingMetrics(companyId: number): 
 
 /**
  * Deterministically generates prioritised attention items, positive signals, and recommended next action.
- * Pure function — no DB calls, no Gemini calls. Safe to unit test directly.
  */
 export function prioritiseTrainingInsights(metrics: {
   companyName: string;
@@ -484,7 +483,7 @@ export function prioritiseTrainingInsights(metrics: {
       explanation: `${learnerRiskSummary.assignedNotStartedCount} assigned course enrollment(s) have not been started by learners yet.`,
       recommendedAction: "Issue a welcome broadcast or assign completion deadlines to encourage initial login.",
       actionType: "manage_assignments",
-      targetUrl: "/company/employees",
+      targetUrl: "/company/assignments",
     });
   }
 
@@ -561,14 +560,14 @@ export function prioritiseTrainingInsights(metrics: {
       title: "Kickstart Unstarted Enrollments",
       description: `Encourage the ${learnerRiskSummary.assignedNotStartedCount} unstarted learner enrollment(s) to begin their assigned sustainability paths.`,
       actionLabel: "Manage Course Assignments",
-      actionUrl: "/company/employees",
+      actionUrl: "/company/assignments",
     };
   } else {
     recommendedNextAction = {
       title: "Expand Role-Based Sustainability Paths",
       description: "Learning performance is on track. Consider assigning advanced ESG courses to broaden organizational sustainability capabilities.",
       actionLabel: "Assign Additional Courses",
-      actionUrl: "/company/employees",
+      actionUrl: "/company/assignments",
     };
   }
 
@@ -589,143 +588,8 @@ export function prioritiseTrainingInsights(metrics: {
 }
 
 /**
- * Calls Gemini via native fetch to enhance insights narrative.
- * Matches the pattern used in askElevioProvider.ts — no @google/genai SDK needed.
- * Always falls back gracefully if Gemini is unavailable.
- */
-async function callGeminiForInsights(
-  metrics: {
-    companyName: string;
-    organisationSummary: OrganisationTrainingSummary;
-    coursePerformance: CoursePerformanceSummary[];
-    departmentPerformance: DepartmentPerformanceSummary[];
-    learnerRiskSummary: LearnerRiskSummary;
-  },
-  deterministicPriorities: {
-    summary: string;
-    needsAttention: AttentionItem[];
-    positiveSignals: PositiveSignal[];
-    recommendedNextAction: RecommendedNextAction;
-  },
-  apiKey: string
-): Promise<{
-  summary: string;
-  needsAttention: AttentionItem[];
-  positiveSignals: PositiveSignal[];
-  recommendedNextAction: RecommendedNextAction;
-} | null> {
-  const promptPayload = {
-    companyName: metrics.companyName,
-    organisationSummary: metrics.organisationSummary,
-    learnerRiskSummary: metrics.learnerRiskSummary,
-    topStrugglingCourses: metrics.coursePerformance.slice(0, 3),
-    departmentSummaries: metrics.departmentPerformance.slice(0, 3),
-    deterministicAttentionItems: deterministicPriorities.needsAttention,
-    deterministicPositiveSignals: deterministicPriorities.positiveSignals,
-    deterministicRecommendedAction: deterministicPriorities.recommendedNextAction,
-  };
-
-  const systemInstruction = `You are ELEVIO SKILLS AI Training Insights Engine.
-Your task is to interpret company training metrics for company administrators and HR/ESG managers.
-
-STRICT INSTRUCTIONS:
-1. GROUNDED IN METRICS: Rely strictly on the supplied metrics JSON. Do not invent employee names, missing departments, or unmeasured stats.
-2. CONCISE & OBJECTIVE: Provide clear, professional management explanations without promotional fluff.
-3. MINIMISE PII: Refer strictly to aggregated counts, department names, and course codes (e.g., ELH-01).
-4. OUTPUT FORMAT: Respond ONLY with valid JSON matching the exact specified schema.`;
-
-  const prompt = `${systemInstruction}
-
-Analyze these organization training metrics and refine the insights:
-${JSON.stringify(promptPayload, null, 2)}
-
-Respond with JSON in this exact format:
-{
-  "summary": "Executive 2-sentence summary of training health",
-  "needsAttention": [
-    {
-      "id": "string",
-      "priority": "high" | "medium",
-      "title": "string",
-      "explanation": "string",
-      "recommendedAction": "string",
-      "actionType": "remind_overdue" | "view_course_performance" | "manage_assignments" | "learner_checkin",
-      "targetUrl": "string"
-    }
-  ],
-  "positiveSignals": [
-    { "id": "string", "title": "string", "explanation": "string" }
-  ],
-  "recommendedNextAction": {
-    "title": "string",
-    "description": "string",
-    "actionLabel": "string",
-    "actionUrl": "string"
-  }
-}`;
-
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 20000); // 20s timeout
-
-  try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        signal: controller.signal,
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: {
-            temperature: 0.2,
-            responseMimeType: "application/json",
-          },
-        }),
-      }
-    );
-
-    clearTimeout(timeoutId);
-
-    if (!response.ok) {
-      logger.warn({ status: response.status }, "Gemini training-insights API error — using deterministic fallback.");
-      return null;
-    }
-
-    const resJson = (await response.json()) as any;
-    const rawText = resJson?.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!rawText) {
-      logger.warn("Empty Gemini training-insights response — using deterministic fallback.");
-      return null;
-    }
-
-    const parsed = JSON.parse(rawText);
-    if (!parsed || typeof parsed.summary !== "string") {
-      logger.warn("Invalid JSON schema from Gemini training-insights — using deterministic fallback.");
-      return null;
-    }
-
-    logger.info({ model: "gemini-2.5-flash" }, "Gemini training-insights response received.");
-    return {
-      summary: parsed.summary || deterministicPriorities.summary,
-      needsAttention: Array.isArray(parsed.needsAttention) && parsed.needsAttention.length > 0
-        ? parsed.needsAttention
-        : deterministicPriorities.needsAttention,
-      positiveSignals: Array.isArray(parsed.positiveSignals) && parsed.positiveSignals.length > 0
-        ? parsed.positiveSignals
-        : deterministicPriorities.positiveSignals,
-      recommendedNextAction: parsed.recommendedNextAction || deterministicPriorities.recommendedNextAction,
-    };
-  } catch (err: any) {
-    clearTimeout(timeoutId);
-    logger.warn({ err: err?.message }, "Gemini training-insights call failed or timed out — using deterministic fallback.");
-    return null;
-  }
-}
-
-/**
  * Main Service Handler for AI Training Insights.
  * Executes deterministic data gathering, priority calculation, and optional Gemini narrative enhancement.
- * Requires manager or admin role (enforced in route handler).
  */
 export async function getCompanyTrainingInsights(
   access: CompanyAccess,
@@ -767,41 +631,134 @@ export async function getCompanyTrainingInsights(
     },
   };
 
-  // Step 3: Check for GEMINI_API_KEY (server-side only)
+  // Step 3: Check for GEMINI_API_KEY
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey || apiKey.trim() === "") {
     insightsCache.set(companyId, { data: fallbackResult, timestamp: Date.now() });
     return fallbackResult;
   }
 
-  // Step 4: Call Gemini for AI Narrative Interpretation (graceful fallback)
-  const geminiResult = await callGeminiForInsights(metrics, deterministicPriorities, apiKey);
+  // Step 4: Call Gemini for AI Narrative Interpretation
+  try {
+    const aiClient = new GoogleGenAI({ apiKey });
 
-  if (!geminiResult) {
+    const promptPayload = {
+      companyName: metrics.companyName,
+      organisationSummary: metrics.organisationSummary,
+      learnerRiskSummary: metrics.learnerRiskSummary,
+      topStrugglingCourses: metrics.coursePerformance.slice(0, 3),
+      departmentSummaries: metrics.departmentPerformance.slice(0, 3),
+      deterministicAttentionItems: deterministicPriorities.needsAttention,
+      deterministicPositiveSignals: deterministicPriorities.positiveSignals,
+      deterministicRecommendedAction: deterministicPriorities.recommendedNextAction,
+    };
+
+    const systemInstruction = `You are ELEVIO SKILLS AI Training Insights Engine.
+Your task is to interpret company training metrics for company administrators and HR/ESG managers.
+
+STRICT INSTRUCTIONS:
+1. GROUNDED IN METRICS: Rely strictly on the supplied metrics JSON. Do not invent employee names, missing departments, or unmeasured stats.
+2. CONCISE & OBJECTIVE: Provide clear, professional management explanations without promotional fluff, points, avatars, or gamification.
+3. MINIMISE PII: Refer strictly to aggregated counts, department names, and course codes (e.g., ELH-01).
+4. OUTPUT FORMAT: Respond ONLY with valid JSON matching the exact specified schema.`;
+
+    const prompt = `Analyze these organization training metrics and refine the insights:
+${JSON.stringify(promptPayload, null, 2)}`;
+
+    const response = await aiClient.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+      config: {
+        systemInstruction,
+        temperature: 0.2,
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: Type.OBJECT,
+          properties: {
+            summary: { type: Type.STRING, description: "Executive 2-sentence summary of training health" },
+            needsAttention: {
+              type: Type.ARRAY,
+              items: {
+                type: Type.OBJECT,
+                properties: {
+                  id: { type: Type.STRING },
+                  priority: { type: Type.STRING, enum: ["high", "medium"] },
+                  title: { type: Type.STRING },
+                  explanation: { type: Type.STRING },
+                  recommendedAction: { type: Type.STRING },
+                  actionType: {
+                    type: Type.STRING,
+                    enum: ["remind_overdue", "view_course_performance", "manage_assignments", "learner_checkin"],
+                  },
+                  targetUrl: { type: Type.STRING },
+                },
+                required: ["id", "priority", "title", "explanation", "recommendedAction", "actionType", "targetUrl"],
+              },
+            },
+            positiveSignals: {
+              type: Type.ARRAY,
+              items: {
+                type: Type.OBJECT,
+                properties: {
+                  id: { type: Type.STRING },
+                  title: { type: Type.STRING },
+                  explanation: { type: Type.STRING },
+                },
+                required: ["id", "title", "explanation"],
+              },
+            },
+            recommendedNextAction: {
+              type: Type.OBJECT,
+              properties: {
+                title: { type: Type.STRING },
+                description: { type: Type.STRING },
+                actionLabel: { type: Type.STRING },
+                actionUrl: { type: Type.STRING },
+              },
+              required: ["title", "description", "actionLabel", "actionUrl"],
+            },
+          },
+          required: ["summary", "needsAttention", "positiveSignals", "recommendedNextAction"],
+        },
+      },
+    });
+
+    const text = response.text;
+    if (!text) {
+      throw new Error("Gemini returned empty text response");
+    }
+
+    const parsed = JSON.parse(text);
+
+    const finalResult: CompanyTrainingInsights = {
+      companyId,
+      companyName: metrics.companyName,
+      generatedAt: new Date().toISOString(),
+      providerTag: "gemini",
+      isFallback: false,
+      summary: parsed.summary || deterministicPriorities.summary,
+      needsAttention: Array.isArray(parsed.needsAttention) && parsed.needsAttention.length > 0
+        ? parsed.needsAttention
+        : deterministicPriorities.needsAttention,
+      positiveSignals: Array.isArray(parsed.positiveSignals) && parsed.positiveSignals.length > 0
+        ? parsed.positiveSignals
+        : deterministicPriorities.positiveSignals,
+      recommendedNextAction: parsed.recommendedNextAction || deterministicPriorities.recommendedNextAction,
+      organisationSummary: metrics.organisationSummary,
+      coursePerformance: metrics.coursePerformance,
+      departmentPerformance: metrics.departmentPerformance,
+      learnerRiskSummary: metrics.learnerRiskSummary,
+      dataQuality: {
+        warnings: metrics.warnings,
+        hasSufficientData: metrics.organisationSummary.totalActiveLearners > 0,
+      },
+    };
+
+    insightsCache.set(companyId, { data: finalResult, timestamp: Date.now() });
+    return finalResult;
+  } catch (err: any) {
+    // Graceful fallback if Gemini fails
     insightsCache.set(companyId, { data: fallbackResult, timestamp: Date.now() });
     return fallbackResult;
   }
-
-  const finalResult: CompanyTrainingInsights = {
-    companyId,
-    companyName: metrics.companyName,
-    generatedAt: new Date().toISOString(),
-    providerTag: "gemini",
-    isFallback: false,
-    summary: geminiResult.summary,
-    needsAttention: geminiResult.needsAttention,
-    positiveSignals: geminiResult.positiveSignals,
-    recommendedNextAction: geminiResult.recommendedNextAction,
-    organisationSummary: metrics.organisationSummary,
-    coursePerformance: metrics.coursePerformance,
-    departmentPerformance: metrics.departmentPerformance,
-    learnerRiskSummary: metrics.learnerRiskSummary,
-    dataQuality: {
-      warnings: metrics.warnings,
-      hasSufficientData: metrics.organisationSummary.totalActiveLearners > 0,
-    },
-  };
-
-  insightsCache.set(companyId, { data: finalResult, timestamp: Date.now() });
-  return finalResult;
 }

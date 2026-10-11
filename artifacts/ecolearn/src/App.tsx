@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { ClerkProvider, SignIn, SignUp, UserProfile, Show, useAuth, useClerk, useUser } from '@clerk/react';
+import { ClerkProvider, SignIn, SignUp, Show, useAuth, useClerk } from '@clerk/react';
 import { publishableKeyFromHost } from '@clerk/react/internal';
-import { Layout } from '@/components/layout/Layout';
-import { Switch, Route, Link, useLocation, Router as WouterRouter, Redirect } from 'wouter';
+import { Switch, Route, useLocation, Router as WouterRouter, Redirect } from 'wouter';
 import { QueryClientProvider, useQueryClient, QueryClient } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,13 +9,8 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import {
   setBaseUrl,
   setAuthTokenGetter,
-  setCustomHeadersGetter,
   customFetch,
 } from "@workspace/api-client-react";
-
-import { Button } from "@/components/ui/button";
-import { ShieldAlert } from "lucide-react";
-import { trackCommercialEvent, captureAndPersistAttribution, trackCommercialPageView } from "@/lib/commercialAnalytics";
 
 if (import.meta.env.VITE_API_URL) {
   setBaseUrl(import.meta.env.VITE_API_URL);
@@ -24,7 +18,6 @@ if (import.meta.env.VITE_API_URL) {
 
 // Pages
 import Home from "@/pages/home";
-import InternalHome from "@/pages/internal-home";
 import Courses from "@/pages/courses";
 import CourseDetail from "@/pages/courses/detail";
 import LearningPaths from "@/pages/learning-paths";
@@ -33,17 +26,13 @@ import Challenges from "@/pages/challenges";
 import Learn from "@/pages/learn";
 import Quiz from "@/pages/quiz";
 import Dashboard from "@/pages/dashboard";
-import CompanyRankingPage from "@/pages/company-ranking";
-import DepartmentRankingPage from "@/pages/department-ranking";
-import AchievementsPage from "@/pages/achievements";
-// import ImpactDashboard from "@/pages/impact"; // Intentionally disabled — Sprint product simplification. Preserved for future premium feature recovery.
+import ImpactDashboard from "@/pages/impact";
 import Pricing from "@/pages/pricing";
-// import InsightsLanding from "@/pages/Insights/index";
-// import InsightsArticlesList from "@/pages/Insights/articles";
-// import InsightsArticleDetail from "@/pages/Insights/article-detail";
-// import MauritiusResourcesList from "@/pages/Insights/mauritius-resources";
-// import MauritiusResourceDetail from "@/pages/Insights/mauritius-resource-detail";
-import ExperiencePage from "@/pages/experience";
+import InsightsLanding from "@/pages/Insights/index";
+import InsightsArticlesList from "@/pages/Insights/articles";
+import InsightsArticleDetail from "@/pages/Insights/article-detail";
+import MauritiusResourcesList from "@/pages/Insights/mauritius-resources";
+import MauritiusResourceDetail from "@/pages/Insights/mauritius-resource-detail";
 import Certificates from "@/pages/certificates";
 import VerifyCertificate from "@/pages/certificates/verify";
 import CompanyDashboard from "@/pages/company";
@@ -52,20 +41,14 @@ import ChallengesReview from "@/pages/company/challenges-review";
 import CompanyEmployees from "@/pages/company/employees";
 import CompanyCertificates from "@/pages/company/certificates";
 import CompanyLeaderboards from "@/pages/company/leaderboards";
-import CompanyChallengesAdminPage from "@/pages/company/challenges";
 import CompanyCompliance from "@/pages/company/compliance";
 import CompanyReports from "@/pages/company/reports";
+import CompanyTrainingFollowUp from "@/pages/company/training-follow-up";
+import CompanyTrainingAutomation from "@/pages/company/training-automation";
 import SustainabilityImpact from "@/pages/sustainability";
-import TrainingFollowUpPage from "@/pages/company/training-follow-up";
-import CompanyListSettings from "@/pages/company/settings/lists";
-// import { TrainingImpactPage } from "@/pages/company/training-impact"; // Intentionally disabled — Sprint product simplification. Preserved for future premium feature recovery.
 import AdminPanel from "@/pages/admin";
 import AdminRecycling from "@/pages/admin/recycling";
 import CompanyRecycling from "@/pages/company/recycling";
-import OnboardingPage from "@/pages/onboarding";
-import JoinCompanyPage from "@/pages/join";
-import PrivacyPolicy from "@/pages/Privacy";
-import TermsOfService from "@/pages/Terms";
 import NotFound from "@/pages/not-found";
 
 // Platform Admin Pages
@@ -81,15 +64,11 @@ import PlatformAdminCourses from "@/pages/platform-admin/courses";
 import AdminCoursePreview from "@/pages/platform-admin/preview";
 import PlatformAdminSdgMapping from "@/pages/platform-admin/sdgMapping";
 import PlatformAdminSubscriptions from "@/pages/platform-admin/subscriptions";
-import PlatformAdminPilotPasses from "@/pages/platform-admin/pilot-passes";
-import GamificationHealthPage from "@/pages/platform-admin/gamification-health";
-import EngagementCompetitionPage from "@/pages/company/engagement-competition";
 
 const queryClient = new QueryClient();
+const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY || "pk_test_Y2xlcmsuZXhhbXBsZS5jb20k";
 
-const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY ?? "";
-
-const clerkProxyUrl = (import.meta.env.VITE_CLERK_PROXY_URL || "").trim() || undefined;
+const clerkProxyUrl = import.meta.env.VITE_CLERK_PROXY_URL;
 const basePath = (import.meta.env.BASE_URL || "").replace(/\/$/, "");
 
 function stripBase(path: string): string {
@@ -114,15 +93,7 @@ const clerkAppearance = {
   },
   elements: {
     rootBox: "w-full flex justify-center",
-    cardBox: "bg-white rounded-2xl max-w-full shadow-xl border",
-    signInRootBox: "w-full max-w-[440px]",
-    signUpRootBox: "w-full max-w-[440px]",
-    signInCardBox: "w-[440px] max-w-full overflow-hidden",
-    signUpCardBox: "w-[440px] max-w-full overflow-hidden",
-    userProfileRootBox: "w-full max-w-4xl",
-    userProfileCardBox: "w-full max-w-4xl shadow-xl rounded-2xl bg-white",
-    modalContent: "!max-w-4xl !w-full",
-    modalCard: "!max-w-4xl !w-full",
+    cardBox: "bg-white rounded-2xl w-[440px] max-w-full overflow-hidden shadow-xl border",
     card: "!shadow-none !border-0 !bg-transparent !rounded-none",
     footer: "!shadow-none !border-0 !bg-transparent !rounded-none",
     headerTitle: "text-2xl font-bold font-serif text-foreground",
@@ -142,37 +113,20 @@ const clerkAppearance = {
     userButtonPopoverFooter: "!bg-white",
     userPreviewMainIdentifier: "!text-gray-900",
     userPreviewSecondaryIdentifier: "!text-gray-500",
-    profileSection__emailAddresses: "!w-full",
-    profileSectionContent__emailAddresses: "!w-full",
   },
 };
 
-function AccountProfilePage() {
-  return (
-    <Layout>
-      <div className="container mx-auto px-4 py-10 max-w-4xl flex justify-center">
-        <UserProfile routing="path" path="/profile" />
-      </div>
-    </Layout>
-  );
-}
-
 function SignInPage() {
   const params = new URLSearchParams(window.location.search);
-  const inviteToken = params.get("invite") || params.get("token");
+  const inviteToken = params.get("invite");
   // If the employee arrives at sign-in with an invite token, redirect them to
   // the acceptance page after they authenticate.
   const postSignInUrl = inviteToken
-    ? `${basePath}/join?token=${encodeURIComponent(inviteToken)}`
+    ? `${basePath}/accept-invitation?invite=${encodeURIComponent(inviteToken)}`
     : params.get("redirect_url") || `${basePath}/dashboard`;
 
   return (
-    <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-muted/30 px-4 py-8">
-      <div className="mb-4 text-center">
-        <Link href="/join" className="text-xs font-medium text-emerald-700 dark:text-emerald-400 hover:underline">
-          Have an invitation link or access code? Join your company →
-        </Link>
-      </div>
+    <div className="flex min-h-[100dvh] items-center justify-center bg-muted/30 px-4">
       <SignIn
         routing="path"
         path={`${basePath}/sign-in`}
@@ -185,29 +139,12 @@ function SignInPage() {
 
 function SignUpPage() {
   const params = new URLSearchParams(window.location.search);
-  const inviteToken = params.get("invite") || params.get("token");
-
-  useEffect(() => {
-    captureAndPersistAttribution();
-    try {
-      if (typeof window !== "undefined" && window.sessionStorage) {
-        window.sessionStorage.setItem("elevio_pending_signup_reg", "true");
-      }
-    } catch {}
-
-    trackCommercialEvent(
-      "signup_started",
-      {
-        source: params.get("source") || "direct",
-        authenticatedState: "anonymous",
-      },
-      { dedupKey: "elevio_signup_started" }
-    );
-  }, []);
-
+  const inviteToken = params.get("invite");
+  // After Clerk completes sign-up, redirect to accept-invitation if an invite token is present,
+  // otherwise go to the dashboard (or an explicit redirect_url).
   const postSignUpUrl = inviteToken
-    ? `${basePath}/join?token=${encodeURIComponent(inviteToken)}`
-    : params.get("redirect_url") || `${basePath}/onboarding`;
+    ? `${basePath}/accept-invitation?invite=${encodeURIComponent(inviteToken)}`
+    : params.get("redirect_url") || `${basePath}/dashboard`;
 
   // Pass the invite token forward so clicking "Sign in" inside Clerk's widget
   // also lands on the invite-aware sign-in page and preserves the token.
@@ -216,23 +153,7 @@ function SignUpPage() {
     : `${basePath}/sign-in`;
 
   return (
-    <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-muted/30 px-4 py-8">
-      {!inviteToken && (
-        <div className="mb-6 max-w-md text-center space-y-2">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 text-xs font-semibold border border-emerald-200 dark:border-emerald-800">
-            Company Administrator Registration
-          </div>
-          <h1 className="text-2xl font-bold font-serif text-foreground">Get Started with ELEVIO SKILLS</h1>
-          <p className="text-sm text-muted-foreground">
-            Create your administrator account to set up your company, choose your plan and invite your team.
-          </p>
-          <div className="pt-1">
-            <Link href="/join" className="text-xs font-medium text-emerald-700 dark:text-emerald-400 hover:underline">
-              Invited by your employer? Click here to join your company with an access code →
-            </Link>
-          </div>
-        </div>
-      )}
+    <div className="flex min-h-[100dvh] items-center justify-center bg-muted/30 px-4">
       <SignUp 
         routing="path" 
         path={`${basePath}/sign-up`} 
@@ -306,10 +227,15 @@ function AcceptInvitationPage() {
   );
 }
 
+/**
+ * RequireCompanyAdmin — fetches /api/company to verify the signed-in user
+ * holds company_admin access server-side.
+ * Employees (learners) receive HTTP 403; they are redirected to /dashboard.
+ * Shows a spinner while the check is in flight.
+ */
 function RequireCompanyAdmin({ children }: { children: ReactNode }) {
   const { isLoaded, isSignedIn } = useAuth();
   const [allowed, setAllowed] = useState<boolean | null>(null);
-  const [isForbidden, setIsForbidden] = useState<boolean>(false);
   const [, setLocation] = useLocation();
 
   useEffect(() => {
@@ -319,19 +245,13 @@ function RequireCompanyAdmin({ children }: { children: ReactNode }) {
       return;
     }
     customFetch("/api/company")
-      .then(() => {
-        setAllowed(true);
-        setIsForbidden(false);
-      })
-      .catch((err: any) => {
+      .then(() => setAllowed(true))
+      .catch(() => {
+        // 403 = learner, 404 = no company — redirect to dashboard
         setAllowed(false);
-        if (err.status === 403) {
-          setIsForbidden(true);
-        } else {
-          setLocation(`${basePath}/home`);
-        }
+        setLocation(`${basePath}/dashboard`);
       });
-  }, [isLoaded, isSignedIn, setLocation]);
+  }, [isLoaded, isSignedIn]);
 
   if (allowed === null) {
     return (
@@ -341,34 +261,20 @@ function RequireCompanyAdmin({ children }: { children: ReactNode }) {
     );
   }
 
-  if (isForbidden) {
-    return (
-      <Layout>
-        <div className="container mx-auto px-4 py-20 max-w-md text-center space-y-4">
-          <div className="h-12 w-12 rounded-full bg-red-100 dark:bg-red-950 text-red-600 flex items-center justify-center mx-auto">
-            <ShieldAlert className="h-6 w-6" />
-          </div>
-          <h2 className="text-xl font-bold font-serif">Access Denied</h2>
-          <p className="text-sm text-muted-foreground">
-            Company Administrator access required. You do not have permission to manage this organisation.
-          </p>
-          <Button asChild className="bg-emerald-600 hover:bg-emerald-700">
-            <a href={`${basePath}/home`}>Return to Home</a>
-          </Button>
-        </div>
-      </Layout>
-    );
-  }
-
   if (!allowed) return null;
   return <>{children}</>;
 }
 
+const hasRealClerkKey = Boolean(import.meta.env.VITE_CLERK_PUBLISHABLE_KEY);
+
 function HomeRedirect() {
+  if (!hasRealClerkKey) {
+    return <Home />;
+  }
   return (
     <>
       <Show when="signed-in">
-        <Redirect to="/home" />
+        <Redirect to="/dashboard" />
       </Show>
       <Show when="signed-out">
         <Home />
@@ -378,6 +284,9 @@ function HomeRedirect() {
 }
 
 function ClerkQueryClientCacheInvalidator() {
+  if (!hasRealClerkKey) {
+    return null;
+  }
   const { addListener } = useClerk();
   const queryClient = useQueryClient();
   const prevUserIdRef = useRef<string | null | undefined>(undefined);
@@ -401,57 +310,128 @@ function ClerkQueryClientCacheInvalidator() {
 
 function ClerkApiTokenBridge({ children }: { children: ReactNode }) {
   const { getToken, isLoaded } = useAuth();
-  const { user } = useUser();
+  const [isReady, setIsReady] = useState(!hasRealClerkKey);
 
   useEffect(() => {
+    if (!hasRealClerkKey) {
+      setIsReady(true);
+      return;
+    }
+
     if (!isLoaded) {
       return;
     }
 
     setAuthTokenGetter(async () => {
-      try {
-        return await getToken();
-      } catch {
-        return null;
-      }
+      return await getToken();
     });
 
-    setCustomHeadersGetter(() => {
-      const email =
-        user?.primaryEmailAddress?.emailAddress ??
-        user?.emailAddresses?.[0]?.emailAddress ??
-        "";
-      const headers: Record<string, string> = {};
-      if (email) headers["x-user-email"] = email;
-      if (user?.id) headers["x-user-id"] = user.id;
-      return headers;
-    });
+    setIsReady(true);
 
     return () => {
       setAuthTokenGetter(null);
-      setCustomHeadersGetter(null);
     };
-  }, [getToken, isLoaded, user]);
+  }, [getToken, isLoaded]);
+
+  if (!isReady) {
+    return null;
+  }
 
   return <>{children}</>;
 }
 
-function CommercialNavigationListener() {
-  const [location] = useLocation();
-  const lastPathRef = useRef<string | null>(null);
-
-  useEffect(() => {
-    if (lastPathRef.current !== location) {
-      lastPathRef.current = location;
-      trackCommercialPageView(location);
-    }
-  }, [location]);
-
-  return null;
+function RoutesTree() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ClerkApiTokenBridge>
+        <LanguageProvider>
+          <ClerkQueryClientCacheInvalidator />
+          <TooltipProvider>
+            <Switch>
+              <Route path="/" component={HomeRedirect} />
+              <Route path="/sign-in/*?" component={SignInPage} />
+              <Route path="/sign-up/*?" component={SignUpPage} />
+              <Route path="/accept-invitation" component={AcceptInvitationPage} />
+              <Route path="/courses" component={Courses} />
+              <Route path="/courses/:id" component={CourseDetail} />
+              <Route path="/challenges" component={Challenges} />
+              <Route path="/learn/:enrollmentId" component={Learn} />
+              <Route path="/quiz/:courseId" component={Quiz} />
+              <Route path="/certificates" component={Certificates} />
+              <Route path="/certificates/verify/:code" component={VerifyCertificate} />
+              <Route path="/dashboard" component={Dashboard} />
+              <Route path="/impact" component={ImpactDashboard} />
+              <Route path="/pricing" component={Pricing} />
+              <Route path="/made-for-mauritius">
+                <Redirect to="/mauritius-rules-resources" />
+              </Route>
+              <Route path="/blog">
+                <Redirect to="/mauritius-rules-resources" />
+              </Route>
+              <Route path="/blog/:slug">
+                <Redirect to="/mauritius-rules-resources" />
+              </Route>
+              <Route path="/insights">
+                <Redirect to="/mauritius-rules-resources" />
+              </Route>
+              <Route path="/insights/articles">
+                <Redirect to="/mauritius-rules-resources" />
+              </Route>
+              <Route path="/insights/articles/:slug">
+                <Redirect to="/mauritius-rules-resources" />
+              </Route>
+              <Route path="/insights/mauritius-resources">
+                <Redirect to="/mauritius-rules-resources" />
+              </Route>
+              <Route path="/insights/mauritius-resources/:slug">
+                {(params: any) => <Redirect to={`/mauritius-rules-resources/${params?.slug ?? ""}`} />}
+              </Route>
+              <Route path="/mauritius-rules-resources" component={MauritiusResourcesList} />
+              <Route path="/mauritius-rules-resources/:slug" component={MauritiusResourceDetail} />
+              <Route path="/company">{() => <RequireCompanyAdmin><CompanyDashboard /></RequireCompanyAdmin>}</Route>
+              <Route path="/company/subscribe">{() => <RequireCompanyAdmin><Subscribe /></RequireCompanyAdmin>}</Route>
+              <Route path="/company/challenges-review">{() => <RequireCompanyAdmin><ChallengesReview /></RequireCompanyAdmin>}</Route>
+              <Route path="/company/employees">{() => <RequireCompanyAdmin><CompanyEmployees /></RequireCompanyAdmin>}</Route>
+              <Route path="/company/certificates">{() => <RequireCompanyAdmin><CompanyCertificates /></RequireCompanyAdmin>}</Route>
+              <Route path="/company/leaderboards">{() => <RequireCompanyAdmin><CompanyLeaderboards /></RequireCompanyAdmin>}</Route>
+              <Route path="/company/compliance">{() => <RequireCompanyAdmin><CompanyCompliance /></RequireCompanyAdmin>}</Route>
+              <Route path="/company/reports">{() => <RequireCompanyAdmin><CompanyReports /></RequireCompanyAdmin>}</Route>
+              <Route path="/company/training-follow-up">{() => <RequireCompanyAdmin><CompanyTrainingFollowUp /></RequireCompanyAdmin>}</Route>
+              <Route path="/company/training-automation">{() => <RequireCompanyAdmin><CompanyTrainingAutomation /></RequireCompanyAdmin>}</Route>
+              <Route path="/company/recycling">{() => <RequireCompanyAdmin><CompanyRecycling /></RequireCompanyAdmin>}</Route>
+              <Route path="/company/sustainability">{() => <RequireCompanyAdmin><SustainabilityImpact /></RequireCompanyAdmin>}</Route>
+              <Route path="/admin" component={AdminPanel} />
+              <Route path="/admin/recycling" component={AdminRecycling} />
+              <Route path="/platform-admin" component={PlatformAdminOverview} />
+              <Route path="/platform-admin/organisations" component={PlatformAdminOrganisations} />
+              <Route path="/platform-admin/accounts" component={PlatformAdminAccounts} />
+              <Route path="/platform-admin/activity" component={PlatformAdminActivity} />
+              <Route path="/platform-admin/health" component={PlatformAdminHealth} />
+              <Route path="/platform-admin/insights" component={PlatformAdminInsights} />
+              <Route path="/platform-admin/sectors" component={PlatformAdminSectors} />
+              <Route path="/platform-admin/learning-paths" component={PlatformAdminLearningPaths} />
+              <Route path="/platform-admin/courses" component={PlatformAdminCourses} />
+              <Route path="/platform-admin/courses/:id/preview">
+                {(params: any) => <Redirect to={`/platform-admin/preview/${params?.id ?? ""}`} replace />}
+              </Route>
+              <Route path="/platform-admin/subscriptions" component={PlatformAdminSubscriptions} />
+              <Route path="/platform-admin/preview/:id" component={AdminCoursePreview} />
+              <Route path="/platform-admin/sdg-mapping" component={PlatformAdminSdgMapping} />
+            </Switch>
+            <Toaster />
+          </TooltipProvider>
+        </LanguageProvider>
+      </ClerkApiTokenBridge>
+    </QueryClientProvider>
+  );
 }
 
 function ClerkProviderWithRoutes() {
   const [, setLocation] = useLocation();
+
+  if (!clerkPubKey) {
+    return <RoutesTree />;
+  }
 
   return (
     <ClerkProvider
@@ -463,119 +443,8 @@ function ClerkProviderWithRoutes() {
       routerPush={(to) => setLocation(stripBase(to))}
       routerReplace={(to) => setLocation(stripBase(to), { replace: true })}
     >
-      <CommercialNavigationListener />
-      <QueryClientProvider client={queryClient}>
-  <ClerkApiTokenBridge>
-    <LanguageProvider>
-      <ClerkQueryClientCacheInvalidator />
-      <TooltipProvider>
-        <Switch>
-            <Route path="/" component={HomeRedirect} />
-            <Route path="/home">
-              <Show when="signed-in">
-                <InternalHome />
-              </Show>
-              <Show when="signed-out">
-                <Redirect to="/sign-in" />
-              </Show>
-            </Route>
-            <Route path="/sign-in" component={SignInPage} />
-            <Route path="/sign-in/:rest*" component={SignInPage} />
-            <Route path="/sign-up" component={SignUpPage} />
-            <Route path="/sign-up/:rest*" component={SignUpPage} />
-            <Route path="/profile" component={AccountProfilePage} />
-            <Route path="/profile/:rest*" component={AccountProfilePage} />
-            <Route path="/join" component={JoinCompanyPage} />
-            <Route path="/accept-invitation" component={JoinCompanyPage} />
-            <Route path="/courses" component={Courses} />
-            <Route path="/courses/:id" component={CourseDetail} />
-            <Route path="/learning-paths" component={LearningPaths} />
-            <Route path="/learning-paths/:slug" component={LearningPathDetail} />
-            <Route path="/challenges">
-              <Show when="signed-in">
-                <Challenges />
-              </Show>
-              <Show when="signed-out">
-                <Redirect to="/sign-in" />
-              </Show>
-            </Route>
-            <Route path="/learn/:enrollmentId" component={Learn} />
-            <Route path="/quiz/:courseId" component={Quiz} />
-            <Route path="/certificates" component={Certificates} />
-            <Route path="/certificates/verify/:code" component={VerifyCertificate} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/achievements" component={AchievementsPage} />
-            <Route path="/milestones"><Redirect to="/achievements" /></Route>
-            <Route path="/badges"><Redirect to="/achievements" /></Route>
-            <Route path="/company-ranking" component={CompanyRankingPage} />
-            <Route path="/department-ranking" component={DepartmentRankingPage} />
-            <Route path="/leaderboard"><Redirect to="/company-ranking" /></Route>
-            <Route path="/ranking"><Redirect to="/company-ranking" /></Route>
-            {/* /impact — Intentionally disabled. Redirect authenticated users to dashboard. */}
-            <Route path="/impact"><Redirect to="/dashboard" /></Route>
-            <Route path="/experience" component={ExperiencePage} />
-            <Route path="/pricing" component={Pricing} />
-            <Route path="/privacy" component={PrivacyPolicy} />
-            <Route path="/privacy-policy" component={PrivacyPolicy} />
-            <Route path="/terms" component={TermsOfService} />
-            <Route path="/terms-of-service" component={TermsOfService} />
-            <Route path="/terms-and-conditions" component={TermsOfService} />
-            {/* /mauritius-rules-resources & legacy content routes — Intentionally disabled. Redirect to /courses */}
-            <Route path="/made-for-mauritius"><Redirect to="/courses" /></Route>
-            <Route path="/blog"><Redirect to="/courses" /></Route>
-            <Route path="/blog/:slug"><Redirect to="/courses" /></Route>
-            <Route path="/insights"><Redirect to="/courses" /></Route>
-            <Route path="/insights/articles"><Redirect to="/courses" /></Route>
-            <Route path="/insights/articles/:slug"><Redirect to="/courses" /></Route>
-            <Route path="/insights/mauritius-resources"><Redirect to="/courses" /></Route>
-            <Route path="/insights/mauritius-resources/:slug"><Redirect to="/courses" /></Route>
-            <Route path="/mauritius-rules-resources"><Redirect to="/courses" /></Route>
-            <Route path="/mauritius-rules-resources/:slug"><Redirect to="/courses" /></Route>
-            <Route path="/onboarding" component={OnboardingPage} />
-            <Route path="/company">{() => <RequireCompanyAdmin><CompanyDashboard /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/subscribe">{() => <RequireCompanyAdmin><Subscribe /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/challenges-review">{() => <RequireCompanyAdmin><ChallengesReview /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/employees">{() => <RequireCompanyAdmin><CompanyEmployees /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/certificates">{() => <RequireCompanyAdmin><CompanyCertificates /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/engagement-competition">{() => <RequireCompanyAdmin><EngagementCompetitionPage /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/leaderboards">{() => <RequireCompanyAdmin><CompanyLeaderboards /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/challenges">{() => <RequireCompanyAdmin><CompanyChallengesAdminPage /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/compliance">{() => <RequireCompanyAdmin><CompanyCompliance /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/reports">{() => <RequireCompanyAdmin><CompanyReports /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/recycling">{() => <RequireCompanyAdmin><CompanyRecycling /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/sustainability">{() => <RequireCompanyAdmin><SustainabilityImpact /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/training-follow-up">{() => <RequireCompanyAdmin><TrainingFollowUpPage /></RequireCompanyAdmin>}</Route>
-            <Route path="/company/settings/lists">{() => <RequireCompanyAdmin><CompanyListSettings /></RequireCompanyAdmin>}</Route>
-            {/* /company/training-impact — Intentionally disabled. Page preserved dormant. */}
-            <Route path="/admin" component={AdminPanel} />
-            <Route path="/admin/recycling" component={AdminRecycling} />
-            <Route path="/platform-admin" component={PlatformAdminOverview} />
-            <Route path="/platform-admin/gamification-health" component={GamificationHealthPage} />
-            <Route path="/platform-admin/pilot-passes" component={PlatformAdminPilotPasses} />
-            <Route path="/platform-admin/organisations" component={PlatformAdminOrganisations} />
-            <Route path="/platform-admin/accounts" component={PlatformAdminAccounts} />
-            <Route path="/platform-admin/activity" component={PlatformAdminActivity} />
-            <Route path="/platform-admin/health" component={PlatformAdminHealth} />
-            <Route path="/platform-admin/insights" component={PlatformAdminInsights} />
-            <Route path="/platform-admin/sectors" component={PlatformAdminSectors} />
-            <Route path="/platform-admin/learning-paths" component={PlatformAdminLearningPaths} />
-            <Route path="/platform-admin/courses" component={PlatformAdminCourses} />
-            <Route path="/platform-admin/courses/:id/preview">
-              {(params) => <Redirect to={`/platform-admin/preview/${params.id}`} replace />}
-            </Route>
-            <Route path="/platform-admin/subscriptions" component={PlatformAdminSubscriptions} />
-            <Route path="/platform-admin/preview/:id" component={AdminCoursePreview} />
-            <Route path="/platform-admin/sdg-mapping" component={PlatformAdminSdgMapping} />
-            <Route path="/company/assignments"><Redirect to="/company/employees" /></Route>
-            {/* Catch-all fallback */}
-            <Route><Redirect to="/dashboard" /></Route>
-          </Switch>
-          <Toaster />
-        </TooltipProvider>
-      </LanguageProvider>
-    </ClerkApiTokenBridge>
-  </QueryClientProvider>
-</ClerkProvider>
+      <RoutesTree />
+    </ClerkProvider>
   );
 }
 

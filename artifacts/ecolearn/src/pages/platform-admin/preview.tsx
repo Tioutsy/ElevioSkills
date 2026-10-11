@@ -6,7 +6,7 @@ import { ShieldAlert } from "lucide-react";
 import DatabaseCoursePlayer from "../learn/DatabaseCoursePlayer";
 
 export default function AdminCoursePreview() {
-  const { id: courseIdRaw } = useParams();
+  const { id: courseIdRaw } = useParams<{ id: string }>();
   const courseId = parseInt(courseIdRaw || "0", 10);
   const { user, isLoaded } = useUser();
   const isAuthorized = isPlatformAdmin(user);

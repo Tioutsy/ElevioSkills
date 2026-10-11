@@ -1,0 +1,8 @@
+{
+  "name": "EcoLearn Hub",
+  "description": "Corporate sustainability e-learning platform helping organizations learn, apply, and improve ESG practices.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

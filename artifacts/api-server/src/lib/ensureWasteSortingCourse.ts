@@ -13,7 +13,7 @@ const COURSE_ID = 2;
 const COURSE_SLUG = "waste-sorting-mauritian-bin-system";
 const COURSE_TITLE = "Waste Sorting & the Mauritian Bin System";
 const BADGE_SLUG = "sorting-champion";
-const SEED_NAME = "waste-sorting-mauritian-bin-system-v2";
+const SEED_NAME = "waste-sorting-mauritian-bin-system-v3";
 
 const COURSE_META = {
   description:
@@ -155,31 +155,9 @@ const NEW_LESSONS = [
       { id: "ws4-h1", type: "heading", position: 1, headingText: "Workplace Waste Inspection" },
       { id: "ws4-t1", type: "short_text", position: 2, bodyText: "Examine a real Mauritian workplace waste sorting station. Notice the labelled bins for Paper & Cardboard, Plastics & Cans, and General Waste." },
       {
-        id: "ws4-sort1",
-        type: "sorting_activity",
-        position: 3,
-        title: "Mauritian Workplace Waste Sorting Challenge",
-        instruction: "Tap an item, then tap its correct disposal or recycling stream below:",
-        takeaway: "Never mix organic food waste with dry paper or plastic recyclables. Check site-specific bin labels first.",
-        categories: [
-          { id: "paper", name: "Paper & Cardboard", description: "Dry, clean paper, notes, flattened cardboard boxes" },
-          { id: "plastic_metal", name: "Plastics & Aluminium Cans", description: "Rinsed plastic bottles and aluminium drink cans" },
-          { id: "organic", name: "Organic & Food Scraps", description: "Fruit peels, tea bags, leftover food scraps" },
-          { id: "landfill", name: "General Waste / Landfill", description: "Oily food wrappers, polystyrene, soiled napkins" },
-        ],
-        items: [
-          { id: "ws-i1", label: "Clean PET Water Bottle", expectedCategoryId: "plastic_metal" },
-          { id: "ws-i2", label: "Flattened Shipping Box", expectedCategoryId: "paper" },
-          { id: "ws-i3", label: "Greasy Takeaway Box with Gravy", expectedCategoryId: "landfill" },
-          { id: "ws-i4", label: "Banana Peel & Tea Bags", expectedCategoryId: "organic" },
-          { id: "ws-i5", label: "Clean Aluminium Soda Can", expectedCategoryId: "plastic_metal" },
-          { id: "ws-i6", label: "Printed Office Memo", expectedCategoryId: "paper" },
-        ],
-      },
-      {
         id: "ws4-img1",
         type: "visual_question",
-        position: 4,
+        position: 3,
         imageUrl: "/images/courses/visual-workplace-waste-station.png",
         caption: "Workplace Waste Station Inspection: Clearly labelled bins for Paper & Cardboard, Plastics & Cans, and General Waste, with items on the adjacent counter.",
         imageAlt: "Realistic photograph of a modern Mauritian workplace waste sorting station featuring clear printed labels for Paper & Cardboard, Plastics & Cans, and General Waste, with clean recyclables and a used battery on the adjacent counter."
@@ -187,7 +165,7 @@ const NEW_LESSONS = [
       {
         id: "ws4-m1",
         type: "multiple_choice",
-        position: 5,
+        position: 4,
         mcqQuestion: "In the workplace waste station scene above, which item must NEVER be placed in standard recycling or general waste bins without checking special disposal procedures?",
         mcqOptions: [
           "The used AA battery on the counter",
@@ -222,79 +200,9 @@ const NEW_LESSONS = [
         ]
       },
       {
-        id: "ws5-assess1",
-        type: "challenge_assessment",
-        position: 4,
-        title: "Waste Sorting Challenge Assessment",
-        description: "Pass this scenario check (at least 4 of 5 correct) to fulfill your active company challenge knowledge criterion.",
-        passThreshold: 4,
-        questions: [
-          {
-            id: "wsa-1",
-            question: "Why should you always check printed bin labels instead of assuming bin colors are identical across all Mauritian companies?",
-            options: [
-              "Different facilities contract different private waste collectors with specific stream rules",
-              "Bin labels are only used for government inspection days",
-              "All Mauritian companies share one single waste truck",
-              "Colors are chosen at random by employees"
-            ],
-            correctIndex: 0,
-            explanation: "Waste collection rules and accepted materials depend on your employer's contracted waste service provider."
-          },
-          {
-            id: "wsa-2",
-            question: "What happens when greasy food containers are placed into a clean paper recycling bin?",
-            options: [
-              "The grease gets automatically removed during sorting",
-              "The oil ruins paper pulp fibers and can cause an entire batch to be sent to Mare Chicose landfill",
-              "The paper turns into organic fertilizer",
-              "It increases the commercial value of the paper"
-            ],
-            correctIndex: 1,
-            explanation: "Oil and moisture permanently contaminate recyclable paper streams."
-          },
-          {
-            id: "wsa-3",
-            question: "Where should spent alkaline or lithium batteries be placed?",
-            options: [
-              "In the yellow plastic recycling bin",
-              "In the paper bin",
-              "In a dedicated battery drop-off box or escalated to facilities",
-              "In the garden soil"
-            ],
-            correctIndex: 2,
-            explanation: "Batteries are hazardous e-waste and require special containment."
-          },
-          {
-            id: "wsa-4",
-            question: "What is the proper step before placing a plastic drink container into the plastics recycling bin?",
-            options: [
-              "Leave the liquid inside to add weight",
-              "Empty all residual liquid and rinse if possible",
-              "Wrap it in general trash bags",
-              "Burn it"
-            ],
-            correctIndex: 1,
-            explanation: "Emptying liquids prevents leaks that spoil neighboring paper recyclables."
-          },
-          {
-            id: "wsa-5",
-            question: "How does clean waste separation at Mauritian workplaces help the national environment?",
-            options: [
-              "It conserves landfill capacity at Mare Chicose and reduces greenhouse emissions",
-              "It eliminates the need for any workplace cleaning staff",
-              "It causes electricity rates to double",
-              "It is strictly for marketing purposes"
-            ],
-            correctIndex: 0,
-            explanation: "Keeping recyclables and organics out of landfill extends Mare Chicose lifespan and lowers methane emissions."
-          }
-        ]
-      },
-      {
         id: "ws5-p1",
         type: "practical_action",
-        position: 5,
+        position: 4,
         headingText: "Items Requiring Special Escalation",
         bodyText: "Always escalate these items to your supervisor or facilities contact: 1) Batteries and e-waste, 2) Fluorescent light tubes, 3) Chemical container residues, 4) Medical or sharp objects."
       }
@@ -334,16 +242,16 @@ const NEW_QUIZ = [
       "Exported for international recycling",
       "The Mare Chicose landfill",
       "Incinerated for renewable grid electricity"
-    ],
+],
     correct: 2,
     correctExplanation: "Most unsorted waste in Mauritius goes to Mare Chicose landfill, making waste reduction and proper sorting essential.",
-    incorrectExplanation: "Incorrect. Mare Chicose is the primary landfill site in Mauritius.",
+    incorrectExplanation: "Incorrect. Mare Chicose is the central landfill site in Mauritius.",
     optionFeedback: [
-      "Incorrect. Unsorted general waste cannot go to compost facilities due to synthetic contaminants.",
-      "Incorrect. Mauritius does not export mixed unsorted municipal waste for recycling.",
-      "Correct! General waste in Mauritius is transported to Mare Chicose landfill, which faces strict space constraints.",
-      "Incorrect. Mauritius does not operate a general municipal waste-to-energy incineration plant."
-    ]
+      "Incorrect. General waste bins are not sent to organic composting sites.",
+      "Incorrect. Unsorted mixed waste is not exported for recycling.",
+      "Correct. Mare Chicose is the primary sanitary landfill receiving unsorted municipal and commercial waste.",
+      "Incorrect. Mauritius does not operate a large-scale municipal solid waste incineration power plant."
+]
   },
   {
     order: 2,
@@ -353,16 +261,16 @@ const NEW_QUIZ = [
       "Commercial bins are only decorative",
       "All Mauritian workplaces use identical private recycling trucks",
       "Only organic food waste is collected in Mauritius"
-    ],
+],
     correct: 0,
     correctExplanation: "Different employers contract different waste collection services with unique guidelines and accepted items.",
     incorrectExplanation: "Incorrect. Bin systems and accepted materials vary by employer and waste collector.",
     optionFeedback: [
-      "Correct! Private waste contractors and local recyclers have distinct sorting guidelines and color schemes.",
-      "Incorrect. Commercial sorting bins serve functional operational and recycling purposes.",
-      "Incorrect. Different private waste haulers operate with varying sorting requirements across business sites.",
-      "Incorrect. Paper, cardboard, PET plastics, and metals are also collected by specialized commercial contractors."
-    ]
+      "Correct. Commercial waste collectors in Mauritius have distinct sorting rules and color schemes; always follow on-site labels.",
+      "Incorrect. Labelled bins are active sorting systems designed to divert recyclables from landfill.",
+      "Incorrect. Multiple private service providers operate in Mauritius with different collection streams.",
+      "Incorrect. Paper, cardboard, plastics, and metals are widely collected alongside general waste."
+]
   },
   {
     order: 3,
@@ -372,16 +280,16 @@ const NEW_QUIZ = [
       "It ruins paper fibers during repulping, often causing the entire batch to be sent to landfill",
       "It turns the paper into organic compost instantly",
       "It increases the commercial value of recycled paper"
-    ],
+],
     correct: 1,
     correctExplanation: "Grease and moisture disrupt repulping processes, contaminating dry paper streams beyond recovery.",
     incorrectExplanation: "Incorrect. Food oil and moisture permanently spoil recyclable paper streams.",
     optionFeedback: [
-      "Incorrect. Paper recycling relies on water-based repulping; oil and grease cannot be separated from cellulose fibers.",
-      "Correct! Grease and oils bind to paper fibers, making the pulp unusable and resulting in rejected loads.",
-      "Incorrect. Greasy cardboard mixed with inks and packaging adhesives cannot safely turn into clean compost.",
-      "Incorrect. Contamination drastically devalues recyclable commodities and causes processing rejections."
-    ]
+      "Incorrect. Paper recycling relies on clean water repulping; oil and grease cannot be separated from cellulose fibers.",
+      "Correct. Oil and food grease saturate paper fibers, making them unrecyclable and causing whole bales to be rejected.",
+      "Incorrect. Contaminated paper in a recycling bin does not compost; it ruins the recyclable dry stream.",
+      "Incorrect. Contamination drastically degrades or destroys the economic value of collected recyclables."
+]
   },
   {
     order: 4,
@@ -391,16 +299,16 @@ const NEW_QUIZ = [
       "Flattened cardboard shipping boxes",
       "Clean aluminum soda cans",
       "Used batteries and electronic waste"
-    ],
+],
     correct: 3,
     correctExplanation: "Batteries contain hazardous heavy metals and chemicals that require dedicated collection procedures.",
     incorrectExplanation: "Incorrect. Batteries and e-waste must be escalated to special collection points.",
     optionFeedback: [
-      "Incorrect. Clean PET plastic bottles belong in designated plastic packaging recycling bins.",
-      "Incorrect. Clean flattened cardboard belongs in standard cardboard recycling streams.",
-      "Incorrect. Clean aluminum cans belong in designated metal/can recycling containers.",
-      "Correct! Heavy metals and battery electrolytes cause toxic leaching in landfills and fire risks in collection trucks."
-    ]
+      "Incorrect. PET bottles belong in clean plastics recycling streams.",
+      "Incorrect. Flattened cardboard belongs in clean paper and cardboard streams.",
+      "Incorrect. Aluminum cans are valuable non-ferrous metals for standard recycling.",
+      "Correct. Batteries and electronics contain toxic electrolytes and heavy metals that cause landfill fires and soil contamination."
+]
   },
   {
     order: 5,
@@ -410,73 +318,111 @@ const NEW_QUIZ = [
       "Empty all liquid, rinse if possible, and place in the plastic recycling bin",
       "Throw it into the paper recycling bin",
       "Leave it on your desk for cleaning staff to handle"
-    ],
+],
     correct: 1,
     correctExplanation: "Emptying liquids prevents leaks that destroy adjacent paper and cardboard recyclables.",
     incorrectExplanation: "Incorrect. Liquids must be emptied before placing containers into recycling streams.",
     optionFeedback: [
-      "Incorrect. Liquids leak in collection bins and saturate clean dry cardboard and paper recyclables.",
-      "Correct! Emptying and lightly rinsing containers preserves packaging quality and prevents foul odors and contamination.",
-      "Incorrect. Plastic bottles do not belong in paper streams.",
-      "Incorrect. Each individual employee is responsible for properly prepping their personal beverage containers."
-    ]
+      "Incorrect. Remaining liquids leak onto other materials in the collection bin, causing mould and contamination.",
+      "Correct. Emptying and lightly rinsing ensures containers remain clean and prevents liquids from spoiling other recyclables.",
+      "Incorrect. Plastic bottles must never be placed in paper bins.",
+      "Incorrect. Every employee is responsible for sorting their own beverage and food packaging."
+]
   },
   {
     order: 6,
-    question: "Workplace Scenario (Office Paper Contamination): A team member finishes printing a report with plastic spiral binding and a clear plastic cover. How should they prepare the document for recycling?",
+    question: "When you are standing at a workplace waste station holding packaging with no clear bin label, what is the best immediate practice?",
     options: [
-      "Toss the bound document directly into the paper recycling bin without disassembling it",
-      "Remove the plastic cover and metal spiral, place clean paper pages in the paper recycling bin, and dispose of non-recyclable components appropriately",
-      "Throw the entire binder into the kitchen organic waste bin",
-      "Burn the plastic binding in an outdoor barrel behind the premises"
-    ],
-    correct: 1,
-    correctExplanation: "Disassembling multi-material documents ensures the paper stream remains unpolluted by plastic and metal components.",
-    incorrectExplanation: "Incorrect. Separating covers and spirals prevents jamming industrial repulping machines.",
+      "Check the company waste sorting guide or ask facilities before discarding, placing it in general waste only if unrecyclable",
+      "Toss it into the nearest plastic bin and assume sorting facility workers will fix it",
+      "Hide it behind the waste bins on the floor to avoid making a wrong decision",
+      "Burn the packaging in the outdoor car park"
+],
+    correct: 0,
+    correctExplanation: "Checking site guidance or asking the facility coordinator prevents contaminating clean recycling streams.",
+    incorrectExplanation: "Incorrect. Guessing can contaminate clean recyclable materials.",
     optionFeedback: [
-      "Incorrect. Plastic spirals and vinyl covers jam paper recycling repulping equipment and contaminate pulp batches.",
-      "Correct! Separating materials ensures that high-grade paper can be repulped without synthetic contamination.",
-      "Incorrect. Plastic and metal components must never enter compost streams.",
-      "Incorrect. Open burning of plastics releases hazardous toxic fumes and is illegal under local environmental laws."
-    ]
+      "Correct. When in doubt, check site guidance; preventing recycling stream contamination protects the entire batch.",
+      "Incorrect. Wish-cycling (guessing into recycling) contaminates clean batches and increases processing costs.",
+      "Incorrect. Leaving waste on the floor creates housekeeping and pest hazards.",
+      "Incorrect. Open burning of waste is hazardous and illegal under Mauritian environmental laws."
+]
   },
   {
     order: 7,
-    question: "Workplace Scenario (Canteen Waste Sorting): After lunch, an employee has a plastic food container coated with heavy curry oil. The workplace recycling station accepts clean plastic only. What is the correct procedure?",
+    question: "Why is 'segregation at source' considered the most effective principle in commercial waste management?",
     options: [
-      "Place the oily container in the clean plastic bin hoping the recycling plant washes it",
-      "Wash and rinse the container with water to remove oil before placing it in the plastic recycling bin, or discard in general waste if cleaning is not possible",
-      "Hide the oily container underneath cardboard boxes in the paper bin",
-      "Throw the container into the office electronics recycling bin"
-    ],
-    correct: 1,
-    correctExplanation: "Plastic recyclables must be free of heavy food grease to prevent batch contamination and pest attraction.",
-    incorrectExplanation: "Incorrect. Grease-laden containers contaminate clean recyclables.",
+      "It makes office corridors look busier and more colorful",
+      "It allows companies to eliminate all cleaning staff contracts",
+      "Separating materials immediately when discarded keeps clean recyclables dry and prevents cross-contamination",
+      "It is required only for luxury tourist resorts and not for regular commercial buildings"
+],
+    correct: 2,
+    correctExplanation: "Segregating at source prevents clean materials from contacting wet or oily waste, ensuring high recovery rates.",
+    incorrectExplanation: "Incorrect. Source segregation prevents clean recyclables from being ruined by mixed waste.",
     optionFeedback: [
-      "Incorrect. Recycling facilities cannot process heavily oil-soaked food containers with dry plastic streams.",
-      "Correct! Removing food grease preserves recyclable quality; if unrinsable, general waste prevents batch rejection.",
-      "Incorrect. Hiding oily containers ruins dry paper streams and attracts pests.",
-      "Incorrect. Electronics bins are strictly reserved for cables, e-waste, and batteries."
-    ]
+      "Incorrect. The primary goal is resource recovery, not aesthetic decoration.",
+      "Incorrect. Housekeeping teams remain vital for managing collection streams and transfers.",
+      "Correct. Once wet organic waste mixes with clean paper or cardboard, recovery is almost impossible.",
+      "Incorrect. Segregation at source applies to all commercial, industrial, and retail workplaces across Mauritius."
+]
   },
   {
     order: 8,
-    question: "Workplace Decision (Sorting Infrastructure): You notice a newly relocated water station in your facility lacks a dedicated bin for plastic cups, leading people to toss cups into general waste. What is the most effective operational action?",
+    question: "A team orders takeaway lunch and leaves oily polystyrene clamshells with chicken curry gravy. Where do these containers belong?",
     options: [
-      "Inform your department green team or facility manager to request a clearly labelled recycling bin at that station",
-      "Scold colleagues whenever they drink water",
-      "Ignore the issue because waste management is only facilities' responsibility",
-      "Remove the water dispenser so no waste is generated"
-    ],
-    correct: 0,
-    correctExplanation: "Reporting infrastructure gaps ensures permanent, accessible sorting for all staff.",
-    incorrectExplanation: "Incorrect. Proactive communication with facilities solves structural waste sorting gaps.",
+      "In the clean paper recycling bin because they held food items",
+      "In the clean plastics bin because polystyrene is technically a polymer",
+      "In the outdoor storm drain",
+      "In general waste, because food-soaked polystyrene cannot be recycled and contaminates clean packaging"
+],
+    correct: 3,
+    correctExplanation: "Heavily food-soaked polystyrene cannot be processed by commercial recyclers and must be directed to general waste.",
+    incorrectExplanation: "Incorrect. Food-soaked expanded polystyrene contaminates recycling streams.",
     optionFeedback: [
-      "Correct! Escalating infrastructure gaps to facilities or green teams establishes the physical means for correct sorting.",
-      "Incorrect. Antagonistic behaviour creates resistance and fails to provide the needed recycling bin.",
-      "Incorrect. Active sustainability engagement relies on all employees noticing and reporting sorting bottlenecks.",
-      "Incorrect. Removing hydration stations undermines employee health and safety."
-    ]
+      "Incorrect. Polystyrene is not paper, and food gravy severely contaminates paper recycling.",
+      "Incorrect. Recyclers in Mauritius do not accept food-contaminated expanded polystyrene clamshells.",
+      "Incorrect. Placing waste in storm drains is illegal and severely pollutes marine habitats.",
+      "Correct. Greasy polystyrene cannot be cleaned economically and will ruin clean recyclable batches."
+]
+  },
+  {
+    order: 9,
+    question: "During a facility tidy-up, a worker finds two cracked fluorescent lighting tubes. How should these tubes be handled?",
+    options: [
+      "Wrap them carefully, isolate them from general bins, and escalate to facilities for hazardous waste disposal",
+      "Crush them into a paper bin to save space in the office",
+      "Throw them into the outdoor glass bottle recycling bin",
+      "Flush them down the staff restroom sink with tap water"
+],
+    correct: 0,
+    correctExplanation: "Fluorescent tubes contain hazardous mercury vapour and phosphor powders, requiring specialized hazardous waste handling.",
+    incorrectExplanation: "Incorrect. Fluorescent tubes contain toxic mercury and must never be crushed or mixed with ordinary glass.",
+    optionFeedback: [
+      "Correct. Fluorescent tubes contain toxic mercury vapour and must be isolated and disposed of via certified hazardous waste handlers.",
+      "Incorrect. Crushing releases toxic mercury vapor directly into indoor breathing air.",
+      "Incorrect. Fluorescent tube glass has a different chemical composition and toxic coating than bottle glass.",
+      "Incorrect. Disposing of fluorescent materials down drains contaminates public wastewater systems."
+]
+  },
+  {
+    order: 10,
+    question: "You notice that the main cardboard recycling bin in the reception corridor is overflowing and staff have started piling mixed rubbish on top. What is the best action?",
+    options: [
+      "Ignore it and leave it for the weekend cleaning crew",
+      "Kick the excess boxes into the elevator lobby",
+      "Notify facility management or the green team coordinator to arrange collection and request extra bins",
+      "Dump the entire recycling bin into the outdoor general dumpster to clear the floor"
+],
+    correct: 2,
+    correctExplanation: "Reporting overflow promptly allows facilities to clear bins before cross-contamination occurs.",
+    incorrectExplanation: "Incorrect. Prompt notification enables facilities to manage collection capacity.",
+    optionFeedback: [
+      "Incorrect. Ignoring overflow leads to progressive contamination as mixed trash is tossed on top.",
+      "Incorrect. Spreading waste creates slip and fire hazards in public corridors.",
+      "Correct. Alerting the facilities coordinator ensures timely bin clearance and assesses whether bin capacity needs adjusting.",
+      "Incorrect. Diverting a bin of clean cardboard to general waste unnecessarily wastes valuable recyclable material."
+]
   }
 ];
 
@@ -531,7 +477,7 @@ export async function ensureWasteSortingCourse(): Promise<void> {
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length < 8;
+      const hasMissingQuiz = existingQuizQuestions.length !== 10;
       const hasIncorrectSlug = course.slug !== COURSE_SLUG;
 
       const needsRepair = !existingSeed ||

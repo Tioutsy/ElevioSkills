@@ -248,10 +248,15 @@ router.post("/", async (req, res): Promise<void> => {
     return;
   }
 
+  const { domain: _unusedDomain, recyclingServiceStartDate, ...rest } = parsed.data;
   const slug = parsed.data.name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
   const [company] = await db
     .insert(companiesTable)
-    .values({ ...parsed.data, slug })
+    .values({
+      ...rest,
+      slug,
+      ...(recyclingServiceStartDate ? { recyclingServiceStartDate: new Date(recyclingServiceStartDate) } : {}),
+    } as any)
     .returning();
   const full = await getCompanyWithPlan(company.id);
   res.status(201).json(full);

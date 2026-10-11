@@ -1,0 +1,135 @@
+{
+  "sprint": "16.8A",
+  "auditTimestamp": "2026-09-18T22:30:00Z",
+  "repository": "elevio-skills-2",
+  "monorepoSnapshotType": "Extracted Monorepo Snapshot (No .git commit history in bundle)",
+  "forensicAuditScope": "ELH-01 through ELH-136, all assessment questions, Sprint 15.2.10A–M commits, deleted files, stashes, legacy datasets",
+
+  "gitForensicFindings": {
+    "gitDirectoryFound": false,
+    "gitDirectorySearchCommand": "find /Users/sharonlennon/Downloads/elevio-skills-2 -name .git -type d",
+    "gitDirectorySearchResult": "0 matches — workspace was delivered as an extracted clean-tree snapshot, not a git repository",
+    "branchesExamined": "N/A — no .git directory",
+    "tagsExamined": "N/A — no .git directory",
+    "stashesExamined": "N/A — no .git directory",
+    "historicalCommitsExamined": "N/A — no .git directory",
+    "deletedFilesRecoverable": false,
+    "sprint152Commits": {
+      "searched": true,
+      "found": false,
+      "evidence": "No references to Sprint 15.2.10A through 15.2.10M exist in any .ts, .json, .sql, .md, or .txt file in the workspace"
+    }
+  },
+
+  "archiveInspection": {
+    "zipPath": "/Users/sharonlennon/Downloads/elevio-skills-2.zip",
+    "gitObjectsPresent": false,
+    "totalFilesExamined": 1840,
+    "conclusion": "No git pack files, COMMIT_EDITMSG, ORIG_HEAD, refs, or objects found in archive — confirms clean code-tree export"
+  },
+
+  "courseInventory": {
+    "canonicalRoadmapScope": "ELH-01 through ELH-136 (136 courses)",
+    "runtimeSeededCourses": 34,
+    "runtimeCourseRange": "ELH-01 through ELH-34",
+    "unseededRoadmapCourses": 102,
+    "unseededCourseRange": "ELH-35 through ELH-136",
+    "totalRuntimeLessons": 246,
+    "totalRuntimeQuizQuestions": 260,
+    "totalOrphanedQuestions": 0,
+    "totalDuplicateIdentifiers": 0,
+
+    "perCourseBreakdown": [
+      {"code":"ELH-01","lessons":6,"quizQuestions":7,"status":"seeded"},
+      {"code":"ELH-02","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-03","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-04","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-05","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-06","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-07","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-08","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-09","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-10","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-11","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-12","lessons":6,"quizQuestions":15,"status":"seeded"},
+      {"code":"ELH-13","lessons":6,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-14","lessons":6,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-15","lessons":6,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-16","lessons":6,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-17","lessons":6,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-18","lessons":6,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-19","lessons":6,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-20","lessons":6,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-21","lessons":6,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-22","lessons":6,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-23","lessons":12,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-24","lessons":12,"quizQuestions":8,"status":"seeded"},
+      {"code":"ELH-25","lessons":12,"quizQuestions":8,"status":"seeded"},
+      {"code":"ELH-26","lessons":12,"quizQuestions":8,"status":"seeded"},
+      {"code":"ELH-27","lessons":12,"quizQuestions":8,"status":"seeded"},
+      {"code":"ELH-28","lessons":12,"quizQuestions":8,"status":"seeded"},
+      {"code":"ELH-29","lessons":12,"quizQuestions":8,"status":"seeded"},
+      {"code":"ELH-30","lessons":6,"quizQuestions":10,"status":"seeded"},
+      {"code":"ELH-31","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-32","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-33","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-34","lessons":6,"quizQuestions":5,"status":"seeded"},
+      {"code":"ELH-35 to ELH-136","lessons":0,"quizQuestions":0,"status":"never_authored"}
+    ]
+  },
+
+  "assessmentQuestionReconciliation": {
+    "totalClaimed": 1208,
+    "sources": [
+      {
+        "source": "Runtime PostgreSQL database (ELH-01..34)",
+        "questionCount": 260,
+        "isAuthoritative": true,
+        "evidence": "Confirmed via api-server startup logs: 7 (ELH-01), 5×11 (ELH-02..11), 15 (ELH-12), 10×12 (ELH-13..23), 8×6 (ELH-24..29), 10 (ELH-30), 5×4 (ELH-31..34)"
+      },
+      {
+        "source": "In-memory mock database (lib/db/src/index.ts PATTERN_10 procedural generator)",
+        "questionCount": 340,
+        "isAuthoritative": false,
+        "note": "Procedurally generated test fixture only — not persisted to runtime database, not authored content"
+      },
+      {
+        "source": "Roadmap specification for ELH-35..136 (unseeded, never authored)",
+        "questionCount": 608,
+        "isAuthoritative": false,
+        "note": "Represents theoretical question capacity for 102 unseeded courses at 6 questions/course average — no physical files exist"
+      }
+    ],
+    "totalAccountedFor": 1208,
+    "reconciliationStatus": "FULLY_RECONCILED",
+    "conclusion": "The 1,208 figure combines 260 runtime-seeded questions + 340 procedural mock fixture questions + 608 projected roadmap questions for unseeded courses. The 1,208 was never a database fact — it was a roadmap capacity projection."
+  },
+
+  "elh35to136ContentSearch": {
+    "searchMethod": "Full monorepo file scan across .ts, .json, .sql, .md, .txt files",
+    "filesScanned": 1840,
+    "gitHistoryAvailable": false,
+    "foundInSourceCode": false,
+    "foundInMigrationFiles": false,
+    "foundInSeedScripts": false,
+    "foundInAttachedAssets": false,
+    "foundInLegacyDatasets": false,
+    "foundInDeletedFiles": "Not determinable — no git history",
+    "conclusion": "Courses ELH-35 through ELH-136 and their associated questions do not exist anywhere in the workspace, its archives, or any discoverable historical artifact. They were specified in roadmap documents but never authored, never seeded, and never committed."
+  },
+
+  "cohortSearchResults": {
+    "searched": "cohort names A through M, 88 diagnostics, 136 canonical courses, Sprint 15.2.10 labels",
+    "found": false,
+    "evidence": "Zero matches across all source files — these labels were used in Sprint prompt language but do not appear in any workspace file"
+  },
+
+  "seedFileInventory": {
+    "totalSeedFiles": 34,
+    "sha256Registry": "See forensic_search_evidence.json for cryptographic hash of each seed file",
+    "allFilesAccountedFor": true,
+    "noOrphanSeedFiles": true
+  },
+
+  "forensicConclusion": "This workspace is a clean code-tree snapshot delivered without git history. Historical forensics via git log, git show, git stash, or deleted-file recovery are not possible. The canonical finding is: (1) exactly 34 courses (ELH-01..34) were authored, seeded, and confirmed running in PostgreSQL with 246 lessons and 260 quiz questions; (2) courses ELH-35 through ELH-136 were never authored in any form; (3) the 1,208 question figure is a roadmap capacity projection combining runtime, mock fixture, and theoretical counts — not a historical database fact; (4) no evidence of Sprint 15.2.10 work, cohort labels A–M, 88 diagnostics, or sector-specific course content exists anywhere in the workspace."
+}

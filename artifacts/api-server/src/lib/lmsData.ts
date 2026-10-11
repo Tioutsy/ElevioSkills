@@ -117,15 +117,15 @@ export async function syncEmployeeLearningStats(
     .from(enrollmentsTable)
     .where(eq(enrollmentsTable.employeeId, employee.id));
 
-  const courseIds = Array.from(new Set(enrollments.map((row) => row.courseId)));
+  const courseIds = Array.from(new Set(enrollments.map((row: any) => row.courseId as number)));
   const courses = courseIds.length
-    ? await db.select().from(coursesTable).where(inArray(coursesTable.id, courseIds))
+    ? await db.select().from(coursesTable).where(inArray(coursesTable.id as any, courseIds))
     : [];
-  const courseMap = new Map(courses.map((course) => [course.id, course]));
+  const courseMap = new Map<number, any>(courses.map((course: any) => [course.id, course]));
   const completedEnrollments = enrollments.filter(
-    (row) => row.status === "completed" || Boolean(row.completedAt),
+    (row: any) => row.status === "completed" || Boolean(row.completedAt),
   );
-  const learningMinutes = completedEnrollments.reduce((total, row) => {
+  const learningMinutes = completedEnrollments.reduce((total: number, row: any) => {
     return total + (courseMap.get(row.courseId)?.durationMinutes ?? 0);
   }, 0);
 
@@ -274,29 +274,29 @@ export async function getTrainingReportRows(
     .where(eq(courseAssignmentsTable.companyId, companyId));
   if (assignments.length === 0) return [];
 
-  const courseIds = Array.from(new Set(assignments.map((row) => row.courseId)));
+  const courseIds = Array.from(new Set(assignments.map((row: any) => row.courseId as number)));
   const [courses, enrollments, certificates] = await Promise.all([
-    db.select().from(coursesTable).where(inArray(coursesTable.id, courseIds)),
+    db.select().from(coursesTable).where(inArray(coursesTable.id as any, courseIds)),
     db
       .select()
       .from(enrollmentsTable)
-      .where(inArray(enrollmentsTable.employeeId, employeeIds)),
+      .where(inArray(enrollmentsTable.employeeId as any, employeeIds)),
     db
       .select()
       .from(certificatesTable)
-      .where(inArray(certificatesTable.employeeId, employeeIds)),
+      .where(inArray(certificatesTable.employeeId as any, employeeIds)),
   ]);
 
-  const employeeMap = new Map(employees.map((employee) => [employee.id, employee]));
-  const courseMap = new Map(courses.map((course) => [course.id, course as Course]));
-  const enrollmentMap = new Map(
-    enrollments.map((enrollment) => [
+  const employeeMap = new Map<number, any>(employees.map((employee: any) => [employee.id, employee]));
+  const courseMap = new Map<number, any>(courses.map((course: any) => [course.id, course as Course]));
+  const enrollmentMap = new Map<string, any>(
+    enrollments.map((enrollment: any) => [
       `${enrollment.employeeId}:${enrollment.courseId}`,
       enrollment,
     ]),
   );
-  const certificateMap = new Map(
-    certificates.map((certificate) => [
+  const certificateMap = new Map<string, any>(
+    certificates.map((certificate: any) => [
       `${certificate.employeeId}:${certificate.courseId}`,
       certificate,
     ]),

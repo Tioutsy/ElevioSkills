@@ -31,7 +31,7 @@ import {
   companiesTable,
   employeesTable
 } from "@workspace/db";
-import { eq, and, or, desc, sql } from "drizzle-orm";
+import { eq, and, or, desc } from "drizzle-orm";
 import { requirePlatformAdmin, getCompanyAccess, sendHttpError } from "../lib/access";
 
 const router = Router();
@@ -1212,8 +1212,6 @@ router.get("/courses", async (req, res): Promise<void> => {
       .select({
         id: coursesTable.id,
         title: coursesTable.title,
-        slug: coursesTable.slug,
-        courseCode: coursesTable.courseCode,
         description: coursesTable.description,
         categoryId: coursesTable.categoryId,
         categoryName: categoriesTable.name,
@@ -1230,7 +1228,6 @@ router.get("/courses", async (req, res): Promise<void> => {
         passingScore: coursesTable.passingScore,
         createdAt: coursesTable.createdAt,
         status: coursesTable.status,
-        version: coursesTable.version,
       })
       .from(coursesTable)
       .leftJoin(categoriesTable, eq(coursesTable.categoryId, categoriesTable.id))
@@ -1248,123 +1245,6 @@ router.get("/courses", async (req, res): Promise<void> => {
     console.log("[DIAG] GET /platform-admin/courses - Response sent");
   } catch (err) {
     console.log("[DIAG] GET /platform-admin/courses - Error occurred:", err);
-    sendHttpError(res, err);
-  }
-});
-
-// =============================================================================
-// CREATE NEW COURSE
-// =============================================================================
-
-router.post("/courses", async (req, res): Promise<void> => {
-  try {
-    await requirePlatformAdmin(req);
-    const {
-      title,
-      slug,
-      courseCode,
-      description,
-      fullDescription,
-      level = "Beginner",
-      durationMinutes = 20,
-      priceUsd = "0.00",
-      thumbnailUrl,
-      learningObjectives,
-      includesCertificate = true,
-      passingScore = 80,
-      status = "draft",
-      badgeName,
-      badgeDescription,
-      intendedRoles,
-      categoryId = 1,
-    } = req.body;
-
-    if (!title || !String(title).trim()) {
-      res.status(400).json({ error: "Course title is required" });
-      return;
-    }
-
-    const finalSlug = (slug && String(slug).trim())
-      ? String(slug).trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
-      : String(title).trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-
-    if (!finalSlug) {
-      res.status(400).json({ error: "Invalid course title/slug" });
-      return;
-    }
-
-    const [existingSlug] = await db
-      .select({ id: coursesTable.id })
-      .from(coursesTable)
-      .where(eq(coursesTable.slug, finalSlug))
-      .limit(1);
-
-    if (existingSlug) {
-      res.status(400).json({ error: `A course with slug '${finalSlug}' already exists. Please choose a different title or slug.` });
-      return;
-    }
-
-    const [newCourse] = await db
-      .insert(coursesTable)
-      .values({
-        title: String(title).trim(),
-        slug: finalSlug,
-        courseCode: courseCode ? String(courseCode).trim() : null,
-        description: description ? String(description).trim() : "",
-        fullDescription: fullDescription ? String(fullDescription).trim() : description ? String(description).trim() : "",
-        level: String(level).trim() || "Beginner",
-        durationMinutes: Number(durationMinutes) || 20,
-        priceUsd: String(priceUsd || "0.00"),
-        thumbnailUrl: thumbnailUrl || "/images/courses/sustainability-intro.png",
-        learningObjectives: Array.isArray(learningObjectives) ? learningObjectives : (learningObjectives ? [learningObjectives] : []),
-        includesCertificate: Boolean(includesCertificate),
-        passingScore: Number(passingScore) || 80,
-        status: status === "published" ? "published" : "draft",
-        isPublished: status === "published",
-        badgeName: badgeName ? String(badgeName).trim() : `${title} Practitioner`,
-        badgeDescription: badgeDescription ? String(badgeDescription).trim() : `Awarded for completing ${title}`,
-        intendedRoles: Array.isArray(intendedRoles) ? intendedRoles : [],
-        categoryId: Number(categoryId) || 1,
-      })
-      .returning();
-
-    res.status(201).json(newCourse);
-  } catch (err) {
-    sendHttpError(res, err);
-  }
-});
-
-// =============================================================================
-// DELETE COURSE
-// =============================================================================
-
-router.delete("/courses/:id", async (req, res): Promise<void> => {
-  try {
-    await requirePlatformAdmin(req);
-    const courseId = parseInt(req.params.id);
-    if (isNaN(courseId)) {
-      res.status(400).json({ error: "Invalid course ID" });
-      return;
-    }
-
-    await db.transaction(async (tx) => {
-      // 1. Delete associated lessons
-      await tx.delete(lessonsTable).where(eq(lessonsTable.courseId, courseId));
-      // 2. Delete quiz questions
-      await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
-      // 3. Delete course prerequisites
-      await tx.delete(coursePrerequisitesTable).where(eq(coursePrerequisitesTable.courseId, courseId));
-      await tx.delete(coursePrerequisitesTable).where(eq(coursePrerequisitesTable.prerequisiteCourseId, courseId));
-      // 4. Delete sector mappings
-      await tx.delete(courseSectorsTable).where(eq(courseSectorsTable.courseId, courseId));
-      // 5. Delete SDG contribution mappings
-      await tx.delete(courseSdgContributionsTable).where(eq(courseSdgContributionsTable.courseId, courseId));
-      // 6. Delete the course record itself
-      await tx.delete(coursesTable).where(eq(coursesTable.id, courseId));
-    });
-
-    res.json({ success: true, deletedCourseId: courseId });
-  } catch (err) {
     sendHttpError(res, err);
   }
 });
@@ -1778,66 +1658,7 @@ router.get("/overview-stats", async (req, res): Promise<void> => {
 router.get("/organisations", async (req, res): Promise<void> => {
   try {
     await requirePlatformAdmin(req);
-
-    // Purge test entities directly from DB on query
-    try {
-      await db.execute(sql`
-        DELETE FROM "company_subscriptions" WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%');
-        DELETE FROM "employee_invitations" WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%');
-        DELETE FROM "departments" WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%');
-        DELETE FROM "job_titles" WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%');
-        DELETE FROM "employees" WHERE "company_id" IN (SELECT "id" FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%');
-        DELETE FROM "employees" WHERE lower("email") = 'slennon2206@gmail.com';
-        DELETE FROM "companies" WHERE lower("name") NOT LIKE '%infracare%' AND lower("slug") NOT LIKE '%infracare%';
-      `);
-    } catch {
-      // Non-fatal purge notice
-    }
-
-    // Guarantee Infracare exists
-    const existingInfracare = await db
-      .select({ id: companiesTable.id })
-      .from(companiesTable)
-      .where(sql`lower(${companiesTable.name}) LIKE '%infracare%' OR lower(${companiesTable.slug}) LIKE '%infracare%'`)
-      .limit(1);
-
-    if (existingInfracare.length === 0) {
-      try {
-        const [newComp] = await db
-          .insert(companiesTable)
-          .values({
-            name: "Infracare",
-            slug: "infracare",
-            industry: "Facilities & Infrastructure",
-            maxEmployees: 250,
-          })
-          .returning();
-
-        if (newComp) {
-          await db
-            .insert(employeesTable)
-            .values({
-              companyId: newComp.id,
-              name: "Infracare Administrator",
-              email: "infracare.mu@gmail.com",
-              role: "admin",
-              status: "active",
-              profileCompleted: true,
-            })
-            .onConflictDoNothing();
-        }
-      } catch {
-        // ignore duplicate
-      }
-    }
-
-    const rawCompanies = await db.select().from(companiesTable).orderBy(desc(companiesTable.createdAt));
-    const companies = rawCompanies.filter((c) => {
-      const name = (c.name || "").toLowerCase();
-      const slug = (c.slug || "").toLowerCase();
-      return name.includes("infracare") || slug.includes("infracare");
-    });
-
+    const companies = await db.select().from(companiesTable).orderBy(desc(companiesTable.createdAt));
     const employees = await db.select().from(employeesTable);
 
     const userCountMap = new Map<number, number>();
@@ -1880,77 +1701,6 @@ router.get("/organisations", async (req, res): Promise<void> => {
   }
 });
 
-router.post("/organisations", async (req, res): Promise<void> => {
-  try {
-    await requirePlatformAdmin(req);
-    const { name, industry, maxEmployees, adminEmail, adminName } = req.body;
-    if (!name || typeof name !== "string" || !name.trim()) {
-      res.status(400).json({ error: "Company name is required" });
-      return;
-    }
-
-    const baseSlug = name
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
-
-    const slug = `${baseSlug}-${Date.now().toString().slice(-4)}`;
-
-    const [newComp] = await db
-      .insert(companiesTable)
-      .values({
-        name: name.trim(),
-        slug,
-        industry: industry?.trim() || "Corporate",
-        maxEmployees: maxEmployees ? parseInt(maxEmployees) : 25,
-      })
-      .returning();
-
-    if (adminEmail && typeof adminEmail === "string" && adminEmail.trim()) {
-      await db
-        .insert(employeesTable)
-        .values({
-          companyId: newComp.id,
-          name: adminName?.trim() || "Company Administrator",
-          email: adminEmail.trim().toLowerCase(),
-          role: "admin",
-          status: "active",
-          profileCompleted: true,
-        })
-        .onConflictDoNothing();
-    }
-
-    res.status(201).json(newComp);
-  } catch (err) {
-    sendHttpError(res, err);
-  }
-});
-
-router.delete("/organisations/:id", async (req, res): Promise<void> => {
-  try {
-    await requirePlatformAdmin(req);
-    const orgId = parseInt(req.params.id);
-    if (!orgId || isNaN(orgId)) {
-      res.status(400).json({ error: "Invalid organisation ID" });
-      return;
-    }
-
-    await db.execute(sql`
-      DELETE FROM "company_subscriptions" WHERE "company_id" = ${orgId};
-      DELETE FROM "employee_invitations" WHERE "company_id" = ${orgId};
-      DELETE FROM "departments" WHERE "company_id" = ${orgId};
-      DELETE FROM "job_titles" WHERE "company_id" = ${orgId};
-      DELETE FROM "employees" WHERE "company_id" = ${orgId};
-      DELETE FROM "companies" WHERE "id" = ${orgId};
-    `);
-
-    res.json({ success: true, message: `Organisation #${orgId} deleted successfully` });
-  } catch (err) {
-    sendHttpError(res, err);
-  }
-});
-
 router.get("/organisations/:id", async (req, res): Promise<void> => {
   try {
     await requirePlatformAdmin(req);
@@ -1984,54 +1734,22 @@ router.get("/organisations/:id", async (req, res): Promise<void> => {
 router.get("/accounts", async (req, res): Promise<void> => {
   try {
     await requirePlatformAdmin(req);
-
-    // Delete duplicate employee entries keeping ONLY the single newest entry per email
-    try {
-      await db.execute(sql`
-        DELETE FROM "employees"
-        WHERE "id" NOT IN (
-          SELECT MAX("id")
-          FROM "employees"
-          GROUP BY lower("email")
-        );
-
-        DELETE FROM "employees"
-        WHERE lower("email") = 'slennon2206@gmail.com';
-      `);
-    } catch {
-      // Non-blocking cleanup
-    }
-
-    const employees = await db.select().from(employeesTable).where(sql`lower(${employeesTable.email}) != 'slennon2206@gmail.com'`).orderBy(desc(employeesTable.createdAt));
+    const employees = await db.select().from(employeesTable).orderBy(desc(employeesTable.createdAt));
     const companies = await db.select().from(companiesTable);
     const companyMap = new Map(companies.map((c) => [c.id, c.name]));
 
-    const accounts = [
-      {
-        id: 0,
-        clerkUserId: null,
-        name: "Sharon Lennon",
-        email: "slennon2206@gmail.com",
-        role: "PLATFORM_ADMIN",
-        companyId: null,
-        companyName: "ELEVIO Platform",
-        status: "active",
-        createdAt: new Date("2026-01-01T00:00:00Z"),
-        lastActiveAt: new Date(),
-      },
-      ...employees.map((e) => ({
-        id: e.id,
-        clerkUserId: e.clerkUserId,
-        name: e.name || "Employee",
-        email: e.email,
-        role: e.role === "admin" ? "COMPANY_ADMIN" : e.role === "manager" ? "MANAGER" : "LEARNER",
-        companyId: e.companyId,
-        companyName: companyMap.get(e.companyId) || "Organisation",
-        status: e.status || "active",
-        createdAt: e.createdAt,
-        lastActiveAt: e.lastActiveAt,
-      })),
-    ];
+    const accounts = employees.map((e) => ({
+      id: e.id,
+      clerkUserId: e.clerkUserId,
+      name: e.name,
+      email: e.email,
+      role: e.role === "admin" ? "COMPANY_ADMIN" : e.role === "manager" ? "MANAGER" : "LEARNER",
+      companyId: e.companyId,
+      companyName: companyMap.get(e.companyId) || "Unassigned / Orphaned",
+      status: e.status,
+      createdAt: e.createdAt,
+      lastActiveAt: e.lastActiveAt
+    }));
 
     res.json(accounts);
   } catch (err) {
