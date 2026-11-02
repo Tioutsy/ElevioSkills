@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0 --port 3000",
     "build": "vite build --config vite.config.ts",
+    "postbuild": "node -e \"import('fs').then(fs => { try { fs.cpSync('dist', '../../dist', { recursive: true }); } catch (e) {} });\"",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0 --port 3000",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
