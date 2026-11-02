@@ -219,7 +219,7 @@ export default function EngagementCompetitionPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0 text-xs text-muted-foreground">
-                    ELEVIO Points per active competitor
+                    Morieva Points per active competitor
                   </CardContent>
                 </Card>
 

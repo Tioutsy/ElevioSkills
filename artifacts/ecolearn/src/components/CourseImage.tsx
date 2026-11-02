@@ -82,7 +82,7 @@ export const CourseImage: React.FC<CourseImageProps> = ({
         <div 
           className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 text-slate-200 text-center"
           role="img"
-          aria-label={alt || manifestRecord?.altText || "ELEVIO Skills Course"}
+          aria-label={alt || manifestRecord?.altText || "Morieva Skills Course"}
         >
           <div className="p-2.5 rounded-xl bg-emerald-500/20 text-emerald-400 mb-2 border border-emerald-500/30">
             <BookOpen className="w-6 h-6" aria-hidden="true" />
@@ -93,7 +93,7 @@ export const CourseImage: React.FC<CourseImageProps> = ({
             </span>
           )}
           <span className="text-xs font-medium text-slate-300 mt-1 line-clamp-1 max-w-[90%]">
-            {manifestRecord?.title || "ELEVIO Skills Course"}
+            {manifestRecord?.title || "Morieva Skills Course"}
           </span>
         </div>
       ) : (

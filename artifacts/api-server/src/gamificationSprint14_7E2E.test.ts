@@ -285,7 +285,7 @@ describe("Sprint 14.7 — Gamification Launch Readiness, End-to-End Verification
 
     it("2.2 respects learner privacy mode in Company Admin CSV export", async () => {
       const csv = await generateCompanyEngagementCsv(companyAId);
-      assert.ok(csv.includes("ELEVIO Skills Company Engagement"), "Header must include export title");
+      assert.ok(csv.includes("Morieva Skills Company Engagement"), "Header must include export title");
       assert.ok(csv.includes("Learner #"), "Anonymous learners must be masked as 'Learner #ID'");
       assert.ok(csv.includes("[Hidden - Opted Out]"), "Email addresses must be masked for anonymous learners");
       assert.equal(csv.includes("bob."), false, "Real email must not be leaked");

@@ -84,7 +84,7 @@ export function Navbar() {
 
   // Contract variables for audit tests compatibility
   const navLinks = [
-    { href: "/experience", label: "Experience ELEVIO", icon: Sparkles },
+    { href: "/experience", label: "Experience Morieva Skills", icon: Sparkles },
     { href: "/courses", label: t("nav.courses") || "Courses", icon: BookOpen },
     { href: "/pricing", label: t("nav.pricing") || "Pricing", icon: Building2 },
   ];
@@ -124,7 +124,7 @@ export function Navbar() {
           : []),
       ]
     : [
-        { href: "/experience", label: "Experience ELEVIO", icon: Sparkles },
+        { href: "/experience", label: "Experience Morieva Skills", icon: Sparkles },
         { href: "/courses", label: t("nav.courses") || "Courses", icon: BookOpen },
         { href: "/pricing", label: t("nav.pricing") || "Pricing", icon: Building2 },
       ];
@@ -139,7 +139,7 @@ export function Navbar() {
         <div className="flex items-center gap-6">
           <Link
             href={isLoaded && isSignedIn ? "/home" : "/"}
-            aria-label="Go to ELEVIO SKILLS Home"
+            aria-label="Go to Morieva Skills Home"
             className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded-lg p-0.5"
           >
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-600 text-white shadow-sm transition-transform group-hover:scale-105">
@@ -147,7 +147,7 @@ export function Navbar() {
             </div>
             <div className="flex flex-col leading-none">
               <span className="text-lg font-bold tracking-wider text-emerald-950 dark:text-emerald-50 font-serif uppercase">
-                ELEVIO SKILLS
+                MORIEVA SKILLS
               </span>
               <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 tracking-tight mt-0.5">
                 By Recyclean

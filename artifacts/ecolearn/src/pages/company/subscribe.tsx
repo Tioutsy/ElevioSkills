@@ -119,7 +119,7 @@ export default function Subscribe() {
       setSuccessMessage(
         isOver120
           ? "Your tailored enterprise quote request has been received. An enterprise specialist will contact you shortly."
-          : (res?.message || "Your Elevio subscription request has been received.")
+          : (res?.message || "Your Morieva Skills subscription request has been received.")
       );
       queryClient.invalidateQueries({ queryKey: ["/api/subscriptions/company"] });
 
@@ -158,7 +158,7 @@ export default function Subscribe() {
               Confirm Your Company Subscription
             </h1>
             <p className="text-muted-foreground text-sm mt-1">
-              One standard all-inclusive ELEVIO Skills subscription with transparent company-size pricing.
+              One standard all-inclusive Morieva Skills subscription with transparent company-size pricing.
             </p>
           </div>
 
@@ -194,7 +194,7 @@ export default function Subscribe() {
                         Company & Organization Details
                       </CardTitle>
                       <CardDescription>
-                        Set up your organization account for ELEVIO Skills corporate training.
+                        Set up your organization account for Morieva Skills corporate training.
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
@@ -294,7 +294,7 @@ export default function Subscribe() {
                       <div className="bg-muted/50 border rounded-xl p-4 space-y-2">
                         <div className="flex justify-between items-center text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                           <span>Subscription Offer</span>
-                          <span className="text-primary font-bold">Standard ELEVIO Skills</span>
+                          <span className="text-primary font-bold">Standard Morieva Skills</span>
                         </div>
                         <div className="flex justify-between items-center text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                           <span>Employee Band / Capacity</span>

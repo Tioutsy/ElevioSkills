@@ -223,7 +223,7 @@ export default function CompanyRankingPage() {
               </div>
               <CardTitle className="text-xl font-serif text-slate-800 mb-2">Company Ranking Inactive</CardTitle>
               <CardDescription className="max-w-md mx-auto text-sm text-muted-foreground mb-6">
-                Your ELEVIO Score reflects your personal learning achievements and workplace actions. Company ranking is currently disabled by your organisation.
+                Your Morieva Score reflects your personal learning achievements and workplace actions. Company ranking is currently disabled by your organisation.
               </CardDescription>
               <Link href="/dashboard">
                 <button className="inline-flex items-center px-4 py-2 rounded-lg bg-emerald-800 text-white text-sm font-medium hover:bg-emerald-900 transition-colors shadow-xs">

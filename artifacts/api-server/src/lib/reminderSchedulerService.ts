@@ -73,7 +73,7 @@ export async function processTrainingReminders(
           recipientName: emp.name,
           category,
           dedupKey,
-          title: "Reminder: Activate Your Elevio Corporate Access",
+          title: "Reminder: Activate Your Morieva Skills Corporate Access",
           message: `Hello ${emp.name}, your corporate learning account is ready to activate.`,
         });
 

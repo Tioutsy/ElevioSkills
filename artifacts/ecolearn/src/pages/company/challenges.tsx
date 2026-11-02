@@ -237,7 +237,7 @@ export default function CompanyChallengesAdminPage() {
                 <Target className="w-10 h-10 text-muted-foreground/60 mx-auto" />
                 <h3 className="text-base font-semibold text-foreground">No Challenges Found</h3>
                 <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                  No company challenges match the selected tab. Click Activate New Challenge to launch an approved ELEVIO template.
+                  No company challenges match the selected tab. Click Activate New Challenge to launch an approved Morieva Skills template.
                 </p>
                 <Button variant="outline" size="sm" onClick={() => setIsActivateOpen(true)} className="mt-2">
                   <Plus className="w-4 h-4 mr-1" />
@@ -324,7 +324,7 @@ export default function CompanyChallengesAdminPage() {
                 Activate Company Challenge
               </DialogTitle>
               <DialogDescription>
-                Select an approved ELEVIO challenge template and configure start and end dates (3 to 90 days).
+                Select an approved Morieva Skills challenge template and configure start and end dates (3 to 90 days).
               </DialogDescription>
             </DialogHeader>
 

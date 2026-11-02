@@ -105,7 +105,7 @@ export function AskElevioCopilotCard() {
 
       setMessages((prev) => [...prev, assistantMsg]);
     } catch (err: any) {
-      setError(err?.message || "Failed to reach Ask Elevio AI. Please try again.");
+      setError(err?.message || "Failed to reach Ask Morieva AI. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -126,7 +126,7 @@ export function AskElevioCopilotCard() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="font-semibold text-base">Ask Elevio AI</h3>
+              <h3 className="font-semibold text-base">Ask Morieva AI</h3>
               <Badge variant="outline" className="text-xs bg-emerald-50 text-emerald-700 border-emerald-200">
                 Management Copilot v1
               </Badge>
@@ -296,7 +296,7 @@ export function AskElevioCopilotCard() {
           <Input
             value={inputQuery}
             onChange={(e) => setInputQuery(e.target.value)}
-            placeholder="Ask Elevio AI about workforce gaps, readiness, or action priorities..."
+            placeholder="Ask Morieva AI about workforce gaps, readiness, or action priorities..."
             disabled={loading}
             className="flex-1 text-sm h-10"
           />

@@ -81,7 +81,7 @@ export default function SustainabilityImpact() {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      const safeName = (company?.name || "Elevio").replace(/[^a-z0-9-_]+/gi, "_");
+      const safeName = (company?.name || "Morieva_Skills").replace(/[^a-z0-9-_]+/gi, "_");
       link.download = `${safeName}_ESG_Training_Report.pdf`;
       document.body.appendChild(link);
       link.click();
@@ -173,7 +173,7 @@ export default function SustainabilityImpact() {
               </div>
 
               <div className="flex-1 w-full">
-                <h2 className="text-xl font-bold font-serif mb-1">Elevio Sustainability Score</h2>
+                <h2 className="text-xl font-bold font-serif mb-1">Morieva Sustainability Score</h2>
                 <p className="text-sm text-muted-foreground mb-4">
                   {score?.nextLevel
                     ? `${score.pointsToNextLevel} points to reach ${score.nextLevel} level.`

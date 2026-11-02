@@ -1,6 +1,6 @@
 {
-  "name": "EcoLearn Hub",
-  "description": "Corporate sustainability e-learning platform helping organizations learn, apply, and improve ESG practices.",
+  "name": "Morieva Skills",
+  "description": "Corporate sustainability and ESG workplace learning platform helping Mauritian organizations learn, apply, and improve. Operated by Recyclean Ltd.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

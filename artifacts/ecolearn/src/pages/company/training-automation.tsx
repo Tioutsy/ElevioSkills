@@ -154,7 +154,7 @@ export default function CompanyTrainingAutomationPage() {
               Training Follow-Up Automation
             </h1>
             <p className="text-sm text-slate-600 max-w-3xl">
-              Let ELEVIO SKILLS handle routine training reminders automatically. You remain in control of the rules and can change or disable them at any time.
+              Let Morieva Skills handle routine training reminders automatically. You remain in control of the rules and can change or disable them at any time.
             </p>
           </div>
 
@@ -222,7 +222,7 @@ export default function CompanyTrainingAutomationPage() {
               )}
             </div>
             <CardDescription className="text-xs text-slate-600">
-              Summary of routine actions ELEVIO SKILLS will execute based on your settings:
+              Summary of routine actions Morieva Skills will execute based on your settings:
             </CardDescription>
           </CardHeader>
           <CardContent>

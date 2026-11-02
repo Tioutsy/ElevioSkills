@@ -1,12 +1,20 @@
 export const BRAND = {
-  name: "Elevio Skills",
+  name: "Morieva Skills",
+  shortName: "Morieva",
+  upperName: "MORIEVA SKILLS",
   slogan: "Learn. Apply. Improve.",
   shortDescription:
-    "Short, practical workplace learning that helps employees learn, apply and improve.",
-  operator: "Elevio Skills is operated by Recyclean Ltd.",
-  operatorShort: "Elevio Skills By Recyclean",
-  defaultTitle: "Elevio Skills | Learn. Apply. Improve.",
-  titleTemplate: "%s | Elevio Skills",
+    "Short, practical workplace sustainability and ESG learning that helps employees learn, apply and improve.",
+  operatorEntity: "Recyclean Ltd",
+  operator: "Morieva Skills is operated by Recyclean Ltd.",
+  operatorShort: "Morieva Skills By Recyclean",
+  signature: "By Recyclean",
+  defaultTitle: "Morieva Skills | Learn. Apply. Improve.",
+  titleTemplate: "%s | Morieva Skills",
+  copilotName: "Ask Morieva AI",
+  scoreLabel: "Morieva Score",
+  pointsLabel: "Morieva Points",
+  certificateTitle: "Morieva Skills Core Sustainability Certificate",
   supportEmail: "support@elevio.mu",
-  domain: "elevio.mu",
-};
+  domain: "www.ecolearnhub.com",
+} as const;

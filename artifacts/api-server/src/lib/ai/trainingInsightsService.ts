@@ -653,7 +653,7 @@ export async function getCompanyTrainingInsights(
       deterministicRecommendedAction: deterministicPriorities.recommendedNextAction,
     };
 
-    const systemInstruction = `You are ELEVIO SKILLS AI Training Insights Engine.
+    const systemInstruction = `You are Morieva Skills AI Training Insights Engine.
 Your task is to interpret company training metrics for company administrators and HR/ESG managers.
 
 STRICT INSTRUCTIONS:

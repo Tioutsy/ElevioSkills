@@ -71,7 +71,7 @@ export const CANONICAL_ACHIEVEMENTS = [
     code: "FIRST_STEP",
     slug: "first-step",
     name: "First Step",
-    description: "Completed your first ELEVIO Skills course.",
+    description: "Completed your first Morieva Skills course.",
     icon: "book-open",
     category: "Learning" as AchievementCategory,
     criteriaType: "course_count",
@@ -179,7 +179,7 @@ export const CANONICAL_ACHIEVEMENTS = [
     code: "MONTHLY_TOP_3",
     slug: "monthly-top-3",
     name: "Monthly Top 3",
-    description: "Finished in the Top 3 in your company's monthly ELEVIO ranking.",
+    description: "Finished in the Top 3 in your company's monthly Morieva ranking.",
     icon: "trophy",
     category: "Competition" as AchievementCategory,
     criteriaType: "seasonal_rank",
@@ -191,7 +191,7 @@ export const CANONICAL_ACHIEVEMENTS = [
     code: "MONTHLY_LEADER",
     slug: "monthly-leader",
     name: "Monthly Leader",
-    description: "Finished #1 in your company's monthly ELEVIO ranking.",
+    description: "Finished #1 in your company's monthly Morieva ranking.",
     icon: "crown",
     category: "Competition" as AchievementCategory,
     criteriaType: "seasonal_rank",
@@ -205,7 +205,7 @@ export const CANONICAL_ACHIEVEMENTS = [
  * 1. Synchronize canonical achievement definitions into database idempotently.
  */
 export async function ensureAchievementDefinitions() {
-  logger.info("Synchronizing ELEVIO Skills achievement definitions...");
+  logger.info("Synchronizing Morieva Skills achievement definitions...");
 
   for (const item of CANONICAL_ACHIEVEMENTS) {
     try {

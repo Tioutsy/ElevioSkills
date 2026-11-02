@@ -100,7 +100,7 @@ export default function PlatformAdminOrganisations() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h2 className="text-2xl font-bold font-serif">Client Organisations</h2>
-            <p className="text-muted-foreground">Search, inspect, and register client organisations on ELEVIO SKILLS.</p>
+            <p className="text-muted-foreground">Search, inspect, and register client organisations on Morieva Skills.</p>
           </div>
 
           <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>

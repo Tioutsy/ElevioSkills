@@ -672,13 +672,13 @@ export async function sendTrainingReminderBatch(
     const customNoteText = options.customNote ? `\n\nAdministrator Note: ${options.customNote}` : "";
     const bodyText = `Hello ${emp.name},
 
-This is a reminder that your assigned ELEVIO SKILLS course "${courseTitle}" is currently outstanding.
+This is a reminder that your assigned Morieva Skills course "${courseTitle}" is currently outstanding.
 
-Please log in to your ELEVIO SKILLS account to continue your training.${customNoteText}
+Please log in to your Morieva Skills account to continue your training.${customNoteText}
 
 Thank you.
 
-ELEVIO SKILLS
+Morieva Skills
 by Recyclean`;
 
     const dispatchRes = await dispatchNotificationDelivery({

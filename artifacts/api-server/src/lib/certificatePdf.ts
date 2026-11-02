@@ -73,8 +73,8 @@ async function drawCertificatePage(
   page.drawRectangle({ x: 32, y: height - 110, width: width - 64, height: 78, color: LIGHT });
 
   page.drawCircle({ x: 80, y: height - 71, size: 18, color: GREEN });
-  centerTextAt(page, "E", 73, height - 78, fonts.bold, 22, rgb(1, 1, 1));
-  page.drawText("Elevio by Recyclean", {
+  centerTextAt(page, "M", 73, height - 78, fonts.bold, 22, rgb(1, 1, 1));
+  page.drawText("Morieva Skills by Recyclean", {
     x: 110,
     y: height - 78,
     size: 18,

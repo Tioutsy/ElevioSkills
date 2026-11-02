@@ -332,7 +332,7 @@ export class GeminiSkillsGapProvider implements SkillsGapProvider {
     }
 
     try {
-      const prompt = `You are a corporate ESG learning & skills-gap AI engine for ELEVIO SKILLS.
+      const prompt = `You are a corporate ESG learning & skills-gap AI engine for Morieva Skills.
 Analyze the provided employee learning evidence, company ESG training priorities, and course catalog to generate a structured Employee Skills Profile.
 
 TAXONOMY DOMAINS & TOPICS:

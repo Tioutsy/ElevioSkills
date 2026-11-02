@@ -580,7 +580,7 @@ export default function JoinCompanyPage() {
               </div>
               <div className="space-y-1">
                 <CardTitle className="text-xl text-emerald-900 dark:text-emerald-100">
-                  Welcome to {invitation?.companyName || profile?.companyName || "ELEVIO Skills"}!
+                  Welcome to {invitation?.companyName || profile?.companyName || "Morieva Skills"}!
                 </CardTitle>
                 <CardDescription>
                   Your profile is complete. Redirecting to your learning workspace…

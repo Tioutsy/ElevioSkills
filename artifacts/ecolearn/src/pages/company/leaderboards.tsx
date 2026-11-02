@@ -297,7 +297,7 @@ export default function CompanyLeaderboards() {
                         Employee Standings
                       </CardTitle>
                       <CardDescription className="text-xs text-muted-foreground">
-                        Real-time scores derived from the authoritative ELEVIO score ledger.
+                        Real-time scores derived from the authoritative Morieva score ledger.
                       </CardDescription>
                     </div>
 

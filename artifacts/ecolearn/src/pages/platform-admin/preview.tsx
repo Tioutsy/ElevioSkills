@@ -27,7 +27,7 @@ export default function AdminCoursePreview() {
         </div>
         <h1 className="text-2xl font-bold font-serif mb-2">Access Denied</h1>
         <p className="text-muted-foreground mb-6">
-          You do not have permission to preview courses. This portal is strictly limited to Elevio platform administrators.
+          You do not have permission to preview courses. This portal is strictly limited to Morieva Skills platform administrators.
         </p>
         <Link href="/dashboard" className="text-primary hover:underline">
           Go to Student Dashboard

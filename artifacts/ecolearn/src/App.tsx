@@ -223,7 +223,7 @@ function SignUpPage() {
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 text-xs font-semibold border border-emerald-200 dark:border-emerald-800">
             Company Administrator Registration
           </div>
-          <h1 className="text-2xl font-bold font-serif text-foreground">Get Started with ELEVIO SKILLS</h1>
+          <h1 className="text-2xl font-bold font-serif text-foreground">Get Started with MORIEVA SKILLS</h1>
           <p className="text-sm text-muted-foreground">
             Create your administrator account to set up your company, choose your plan and invite your team.
           </p>

@@ -61,9 +61,9 @@ describe("Sprint 16.1 — Experience ELEVIO Autonomous Product Proof Verificatio
   // 2. HOMEPAGE INTEGRATION & CTA HIERARCHY
   // ─────────────────────────────────────────────────────────────────────────────
   describe("2. Homepage Integration & Commercial CTA Hierarchy", () => {
-    test("Homepage features 'Experience ELEVIO' as the primary product-proof CTA", () => {
+    test("Homepage features 'Experience Morieva Skills' as the primary product-proof CTA", () => {
       assert.ok(homeContent.includes('href="/experience"'), "Homepage must contain link to /experience");
-      assert.ok(homeContent.includes("Experience ELEVIO"), "Homepage must display 'Experience ELEVIO' CTA");
+      assert.ok(homeContent.includes("Experience Morieva Skills"), "Homepage must display 'Experience Morieva Skills' CTA");
     });
 
     test("Homepage establishes clear hierarchy with 'View Pricing' as commercial CTA", () => {
@@ -71,14 +71,14 @@ describe("Sprint 16.1 — Experience ELEVIO Autonomous Product Proof Verificatio
       assert.ok(homeContent.includes("View Pricing"), "Homepage must display 'View Pricing' CTA");
     });
 
-    test("Public navigation config exports Experience ELEVIO in PUBLIC_NAV", () => {
+    test("Public navigation config exports Experience Morieva Skills in PUBLIC_NAV", () => {
       assert.ok(navConfigContent.includes('href: "/experience"'), "PUBLIC_NAV must include /experience");
-      assert.ok(navConfigContent.includes('label: "Experience ELEVIO"'), "PUBLIC_NAV must have label 'Experience ELEVIO'");
+      assert.ok(navConfigContent.includes('label: "Experience Morieva Skills"'), "PUBLIC_NAV must have label 'Experience Morieva Skills'");
     });
 
-    test("Navbar displays Experience ELEVIO for signed-out visitors", () => {
+    test("Navbar displays Experience Morieva Skills for signed-out visitors", () => {
       assert.ok(navbarContent.includes('href: "/experience"'), "Navbar must include /experience for public visitors");
-      assert.ok(navbarContent.includes('Experience ELEVIO'), "Navbar must display 'Experience ELEVIO'");
+      assert.ok(navbarContent.includes('Experience Morieva Skills'), "Navbar must display 'Experience Morieva Skills'");
     });
   });
 
@@ -126,7 +126,7 @@ describe("Sprint 16.1 — Experience ELEVIO Autonomous Product Proof Verificatio
     });
 
     test("Screen 6: Learner Perspective Preview demonstrates employee interface and verifiable certificate", () => {
-      assert.ok(experienceContent.includes("This is what ELEVIO looks like for your employees"), "Must contain employee view header");
+      assert.ok(experienceContent.includes("This is what Morieva Skills looks like for your employees"), "Must contain employee view header");
       assert.ok(experienceContent.includes("Short, focused learning designed for the working day"), "Must use canonical learning duration description");
       assert.ok(experienceContent.includes("Verifiable Certificate of Completion"), "Must show certificate preview");
       assert.equal(experienceContent.includes("10-minute sessions"), false, "Must not claim fixed 10-minute duration");
@@ -139,7 +139,7 @@ describe("Sprint 16.1 — Experience ELEVIO Autonomous Product Proof Verificatio
     });
 
     test("Screen 8: Completion Screen routes to pricing and course catalogue", () => {
-      assert.ok(experienceContent.includes("You've experienced ELEVIO"), "Must contain completion title");
+      assert.ok(experienceContent.includes("You've experienced Morieva Skills"), "Must contain completion title");
       assert.ok(experienceContent.includes('/pricing?source=experience'), "Primary CTA must route to /pricing?source=experience");
       assert.ok(experienceContent.includes("Train Your Team"), "Must display 'Train Your Team' CTA");
       assert.ok(experienceContent.includes('/courses'), "Secondary CTA must route to /courses");

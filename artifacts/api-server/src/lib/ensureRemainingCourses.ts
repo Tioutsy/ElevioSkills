@@ -60,7 +60,7 @@ const REMAINING_COURSES = [
   {
     title: "Final Sustainability Certification",
     slug: "final-sustainability-certification",
-    description: "The capstone assessment and review to earn your global Elevio sustainability certification.",
+    description: "The capstone assessment and review to earn your global Morieva Skills sustainability certification.",
     fullDescription: "A comprehensive assessment testing all preceding modules and validating your personal workplace commitments.",
   },
 ];

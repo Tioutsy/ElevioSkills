@@ -105,7 +105,7 @@ export function evaluateCandidateQualification(candidate: {
   else missing.push("3. Selected micro-learning courses required");
 
   if (candidate.internalOwnerUserId) score += 25;
-  else missing.push("4. Internal Elevio owner assigned");
+  else missing.push("4. Internal Morieva Skills owner assigned");
 
   const qualified = score >= 75 && missing.length === 0;
   return {
@@ -334,7 +334,7 @@ export function evaluateActivationReadinessGate(pilot: {
   if ((pilot.approvedLearnerLimit ?? 0) <= 0) missing.push("6. Approved learner limit > 0 required");
   if (!pilot.selectedCourseIds || pilot.selectedCourseIds.length === 0) missing.push("7. Selected pilot courses required");
   if (pilot.hasActiveAdmin === false) missing.push("8. Active company administrator user required");
-  if (!pilot.internalOwnerUserId) missing.push("9. Assigned internal Elevio owner required");
+  if (!pilot.internalOwnerUserId) missing.push("9. Assigned internal Morieva Skills owner required");
   if ((pilot.unresolvedBlockerCount ?? 0) > 0) missing.push("10. Zero open release-blocking defects required");
 
   const passed = missing.length === 0;
@@ -1001,7 +1001,7 @@ router.get("/monitoring", async (req, res): Promise<void> => {
 
     res.json({
       companyId,
-      companyName: company?.name ?? "Elevio Pilot Company",
+      companyName: company?.name ?? "Morieva Skills Pilot Company",
       totalEmployees: employees.length,
       activatedEmployees,
       enrollmentCount: enrollments.length,
@@ -1267,7 +1267,7 @@ router.get("/:id/handover", async (req, res): Promise<void> => {
         generatedAt: new Date().toISOString(),
         pilotId: pilot.id,
         companyId: pilot.companyId,
-        companyName: company?.name ?? "Elevio Pilot Company",
+        companyName: company?.name ?? "Morieva Skills Pilot Company",
       },
       proposalDetails: {
         proposalVersion: pilot.proposalVersion,
@@ -1606,7 +1606,7 @@ router.get("/company-report", async (req, res): Promise<void> => {
       reportMetadata: {
         generatedAt: new Date().toISOString(),
         companyId,
-        companyName: company?.name ?? "Elevio Pilot Company",
+        companyName: company?.name ?? "Morieva Skills Pilot Company",
         companySlug: company?.slug ?? "pilot",
       },
       adoption: {

@@ -35,7 +35,7 @@ export function renderEmailTemplate(
   type: TemplateNotificationType,
   data: Record<string, any>
 ): RenderedEmail {
-  const companyName = escapeHtml(data.companyName || "Elevio Corporate");
+  const companyName = escapeHtml(data.companyName || "Morieva Corporate");
   const recipientName = escapeHtml(data.recipientName || "Team Member");
   const courseTitle = escapeHtml(data.courseTitle || "Sustainability Course");
   const courseCode = escapeHtml(data.courseCode || "");
@@ -55,7 +55,7 @@ export function renderEmailTemplate(
   }
   const actionUrl = escapeHtml(resolvedUrl);
 
-  let subject = "Elevio Notification";
+  let subject = "Morieva Skills Notification";
   let bodyContentHtml = "";
   let bodyContentText = "";
   let ctaText = "Go to Workspace";
@@ -72,8 +72,8 @@ export function renderEmailTemplate(
 
       bodyContentHtml = `
         <p>Hello <strong>${recipientName}</strong>,</p>
-        <p>Your organisation, <strong>${companyName}</strong>, has invited you to join its corporate sustainability learning workspace on <strong>ELEVIO Skills</strong>.</p>
-        <p>ELEVIO delivers practical, accredited workplace modules designed to help your team understand ESG priorities, build sustainable workplace habits, and achieve real impact.</p>
+        <p>Your organisation, <strong>${companyName}</strong>, has invited you to join its corporate sustainability learning workspace on <strong>Morieva Skills</strong>.</p>
+        <p>Morieva Skills delivers practical, accredited workplace modules designed to help your team understand ESG priorities, build sustainable workplace habits, and achieve real impact.</p>
         
         ${accessCode ? `
         <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin: 20px 0; text-align: center;">
@@ -93,7 +93,7 @@ export function renderEmailTemplate(
         <p style="font-size: 13px; color: #64748b;">If you need assistance activating your account, please reach out to your company administrator or contact <a href="mailto:support@elevio.mu" style="color: #0f766e;">support@elevio.mu</a>.</p>
       `;
 
-      bodyContentText = `Hello ${recipientName},\n\nYour organisation, ${companyName}, has invited you to join its corporate sustainability learning space on ELEVIO Skills.\n\n${accessCode ? `Access Code: ${accessCode}\nValid until: ${expiryFormatted}\n\n` : ""}Direct activation link: ${actionUrl}\n\nImportant: Please sign in with the exact email address where you received this message. This invitation is personal and must not be shared.\n\nNeed help? Contact support@elevio.mu`;
+      bodyContentText = `Hello ${recipientName},\n\nYour organisation, ${companyName}, has invited you to join its corporate sustainability learning space on Morieva Skills.\n\n${accessCode ? `Access Code: ${accessCode}\nValid until: ${expiryFormatted}\n\n` : ""}Direct activation link: ${actionUrl}\n\nImportant: Please sign in with the exact email address where you received this message. This invitation is personal and must not be shared.\n\nNeed help? Contact support@elevio.mu`;
       break;
     }
 
@@ -102,10 +102,10 @@ export function renderEmailTemplate(
       ctaText = "Activate Access";
       bodyContentHtml = `
         <p>Hello ${recipientName},</p>
-        <p>Your invitation to join <strong>${companyName}</strong> on Elevio will expire shortly.</p>
+        <p>Your invitation to join <strong>${companyName}</strong> on Morieva Skills will expire shortly.</p>
         <p>Please activate your account to access assigned training courses.</p>
       `;
-      bodyContentText = `Hello ${recipientName},\n\nYour invitation to join ${companyName} on Elevio will expire shortly.\n\nActivate access: ${actionUrl}`;
+      bodyContentText = `Hello ${recipientName},\n\nYour invitation to join ${companyName} on Morieva Skills will expire shortly.\n\nActivate access: ${actionUrl}`;
       break;
 
     case "course_assigned":
@@ -223,7 +223,7 @@ export function renderEmailTemplate(
         <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0;">
           <tr>
             <td style="background: #0f766e; padding: 24px; text-align: center;">
-              <h1 style="color: #ffffff; margin: 0; font-size: 20px; font-weight: 600;">Elevio</h1>
+              <h1 style="color: #ffffff; margin: 0; font-size: 20px; font-weight: 600;">Morieva Skills</h1>
               <p style="color: #e6fffa; margin: 4px 0 0 0; font-size: 13px;">Learn. Apply. Improve.</p>
             </td>
           </tr>
@@ -237,8 +237,8 @@ export function renderEmailTemplate(
           </tr>
           <tr>
             <td style="background: #f1f5f9; padding: 16px; text-align: center; font-size: 12px; color: #64748b;">
-              <p style="margin: 0;">Sent by Elevio on behalf of ${companyName}</p>
-              <p style="margin: 4px 0 0 0;">Elevio is operated by Recyclean Ltd.</p>
+              <p style="margin: 0;">Sent by Morieva Skills on behalf of ${companyName}</p>
+              <p style="margin: 4px 0 0 0;">Morieva Skills is operated by Recyclean Ltd.</p>
             </td>
           </tr>
         </table>

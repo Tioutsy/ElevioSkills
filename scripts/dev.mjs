@@ -18,7 +18,7 @@ const env = {
   PORT: process.env.PORT || "8080",
 };
 
-console.log("\x1b[36m[Elevio]\x1b[0m Starting Elevio Skills API Server (port 8080) and Web App (port 3000)...");
+console.log("\x1b[36m[Morieva Skills]\x1b[0m Starting Morieva Skills API Server (port 8080) and Web App (port 3000)...");
 
 const api = spawn("npm", ["run", "dev", "--workspace=@workspace/api-server"], {
   cwd: root,

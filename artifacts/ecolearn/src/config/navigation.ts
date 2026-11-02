@@ -235,7 +235,7 @@ export const PLATFORM_ADMIN_NAV: NavItem[] = [
  * Public Navigation Items (Signed-out visitors)
  */
 export const PUBLIC_NAV: NavItem[] = [
-  { href: "/experience", label: "Experience ELEVIO", icon: Sparkles },
+  { href: "/experience", label: "Experience Morieva Skills", icon: Sparkles },
   { href: "/courses", label: "Courses", icon: BookOpen },
   { href: "/pricing", label: "Pricing", icon: Building2 },
 ];

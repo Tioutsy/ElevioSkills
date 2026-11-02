@@ -120,7 +120,7 @@ export async function generateDeterministicActionCandidates(
       expectedLearningOutcome: rec.expectedLearningOutcome,
       evidence: [
         `Identified workforce knowledge gap in topic associated with ${rec.title}`,
-        `Recommended by Elevio Skills workforce gap analysis`,
+        `Recommended by Morieva Skills workforce gap analysis`,
       ],
       status: "proposed",
       executionMode: "eligible_for_automation",
@@ -443,7 +443,7 @@ export async function generateCompanyActionPlan(access: CompanyAccess, forceRefr
         evidence: c.evidence,
       }));
 
-      const prompt = `You are the ELEVIO SKILLS AI Executive Action Plan Engine.
+      const prompt = `You are the Morieva Skills AI Executive Action Plan Engine.
 Review these deterministically generated candidate actions for ${companyInfo.name} (${companyInfo.industry}) and refine the executive summary and action explanations.
 
 MANDATES & GUARDRAILS:

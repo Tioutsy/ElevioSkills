@@ -219,12 +219,12 @@ export function TrainingActionConfirmationModal({
                   <p className="whitespace-pre-line text-[11px] bg-muted/30 p-2 rounded border font-sans text-foreground">
                     {`Hello [First Name],
 
-This is a reminder that your assigned ELEVIO SKILLS course "${config.courseTitle || "Sustainability Course"}" is currently outstanding.
+This is a reminder that your assigned MORIEVA SKILLS course "${config.courseTitle || "Sustainability Course"}" is currently outstanding.
 
-Please log in to your ELEVIO SKILLS account to continue your training.
+Please log in to your MORIEVA SKILLS account to continue your training.
 
 Thank you.
-ELEVIO SKILLS by Recyclean`}
+MORIEVA SKILLS by Recyclean`}
                   </p>
                 </div>
 

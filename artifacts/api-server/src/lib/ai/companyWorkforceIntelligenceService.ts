@@ -382,7 +382,7 @@ export async function aggregateCompanyWorkforceIntelligence(
   }
 
   try {
-    const prompt = `You are the ELEVIO SKILLS Corporate ESG Workforce Intelligence AI Engine.
+    const prompt = `You are the Morieva Skills Corporate ESG Workforce Intelligence AI Engine.
 Analyze the provided aggregated, anonymized company workforce metrics to construct an executive management narrative.
 
 STRICT GROUNDING & PRIVACY CONSTRAINTS:

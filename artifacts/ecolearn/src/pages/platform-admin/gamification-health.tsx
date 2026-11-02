@@ -270,7 +270,7 @@ export default function GamificationHealthPage() {
           <div>
             <div className="flex items-center gap-2 text-sm font-semibold text-emerald-800 mb-1">
               <Activity className="h-4 w-4" />
-              <span>ELEVIO Skills Governance & Monitoring</span>
+              <span>Morieva Skills Governance & Monitoring</span>
             </div>
             <h1 className="text-2xl font-bold font-serif text-slate-900">Gamification Health & Fairness</h1>
             <p className="text-slate-500 text-sm mt-1 max-w-2xl">

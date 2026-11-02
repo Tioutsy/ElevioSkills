@@ -55,8 +55,10 @@ export function normalizePilotCode(rawInput: string): NormalizedPilotCode {
   // Remove whitespace and hyphens, convert to uppercase
   let cleaned = rawInput.trim().toUpperCase().replace(/[\s\-_]+/g, "");
 
-  // If user entered "ELEVIOPILOT..." prefix, strip it to extract the 8 random characters
-  if (cleaned.startsWith("ELEVIOPILOT")) {
+  // If user entered "ELEVIOPILOT..." or "MORIEVAPILOT..." prefix, strip it to extract the 8 random characters
+  if (cleaned.startsWith("MORIEVAPILOT")) {
+    cleaned = cleaned.slice(12);
+  } else if (cleaned.startsWith("ELEVIOPILOT")) {
     cleaned = cleaned.slice(11);
   } else if (cleaned.startsWith("PILOT")) {
     cleaned = cleaned.slice(5);
@@ -1487,14 +1489,14 @@ export async function processPilotNotifications(): Promise<ProcessNotificationsR
         const provider = getActiveNotificationProvider();
 
         const subjects: Record<string, string> = {
-          "7_DAYS_WARNING": "Your ELEVIO Skills pilot ends in 7 days",
-          "3_DAYS_WARNING": "Your ELEVIO Skills pilot ends in 3 days",
-          "1_DAY_WARNING": "Your ELEVIO Skills pilot ends tomorrow",
-          "EXPIRED": "Your ELEVIO Skills pilot has ended",
+          "7_DAYS_WARNING": "Your Morieva Skills pilot ends in 7 days",
+          "3_DAYS_WARNING": "Your Morieva Skills pilot ends in 3 days",
+          "1_DAY_WARNING": "Your Morieva Skills pilot ends tomorrow",
+          "EXPIRED": "Your Morieva Skills pilot has ended",
         };
 
-        const subject = subjects[milestone.type] || "ELEVIO Skills Pilot Update";
-        const content = `Hello ${pass.intendedContactName},\n\nYour organisation's ELEVIO Skills pilot for ${pass.companyName} (${milestone.type.replace(/_/g, " ")}). All learning progress and certificates are securely preserved. Contact us to request an upgrade.\n\nELEVIO Skills Team`;
+        const subject = subjects[milestone.type] || "Morieva Skills Pilot Update";
+        const content = `Hello ${pass.intendedContactName},\n\nYour organisation's Morieva Skills pilot for ${pass.companyName} (${milestone.type.replace(/_/g, " ")}). All learning progress and certificates are securely preserved. Contact us to request an upgrade.\n\nMorieva Skills Team`;
 
         const dispatchResult = await provider.sendEmail({
           to: pass.intendedContactEmail,

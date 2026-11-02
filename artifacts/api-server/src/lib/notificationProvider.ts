@@ -49,7 +49,7 @@ export class ResendProvider implements NotificationProvider {
 
   async sendEmail(input: ProviderEmailInput): Promise<ProviderDeliveryResult> {
     try {
-      const from = input.fromEmail ? `${input.fromName || "Elevio"} <${input.fromEmail}>` : "Elevio <no-reply@elevio.mu>";
+      const from = input.fromEmail ? `${input.fromName || "Morieva Skills"} <${input.fromEmail}>` : "Morieva Skills <no-reply@elevio.mu>";
       const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {

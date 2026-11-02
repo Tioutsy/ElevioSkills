@@ -29,7 +29,7 @@ export function PilotSurveys({ stage, onSubmitted }: PilotSurveyProps) {
             {stage === "manager" && (locale === "fr" ? "Évaluation Responsable / Manager" : "Manager Feedback Survey")}
             {stage === "admin" && (locale === "fr" ? "Évaluation Administrateur Pilote" : "Administrator Pilot Survey")}
           </h2>
-          <p className="text-xs text-slate-500 mt-1">Elevio Skills Controlled Pilot Feedback</p>
+          <p className="text-xs text-slate-500 mt-1">Morieva Skills Controlled Pilot Feedback</p>
         </div>
         <button
           onClick={() => setLocale(locale === "en" ? "fr" : "en")}
@@ -42,7 +42,7 @@ export function PilotSurveys({ stage, onSubmitted }: PilotSurveyProps) {
       {submitted ? (
         <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center text-emerald-900 text-sm">
           <strong>{locale === "fr" ? "Merci pour votre retour !" : "Thank you for your feedback!"}</strong>
-          <p className="mt-1 text-xs">{locale === "fr" ? "Vos réponses aident à améliorer Elevio Skills." : "Your responses help improve Elevio Skills."}</p>
+          <p className="mt-1 text-xs">{locale === "fr" ? "Vos réponses aident à améliorer Morieva Skills." : "Your responses help improve Morieva Skills."}</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">

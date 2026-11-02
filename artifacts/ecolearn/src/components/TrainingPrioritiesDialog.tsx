@@ -95,7 +95,7 @@ export function TrainingPrioritiesDialog({
           </div>
           <DialogTitle className="text-xl">Set Company Training Priorities</DialogTitle>
           <p className="text-xs text-muted-foreground pt-1">
-            Select up to three priorities to help ELEVIO SKILLS recommend relevant learning paths for your team.
+            Select up to three priorities to help MORIEVA SKILLS recommend relevant learning paths for your team.
           </p>
         </DialogHeader>
 

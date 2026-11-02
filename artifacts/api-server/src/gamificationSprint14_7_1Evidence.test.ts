@@ -513,14 +513,14 @@ describe("Sprint 14.7.1 — Launch Readiness Evidence, Route Security & UX Verif
       const csv = await generateCompanyEngagementCsv(companyAId);
       const parsed = parseCsv(csv);
       assert.ok(parsed.length >= 3, "CSV must have metadata rows and data table");
-      assert.ok(parsed.some((row) => row.some((c) => c.includes("ELEVIO Skills Company Engagement"))));
+      assert.ok(parsed.some((row) => row.some((c) => c.includes("Morieva Skills Company Engagement"))));
     });
 
     it("4.10 Platform Audit CSV is valid RFC 4180 parseable format", async () => {
       const csv = await generatePlatformGamificationAuditCsv();
       const parsed = parseCsv(csv);
       assert.ok(parsed.length >= 2, "Platform CSV must parse cleanly");
-      assert.ok(parsed.some((row) => row.some((c) => c.includes("ELEVIO Skills Platform Gamification"))));
+      assert.ok(parsed.some((row) => row.some((c) => c.includes("Morieva Skills Platform Gamification"))));
     });
   });
 

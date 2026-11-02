@@ -34,14 +34,14 @@ export function NoticeModal({ isOpen, noticeType, onAcknowledge }: NoticeModalPr
           {isCompanyNotice ? (
             locale === "en" ? (
               <>
-                <p>Welcome to the Elevio Skills controlled external company pilot.</p>
+                <p>Welcome to the Morieva Skills controlled external company pilot.</p>
                 <p><strong>Roster Management:</strong> As Company Administrator, you are responsible for enrolling authorized company employees and ensuring accurate department data.</p>
                 <p><strong>Reporting Visibility:</strong> Your company dashboard provides aggregate and employee-level course completion and quiz score reports.</p>
                 <p><strong>Support Channel:</strong> You can submit support requests or data export inquiries via the Support page at any time.</p>
               </>
             ) : (
               <>
-                <p>Bienvenue dans le projet pilote contrôlé d'Elevio Skills.</p>
+                <p>Bienvenue dans le projet pilote contrôlé de Morieva Skills.</p>
                 <p><strong>Gestion du Personnel :</strong> En tant qu'administrateur, vous êtes responsable de l'inscription des employés autorisés.</p>
                 <p><strong>Visibilité des Rapports :</strong> Votre tableau de bord fournit des rapports d'achèvement et de scores aux quiz.</p>
                 <p><strong>Canal de Support :</strong> Vous pouvez soumettre vos demandes de support via la page de support à tout moment.</p>

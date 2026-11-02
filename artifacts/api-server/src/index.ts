@@ -61,6 +61,7 @@ import { ensureHybridSubscriptions } from "./lib/ensureHybridSubscriptions";
 import { syncSequences } from "./lib/syncSequences";
 import { ensureSchemaModifications } from "./lib/ensureSchemaModifications";
 import { ensureCourseImages } from "./lib/ensureCourseImages";
+import { ensureMorievaBrandMigration } from "./lib/ensureMorievaBrandMigration";
 import { verifyDatabaseIntegrity } from "./lib/verifyDatabaseIntegrity";
 import { startInvitationDispatchWorker } from "./lib/invitationDispatchWorker";
 import { unpublishCourses36to139 } from "./scripts/unpublishCourses36to139";
@@ -183,6 +184,9 @@ async function start(): Promise<void> {
 
     // Ensure course thumbnail images are set
     await ensureCourseImages();
+
+    // Ensure idempotent Morieva Skills brand migration on persisted content
+    await ensureMorievaBrandMigration();
 
     logger.info("Database initialization and course seeding completed.");
   } catch (err) {

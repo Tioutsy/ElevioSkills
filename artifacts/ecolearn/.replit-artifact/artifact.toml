@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "EcoLearn Mauritius"
+title = "Morieva Skills"
 version = "1.0.0"
 id = "artifacts/ecolearn"
 router = "path"

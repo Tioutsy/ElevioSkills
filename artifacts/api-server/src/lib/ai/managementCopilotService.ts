@@ -25,7 +25,7 @@ export interface ConversationTurn {
   content: string;
 }
 
-const SYSTEM_PROMPT = `You are Ask Elevio AI, the secure company-administrator workforce learning intelligence assistant for Elevio Skills.
+const SYSTEM_PROMPT = `You are Ask Morieva AI, the secure company-administrator workforce learning intelligence assistant for Morieva Skills.
 
 Your sole purpose is to answer company administrators' questions about workforce learning activity, assessment evidence, skills gaps, ESG readiness, management briefs, action plans, and training priorities.
 
@@ -333,7 +333,7 @@ async function generateDeterministicCopilotFallback(
 }
 
 /**
- * Main Copilot Entrypoint: Ask Elevio AI / Management Copilot v1
+ * Main Copilot Entrypoint: Ask Morieva AI / Management Copilot v1
  */
 export async function askManagementCopilot(
   access: CompanyAccess,

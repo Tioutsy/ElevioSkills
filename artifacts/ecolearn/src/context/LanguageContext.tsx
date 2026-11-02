@@ -41,7 +41,7 @@ const englishTranslations: Record<string, string> = {
 
   // Footer
   "footer.tagline": "Short, practical workplace learning that helps employees learn, apply and improve.",
-  "footer.operator": "Elevio is operated by Recyclean Ltd.",
+  "footer.operator": "Morieva Skills is operated by Recyclean Ltd.",
   "footer.platform": "Platform",
   "footer.company": "Company",
   "footer.course_catalog": "Course Catalog",
@@ -54,8 +54,8 @@ const englishTranslations: Record<string, string> = {
   "footer.all_rights_reserved": "All rights reserved.",
 
   // Auth Shell
-  "auth.sign_in_title": "Sign in to Elevio Skills",
-  "auth.sign_up_title": "Create your Elevio Skills Account",
+  "auth.sign_in_title": "Sign in to Morieva Skills",
+  "auth.sign_up_title": "Create your Morieva Skills Account",
   "auth.forgot_password": "Forgot password?",
   "auth.accept_invitation": "Accept Invitation",
   "auth.session_expired": "Your session has expired. Please sign in again.",
@@ -63,7 +63,7 @@ const englishTranslations: Record<string, string> = {
 
   // Home Page
   "home.hero_tag": "Short, Practical Workplace Learning for Mauritius",
-  "home.hero_title": "Elevio Skills — Learn. Apply. Improve.",
+  "home.hero_title": "Morieva Skills — Learn. Apply. Improve.",
   "home.hero_sub": "Short, practical workplace learning that helps employees learn, apply and improve. Build practical sustainability capabilities across your organization with self-paced courses tailored for Mauritian teams.",
   "home.explore_courses": "Explore Courses",
   "home.view_corporate_plans": "View Corporate Plans",

@@ -374,7 +374,7 @@ const LESSONS = [
         position: 5,
         decisionIntro: "Reviewing a Corporate Marketing Campaign:",
         decisionPrompt:
-          "The marketing department drafts a press release titled: 'Elevio Client is Now Completely Carbon-Free and 100% Sustainable!' In reality, the company has only installed solar panels at its head office and started sorting paper waste. What must the sustainability leader do?",
+          "The marketing department drafts a press release titled: 'Morieva Client is Now Completely Carbon-Free and 100% Sustainable!' In reality, the company has only installed solar panels at its head office and started sorting paper waste. What must the sustainability leader do?",
         decisionChoices: [
           {
             label:
@@ -447,7 +447,7 @@ const LESSONS = [
         decisionChoices: [
           {
             label:
-              "Conduct a structured 30-day handover, document all active initiatives into the central Elevio action register, and formally assign ownership of tasks to co-leaders in the Green Team.",
+              "Conduct a structured 30-day handover, document all active initiatives into the central Morieva Skills action register, and formally assign ownership of tasks to co-leaders in the Green Team.",
             correct: true,
             feedback:
               "Correct! Institutionalizing processes into systems and shared team roles ensures seamless operational continuity.",

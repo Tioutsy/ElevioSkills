@@ -38,7 +38,7 @@ const router = Router();
 router.get("/bulk-invitations/template", async (_req, res): Promise<void> => {
   const templateCsv = getBulkInvitationTemplateCsv();
   res.setHeader("Content-Type", "text/csv; charset=utf-8");
-  res.setHeader("Content-Disposition", "attachment; filename=elevio-bulk-invitation-template.csv");
+  res.setHeader("Content-Disposition", "attachment; filename=morieva-bulk-invitation-template.csv");
   res.send(templateCsv);
 });
 
@@ -220,7 +220,7 @@ router.get("/bulk-invitations/batches/:id/error-report", async (req, res): Promi
 
     const errorCsv = generateErrorReportCsv(batch.skippedReport || []);
     res.setHeader("Content-Type", "text/csv; charset=utf-8");
-    res.setHeader("Content-Disposition", `attachment; filename=elevio-batch-${batchId}-skipped-report.csv`);
+    res.setHeader("Content-Disposition", `attachment; filename=morieva-batch-${batchId}-skipped-report.csv`);
     res.send(errorCsv);
   } catch (err: any) {
     if (!sendHttpError(res, err)) {

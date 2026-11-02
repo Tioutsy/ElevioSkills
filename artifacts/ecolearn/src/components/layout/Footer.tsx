@@ -18,7 +18,7 @@ export function Footer() {
               </div>
               <div className="flex flex-col leading-none">
                 <span className="text-lg font-bold tracking-wider text-white font-serif uppercase">
-                  ELEVIO SKILLS
+                  MORIEVA SKILLS
                 </span>
                 <span className="text-[11px] font-semibold text-emerald-400 tracking-tight mt-0.5">
                   By Recyclean
@@ -64,7 +64,7 @@ export function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t border-emerald-800/50 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-emerald-300/70">
-          <p>© {new Date().getFullYear()} Elevio. All rights reserved. Elevio is operated by Recyclean Ltd.</p>
+          <p>© {new Date().getFullYear()} Morieva Skills. All rights reserved. Morieva Skills is operated by Recyclean Ltd.</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

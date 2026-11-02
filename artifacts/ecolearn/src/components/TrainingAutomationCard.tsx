@@ -92,7 +92,7 @@ export function TrainingAutomationCard() {
             )}
           </div>
           <CardDescription className="text-xs text-slate-600">
-            ELEVIO SKILLS handles routine reminders and admin escalations within your approved rules.
+            MORIEVA SKILLS handles routine reminders and admin escalations within your approved rules.
           </CardDescription>
         </div>
 

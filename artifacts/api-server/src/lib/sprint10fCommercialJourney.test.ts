@@ -19,17 +19,17 @@ describe("Sprint 10F — Commercial Journey & Green Brand Alignment Tests", () =
       assert.equal(homeContent.includes("bg-gradient-to-br from-emerald-950"), true, "Home CTA background must use green palette");
     });
 
-    test("Footer component uses green background styling and font-serif title typography for ELEVIO SKILLS", async () => {
+    test("Footer component uses green background styling and font-serif title typography for Morieva Skills", async () => {
       const fs = await import("node:fs");
       const footerContent = fs.readFileSync("../ecolearn/src/components/layout/Footer.tsx", "utf-8");
       assert.equal(footerContent.includes("bg-emerald-950"), true, "Footer must use deep green background");
-      assert.equal(footerContent.includes("font-serif uppercase"), true, "Footer ELEVIO SKILLS brand wordmark must use font-serif title typography");
+      assert.equal(footerContent.includes("font-serif uppercase"), true, "Footer Morieva Skills brand wordmark must use font-serif title typography");
     });
 
-    test("Navbar component uses font-serif title typography for ELEVIO SKILLS wordmark", async () => {
+    test("Navbar component uses font-serif title typography for Morieva Skills wordmark", async () => {
       const fs = await import("node:fs");
       const navbarContent = fs.readFileSync("../ecolearn/src/components/layout/Navbar.tsx", "utf-8");
-      assert.equal(navbarContent.includes("font-serif uppercase"), true, "Navbar ELEVIO SKILLS brand wordmark must use font-serif title typography");
+      assert.equal(navbarContent.includes("font-serif uppercase"), true, "Navbar Morieva Skills brand wordmark must use font-serif title typography");
     });
   });
 

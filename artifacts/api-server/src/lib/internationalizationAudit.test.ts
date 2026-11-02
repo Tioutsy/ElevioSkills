@@ -34,8 +34,9 @@ describe("English-Only Architecture & Resource Audit", () => {
     assert.equal(missingKey, "non.existent.key");
   });
 
-  test("4. Brand lockup and operator notices preserve 'Elevio by Recyclean'", () => {
+  test("4. Brand lockup and operator notices preserve 'Morieva Skills by Recyclean'", () => {
     const enOperator = translations.en["footer.operator"];
     assert.ok(enOperator.includes("Recyclean Ltd."), "Operator notice must mention Recyclean Ltd.");
+    assert.ok(enOperator.includes("Morieva Skills"), "Operator notice must mention Morieva Skills");
   });
 });

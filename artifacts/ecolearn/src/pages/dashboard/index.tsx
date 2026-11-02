@@ -199,7 +199,7 @@ export default function Dashboard() {
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-muted-foreground">ELEVIO Score</p>
+                  <p className="text-sm font-medium text-muted-foreground">Morieva Score</p>
                   {leaderboardData?.enabled && leaderboardData?.currentUser?.rank && (
                     <Link href="/company-ranking">
                       <span className="text-[11px] font-semibold text-emerald-800 hover:underline cursor-pointer flex items-center gap-0.5">

@@ -86,7 +86,7 @@ export async function getEmployeeOnboardingProfile(
   return {
     employeeId: employee.id,
     companyId: employee.companyId,
-    companyName: company?.name || "Elevio Corporate",
+    companyName: company?.name || "Morieva Corporate",
     firstName,
     surname,
     email: employee.email,

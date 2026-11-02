@@ -18,7 +18,7 @@ export default function TermsOfService() {
             Terms of Service
           </h1>
           <p className="text-muted-foreground text-sm md:text-base">
-            Last Updated: {lastUpdated} • Elevio Skills (Operated by Recyclean Ltd)
+            Last Updated: {lastUpdated} • Morieva Skills (Operated by Recyclean Ltd)
           </p>
         </div>
       </div>
@@ -32,7 +32,7 @@ export default function TermsOfService() {
               1. Acceptance of Terms
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              By accessing or using the Elevio Skills Learning Management System ("the Platform"), operated by <strong>Recyclean Ltd</strong>, you agree to be bound by these Terms of Service. If you are registering an account on behalf of an enterprise or organisation, you represent and warrant that you have full authority to bind that organisation.
+              By accessing or using the Morieva Skills Learning Management System ("the Platform"), operated by <strong>Recyclean Ltd</strong>, you agree to be bound by these Terms of Service. If you are registering an account on behalf of an enterprise or organisation, you represent and warrant that you have full authority to bind that organisation.
             </p>
           </section>
 
@@ -41,7 +41,7 @@ export default function TermsOfService() {
               2. Corporate Subscriptions & User Licenses
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Elevio Skills offers tiered corporate subscription plans based on organisation employee categories. Client organisations are responsible for managing employee seat allocations, invitations, and ensuring active users comply with corporate conduct and LMS rules.
+              Morieva Skills offers tiered corporate subscription plans based on organisation employee categories. Client organisations are responsible for managing employee seat allocations, invitations, and ensuring active users comply with corporate conduct and LMS rules.
             </p>
             <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
               <li>User accounts are strictly personal and may not be shared across multiple individuals.</li>
@@ -55,7 +55,7 @@ export default function TermsOfService() {
               3. Intellectual Property & Course Materials
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              All training curricula, text, graphics, video simulations, assessment questions, decision scenarios, and instructional designs on Elevio Skills are the exclusive intellectual property of Recyclean Ltd or its licensors. Learners and client companies are granted a non-exclusive, non-transferable license to access training materials for internal capability building only.
+              All training curricula, text, graphics, video simulations, assessment questions, decision scenarios, and instructional designs on Morieva Skills are the exclusive intellectual property of Recyclean Ltd or its licensors. Learners and client companies are granted a non-exclusive, non-transferable license to access training materials for internal capability building only.
             </p>
           </section>
 

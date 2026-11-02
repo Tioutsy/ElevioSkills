@@ -146,7 +146,7 @@ export default function ChallengesPage() {
               Company Missions
             </div>
             <h1 className="text-3xl font-bold tracking-tight mt-1 text-foreground">
-              ELEVIO Challenges
+              Morieva Skills Challenges
             </h1>
             <p className="text-muted-foreground mt-1 text-sm max-w-2xl">
               Time-bound learning missions and workplace sustainability actions. Complete criteria to earn challenge bonus points that contribute directly to your company ranking.
@@ -468,7 +468,7 @@ function ChallengeCard({
         {isFullyDone ? (
           <div className="text-xs text-emerald-600 font-semibold flex items-center gap-1.5">
             <CheckCircle2 className="w-4 h-4" />
-            Awarded +{challenge.rewardPoints} points to your ELEVIO score
+            Awarded +{challenge.rewardPoints} points to your Morieva score
           </div>
         ) : isUpcoming ? (
           <div className="text-xs text-muted-foreground">

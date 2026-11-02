@@ -1,5 +1,5 @@
 /**
- * ELEVIO Skills — Google Analytics 4 (GA4) Provider Adapter
+ * Morieva Skills — Google Analytics 4 (GA4) Provider Adapter
  * 
  * Adapts vendor-neutral CommercialAnalyticsProvider events to GA4.
  * SPRINT 16.3 / SPRINT 16.3A / SPRINT 16.3B (Standards & Privacy Alignment)
@@ -309,7 +309,7 @@ export class GoogleAnalytics4Provider implements CommercialAnalyticsProvider {
             ? `${window.location.origin}${path.startsWith("/") ? path : `/${path}`}`
             : path;
         const pageTitle =
-          title || (typeof document !== "undefined" ? document.title : "ELEVIO Skills");
+          title || (typeof document !== "undefined" ? document.title : "Morieva Skills");
 
         const pageParams: Record<string, any> = {
           page_path: path,

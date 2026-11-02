@@ -409,7 +409,7 @@ const NEW_QUIZ = [
     order: 10,
     question: "How does ELH-30 (Climate Risk & Resilience) differ from ELH-07 (Carbon Footprint Awareness)?",
     options: [
-      "ELH-30 replaces all other 29 courses in the Elevio catalogue",
+      "ELH-30 replaces all other 29 courses in the Morieva Skills catalogue",
       "ELH-07 is for office staff only; ELH-30 is for submarine captains",
       "ELH-07 focuses on carbon emissions reduction (mitigation); ELH-30 focuses on operational readiness and adaptation to climate impacts",
       "There is no difference between carbon reduction and climate adaptation"
@@ -418,7 +418,7 @@ const NEW_QUIZ = [
     correctExplanation: "ELH-07 teaches carbon emissions mitigation; ELH-30 teaches physical adaptation and operational resilience.",
     incorrectExplanation: "Incorrect. ELH-07 covers carbon mitigation; ELH-30 covers climate adaptation and operational resilience.",
     optionFeedback: [
-      "Incorrect. 'ELH-30 replaces all other 29 courses in the Elevio catalogue' is not the right approach—eLH-07 covers carbon mitigation; ELH-30 covers climate adaptation and operational resilience.",
+      "Incorrect. 'ELH-30 replaces all other 29 courses in the Morieva Skills catalogue' is not the right approach—eLH-07 covers carbon mitigation; ELH-30 covers climate adaptation and operational resilience.",
       "Incorrect. 'ELH-07 is for office staff only; ELH-30 is for submarine captains' is not the right approach—eLH-07 covers carbon mitigation; ELH-30 covers climate adaptation and operational resilience.",
       "Correct. ELH-07 teaches carbon emissions mitigation; ELH-30 teaches physical adaptation and operational resilience.",
       "Incorrect. 'There is no difference between carbon reduction and climate adaptation' is not the right approach—eLH-07 covers carbon mitigation; ELH-30 covers climate adaptation and operational resilience."

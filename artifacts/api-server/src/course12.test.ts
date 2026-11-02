@@ -224,7 +224,7 @@ test("Course 12 Full E2E Integration and Prerequisite Verification", async () =>
     // 12. Certificates check (only one certificate should exist despite multiple attempts)
     const certs = await db.select().from(certificatesTable).where(eq(certificatesTable.userId, TEST_USER_ID));
     assert.equal(certs.length, 1, "Expected exactly 1 certificate to be generated");
-    assert.equal(certs[0].certificateTitle, "EcoLearnHub Core Sustainability Certificate", "Expected correct certificate title");
+    assert.equal(certs[0].certificateTitle, "Morieva Skills Core Sustainability Certificate", "Expected correct certificate title");
 
   } finally {
     server?.close();

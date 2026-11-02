@@ -1,5 +1,5 @@
 /**
- * ELEVIO Skills — Commercial Funnel Analytics & Conversion Measurement
+ * Morieva Skills — Commercial Funnel Analytics & Conversion Measurement
  * Vendor-neutral, typed, privacy-conscious event measurement module.
  * 
  * SPRINT 16.2
@@ -11,7 +11,7 @@ export const CANONICAL_COMMERCIAL_EVENTS = [
   "public_page_view",
   "pricing_viewed",
 
-  // Experience ELEVIO (Authoritative Flow & Interaction Signals)
+  // Experience Morieva Skills (Authoritative Flow & Interaction Signals)
   "experience_started",
   "experience_step_viewed",
   "experience_completed",

@@ -87,7 +87,7 @@ class ReportBuilder {
   }
 
   drawFooter() {
-    const text = "Elevio Skills  |  Learn. Apply. Improve.";
+    const text = "Morieva Skills  |  Learn. Apply. Improve.";
     this.page.drawLine({
       start: { x: MARGIN, y: MARGIN + 24 },
       end: { x: PAGE_W - MARGIN, y: MARGIN + 24 },
@@ -434,14 +434,14 @@ class ReportBuilder {
       color: GREEN,
     });
     this.page.drawCircle({ x: MARGIN + 34, y: top - 34, size: 16, color: WHITE });
-    this.page.drawText("E", {
-      x: MARGIN + 28,
+    this.page.drawText("M", {
+      x: MARGIN + 26,
       y: top - 41,
       size: 20,
       font: this.fonts.bold,
       color: GREEN,
     });
-    this.page.drawText("Elevio Skills", {
+    this.page.drawText("Morieva Skills", {
       x: MARGIN + 60,
       y: top - 34,
       size: 16,
@@ -503,7 +503,7 @@ export async function generateEsgReportPdf(data: EsgReportData): Promise<Uint8Ar
   b.sectionHeading("1. Executive Summary & Reporting Scope");
   b.paragraph(
     `This report provides a structured account of ${data.company.name}'s sustainability training performance, ` +
-      `competency development, and workforce engagement on the Elevio Skills platform. Aligned with global ESG reporting ` +
+      `competency development, and workforce engagement on the Morieva Skills platform. Aligned with global ESG reporting ` +
       `standards (GRI 404-1 Human Capital, UN Sustainable Development Goals, and CSRD/ESRS S1), this document provides ` +
       `verifiable evidence of capability building across all departments, supporting internal audits, investor disclosures, ` +
       `and corporate sustainability reporting.`,
@@ -523,7 +523,7 @@ export async function generateEsgReportPdf(data: EsgReportData): Promise<Uint8Ar
       borderColor: GREEN,
       borderWidth: 1,
     });
-    b.page.drawText("Elevio Sustainability Score", {
+    b.page.drawText("Morieva Sustainability Score", {
       x: MARGIN + 18,
       y: top - 26,
       size: 11,
@@ -621,7 +621,7 @@ export async function generateEsgReportPdf(data: EsgReportData): Promise<Uint8Ar
   // Material Topics Covered
   b.sectionHeading("5. Material ESG Topics & Competency Coverage");
   b.paragraph(
-    "Workforce training curricula on Elevio map directly to the organisation's material sustainability topics:",
+    "Workforce training curricula on Morieva Skills map directly to the organisation's material sustainability topics:",
     9,
   );
   b.table(
@@ -694,7 +694,7 @@ export async function generateEsgReportPdf(data: EsgReportData): Promise<Uint8Ar
   b.sectionHeading("7. Methodology & Assurance Statement");
   b.paragraph(
     "All training participation, completion, assessment scores, and certification records in this report are " +
-      "derived from authenticated learner sessions on the Elevio Skills platform. The Sustainability Score is calculated " +
+      "derived from authenticated learner sessions on the Morieva Skills platform. The Sustainability Score is calculated " +
       "using fixed, transparent weighting (Completion 30%, Adoption 25%, Assessment Average 25%, Engagement 20%). " +
       "All issued certificates contain a unique digital verification reference for third-party auditor validation.",
     8.5,

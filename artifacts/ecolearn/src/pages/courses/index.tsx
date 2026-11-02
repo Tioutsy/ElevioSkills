@@ -161,7 +161,7 @@ export default function Courses() {
 
   // Filter categories order
   const categoryFilters = [
-    { slug: "all", label: "All Courses", description: "Browse the complete Elevio catalogue" },
+    { slug: "all", label: "All Courses", description: "Browse the complete Morieva Skills catalogue" },
     { slug: "core-sustainability-certificate", label: "Start Here", description: "Build essential sustainability knowledge across 12 foundation modules" },
     { slug: "sustainability-in-action", label: "Sustainability in Action", description: "Turn sustainability knowledge into workplace processes, actions and evidence" },
     { slug: "sustainability-by-department", label: "By Department", description: "Apply sustainability directly to specialized department roles and workflows" },

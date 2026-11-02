@@ -1,5 +1,5 @@
 /**
- * ELEVIO Skills — Server-Side Commercial Funnel Constants & Helpers
+ * Morieva Skills — Server-Side Commercial Funnel Constants & Helpers
  * SPRINT 16.2
  */
 
@@ -8,7 +8,7 @@ export const CANONICAL_COMMERCIAL_EVENTS = [
   "public_page_view",
   "pricing_viewed",
 
-  // Experience ELEVIO (Authoritative Flow & Interaction Signals)
+  // Experience Morieva Skills (Authoritative Flow & Interaction Signals)
   "experience_started",
   "experience_step_viewed",
   "experience_completed",

@@ -718,7 +718,7 @@ export async function generateAuditCsv(companyId: number, filters: ManagerTraini
       }
 
       const hasCert = cert ? "Yes" : "No";
-      const certTitle = cert?.certificateTitle ?? (cert ? "Elevio Core Sustainability Certificate" : "");
+      const certTitle = cert?.certificateTitle ?? (cert ? "Morieva Skills Core Sustainability Certificate" : "");
       const certDate = cert?.issuedAt ? new Date(cert.issuedAt).toISOString() : "";
 
       const dueDateStr = enr?.dueDate ? new Date(enr.dueDate).toISOString() : "";
@@ -770,7 +770,7 @@ export async function getCompanyTrainingRecords(params: {
 
   return {
     companyId,
-    companyName: company?.name ?? "Elevio Organization",
+    companyName: company?.name ?? "Morieva Skills Organization",
     overview,
     employeeRecords,
     generatedAt: new Date(),

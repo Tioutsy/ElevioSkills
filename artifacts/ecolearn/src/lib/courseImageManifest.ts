@@ -61,8 +61,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-01",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-01",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -90,8 +90,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Clear Mauritian-standard color bins, designated signage, clean sorting station",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-02",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-02",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -119,8 +119,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-03",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-03",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -148,8 +148,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Industrial flow meters, pressure gauges, pipe insulation, testing kit",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-04",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-04",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -177,8 +177,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-05",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-05",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -206,8 +206,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-06",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-06",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -235,8 +235,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Clear Mauritian-standard color bins, designated signage, clean sorting station",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-07",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-07",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -264,8 +264,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-08",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-08",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -293,8 +293,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-09",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-09",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -322,8 +322,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-10",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-10",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -351,8 +351,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-11",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-11",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -380,8 +380,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-12",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-12",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -409,8 +409,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-13",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-13",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -438,8 +438,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-14",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-14",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -467,8 +467,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-21",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-21",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -496,8 +496,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-16",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-16",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -525,8 +525,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-18",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-18",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -554,8 +554,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-22",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-22",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -583,8 +583,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-19",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-19",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -612,8 +612,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-15",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-15",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -641,8 +641,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-17",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-17",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -670,8 +670,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-20",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-20",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -699,8 +699,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-30",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-30",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -728,8 +728,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-31",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-31",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -757,8 +757,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-32",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-32",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -786,8 +786,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Industrial flow meters, pressure gauges, pipe insulation, testing kit",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-33",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-33",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -815,8 +815,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Clear Mauritian-standard color bins, designated signage, clean sorting station",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-34",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-34",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -844,8 +844,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Hospitality uniform, eco-guestroom controls, stainless steel kitchen prep, tropical resort setting",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-35",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-35",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -873,8 +873,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-48",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-48",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -902,8 +902,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "High-vis PPE, safety helmets, blueprint tablet, sustainable concrete blocks, erosion barriers",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-49",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-49",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -931,8 +931,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Industrial flow meters, pressure gauges, pipe insulation, testing kit",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-55",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-55",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -960,8 +960,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-57",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-57",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -989,8 +989,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-58",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-58",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1018,8 +1018,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Safety goggles, high-vis vest, variable frequency drive panels, clean industrial machinery",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-62",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-62",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1047,8 +1047,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Commercial EV delivery van, warehouse racking, barcode scanner, cargo shipping containers",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-83",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-83",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1076,8 +1076,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Commercial EV delivery van, warehouse racking, barcode scanner, cargo shipping containers",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-85",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-85",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1105,8 +1105,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-117",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-117",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1134,8 +1134,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-118",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-118",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1163,8 +1163,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-121",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-121",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1192,8 +1192,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-122",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-122",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1221,8 +1221,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-128",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-128",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1250,8 +1250,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Industrial flow meters, pressure gauges, pipe insulation, testing kit",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-38",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-38",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1279,8 +1279,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Hospitality uniform, eco-guestroom controls, stainless steel kitchen prep, tropical resort setting",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-40",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-40",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1308,8 +1308,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-41",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-41",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1337,8 +1337,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Hospitality uniform, eco-guestroom controls, stainless steel kitchen prep, tropical resort setting",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-45",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-45",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1366,8 +1366,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "High-vis PPE, safety helmets, blueprint tablet, sustainable concrete blocks, erosion barriers",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-50",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-50",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1395,8 +1395,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-51",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-51",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1424,8 +1424,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Clear Mauritian-standard color bins, designated signage, clean sorting station",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-59",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-59",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1453,8 +1453,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Clear Mauritian-standard color bins, designated signage, clean sorting station",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-61",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-61",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1482,8 +1482,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Safety goggles, high-vis vest, variable frequency drive panels, clean industrial machinery",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-63",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-63",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1511,8 +1511,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Glass-door commercial chillers, LED shelf lighting, paper/biodegradable packaging, uniform",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-67",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-67",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1540,8 +1540,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Clear Mauritian-standard color bins, designated signage, clean sorting station",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-68",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-68",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1569,8 +1569,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Glass-door commercial chillers, LED shelf lighting, paper/biodegradable packaging, uniform",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-71",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-71",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1598,8 +1598,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Professional office attire, financial dashboards, ESG compliance checklists, conference table",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-75",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-75",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1627,8 +1627,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Professional office attire, financial dashboards, ESG compliance checklists, conference table",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-76",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-76",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1656,8 +1656,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-79",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-79",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1685,8 +1685,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Commercial EV delivery van, warehouse racking, barcode scanner, cargo shipping containers",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-84",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-84",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1714,8 +1714,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Commercial EV delivery van, warehouse racking, barcode scanner, cargo shipping containers",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-86",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-86",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1743,8 +1743,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Server racks, cable management, cold aisle containment, diagnostic laptop",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-95",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-95",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1772,8 +1772,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-131",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-131",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1801,8 +1801,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-133",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-133",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1830,8 +1830,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-42",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-42",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1859,8 +1859,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-43",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-43",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1888,8 +1888,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-46",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-46",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1917,8 +1917,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-52",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-52",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1946,8 +1946,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-56",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-56",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -1975,8 +1975,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-60",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-60",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2004,8 +2004,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-64",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-64",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2033,8 +2033,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-69",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-69",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2062,8 +2062,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Glass-door commercial chillers, LED shelf lighting, paper/biodegradable packaging, uniform",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-70",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-70",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2091,8 +2091,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-72",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-72",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2120,8 +2120,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Professional office attire, financial dashboards, ESG compliance checklists, conference table",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-77",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-77",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2149,8 +2149,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Professional office attire, financial dashboards, ESG compliance checklists, conference table",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-78",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-78",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2178,8 +2178,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-80",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-80",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2207,8 +2207,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Commercial EV delivery van, warehouse racking, barcode scanner, cargo shipping containers",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-81",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-81",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2236,8 +2236,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-96",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-96",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2265,8 +2265,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Clear Mauritian-standard color bins, designated signage, clean sorting station",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-97",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-97",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2294,8 +2294,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-98",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-98",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2323,8 +2323,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Drip irrigation drip lines, healthy crops, soil moisture sensor, coastal lagoon backdrop",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-87",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-87",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2352,8 +2352,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Industrial flow meters, pressure gauges, pipe insulation, testing kit",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-88",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-88",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2381,8 +2381,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Drip irrigation drip lines, healthy crops, soil moisture sensor, coastal lagoon backdrop",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-91",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-91",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2410,8 +2410,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-93",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-93",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2439,8 +2439,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Clear Mauritian-standard color bins, designated signage, clean sorting station",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-99",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-99",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2468,8 +2468,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-100",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-100",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2497,8 +2497,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Medical scrubs, biohazard labeled containment bins, hospital hallway, sanitary equipment",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-101",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-101",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2526,8 +2526,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-119",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-119",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2555,8 +2555,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-123",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-123",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2584,8 +2584,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-132",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-132",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2613,8 +2613,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-136",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-136",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2642,8 +2642,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Hospitality uniform, eco-guestroom controls, stainless steel kitchen prep, tropical resort setting",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-44",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-44",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2671,8 +2671,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-53",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-53",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2700,8 +2700,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-54",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-54",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2729,8 +2729,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Safety goggles, high-vis vest, variable frequency drive panels, clean industrial machinery",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-65",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-65",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2758,8 +2758,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Safety goggles, high-vis vest, variable frequency drive panels, clean industrial machinery",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-66",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-66",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2787,8 +2787,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-73",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-73",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2816,8 +2816,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Glass-door commercial chillers, LED shelf lighting, paper/biodegradable packaging, uniform",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-74",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-74",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2845,8 +2845,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Commercial EV delivery van, warehouse racking, barcode scanner, cargo shipping containers",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-82",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-82",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2874,8 +2874,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-89",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-89",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2903,8 +2903,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-90",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-90",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2932,8 +2932,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Drip irrigation drip lines, healthy crops, soil moisture sensor, coastal lagoon backdrop",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-92",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-92",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2961,8 +2961,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-94",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-94",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -2990,8 +2990,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Clear Mauritian-standard color bins, designated signage, clean sorting station",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-102",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-102",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3019,8 +3019,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Medical scrubs, biohazard labeled containment bins, hospital hallway, sanitary equipment",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-103",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-103",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3048,8 +3048,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Medical scrubs, biohazard labeled containment bins, hospital hallway, sanitary equipment",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-104",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-104",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3077,8 +3077,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-105",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-105",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3106,8 +3106,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Hospitality uniform, eco-guestroom controls, stainless steel kitchen prep, tropical resort setting",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-106",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-106",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3135,8 +3135,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-107",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-107",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3164,8 +3164,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-108",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-108",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3193,8 +3193,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Safety goggles, high-vis vest, variable frequency drive panels, clean industrial machinery",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-109",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-109",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3222,8 +3222,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Industrial flow meters, pressure gauges, pipe insulation, testing kit",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-110",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-110",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3251,8 +3251,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Clear Mauritian-standard color bins, designated signage, clean sorting station",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-111",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-111",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3280,8 +3280,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Glass-door commercial chillers, LED shelf lighting, paper/biodegradable packaging, uniform",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-112",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-112",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3309,8 +3309,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Commercial EV delivery van, warehouse racking, barcode scanner, cargo shipping containers",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-113",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-113",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3338,8 +3338,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-114",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-114",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3367,8 +3367,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-115",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-115",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3396,8 +3396,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-116",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-116",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3425,8 +3425,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-120",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-120",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3454,8 +3454,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-124",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-124",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3483,8 +3483,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-125",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-125",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3512,8 +3512,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-126",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-126",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3541,8 +3541,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-127",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-127",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3570,8 +3570,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-129",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-129",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3599,8 +3599,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-130",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-130",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3628,8 +3628,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-134",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-134",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3657,8 +3657,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-135",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-135",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3686,8 +3686,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Hospitality uniform, eco-guestroom controls, stainless steel kitchen prep, tropical resort setting",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-36",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-36",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3715,8 +3715,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Clear Mauritian-standard color bins, designated signage, clean sorting station",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-37",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-37",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3744,8 +3744,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Real digital display meters, safety switches, insulated chilled water piping, PPE",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-39",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-39",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3773,8 +3773,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-47",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-47",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3802,8 +3802,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-23",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-23",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3831,8 +3831,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-24",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-24",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3860,8 +3860,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Professional office attire, financial dashboards, ESG compliance checklists, conference table",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-25",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-25",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3889,8 +3889,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-26",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-26",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3918,8 +3918,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-29",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-29",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3947,8 +3947,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-27",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-27",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   },
@@ -3976,8 +3976,8 @@ export const CANONICAL_COURSE_IMAGE_MANIFEST: CanonicalCourseImageRecord[] = [
       "elementsMustBeVisible": "Meeting table, tablet with KPI dashboard, diverse corporate team, professional workspace",
       "elementsMustBeAvoided": "Generic leaves, flat icons, cartoon figures, abstract globes"
     },
-    "sourceReference": "ELEVIO Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-28",
-    "usageRights": "Proprietary ELEVIO Skills Platform License — Commercial & Educational Rights Cleared",
+    "sourceReference": "Morieva Skills Photorealistic Studio Engine — Asset ID ELEVIO-PHOTO-ELH-28",
+    "usageRights": "Proprietary Morieva Skills Platform License — Commercial & Educational Rights Cleared",
     "intentionalReuse": false,
     "remediationDecision": "REPLACE_WITH_PHOTOGRAPHY"
   }

@@ -27,7 +27,7 @@ export const SPRINT_15_2_10A_COHORT: AssessmentCohortItem[] = [
     targetQuestionCount: 8,
     optionsPerQuestion: 4,
     isCapstone: false,
-    priorityReason: "Universal foundational prerequisite for all learning paths in ELEVIO Skills.",
+    priorityReason: "Universal foundational prerequisite for all learning paths in Morieva Skills.",
   },
   {
     databaseId: 2,

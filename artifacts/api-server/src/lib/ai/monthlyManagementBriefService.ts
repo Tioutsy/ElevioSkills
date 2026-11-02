@@ -332,7 +332,7 @@ export async function aggregateMonthlyManagementBrief(
   };
 
   const managementNote =
-    "This monthly management brief is an aggregated operational synthesis based on ELEVIO SKILLS learning and assessment records. It does not constitute formal ESG regulatory compliance or certified workplace competence.";
+    "This monthly management brief is an aggregated operational synthesis based on Morieva Skills learning and assessment records. It does not constitute formal ESG regulatory compliance or certified workplace competence.";
 
   const baseBrief: MonthlyManagementBrief = {
     companyId,
@@ -374,7 +374,7 @@ export async function aggregateMonthlyManagementBrief(
   }
 
   try {
-    const prompt = `You are the ELEVIO SKILLS Corporate ESG Monthly Management Brief AI Engine.
+    const prompt = `You are the Morieva Skills Corporate ESG Monthly Management Brief AI Engine.
 Transform the provided verified, aggregated monthly workforce metrics into a concise executive management summary for C-level executives, HR, and ESG directors.
 
 STRICT MANDATES & SAFETY BOUNDARIES:
@@ -516,7 +516,7 @@ export async function getOrGenerateMonthlyManagementBrief(
           recommendedActions: existingRecord.deterministicMetrics.recommendedActions,
           aiExecutiveSummary: existingRecord.aiSummary,
           managementNote:
-            "This monthly management brief is an aggregated operational synthesis based on ELEVIO SKILLS learning and assessment records. It does not constitute formal ESG regulatory compliance or certified workplace competence.",
+            "This monthly management brief is an aggregated operational synthesis based on Morieva Skills learning and assessment records. It does not constitute formal ESG regulatory compliance or certified workplace competence.",
         };
 
         inMemoryBriefStore.set(storeKey, briefFromDb);
@@ -573,7 +573,7 @@ export async function getOrGenerateMonthlyManagementBrief(
             departmentHighlights: priorRecord.deterministicMetrics.departmentHighlights,
             recommendedActions: priorRecord.deterministicMetrics.recommendedActions,
             aiExecutiveSummary: priorRecord.aiSummary,
-            managementNote: "ELEVIO SKILLS learning and assessment records.",
+            managementNote: "Morieva Skills learning and assessment records.",
           };
         }
       } catch {

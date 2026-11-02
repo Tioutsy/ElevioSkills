@@ -55,7 +55,7 @@ app.get(["/ready", "/api/ready"], async (_req, res) => {
 });
 
 app.get("/", (_req, res) => {
-  res.json({ status: "ok", service: "Elevio API", timestamp: new Date().toISOString() });
+  res.json({ status: "ok", service: "Morieva Skills API", timestamp: new Date().toISOString() });
 });
 
 app.use(CLERK_PROXY_PATH, clerkProxyMiddleware());
@@ -93,7 +93,7 @@ if (hasClerkKeys) {
 app.use("/api", router);
 
 app.get("/", (req, res) => {
-  res.json({ status: "ok", service: "Elevio API", timestamp: new Date().toISOString() });
+  res.json({ status: "ok", service: "Morieva Skills API", timestamp: new Date().toISOString() });
 });
 
 app.use((err: any, req: any, res: any, next: any) => {

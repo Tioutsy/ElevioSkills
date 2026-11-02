@@ -323,7 +323,7 @@ router.get("/company/workplace-actions/export", async (req, res): Promise<void> 
     }
 
     const csvContent = await exportCompanyActionEvidenceCsv(access.companyId);
-    const filename = `elevio-training-impact-${new Date().toISOString().split("T")[0]}.csv`;
+    const filename = `morieva-training-impact-${new Date().toISOString().split("T")[0]}.csv`;
 
     res.setHeader("Content-Type", "text/csv; charset=utf-8");
     res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);

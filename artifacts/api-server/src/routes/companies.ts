@@ -747,7 +747,7 @@ router.post("/employees/:id/invite", async (req, res): Promise<void> => {
         notificationType: "invitation",
         deduplicationKey: `invitation_${updated.id}_${token}`,
         templateData: {
-          companyName: company?.name || "Elevio Skills",
+          companyName: company?.name || "Morieva Skills",
           recipientName: updated.name,
           actionUrl: inviteLink,
         },
@@ -847,7 +847,7 @@ router.get("/onboarding-status", async (req, res): Promise<void> => {
 router.get("/employees/import-template", async (_req, res): Promise<void> => {
   const templateCsv = "first_name,last_name,email,role,department,job_title\nJean,Valjean,jean.valjean@example.com,employee,Operations,Frontline Operator\nMarie,Curie,marie.curie@example.com,manager,Sustainability,Green Lead\n";
   res.setHeader("Content-Type", "text/csv; charset=utf-8");
-  res.setHeader("Content-Disposition", "attachment; filename=elevio-employee-import-template.csv");
+  res.setHeader("Content-Disposition", "attachment; filename=morieva-employee-import-template.csv");
   res.send(templateCsv);
 });
 
@@ -940,7 +940,7 @@ router.post("/employees/:id/resend", async (req, res): Promise<void> => {
         notificationType: "invitation_reminder",
         deduplicationKey: `resend_invitation_${id}_${result.token}`,
         templateData: {
-          companyName: company?.name || "Elevio Skills",
+          companyName: company?.name || "Morieva Skills",
           recipientName: emp?.name || "Team Member",
           actionUrl: inviteLink,
         },
@@ -1367,7 +1367,7 @@ router.post("/manager/remind", async (req, res): Promise<void> => {
       recipientEmail: emp.email,
       recipientName: emp.name,
       type: "course_assigned",
-      title: "Manager Reminder: Elevio Training Action Requested",
+      title: "Manager Reminder: Morieva Skills Training Action Requested",
       message: `Hello ${emp.name}, your manager ${access.employee?.name ?? "Administrator"} has sent a reminder regarding your training assignments.`,
     });
 

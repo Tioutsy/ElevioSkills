@@ -161,7 +161,7 @@ export async function processInvitationQueueChunk(
         .where(eq(companiesTable.id, item.companyId))
         .limit(1);
 
-      const companyName = company?.name || "Elevio Corporate";
+      const companyName = company?.name || "Morieva Corporate";
 
       // 4. Decrypt raw token for link generation (if present)
       let rawToken: string | null = null;

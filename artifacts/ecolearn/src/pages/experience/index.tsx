@@ -169,7 +169,7 @@ export default function ExperiencePage() {
                   Sustainability at work starts with everyday decisions.
                 </h1>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  Most corporate training focuses on memorising environmental definitions. ELEVIO Skills is built differently: we train teams to recognise practical workplace opportunities, exercise judgement, and take measurable operational action.
+                  Most corporate training focuses on memorising environmental definitions. Morieva Skills is built differently: we train teams to recognise practical workplace opportunities, exercise judgement, and take measurable operational action.
                 </p>
               </div>
 
@@ -337,19 +337,19 @@ export default function ExperiencePage() {
           )}
 
           {/* ========================================================================= */}
-          {/* SCREEN 3: Practical Learning (ELEVIO Methodology) */}
+          {/* SCREEN 3: Practical Learning (Morieva Methodology) */}
           {/* ========================================================================= */}
           {currentScreen === 3 && (
             <div className="space-y-6 animate-in fade-in-50 duration-300">
               <div>
                 <Badge variant="outline" className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 border-emerald-500/30 mb-2">
-                  ELEVIO Micro-Lesson · Practical Workplace Insight
+                  Morieva Micro-Lesson · Practical Workplace Insight
                 </Badge>
                 <h2 className="text-2xl md:text-3xl font-bold font-serif text-foreground">
                   The Cumulative Cost of Unoccupied Rooms
                 </h2>
                 <p className="text-sm text-muted-foreground mt-1">
-                  How ELEVIO connects daily employee habits to corporate operational performance.
+                  How Morieva Skills connects daily employee habits to corporate operational performance.
                 </p>
               </div>
 
@@ -381,7 +381,7 @@ export default function ExperiencePage() {
                   </CardHeader>
                   <CardContent className="space-y-3 text-xs md:text-sm text-muted-foreground leading-relaxed">
                     <p>
-                      ELEVIO trains employees in simple 30-second closing routines:
+                      Morieva Skills trains employees in simple 30-second closing routines:
                     </p>
                     <ul className="space-y-1.5 list-disc list-inside text-foreground font-medium">
                       <li>Adjust AC thermostat to standard eco settings or turn off</li>
@@ -430,7 +430,7 @@ export default function ExperiencePage() {
                   The Department Workshop Dilemma
                 </h2>
                 <p className="text-sm text-muted-foreground mt-1">
-                  ELEVIO assessments test operational judgement rather than simple memorisation.
+                  Morieva Skills assessments test operational judgement rather than simple memorisation.
                 </p>
               </div>
 
@@ -530,7 +530,7 @@ export default function ExperiencePage() {
                   {decisionChoice === 2 ? "Excellent Operational Judgement!" : "Insight & Constructive Feedback"}
                 </h2>
                 <p className="text-sm text-muted-foreground mt-1">
-                  ELEVIO explains the rationale behind every decision so employees understand why actions matter.
+                  Morieva Skills explains the rationale behind every decision so employees understand why actions matter.
                 </p>
               </div>
 
@@ -601,7 +601,7 @@ export default function ExperiencePage() {
                     Step 1 of Product Proof · Learner View
                   </Badge>
                   <h2 className="text-2xl md:text-3xl font-bold font-serif text-foreground">
-                    This is what ELEVIO looks like for your employees.
+                    This is what Morieva Skills looks like for your employees.
                   </h2>
                 </div>
                 <Badge className="bg-muted text-muted-foreground border border-border text-xs px-2.5 py-1 shrink-0">
@@ -795,7 +795,7 @@ export default function ExperiencePage() {
                 <div className="p-4 rounded-xl border bg-muted/20 text-xs text-muted-foreground flex items-start gap-3">
                   <ShieldCheck className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-foreground">Why This Matters for B2B Buyers:</strong> Training your team is only part of the process. ELEVIO gives your company a verifiable audit trail of who completed what and when—ready for company sustainability reports, board scorecards, and internal reviews.
+                    <strong className="text-foreground">Why This Matters for B2B Buyers:</strong> Training your team is only part of the process. Morieva Skills gives your company a verifiable audit trail of who completed what and when—ready for company sustainability reports, board scorecards, and internal reviews.
                   </div>
                 </div>
               </div>
@@ -826,7 +826,7 @@ export default function ExperiencePage() {
                   <CheckCircle2 className="h-9 w-9" />
                 </div>
                 <h1 className="text-3xl md:text-5xl font-bold font-serif text-foreground tracking-tight">
-                  You've experienced ELEVIO.
+                  You've experienced Morieva Skills.
                 </h1>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                   Your employees learn through short, practical workplace situations. Your company tracks participation, completion, and training records from one unified workspace.

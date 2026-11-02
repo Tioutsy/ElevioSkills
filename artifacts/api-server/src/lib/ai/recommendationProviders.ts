@@ -179,7 +179,7 @@ export class GeminiRecommendationProvider implements LearningRecommendationProvi
 
   private buildPrompt(input: RecommendationInput): string {
     const systemInstructions = `
-You are the ELEVIO SKILLS AI Recommendation Engine.
+You are the Morieva Skills AI Recommendation Engine.
 STRICT RULES:
 1. Recommend ONLY existing courses provided in the AVAILABLE_COURSES list below.
 2. DO NOT invent course codes, course titles, or course IDs under any circumstances.

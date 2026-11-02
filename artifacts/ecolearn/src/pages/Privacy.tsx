@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
           <p className="text-muted-foreground text-sm md:text-base">
-            Last Updated: {lastUpdated} • Elevio Skills (Operated by Recyclean Ltd)
+            Last Updated: {lastUpdated} • Morieva Skills (Operated by Recyclean Ltd)
           </p>
         </div>
       </div>
@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
               <Eye className="h-5 w-5 text-primary" /> 1. Introduction & Overview
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Elevio Skills ("we", "our", or "us"), operated by <strong>Recyclean Ltd</strong>, is committed to safeguarding the privacy of our corporate clients, administrators, managers, and employee learners. This Privacy Policy explains how we collect, use, process, and protect your personal information when you access and use the Elevio Skills Learning Management System (LMS) and related services.
+              Morieva Skills ("we", "our", or "us"), operated by <strong>Recyclean Ltd</strong>, is committed to safeguarding the privacy of our corporate clients, administrators, managers, and employee learners. This Privacy Policy explains how we collect, use, process, and protect your personal information when you access and use the Morieva Skills Learning Management System (LMS) and related services.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               We process personal data in compliance with applicable data protection laws, including the <strong>Mauritius Data Protection Act 2017 (DPA 2017)</strong> and international data privacy best practices (including GDPR principles).
@@ -104,7 +104,7 @@ export default function PrivacyPolicy() {
               <Building2 className="h-5 w-5 text-primary" /> 5. Data Retention & Your Rights
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              We retain learning records for as long as your organization maintains an active subscription with Elevio Skills, or as required to support verifiable certificate validation and audit compliance. Under the Mauritius Data Protection Act 2017, you have the right to:
+              We retain learning records for as long as your organization maintains an active subscription with Morieva Skills, or as required to support verifiable certificate validation and audit compliance. Under the Mauritius Data Protection Act 2017, you have the right to:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
               <li>Request access to the personal data we hold about you.</li>
@@ -125,7 +125,7 @@ export default function PrivacyPolicy() {
             <div className="space-y-2 text-sm text-foreground pt-2">
               <div className="flex items-center gap-2">
                 <Building2 className="h-4 w-4 text-primary" />
-                <span><strong>Recyclean Ltd</strong> (Operating Elevio Skills)</span>
+                <span><strong>Recyclean Ltd</strong> (Operating Morieva Skills)</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-primary" />

@@ -38,7 +38,7 @@ export default function Home() {
                 <Button size="lg" asChild className="h-12 px-8 text-base bg-emerald-700 hover:bg-emerald-800 text-white font-semibold shadow-md">
                   <Link href="/experience">
                     <Sparkles className="mr-2 h-4 w-4" />
-                    Experience ELEVIO
+                    Experience Morieva Skills
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -269,7 +269,7 @@ export default function Home() {
             <Button size="lg" asChild className="bg-white text-emerald-950 hover:bg-emerald-50 h-12 px-8 text-base font-semibold rounded-xl shadow-lg transition-all">
               <Link href="/experience">
                 <Sparkles className="mr-2 h-4 w-4 text-emerald-700" />
-                Experience ELEVIO
+                Experience Morieva Skills
                 <ArrowRight className="ml-2 h-4 w-4 text-emerald-700" />
               </Link>
             </Button>

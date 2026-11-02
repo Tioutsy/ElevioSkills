@@ -758,7 +758,7 @@ export async function runGamificationDiagnostics(companyIdFilter?: number): Prom
       employeeName: String(row.employeeName),
       anomalyType: "SCORE_MISMATCH",
       severity: "HIGH",
-      description: `Materialized ELEVIO Score (${row.cachedScore}) differs from ledger source of truth (${row.ledgerScore}) by ${Number(row.cachedScore) - Number(row.ledgerScore)} pts. Controlled recalculation recommended.`,
+      description: `Materialized Morieva Score (${row.cachedScore}) differs from ledger source of truth (${row.ledgerScore}) by ${Number(row.cachedScore) - Number(row.ledgerScore)} pts. Controlled recalculation recommended.`,
       metadata: {
         cachedScore: Number(row.cachedScore),
         ledgerScore: Number(row.ledgerScore),
@@ -1252,7 +1252,7 @@ export async function generatePlatformGamificationAuditCsv(companyIdFilter?: num
     .limit(5000);
 
   const metadataHeaders = [
-    `# ELEVIO Skills Platform Gamification Ledger Audit Export`,
+    `# Morieva Skills Platform Gamification Ledger Audit Export`,
     `# Generation Date: ${new Date().toISOString()}`,
     `# Filter Company ID: ${companyIdFilter ?? "All Organisations"}`,
     `# Record Count: ${transactions.length}`,
@@ -1348,7 +1348,7 @@ export async function generateCompanyEngagementCsv(companyId: number, seasonId?:
   `);
 
   const metadataHeaders = [
-    `# ELEVIO Skills Company Engagement & Competition Export`,
+    `# Morieva Skills Company Engagement & Competition Export`,
     `# Generation Date: ${new Date().toISOString()}`,
     `# Organisation: ${company.name}`,
     `# Season: ${season.title} (${startDate.toISOString().split("T")[0]} to ${endDate.toISOString().split("T")[0]})`,

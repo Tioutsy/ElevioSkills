@@ -3,6 +3,9 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { db, coursesTable, learningPathsTable, blogPostsTable } from "@workspace/db";
+import { eq } from "drizzle-orm";
+import { ensureMorievaBrandMigration } from "./ensureMorievaBrandMigration";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,6 +14,10 @@ const PROHIBITED_NAMES = [
   "ecolearnhub",
   "eco learn hub",
   "ecolearn",
+  "elevio skills",
+  "elevio recommended",
+  "elevio editorial",
+  "experience elevio",
   "verdia",
   "evolia",
   "paceo",
@@ -25,6 +32,11 @@ const ALLOWED_MATCHES = [
   "0012_snapshot.json",
   "seed-foundations.mjs",
   "legacyBrandAudit.test.ts",
+  "ensureMorievaBrandMigration.ts",
+  "src/scripts/",
+  "src/audits/",
+  "src/recovery/",
+  "ecolearnhub.com",
   ".test.ts",
   "_e2e.ts",
   "verify_",
@@ -57,7 +69,17 @@ function scanDirectory(
   return fileList;
 }
 
-describe("Legacy Brand Audit (Elevio Rebrand Verification)", () => {
+describe("Legacy Brand Audit (Morieva Skills Rebrand Verification)", () => {
+  test("Centralized brand configs define Morieva Skills and Recyclean Ltd.", () => {
+    const rootDir = path.resolve(__dirname, "../../../..");
+    const frontendBrand = fs.readFileSync(path.join(rootDir, "artifacts/ecolearn/src/config/brand.ts"), "utf8");
+    const backendBrand = fs.readFileSync(path.join(rootDir, "artifacts/api-server/src/config/brand.ts"), "utf8");
+    assert.ok(frontendBrand.includes('name: "Morieva Skills"'), "Frontend brand config must define Morieva Skills");
+    assert.ok(frontendBrand.includes('operatorEntity: "Recyclean Ltd"'), "Frontend brand config must preserve Recyclean Ltd");
+    assert.ok(backendBrand.includes('name: "Morieva Skills"'), "Backend brand config must define Morieva Skills");
+    assert.ok(backendBrand.includes('operatorEntity: "Recyclean Ltd"'), "Backend brand config must preserve Recyclean Ltd");
+  });
+
   test("Active source files do not contain prohibited legacy brand names", () => {
     const rootDir = path.resolve(__dirname, "../../../..");
     const dirsToScan = [
@@ -98,5 +120,31 @@ describe("Legacy Brand Audit (Elevio Rebrand Verification)", () => {
         .join("\n");
       assert.fail(`Found ${violations.length} prohibited legacy brand references:\n${report}`);
     }
+  });
+
+  test("Database brand migration (ensureMorievaBrandMigration) is idempotent and preserves IDs/codes", async () => {
+    // Seed a course with a legacy brand description
+    await db
+      .update(coursesTable)
+      .set({
+        description: "The capstone certification assessment for Elevio's Core Sustainability Certificate pathway.",
+        badgeName: "Elevio Sustainability Certificate",
+      })
+      .where(eq(coursesTable.id, 12));
+
+    const firstRun = await ensureMorievaBrandMigration();
+    assert.ok(firstRun.coursesUpdated >= 1, "First run should migrate legacy brand text in course 12");
+
+    const [courseAfterFirst] = await db.select().from(coursesTable).where(eq(coursesTable.id, 12));
+    assert.equal(courseAfterFirst.id, 12, "Course ID must be preserved");
+    assert.equal(courseAfterFirst.code, "ELH-12", "Course code must be preserved");
+    assert.ok(courseAfterFirst.description.includes("Morieva Skills'"), "Description must be updated to Morieva Skills'");
+    assert.equal(courseAfterFirst.badgeName, "Morieva Skills Sustainability Certificate", "Badge name must be updated");
+
+    // Second run must be a no-op (idempotent)
+    const secondRun = await ensureMorievaBrandMigration();
+    assert.equal(secondRun.coursesUpdated, 0, "Second run must be idempotent (0 courses updated)");
+    assert.equal(secondRun.lessonsUpdated, 0, "Second run must be idempotent (0 lessons updated)");
+    assert.equal(secondRun.quizQuestionsUpdated, 0, "Second run must be idempotent (0 quizQuestions updated)");
   });
 });

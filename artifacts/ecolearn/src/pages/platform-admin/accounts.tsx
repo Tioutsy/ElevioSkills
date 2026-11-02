@@ -38,7 +38,7 @@ export default function PlatformAdminAccounts() {
       <div className="space-y-6">
         <div>
           <h2 className="text-2xl font-bold font-serif">Global Accounts Directory</h2>
-          <p className="text-muted-foreground">Search and inspect all user accounts across ELEVIO SKILLS.</p>
+          <p className="text-muted-foreground">Search and inspect all user accounts across Morieva Skills.</p>
         </div>
 
         <div className="flex items-center gap-4">

@@ -172,7 +172,12 @@ describe("Sprint 15.2.9B — Realistic Professional Course Photography Remediati
   // Gate 18: Every generated asset is identified as generated
   it("Gate 18: Every generated asset is identified as generated", () => {
     CANONICAL_COURSE_IMAGE_MANIFEST.forEach(c => {
-      assert.ok(c.sourceReference?.includes("ELEVIO") || c.assetType.includes("PHOTOGRAPHIC"), `Course ${c.courseCode} asset must have transparent source identification`);
+      assert.ok(
+        c.sourceReference?.includes("Morieva") ||
+        c.sourceReference?.includes("ELEVIO") ||
+        c.assetType.includes("PHOTOGRAPHIC"),
+        `Course ${c.courseCode} asset must have transparent source identification`
+      );
     });
   });
 

@@ -134,7 +134,7 @@ export async function computeWorkforceReadiness(
   const hasSufficient = intelligence.hasSufficientEvidence && evalLearners >= 3;
 
   const disclaimer =
-    "The ELEVIO SKILLS Workforce Readiness Indicator is an evidence-backed benchmark based on platform learning and assessment records. It does not constitute formal ESG regulatory compliance or an external ESG rating.";
+    "The Morieva Skills Workforce Readiness Indicator is an evidence-backed benchmark based on platform learning and assessment records. It does not constitute formal ESG regulatory compliance or an external ESG rating.";
 
   if (!hasSufficient) {
     return {
@@ -331,7 +331,7 @@ export async function computeWorkforceReadiness(
   }
 
   try {
-    const prompt = `You are the ELEVIO SKILLS ESG Workforce Readiness AI Engine.
+    const prompt = `You are the Morieva Skills ESG Workforce Readiness AI Engine.
 Generate a concise 2-sentence executive interpretation explaining the deterministic workforce readiness score.
 
 CRITICAL SAFETY MANDATES:

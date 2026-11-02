@@ -40,7 +40,7 @@ describe("Sprint 12F — Authenticated Internal Home Page & Navigation Closure A
     test("Top-left logo navigates to /home when isLoaded && isSignedIn, and / when signed out", () => {
       const navbarContent = fs.readFileSync(path.join(ecolearnDir, "components/layout/Navbar.tsx"), "utf-8");
       assert.equal(navbarContent.includes('href={isLoaded && isSignedIn ? "/home" : "/"}'), true, "Logo must route to /home when signed in and loaded");
-      assert.equal(navbarContent.includes('aria-label="Go to ELEVIO SKILLS Home"'), true, "Logo must have accessible aria-label");
+      assert.equal(navbarContent.includes('aria-label="Go to Morieva Skills Home"'), true, "Logo must have accessible aria-label");
       assert.equal(navbarContent.includes('focus-visible:ring-2'), true, "Logo must have visible focus state");
     });
 

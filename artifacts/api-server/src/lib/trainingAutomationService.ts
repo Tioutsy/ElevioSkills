@@ -120,7 +120,7 @@ export async function runAutomationCycleForCompany(
         dedupKey,
         stage: "PRE_DUE",
         title: `Reminder: ${courseTitle} due in ${diffDays === 0 ? "today" : `${diffDays} day(s)`}`,
-        message: `Hello ${emp.name},\n\nYour assigned ELEVIO SKILLS course "${courseTitle}" (${courseCode}) is due on ${new Date(dueDate).toLocaleDateString()}.\n\nPlease log in to complete your training.\n\nThank you,\nELEVIO SKILLS by Recyclean`,
+        message: `Hello ${emp.name},\n\nYour assigned Morieva Skills course "${courseTitle}" (${courseCode}) is due on ${new Date(dueDate).toLocaleDateString()}.\n\nPlease log in to complete your training.\n\nThank you,\nMorieva Skills by Recyclean`,
       });
 
       if (result.status === "delivered") summary.preDueDispatched++;
@@ -144,7 +144,7 @@ export async function runAutomationCycleForCompany(
         dedupKey,
         stage: "OVERDUE_FIRST",
         title: `Training Overdue: ${courseTitle}`,
-        message: `Hello ${emp.name},\n\nYour assigned course "${courseTitle}" (${courseCode}) was due on ${new Date(dueDate).toLocaleDateString()} and is now overdue.\n\nPlease log in to complete your required training.\n\nThank you,\nELEVIO SKILLS by Recyclean`,
+        message: `Hello ${emp.name},\n\nYour assigned course "${courseTitle}" (${courseCode}) was due on ${new Date(dueDate).toLocaleDateString()} and is now overdue.\n\nPlease log in to complete your required training.\n\nThank you,\nMorieva Skills by Recyclean`,
       });
 
       if (result.status === "delivered") summary.overdueFirstDispatched++;
@@ -167,7 +167,7 @@ export async function runAutomationCycleForCompany(
         dedupKey,
         stage: "OVERDUE_SECOND",
         title: `Follow-up: Overdue Training for ${courseTitle}`,
-        message: `Hello ${emp.name},\n\nThis is a follow-up regarding your overdue course "${courseTitle}" (${courseCode}).\n\nPlease prioritize completing this module in ELEVIO SKILLS.\n\nThank you,\nELEVIO SKILLS by Recyclean`,
+        message: `Hello ${emp.name},\n\nThis is a follow-up regarding your overdue course "${courseTitle}" (${courseCode}).\n\nPlease prioritize completing this module in Morieva Skills.\n\nThank you,\nMorieva Skills by Recyclean`,
       });
 
       if (result.status === "delivered") summary.overdueSecondDispatched++;

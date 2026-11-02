@@ -112,7 +112,7 @@ export default function CompanyReports() {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      const safeName = (company?.name || "Elevio").replace(/[^a-z0-9-_]+/gi, "_");
+      const safeName = (company?.name || "Morieva_Skills").replace(/[^a-z0-9-_]+/gi, "_");
       link.download = `${safeName}_ESG_Training_Report.pdf`;
       document.body.appendChild(link);
       link.click();

@@ -60,7 +60,7 @@ const APPROVED_BANDS = [
 
 const STANDARD_PLAN = {
   code: "STANDARD" as PlanCode,
-  name: "ELEVIO Skills Subscription",
+  name: "Morieva Skills Subscription",
   tagline: "All-inclusive corporate sustainability & ESG literacy platform",
   features: [
     "Full access to all sustainability & ESG courses",
@@ -512,7 +512,7 @@ export default function OnboardingPage() {
                 <div className="space-y-3 pt-2">
                   <div className="flex gap-2">
                     <Input
-                      placeholder="e.g. ELEVIO-PILOT-A7K9-Q2MP"
+                      placeholder="e.g. MORIEVA-PILOT-A7K9-Q2MP"
                       value={pilotCodeInput}
                       onChange={(e) => {
                         setPilotCodeInput(e.target.value);
@@ -620,7 +620,7 @@ export default function OnboardingPage() {
                 <span className="text-xs uppercase tracking-wider font-semibold text-emerald-600">Step 2 of 3</span>
                 <h2 className="text-xl font-bold font-serif mt-1">Select Your Company Size</h2>
                 <p className="text-sm text-muted-foreground">
-                  Standard ELEVIO Skills subscription includes full access to all sustainability & ESG courses for every employee.
+                  Standard Morieva Skills subscription includes full access to all sustainability & ESG courses for every employee.
                 </p>
               </div>
 
@@ -802,7 +802,7 @@ export default function OnboardingPage() {
             <div className="space-y-2">
               <h2 className="text-2xl font-bold font-serif text-foreground">Tailored Enterprise Quote Requested</h2>
               <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                Thank you for selecting ELEVIO SKILLS for <strong className="text-foreground">{companyName}</strong>. Because your organisation has more than 120 employees, an enterprise specialist will contact you with a bespoke volume package.
+                Thank you for selecting Morieva Skills for <strong className="text-foreground">{companyName}</strong>. Because your organisation has more than 120 employees, an enterprise specialist will contact you with a bespoke volume package.
               </p>
             </div>
 

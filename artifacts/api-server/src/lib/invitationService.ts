@@ -424,7 +424,7 @@ export async function resendEmployeeInvitation(
       .where(eq(employeeInvitationsTable.id, invitationId))
       .returning();
 
-    return { updated: resendUpdated, companyName: company?.name ?? "Elevio Member" };
+    return { updated: resendUpdated, companyName: company?.name ?? "Morieva Skills Member" };
   });
 
   const baseUrl = getCanonicalAppUrl(originBaseUrl);
@@ -616,7 +616,7 @@ export async function validateInvitation(tokenOrCode: string): Promise<{
   return {
     valid: true,
     companyId: inv.companyId,
-    companyName: company?.name ?? "Elevio Corporate Member",
+    companyName: company?.name ?? "Morieva Skills Corporate Member",
     logoUrl: company?.logoUrl ?? null,
     email: maskEmail(inv.email), // Masked email for privacy
     firstName: inv.firstName,
@@ -707,7 +707,7 @@ export async function acceptEmployeeInvitation(
       return {
         success: true,
         companyId: inv.companyId,
-        companyName: comp?.name ?? "Elevio Member",
+        companyName: comp?.name ?? "Morieva Skills Member",
         employeeId: existingUserEmp.id,
         role: existingUserEmp.role,
         redirectUrl: "/dashboard",
@@ -862,7 +862,7 @@ export async function acceptEmployeeInvitation(
     return {
       success: true,
       companyId: inv.companyId,
-      companyName: company?.name ?? "Elevio Member",
+      companyName: company?.name ?? "Morieva Skills Member",
       employeeId,
       role: employeeRole,
       redirectUrl: "/dashboard",

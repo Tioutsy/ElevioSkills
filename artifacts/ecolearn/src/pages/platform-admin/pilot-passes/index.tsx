@@ -370,7 +370,7 @@ export default function PlatformAdminPilotPasses() {
           <div>
             <h2 className="text-2xl font-bold font-serif">Controlled Company Pilot Passes</h2>
             <p className="text-muted-foreground text-sm">
-              Issue single-use, cryptographic pilot passes for prospective companies to test ELEVIO Skills free of charge.
+              Issue single-use, cryptographic pilot passes for prospective companies to test Morieva Skills free of charge.
             </p>
           </div>
           <Button

@@ -251,7 +251,7 @@ export default function CompanyDashboard() {
         {/* ESG Workforce Readiness Indicator v1 */}
         <ESGWorkforceReadinessCard />
 
-        {/* Ask Elevio AI / Management Copilot v1 */}
+        {/* Ask Morieva AI / Management Copilot v1 */}
         <div className="mb-8">
           <AskElevioCopilotCard />
         </div>

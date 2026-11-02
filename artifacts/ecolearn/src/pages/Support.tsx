@@ -21,7 +21,7 @@ export function SupportPage() {
               {locale === "fr" ? "Support Pilote & Assistance Data" : "Pilot Support & Incident Request"}
             </h1>
             <p className="text-sm text-slate-500 mt-1">
-              Elevio Skills by Recyclean Ltd.
+              Morieva Skills by Recyclean Ltd.
             </p>
           </div>
           <button

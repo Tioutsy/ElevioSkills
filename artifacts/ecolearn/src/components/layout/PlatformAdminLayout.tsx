@@ -41,7 +41,7 @@ export function PlatformAdminLayout({ children }: PlatformAdminLayoutProps) {
           </div>
           <h1 className="text-2xl font-bold font-serif mb-2">Access Denied</h1>
           <p className="text-muted-foreground mb-6">
-            You do not have permission to view this section. This portal is strictly limited to Elevio platform administrators.
+            You do not have permission to view this section. This portal is strictly limited to Morieva Skills platform administrators.
           </p>
           <Link
             href="/dashboard"
@@ -59,7 +59,7 @@ export function PlatformAdminLayout({ children }: PlatformAdminLayoutProps) {
       <div className="w-full px-4 sm:px-6 lg:px-8 py-8 max-w-[1720px] mx-auto">
         <div className="mb-8">
           <p className="text-sm font-medium text-primary mb-1">Platform Admin Portal</p>
-          <h1 className="text-3xl font-bold font-serif">Elevio Administrator</h1>
+          <h1 className="text-3xl font-bold font-serif">Morieva Skills Administrator</h1>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 items-start">

@@ -115,7 +115,7 @@ export default function Pricing() {
       <div className="bg-gradient-to-b from-emerald-900/10 via-background to-background pt-16 md:pt-24 pb-12 border-b">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 rounded-full mb-4">
-            <Sparkles className="h-3.5 w-3.5" /> Elevio Commercial Plans
+            <Sparkles className="h-3.5 w-3.5" /> Morieva Skills Commercial Plans
           </span>
           <h1 className="text-3xl md:text-5xl font-bold font-serif mb-4 text-foreground tracking-tight">
             {t("pricing.title")}
@@ -322,7 +322,7 @@ export default function Pricing() {
         <div className="max-w-5xl mx-auto space-y-8 pt-8 border-t">
           <div className="text-center space-y-2">
             <h2 className="text-2xl md:text-3xl font-bold font-serif">
-              What Every ELEVIO Skills Subscription Includes
+              What Every Morieva Skills Subscription Includes
             </h2>
             <p className="text-muted-foreground text-sm max-w-2xl mx-auto">
               One standard comprehensive platform for workplace sustainability skills and credible ESG record-keeping.
