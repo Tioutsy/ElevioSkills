@@ -35,7 +35,7 @@ async function cleanUpCourse26() {
   await db.delete(quizAttemptsTable).where(eq(quizAttemptsTable.userId, "preserve_user_id_26"));
   await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, SEED_NAME_V2));
   // Also clean up v1 seed record in case it exists from previous sprints
-  await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "sustainability-for-procurement-and-purchasing-teams-v1"));
+  await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "sustainability-for-procurement-and-purchasing-teams-v2"));
 
   // Reset ELH-25 recommendation link unconditionally
   await db.update(coursesTable)

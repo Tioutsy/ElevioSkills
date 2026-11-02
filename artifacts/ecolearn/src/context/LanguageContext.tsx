@@ -2,12 +2,14 @@ import React from "react";
 
 const englishTranslations: Record<string, string> = {
   // Navigation
+  "nav.home": "Home",
   "nav.courses": "Courses",
+  "nav.learning_paths": "Learning Paths",
   "nav.challenges": "Challenges",
   "nav.mauritius_resources": "Mauritius Rules & Resources",
   "nav.impact": "Impact",
   "nav.pricing": "Pricing",
-  "nav.my_learning": "My Learning",
+  "nav.my_learning": "My Skills",
   "nav.company": "Company",
   "nav.employee_reviews": "Employee Challenge Reviews",
   "nav.admin": "Admin",

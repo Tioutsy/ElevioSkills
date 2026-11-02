@@ -142,12 +142,24 @@ export default function PlatformAdminCourses() {
   const [quizOptionFeedback, setQuizOptionFeedback] = useState<string[]>(["", "", "", ""]);
 
   // Fetch Lessons & Questions dynamically when course is selected
-  const { data: lessons = [], refetch: refetchLessons } = usePlatformAdminListLessons(
+  const {
+    data: lessons = [],
+    isLoading: isLoadingLessons,
+    isError: isErrorLessons,
+    error: lessonsError,
+    refetch: refetchLessons,
+  } = usePlatformAdminListLessons(
     editingCourseId || 0,
     { query: { enabled: !!editingCourseId } as any }
   );
 
-  const { data: quizQuestions = [], refetch: refetchQuiz } = usePlatformAdminListQuizQuestions(
+  const {
+    data: quizQuestions = [],
+    isLoading: isLoadingQuiz,
+    isError: isErrorQuiz,
+    error: quizError,
+    refetch: refetchQuiz,
+  } = usePlatformAdminListQuizQuestions(
     editingCourseId || 0,
     { query: { enabled: !!editingCourseId } as any }
   );
@@ -158,6 +170,7 @@ export default function PlatformAdminCourses() {
       onSuccess: () => {
         toast.success("Course settings saved successfully");
         queryClient.invalidateQueries({ queryKey: ["listCourses"] });
+        coursesQuery.refetch();
         setViewMode("list");
         resetForm();
       },
@@ -172,6 +185,7 @@ export default function PlatformAdminCourses() {
       onSuccess: () => {
         toast.success("Lesson created successfully");
         refetchLessons();
+        coursesQuery.refetch();
         setShowLessonDialog(false);
         setLessonTitle("");
         setLessonDuration(5);
@@ -185,6 +199,7 @@ export default function PlatformAdminCourses() {
       onSuccess: () => {
         toast.success("Lesson updated successfully");
         refetchLessons();
+        coursesQuery.refetch();
         setShowLessonDialog(false);
         setEditingLesson(null);
         setLessonTitle("");
@@ -209,6 +224,7 @@ export default function PlatformAdminCourses() {
       onSuccess: () => {
         toast.success("Quiz question created successfully");
         refetchQuiz();
+        coursesQuery.refetch();
         setShowQuizDialog(false);
         resetQuizForm();
       },
@@ -221,6 +237,7 @@ export default function PlatformAdminCourses() {
       onSuccess: () => {
         toast.success("Quiz question updated");
         refetchQuiz();
+        coursesQuery.refetch();
         setShowQuizDialog(false);
         resetQuizForm();
       },
@@ -584,11 +601,16 @@ export default function PlatformAdminCourses() {
               <Skeleton className="h-24 w-full" />
             </div>
           ) : coursesQuery.isError ? (
-            <div className="bg-rose-50 border border-rose-200 text-rose-800 rounded-lg p-4 flex gap-3 text-sm">
-              <AlertCircle className="h-5 w-5 shrink-0 text-rose-600" />
-              <div>
-                <span className="font-semibold">Failed to load courses:</span> {(coursesQuery.error as any)?.message || "API server connection failure"}
+            <div className="bg-rose-50 border border-rose-200 text-rose-800 rounded-lg p-4 flex items-center justify-between gap-3 text-sm">
+              <div className="flex gap-3 items-center">
+                <AlertCircle className="h-5 w-5 shrink-0 text-rose-600" />
+                <div>
+                  <span className="font-semibold">Failed to load courses:</span> {(coursesQuery.error as any)?.message || "API server connection failure"}
+                </div>
               </div>
+              <Button variant="outline" size="sm" onClick={() => coursesQuery.refetch()}>
+                Retry
+              </Button>
             </div>
           ) : courses.length === 0 ? (
             <div className="border border-dashed rounded-lg p-12 text-center text-muted-foreground bg-card">
@@ -597,57 +619,103 @@ export default function PlatformAdminCourses() {
               <p className="text-xs mt-0.5">Please check that database seeds are running correctly.</p>
             </div>
           ) : (
-            <div className="border rounded-lg overflow-x-auto bg-card shadow-sm">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Course Title</TableHead>
-                    <TableHead>Slug</TableHead>
-                    <TableHead>Level</TableHead>
-                    <TableHead>Version</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {courses.map((course: any) => (
-                    <TableRow key={course.id}>
-                      <TableCell className="font-semibold">{course.title}</TableCell>
-                      <TableCell className="text-xs text-muted-foreground">{course.slug}</TableCell>
-                      <TableCell className="capitalize text-xs">{course.level}</TableCell>
-                      <TableCell className="text-xs text-muted-foreground">v{course.version || 1}</TableCell>
-                      <TableCell>
-                        <Badge
-                          variant={
-                            course.status === "published"
-                              ? "default"
-                              : course.status === "review"
-                              ? "outline"
-                              : "secondary"
-                          }
-                          className={
-                            course.status === "review" ? "border-amber-400 text-amber-600 bg-amber-50" : ""
-                          }
-                        >
-                          {course.status ? course.status.toUpperCase() : "DRAFT"}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <div className="flex items-center justify-end gap-2">
-                          <Link href={`/platform-admin/preview/${course.id}`}>
+            <>
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                <div className="border rounded-lg bg-card p-3 shadow-xs">
+                  <div className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Total Courses</div>
+                  <div className="text-xl font-bold mt-0.5">{courses.length}</div>
+                </div>
+                <div className="border rounded-lg bg-emerald-50/50 border-emerald-200 p-3 shadow-xs">
+                  <div className="text-[11px] font-medium text-emerald-700 uppercase tracking-wider">Published (Public)</div>
+                  <div className="text-xl font-bold text-emerald-800 mt-0.5">
+                    {courses.filter((c: any) => c.status === "published" && c.isPublished !== false).length}
+                  </div>
+                </div>
+                <div className="border rounded-lg bg-amber-50/50 border-amber-200 p-3 shadow-xs">
+                  <div className="text-[11px] font-medium text-amber-700 uppercase tracking-wider">Draft / Review</div>
+                  <div className="text-xl font-bold text-amber-800 mt-0.5">
+                    {courses.filter((c: any) => c.status !== "published" || c.isPublished === false).length}
+                  </div>
+                </div>
+                <div className="border rounded-lg bg-card p-3 shadow-xs">
+                  <div className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Active Scored Qs</div>
+                  <div className="text-xl font-bold mt-0.5">
+                    {courses.reduce((sum: number, c: any) => sum + (Number(c.questionCount) || 0), 0).toLocaleString()}
+                  </div>
+                </div>
+                <div className="border rounded-lg bg-slate-50 border-slate-200 p-3 shadow-xs">
+                  <div className="text-[11px] font-medium text-slate-600 uppercase tracking-wider">Diagnostic Bank (Separate)</div>
+                  <div className="text-xl font-bold text-slate-700 mt-0.5">88</div>
+                </div>
+              </div>
+
+              <div className="border rounded-lg overflow-x-auto bg-card shadow-sm">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Code</TableHead>
+                      <TableHead>Course Title</TableHead>
+                      <TableHead>Slug</TableHead>
+                      <TableHead>Level</TableHead>
+                      <TableHead>Lessons</TableHead>
+                      <TableHead>Questions</TableHead>
+                      <TableHead>Version</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="text-right">Actions</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {courses.map((course: any) => (
+                      <TableRow key={course.id}>
+                        <TableCell className="font-mono text-xs text-muted-foreground whitespace-nowrap">
+                          {course.courseCode || `#${course.id}`}
+                        </TableCell>
+                        <TableCell className="font-semibold">{course.title}</TableCell>
+                        <TableCell className="text-xs text-muted-foreground max-w-[200px] truncate">{course.slug}</TableCell>
+                        <TableCell className="capitalize text-xs">{course.level}</TableCell>
+                        <TableCell className="text-xs font-medium">{course.lessonCount ?? "—"}</TableCell>
+                        <TableCell className="text-xs font-medium">
+                          {typeof course.questionCount === "number" ? (
+                            <Badge variant={course.questionCount === 0 ? "destructive" : "secondary"} className="text-[11px]">
+                              {course.questionCount}
+                            </Badge>
+                          ) : (
+                            "—"
+                          )}
+                        </TableCell>
+                        <TableCell className="text-xs text-muted-foreground">v{course.version || 1}</TableCell>
+                        <TableCell>
+                          <Badge
+                            variant={
+                              course.status === "published"
+                                ? "default"
+                                : course.status === "review"
+                                ? "outline"
+                                : "secondary"
+                            }
+                            className={
+                              course.status === "review" ? "border-amber-400 text-amber-600 bg-amber-50" : ""
+                            }
+                          >
+                            {course.status ? course.status.toUpperCase() : "DRAFT"}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <div className="flex items-center justify-end gap-2">
+                            <Link href={`/platform-admin/preview/${course.id}`}>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="flex items-center gap-1 text-slate-600"
+                              >
+                                <Eye className="h-4 w-4" /> Preview
+                              </Button>
+                            </Link>
                             <Button
-                              variant="outline"
+                              variant="ghost"
                               size="sm"
-                              className="flex items-center gap-1 text-slate-600"
-                            >
-                              <Eye className="h-4 w-4" /> Preview
-                            </Button>
-                          </Link>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => handleEditClick(course)}
-                            className="flex items-center gap-1 text-primary hover:text-primary-hover"
+                              onClick={() => handleEditClick(course)}
+                              className="flex items-center gap-1 text-primary hover:text-primary-hover"
                           >
                             <Edit className="h-4 w-4" /> Manage Course
                           </Button>
@@ -658,6 +726,7 @@ export default function PlatformAdminCourses() {
                 </TableBody>
               </Table>
             </div>
+            </>
           )}
         </div>
       ) : selectedLessonForBlocks ? (
@@ -1190,7 +1259,7 @@ export default function PlatformAdminCourses() {
                 onClick={() => setActiveTab("lessons")}
                 className="flex items-center gap-1.5"
               >
-                <BookOpen className="h-4 w-4" /> Lessons ({lessons.length})
+                <BookOpen className="h-4 w-4" /> Lessons ({isLoadingLessons ? "…" : isErrorLessons ? "!" : lessons.length})
               </Button>
               <Button
                 type="button"
@@ -1199,7 +1268,7 @@ export default function PlatformAdminCourses() {
                 onClick={() => setActiveTab("quiz")}
                 className="flex items-center gap-1.5"
               >
-                <HelpCircle className="h-4 w-4" /> Quiz Questions ({quizQuestions.length})
+                <HelpCircle className="h-4 w-4" /> Quiz Questions ({isLoadingQuiz ? "…" : isErrorQuiz ? "!" : quizQuestions.length})
               </Button>
             </div>
           </div>
@@ -1465,7 +1534,24 @@ export default function PlatformAdminCourses() {
                 </Button>
               </div>
 
-              {lessons.length === 0 ? (
+              {isLoadingLessons ? (
+                <div className="space-y-2">
+                  <Skeleton className="h-10 w-full" />
+                  <Skeleton className="h-24 w-full" />
+                </div>
+              ) : isErrorLessons ? (
+                <div className="bg-rose-50 border border-rose-200 text-rose-800 rounded-lg p-4 flex items-center justify-between gap-3 text-sm">
+                  <div className="flex gap-3 items-center">
+                    <AlertCircle className="h-5 w-5 shrink-0 text-rose-600" />
+                    <div>
+                      <span className="font-semibold">Failed to load lessons:</span> {(lessonsError as any)?.message || "API request failed"}
+                    </div>
+                  </div>
+                  <Button type="button" variant="outline" size="sm" onClick={() => refetchLessons()}>
+                    Retry
+                  </Button>
+                </div>
+              ) : lessons.length === 0 ? (
                 <div className="border border-dashed rounded-lg p-12 text-center text-muted-foreground bg-card">
                   <BookOpen className="h-8 w-full mb-2 opacity-50" />
                   <p className="text-sm font-semibold">No lessons found</p>
@@ -1577,7 +1663,24 @@ export default function PlatformAdminCourses() {
                 </Button>
               </div>
 
-              {quizQuestions.length === 0 ? (
+              {isLoadingQuiz ? (
+                <div className="space-y-2">
+                  <Skeleton className="h-10 w-full" />
+                  <Skeleton className="h-24 w-full" />
+                </div>
+              ) : isErrorQuiz ? (
+                <div className="bg-rose-50 border border-rose-200 text-rose-800 rounded-lg p-4 flex items-center justify-between gap-3 text-sm">
+                  <div className="flex gap-3 items-center">
+                    <AlertCircle className="h-5 w-5 shrink-0 text-rose-600" />
+                    <div>
+                      <span className="font-semibold">Failed to load quiz questions:</span> {(quizError as any)?.message || "API request failed"}
+                    </div>
+                  </div>
+                  <Button type="button" variant="outline" size="sm" onClick={() => refetchQuiz()}>
+                    Retry
+                  </Button>
+                </div>
+              ) : quizQuestions.length === 0 ? (
                 <div className="border border-dashed rounded-lg p-12 text-center text-muted-foreground bg-card">
                   <HelpCircle className="h-8 w-full mb-2 opacity-50" />
                   <p className="text-sm font-semibold">No questions found</p>

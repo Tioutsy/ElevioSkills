@@ -50,7 +50,7 @@ describe("Sprint 11F — ELH-06 Green Office Practices Assurance & Regression Su
       .where(eq(quizQuestionsTable.courseId, 6))
       .orderBy(quizQuestionsTable.orderIndex);
 
-    assert.equal(questions.length, 5, "ELH-06 quiz must contain 5 scored questions");
+    assert.equal(questions.length, 10, "ELH-06 quiz must contain 10 scored questions");
 
     const positionCounts: Record<number, number> = { 0: 0, 1: 0, 2: 0, 3: 0 };
     for (const q of questions) {

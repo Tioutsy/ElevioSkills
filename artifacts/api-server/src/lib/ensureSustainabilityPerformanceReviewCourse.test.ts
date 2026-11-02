@@ -109,4 +109,59 @@ test("Course 19 (ELH-19) Seeding & Integrity Unit Tests", async () => {
     .from(quizQuestionsTable)
     .where(eq(quizQuestionsTable.courseId, course.id));
   assert.equal(quizRepaired.length, 10, "Repaired course must contain 10 questions");
+
+  // 4. Dual-row collision guard: when ELH-19 is on "reviewing-sustainability-performance-and-taking-corrective-action"
+  // and a separate draft row exists with slug "reviewing-sustainability-performance-and-corrective-action" (0 questions),
+  // both rows are preserved without unique slug collision and the draft row receives 6 lessons + 10 balanced questions.
+  await db
+    .update(coursesTable)
+    .set({ slug: "reviewing-sustainability-performance-and-taking-corrective-action" })
+    .where(eq(coursesTable.id, course.id));
+
+  const [draftRow] = await db
+    .insert(coursesTable)
+    .values({
+      title: "Reviewing Sustainability Performance and Corrective Action",
+      slug: "reviewing-sustainability-performance-and-corrective-action",
+      description: "Draft duplicate row",
+      categoryId: 2,
+      durationMinutes: 20,
+      priceUsd: "1400.00",
+      level: "intermediate",
+      isFeatured: false,
+      isPublished: false,
+      status: "draft",
+    })
+    .returning();
+
+  await ensureSustainabilityPerformanceReviewCourse();
+
+  const [updatedDraft] = await db
+    .select()
+    .from(coursesTable)
+    .where(eq(coursesTable.id, draftRow.id))
+    .limit(1);
+  assert.equal(updatedDraft.isPublished, false, "Duplicate draft row must remain unpublished by default");
+  assert.equal(updatedDraft.status, "draft", "Duplicate draft row must remain in draft status");
+
+  const draftLessons = await db
+    .select()
+    .from(lessonsTable)
+    .where(eq(lessonsTable.courseId, draftRow.id));
+  assert.equal(draftLessons.length, 6, "Duplicate draft row must be populated with 6 substantive lessons");
+
+  const draftQuiz = await db
+    .select()
+    .from(quizQuestionsTable)
+    .where(eq(quizQuestionsTable.courseId, draftRow.id));
+  assert.equal(draftQuiz.length, 10, "Duplicate draft row must be populated with 10 balanced quiz questions");
+
+  // Clean up synthetic duplicate draft row and restore canonical slug on course.id
+  await db.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, draftRow.id));
+  await db.delete(lessonsTable).where(eq(lessonsTable.courseId, draftRow.id));
+  await db.delete(coursesTable).where(eq(coursesTable.id, draftRow.id));
+  await db
+    .update(coursesTable)
+    .set({ slug: "reviewing-sustainability-performance-and-corrective-action" })
+    .where(eq(coursesTable.id, course.id));
 });

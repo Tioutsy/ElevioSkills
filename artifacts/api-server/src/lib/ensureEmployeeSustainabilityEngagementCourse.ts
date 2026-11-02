@@ -210,14 +210,20 @@ const NEW_QUIZ = [
     order: 1,
     question: "Why is low employee participation in a sustainability initiative rarely proof of employee indifference?",
     options: [
-      "Because low participation usually reflects operational barriers, shift exclusion, lack of tool access, or missing feedback on past suggestions",
-      "Because employees always complete every corporate campaign enthusiastically",
       "Because sustainability is legally mandatory for all employees in Mauritius",
+      "Because employees always complete every corporate campaign enthusiastically",
+      "Because low participation usually reflects operational barriers, shift exclusion, lack of tool access, or missing feedback on past suggestions",
       "Because participation figures are calculated by external software"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Low participation stems from systemic barriers, shift exclusion, or lack of follow-through rather than apathy.",
-    incorrectExplanation: "Incorrect. Systemic barriers, shift timing, or broken feedback loops cause low participation."
+    incorrectExplanation: "Incorrect. Systemic barriers, shift timing, or broken feedback loops cause low participation.",
+    optionFeedback: [
+      "Incorrect. 'Because sustainability is legally mandatory for all employees in Mauritius' is not the right approach—systemic barriers, shift timing, or broken feedback loops cause low participation.",
+      "Incorrect. 'Because employees always complete every corporate campaign enthusiastically' is not the right approach—systemic barriers, shift timing, or broken feedback loops cause low participation.",
+      "Correct. Low participation stems from systemic barriers, shift exclusion, or lack of follow-through rather than apathy.",
+      "Incorrect. 'Because participation figures are calculated by external software' is not the right approach—systemic barriers, shift timing, or broken feedback loops cause low participation."
+    ]
   },
   {
     order: 2,
@@ -230,46 +236,70 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "I = Identify relevant employees & barriers before launching campaigns.",
-    incorrectExplanation: "Incorrect. I = Identify relevant employees & barriers."
+    incorrectExplanation: "Incorrect. I = Identify relevant employees & barriers.",
+    optionFeedback: [
+      "Correct. I = Identify relevant employees & barriers before launching campaigns.",
+      "Incorrect. 'Ignore frontline employee concerns until management demands an update' is not the right approach—i = Identify relevant employees & barriers.",
+      "Incorrect. 'Issue financial penalties to staff who do not attend voluntary briefings' is not the right approach—i = Identify relevant employees & barriers.",
+      "Incorrect. 'Inspect employee personal lockers for uncycled paper' is not the right approach—i = Identify relevant employees & barriers."
+    ]
   },
   {
     order: 3,
     question: "What is the key difference between PASSIVE AWARENESS and ACTIVE ENGAGEMENT?",
     options: [
-      "Awareness means receiving information (e.g. Reading a poster); Engagement means actively shaping, contributing to, and applying workplace practices",
       "Awareness applies to managers; Engagement applies to interns",
+      "Awareness means receiving information (e.g. Reading a poster); Engagement means actively shaping, contributing to, and applying workplace practices",
       "Awareness is used in summer; Engagement is used in winter",
       "Awareness and Engagement are exact synonyms in human resources"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Awareness = receiving info; Engagement = active participation and shaping workplace practices.",
-    incorrectExplanation: "Incorrect. Awareness is passive receipt; Engagement is active participation and practice application."
+    incorrectExplanation: "Incorrect. Awareness is passive receipt; Engagement is active participation and practice application.",
+    optionFeedback: [
+      "Incorrect. 'Awareness applies to managers; Engagement applies to interns' is not the right approach—awareness is passive receipt; Engagement is active participation and practice application.",
+      "Correct. Awareness = receiving info; Engagement = active participation and shaping workplace practices.",
+      "Incorrect. 'Awareness is used in summer; Engagement is used in winter' is not the right approach—awareness is passive receipt; Engagement is active participation and practice application.",
+      "Incorrect. 'Awareness and Engagement are exact synonyms in human resources' is not the right approach—awareness is passive receipt; Engagement is active participation and practice application."
+    ]
   },
   {
     order: 4,
     question: "In the visual breakroom feedboard (`visual-sustainability-employee-engagement.png`), why is offering a QR code as the sole submission method a flaw?",
     options: [
-      "Because frontline and shift workers without smartphones or desk computers are excluded from participating",
+      "Because poster boards cannot support digital printing",
       "Because QR codes are illegal in commercial breakrooms",
       "Because QR codes can only be scanned during rainstorms",
-      "Because poster boards cannot support digital printing"
+      "Because frontline and shift workers without smartphones or desk computers are excluded from participating"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "QR-code-only channels exclude non-desk, frontline, and shift workers who lack smartphones or email access.",
-    incorrectExplanation: "Incorrect. Single digital channels exclude non-desk and shift workers."
+    incorrectExplanation: "Incorrect. Single digital channels exclude non-desk and shift workers.",
+    optionFeedback: [
+      "Incorrect. 'Because poster boards cannot support digital printing' is not the right approach—single digital channels exclude non-desk and shift workers.",
+      "Incorrect. 'Because QR codes are illegal in commercial breakrooms' is not the right approach—single digital channels exclude non-desk and shift workers.",
+      "Incorrect. 'Because QR codes can only be scanned during rainstorms' is not the right approach—single digital channels exclude non-desk and shift workers.",
+      "Correct. QR-code-only channels exclude non-desk, frontline, and shift workers who lack smartphones or email access."
+    ]
   },
   {
     order: 5,
     question: "Why should public leaderboards ranking 'Lowest-Performing Departments' be avoided in employee engagement?",
     options: [
-      "Because public shaming demoralizes teams, creates hostility between departments, and discourages honest reporting of operational problems",
       "Because leaderboards require too much ink to print",
+      "Because public shaming demoralizes teams, creates hostility between departments, and discourages honest reporting of operational problems",
       "Because departments are not allowed to compare results",
       "Because public rankings automatically trigger union audits"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Public shaming demoralizes staff and causes teams to hide operational flaws; positive recognition of collaborative effort is effective.",
-    incorrectExplanation: "Incorrect. Public shaming demoralizes teams and encourages hiding operational flaws."
+    incorrectExplanation: "Incorrect. Public shaming demoralizes teams and encourages hiding operational flaws.",
+    optionFeedback: [
+      "Incorrect. 'Because leaderboards require too much ink to print' is not the right approach—public shaming demoralizes teams and encourages hiding operational flaws.",
+      "Correct. Public shaming demoralizes staff and causes teams to hide operational flaws; positive recognition of collaborative effort is effective.",
+      "Incorrect. 'Because departments are not allowed to compare results' is not the right approach—public shaming demoralizes teams and encourages hiding operational flaws.",
+      "Incorrect. 'Because public rankings automatically trigger union audits' is not the right approach—public shaming demoralizes teams and encourages hiding operational flaws."
+    ]
   },
   {
     order: 6,
@@ -282,33 +312,51 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "A feedback loop ensures every employee suggestion receives a transparent, respectful response.",
-    incorrectExplanation: "Incorrect. Feedback loop = explaining to staff what decision was made on their input and why."
+    incorrectExplanation: "Incorrect. Feedback loop = explaining to staff what decision was made on their input and why.",
+    optionFeedback: [
+      "Correct. A feedback loop ensures every employee suggestion receives a transparent, respectful response.",
+      "Incorrect. 'Sending monthly marketing newsletters to external customers' is not the right approach—feedback loop = explaining to staff what decision was made on their input and why.",
+      "Incorrect. 'Repeating the same training video every week' is not the right approach—feedback loop = explaining to staff what decision was made on their input and why.",
+      "Incorrect. 'Installing loudspeakers in the staff cafeteria' is not the right approach—feedback loop = explaining to staff what decision was made on their input and why."
+    ]
   },
   {
     order: 7,
     question: "Why should management resolve reported equipment leaks or missing bins before asking staff for new sustainability ideas?",
     options: [
-      "Because asking for new ideas while ignoring basic infrastructure failures undermines management credibility and creates initiative fatigue",
-      "Because new ideas are forbidden until all repairs are finished",
       "Because equipment leaks are illegal under commercial building codes",
+      "Because new ideas are forbidden until all repairs are finished",
+      "Because asking for new ideas while ignoring basic infrastructure failures undermines management credibility and creates initiative fatigue",
       "Because bins must be imported from abroad"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Fixing known operational defects demonstrates management commitment before requesting new employee ideas.",
-    incorrectExplanation: "Incorrect. Ignoring existing reported defects destroys management credibility."
+    incorrectExplanation: "Incorrect. Ignoring existing reported defects destroys management credibility.",
+    optionFeedback: [
+      "Incorrect. 'Because equipment leaks are illegal under commercial building codes' is not the right approach—ignoring existing reported defects destroys management credibility.",
+      "Incorrect. 'Because new ideas are forbidden until all repairs are finished' is not the right approach—ignoring existing reported defects destroys management credibility.",
+      "Correct. Fixing known operational defects demonstrates management commitment before requesting new employee ideas.",
+      "Incorrect. 'Because bins must be imported from abroad' is not the right approach—ignoring existing reported defects destroys management credibility."
+    ]
   },
   {
     order: 8,
     question: "How can line managers and shift supervisors enable frontline employee participation?",
     options: [
-      "By dedicating 5 minutes during shift huddles, modeling expected behaviors, and escalating unresolved equipment barriers to management",
+      "By taking credit for frontline ideas on executive reports",
       "By ordering staff to complete surveys during their unpaid lunch breaks",
       "By forbidding staff from discussing waste during work hours",
-      "By taking credit for frontline ideas on executive reports"
+      "By dedicating 5 minutes during shift huddles, modeling expected behaviors, and escalating unresolved equipment barriers to management"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Supervisors enable participation by integrating huddles into shift time, removing barriers, and listening.",
-    incorrectExplanation: "Incorrect. Supervisors enable participation during normal shift routines and huddles."
+    incorrectExplanation: "Incorrect. Supervisors enable participation during normal shift routines and huddles.",
+    optionFeedback: [
+      "Incorrect. 'By taking credit for frontline ideas on executive reports' is not the right approach—supervisors enable participation during normal shift routines and huddles.",
+      "Incorrect. 'By ordering staff to complete surveys during their unpaid lunch breaks' is not the right approach—supervisors enable participation during normal shift routines and huddles.",
+      "Incorrect. 'By forbidding staff from discussing waste during work hours' is not the right approach—supervisors enable participation during normal shift routines and huddles.",
+      "Correct. Supervisors enable participation by integrating huddles into shift time, removing barriers, and listening."
+    ]
   },
   {
     order: 9,
@@ -321,20 +369,32 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "ELH-21 engages the general workforce; ELH-22 guides green teams in sustaining engagement long-term.",
-    incorrectExplanation: "Incorrect. ELH-21 builds general engagement; ELH-22 equips green teams to facilitate it."
+    incorrectExplanation: "Incorrect. ELH-21 builds general engagement; ELH-22 equips green teams to facilitate it.",
+    optionFeedback: [
+      "Correct. ELH-21 engages the general workforce; ELH-22 guides green teams in sustaining engagement long-term.",
+      "Incorrect. 'ELH-21 replaces green teams so formal committees are no longer needed' is not the right approach—eLH-21 builds general engagement; ELH-22 equips green teams to facilitate it.",
+      "Incorrect. 'ELH-21 is for office staff; ELH-22 is for external auditors' is not the right approach—eLH-21 builds general engagement; ELH-22 equips green teams to facilitate it.",
+      "Incorrect. 'There is no connection between engagement and green teams' is not the right approach—eLH-21 builds general engagement; ELH-22 equips green teams to facilitate it."
+    ]
   },
   {
     order: 10,
     question: "What is the primary takeaway of the INVOLVE Operational Framework?",
     options: [
-      "Applying INVOLVE (Identify barriers, Name purpose, Vary channels, Open safe feedback, Link to owners, Verify changes, Explain response) ensures inclusive participation",
-      "Employee engagement should rely on guilt-driven posters and mandatory prizes",
       "Management should shift all environmental responsibilities onto frontline staff",
+      "Employee engagement should rely on guilt-driven posters and mandatory prizes",
+      "Applying INVOLVE (Identify barriers, Name purpose, Vary channels, Open safe feedback, Link to owners, Verify changes, Explain response) ensures inclusive participation",
       "Participation rates prove environmental performance without needing physical data"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "INVOLVE ensures structured, barrier-free, and respectful employee participation with visible follow-through.",
-    incorrectExplanation: "Incorrect. INVOLVE provides structured discipline for inclusive workplace participation and follow-through."
+    incorrectExplanation: "Incorrect. INVOLVE provides structured discipline for inclusive workplace participation and follow-through.",
+    optionFeedback: [
+      "Incorrect. 'Management should shift all environmental responsibilities onto frontline staff' is not the right approach—iNVOLVE provides structured discipline for inclusive workplace participation and follow-through.",
+      "Incorrect. 'Employee engagement should rely on guilt-driven posters and mandatory prizes' is not the right approach—iNVOLVE provides structured discipline for inclusive workplace participation and follow-through.",
+      "Correct. INVOLVE ensures structured, barrier-free, and respectful employee participation with visible follow-through.",
+      "Incorrect. 'Participation rates prove environmental performance without needing physical data' is not the right approach—iNVOLVE provides structured discipline for inclusive workplace participation and follow-through."
+    ]
   }
 ];
 
@@ -389,7 +449,7 @@ export async function ensureEmployeeSustainabilityEngagementCourse(): Promise<vo
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 10;
+      const hasMissingQuiz = existingQuizQuestions.length < 8;
 
       const needsRepair = !existingSeed || hasMissingLessons || hasEmptyBlocks || hasMissingQuiz;
 
@@ -460,6 +520,7 @@ export async function ensureEmployeeSustainabilityEngagementCourse(): Promise<vo
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );

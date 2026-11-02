@@ -392,35 +392,35 @@ const QUIZ_QUESTIONS = [
     question: "A sales representative receives a complex technical customer inquiry about supply chain carbon emissions. The representative does not have the verified data. What should they do?",
     options: [
       "Estimate a low carbon figure to impress the customer.",
-      "Acknowledge the inquiry, provide approved general company facts, and escalate the technical question to the ESG data owner for a verified response.",
+      "Claim the supply chain has zero emissions.",
       "Refuse to answer and end the sales call.",
-      "Claim the supply chain has zero emissions."
+      "Acknowledge the inquiry, provide approved general company facts, and escalate the technical question to the ESG data owner for a verified response."
     ],
-    correctOption: 1,
+    correctOption: 3,
     correctExplanation: "Correct! Never guess technical data during sales calls; provide approved facts and escalate missing technical queries.",
     incorrectExplanation: "Review technical query handling: Provide known approved facts and escalate missing technical data to data owners.",
     optionFeedback: [
       "Incorrect. Guessing carbon figures risks major commercial and legal liability.",
-      "Correct! Acknowledge the inquiry, provide approved general company facts, and escalate the technical question to the ESG data owner for a verified response.",
+      "Incorrect. Claiming zero emissions without evidence is false advertising.",
       "Incorrect. Ending calls abruptly damages customer relationships; escalate through proper channels.",
-      "Incorrect. Claiming zero emissions without evidence is false advertising."
+      "Correct! Acknowledge the inquiry, provide approved general company facts, and escalate the technical question to the ESG data owner for a verified response."
     ],
     orderIndex: 5
   },
   {
     question: "A marketing coordinator notices that an active brochure headline claims 'Zero Waste to Landfill', but a new branch office opened that still sends waste to landfill. What is the correct response?",
     options: [
-      "Keep distributing the brochure until all printed copies are finished.",
       "Update or qualify the brochure claim promptly to restrict the scope to sites that have achieved verified zero waste status.",
+      "Keep distributing the brochure until all printed copies are finished.",
       "Hide the new branch office from company listings.",
       "Blame the printing vendor for the mistake."
     ],
-    correctOption: 1,
-    correctExplanation: "Correct! Outdated or inaccurate claims must be corrected or qualified promptly when operational facts change.",
+    correctOption: 0,
+    correctExplanation: "Correct! Outdated or inaccurate claims must be corrected or qualify promptly when operational facts change.",
     incorrectExplanation: "Review claim updates: Correct or qualify claims promptly when operational facts change.",
     optionFeedback: [
-      "Incorrect. Distributing known inaccurate claims misleads customers and breaks compliance.",
       "Correct! Update or qualify the brochure claim promptly to restrict the scope to sites that have achieved verified zero waste status.",
+      "Incorrect. Distributing known inaccurate claims misleads customers and breaks compliance.",
       "Incorrect. Hiding operational sites compromises corporate transparency.",
       "Incorrect. The printing vendor prints approved copy; marketing owns claim accuracy."
     ],
@@ -430,17 +430,17 @@ const QUIZ_QUESTIONS = [
     question: "A product packaging claim features a third-party eco-certification logo. What must marketing retain in the compliance file?",
     options: [
       "A downloaded Google image of the logo.",
-      "Written authorization, valid license certificate, and scope details from the certification body.",
       "A verbal statement from the sales manager.",
+      "Written authorization, valid license certificate, and scope details from the certification body.",
       "An internal email saying the logo looks attractive."
     ],
-    correctOption: 1,
+    correctOption: 2,
     correctExplanation: "Correct! Certification logo use requires retaining written license permission and valid scope documentation.",
     incorrectExplanation: "Review certification marks: Retain written license permission and valid scope certificates.",
     optionFeedback: [
       "Incorrect. Downloading a logo image does not grant legal permission to use it.",
-      "Correct! Written authorization, valid license certificate, and scope details from the certification body.",
       "Incorrect. Verbal statements do not satisfy legal certification licensing checks.",
+      "Correct! Written authorization, valid license certificate, and scope details from the certification body.",
       "Incorrect. Visual appeal does not override intellectual property or accreditation rules."
     ],
     orderIndex: 7

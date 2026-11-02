@@ -19,7 +19,15 @@ import { runCompanyOnboardingDiagnostics } from "./companyOnboardingDiagnostics"
 describe("Sprint 8A: Company Onboarding, Employee Import & First-Course Activation Audit", () => {
 
   test("1. Server-side getCompanyOnboardingStatus evaluates company readiness accurately", async () => {
-    const status = await getCompanyOnboardingStatus(1);
+    let [comp] = await db.select().from(companiesTable).limit(1);
+    if (!comp) {
+      const [newComp] = await db
+        .insert(companiesTable)
+        .values({ name: "Infracare Test Org", slug: `infracare-test-org-${Date.now()}` })
+        .returning();
+      comp = newComp;
+    }
+    const status = await getCompanyOnboardingStatus(comp.id);
     assert.ok(status.stage, "Onboarding stage must be present");
     assert.ok(Array.isArray(status.completedSteps), "completedSteps must be an array");
     assert.ok(status.employeeCapacity, "employeeCapacity object must be present");

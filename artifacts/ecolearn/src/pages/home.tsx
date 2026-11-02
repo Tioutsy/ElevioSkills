@@ -1,8 +1,9 @@
 import { Layout } from "@/components/layout/Layout";
+import { CourseImage } from "@/components/CourseImage";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowRight, Leaf, ShieldCheck, TrendingUp, PlayCircle, BookOpen, Award, BarChart3, MapPin, Recycle } from "lucide-react";
-import { useGetFeaturedCourses } from "@workspace/api-client-react";
+import { ArrowRight, Leaf, ShieldCheck, TrendingUp, PlayCircle, BookOpen, Award, BarChart3, Sparkles, MapPin, Recycle } from "lucide-react";
+import { useGetFeaturedCourses, useListCourses } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion } from "framer-motion";
 import { LeadCaptureDialog } from "@/components/lead-capture-dialog";
@@ -11,7 +12,9 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
   const { data: featuredCourses, isLoading } = useGetFeaturedCourses();
+  const { data: publicCourses } = useListCourses();
   const { t } = useLanguage();
+  const publicCourseCount = Array.isArray(publicCourses) && publicCourses.length > 0 ? publicCourses.length : null;
 
   return (
     <Layout>
@@ -31,15 +34,25 @@ export default function Home() {
               <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
                 {t("home.hero_sub")}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild className="h-12 px-8 text-base">
-                  <Link href="/courses">{t("home.explore_courses")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <div className="flex flex-col sm:flex-row gap-4 mb-4">
+                <Button size="lg" asChild className="h-12 px-8 text-base bg-emerald-700 hover:bg-emerald-800 text-white font-semibold shadow-md">
+                  <Link href="/experience">
+                    <Sparkles className="mr-2 h-4 w-4" />
+                    Experience ELEVIO
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="h-12 px-8 text-base border-primary/20 hover:bg-primary/5">
-                  <Link href="/pricing">{t("home.view_corporate_plans")}</Link>
+                <Button size="lg" variant="outline" asChild className="h-12 px-8 text-base border-primary/30 hover:bg-primary/5">
+                  <Link href="/pricing">View Pricing</Link>
                 </Button>
               </div>
-              
+              <div className="text-xs text-muted-foreground">
+                <Link href="/courses" className="hover:underline inline-flex items-center gap-1">
+                  {publicCourseCount
+                    ? `Or explore all ${publicCourseCount} published courses in our catalogue →`
+                    : "Or explore all published courses in our catalogue →"}
+                </Link>
+              </div>
             </div>
             
             <div className="relative lg:ml-auto">
@@ -134,13 +147,15 @@ export default function Home() {
                   <Skeleton className="h-4 w-1/2" />
                 </div>
               ))
-            ) : featuredCourses?.map((course) => (
+            ) : featuredCourses?.map((course, idx) => (
               <Link key={course.id} href={`/courses/${course.id}`}>
                 <div className="group bg-card border rounded-2xl overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer h-full flex flex-col">
                   <div className="relative aspect-video overflow-hidden">
-                    <img 
-                      src={course.thumbnailUrl || '/images/course-esg.png'} 
+                    <CourseImage 
+                      src={course.thumbnailUrl} 
+                      courseCode={(course as any).courseCode}
                       alt={course.title} 
+                      priority={idx < 3}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3 flex gap-2">
@@ -209,7 +224,7 @@ export default function Home() {
                 ))}
               </ul>
               <Button asChild size="lg" className="h-12 px-8 text-base">
-                <Link href="/mauritius-rules-resources">
+                <Link href="/courses">
                   See what makes us local <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -250,8 +265,15 @@ export default function Home() {
           <p className="text-emerald-100/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             Train your team, track progress and maintain clear sustainability learning records — all in one place.
           </p>
-          <div className="flex justify-center">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button size="lg" asChild className="bg-white text-emerald-950 hover:bg-emerald-50 h-12 px-8 text-base font-semibold rounded-xl shadow-lg transition-all">
+              <Link href="/experience">
+                <Sparkles className="mr-2 h-4 w-4 text-emerald-700" />
+                Experience ELEVIO
+                <ArrowRight className="ml-2 h-4 w-4 text-emerald-700" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild className="border-white/30 text-white hover:bg-white/10 h-12 px-8 text-base font-medium rounded-xl">
               <Link href="/pricing">View Corporate Plans</Link>
             </Button>
           </div>

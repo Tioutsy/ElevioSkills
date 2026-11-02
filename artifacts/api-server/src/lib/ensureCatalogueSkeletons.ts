@@ -455,8 +455,9 @@ const CATALOGUE_COURSES = [
   },
   {
     code: "ELH-14",
-    slug: "planning-and-delivering-workplace-sustainability-initiatives",
-    title: "Planning and Delivering Workplace Sustainability Initiatives",
+    slug: "workplace-sustainability-action-planning",
+    legacySlugs: ["planning-and-delivering-workplace-sustainability-initiatives"],
+    title: "Workplace Sustainability Action Planning",
     level: "intermediate",
     estimatedMinutes: 20,
     shortDescription: "Step-by-step framework for designing and executing sustainability projects at work.",
@@ -521,6 +522,7 @@ const CATALOGUE_COURSES = [
   {
     code: "ELH-19",
     slug: "reviewing-sustainability-performance-and-corrective-action",
+    legacySlugs: ["reviewing-sustainability-performance-and-taking-corrective-action"],
     title: "Reviewing Sustainability Performance and Corrective Action",
     level: "intermediate",
     estimatedMinutes: 20,
@@ -572,15 +574,16 @@ const CATALOGUE_COURSES = [
   },
   {
     code: "ELH-23",
-    slug: "workplace-sustainability-leadership",
-    title: "Workplace Sustainability Leadership",
-    level: "advanced",
-    estimatedMinutes: 22,
-    shortDescription: "Leading organizational change and embedding sustainability into business strategy.",
-    aim: "Empower leaders to drive strategic sustainability adoption.",
-    learningObjectives: ["Strategic alignment", "Change leadership", "Organizational culture"],
-    badgeName: "Sustainability Leader",
-    badgeDescription: "Awarded for leadership excellence.",
+    slug: "planning-and-delivering-workplace-sustainability-initiatives",
+    legacySlugs: ["workplace-sustainability-leadership"],
+    title: "Planning and Delivering Workplace Sustainability Initiatives",
+    level: "applied",
+    estimatedMinutes: 20,
+    shortDescription: "Step-by-step framework for designing and executing sustainability projects at work.",
+    aim: "Turn ideas into measurable workplace initiatives.",
+    learningObjectives: ["Project planning", "Stakeholder buy-in", "Measuring outcomes"],
+    badgeName: "Initiative Delivery Leader",
+    badgeDescription: "Awarded for completing Sustainability Initiatives training.",
     lessons: ["Lesson 1", "Lesson 2", "Lesson 3"]
   },
   {
@@ -706,6 +709,25 @@ export async function ensureCatalogueSkeletons(): Promise<void> {
               `Legacy course conflict: "${targetCourse.title}" exists under slug "${byTitle.slug}" instead of "${targetCourse.slug}". Preserving legacy record.`
             );
             existingCourse = byTitle;
+            report.conflictsOrSkipped++;
+          }
+        }
+
+        // b2. Lookup by canonical courseCode so we never create a duplicate draft when a course already holds the code
+        if (!existingCourse && targetCourse.code) {
+          const byCode = await tx
+            .select()
+            .from(coursesTable)
+            .where(eq(coursesTable.courseCode, targetCourse.code))
+            .limit(1)
+            .then((rows) => rows[0]);
+
+          if (byCode) {
+            logger.warn(
+              { code: targetCourse.code, slug: targetCourse.slug, existingSlug: byCode.slug },
+              `Course code "${targetCourse.code}" already exists under "${byCode.title}" (slug "${byCode.slug}"). Preserving existing record.`
+            );
+            existingCourse = byCode;
             report.conflictsOrSkipped++;
           }
         }

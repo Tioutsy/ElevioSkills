@@ -210,14 +210,20 @@ const NEW_QUIZ = [
     order: 1,
     question: "Why is assigning a sustainability action to 'All Staff' or 'Everyone' a major governance flaw?",
     options: [
-      "Because broad collective assignments lead to diffusion of responsibility where no individual feels answerable for driving progress or saving records",
-      "Because employees are not allowed to participate in sustainability",
       "Because sustainability actions must only be performed by external consultants",
+      "Because employees are not allowed to participate in sustainability",
+      "Because broad collective assignments lead to diffusion of responsibility where no individual feels answerable for driving progress or saving records",
       "Because spreadsheet software cannot handle more than 5 names"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Collective assignments without a single named lead cause diffusion of responsibility and unmonitored actions.",
-    incorrectExplanation: "Incorrect. Broad assignments dilute accountability; a single named owner must drive progress."
+    incorrectExplanation: "Incorrect. Broad assignments dilute accountability; a single named owner must drive progress.",
+    optionFeedback: [
+      "Incorrect. 'Because sustainability actions must only be performed by external consultants' is not the right approach—broad assignments dilute accountability; a single named owner must drive progress.",
+      "Incorrect. 'Because employees are not allowed to participate in sustainability' is not the right approach—broad assignments dilute accountability; a single named owner must drive progress.",
+      "Correct. Collective assignments without a single named lead cause diffusion of responsibility and unmonitored actions.",
+      "Incorrect. 'Because spreadsheet software cannot handle more than 5 names' is not the right approach—broad assignments dilute accountability; a single named owner must drive progress."
+    ]
   },
   {
     order: 2,
@@ -230,46 +236,70 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "C = Choose one accountable owner for every workplace action.",
-    incorrectExplanation: "Incorrect. C = Choose one accountable owner."
+    incorrectExplanation: "Incorrect. C = Choose one accountable owner.",
+    optionFeedback: [
+      "Correct. C = Choose one accountable owner for every workplace action.",
+      "Incorrect. 'Cancel all departmental sustainability meetings' is not the right approach—c = Choose one accountable owner.",
+      "Incorrect. 'Copy all emails to external news outlets' is not the right approach—c = Choose one accountable owner.",
+      "Incorrect. 'Charge employees financial penalties for unread policies' is not the right approach—c = Choose one accountable owner."
+    ]
   },
   {
     order: 3,
     question: "What is the fundamental difference between RESPONSIBILITY and ACCOUNTABILITY?",
     options: [
-      "Responsibility means performing the task execution; Accountability means final answerability for the outcome, evidence, and review",
       "Responsibility applies to full-time staff; Accountability applies to part-time staff",
+      "Responsibility means performing the task execution; Accountability means final answerability for the outcome, evidence, and review",
       "Responsibility is used in corporate offices; Accountability is used in factories",
       "Responsibility and Accountability are exact synonyms in organizational management"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Responsibility = performing work; Accountability = final answerability for results and evidence.",
-    incorrectExplanation: "Incorrect. Responsibility is task execution; Accountability is final answerability."
+    incorrectExplanation: "Incorrect. Responsibility is task execution; Accountability is final answerability.",
+    optionFeedback: [
+      "Incorrect. 'Responsibility applies to full-time staff; Accountability applies to part-time staff' is not the right approach—responsibility is task execution; Accountability is final answerability.",
+      "Correct. Responsibility = performing work; Accountability = final answerability for results and evidence.",
+      "Incorrect. 'Responsibility is used in corporate offices; Accountability is used in factories' is not the right approach—responsibility is task execution; Accountability is final answerability.",
+      "Incorrect. 'Responsibility and Accountability are exact synonyms in organizational management' is not the right approach—responsibility is task execution; Accountability is final answerability."
+    ]
   },
   {
     order: 4,
     question: "In the visual governance matrix board (`visual-sustainability-roles-accountability.png`), why is listing a contractor as sole owner of a compliance task a defect?",
     options: [
-      "Because contracting out work does not contract out internal company oversight; a named internal owner must verify supplier delivery",
+      "Because waste contractors do not work in commercial buildings",
       "Because contractors are forbidden from using whiteboards",
       "Because contractors never complete their assigned tasks",
-      "Because waste contractors do not work in commercial buildings"
+      "Because contracting out work does not contract out internal company oversight; a named internal owner must verify supplier delivery"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Companies must retain internal accountable ownership to verify contractor evidence and enforce contract standards.",
-    incorrectExplanation: "Incorrect. Contracting out work does not eliminate the need for an internal company owner."
+    incorrectExplanation: "Incorrect. Contracting out work does not eliminate the need for an internal company owner.",
+    optionFeedback: [
+      "Incorrect. 'Because waste contractors do not work in commercial buildings' is not the right approach—contracting out work does not eliminate the need for an internal company owner.",
+      "Incorrect. 'Because contractors are forbidden from using whiteboards' is not the right approach—contracting out work does not eliminate the need for an internal company owner.",
+      "Incorrect. 'Because contractors never complete their assigned tasks' is not the right approach—contracting out work does not eliminate the need for an internal company owner.",
+      "Correct. Companies must retain internal accountable ownership to verify contractor evidence and enforce contract standards."
+    ]
   },
   {
     order: 5,
     question: "What should happen when an assigned action owner transfers to a new department or leaves the company?",
     options: [
-      "Perform a formal written handover, update the action register with a new named owner, and transfer project files",
       "Leave the departed employee listed as owner indefinitely",
+      "Perform a formal written handover, update the action register with a new named owner, and transfer project files",
       "Delete the entire action history from the database",
       "Assume the action is automatically completed"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Personnel changes require updating ownership records and transferring files to preserve continuity.",
-    incorrectExplanation: "Incorrect. Perform a formal handover and assign a new active owner in the register."
+    incorrectExplanation: "Incorrect. Perform a formal handover and assign a new active owner in the register.",
+    optionFeedback: [
+      "Incorrect. 'Leave the departed employee listed as owner indefinitely' is not the right approach—perform a formal handover and assign a new active owner in the register.",
+      "Correct. Personnel changes require updating ownership records and transferring files to preserve continuity.",
+      "Incorrect. 'Delete the entire action history from the database' is not the right approach—perform a formal handover and assign a new active owner in the register.",
+      "Incorrect. 'Assume the action is automatically completed' is not the right approach—perform a formal handover and assign a new active owner in the register."
+    ]
   },
   {
     order: 6,
@@ -282,33 +312,51 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Accountable owners must be equipped with sufficient decision rights, time, and budget resources to succeed.",
-    incorrectExplanation: "Incorrect. Responsibility without authority or resources leads to blocked, unexecutable actions."
+    incorrectExplanation: "Incorrect. Responsibility without authority or resources leads to blocked, unexecutable actions.",
+    optionFeedback: [
+      "Correct. Accountable owners must be equipped with sufficient decision rights, time, and budget resources to succeed.",
+      "Incorrect. 'Because employees prefer not to have budget access' is not the right approach—responsibility without authority or resources leads to blocked, unexecutable actions.",
+      "Incorrect. 'Because project targets can be met without any resources' is not the right approach—responsibility without authority or resources leads to blocked, unexecutable actions.",
+      "Incorrect. 'Because authority is only required for senior directors' is not the right approach—responsibility without authority or resources leads to blocked, unexecutable actions."
+    ]
   },
   {
     order: 7,
     question: "What is the purpose of SEPARATION OF DUTIES in sustainability data logging and approvals?",
     options: [
-      "Ensuring the person preparing data or claims is not the sole verifier and approver, preventing self-approval and undetected errors",
-      "Keeping employees in separate office rooms during working hours",
       "Preventing finance staff from talking to facilities staff",
+      "Keeping employees in separate office rooms during working hours",
+      "Ensuring the person preparing data or claims is not the sole verifier and approver, preventing self-approval and undetected errors",
       "Doubling the length of all team meetings"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Separation of duties splits creation, verification, and approval roles to ensure data integrity and prevent self-approval.",
-    incorrectExplanation: "Incorrect. Separation of duties prevents self-approval and ensures independent review."
+    incorrectExplanation: "Incorrect. Separation of duties prevents self-approval and ensures independent review.",
+    optionFeedback: [
+      "Incorrect. 'Preventing finance staff from talking to facilities staff' is not the right approach—separation of duties prevents self-approval and ensures independent review.",
+      "Incorrect. 'Keeping employees in separate office rooms during working hours' is not the right approach—separation of duties prevents self-approval and ensures independent review.",
+      "Correct. Separation of duties splits creation, verification, and approval roles to ensure data integrity and prevent self-approval.",
+      "Incorrect. 'Doubling the length of all team meetings' is not the right approach—separation of duties prevents self-approval and ensures independent review."
+    ]
   },
   {
     order: 8,
     question: "What role does a Sustainability Coordinator play compared to a Department Manager who owns an action?",
     options: [
-      "The Coordinator facilitates, advises, and tracks overall progress; the Department Manager has line authority to direct staff and enforce procedures",
+      "The Coordinator is legally liable for all company actions",
       "The Coordinator makes all operational business decisions for every department",
       "The Department Manager only attends social events",
-      "The Coordinator is legally liable for all company actions"
+      "The Coordinator facilitates, advises, and tracks overall progress; the Department Manager has line authority to direct staff and enforce procedures"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Coordinators advise and track; Line Managers hold operational authority to direct staff and execute actions.",
-    incorrectExplanation: "Incorrect. Coordinators provide advisory support; Line Managers hold operational execution authority."
+    incorrectExplanation: "Incorrect. Coordinators provide advisory support; Line Managers hold operational execution authority.",
+    optionFeedback: [
+      "Incorrect. 'The Coordinator is legally liable for all company actions' is not the right approach—coordinators provide advisory support; Line Managers hold operational execution authority.",
+      "Incorrect. 'The Coordinator makes all operational business decisions for every department' is not the right approach—coordinators provide advisory support; Line Managers hold operational execution authority.",
+      "Incorrect. 'The Department Manager only attends social events' is not the right approach—coordinators provide advisory support; Line Managers hold operational execution authority.",
+      "Correct. Coordinators advise and track; Line Managers hold operational authority to direct staff and execute actions."
+    ]
   },
   {
     order: 9,
@@ -321,20 +369,32 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "ELH-20 establishes clear role boundaries; ELH-21 engages employees effectively within that clear framework.",
-    incorrectExplanation: "Incorrect. ELH-20 establishes clear governance boundaries; ELH-21 engages employees within them."
+    incorrectExplanation: "Incorrect. ELH-20 establishes clear governance boundaries; ELH-21 engages employees within them.",
+    optionFeedback: [
+      "Correct. ELH-20 establishes clear role boundaries; ELH-21 engages employees effectively within that clear framework.",
+      "Incorrect. 'ELH-20 replaces employee participation completely' is not the right approach—eLH-20 establishes clear governance boundaries; ELH-21 engages employees within them.",
+      "Incorrect. 'ELH-20 is for legal advisors; ELH-21 is for interns only' is not the right approach—eLH-20 establishes clear governance boundaries; ELH-21 engages employees within them.",
+      "Incorrect. 'There is no relationship between roles and engagement' is not the right approach—eLH-20 establishes clear governance boundaries; ELH-21 engages employees within them."
+    ]
   },
   {
     order: 10,
     question: "What is the primary takeaway of the CLEAR Operational Framework?",
     options: [
-      "Applying CLEAR (Choose owner, Link authority, Explain roles, Agree evidence & escalation, Record decisions) ensures transparent governance and follow-through",
-      "Role assignments should be kept secret from employees",
       "Green teams should replace all department managers",
+      "Role assignments should be kept secret from employees",
+      "Applying CLEAR (Choose owner, Link authority, Explain roles, Agree evidence & escalation, Record decisions) ensures transparent governance and follow-through",
       "External contractors should make all internal company decisions"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "CLEAR provides structured discipline for workplace governance, role clarity, and accountable decision-making.",
-    incorrectExplanation: "Incorrect. CLEAR ensures transparent workplace governance and accountable follow-through."
+    incorrectExplanation: "Incorrect. CLEAR ensures transparent workplace governance and accountable follow-through.",
+    optionFeedback: [
+      "Incorrect. 'Green teams should replace all department managers' is not the right approach—cLEAR ensures transparent workplace governance and accountable follow-through.",
+      "Incorrect. 'Role assignments should be kept secret from employees' is not the right approach—cLEAR ensures transparent workplace governance and accountable follow-through.",
+      "Correct. CLEAR provides structured discipline for workplace governance, role clarity, and accountable decision-making.",
+      "Incorrect. 'External contractors should make all internal company decisions' is not the right approach—cLEAR ensures transparent workplace governance and accountable follow-through."
+    ]
   }
 ];
 
@@ -389,7 +449,7 @@ export async function ensureSustainabilityRolesAccountabilityCourse(): Promise<v
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 10;
+      const hasMissingQuiz = existingQuizQuestions.length < 8;
 
       const needsRepair = !existingSeed || hasMissingLessons || hasEmptyBlocks || hasMissingQuiz;
 
@@ -460,6 +520,7 @@ export async function ensureSustainabilityRolesAccountabilityCourse(): Promise<v
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );

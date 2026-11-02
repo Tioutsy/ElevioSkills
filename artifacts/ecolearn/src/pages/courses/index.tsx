@@ -80,7 +80,7 @@ export default function Courses() {
     return cat ? cat.id : null;
   }, [selectedFilter, categories]);
 
-  const { data: courses, isLoading: isLoadingCourses } = useListCourses({
+  const { data: courses, isLoading: isLoadingCourses, isError: isErrorCourses, refetch: refetchCourses } = useListCourses({
     search: search || null,
     categoryId: activeCategoryId,
   });
@@ -296,7 +296,7 @@ export default function Courses() {
                         "text-xs px-1.5 py-0.5 rounded-full font-mono",
                         isActive ? "bg-primary-foreground/20 text-primary-foreground" : "bg-muted text-muted-foreground"
                       )}>
-                        {categories?.find(c => c.slug === filter.slug)?.courseCount || 0}
+                        {isLoadingCategories ? "…" : (categories?.find(c => c.slug === filter.slug)?.courseCount ?? 0)}
                       </span>
                     )}
                   </button>
@@ -354,7 +354,11 @@ export default function Courses() {
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-foreground">
-              {isLoadingCourses ? "Loading courses..." : `${displayedCourses.length} ${displayedCourses.length === 1 ? "Course" : "Courses"} available`}
+              {isLoadingCourses
+                ? "Loading courses..."
+                : isErrorCourses
+                ? "Course catalogue temporarily unavailable"
+                : `${displayedCourses.length} ${displayedCourses.length === 1 ? "Course" : "Courses"} available`}
             </h3>
           </div>
 
@@ -368,6 +372,16 @@ export default function Courses() {
                   <Skeleton className="h-10 w-full rounded-xl" />
                 </div>
               ))}
+            </div>
+          ) : isErrorCourses ? (
+            <div className="py-12 px-6 text-center border-2 border-rose-200 rounded-3xl bg-rose-50/50 text-rose-900">
+              <h4 className="text-lg font-semibold mb-1">Unable to load courses</h4>
+              <p className="text-sm text-rose-700 max-w-md mx-auto mb-4">
+                The catalogue request did not complete. Please retry to load available courses.
+              </p>
+              <Button variant="outline" onClick={() => refetchCourses()}>
+                Retry loading courses
+              </Button>
             </div>
           ) : displayedCourses.length === 0 ? (
             <div className="py-16 text-center text-muted-foreground border-2 border-dashed rounded-3xl bg-card/50">

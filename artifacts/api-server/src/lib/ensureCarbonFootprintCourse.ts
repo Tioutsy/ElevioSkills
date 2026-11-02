@@ -453,32 +453,42 @@ const NEW_QUIZ = [
 export async function ensureCarbonFootprintCourse(): Promise<void> {
   try {
     await db.transaction(async (tx) => {
-      // 1. Resolve Course 10 by ID 10 or slug
+      // 1. Resolve Carbon Footprint Awareness by canonical slug or title first so we never overwrite a repurposed ELH-07 row (e.g. "Resource Efficiency")
       let course = null;
-      
+
+      const [bySlug] = await tx
+        .select()
+        .from(coursesTable)
+        .where(eq(coursesTable.slug, COURSE_SLUG))
+        .limit(1);
+
       const [byCode] = await tx
         .select()
         .from(coursesTable)
         .where(eq(coursesTable.courseCode, "ELH-07"))
         .limit(1);
 
-      if (byCode) {
-        course = byCode;
+      if (bySlug) {
+        course = bySlug;
       } else {
-        const [bySlug] = await tx
+        const [byTitle] = await tx
           .select()
           .from(coursesTable)
-          .where(eq(coursesTable.slug, COURSE_SLUG))
+          .where(eq(coursesTable.title, COURSE_TITLE))
           .limit(1);
-        if (bySlug) {
-          course = bySlug;
+        if (byTitle) {
+          course = byTitle;
+        } else if (byCode && !byCode.title.toLowerCase().includes("resource efficiency")) {
+          course = byCode;
         } else {
           const [byId] = await tx
             .select()
             .from(coursesTable)
             .where(eq(coursesTable.id, COURSE_ID))
             .limit(1);
-          course = byId ?? null;
+          if (byId && !byId.title.toLowerCase().includes("resource efficiency")) {
+            course = byId;
+          }
         }
       }
 
@@ -487,6 +497,8 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
       }
 
       const courseId = course.id;
+      const hasCodeCollision = Boolean(byCode && byCode.id !== courseId);
+      const targetCourseCode = hasCodeCollision ? (course.courseCode || "ELH-07-CFA") : "ELH-07";
 
       // 2. Fetch seed marker and existing database content
       const [existingSeed] = await tx
@@ -520,11 +532,11 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
                           hasIncorrectSlug;
 
       if (!needsRepair) {
-        logger.info({ courseId, slug: COURSE_SLUG }, "Carbon Footprint Awareness course content and v3 integrity verified. Skipping repair to preserve administrator edits...");
+        logger.info({ courseId, slug: COURSE_SLUG }, "Carbon Footprint Awareness course content and v4 integrity verified. Skipping repair to preserve administrator edits...");
         return;
       }
 
-      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v3 seed detected for Course ELH-07. Re-seeding course content and lessons transactionally...");
+      logger.info({ courseId, slug: COURSE_SLUG, hasCodeCollision }, "Integrity mismatch or missing v4 seed detected for Carbon Footprint Awareness. Re-seeding course content and lessons transactionally...");
 
       // 4. Resolve next recommended course dynamically by slug
       const [nextCourse] = await tx
@@ -534,13 +546,18 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
         .limit(1);
       const nextCourseId = nextCourse?.id ?? null;
 
+      // Preserve draft status when another published course already holds ELH-07 unless explicitly overridden
+      const shouldPublish = hasCodeCollision
+        ? process.env.PUBLISH_REMEDIATED_DRAFTS === "true"
+        : true;
+
       // 5. Update course record slug, title, and metadata
       await tx
         .update(coursesTable)
         .set({
           title: COURSE_TITLE,
           slug: COURSE_SLUG,
-          courseCode: "ELH-07",
+          courseCode: targetCourseCode,
           description: COURSE_META.description,
           fullDescription: COURSE_META.fullDescription,
           categoryId: COURSE_META.categoryId,
@@ -557,8 +574,8 @@ export async function ensureCarbonFootprintCourse(): Promise<void> {
           badgeDescription: COURSE_META.badgeDescription,
           recommendedNextCourseId: nextCourseId,
           version: 2,
-          isPublished: true,
-          status: "published",
+          isPublished: shouldPublish,
+          status: shouldPublish ? "published" : "draft",
         })
         .where(eq(coursesTable.id, courseId));
 

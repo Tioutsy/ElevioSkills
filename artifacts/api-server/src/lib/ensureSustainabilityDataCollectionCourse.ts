@@ -210,14 +210,20 @@ const NEW_QUIZ = [
     order: 1,
     question: "Why is entering '1,850' in a water tracking spreadsheet without units or dates a data-quality failure?",
     options: [
-      "Because without physical units (e.g. m³, L) and an exact reporting period, the number cannot be verified, calculated, or compared",
-      "Because spreadsheets cannot store numbers greater than 1,000",
       "Because water tracking is legally restricted to government officers",
+      "Because spreadsheets cannot store numbers greater than 1,000",
+      "Because without physical units (e.g. m³, L) and an exact reporting period, the number cannot be verified, calculated, or compared",
       "Because all water numbers must be written in roman numerals"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Every data point requires a value, physical unit, site boundary, exact reporting period, and traceable source.",
-    incorrectExplanation: "Incorrect. Numbers without physical units and reporting periods cannot be verified or compared."
+    incorrectExplanation: "Incorrect. Numbers without physical units and reporting periods cannot be verified or compared.",
+    optionFeedback: [
+      "Incorrect. 'Because water tracking is legally restricted to government officers' is not the right approach—numbers without physical units and reporting periods cannot be verified or compared.",
+      "Incorrect. 'Because spreadsheets cannot store numbers greater than 1,000' is not the right approach—numbers without physical units and reporting periods cannot be verified or compared.",
+      "Correct. Every data point requires a value, physical unit, site boundary, exact reporting period, and traceable source.",
+      "Incorrect. 'Because all water numbers must be written in roman numerals' is not the right approach—numbers without physical units and reporting periods cannot be verified or compared."
+    ]
   },
   {
     order: 2,
@@ -230,46 +236,70 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "O = Observe period, boundary & unit, ensuring explicit physical and temporal boundaries.",
-    incorrectExplanation: "Incorrect. O = Observe period, boundary & unit."
+    incorrectExplanation: "Incorrect. O = Observe period, boundary & unit.",
+    optionFeedback: [
+      "Correct. O = Observe period, boundary & unit, ensuring explicit physical and temporal boundaries.",
+      "Incorrect. 'Overwrite old spreadsheet files to save storage space' is not the right approach—o = Observe period, boundary & unit.",
+      "Incorrect. 'Omit fuel data if the invoice is too complicated' is not the right approach—o = Observe period, boundary & unit.",
+      "Incorrect. 'Order new smart meters without management approval' is not the right approach—o = Observe period, boundary & unit."
+    ]
   },
   {
     order: 3,
     question: "What is the critical difference between MISSING DATA and ZERO?",
     options: [
-      "Missing data means information was uncollected (must remain blank/tagged gap); zero means verified proof that zero resource was consumed",
       "Missing data means zero cost; zero means negative cost",
+      "Missing data means information was uncollected (must remain blank/tagged gap); zero means verified proof that zero resource was consumed",
       "Missing data and zero mean the exact same thing in accounting",
       "Missing data is used for electricity; zero is used for water"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Entering zero for missing data distorts totals and falsely implies zero resource consumption.",
-    incorrectExplanation: "Incorrect. Missing data = uncollected info; Zero = verified zero consumption."
+    incorrectExplanation: "Incorrect. Missing data = uncollected info; Zero = verified zero consumption.",
+    optionFeedback: [
+      "Incorrect. 'Missing data means zero cost; zero means negative cost' is not the right approach—missing data = uncollected info; Zero = verified zero consumption.",
+      "Correct. Entering zero for missing data distorts totals and falsely implies zero resource consumption.",
+      "Incorrect. 'Missing data and zero mean the exact same thing in accounting' is not the right approach—missing data = uncollected info; Zero = verified zero consumption.",
+      "Incorrect. 'Missing data is used for electricity; zero is used for water' is not the right approach—missing data = uncollected info; Zero = verified zero consumption."
+    ]
   },
   {
     order: 4,
     question: "In the visual data log sheet photo (`visual-sustainability-data-quality-check.png`), what data defect is highlighted on the water row?",
     options: [
-      "The value '1850' is recorded without any physical unit of measure (e.g. m³ or litres)",
+      "The font color is dark blue",
       "The document is printed on recycled paper",
       "The table contains too many rows",
-      "The font color is dark blue"
+      "The value '1850' is recorded without any physical unit of measure (e.g. m³ or litres)"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "The water row shows '1850' without specifying m³ or litres, creating severe ambiguity.",
-    incorrectExplanation: "Incorrect. The highlighted defect is a missing unit of measure."
+    incorrectExplanation: "Incorrect. The highlighted defect is a missing unit of measure.",
+    optionFeedback: [
+      "Incorrect. 'The font color is dark blue' is not the right approach—the highlighted defect is a missing unit of measure.",
+      "Incorrect. 'The document is printed on recycled paper' is not the right approach—the highlighted defect is a missing unit of measure.",
+      "Incorrect. 'The table contains too many rows' is not the right approach—the highlighted defect is a missing unit of measure.",
+      "Correct. The water row shows '1850' without specifying m³ or litres, creating severe ambiguity."
+    ]
   },
   {
     order: 5,
     question: "Why should financial invoice costs (e.g. MUR 45,000) NEVER be entered into consumption fields meant for physical units (e.g. kWh)?",
     options: [
-      "Because utility tariffs change over time, so money spent does not equal physical energy or water consumed",
       "Because currency amounts are secret and confidential",
+      "Because utility tariffs change over time, so money spent does not equal physical energy or water consumed",
       "Because utility bills are always inaccurate",
       "Because physical units can only be measured in winter"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Tariffs and taxes fluctuate; tracking costs instead of physical units distorts environmental footprint calculations.",
-    incorrectExplanation: "Incorrect. Financial costs fluctuate with tariffs and do not represent physical resource consumption."
+    incorrectExplanation: "Incorrect. Financial costs fluctuate with tariffs and do not represent physical resource consumption.",
+    optionFeedback: [
+      "Incorrect. 'Because currency amounts are secret and confidential' is not the right approach—financial costs fluctuate with tariffs and do not represent physical resource consumption.",
+      "Correct. Tariffs and taxes fluctuate; tracking costs instead of physical units distorts environmental footprint calculations.",
+      "Incorrect. 'Because utility bills are always inaccurate' is not the right approach—financial costs fluctuate with tariffs and do not represent physical resource consumption.",
+      "Incorrect. 'Because physical units can only be measured in winter' is not the right approach—financial costs fluctuate with tariffs and do not represent physical resource consumption."
+    ]
   },
   {
     order: 6,
@@ -282,33 +312,51 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Estimates must be explicitly labeled with calculation methods and updated when measured data arrives.",
-    incorrectExplanation: "Incorrect. Estimates must be clearly labeled with methods and updated upon verification."
+    incorrectExplanation: "Incorrect. Estimates must be clearly labeled with methods and updated upon verification.",
+    optionFeedback: [
+      "Correct. Estimates must be explicitly labeled with calculation methods and updated when measured data arrives.",
+      "Incorrect. 'Enter the estimate as a verified meter reading without telling anyone' is not the right approach—estimates must be clearly labeled with methods and updated upon verification.",
+      "Incorrect. 'Leave the spreadsheet permanently locked' is not the right approach—estimates must be clearly labeled with methods and updated upon verification.",
+      "Incorrect. 'Multiply last year's number by 2 and submit it' is not the right approach—estimates must be clearly labeled with methods and updated upon verification."
+    ]
   },
   {
     order: 7,
     question: "What is an OUTLIER in workplace sustainability data collection?",
     options: [
-      "An implausibly high or low data value compared to historical baselines that requires verification before submission",
-      "An employee who works outside the main office building",
       "A document that was deleted from the computer recycle bin",
+      "An employee who works outside the main office building",
+      "An implausibly high or low data value compared to historical baselines that requires verification before submission",
       "A supplier who provides raw materials"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Outliers are unusual spikes or drops requiring verification for potential leaks or data entry errors.",
-    incorrectExplanation: "Incorrect. Outliers are unusual values requiring verification before submission."
+    incorrectExplanation: "Incorrect. Outliers are unusual values requiring verification before submission.",
+    optionFeedback: [
+      "Incorrect. 'A document that was deleted from the computer recycle bin' is not the right approach—outliers are unusual values requiring verification before submission.",
+      "Incorrect. 'An employee who works outside the main office building' is not the right approach—outliers are unusual values requiring verification before submission.",
+      "Correct. Outliers are unusual spikes or drops requiring verification for potential leaks or data entry errors.",
+      "Incorrect. 'A supplier who provides raw materials' is not the right approach—outliers are unusual values requiring verification before submission."
+    ]
   },
   {
     order: 8,
     question: "Why is saving evidence files in shared company locations better than storing them in personal folders?",
     options: [
-      "Because shared storage ensures audit traceability, team access, and operational continuity when staff change roles",
+      "Because personal files automatically expire after 24 hours",
       "Because personal folders use more internet bandwidth",
       "Because shared files cannot be edited by managers",
-      "Because personal files automatically expire after 24 hours"
+      "Because shared storage ensures audit traceability, team access, and operational continuity when staff change roles"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Shared evidence locations ensure team access, audit traceability, and continuity.",
-    incorrectExplanation: "Incorrect. Shared locations preserve traceability and operational continuity."
+    incorrectExplanation: "Incorrect. Shared locations preserve traceability and operational continuity.",
+    optionFeedback: [
+      "Incorrect. 'Because personal files automatically expire after 24 hours' is not the right approach—shared locations preserve traceability and operational continuity.",
+      "Incorrect. 'Because personal folders use more internet bandwidth' is not the right approach—shared locations preserve traceability and operational continuity.",
+      "Incorrect. 'Because shared files cannot be edited by managers' is not the right approach—shared locations preserve traceability and operational continuity.",
+      "Correct. Shared evidence locations ensure team access, audit traceability, and continuity."
+    ]
   },
   {
     order: 9,
@@ -321,20 +369,32 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "ELH-18 collects and validates raw data; ELH-19 interprets the validated data during performance reviews.",
-    incorrectExplanation: "Incorrect. ELH-18 provides validated data; ELH-19 evaluates performance trends."
+    incorrectExplanation: "Incorrect. ELH-18 provides validated data; ELH-19 evaluates performance trends.",
+    optionFeedback: [
+      "Correct. ELH-18 collects and validates raw data; ELH-19 interprets the validated data during performance reviews.",
+      "Incorrect. 'ELH-18 replaces performance reviews entirely' is not the right approach—eLH-18 provides validated data; ELH-19 evaluates performance trends.",
+      "Incorrect. 'ELH-18 is for receptionists; ELH-19 is for external lawyers' is not the right approach—eLH-18 provides validated data; ELH-19 evaluates performance trends.",
+      "Incorrect. 'ELH-18 handles financial payroll while ELH-19 handles marketing' is not the right approach—eLH-18 provides validated data; ELH-19 evaluates performance trends."
+    ]
   },
   {
     order: 10,
     question: "What is the primary takeaway of the SOURCE Data-Quality Framework?",
     options: [
-      "Applying SOURCE (Select source, Observe period/unit, Upload record, Record estimates, Check gaps, Escalate) ensures workplace data is reliable and traceable",
-      "Data collection is only necessary during external audits",
       "Spreadsheets should be submitted without checking for missing units",
+      "Data collection is only necessary during external audits",
+      "Applying SOURCE (Select source, Observe period/unit, Upload record, Record estimates, Check gaps, Escalate) ensures workplace data is reliable and traceable",
       "Estimates should always replace physical meter readings"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "The SOURCE framework provides structured discipline for accurate, evidence-backed data collection.",
-    incorrectExplanation: "Incorrect. SOURCE provides the discipline needed for reliable workplace data."
+    incorrectExplanation: "Incorrect. SOURCE provides the discipline needed for reliable workplace data.",
+    optionFeedback: [
+      "Incorrect. 'Spreadsheets should be submitted without checking for missing units' is not the right approach—sOURCE provides the discipline needed for reliable workplace data.",
+      "Incorrect. 'Data collection is only necessary during external audits' is not the right approach—sOURCE provides the discipline needed for reliable workplace data.",
+      "Correct. The SOURCE framework provides structured discipline for accurate, evidence-backed data collection.",
+      "Incorrect. 'Estimates should always replace physical meter readings' is not the right approach—sOURCE provides the discipline needed for reliable workplace data."
+    ]
   }
 ];
 
@@ -389,7 +449,7 @@ export async function ensureSustainabilityDataCollectionCourse(): Promise<void> 
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 10;
+      const hasMissingQuiz = existingQuizQuestions.length < 8;
 
       const needsRepair = !existingSeed || hasMissingLessons || hasEmptyBlocks || hasMissingQuiz;
 
@@ -460,6 +520,7 @@ export async function ensureSustainabilityDataCollectionCourse(): Promise<void> 
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );

@@ -3,7 +3,7 @@ import {
   usePlatformAdminListInsightArticles,
   usePlatformAdminListSectors,
   usePlatformAdminListLearningPaths,
-  useListCourses,
+  usePlatformAdminListCourses,
   usePlatformAdminListSdgContributions
 } from "@workspace/api-client-react";
 import { Link } from "wouter";
@@ -50,7 +50,7 @@ export default function PlatformAdminOverview() {
   const articlesQuery = usePlatformAdminListInsightArticles();
   const sectorsQuery = usePlatformAdminListSectors();
   const pathsQuery = usePlatformAdminListLearningPaths();
-  const coursesQuery = useListCourses();
+  const coursesQuery = usePlatformAdminListCourses();
   const contributionsQuery = usePlatformAdminListSdgContributions();
 
   const isLoading =
@@ -78,6 +78,8 @@ export default function PlatformAdminOverview() {
     if (!c.reviewDate) return false;
     return new Date(c.reviewDate) < new Date();
   }).length;
+  const publishedCourses = courses.filter((c: any) => c.status === "published" && c.isPublished !== false).length;
+  const draftCourses = courses.filter((c: any) => c.status !== "published" || c.isPublished === false).length;
 
   return (
     <PlatformAdminLayout>
@@ -131,9 +133,9 @@ export default function PlatformAdminOverview() {
             loading={isLoading}
           />
           <StatCard
-            title="Courses Under Review"
-            value={coursesRequiringReview}
-            description={`${coursesRequiringReview} courses requiring review date check`}
+            title="Courses Catalogue"
+            value={courses.length}
+            description={`${publishedCourses} published · ${draftCourses} drafts · ${coursesRequiringReview} due for review`}
             icon={<BookOpen className="h-4 w-4" />}
             href="/platform-admin/courses"
             loading={isLoading}

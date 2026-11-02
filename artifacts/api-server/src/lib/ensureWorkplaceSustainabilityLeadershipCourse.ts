@@ -637,27 +637,29 @@ const QUIZ_QUESTIONS = [
 
 export async function ensureWorkplaceSustainabilityLeadershipCourse(): Promise<void> {
   try {
-    // Obsolete draft course superseded by canonical ELH-23 (planning-and-delivering-workplace-sustainability-initiatives)
+    // Obsolete draft course superseded by canonical ELH-23 (planning-and-delivering-workplace-sustainability-initiatives).
+    // Preserve any existing record in draft status without deleting rows.
     const existing = await db
-      .select({ id: coursesTable.id })
+      .select({ id: coursesTable.id, isPublished: coursesTable.isPublished })
       .from(coursesTable)
       .where(eq(coursesTable.slug, COURSE_SLUG))
       .limit(1)
       .then((r) => r[0]);
 
-    if (existing) {
-      await db.delete(lessonsTable).where(eq(lessonsTable.courseId, existing.id));
-      await db.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, existing.id));
-      await db.delete(coursesTable).where(eq(coursesTable.id, existing.id));
+    if (existing && existing.isPublished) {
+      await db
+        .update(coursesTable)
+        .set({ isPublished: false, status: "draft" })
+        .where(eq(coursesTable.id, existing.id));
       logger.info(
         { courseId: existing.id },
-        "Cleaned up obsolete draft workplace-sustainability-leadership course superseded by canonical ELH-23"
+        "Preserved legacy workplace-sustainability-leadership record as unpublished draft (superseded by canonical ELH-23)"
       );
     }
   } catch (err: any) {
     logger.warn(
       { err: err?.message },
-      "Notice during cleanup of obsolete workplace-sustainability-leadership course"
+      "Notice during check of legacy workplace-sustainability-leadership course"
     );
   }
 }

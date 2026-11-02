@@ -623,6 +623,16 @@ export async function getOrGenerateMonthlyManagementBrief(
 
       return brief;
     }
+
+    const fallbackIntelligence = await generateCompanyWorkforceIntelligence(access);
+    const brief = await aggregateMonthlyManagementBrief(
+      { id: companyId, name: "Organisation", industry: "Services", trainingPriorities: [] },
+      reportingMonth,
+      fallbackIntelligence,
+      null
+    );
+    inMemoryBriefStore.set(storeKey, brief);
+    return brief;
   } catch (err: any) {
 
     // Ultimate safety fallback if db/services fail

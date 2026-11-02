@@ -235,14 +235,20 @@ const NEW_QUIZ = [
     order: 1,
     question: "ELH-01 (Foundations): How does sustainable development balance workplace decisions?",
     options: [
-      "By balancing environmental protection, social wellbeing, and economic viability without sacrificing future generations",
-      "By focusing 100% on short-term profits regardless of pollution",
       "By shutting down all commercial businesses permanently",
+      "By focusing 100% on short-term profits regardless of pollution",
+      "By balancing environmental protection, social wellbeing, and economic viability without sacrificing future generations",
       "By eliminating all employee safety training"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Sustainable development balances environmental, social, and economic needs for present and future resilience.",
-    incorrectExplanation: "Incorrect. Sustainability balances environmental, social, and economic factors."
+    incorrectExplanation: "Incorrect. Sustainability balances environmental, social, and economic factors.",
+    optionFeedback: [
+      "Incorrect. 'By shutting down all commercial businesses permanently' is not the right approach—sustainability balances environmental, social, and economic factors.",
+      "Incorrect. 'By focusing 100% on short-term profits regardless of pollution' is not the right approach—sustainability balances environmental, social, and economic factors.",
+      "Correct. Sustainable development balances environmental, social, and economic needs for present and future resilience.",
+      "Incorrect. 'By eliminating all employee safety training' is not the right approach—sustainability balances environmental, social, and economic factors."
+    ]
   },
   {
     order: 2,
@@ -255,46 +261,70 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Clean segregation and following site bin labels prevents contamination of recyclable streams.",
-    incorrectExplanation: "Incorrect. Follow site bin labels and keep recyclable streams uncontaminated."
+    incorrectExplanation: "Incorrect. Follow site bin labels and keep recyclable streams uncontaminated.",
+    optionFeedback: [
+      "Correct. Clean segregation and following site bin labels prevents contamination of recyclable streams.",
+      "Incorrect. 'Mix food waste and hazardous chemicals into paper recycling bins to save space' is not the right approach—follow site bin labels and keep recyclable streams uncontaminated.",
+      "Incorrect. 'Burn plastic waste behind the building when bins are full' is not the right approach—follow site bin labels and keep recyclable streams uncontaminated.",
+      "Incorrect. 'Throw all waste into the nearest river' is not the right approach—follow site bin labels and keep recyclable streams uncontaminated."
+    ]
   },
   {
     order: 3,
     question: "ELH-03 (Energy Efficiency): Which daily habit prevents avoidable electricity waste in air-conditioned offices?",
     options: [
-      "Keep windows and doors closed while AC is running and set thermostats to a comfortable 24°C rather than freezing temperatures",
       "Open all windows wide while running the AC on 16°C continuously",
+      "Keep windows and doors closed while AC is running and set thermostats to a comfortable 24°C rather than freezing temperatures",
       "Leave lights and computers running on maximum brightness all weekend",
       "Cover AC outdoor compressors with plastic tarpaulins while operating"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Closing windows and setting AC to 24°C reduces heavy electricity draw and compressor strain.",
-    incorrectExplanation: "Incorrect. Keep windows closed and set AC to 24°C."
+    incorrectExplanation: "Incorrect. Keep windows closed and set AC to 24°C.",
+    optionFeedback: [
+      "Incorrect. 'Open all windows wide while running the AC on 16°C continuously' is not the right approach—keep windows closed and set AC to 24°C.",
+      "Correct. Closing windows and setting AC to 24°C reduces heavy electricity draw and compressor strain.",
+      "Incorrect. 'Leave lights and computers running on maximum brightness all weekend' is not the right approach—keep windows closed and set AC to 24°C.",
+      "Incorrect. 'Cover AC outdoor compressors with plastic tarpaulins while operating' is not the right approach—keep windows closed and set AC to 24°C."
+    ]
   },
   {
     order: 4,
     question: "ELH-04 (Water Conservation): What is the correct response upon discovering a leaking pipe in a washroom?",
     options: [
-      "Report the leak location to facilities immediately and place a catch container if safe",
+      "Cover the leak with paper towels and tell no one",
       "Ignore the leak because water is free",
       "Break the pipe further so water flows faster",
-      "Cover the leak with paper towels and tell no one"
+      "Report the leak location to facilities immediately and place a catch container if safe"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Prompt reporting to facilities prevents massive clean water loss and structural damage.",
-    incorrectExplanation: "Incorrect. Report water leaks to facilities immediately."
+    incorrectExplanation: "Incorrect. Report water leaks to facilities immediately.",
+    optionFeedback: [
+      "Incorrect. 'Cover the leak with paper towels and tell no one' is not the right approach—report water leaks to facilities immediately.",
+      "Incorrect. 'Ignore the leak because water is free' is not the right approach—report water leaks to facilities immediately.",
+      "Incorrect. 'Break the pipe further so water flows faster' is not the right approach—report water leaks to facilities immediately.",
+      "Correct. Prompt reporting to facilities prevents massive clean water loss and structural damage."
+    ]
   },
   {
     order: 5,
     question: "ELH-05 (Sustainable Procurement): When purchasing goods, what should buyers check beyond the initial purchase price?",
     options: [
-      "Whole-life cost including energy consumption, maintenance requirements, durability, and disposal costs",
       "Only the cheapest upfront purchase price regardless of quality or lifespan",
+      "Whole-life cost including energy consumption, maintenance requirements, durability, and disposal costs",
       "Whether the packaging has a bright green sticker",
       "Whether the vendor offers free plastic trinkets"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Whole-life costing evaluates total operating, energy, maintenance, and end-of-life costs.",
-    incorrectExplanation: "Incorrect. Evaluate whole-life operating and maintenance costs."
+    incorrectExplanation: "Incorrect. Evaluate whole-life operating and maintenance costs.",
+    optionFeedback: [
+      "Incorrect. 'Only the cheapest upfront purchase price regardless of quality or lifespan' is not the right approach—evaluate whole-life operating and maintenance costs.",
+      "Correct. Whole-life costing evaluates total operating, energy, maintenance, and end-of-life costs.",
+      "Incorrect. 'Whether the packaging has a bright green sticker' is not the right approach—evaluate whole-life operating and maintenance costs.",
+      "Incorrect. 'Whether the vendor offers free plastic trinkets' is not the right approach—evaluate whole-life operating and maintenance costs."
+    ]
   },
   {
     order: 6,
@@ -307,33 +337,51 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Digital review and cloud cleanup reduce paper waste and server data energy consumption.",
-    incorrectExplanation: "Incorrect. Use digital review and print only when necessary."
+    incorrectExplanation: "Incorrect. Use digital review and print only when necessary.",
+    optionFeedback: [
+      "Correct. Digital review and cloud cleanup reduce paper waste and server data energy consumption.",
+      "Incorrect. 'Print every email three times and store them in cardboard boxes on the floor' is not the right approach—use digital review and print only when necessary.",
+      "Incorrect. 'Send 50 MB email attachments to all staff every morning' is not the right approach—use digital review and print only when necessary.",
+      "Incorrect. 'Throw all paper documents into general trash without shredding confidential items' is not the right approach—use digital review and print only when necessary."
+    ]
   },
   {
     order: 7,
     question: "ELH-07 (Carbon Footprint): What is the difference between Scope 1 and Scope 2 greenhouse gas emissions?",
     options: [
-      "Scope 1 emissions come from direct on-site fuel combustion (e.g. company vehicles, boilers); Scope 2 emissions come from purchased electricity consumption",
-      "Scope 1 emissions come from employee commuting; Scope 2 emissions come from solar panels",
       "Scope 1 emissions are invisible; Scope 2 emissions are bright red",
+      "Scope 1 emissions come from employee commuting; Scope 2 emissions come from solar panels",
+      "Scope 1 emissions come from direct on-site fuel combustion (e.g. company vehicles, boilers); Scope 2 emissions come from purchased electricity consumption",
       "Scope 1 emissions are legal; Scope 2 emissions are illegal"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Scope 1 covers direct fuel combustion; Scope 2 covers indirect emissions from purchased electricity generation.",
-    incorrectExplanation: "Incorrect. Scope 1 is direct fuel combustion; Scope 2 is purchased electricity."
+    incorrectExplanation: "Incorrect. Scope 1 is direct fuel combustion; Scope 2 is purchased electricity.",
+    optionFeedback: [
+      "Incorrect. 'Scope 1 emissions are invisible; Scope 2 emissions are bright red' is not the right approach—scope 1 is direct fuel combustion; Scope 2 is purchased electricity.",
+      "Incorrect. 'Scope 1 emissions come from employee commuting; Scope 2 emissions come from solar panels' is not the right approach—scope 1 is direct fuel combustion; Scope 2 is purchased electricity.",
+      "Correct. Scope 1 covers direct fuel combustion; Scope 2 covers indirect emissions from purchased electricity generation.",
+      "Incorrect. 'Scope 1 emissions are legal; Scope 2 emissions are illegal' is not the right approach—scope 1 is direct fuel combustion; Scope 2 is purchased electricity."
+    ]
   },
   {
     order: 8,
     question: "ELH-08 (Biodiversity): How can a commercial site in Mauritius protect local ecosystems?",
     options: [
-      "Prevent chemical runoff into drains, control outdoor lighting glare, and protect native vegetation buffers",
+      "Install unshielded floodlights pointing directly into native forest reserves",
       "Pour leftover paints and solvents onto soil near coastal trees",
       "Clear all trees and replace them with plastic artificial turf",
-      "Install unshielded floodlights pointing directly into native forest reserves"
+      "Prevent chemical runoff into drains, control outdoor lighting glare, and protect native vegetation buffers"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Preventing chemical runoff and controlling outdoor light pollution protects sensitive Mauritian ecosystems.",
-    incorrectExplanation: "Incorrect. Prevent runoff and protect native vegetation buffers."
+    incorrectExplanation: "Incorrect. Prevent runoff and protect native vegetation buffers.",
+    optionFeedback: [
+      "Incorrect. 'Install unshielded floodlights pointing directly into native forest reserves' is not the right approach—prevent runoff and protect native vegetation buffers.",
+      "Incorrect. 'Pour leftover paints and solvents onto soil near coastal trees' is not the right approach—prevent runoff and protect native vegetation buffers.",
+      "Incorrect. 'Clear all trees and replace them with plastic artificial turf' is not the right approach—prevent runoff and protect native vegetation buffers.",
+      "Correct. Preventing chemical runoff and controlling outdoor light pollution protects sensitive Mauritian ecosystems."
+    ]
   },
   {
     order: 9,
@@ -346,46 +394,70 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Honest disclosure of data gaps with verified evidence maintains corporate credibility and avoids greenwashing.",
-    incorrectExplanation: "Incorrect. Present verified data honestly and declare gaps."
+    incorrectExplanation: "Incorrect. Present verified data honestly and declare gaps.",
+    optionFeedback: [
+      "Correct. Honest disclosure of data gaps with verified evidence maintains corporate credibility and avoids greenwashing.",
+      "Incorrect. 'Invent guessed figures for Q4 to make the numbers look complete' is not the right approach—present verified data honestly and declare gaps.",
+      "Incorrect. 'Submit an expired policy from five years ago without declaring the date' is not the right approach—present verified data honestly and declare gaps.",
+      "Incorrect. 'Refuse to answer and delete all historical utility bills' is not the right approach—present verified data honestly and declare gaps."
+    ]
   },
   {
     order: 10,
     question: "ELH-10 (Compliance): What is the correct response when observing an unlabelled chemical drum leaking near a storm drain?",
     options: [
-      "STOP action safely, CHECK labels/SDSs, CONTROL runoff with spill kit booms, RECORD facts/photos, and ESCALATE to the site lead",
-      "Hose the leaking chemical into the storm drain before an inspector sees it",
       "Kick the drum to see if it is full",
+      "Hose the leaking chemical into the storm drain before an inspector sees it",
+      "STOP action safely, CHECK labels/SDSs, CONTROL runoff with spill kit booms, RECORD facts/photos, and ESCALATE to the site lead",
       "Ignore the leak because the drum belongs to a contractor"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Follow STOP–CHECK–CONTROL–RECORD–ESCALATE to block drain runoff and report the hazard safely.",
-    incorrectExplanation: "Incorrect. Deploy spill kit controls and escalate immediately; never wash chemicals into drains."
+    incorrectExplanation: "Incorrect. Deploy spill kit controls and escalate immediately; never wash chemicals into drains.",
+    optionFeedback: [
+      "Incorrect. 'Kick the drum to see if it is full' is not the right approach—deploy spill kit controls and escalate immediately; never wash chemicals into drains.",
+      "Incorrect. 'Hose the leaking chemical into the storm drain before an inspector sees it' is not the right approach—deploy spill kit controls and escalate immediately; never wash chemicals into drains.",
+      "Correct. Follow STOP–CHECK–CONTROL–RECORD–ESCALATE to block drain runoff and report the hazard safely.",
+      "Incorrect. 'Ignore the leak because the drum belongs to a contractor' is not the right approach—deploy spill kit controls and escalate immediately; never wash chemicals into drains."
+    ]
   },
   {
     order: 11,
     question: "ELH-11 (Circular Economy): In the 9-step Circular Value Hierarchy, which action should be taken BEFORE sending a damaged chair to a recycler?",
     options: [
-      "Inspect the chair to determine if it can be maintained, repaired, reused, or refurbished",
       "Dump it in a landfill skip immediately",
+      "Inspect the chair to determine if it can be maintained, repaired, reused, or refurbished",
       "Burn it in an open barrel behind the storeroom",
       "Order ten new chairs without checking the damaged one"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Repair, maintenance, and refurbishment retain higher functional and financial value than material recycling.",
-    incorrectExplanation: "Incorrect. Always evaluate repair and reuse before material recycling."
+    incorrectExplanation: "Incorrect. Always evaluate repair and reuse before material recycling.",
+    optionFeedback: [
+      "Incorrect. 'Dump it in a landfill skip immediately' is not the right approach—always evaluate repair and reuse before material recycling.",
+      "Correct. Repair, maintenance, and refurbishment retain higher functional and financial value than material recycling.",
+      "Incorrect. 'Burn it in an open barrel behind the storeroom' is not the right approach—always evaluate repair and reuse before material recycling.",
+      "Incorrect. 'Order ten new chairs without checking the damaged one' is not the right approach—always evaluate repair and reuse before material recycling."
+    ]
   },
   {
     order: 12,
     question: "Cross-Topic (Energy + Water): A facility manager notices an AC unit dripping condensation water onto a walkway near a storm drain. What is the best integrated action?",
     options: [
-      "Inspect the AC drain line, clean the condensate trap, redirect clean water for garden irrigation if safe, and log the maintenance check",
+      "Ignore the dripping water until the ceiling collapses",
       "Hose chemical detergent over the walkway and let it run into the storm drain",
       "Turn off all AC units permanently and open all windows during summer heatwaves",
-      "Ignore the dripping water until the ceiling collapses"
+      "Inspect the AC drain line, clean the condensate trap, redirect clean water for garden irrigation if safe, and log the maintenance check"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Cleaning condensate lines prevents water damage and safety hazards while enabling clean water reuse.",
-    incorrectExplanation: "Incorrect. Repair AC condensate lines and reuse clean water safely."
+    incorrectExplanation: "Incorrect. Repair AC condensate lines and reuse clean water safely.",
+    optionFeedback: [
+      "Incorrect. 'Ignore the dripping water until the ceiling collapses' is not the right approach—repair AC condensate lines and reuse clean water safely.",
+      "Incorrect. 'Hose chemical detergent over the walkway and let it run into the storm drain' is not the right approach—repair AC condensate lines and reuse clean water safely.",
+      "Incorrect. 'Turn off all AC units permanently and open all windows during summer heatwaves' is not the right approach—repair AC condensate lines and reuse clean water safely.",
+      "Correct. Cleaning condensate lines prevents water damage and safety hazards while enabling clean water reuse."
+    ]
   },
   {
     order: 13,
@@ -398,33 +470,51 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Certified data wiping and safety testing allow safe circular asset reallocation without data security breaches.",
-    incorrectExplanation: "Incorrect. Execute certified data wiping before asset reallocation or recycling."
+    incorrectExplanation: "Incorrect. Execute certified data wiping before asset reallocation or recycling.",
+    optionFeedback: [
+      "Correct. Certified data wiping and safety testing allow safe circular asset reallocation without data security breaches.",
+      "Incorrect. 'Throw them into an outdoor trash skip with hard drives intact' is not the right approach—execute certified data wiping before asset reallocation or recycling.",
+      "Incorrect. 'Give them away to strangers on the street without deleting confidential company files' is not the right approach—execute certified data wiping before asset reallocation or recycling.",
+      "Incorrect. 'Smash the hard drives with a hammer and leave broken glass on the floor' is not the right approach—execute certified data wiping before asset reallocation or recycling."
+    ]
   },
   {
     order: 14,
     question: "Cross-Topic (ESG + Compliance): During a pre-audit review, a supervisor discovers an unsigned waste transfer receipt and an uncalibrated water flow meter. What is the correct protocol?",
     options: [
-      "Contact the authorized waste contractor to confirm receipt signatures, log the meter calibration schedule, present verified records, and declare gaps transparently",
-      "Forge the contractor signature and write fake meter readings on the inspection sheet",
       "Throw away the waste receipt and destroy the water flow meter",
+      "Forge the contractor signature and write fake meter readings on the inspection sheet",
+      "Contact the authorized waste contractor to confirm receipt signatures, log the meter calibration schedule, present verified records, and declare gaps transparently",
       "Cancel the audit and lock all office doors"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Obtaining authorized signatures, scheduling maintenance, and transparent reporting maintains legal and ESG audit integrity.",
-    incorrectExplanation: "Incorrect. Never forge signatures or fake readings; present verified records and log corrective steps."
+    incorrectExplanation: "Incorrect. Never forge signatures or fake readings; present verified records and log corrective steps.",
+    optionFeedback: [
+      "Incorrect. 'Throw away the waste receipt and destroy the water flow meter' is not the right approach—never forge signatures or fake readings; present verified records and log corrective steps.",
+      "Incorrect. 'Forge the contractor signature and write fake meter readings on the inspection sheet' is not the right approach—never forge signatures or fake readings; present verified records and log corrective steps.",
+      "Correct. Obtaining authorized signatures, scheduling maintenance, and transparent reporting maintains legal and ESG audit integrity.",
+      "Incorrect. 'Cancel the audit and lock all office doors' is not the right approach—never forge signatures or fake readings; present verified records and log corrective steps."
+    ]
   },
   {
     order: 15,
     question: "Visual Capstone (Integrated Inspection): In the integrated facility photograph (`visual-final-certification-workplace.png`), what is the primary risk associated with the blue drum in the loading yard?",
     options: [
-      "The blue drum is unlabelled and leaking liquid directly on pavement leading into an open storm drain grid",
+      "The blue drum is generating solar power without a grid licence",
       "The blue drum is painted the wrong shade of blue for office furniture",
       "The blue drum is blocking the manager from reading her digital tablet",
-      "The blue drum is generating solar power without a grid licence"
+      "The blue drum is unlabelled and leaking liquid directly on pavement leading into an open storm drain grid"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "The unlabelled leaking drum on bare pavement near an open storm drain creates an immediate runoff and pollution hazard.",
-    incorrectExplanation: "Incorrect. The unlabelled leaking drum near the open storm drain creates an immediate environmental runoff risk."
+    incorrectExplanation: "Incorrect. The unlabelled leaking drum near the open storm drain creates an immediate environmental runoff risk.",
+    optionFeedback: [
+      "Incorrect. 'The blue drum is generating solar power without a grid licence' is not the right approach—the unlabelled leaking drum near the open storm drain creates an immediate environmental runoff risk.",
+      "Incorrect. 'The blue drum is painted the wrong shade of blue for office furniture' is not the right approach—the unlabelled leaking drum near the open storm drain creates an immediate environmental runoff risk.",
+      "Incorrect. 'The blue drum is blocking the manager from reading her digital tablet' is not the right approach—the unlabelled leaking drum near the open storm drain creates an immediate environmental runoff risk.",
+      "Correct. The unlabelled leaking drum on bare pavement near an open storm drain creates an immediate runoff and pollution hazard."
+    ]
   }
 ];
 
@@ -488,7 +578,7 @@ export async function ensureFinalSustainabilityCertificationCourse(): Promise<vo
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 15;
+      const hasMissingQuiz = existingQuizQuestions.length < 15;
       const hasDummyQuiz = existingQuizQuestions.some((q) => q.question.includes("Resource Management Scenario") || q.options.includes("Option A"));
       const hasIncorrectSlug = course.slug !== COURSE_SLUG;
 
@@ -561,6 +651,7 @@ export async function ensureFinalSustainabilityCertificationCourse(): Promise<vo
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );

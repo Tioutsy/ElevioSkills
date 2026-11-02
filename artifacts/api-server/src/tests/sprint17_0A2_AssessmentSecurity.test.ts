@@ -16,11 +16,19 @@ import {
 } from "@workspace/db";
 import { eq, and } from "drizzle-orm";
 
-const BRAIN_DIR = "/Users/sharonlennon/.gemini/antigravity-ide/brain/75567789-3312-42f9-8945-ad365293292a";
+const BRAIN_DIR = "/Users/sharonlennon/.gemini/antigravity/brain/dd8efe0d-f12c-4a56-a703-30b930f1fc2c";
 
 test("Sprint 17.0A2 — Adversarial Assessment & Anti-Tampering Security Suite", async (t) => {
+  process.env.ENABLE_TEST_AUTH_BYPASS = "true";
   // Start test HTTP server on ephemeral port on 127.0.0.1
   const server = http.createServer(app);
+  t.after(() => {
+    try {
+      server.close();
+    } catch {
+      // ignore
+    }
+  });
   await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
   const address = server.address() as { address: string; port: number };
   const baseUrl = `http://127.0.0.1:${address.port}`;

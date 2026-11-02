@@ -177,7 +177,9 @@ async function start(): Promise<void> {
     await ensureCohort15_2_10JRemediation();
     await ensureCohort15_2_10KRemediation();
     await ensureCohort15_2_10LRemediation();
-    await unpublishCourses36to139();
+    if (process.env.UNPUBLISH_STAGED_COURSES_ON_BOOT === "true") {
+      await unpublishCourses36to139();
+    }
 
     // Ensure course thumbnail images are set
     await ensureCourseImages();

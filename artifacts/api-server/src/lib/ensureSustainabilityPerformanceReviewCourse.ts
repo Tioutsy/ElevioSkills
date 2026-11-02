@@ -210,14 +210,20 @@ const NEW_QUIZ = [
     order: 1,
     question: "Why is declaring 'environmental performance improved' based solely on a lower electricity bill a high-risk review mistake?",
     options: [
-      "Because lower electricity bills may simply reflect reduced business occupancy, office closures, or shorter billing cycles rather than improved energy efficiency",
-      "Because electricity data is not relevant to sustainability",
       "Because performance reviews are only allowed to inspect water usage",
+      "Because electricity data is not relevant to sustainability",
+      "Because lower electricity bills may simply reflect reduced business occupancy, office closures, or shorter billing cycles rather than improved energy efficiency",
       "Because lower bills always indicate financial fraud"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Lower consumption can result from reduced business activity or closures; like-for-like intensity analysis is required.",
-    incorrectExplanation: "Incorrect. Reduced bills may stem from volume drops or shorter billing periods rather than genuine efficiency."
+    incorrectExplanation: "Incorrect. Reduced bills may stem from volume drops or shorter billing periods rather than genuine efficiency.",
+    optionFeedback: [
+      "Incorrect. 'Because performance reviews are only allowed to inspect water usage' is not the right approach—reduced bills may stem from volume drops or shorter billing periods rather than genuine efficiency.",
+      "Incorrect. 'Because electricity data is not relevant to sustainability' is not the right approach—reduced bills may stem from volume drops or shorter billing periods rather than genuine efficiency.",
+      "Correct. Lower consumption can result from reduced business activity or closures; like-for-like intensity analysis is required.",
+      "Incorrect. 'Because lower bills always indicate financial fraud' is not the right approach—reduced bills may stem from volume drops or shorter billing periods rather than genuine efficiency."
+    ]
   },
   {
     order: 2,
@@ -230,46 +236,70 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "E = Examine actual results against the right comparison, using valid baselines and intensity metrics.",
-    incorrectExplanation: "Incorrect. E = Examine actual results against the right comparison."
+    incorrectExplanation: "Incorrect. E = Examine actual results against the right comparison.",
+    optionFeedback: [
+      "Correct. E = Examine actual results against the right comparison, using valid baselines and intensity metrics.",
+      "Incorrect. 'Erase all negative data points from the quarterly slides' is not the right approach—e = Examine actual results against the right comparison.",
+      "Incorrect. 'Email the raw spreadsheet to external journalists immediately' is not the right approach—e = Examine actual results against the right comparison.",
+      "Incorrect. 'Expend remaining departmental budget before month-end' is not the right approach—e = Examine actual results against the right comparison."
+    ]
   },
   {
     order: 3,
     question: "What is the key difference between ABSOLUTE RESULT and INTENSITY RESULT?",
     options: [
-      "Absolute result measures total resource consumed (e.g. Total kWh); Intensity result normalizes consumption per activity unit (e.g. kWh per guest-night)",
       "Absolute result measures money spent; Intensity result measures employee happiness",
+      "Absolute result measures total resource consumed (e.g. Total kWh); Intensity result normalizes consumption per activity unit (e.g. kWh per guest-night)",
       "Absolute result is used in summer; Intensity result is used in winter",
       "Absolute result and Intensity result mean the exact same thing"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Absolute metrics track total environmental load; Intensity metrics track operational efficiency per unit.",
-    incorrectExplanation: "Incorrect. Absolute = total consumption; Intensity = consumption normalized per unit of activity."
+    incorrectExplanation: "Incorrect. Absolute = total consumption; Intensity = consumption normalized per unit of activity.",
+    optionFeedback: [
+      "Incorrect. 'Absolute result measures money spent; Intensity result measures employee happiness' is not the right approach—absolute = total consumption; Intensity = consumption normalized per unit of activity.",
+      "Correct. Absolute metrics track total environmental load; Intensity metrics track operational efficiency per unit.",
+      "Incorrect. 'Absolute result is used in summer; Intensity result is used in winter' is not the right approach—absolute = total consumption; Intensity = consumption normalized per unit of activity.",
+      "Incorrect. 'Absolute result and Intensity result mean the exact same thing' is not the right approach—absolute = total consumption; Intensity = consumption normalized per unit of activity."
+    ]
   },
   {
     order: 4,
     question: "In the visual performance review slide (`visual-sustainability-performance-review.png`), why is the conclusion banner 'Overall Performance Improved' invalid?",
     options: [
-      "Because it claims overall success despite a 24% drop in hotel occupancy, unequal water comparison periods, and missing fuel data",
+      "Because the slide header font is too small",
       "Because the presentation uses a projector screen instead of paper handouts",
       "Because there are too many people in the meeting room",
-      "Because the slide header font is too small"
+      "Because it claims overall success despite a 24% drop in hotel occupancy, unequal water comparison periods, and missing fuel data"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "The banner ignores a 24% occupancy drop, unequal water billing periods, and missing fuel data.",
-    incorrectExplanation: "Incorrect. The conclusion ignores major operational context drops, unequal periods, and data gaps."
+    incorrectExplanation: "Incorrect. The conclusion ignores major operational context drops, unequal periods, and data gaps.",
+    optionFeedback: [
+      "Incorrect. 'Because the slide header font is too small' is not the right approach—the conclusion ignores major operational context drops, unequal periods, and data gaps.",
+      "Incorrect. 'Because the presentation uses a projector screen instead of paper handouts' is not the right approach—the conclusion ignores major operational context drops, unequal periods, and data gaps.",
+      "Incorrect. 'Because there are too many people in the meeting room' is not the right approach—the conclusion ignores major operational context drops, unequal periods, and data gaps.",
+      "Correct. The banner ignores a 24% occupancy drop, unequal water billing periods, and missing fuel data."
+    ]
   },
   {
     order: 5,
     question: "Why must financial currency costs (e.g. MUR spent on energy) NEVER be used as the primary metric for environmental performance?",
     options: [
-      "Because utility price tariffs change over time, so money spent does not reflect physical kWh or m³ consumed",
       "Because currency amounts are not understood by facilities staff",
+      "Because utility price tariffs change over time, so money spent does not reflect physical kWh or m³ consumed",
       "Because financial costs are regulated by international court orders",
       "Because money spent is always lower than energy consumed"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Tariff adjustments distort financial trends; physical consumption units (kWh, m³) are required for environmental evaluation.",
-    incorrectExplanation: "Incorrect. Tariff changes distort cost trends; physical units must be evaluated."
+    incorrectExplanation: "Incorrect. Tariff changes distort cost trends; physical units must be evaluated.",
+    optionFeedback: [
+      "Incorrect. 'Because currency amounts are not understood by facilities staff' is not the right approach—tariff changes distort cost trends; physical units must be evaluated.",
+      "Correct. Tariff adjustments distort financial trends; physical consumption units (kWh, m³) are required for environmental evaluation.",
+      "Incorrect. 'Because financial costs are regulated by international court orders' is not the right approach—tariff changes distort cost trends; physical units must be evaluated.",
+      "Incorrect. 'Because money spent is always lower than energy consumed' is not the right approach—tariff changes distort cost trends; physical units must be evaluated."
+    ]
   },
   {
     order: 6,
@@ -282,33 +312,51 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Completing a task is an activity; an outcome requires measured evidence of environmental improvement.",
-    incorrectExplanation: "Incorrect. Activity = task executed; Outcome = measured environmental result achieved."
+    incorrectExplanation: "Incorrect. Activity = task executed; Outcome = measured environmental result achieved.",
+    optionFeedback: [
+      "Correct. Completing a task is an activity; an outcome requires measured evidence of environmental improvement.",
+      "Incorrect. 'An activity is performed by managers; an outcome is performed by external auditors' is not the right approach—activity = task executed; Outcome = measured environmental result achieved.",
+      "Incorrect. 'Activity and outcome mean the exact same thing in ISO standards' is not the right approach—activity = task executed; Outcome = measured environmental result achieved.",
+      "Incorrect. 'An activity takes 5 minutes; an outcome takes 5 years' is not the right approach—activity = task executed; Outcome = measured environmental result achieved."
+    ]
   },
   {
     order: 7,
     question: "Why is silently changing a missed target after a review period ends a high-risk review violation?",
     options: [
-      "Because it conceals operational underperformance, destroys target baselines, and prevents genuine root-cause investigation",
-      "Because targets can never be adjusted under any circumstances",
       "Because computers automatically lock spreadsheet files after 30 days",
+      "Because targets can never be adjusted under any circumstances",
+      "Because it conceals operational underperformance, destroys target baselines, and prevents genuine root-cause investigation",
       "Because targets are legally binding corporate contracts"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Revising missed targets silently hides failures; target changes must be formally approved and recorded in change logs.",
-    incorrectExplanation: "Incorrect. Silently modifying targets hides underperformance and destroys baseline integrity."
+    incorrectExplanation: "Incorrect. Silently modifying targets hides underperformance and destroys baseline integrity.",
+    optionFeedback: [
+      "Incorrect. 'Because computers automatically lock spreadsheet files after 30 days' is not the right approach—silently modifying targets hides underperformance and destroys baseline integrity.",
+      "Incorrect. 'Because targets can never be adjusted under any circumstances' is not the right approach—silently modifying targets hides underperformance and destroys baseline integrity.",
+      "Correct. Revising missed targets silently hides failures; target changes must be formally approved and recorded in change logs.",
+      "Incorrect. 'Because targets are legally binding corporate contracts' is not the right approach—silently modifying targets hides underperformance and destroys baseline integrity."
+    ]
   },
   {
     order: 8,
     question: "How should a sustainability review committee handle an unfavourable variance where water consumption spiked by 30%?",
     options: [
-      "Investigate root causes (check sub-meters for pipe leaks, valve faults, or kitchen equipment issues) and assign an owned corrective action",
+      "Delete the water column from the quarterly report",
       "Ignore the spike and hope it decreases next month",
       "Blame the housekeeping department without checking sub-meter data",
-      "Delete the water column from the quarterly report"
+      "Investigate root causes (check sub-meters for pipe leaks, valve faults, or kitchen equipment issues) and assign an owned corrective action"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Unfavourable variances require root-cause evidence investigation and an owned corrective action plan.",
-    incorrectExplanation: "Incorrect. Investigate root causes using sub-meters and assign an owned corrective action."
+    incorrectExplanation: "Incorrect. Investigate root causes using sub-meters and assign an owned corrective action.",
+    optionFeedback: [
+      "Incorrect. 'Delete the water column from the quarterly report' is not the right approach—investigate root causes using sub-meters and assign an owned corrective action.",
+      "Incorrect. 'Ignore the spike and hope it decreases next month' is not the right approach—investigate root causes using sub-meters and assign an owned corrective action.",
+      "Incorrect. 'Blame the housekeeping department without checking sub-meter data' is not the right approach—investigate root causes using sub-meters and assign an owned corrective action.",
+      "Correct. Unfavourable variances require root-cause evidence investigation and an owned corrective action plan."
+    ]
   },
   {
     order: 9,
@@ -321,51 +369,58 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "ELH-19 evaluates results and defines corrective needs; ELH-20 enforces governance and decision approvals.",
-    incorrectExplanation: "Incorrect. ELH-19 identifies corrective needs; ELH-20 establishes governance and decision authority."
+    incorrectExplanation: "Incorrect. ELH-19 identifies corrective needs; ELH-20 establishes governance and decision authority.",
+    optionFeedback: [
+      "Correct. ELH-19 evaluates results and defines corrective needs; ELH-20 enforces governance and decision approvals.",
+      "Incorrect. 'ELH-19 replaces governance so organizational roles are no longer needed' is not the right approach—eLH-19 identifies corrective needs; ELH-20 establishes governance and decision authority.",
+      "Incorrect. 'ELH-19 is for receptionists; ELH-20 is for external journalists' is not the right approach—eLH-19 identifies corrective needs; ELH-20 establishes governance and decision authority.",
+      "Incorrect. 'There is no connection between performance review and accountability' is not the right approach—eLH-19 identifies corrective needs; ELH-20 establishes governance and decision authority."
+    ]
   },
   {
     order: 10,
     question: "What is the primary takeaway of the REVIEW Operational Framework?",
     options: [
-      "Applying REVIEW (Review data, Examine comparisons, Verify variances, Investigate causes, Establish decisions, Write record) ensures evidence-backed decisions",
-      "Performance reviews are optional and have no impact on workplace sustainability",
       "Reviews should only celebrate positive results while ignoring gaps",
+      "Performance reviews are optional and have no impact on workplace sustainability",
+      "Applying REVIEW (Review data, Examine comparisons, Verify variances, Investigate causes, Establish decisions, Write record) ensures evidence-backed decisions",
       "Baselines should be changed whenever actual results miss targets"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "The REVIEW framework provides disciplined, evidence-based performance evaluation and accountable follow-through.",
-    incorrectExplanation: "Incorrect. REVIEW provides structured discipline for evidence-backed performance evaluation."
+    incorrectExplanation: "Incorrect. REVIEW provides structured discipline for evidence-backed performance evaluation.",
+    optionFeedback: [
+      "Incorrect. 'Reviews should only celebrate positive results while ignoring gaps' is not the right approach—rEVIEW provides structured discipline for evidence-backed performance evaluation.",
+      "Incorrect. 'Performance reviews are optional and have no impact on workplace sustainability' is not the right approach—rEVIEW provides structured discipline for evidence-backed performance evaluation.",
+      "Correct. The REVIEW framework provides disciplined, evidence-based performance evaluation and accountable follow-through.",
+      "Incorrect. 'Baselines should be changed whenever actual results miss targets' is not the right approach—rEVIEW provides structured discipline for evidence-backed performance evaluation."
+    ]
   }
 ];
 
 export async function ensureSustainabilityPerformanceReviewCourse(): Promise<void> {
   try {
     await db.transaction(async (tx) => {
-      // 1. Resolve Course 19 by courseCode "ELH-19" or slug
-      let course = null;
-
+      // 1. Resolve both canonical ELH-19 row and any separate duplicate draft row ("reviewing-sustainability-performance-and-corrective-action")
       const [byCode] = await tx
         .select()
         .from(coursesTable)
         .where(eq(coursesTable.courseCode, "ELH-19"))
         .limit(1);
 
-      if (byCode) {
-        course = byCode;
-      } else {
-        const [bySlug] = await tx
-          .select()
-          .from(coursesTable)
-          .where(eq(coursesTable.slug, COURSE_SLUG))
-          .limit(1);
-        course = bySlug ?? null;
-      }
+      const [bySlug] = await tx
+        .select()
+        .from(coursesTable)
+        .where(eq(coursesTable.slug, COURSE_SLUG))
+        .limit(1);
 
+      const course = byCode ?? bySlug ?? null;
       if (!course) {
         throw new Error("Course ELH-19 / reviewing-sustainability-performance-and-corrective-action not seeded by catalogue skeletons bootstrap!");
       }
 
       const courseId = course.id;
+      const separateDraftCourse = byCode && bySlug && byCode.id !== bySlug.id ? bySlug : null;
 
       // 2. Fetch seed marker and existing database content
       const [existingSeed] = await tx
@@ -384,21 +439,35 @@ export async function ensureSustainabilityPerformanceReviewCourse(): Promise<voi
         .from(quizQuestionsTable)
         .where(eq(quizQuestionsTable.courseId, courseId));
 
-      // 3. Evaluate integrity violations
+      // 3. Evaluate integrity violations on primary course (preserve 8 or 10 active questions if already valid)
       const hasMissingLessons = existingLessons.length !== 6;
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 10;
+      const hasMissingQuiz = existingQuizQuestions.length < 8;
+
+      let draftNeedsRepair = false;
+      if (separateDraftCourse) {
+        const draftLessons = await tx
+          .select()
+          .from(lessonsTable)
+          .where(eq(lessonsTable.courseId, separateDraftCourse.id));
+        const draftQuestions = await tx
+          .select()
+          .from(quizQuestionsTable)
+          .where(eq(quizQuestionsTable.courseId, separateDraftCourse.id));
+        const draftEmptyBlocks = draftLessons.some(
+          (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
+        );
+        draftNeedsRepair = draftLessons.length !== 6 || draftEmptyBlocks || draftQuestions.length < 8;
+      }
 
       const needsRepair = !existingSeed || hasMissingLessons || hasEmptyBlocks || hasMissingQuiz;
 
-      if (!needsRepair) {
-        logger.info({ courseId, slug: COURSE_SLUG }, "Sustainability Performance Review course content and v2 integrity verified. Skipping repair to preserve administrator edits...");
+      if (!needsRepair && !draftNeedsRepair) {
+        logger.info({ courseId, slug: course.slug }, "Sustainability Performance Review course content and v2 integrity verified. Skipping repair to preserve administrator edits...");
         return;
       }
-
-      logger.info({ courseId, slug: COURSE_SLUG }, "Integrity mismatch or missing v2 seed detected for Course ELH-19. Re-seeding course content, lessons, and 10 quiz questions transactionally...");
 
       // 4. Resolve next recommended course dynamically (ELH-20 or null if not yet seeded)
       const [course20] = await tx
@@ -408,106 +477,140 @@ export async function ensureSustainabilityPerformanceReviewCourse(): Promise<voi
         .limit(1);
       const nextCourseId = course20 ? course20.id : null;
 
-      // 5. Update course record metadata
-      await tx
-        .update(coursesTable)
-        .set({
-          title: COURSE_TITLE,
-          slug: COURSE_SLUG,
-          courseCode: "ELH-19",
-          description: COURSE_META.description,
-          fullDescription: COURSE_META.fullDescription,
-          categoryId: COURSE_META.categoryId,
-          durationMinutes: COURSE_META.durationMinutes,
-          priceUsd: COURSE_META.priceUsd,
-          level: COURSE_META.level,
-          isFeatured: COURSE_META.isFeatured,
-          thumbnailUrl: COURSE_META.thumbnailUrl,
-          learningObjectives: COURSE_META.learningObjectives,
-          includesCertificate: COURSE_META.includesCertificate,
-          passingScore: COURSE_META.passingScore,
-          completionMessage: COURSE_META.completionMessage,
-          badgeName: COURSE_META.badgeName,
-          badgeDescription: COURSE_META.badgeDescription,
-          recommendedNextCourseId: nextCourseId,
-          isPublished: true,
-          status: "published",
-        })
-        .where(eq(coursesTable.id, courseId));
+      if (needsRepair) {
+        logger.info({ courseId, slug: course.slug }, "Integrity mismatch or missing v2 seed detected for Course ELH-19. Re-seeding course content, lessons, and 10 quiz questions transactionally...");
 
-      // 6. Seed/re-seed lessons with exact position block arrays
-      await tx.delete(lessonsTable).where(eq(lessonsTable.courseId, courseId));
-      for (const newLesson of NEW_LESSONS) {
-        await tx.insert(lessonsTable).values({
-          courseId,
-          title: newLesson.title,
-          orderIndex: newLesson.order,
-          durationMinutes: newLesson.minutes,
-          content: newLesson.content,
-          contentBlocks: newLesson.blocks,
-          isArchived: false,
-        });
-      }
+        // Avoid slug collision if separateDraftCourse already holds COURSE_SLUG
+        const primarySlug = separateDraftCourse ? (course.slug || "reviewing-sustainability-performance-and-taking-corrective-action") : COURSE_SLUG;
+        const primaryTitle = separateDraftCourse ? (course.title || COURSE_TITLE) : COURSE_TITLE;
 
-      // 7. Seed/re-seed 10 quiz questions
-      await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
-      await tx.insert(quizQuestionsTable).values(
-        NEW_QUIZ.map((q) => ({
-          courseId,
-          question: q.question,
-          options: q.options,
-          correctOption: q.correct,
-          orderIndex: q.order,
-          correctExplanation: q.correctExplanation,
-          incorrectExplanation: q.incorrectExplanation,
-          isArchived: false,
-        }))
-      );
+        await tx
+          .update(coursesTable)
+          .set({
+            title: primaryTitle,
+            slug: primarySlug,
+            courseCode: "ELH-19",
+            description: COURSE_META.description,
+            fullDescription: COURSE_META.fullDescription,
+            categoryId: COURSE_META.categoryId,
+            durationMinutes: COURSE_META.durationMinutes,
+            priceUsd: COURSE_META.priceUsd,
+            level: COURSE_META.level,
+            isFeatured: COURSE_META.isFeatured,
+            thumbnailUrl: COURSE_META.thumbnailUrl,
+            learningObjectives: COURSE_META.learningObjectives,
+            includesCertificate: COURSE_META.includesCertificate,
+            passingScore: COURSE_META.passingScore,
+            completionMessage: COURSE_META.completionMessage,
+            badgeName: COURSE_META.badgeName,
+            badgeDescription: COURSE_META.badgeDescription,
+            recommendedNextCourseId: nextCourseId,
+            isPublished: true,
+            status: "published",
+          })
+          .where(eq(coursesTable.id, courseId));
 
-      // 8. Enforce prerequisite entries in coursePrerequisitesTable (ELH-12 through ELH-18 -> ELH-19)
-      const prereqs = await tx
-        .select({ id: coursesTable.id })
-        .from(coursesTable)
-        .where(inArray(coursesTable.slug, [
-          "final-sustainability-certification",
-          "sustainability-action-planning",
-          "setting-departmental-sustainability-goals",
-          "building-workplace-sustainability-team",
-          "communicating-sustainability-at-work",
-          "tracking-sustainability-actions-and-progress",
-          "sustainability-data-collection-and-evidence"
-        ]));
-
-      for (const prereq of prereqs) {
-        const [existingPrereq] = await tx
-          .select()
-          .from(coursePrerequisitesTable)
-          .where(and(
-            eq(coursePrerequisitesTable.courseId, courseId),
-            eq(coursePrerequisitesTable.prerequisiteCourseId, prereq.id)
-          ))
-          .limit(1);
-
-        if (!existingPrereq) {
-          await tx.insert(coursePrerequisitesTable).values({
+        await tx.delete(lessonsTable).where(eq(lessonsTable.courseId, courseId));
+        for (const newLesson of NEW_LESSONS) {
+          await tx.insert(lessonsTable).values({
             courseId,
-            prerequisiteCourseId: prereq.id,
+            title: newLesson.title,
+            orderIndex: newLesson.order,
+            durationMinutes: newLesson.minutes,
+            content: newLesson.content,
+            contentBlocks: newLesson.blocks,
+            isArchived: false,
           });
         }
+
+        await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
+        await tx.insert(quizQuestionsTable).values(
+          NEW_QUIZ.map((q) => ({
+            courseId,
+            question: q.question,
+            options: q.options,
+            correctOption: q.correct,
+            orderIndex: q.order,
+            correctExplanation: q.correctExplanation,
+            incorrectExplanation: q.incorrectExplanation,
+            optionFeedback: q.optionFeedback,
+            isArchived: false,
+          }))
+        );
       }
 
-      // 9. Idempotently seed/update badge definition
+      // If a separate duplicate draft row ("Reviewing Sustainability Performance and Corrective Action") exists,
+      // populate its missing lessons and assessment while keeping it in draft status so it never stays empty.
+      if (separateDraftCourse && draftNeedsRepair) {
+        const draftId = separateDraftCourse.id;
+        const shouldPublishDraft = process.env.PUBLISH_REMEDIATED_DRAFTS === "true";
+        logger.info({ draftId, slug: separateDraftCourse.slug }, "Populating lessons and 10-question assessment on preserved duplicate draft row for Reviewing Sustainability Performance and Corrective Action...");
+
+        await tx
+          .update(coursesTable)
+          .set({
+            courseCode: separateDraftCourse.courseCode || "ELH-19-DRAFT",
+            description: COURSE_META.description,
+            fullDescription: COURSE_META.fullDescription,
+            categoryId: COURSE_META.categoryId,
+            durationMinutes: COURSE_META.durationMinutes,
+            priceUsd: COURSE_META.priceUsd,
+            level: COURSE_META.level,
+            isFeatured: false,
+            thumbnailUrl: COURSE_META.thumbnailUrl,
+            learningObjectives: COURSE_META.learningObjectives,
+            includesCertificate: COURSE_META.includesCertificate,
+            passingScore: COURSE_META.passingScore,
+            completionMessage: COURSE_META.completionMessage,
+            badgeName: COURSE_META.badgeName,
+            badgeDescription: COURSE_META.badgeDescription,
+            recommendedNextCourseId: nextCourseId,
+            isPublished: shouldPublishDraft,
+            status: shouldPublishDraft ? "published" : "draft",
+          })
+          .where(eq(coursesTable.id, draftId));
+
+        await tx.delete(lessonsTable).where(eq(lessonsTable.courseId, draftId));
+        for (const newLesson of NEW_LESSONS) {
+          await tx.insert(lessonsTable).values({
+            courseId: draftId,
+            title: newLesson.title,
+            orderIndex: newLesson.order,
+            durationMinutes: newLesson.minutes,
+            content: newLesson.content,
+            contentBlocks: newLesson.blocks,
+            isArchived: false,
+          });
+        }
+
+        await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, draftId));
+        await tx.insert(quizQuestionsTable).values(
+          NEW_QUIZ.map((q) => ({
+            courseId: draftId,
+            question: q.question,
+            options: q.options,
+            correctOption: q.correct,
+            orderIndex: q.order,
+            correctExplanation: q.correctExplanation,
+            incorrectExplanation: q.incorrectExplanation,
+            optionFeedback: q.optionFeedback,
+            isArchived: false,
+          }))
+        );
+      }
+
+      // 8. Idempotently seed/update badge definition
       await tx
         .insert(badgeDefinitionsTable)
         .values({
           slug: BADGE_SLUG,
           name: COURSE_META.badgeName,
           description: COURSE_META.badgeDescription,
-          icon: "bar-chart-2",
+          icon: "clipboard-check",
           criteriaType: "all_courses",
           threshold: 0,
           courseIds: [courseId],
-          orderIndex: 24,
+          orderIndex: 19,
         })
         .onConflictDoUpdate({
           target: badgeDefinitionsTable.slug,
@@ -518,7 +621,7 @@ export async function ensureSustainabilityPerformanceReviewCourse(): Promise<voi
           },
         });
 
-      // 10. Save seed marker version
+      // 9. Save seed marker version
       if (!existingSeed) {
         await tx.insert(systemSeedsTable).values({
           name: SEED_NAME,

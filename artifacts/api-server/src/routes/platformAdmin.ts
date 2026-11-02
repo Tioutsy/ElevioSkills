@@ -1207,21 +1207,31 @@ router.get("/courses", async (req, res): Promise<void> => {
     console.log("[DIAG] GET /platform-admin/courses - Received request");
     await requirePlatformAdmin(req);
     console.log("[DIAG] GET /platform-admin/courses - Auth checks passed");
-    
+
     const courses = await db
       .select({
         id: coursesTable.id,
+        courseCode: coursesTable.courseCode,
+        slug: coursesTable.slug,
+        version: coursesTable.version,
         title: coursesTable.title,
         description: coursesTable.description,
+        fullDescription: coursesTable.fullDescription,
         categoryId: coursesTable.categoryId,
         categoryName: categoriesTable.name,
         durationMinutes: coursesTable.durationMinutes,
         priceUsd: coursesTable.priceUsd,
         level: coursesTable.level,
         isFeatured: coursesTable.isFeatured,
+        isPublished: coursesTable.isPublished,
         thumbnailUrl: coursesTable.thumbnailUrl,
         previewVideoUrl: coursesTable.previewVideoUrl,
         learningObjectives: coursesTable.learningObjectives,
+        intendedRoles: coursesTable.intendedRoles,
+        badgeName: coursesTable.badgeName,
+        badgeDescription: coursesTable.badgeDescription,
+        reviewDate: coursesTable.reviewDate,
+        recommendedNextCourseId: coursesTable.recommendedNextCourseId,
         enrollmentCount: coursesTable.enrollmentCount,
         rating: coursesTable.rating,
         includesCertificate: coursesTable.includesCertificate,
@@ -1233,6 +1243,40 @@ router.get("/courses", async (req, res): Promise<void> => {
       .leftJoin(categoriesTable, eq(coursesTable.categoryId, categoriesTable.id))
       .orderBy(desc(coursesTable.isFeatured), desc(coursesTable.enrollmentCount));
 
+    const allLessons = await db
+      .select({
+        courseId: lessonsTable.courseId,
+        isArchived: lessonsTable.isArchived,
+      })
+      .from(lessonsTable);
+
+    const allQuestions = await db
+      .select({
+        courseId: quizQuestionsTable.courseId,
+        isArchived: quizQuestionsTable.isArchived,
+      })
+      .from(quizQuestionsTable);
+
+    const activeLessonsByCourse = new Map<number, number>();
+    const archivedLessonsByCourse = new Map<number, number>();
+    for (const l of allLessons) {
+      if (l.isArchived) {
+        archivedLessonsByCourse.set(l.courseId, (archivedLessonsByCourse.get(l.courseId) ?? 0) + 1);
+      } else {
+        activeLessonsByCourse.set(l.courseId, (activeLessonsByCourse.get(l.courseId) ?? 0) + 1);
+      }
+    }
+
+    const activeQuestionsByCourse = new Map<number, number>();
+    const archivedQuestionsByCourse = new Map<number, number>();
+    for (const q of allQuestions) {
+      if (q.isArchived) {
+        archivedQuestionsByCourse.set(q.courseId, (archivedQuestionsByCourse.get(q.courseId) ?? 0) + 1);
+      } else {
+        activeQuestionsByCourse.set(q.courseId, (activeQuestionsByCourse.get(q.courseId) ?? 0) + 1);
+      }
+    }
+
     console.log("[DIAG] GET /platform-admin/courses - Database query completed, length:", courses.length);
 
     res.json(
@@ -1240,11 +1284,69 @@ router.get("/courses", async (req, res): Promise<void> => {
         ...c,
         priceUsd: parseFloat(c.priceUsd),
         rating: c.rating ? parseFloat(c.rating) : null,
+        lessonCount: activeLessonsByCourse.get(c.id) ?? 0,
+        archivedLessonCount: archivedLessonsByCourse.get(c.id) ?? 0,
+        questionCount: activeQuestionsByCourse.get(c.id) ?? 0,
+        archivedQuestionCount: archivedQuestionsByCourse.get(c.id) ?? 0,
       })),
     );
     console.log("[DIAG] GET /platform-admin/courses - Response sent");
   } catch (err) {
     console.log("[DIAG] GET /platform-admin/courses - Error occurred:", err);
+    sendHttpError(res, err);
+  }
+});
+
+router.get("/catalogue-summary", async (req, res): Promise<void> => {
+  try {
+    await requirePlatformAdmin(req);
+    const courses = await db
+      .select({
+        id: coursesTable.id,
+        courseCode: coursesTable.courseCode,
+        title: coursesTable.title,
+        status: coursesTable.status,
+        isPublished: coursesTable.isPublished,
+      })
+      .from(coursesTable);
+
+    const questions = await db
+      .select({
+        courseId: quizQuestionsTable.courseId,
+        isArchived: quizQuestionsTable.isArchived,
+      })
+      .from(quizQuestionsTable);
+
+    const activeQuestionsByCourse = new Map<number, number>();
+    let activeScoredQuestions = 0;
+    let archivedScoredQuestions = 0;
+    for (const q of questions) {
+      if (q.isArchived) {
+        archivedScoredQuestions++;
+      } else {
+        activeScoredQuestions++;
+        activeQuestionsByCourse.set(q.courseId, (activeQuestionsByCourse.get(q.courseId) ?? 0) + 1);
+      }
+    }
+
+    const publishedCourses = courses.filter((c) => c.isPublished && c.status === "published");
+    const draftCourses = courses.filter((c) => !c.isPublished || c.status === "draft");
+    const archivedCourses = courses.filter((c) => c.status === "archived");
+    const coursesWithZeroQuestions = courses
+      .filter((c) => (activeQuestionsByCourse.get(c.id) ?? 0) === 0)
+      .map((c) => ({ id: c.id, courseCode: c.courseCode, title: c.title, status: c.status }));
+
+    res.json({
+      totalCourses: courses.length,
+      publishedCourses: publishedCourses.length,
+      draftCourses: draftCourses.length,
+      archivedCourses: archivedCourses.length,
+      activeScoredQuestions,
+      archivedScoredQuestions,
+      diagnosticQuestionBankCount: 88,
+      coursesWithZeroQuestions,
+    });
+  } catch (err) {
     sendHttpError(res, err);
   }
 });

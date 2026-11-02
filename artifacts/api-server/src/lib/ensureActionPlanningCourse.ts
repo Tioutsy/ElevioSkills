@@ -210,14 +210,20 @@ const NEW_QUIZ = [
     order: 1,
     question: "Why do broad intentions like 'be more sustainable' frequently fail to produce workplace results?",
     options: [
-      "Because they lack specific focus areas, assigned owners, target dates, and verifiable evidence",
-      "Because employees in Mauritius do not care about environmental issues",
       "Because sustainability actions require a government decree for every step",
+      "Because employees in Mauritius do not care about environmental issues",
+      "Because they lack specific focus areas, assigned owners, target dates, and verifiable evidence",
       "Because power and water cannot be managed in commercial buildings"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Broad intentions fail because they do not define specific targets, accountable owners, or review dates.",
-    incorrectExplanation: "Incorrect. Broad intentions lack specific targets, assigned owners, and review dates."
+    incorrectExplanation: "Incorrect. Broad intentions lack specific targets, assigned owners, and review dates.",
+    optionFeedback: [
+      "Incorrect. 'Because sustainability actions require a government decree for every step' is not the right approach—broad intentions lack specific targets, assigned owners, and review dates.",
+      "Incorrect. 'Because employees in Mauritius do not care about environmental issues' is not the right approach—broad intentions lack specific targets, assigned owners, and review dates.",
+      "Correct. Broad intentions fail because they do not define specific targets, accountable owners, or review dates.",
+      "Incorrect. 'Because power and water cannot be managed in commercial buildings' is not the right approach—broad intentions lack specific targets, assigned owners, and review dates."
+    ]
   },
   {
     order: 2,
@@ -230,46 +236,70 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Outputs are completed task activities; outcomes are the actual measured improvements achieved.",
-    incorrectExplanation: "Incorrect. Output = completed task; Outcome = measured result."
+    incorrectExplanation: "Incorrect. Output = completed task; Outcome = measured result.",
+    optionFeedback: [
+      "Correct. Outputs are completed task activities; outcomes are the actual measured improvements achieved.",
+      "Incorrect. 'An output is a financial penalty; an outcome is a company speech' is not the right approach—output = completed task; Outcome = measured result.",
+      "Incorrect. 'An output is an unverified assumption; an outcome is a handwritten note' is not the right approach—output = completed task; Outcome = measured result.",
+      "Incorrect. 'There is no difference; output and outcome mean the exact same thing' is not the right approach—output = completed task; Outcome = measured result."
+    ]
   },
   {
     order: 3,
     question: "What does the 'ASSIGN' step in the DEFINE–PLAN–ASSIGN–EVIDENCE–REVIEW framework require?",
     options: [
-      "Naming one accountable individual for each action step rather than assigning to a general department",
       "Assigning the work to a contractor without telling them",
+      "Naming one accountable individual for each action step rather than assigning to a general department",
       "Writing 'Everyone' as the owner on the action board",
       "Leaving the owner column blank until the project is finished"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Assigning one named accountable owner ensures clear responsibility and accountability.",
-    incorrectExplanation: "Incorrect. Name one accountable individual for every action step."
+    incorrectExplanation: "Incorrect. Name one accountable individual for every action step.",
+    optionFeedback: [
+      "Incorrect. 'Assigning the work to a contractor without telling them' is not the right approach—name one accountable individual for every action step.",
+      "Correct. Assigning one named accountable owner ensures clear responsibility and accountability.",
+      "Incorrect. 'Writing 'Everyone' as the owner on the action board' is not the right approach—name one accountable individual for every action step.",
+      "Incorrect. 'Leaving the owner column blank until the project is finished' is not the right approach—name one accountable individual for every action step."
+    ]
   },
   {
     order: 4,
     question: "Which of the following represents a SPECIFIC, USEFUL workplace sustainability objective?",
     options: [
-      "Reduce avoidable paper bin contamination in staff dining areas from 40% to under 5% within 6 weeks",
+      "Tell all employees to stop generating waste permanently",
       "Try to save some paper whenever possible",
       "Make the office 100% green by tomorrow morning",
-      "Tell all employees to stop generating waste permanently"
+      "Reduce avoidable paper bin contamination in staff dining areas from 40% to under 5% within 6 weeks"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "A useful objective is specific, measurable, realistic, and time-bound.",
-    incorrectExplanation: "Incorrect. Objectives must be specific, measurable, and time-bound."
+    incorrectExplanation: "Incorrect. Objectives must be specific, measurable, and time-bound.",
+    optionFeedback: [
+      "Incorrect. 'Tell all employees to stop generating waste permanently' is not the right approach—objectives must be specific, measurable, and time-bound.",
+      "Incorrect. 'Try to save some paper whenever possible' is not the right approach—objectives must be specific, measurable, and time-bound.",
+      "Incorrect. 'Make the office 100% green by tomorrow morning' is not the right approach—objectives must be specific, measurable, and time-bound.",
+      "Correct. A useful objective is specific, measurable, realistic, and time-bound."
+    ]
   },
   {
     order: 5,
     question: "What is the correct response when baseline measurement data for a project is currently missing?",
     options: [
-      "Record the current data limitation, establish a short initial baseline observation period, and proceed transparently",
       "Invent fake baseline numbers to make the initial plan look complete",
+      "Record the current data limitation, establish a short initial baseline observation period, and proceed transparently",
       "Cancel the project permanently and delete the action plan",
       "Copy baseline figures from a completely different industry in another country"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Documenting data gaps honestly and collecting initial baseline evidence maintains audit integrity.",
-    incorrectExplanation: "Incorrect. Document data gaps honestly and establish an initial observation period."
+    incorrectExplanation: "Incorrect. Document data gaps honestly and establish an initial observation period.",
+    optionFeedback: [
+      "Incorrect. 'Invent fake baseline numbers to make the initial plan look complete' is not the right approach—document data gaps honestly and establish an initial observation period.",
+      "Correct. Documenting data gaps honestly and collecting initial baseline evidence maintains audit integrity.",
+      "Incorrect. 'Cancel the project permanently and delete the action plan' is not the right approach—document data gaps honestly and establish an initial observation period.",
+      "Incorrect. 'Copy baseline figures from a completely different industry in another country' is not the right approach—document data gaps honestly and establish an initial observation period."
+    ]
   },
   {
     order: 6,
@@ -282,33 +312,51 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Scheduled review dates enable continual improvement, obstacle identification, and transparent plan adjustment.",
-    incorrectExplanation: "Incorrect. Review dates allow progress evaluation and corrective plan adjustments."
+    incorrectExplanation: "Incorrect. Review dates allow progress evaluation and corrective plan adjustments.",
+    optionFeedback: [
+      "Correct. Scheduled review dates enable continual improvement, obstacle identification, and transparent plan adjustment.",
+      "Incorrect. 'To find out who to blame and fire when tasks are delayed' is not the right approach—review dates allow progress evaluation and corrective plan adjustments.",
+      "Incorrect. 'To delete all previous records so no history remains' is not the right approach—review dates allow progress evaluation and corrective plan adjustments.",
+      "Incorrect. 'Review dates are optional and add no value to workplace projects' is not the right approach—review dates allow progress evaluation and corrective plan adjustments."
+    ]
   },
   {
     order: 7,
     question: "In the visual action planning board (`visual-sustainability-action-planning.png`), why are handwritten sticky notes replaced by structured task cards?",
     options: [
-      "To provide clear headers, named staff owners, target dates, verifiable evidence sources, and visible status tracking",
-      "Because sticky notes are illegal in Mauritian offices",
       "Because printed cards automatically solve energy leaks without human action",
+      "Because sticky notes are illegal in Mauritian offices",
+      "To provide clear headers, named staff owners, target dates, verifiable evidence sources, and visible status tracking",
       "Because whiteboards can only hold printed paper"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Structured task cards clarify owners, dates, evidence sources, and status, eliminating vague notes.",
-    incorrectExplanation: "Incorrect. Structured task cards clarify owners, target dates, evidence, and status."
+    incorrectExplanation: "Incorrect. Structured task cards clarify owners, target dates, evidence, and status.",
+    optionFeedback: [
+      "Incorrect. 'Because printed cards automatically solve energy leaks without human action' is not the right approach—structured task cards clarify owners, target dates, evidence, and status.",
+      "Incorrect. 'Because sticky notes are illegal in Mauritian offices' is not the right approach—structured task cards clarify owners, target dates, evidence, and status.",
+      "Correct. Structured task cards clarify owners, dates, evidence sources, and status, eliminating vague notes.",
+      "Incorrect. 'Because whiteboards can only hold printed paper' is not the right approach—structured task cards clarify owners, target dates, evidence, and status."
+    ]
   },
   {
     order: 8,
     question: "Which of the following is a HIGH-RISK MISTAKE in workplace action planning?",
     options: [
-      "Marking an action complete when only the task activity, not the actual result, was verified",
+      "Listing required resources before starting work",
       "Recording baseline data before starting actions",
       "Setting a realistic 4-week review date",
-      "Listing required resources before starting work"
+      "Marking an action complete when only the task activity, not the actual result, was verified"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Marking tasks complete based solely on activity rather than verified results creates false progress claims.",
-    incorrectExplanation: "Incorrect. Verify measured results, not just task completion."
+    incorrectExplanation: "Incorrect. Verify measured results, not just task completion.",
+    optionFeedback: [
+      "Incorrect. 'Listing required resources before starting work' is not the right approach—verify measured results, not just task completion.",
+      "Incorrect. 'Recording baseline data before starting actions' is not the right approach—verify measured results, not just task completion.",
+      "Incorrect. 'Setting a realistic 4-week review date' is not the right approach—verify measured results, not just task completion.",
+      "Correct. Marking tasks complete based solely on activity rather than verified results creates false progress claims."
+    ]
   },
   {
     order: 9,
@@ -321,20 +369,32 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Immediate pollution hazards, safety risks, or legal breaches require immediate escalation outside routine plans.",
-    incorrectExplanation: "Incorrect. Escalate immediate safety, pollution, or compliance hazards immediately."
+    incorrectExplanation: "Incorrect. Escalate immediate safety, pollution, or compliance hazards immediately.",
+    optionFeedback: [
+      "Correct. Immediate pollution hazards, safety risks, or legal breaches require immediate escalation outside routine plans.",
+      "Incorrect. 'Whenever a light bulb burns out in an empty hallway' is not the right approach—escalate immediate safety, pollution, or compliance hazards immediately.",
+      "Incorrect. 'Whenever an employee asks for a new pencil' is not the right approach—escalate immediate safety, pollution, or compliance hazards immediately.",
+      "Incorrect. 'Never escalate under any circumstances' is not the right approach—escalate immediate safety, pollution, or compliance hazards immediately."
+    ]
   },
   {
     order: 10,
     question: "What is the primary takeaway of the Elevio Action-Planning Framework?",
     options: [
-      "Structured planning (DEFINE–PLAN–ASSIGN–EVIDENCE–REVIEW) converts sustainability ideas into owned, measurable workplace results",
-      "Action planning is an academic exercise meant only for external consultants",
       "Any employee can make major structural building changes without approval",
+      "Action planning is an academic exercise meant only for external consultants",
+      "Structured planning (DEFINE–PLAN–ASSIGN–EVIDENCE–REVIEW) converts sustainability ideas into owned, measurable workplace results",
       "Action plans guarantee 100% cost elimination in every facility"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Structured action planning converts sustainability ideas into owned, evidence-backed workplace results.",
-    incorrectExplanation: "Incorrect. DEFINE–PLAN–ASSIGN–EVIDENCE–REVIEW turns intentions into measurable results."
+    incorrectExplanation: "Incorrect. DEFINE–PLAN–ASSIGN–EVIDENCE–REVIEW turns intentions into measurable results.",
+    optionFeedback: [
+      "Incorrect. 'Any employee can make major structural building changes without approval' is not the right approach—dEFINE–PLAN–ASSIGN–EVIDENCE–REVIEW turns intentions into measurable results.",
+      "Incorrect. 'Action planning is an academic exercise meant only for external consultants' is not the right approach—dEFINE–PLAN–ASSIGN–EVIDENCE–REVIEW turns intentions into measurable results.",
+      "Correct. Structured action planning converts sustainability ideas into owned, evidence-backed workplace results.",
+      "Incorrect. 'Action plans guarantee 100% cost elimination in every facility' is not the right approach—dEFINE–PLAN–ASSIGN–EVIDENCE–REVIEW turns intentions into measurable results."
+    ]
   }
 ];
 
@@ -389,7 +449,7 @@ export async function ensureActionPlanningCourse(): Promise<void> {
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 10;
+      const hasMissingQuiz = existingQuizQuestions.length < 8;
 
       const needsRepair = !existingSeed || hasMissingLessons || hasEmptyBlocks || hasMissingQuiz;
 
@@ -460,6 +520,7 @@ export async function ensureActionPlanningCourse(): Promise<void> {
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );

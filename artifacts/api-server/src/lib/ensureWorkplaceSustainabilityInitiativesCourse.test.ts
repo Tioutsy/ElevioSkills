@@ -32,7 +32,7 @@ async function cleanUpCourse23() {
   }
   await db.delete(quizAttemptsTable).where(eq(quizAttemptsTable.userId, "preserve_user_id"));
   await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "workplace-sustainability-initiatives-v2"));
-  await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "workplace-sustainability-initiatives-v1"));
+  await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "workplace-sustainability-initiatives-v2"));
 
   const c23s = await db.select().from(coursesTable).where(eq(coursesTable.courseCode, "ELH-23"));
   const c23Ids = c23s.map(c => c.id);

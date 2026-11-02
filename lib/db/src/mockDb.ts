@@ -56,10 +56,10 @@ const PATTERN_10 = [1, 2, 0, 3, 1, 3, 0, 2, 1, 3];
 
 const CANONICAL_COURSES = [
   { id: 1, code: "ELH-01", slug: "sustainability-foundations", title: "Sustainability Foundations" },
-  { id: 2, code: "ELH-02", slug: "waste-sorting-the-mauritian-bin-system", title: "Waste Sorting & the Mauritian Bin System" },
+  { id: 2, code: "ELH-02", slug: "waste-sorting-mauritian-bin-system", title: "Waste Sorting & the Mauritian Bin System" },
   { id: 3, code: "ELH-03", slug: "energy-efficiency-at-work", title: "Energy Efficiency at Work" },
   { id: 4, code: "ELH-04", slug: "water-conservation", title: "Water Conservation" },
-  { id: 5, code: "ELH-05", slug: "sustainable-purchasing-for-non-specialists", title: "Sustainable Purchasing for Non-Specialists" },
+  { id: 5, code: "ELH-05", slug: "sustainable-procurement", title: "Sustainable Purchasing for Non-Specialists" },
   { id: 6, code: "ELH-06", slug: "green-office-practices", title: "Green Office Practices" },
   { id: 7, code: "ELH-07", slug: "carbon-footprint-awareness", title: "Carbon Footprint Awareness" },
   { id: 8, code: "ELH-08", slug: "biodiversity-in-mauritius", title: "Biodiversity in Mauritius" },
@@ -69,7 +69,7 @@ const CANONICAL_COURSES = [
   { id: 12, code: "ELH-12", slug: "final-sustainability-certification", title: "Final Sustainability Certification" },
   { id: 13, code: "ELH-13", slug: "sustainability-action-planning", title: "Sustainability Action Planning" },
   { id: 14, code: "ELH-14", slug: "setting-departmental-sustainability-goals", title: "Setting Departmental Sustainability Goals" },
-  { id: 15, code: "ELH-15", slug: "building-a-workplace-sustainability-team", title: "Building a Workplace Sustainability Team" },
+  { id: 15, code: "ELH-15", slug: "building-workplace-sustainability-team", title: "Building a Workplace Sustainability Team" },
   { id: 16, code: "ELH-16", slug: "communicating-sustainability-at-work", title: "Communicating Sustainability at Work" },
   { id: 17, code: "ELH-17", slug: "tracking-sustainability-actions-and-progress", title: "Tracking Sustainability Actions and Progress" },
   { id: 18, code: "ELH-18", slug: "sustainability-data-collection-and-evidence", title: "Sustainability Data Collection and Evidence" },
@@ -84,10 +84,10 @@ const CANONICAL_COURSES = [
   { id: 27, code: "ELH-27", slug: "sustainability-for-facilities-and-property-teams", title: "Sustainability for Facilities and Property Teams" },
   { id: 28, code: "ELH-28", slug: "sustainability-for-sales-and-marketing-teams", title: "Sustainability for Sales and Marketing Teams" },
   { id: 29, code: "ELH-29", slug: "sustainability-for-operations-and-frontline-teams", title: "Sustainability for Operations and Frontline Teams" },
-  { id: 30, code: "ELH-30", slug: "climate-risk-workplace-resilience", title: "Climate Risk & Workplace Resilience" },
+  { id: 30, code: "ELH-30", slug: "climate-risk-and-workplace-resilience", title: "Climate Risk & Workplace Resilience" },
   { id: 31, code: "ELH-31", slug: "social-responsibility-at-work", title: "Social Responsibility at Work" },
-  { id: 32, code: "ELH-32", slug: "ethics-governance-responsible-business", title: "Ethics, Governance & Responsible Business" },
-  { id: 33, code: "ELH-33", slug: "esg-data-measurement-reporting-basics", title: "ESG Data, Measurement & Reporting Basics" },
+  { id: 32, code: "ELH-32", slug: "ethics-governance-and-responsible-business", title: "Ethics, Governance & Responsible Business" },
+  { id: 33, code: "ELH-33", slug: "esg-data-measurement-and-reporting-basics", title: "ESG Data, Measurement & Reporting Basics" },
   { id: 34, code: "ELH-34", slug: "esg-in-my-job-from-policy-to-everyday-action", title: "ESG in My Job: From Policy to Everyday Action" },
   { id: 35, code: "ELH-35", slug: "sustainable-housekeeping-operations", title: "Sustainable Housekeeping Operations" },
   { id: 36, code: "ELH-36", slug: "sustainable-commercial-kitchens-culinary", title: "Sustainable Commercial Kitchens & Culinary" },
@@ -217,7 +217,11 @@ function resetSeedInMemoryStore() {
   let entitlementId = 1;
   let prereqId = 1;
 
-  for (const c of CANONICAL_COURSES) {
+  const activeMockCourses = process.env.MOCK_FULL_136_CATALOGUE === "true"
+    ? CANONICAL_COURSES
+    : CANONICAL_COURSES.slice(0, 34);
+
+  for (const c of activeMockCourses) {
     const num = c.code ? parseInt(c.code.replace("ELH-", ""), 10) : c.id;
     const isUnpublished = (num >= 36 && num <= 139) || (c.id >= 36 && c.id <= 139);
     courses.push({

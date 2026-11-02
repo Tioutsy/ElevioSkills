@@ -1627,4 +1627,161 @@ router.post("/convert-pilot", async (req, res): Promise<void> => {
   }
 });
 
+// GET /company/employees/:id/skills-profile — Employee Skills & Knowledge Gap Profile (Sprint 10U)
+router.get("/employees/:id/skills-profile", async (req, res): Promise<void> => {
+  try {
+    const access = await getCompanyAccess(req);
+    if (access.role === "employee") {
+      res.status(403).json({ error: "Access denied" });
+      return;
+    }
+    const rawId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+    const employeeId = parseInt(rawId, 10);
+    if (isNaN(employeeId)) {
+      res.status(400).json({ error: "Invalid employee ID" });
+      return;
+    }
+    const { generateEmployeeSkillsProfile } = await import("../lib/ai/aiSkillsGapService");
+    const profile = await generateEmployeeSkillsProfile(employeeId, access);
+    res.json(profile);
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      res.status(500).json({ error: err?.message || "Failed to generate employee skills profile" });
+    }
+  }
+});
+
+// GET /company/workforce-intelligence — Company Workforce Intelligence (Sprint 10V)
+router.get("/workforce-intelligence", async (req, res): Promise<void> => {
+  try {
+    const access = await getCompanyAccess(req);
+    if (access.role === "employee") {
+      res.status(403).json({ error: "Access denied" });
+      return;
+    }
+    const department = typeof req.query.department === "string" ? req.query.department : undefined;
+    const { generateCompanyWorkforceIntelligence } = await import("../lib/ai/companyWorkforceIntelligenceService");
+    const data = await generateCompanyWorkforceIntelligence(access, department);
+    res.json(data);
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      res.status(500).json({ error: err?.message || "Failed to generate workforce intelligence" });
+    }
+  }
+});
+
+// GET /company/management-brief — Monthly Management Brief (Sprint 10W)
+router.get("/management-brief", async (req, res): Promise<void> => {
+  try {
+    const access = await getCompanyAccess(req);
+    if (access.role === "employee") {
+      res.status(403).json({ error: "Access denied" });
+      return;
+    }
+    const month = typeof req.query.month === "string" ? req.query.month : undefined;
+    const forceRefresh = req.query.refresh === "true";
+    const { getOrGenerateMonthlyManagementBrief } = await import("../lib/ai/monthlyManagementBriefService");
+    const brief = await getOrGenerateMonthlyManagementBrief(access, month, forceRefresh);
+    res.json(brief);
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      res.status(500).json({ error: err?.message || "Failed to generate management brief" });
+    }
+  }
+});
+
+// GET /company/workforce-readiness — ESG Workforce Readiness Score (Sprint 10X)
+router.get("/workforce-readiness", async (req, res): Promise<void> => {
+  try {
+    const access = await getCompanyAccess(req);
+    if (access.role === "employee") {
+      res.status(403).json({ error: "Access denied" });
+      return;
+    }
+    const period = typeof req.query.period === "string" ? req.query.period : undefined;
+    const forceRefresh = req.query.refresh === "true";
+    const { getOrComputeWorkforceReadiness } = await import("../lib/ai/workforceReadinessService");
+    const readiness = await getOrComputeWorkforceReadiness(access, period, forceRefresh);
+    res.json(readiness);
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      res.status(500).json({ error: err?.message || "Failed to compute workforce readiness" });
+    }
+  }
+});
+
+// GET /company/action-plan — AI Company Sustainability Action Plan (Sprint 10Y)
+router.get("/action-plan", async (req, res): Promise<void> => {
+  try {
+    const access = await getCompanyAccess(req);
+    if (access.role === "employee") {
+      res.status(403).json({ error: "Access denied" });
+      return;
+    }
+    const forceRefresh = req.query.refresh === "true";
+    const { generateCompanyActionPlan } = await import("../lib/ai/companyActionPlanService");
+    const plan = await generateCompanyActionPlan(access, forceRefresh);
+    res.json(plan);
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      res.status(500).json({ error: err?.message || "Failed to generate company action plan" });
+    }
+  }
+});
+
+// POST /company/action-plan/:actionId/:verb — Accept / Dismiss / Complete action plan item (Sprint 10Y)
+router.post("/action-plan/:actionId/:verb", async (req, res): Promise<void> => {
+  try {
+    const access = await getCompanyAccess(req);
+    if (access.role === "employee") {
+      res.status(403).json({ error: "Access denied" });
+      return;
+    }
+    const actionId = String(req.params.actionId || "");
+    const verb = String(req.params.verb || "");
+    const statusMap: Record<string, "accepted" | "dismissed" | "completed"> = {
+      accept: "accepted",
+      dismiss: "dismissed",
+      complete: "completed",
+    };
+    const newStatus = statusMap[verb];
+    if (!newStatus) {
+      res.status(400).json({ error: "Invalid action status transition" });
+      return;
+    }
+    const { mutateActionStatus } = await import("../lib/ai/companyActionPlanService");
+    const updated = await mutateActionStatus(access, actionId, newStatus);
+    res.json(updated);
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      res.status(400).json({ error: err?.message || "Failed to update action status" });
+    }
+  }
+});
+
+// POST /company/copilot — Management Copilot Q&A (Sprint 10Z)
+router.post("/copilot", async (req, res): Promise<void> => {
+  try {
+    const access = await getCompanyAccess(req);
+    if (access.role === "employee") {
+      res.status(403).json({ error: "Access denied" });
+      return;
+    }
+    const question = typeof req.body?.question === "string" ? req.body.question.trim() : "";
+    if (!question) {
+      res.status(400).json({ error: "Question is required" });
+      return;
+    }
+    const history = Array.isArray(req.body?.history) ? req.body.history : [];
+    const { askManagementCopilot } = await import("../lib/ai/managementCopilotService");
+    const response = await askManagementCopilot(access, question, history);
+    res.json(response);
+  } catch (err: any) {
+    if (!sendHttpError(res, err)) {
+      res.status(500).json({ error: err?.message || "Failed to answer management copilot question" });
+    }
+  }
+});
+
 export default router;
+

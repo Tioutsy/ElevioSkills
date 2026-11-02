@@ -5,6 +5,8 @@ dist
 tmp
 out-tsc
 *.tsbuildinfo
+lib/**/*.d.ts
+lib/**/*.d.ts.map
 .expo
 .expo-shared
 

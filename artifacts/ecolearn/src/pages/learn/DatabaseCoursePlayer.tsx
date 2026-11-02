@@ -11,11 +11,13 @@ import {
   useGetCourseQuiz,
   useSubmitQuiz,
   useGetCourse,
+  useCreateEnrollment,
   usePlatformAdminListQuizQuestions,
 } from "@workspace/api-client-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { WorkplaceCommitmentModal } from "@/components/WorkplaceCommitmentModal";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
 import {
@@ -31,16 +33,42 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useQuery } from "@tanstack/react-query";
+import { customFetch } from "@workspace/api-client-react";
+import { trackCommercialEvent } from "@/lib/commercialAnalytics";
 import {
   TextView,
   CalloutView,
   ScenarioView,
   CheckView,
   CommitmentView,
+  WorkplaceDecisionView,
+  SortingView,
+  MatchingView,
+  SequencingView,
+  PrioritisationView,
+  MultiStepScenarioView,
+  ChallengeAssessmentView,
 } from "./blocks";
 
 function isDatabaseInteractive(block: any): boolean {
-  return ["multiple_choice", "decision_scenario", "commitment", "scenario"].includes(block.type);
+  return [
+    "multiple_choice",
+    "decision_scenario",
+    "scenario",
+    "interactive_scenario",
+    "commitment",
+    "sorting",
+    "sorting_activity",
+    "matching",
+    "matching_exercise",
+    "sequencing",
+    "sequencing_exercise",
+    "prioritisation",
+    "prioritisation_challenge",
+    "multi_step_scenario",
+    "challenge_assessment",
+  ].includes(block.type);
 }
 
 type Phase = "modules" | "quiz" | "complete";
@@ -59,8 +87,14 @@ export default function DatabaseCoursePlayer({
 
   // 1. Queries and Mutations (Conditional on preview mode)
   const { data: rawEnrollment, isLoading: isEnrollmentLoading } = useGetEnrollment(enrollmentId || 0, {
-    query: { enabled: !!enrollmentId && !isPreview, queryKey: ["enrollment", enrollmentId] },
+    query: { enabled: !!enrollmentId && !isPreview, queryKey: ["enrollment", enrollmentId], retry: 1 },
   });
+
+  const { data: fallbackCourse, isLoading: isFallbackCourseLoading } = useGetCourse(enrollmentId || 0, {
+    query: { enabled: !isPreview && !rawEnrollment && !!enrollmentId, queryKey: ["course", enrollmentId], retry: 1 },
+  });
+
+  const autoEnrollMutation = useCreateEnrollment();
 
   const { data: rawProgressRows } = useGetProgress(enrollmentId || 0, {
     query: { enabled: !!enrollmentId && !isPreview, queryKey: ["progress", enrollmentId] },
@@ -70,11 +104,68 @@ export default function DatabaseCoursePlayer({
     query: { enabled: isPreview && !!previewCourseId, queryKey: ["course", previewCourseId] },
   });
 
-  const courseId = isPreview ? (previewCourseId ?? 0) : (rawEnrollment?.course?.id ?? 0);
+  const courseId = isPreview
+    ? (previewCourseId ?? 0)
+    : (rawEnrollment?.course?.id ?? fallbackCourse?.id ?? 0);
+
+  // Track learner course progression signal
+  useEffect(() => {
+    if (courseId && !isPreview) {
+      trackCommercialEvent(
+        "learner_course_started",
+        {
+          courseId,
+          courseCode: (rawEnrollment?.course as any)?.courseCode || (fallbackCourse as any)?.courseCode,
+          authenticatedState: "employee",
+          source: "course_player",
+        },
+        { dedupKey: `elevio_learner_course_${courseId}` }
+      );
+    }
+  }, [courseId, isPreview, rawEnrollment, fallbackCourse]);
+
+  // If user opened player via course ID and enrollment wasn't found, auto-enroll in background
+  useEffect(() => {
+    if (!isPreview && !rawEnrollment && fallbackCourse && !autoEnrollMutation.isPending && !autoEnrollMutation.isSuccess) {
+      autoEnrollMutation.mutate(
+        { data: { courseId: fallbackCourse.id } },
+        {
+          onSuccess: (created) => {
+            queryClient.invalidateQueries({ queryKey: ["enrollment", created.id] });
+            queryClient.invalidateQueries({ queryKey: ["enrollment", enrollmentId] });
+            queryClient.invalidateQueries({ queryKey: ["/api/enrollments"] });
+          },
+        }
+      );
+    }
+  }, [isPreview, rawEnrollment, fallbackCourse]);
 
   const { data: rawExistingCommitments } = useGetCommitments(courseId, {
     query: { enabled: !!courseId && !isPreview, queryKey: ["commitments", courseId] },
   });
+
+  const { data: savedInteractions = [] } = useQuery<any[]>({
+    queryKey: ["interactionsProgress", courseId],
+    queryFn: async () => {
+      if (!courseId || isPreview) return [];
+      try {
+        return (await customFetch(`/api/interactions/progress?courseId=${courseId}`)) as any[];
+      } catch {
+        return [];
+      }
+    },
+    enabled: !!courseId && !isPreview,
+  });
+
+  const interactionMap = useMemo(() => {
+    const map = new Map<string, any>();
+    for (const item of savedInteractions) {
+      if (item.interactionId && item.statePayload) {
+        map.set(item.interactionId, item.statePayload);
+      }
+    }
+    return map;
+  }, [savedInteractions]);
 
   const rawUpdateProgress = useUpdateProgress();
   const rawSaveCommitments = useSaveCommitments();
@@ -94,8 +185,20 @@ export default function DatabaseCoursePlayer({
         status: "active",
       };
     }
-    return rawEnrollment;
-  }, [isPreview, previewCourse, rawEnrollment]);
+    if (rawEnrollment) {
+      return rawEnrollment;
+    }
+    if (fallbackCourse) {
+      return {
+        id: enrollmentId || 0,
+        courseId: fallbackCourse.id,
+        course: fallbackCourse,
+        progressPct: 0,
+        status: "active",
+      };
+    }
+    return null;
+  }, [isPreview, previewCourse, rawEnrollment, fallbackCourse, enrollmentId]);
 
   const lessons = useMemo(
     () => (enrollment?.course?.lessons ? [...enrollment.course.lessons].sort((a, b) => a.orderIndex - b.orderIndex) : []),
@@ -176,7 +279,9 @@ export default function DatabaseCoursePlayer({
     setResolved(new Set());
   }, [moduleIndex]);
 
-  const isLoading = isPreview ? isPreviewCourseLoading : (isEnrollmentLoading || !initialised);
+  const isLoading = isPreview
+    ? isPreviewCourseLoading
+    : !enrollment && (isEnrollmentLoading || isFallbackCourseLoading);
 
   if (isLoading || (isPreview && !previewCourse) || (!isPreview && !enrollment)) {
     return (
@@ -292,21 +397,164 @@ export default function DatabaseCoursePlayer({
           </div>
         );
       case "scenario":
+      case "decision_scenario":
+      case "interactive_scenario": {
+        const interactionId = block.id || `decision_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
         return (
-          <ScenarioView
+          <WorkplaceDecisionView
             key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
             block={{
-              type: "scenario",
-              prompt: block.scenarioText || block.prompt || "",
-              choices: (block.options || block.choices || []).map((c: any) => ({
+              type: "decision_scenario",
+              id: interactionId,
+              intro: block.situation || block.decisionIntro,
+              prompt: block.prompt || block.decisionPrompt || block.scenarioText || "",
+              takeaway: block.takeaway,
+              choices: (block.options || block.decisionChoices || block.choices || []).map((c: any) => ({
                 label: c.text || c.label,
-                feedback: c.feedback,
-                ideal: c.isCorrect ?? c.correct
-              }))
+                feedback: c.feedback || "",
+                consequences: c.consequences || c.consequence,
+                correct: c.isCorrect ?? c.correct ?? c.ideal,
+                ideal: c.isCorrect ?? c.ideal ?? c.correct,
+              })),
             }}
             onResolved={() => markResolved(i)}
           />
         );
+      }
+      case "sorting":
+      case "sorting_activity": {
+        const interactionId = block.id || `sorting_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <SortingView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "sorting_activity",
+              id: interactionId,
+              title: block.title || "Sorting Activity",
+              instruction: block.instruction || "Sort each item into its correct workplace stream:",
+              categories: block.categories || [],
+              items: block.items || [],
+              takeaway: block.takeaway,
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
+      case "matching":
+      case "matching_exercise": {
+        const interactionId = block.id || `matching_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <MatchingView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "matching_exercise",
+              id: interactionId,
+              title: block.title,
+              instruction: block.instruction || "Match each concept with its correct definition or practice:",
+              pairs: block.pairs || [],
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
+      case "sequencing":
+      case "sequencing_exercise": {
+        const interactionId = block.id || `sequencing_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <SequencingView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "sequencing_exercise",
+              id: interactionId,
+              title: block.title || "Operational Sequencing",
+              instruction: block.instruction || "Arrange the steps into the correct operational sequence:",
+              steps: block.steps || block.items || [],
+              takeaway: block.takeaway,
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
+      case "prioritisation":
+      case "prioritisation_challenge": {
+        const interactionId = block.id || `priority_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <PrioritisationView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "prioritisation_challenge",
+              id: interactionId,
+              title: block.title || "Prioritisation Challenge",
+              prompt: block.prompt || "Select the highest impact actions:",
+              maxSelect: block.maxSelect || 2,
+              options: block.options || [],
+              consequences: block.consequences,
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
+      case "multi_step_scenario": {
+        const interactionId = block.id || `multistep_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <MultiStepScenarioView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "multi_step_scenario",
+              id: interactionId,
+              title: block.title || "Workplace Branching Scenario",
+              stages: block.stages || [],
+              outcomes: block.outcomes || {},
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
+      case "challenge_assessment": {
+        const interactionId = block.id || `challenge_assessment_${module?.id}_${i}`;
+        const savedState = interactionMap.get(interactionId);
+        return (
+          <ChallengeAssessmentView
+            key={i}
+            courseId={courseId}
+            lessonId={module?.id}
+            savedState={savedState}
+            block={{
+              type: "challenge_assessment",
+              id: interactionId,
+              title: block.title || "Challenge Mission Assessment",
+              description: block.description || "Demonstrate practical competency to fulfill challenge criteria.",
+              passThreshold: block.passThreshold,
+              questions: block.questions || [],
+            }}
+            onResolved={() => markResolved(i)}
+          />
+        );
+      }
       case "multiple_choice":
         return (
           <CheckView
@@ -317,22 +565,6 @@ export default function DatabaseCoursePlayer({
               options: block.mcqOptions || [],
               correctIndex: block.mcqCorrectIndex ?? 0,
               explanation: block.mcqCorrectExplanation || ""
-            }}
-            onResolved={() => markResolved(i)}
-          />
-        );
-      case "decision_scenario":
-        return (
-          <ScenarioView
-            key={i}
-            block={{
-              type: "scenario",
-              prompt: block.decisionIntro ? `${block.decisionIntro}\n\n${block.decisionPrompt}` : block.decisionPrompt || "",
-              choices: (block.decisionChoices || []).map((c: any) => ({
-                label: c.label,
-                feedback: c.feedback,
-                ideal: c.correct
-              }))
             }}
             onResolved={() => markResolved(i)}
           />
@@ -854,6 +1086,7 @@ function CompletionScreen({
   enrollment: any;
   onTakeQuiz: () => void;
 }) {
+  const [showCommitmentModal, setShowCommitmentModal] = useState(false);
   const { data: rawSummary, isLoading: isSummaryLoading } = useGetCourseProgressSummary(courseId, {
     query: { enabled: !!courseId && !isPreview, queryKey: ["courseSummary", courseId] },
   });
@@ -1040,6 +1273,13 @@ function CompletionScreen({
           )}
         </div>
         <div className="flex flex-col sm:flex-row gap-3">
+          <Button
+            type="button"
+            onClick={() => setShowCommitmentModal(true)}
+            className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium"
+          >
+            Choose Workplace Action
+          </Button>
           {nextCourseId && nextCourse && nextCourse.isPublished ? (
             <Button asChild>
               <Link href={`/courses/${nextCourse.id}`}>
@@ -1054,6 +1294,13 @@ function CompletionScreen({
             </Link>
           </Button>
         </div>
+
+        <WorkplaceCommitmentModal
+          isOpen={showCommitmentModal}
+          onClose={() => setShowCommitmentModal(false)}
+          courseId={enrollment?.course?.id ?? 0}
+          courseTitle={enrollment?.course?.title ?? "Course"}
+        />
       </Card>
     </div>
   );

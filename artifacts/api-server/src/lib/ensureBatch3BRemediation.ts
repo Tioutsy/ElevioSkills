@@ -4600,7 +4600,7 @@ export const BATCH_3B_COURSES: RemediatedCourseDataBatch3B[] = [
             "id": "elh49-t1",
             "type": "short_text",
             "position": 1,
-            "bodyText": "Construction activities in Mauritius are governed by the Environment Protection Act (EPA) and specific Environmental Impact Assessment (EIA) license conditions. Failing to manage sediment runoff, oil leaks, or dust can trigger immediate statutory Stop-Work Orders, criminal fines, and severe commercial delays. A comprehensive **Construction Environmental Management Plan (CEMP)** maps all sensitive receptors (neighboring homes, coral lagoons, waterways), establishes physical control perimeters, and defines daily monitoring routines before earthmoving equipment mobilizes."
+            "bodyText": "Construction activities in Mauritius are governed by the Environment Act 2024 (Act No. 3 of 2024, replacing the repealed Environment Protection Act 2002) and specific Environmental Impact Assessment (EIA) license conditions. Failing to manage sediment runoff, oil leaks, or dust can trigger immediate statutory Stop-Work Orders, criminal fines, and severe commercial delays. A comprehensive **Construction Environmental Management Plan (CEMP)** maps all sensitive receptors (neighboring homes, coral lagoons, waterways), establishes physical control perimeters, and defines daily monitoring routines before earthmoving equipment mobilizes."
           },
           {
             "id": "elh49-c1",

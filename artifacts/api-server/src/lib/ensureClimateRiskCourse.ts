@@ -158,7 +158,7 @@ const NEW_LESSONS = [
         id: "cr4-img1",
         type: "visual_question",
         position: 4,
-        imageUrl: "/images/courses/visual-climate-risk-inspection.png",
+        imageUrl: "/images/courses/elh-30-climate-risk-workplace-resilience.jpg",
         caption: "Facility Site Resilience Inspection: Palletized electronic stock, generator fuel check, storm drain clearance, cloud backup verification sign, and worker completing pre-cyclone checklist.",
         imageAlt: "Realistic photograph of a Mauritian commercial warehouse compound showing electronic inventory elevated on wooden pallets, a technician verifying generator fuel levels, staff clearing a storm drain grating, a notice reading CLOUD DATA BACKUP VERIFIED DAILY, and a manager completing a pre-cyclone resilience checklist."
       },
@@ -245,7 +245,13 @@ const NEW_QUIZ = [
     ],
     correct: 2,
     correctExplanation: "Mitigation reduces emissions; Adaptation builds operational resilience to withstand climate impacts.",
-    incorrectExplanation: "Incorrect. Mitigation reduces greenhouse gases; Adaptation adjusts systems to handle climate impacts."
+    incorrectExplanation: "Incorrect. Mitigation reduces greenhouse gases; Adaptation adjusts systems to handle climate impacts.",
+    optionFeedback: [
+      "Incorrect. 'Mitigation is for hotel guests; Adaptation is for office cleaners' is not the right approach—mitigation reduces greenhouse gases; Adaptation adjusts systems to handle climate impacts.",
+      "Incorrect. 'Mitigation requires solar panels; Adaptation requires deleting email attachments' is not the right approach—mitigation reduces greenhouse gases; Adaptation adjusts systems to handle climate impacts.",
+      "Correct. Mitigation reduces emissions; Adaptation builds operational resilience to withstand climate impacts.",
+      "Incorrect. 'There is no distinction; both mean buying paper drinking straws' is not the right approach—mitigation reduces greenhouse gases; Adaptation adjusts systems to handle climate impacts."
+    ]
   },
   {
     order: 2,
@@ -258,7 +264,13 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Workplaces cannot stop weather hazards, but they can directly reduce vulnerability through preparation.",
-    incorrectExplanation: "Incorrect. Companies can directly reduce physical vulnerability through proactive controls."
+    incorrectExplanation: "Incorrect. Companies can directly reduce physical vulnerability through proactive controls.",
+    optionFeedback: [
+      "Correct. Workplaces cannot stop weather hazards, but they can directly reduce vulnerability through preparation.",
+      "Incorrect. 'The physical weather hazard itself' is not the right approach—companies can directly reduce physical vulnerability through proactive controls.",
+      "Incorrect. 'The global climate system' is not the right approach—companies can directly reduce physical vulnerability through proactive controls.",
+      "Incorrect. 'The distance between Mauritius and the equator' is not the right approach—companies can directly reduce physical vulnerability through proactive controls."
+    ]
   },
   {
     order: 3,
@@ -271,7 +283,13 @@ const NEW_QUIZ = [
     ],
     correct: 1,
     correctExplanation: "Reporting vulnerability and safely raising equipment off floor level prevents flood damage.",
-    incorrectExplanation: "Incorrect. Report vulnerable floor-level assets and elevate them safely."
+    incorrectExplanation: "Incorrect. Report vulnerable floor-level assets and elevate them safely.",
+    optionFeedback: [
+      "Incorrect. 'Leave the equipment on the floor because it is not their personal computer' is not the right approach—report vulnerable floor-level assets and elevate them safely.",
+      "Correct. Reporting vulnerability and safely raising equipment off floor level prevents flood damage.",
+      "Incorrect. 'Cover the equipment with paper towels' is not the right approach—report vulnerable floor-level assets and elevate them safely.",
+      "Incorrect. 'Wait for ground flooding to occur before informing anyone' is not the right approach—report vulnerable floor-level assets and elevate them safely."
+    ]
   },
   {
     order: 4,
@@ -284,7 +302,13 @@ const NEW_QUIZ = [
     ],
     correct: 3,
     correctExplanation: "Disruptions to third-party suppliers or logistics routes directly impact business operations.",
-    incorrectExplanation: "Incorrect. Supply chain disruptions can halt business operations even if facility buildings are intact."
+    incorrectExplanation: "Incorrect. Supply chain disruptions can halt business operations even if facility buildings are intact.",
+    optionFeedback: [
+      "Incorrect. 'Suppliers are required by law to pay for company rain gear' is not the right approach—supply chain disruptions can halt business operations even if facility buildings are intact.",
+      "Incorrect. 'Evaluating suppliers automatically stops coastal erosion' is not the right approach—supply chain disruptions can halt business operations even if facility buildings are intact.",
+      "Incorrect. 'Suppliers only deliver goods during sunny weather' is not the right approach—supply chain disruptions can halt business operations even if facility buildings are intact.",
+      "Correct. Disruptions to third-party suppliers or logistics routes directly impact business operations."
+    ]
   },
   {
     order: 5,
@@ -297,72 +321,108 @@ const NEW_QUIZ = [
     ],
     correct: 1,
     correctExplanation: "Verifying backup generators, batteries, and emergency water ensures utility continuity during power outages.",
-    incorrectExplanation: "Incorrect. Checking generators, batteries, and water supplies maintains essential utility functions."
+    incorrectExplanation: "Incorrect. Checking generators, batteries, and water supplies maintains essential utility functions.",
+    optionFeedback: [
+      "Incorrect. 'Unplugging all emergency exit lighting' is not the right approach—checking generators, batteries, and water supplies maintains essential utility functions.",
+      "Correct. Verifying backup generators, batteries, and emergency water ensures utility continuity during power outages.",
+      "Incorrect. 'Draining all water storage tanks into public drains' is not the right approach—checking generators, batteries, and water supplies maintains essential utility functions.",
+      "Incorrect. 'Turning off central fire safety alarms overnight' is not the right approach—checking generators, batteries, and water supplies maintains essential utility functions."
+    ]
   },
   {
     order: 6,
     question: "How should important company documents and IT data be protected from climate-related water damage?",
     options: [
-      "Keep paper documents stacked in unsealed cardboard boxes on basement floors",
-      "Store confidential client records on open outdoor tables",
       "Verify automated cloud backups daily and store physical paper records in water-tight cabinets off floor levels",
+      "Store confidential client records on open outdoor tables",
+      "Keep paper documents stacked in unsealed cardboard boxes on basement floors",
       "Delete all digital files so paper is the only record"
     ],
-    correct: 2,
+    correct: 0,
     correctExplanation: "Cloud data backups and elevated water-tight physical storage safeguard data continuity.",
-    incorrectExplanation: "Incorrect. Secure cloud backups and elevated storage protect vital business records."
+    incorrectExplanation: "Incorrect. Secure cloud backups and elevated storage protect vital business records.",
+    optionFeedback: [
+      "Correct. Cloud data backups and elevated water-tight physical storage safeguard data continuity.",
+      "Incorrect. 'Store confidential client records on open outdoor tables' is not the right approach—secure cloud backups and elevated storage protect vital business records.",
+      "Incorrect. 'Keep paper documents stacked in unsealed cardboard boxes on basement floors' is not the right approach—secure cloud backups and elevated storage protect vital business records.",
+      "Incorrect. 'Delete all digital files so paper is the only record' is not the right approach—secure cloud backups and elevated storage protect vital business records."
+    ]
   },
   {
     order: 7,
     question: "What is the first action in the STOP–CHECK–PROTECT–REPORT–ESCALATE protocol when observing an outdoor hazard during severe weather?",
     options: [
-      "STOP: Halt unsafe outdoor work or exposed electrical operations immediately to protect human safety",
-      "REPORT: Post a message on public social media",
       "PROTECT: Try to fix high-voltage power lines yourself without tools",
+      "REPORT: Post a message on public social media",
+      "STOP: Halt unsafe outdoor work or exposed electrical operations immediately to protect human safety",
       "ESCALATE: Call international emergency services"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Human safety comes first—STOP unsafe outdoor or electrical activities immediately.",
-    incorrectExplanation: "Incorrect. STOP unsafe work immediately to protect personal safety."
+    incorrectExplanation: "Incorrect. STOP unsafe work immediately to protect personal safety.",
+    optionFeedback: [
+      "Incorrect. 'PROTECT: Try to fix high-voltage power lines yourself without tools' is not the right approach—sTOP unsafe work immediately to protect personal safety.",
+      "Incorrect. 'REPORT: Post a message on public social media' is not the right approach—sTOP unsafe work immediately to protect personal safety.",
+      "Correct. Human safety comes first—STOP unsafe outdoor or electrical activities immediately.",
+      "Incorrect. 'ESCALATE: Call international emergency services' is not the right approach—sTOP unsafe work immediately to protect personal safety."
+    ]
   },
   {
     order: 8,
     question: "Why is multi-channel communication important for staff during severe weather disruptions?",
     options: [
       "Communication channels are used exclusively to stream video games",
-      "Reliable channels ensure employees receive prompt safety updates, operational status changes, and remote work instructions",
+      "Multi-channel tools automatically repair damaged roofs",
       "Staff communications are only necessary during annual performance reviews",
-      "Multi-channel tools automatically repair damaged roofs"
+      "Reliable channels ensure employees receive prompt safety updates, operational status changes, and remote work instructions"
     ],
-    correct: 1,
+    correct: 3,
     correctExplanation: "Multi-channel communications ensure staff receive vital safety updates and operational instructions.",
-    incorrectExplanation: "Incorrect. Reliable communications keep teams informed of safety and operational procedures."
+    incorrectExplanation: "Incorrect. Reliable communications keep teams informed of safety and operational procedures.",
+    optionFeedback: [
+      "Incorrect. 'Communication channels are used exclusively to stream video games' is not the right approach—reliable communications keep teams informed of safety and operational procedures.",
+      "Incorrect. 'Multi-channel tools automatically repair damaged roofs' is not the right approach—reliable communications keep teams informed of safety and operational procedures.",
+      "Incorrect. 'Staff communications are only necessary during annual performance reviews' is not the right approach—reliable communications keep teams informed of safety and operational procedures.",
+      "Correct. Multi-channel communications ensure staff receive vital safety updates and operational instructions."
+    ]
   },
   {
     order: 9,
     question: "A company operates three coastal delivery vans. A storm surge warning is issued. What is the most responsible transport action?",
     options: [
-      "Instruct drivers to speed through flooded coastal roads to meet delivery times",
+      "Reroute or pause coastal deliveries until authorities declare routes safe, keeping drivers informed",
       "Abandon the delivery vans in the middle of coastal highways",
       "Ignore weather warnings completely",
-      "Reroute or pause coastal deliveries until authorities declare routes safe, keeping drivers informed"
+      "Instruct drivers to speed through flooded coastal roads to meet delivery times"
     ],
-    correct: 3,
+    correct: 0,
     correctExplanation: "Pausing or rerouting deliveries protects driver safety and company vehicle assets during storm surges.",
-    incorrectExplanation: "Incorrect. Reroute or pause deliveries to protect staff safety and fleet vehicles."
+    incorrectExplanation: "Incorrect. Reroute or pause deliveries to protect staff safety and fleet vehicles.",
+    optionFeedback: [
+      "Correct. Pausing or rerouting deliveries protects driver safety and company vehicle assets during storm surges.",
+      "Incorrect. 'Abandon the delivery vans in the middle of coastal highways' is not the right approach—reroute or pause deliveries to protect staff safety and fleet vehicles.",
+      "Incorrect. 'Ignore weather warnings completely' is not the right approach—reroute or pause deliveries to protect staff safety and fleet vehicles.",
+      "Incorrect. 'Instruct drivers to speed through flooded coastal roads to meet delivery times' is not the right approach—reroute or pause deliveries to protect staff safety and fleet vehicles."
+    ]
   },
   {
     order: 10,
     question: "How does ELH-30 (Climate Risk & Resilience) differ from ELH-07 (Carbon Footprint Awareness)?",
     options: [
       "ELH-30 replaces all other 29 courses in the Elevio catalogue",
-      "ELH-07 focuses on carbon emissions reduction (mitigation); ELH-30 focuses on operational readiness and adaptation to climate impacts",
       "ELH-07 is for office staff only; ELH-30 is for submarine captains",
+      "ELH-07 focuses on carbon emissions reduction (mitigation); ELH-30 focuses on operational readiness and adaptation to climate impacts",
       "There is no difference between carbon reduction and climate adaptation"
     ],
-    correct: 1,
+    correct: 2,
     correctExplanation: "ELH-07 teaches carbon emissions mitigation; ELH-30 teaches physical adaptation and operational resilience.",
-    incorrectExplanation: "Incorrect. ELH-07 covers carbon mitigation; ELH-30 covers climate adaptation and operational resilience."
+    incorrectExplanation: "Incorrect. ELH-07 covers carbon mitigation; ELH-30 covers climate adaptation and operational resilience.",
+    optionFeedback: [
+      "Incorrect. 'ELH-30 replaces all other 29 courses in the Elevio catalogue' is not the right approach—eLH-07 covers carbon mitigation; ELH-30 covers climate adaptation and operational resilience.",
+      "Incorrect. 'ELH-07 is for office staff only; ELH-30 is for submarine captains' is not the right approach—eLH-07 covers carbon mitigation; ELH-30 covers climate adaptation and operational resilience.",
+      "Correct. ELH-07 teaches carbon emissions mitigation; ELH-30 teaches physical adaptation and operational resilience.",
+      "Incorrect. 'There is no difference between carbon reduction and climate adaptation' is not the right approach—eLH-07 covers carbon mitigation; ELH-30 covers climate adaptation and operational resilience."
+    ]
   }
 ];
 

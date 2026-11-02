@@ -217,7 +217,13 @@ const NEW_QUIZ = [
     ],
     correct: 1,
     correctExplanation: "Meetings held = activity; Completed actions and verified improvements = effectiveness.",
-    incorrectExplanation: "Incorrect. Activity measures meetings held; Effectiveness measures verified workplace delivery."
+    incorrectExplanation: "Incorrect. Activity measures meetings held; Effectiveness measures verified workplace delivery.",
+    optionFeedback: [
+      "Incorrect. 'Meeting activity applies to managers; Effectiveness applies to external auditors' is not the right approach—activity measures meetings held; Effectiveness measures verified workplace delivery.",
+      "Correct. Meetings held = activity; Completed actions and verified improvements = effectiveness.",
+      "Incorrect. 'Meeting activity requires catering; Effectiveness requires PowerPoint slides' is not the right approach—activity measures meetings held; Effectiveness measures verified workplace delivery.",
+      "Incorrect. 'Meeting activity and Effectiveness are exact synonyms in corporate governance' is not the right approach—activity measures meetings held; Effectiveness measures verified workplace delivery."
+    ]
   },
   {
     order: 2,
@@ -230,7 +236,13 @@ const NEW_QUIZ = [
     ],
     correct: 2,
     correctExplanation: "T = Target a clear purpose with written mandate and decision boundaries.",
-    incorrectExplanation: "Incorrect. T = Target a clear purpose."
+    incorrectExplanation: "Incorrect. T = Target a clear purpose.",
+    optionFeedback: [
+      "Incorrect. 'Transfer all environmental budgets into personal accounts' is not the right approach—t = Target a clear purpose.",
+      "Incorrect. 'Terminate non-attending committee members immediately' is not the right approach—t = Target a clear purpose.",
+      "Correct. T = Target a clear purpose with written mandate and decision boundaries.",
+      "Incorrect. 'Threaten supervisors who do not submit weekly ideas' is not the right approach—t = Target a clear purpose."
+    ]
   },
   {
     order: 3,
@@ -243,7 +255,13 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Frontline and shift staff bring essential operational insights and spot daily waste.",
-    incorrectExplanation: "Incorrect. Cross-functional representation ensures operational reality and shift feasibility."
+    incorrectExplanation: "Incorrect. Cross-functional representation ensures operational reality and shift feasibility.",
+    optionFeedback: [
+      "Correct. Frontline and shift staff bring essential operational insights and spot daily waste.",
+      "Incorrect. 'Because head-office staff are legally forbidden from attending green team meetings' is not the right approach—cross-functional representation ensures operational reality and shift feasibility.",
+      "Incorrect. 'Because frontline staff are required to take meeting minutes' is not the right approach—cross-functional representation ensures operational reality and shift feasibility.",
+      "Incorrect. 'Because facilities staff own all company shares' is not the right approach—cross-functional representation ensures operational reality and shift feasibility."
+    ]
   },
   {
     order: 4,
@@ -256,7 +274,13 @@ const NEW_QUIZ = [
     ],
     correct: 3,
     correctExplanation: "Overloading one person creates volunteer dependency and single-point failure; actions must be distributed.",
-    incorrectExplanation: "Incorrect. Single-person overload creates volunteer dependency and delivery bottlenecks."
+    incorrectExplanation: "Incorrect. Single-person overload creates volunteer dependency and delivery bottlenecks.",
+    optionFeedback: [
+      "Incorrect. 'Because action folders must legally be stored in locked steel safes' is not the right approach—single-person overload creates volunteer dependency and delivery bottlenecks.",
+      "Incorrect. 'Because paper folders increase carbon emissions by 50%' is not the right approach—single-person overload creates volunteer dependency and delivery bottlenecks.",
+      "Incorrect. 'Because green team coordinators are forbidden from carrying paper' is not the right approach—single-person overload creates volunteer dependency and delivery bottlenecks.",
+      "Correct. Overloading one person creates volunteer dependency and single-point failure; actions must be distributed."
+    ]
   },
   {
     order: 5,
@@ -269,7 +293,13 @@ const NEW_QUIZ = [
     ],
     correct: 1,
     correctExplanation: "Capital expenses exceeding team authority must be costed, evidenced, and recommended to authorized managers.",
-    incorrectExplanation: "Incorrect. Green teams recommend capital expenditures to authorized line managers."
+    incorrectExplanation: "Incorrect. Green teams recommend capital expenditures to authorized line managers.",
+    optionFeedback: [
+      "Incorrect. 'Approve the expenditure directly during the green team meeting' is not the right approach—green teams recommend capital expenditures to authorized line managers.",
+      "Correct. Capital expenses exceeding team authority must be costed, evidenced, and recommended to authorized managers.",
+      "Incorrect. 'Reallocate funds from staff salary budgets without telling finance' is not the right approach—green teams recommend capital expenditures to authorized line managers.",
+      "Incorrect. 'Cancel the meeting and abandon the initiative' is not the right approach—green teams recommend capital expenditures to authorized line managers."
+    ]
   },
   {
     order: 6,
@@ -282,7 +312,13 @@ const NEW_QUIZ = [
     ],
     correct: 3,
     correctExplanation: "Executive sponsor = senior lead providing management alignment, resources, and budget sign-off.",
-    incorrectExplanation: "Incorrect. Sponsor = senior manager providing alignment, resources, and sign-off."
+    incorrectExplanation: "Incorrect. Sponsor = senior manager providing alignment, resources, and sign-off.",
+    optionFeedback: [
+      "Incorrect. 'An external contractor who cleans the meeting room' is not the right approach—sponsor = senior manager providing alignment, resources, and sign-off.",
+      "Incorrect. 'A junior intern who orders coffee for meetings' is not the right approach—sponsor = senior manager providing alignment, resources, and sign-off.",
+      "Incorrect. 'A software algorithm that sends automated reminders' is not the right approach—sponsor = senior manager providing alignment, resources, and sign-off.",
+      "Correct. Executive sponsor = senior lead providing management alignment, resources, and budget sign-off."
+    ]
   },
   {
     order: 7,
@@ -295,7 +331,13 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Naming one accountable role ensures clear answerability and prevents diffusion of responsibility.",
-    incorrectExplanation: "Incorrect. Naming one role prevents 'everyone's job becomes no one's job'."
+    incorrectExplanation: "Incorrect. Naming one role prevents 'everyone's job becomes no one's job'.",
+    optionFeedback: [
+      "Correct. Naming one accountable role ensures clear answerability and prevents diffusion of responsibility.",
+      "Incorrect. 'Because naming multiple owners triggers double taxation' is not the right approach—naming one role prevents 'everyone's job becomes no one's job'.",
+      "Incorrect. 'Because database systems can only store single names' is not the right approach—naming one role prevents 'everyone's job becomes no one's job'.",
+      "Incorrect. 'Because single ownership is required by Mauritian labor law' is not the right approach—naming one role prevents 'everyone's job becomes no one's job'."
+    ]
   },
   {
     order: 8,
@@ -308,7 +350,13 @@ const NEW_QUIZ = [
     ],
     correct: 2,
     correctExplanation: "Respectful, transparent explanations maintain employee trust even when ideas are declined.",
-    incorrectExplanation: "Incorrect. Transparent feedback explaining reasons maintains trust."
+    incorrectExplanation: "Incorrect. Transparent feedback explaining reasons maintains trust.",
+    optionFeedback: [
+      "Incorrect. 'Ignore the submission slip and pretend it was lost' is not the right approach—transparent feedback explaining reasons maintains trust.",
+      "Incorrect. 'Publicly reprimand the employee for submitting an unrealistic idea' is not the right approach—transparent feedback explaining reasons maintains trust.",
+      "Correct. Respectful, transparent explanations maintain employee trust even when ideas are declined.",
+      "Incorrect. 'Mark the idea as 'Completed' on the board to keep morale high' is not the right approach—transparent feedback explaining reasons maintains trust."
+    ]
   },
   {
     order: 9,
@@ -321,7 +369,13 @@ const NEW_QUIZ = [
     ],
     correct: 1,
     correctExplanation: "ELH-22 builds team operating capability; ELH-23 guides the team in delivering specific workplace initiatives.",
-    incorrectExplanation: "Incorrect. ELH-22 provides team governance; ELH-23 provides initiative delivery mechanics."
+    incorrectExplanation: "Incorrect. ELH-22 provides team governance; ELH-23 provides initiative delivery mechanics.",
+    optionFeedback: [
+      "Incorrect. 'ELH-22 replaces initiatives so specific projects are no longer needed' is not the right approach—eLH-22 provides team governance; ELH-23 provides initiative delivery mechanics.",
+      "Correct. ELH-22 builds team operating capability; ELH-23 guides the team in delivering specific workplace initiatives.",
+      "Incorrect. 'ELH-22 is for office staff; ELH-23 is for external consultants only' is not the right approach—eLH-22 provides team governance; ELH-23 provides initiative delivery mechanics.",
+      "Incorrect. 'There is no connection between green teams and initiatives' is not the right approach—eLH-22 provides team governance; ELH-23 provides initiative delivery mechanics."
+    ]
   },
   {
     order: 10,
@@ -334,7 +388,13 @@ const NEW_QUIZ = [
     ],
     correct: 3,
     correctExplanation: "TEAMWORK provides structured operating discipline for cross-functional representation and accountable action delivery.",
-    incorrectExplanation: "Incorrect. TEAMWORK provides structured operating discipline for effective green team delivery."
+    incorrectExplanation: "Incorrect. TEAMWORK provides structured operating discipline for effective green team delivery.",
+    optionFeedback: [
+      "Incorrect. 'Green teams should rely on unbudgeted volunteer enthusiasm and endless meetings' is not the right approach—tEAMWORK provides structured operating discipline for effective green team delivery.",
+      "Incorrect. 'Line managers should transfer all environmental responsibilities onto green teams' is not the right approach—tEAMWORK provides structured operating discipline for effective green team delivery.",
+      "Incorrect. 'Meeting frequency is the single true measure of sustainability success' is not the right approach—tEAMWORK provides structured operating discipline for effective green team delivery.",
+      "Correct. TEAMWORK provides structured operating discipline for cross-functional representation and accountable action delivery."
+    ]
   }
 ];
 
@@ -460,6 +520,7 @@ export async function ensureEffectiveGreenTeamsCourse(): Promise<void> {
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );

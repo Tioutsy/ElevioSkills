@@ -49,7 +49,7 @@ describe("Sprint 11D — ELH-04 Water Conservation Assurance & Regression Suite"
       .where(eq(quizQuestionsTable.courseId, 4))
       .orderBy(quizQuestionsTable.orderIndex);
 
-    assert.equal(questions.length, 5, "ELH-04 quiz must contain 5 scored questions");
+    assert.equal(questions.length, 10, "ELH-04 quiz must contain 10 scored questions");
 
     const positionCounts: Record<number, number> = { 0: 0, 1: 0, 2: 0, 3: 0 };
     for (const q of questions) {

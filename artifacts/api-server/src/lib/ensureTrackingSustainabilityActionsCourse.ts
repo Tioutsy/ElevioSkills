@@ -210,14 +210,20 @@ const NEW_QUIZ = [
     order: 1,
     question: "Why is a vague register entry like 'Improve recycling — ongoing' ineffective?",
     options: [
-      "Because it lacks a specific task deliverable, a single accountable owner, a target date, and verifiable completion evidence",
-      "Because recycling is prohibited in commercial workplaces",
       "Because action registers must only contain financial statistics",
+      "Because recycling is prohibited in commercial workplaces",
+      "Because it lacks a specific task deliverable, a single accountable owner, a target date, and verifiable completion evidence",
       "Because ongoing tasks can never be recorded in computers"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Vague entries lack single-owner accountability, specific deliverables, target dates, and evidence.",
-    incorrectExplanation: "Incorrect. Trackable actions require specific deliverables, single owners, deadlines, and evidence."
+    incorrectExplanation: "Incorrect. Trackable actions require specific deliverables, single owners, deadlines, and evidence.",
+    optionFeedback: [
+      "Incorrect. 'Because action registers must only contain financial statistics' is not the right approach—trackable actions require specific deliverables, single owners, deadlines, and evidence.",
+      "Incorrect. 'Because recycling is prohibited in commercial workplaces' is not the right approach—trackable actions require specific deliverables, single owners, deadlines, and evidence.",
+      "Correct. Vague entries lack single-owner accountability, specific deliverables, target dates, and evidence.",
+      "Incorrect. 'Because ongoing tasks can never be recorded in computers' is not the right approach—trackable actions require specific deliverables, single owners, deadlines, and evidence."
+    ]
   },
   {
     order: 2,
@@ -230,46 +236,70 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "R = Record one owner & target date, ensuring clear personal accountability.",
-    incorrectExplanation: "Incorrect. R = Record one owner & target date."
+    incorrectExplanation: "Incorrect. R = Record one owner & target date.",
+    optionFeedback: [
+      "Correct. R = Record one owner & target date, ensuring clear personal accountability.",
+      "Incorrect. 'Remove all overdue tasks from the spreadsheet' is not the right approach—r = Record one owner & target date.",
+      "Incorrect. 'Refuse to answer manager questions about delays' is not the right approach—r = Record one owner & target date.",
+      "Incorrect. 'Replace internal staff with external contractors' is not the right approach—r = Record one owner & target date."
+    ]
   },
   {
     order: 3,
     question: "Why should an action statement have only ONE primary accountable owner?",
     options: [
-      "Because when multiple owners or entire departments are assigned, no single individual feels accountable for follow-through",
       "Because only managers are allowed to work on actions",
+      "Because when multiple owners or entire departments are assigned, no single individual feels accountable for follow-through",
       "Because software spreadsheets can only store one name per row",
       "Because supporting contributors are forbidden from helping"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Single ownership prevents shared ambiguity; supporting roles can contribute without diluting ownership.",
-    incorrectExplanation: "Incorrect. Assigning one primary owner ensures clear accountability for completion."
+    incorrectExplanation: "Incorrect. Assigning one primary owner ensures clear accountability for completion.",
+    optionFeedback: [
+      "Incorrect. 'Because only managers are allowed to work on actions' is not the right approach—assigning one primary owner ensures clear accountability for completion.",
+      "Correct. Single ownership prevents shared ambiguity; supporting roles can contribute without diluting ownership.",
+      "Incorrect. 'Because software spreadsheets can only store one name per row' is not the right approach—assigning one primary owner ensures clear accountability for completion.",
+      "Incorrect. 'Because supporting contributors are forbidden from helping' is not the right approach—assigning one primary owner ensures clear accountability for completion."
+    ]
   },
   {
     order: 4,
     question: "In the visual action register board (`visual-sustainability-action-register.png`), what weakness is highlighted by the red arrow?",
     options: [
-      "An overdue action assigned to two owners (Sarah J. & Rajiv M.) without single-owner clarity or evidence verification",
+      "An action written in the wrong font style",
       "A completed action that cost too much money",
       "A missing building floor plan map",
-      "An action written in the wrong font style"
+      "An overdue action assigned to two owners (Sarah J. & Rajiv M.) without single-owner clarity or evidence verification"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "The highlighted entry shows an overdue task with dual ownership, creating accountability ambiguity.",
-    incorrectExplanation: "Incorrect. It highlights an overdue task assigned to two owners without evidence."
+    incorrectExplanation: "Incorrect. It highlights an overdue task assigned to two owners without evidence.",
+    optionFeedback: [
+      "Incorrect. 'An action written in the wrong font style' is not the right approach—it highlights an overdue task assigned to two owners without evidence.",
+      "Incorrect. 'A completed action that cost too much money' is not the right approach—it highlights an overdue task assigned to two owners without evidence.",
+      "Incorrect. 'A missing building floor plan map' is not the right approach—it highlights an overdue task assigned to two owners without evidence.",
+      "Correct. The highlighted entry shows an overdue task with dual ownership, creating accountability ambiguity."
+    ]
   },
   {
     order: 5,
     question: "What is the difference between an ACTIVITY and COMPLETION EVIDENCE?",
     options: [
-      "An activity is a task step performed (e.g. sending a quote request email); completion evidence is factual proof that the deliverable was achieved (e.g. signed supplier contract)",
       "An activity is an official fine; completion evidence is a verbal rumor",
+      "An activity is a task step performed (e.g. sending a quote request email); completion evidence is factual proof that the deliverable was achieved (e.g. signed supplier contract)",
       "Activity and completion evidence mean the exact same thing",
       "An activity is performed by computers; evidence is performed by humans"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Activities are task steps performed; completion evidence is factual proof that the deliverable is finished.",
-    incorrectExplanation: "Incorrect. Activity = task step performed; Completion Evidence = factual proof of deliverable."
+    incorrectExplanation: "Incorrect. Activity = task step performed; Completion Evidence = factual proof of deliverable.",
+    optionFeedback: [
+      "Incorrect. 'An activity is an official fine; completion evidence is a verbal rumor' is not the right approach—activity = task step performed; Completion Evidence = factual proof of deliverable.",
+      "Correct. Activities are task steps performed; completion evidence is factual proof that the deliverable is finished.",
+      "Incorrect. 'Activity and completion evidence mean the exact same thing' is not the right approach—activity = task step performed; Completion Evidence = factual proof of deliverable.",
+      "Incorrect. 'An activity is performed by computers; evidence is performed by humans' is not the right approach—activity = task step performed; Completion Evidence = factual proof of deliverable."
+    ]
   },
   {
     order: 6,
@@ -282,33 +312,51 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Mark 'Blocked' when external dependencies or resource constraints prevent progress, triggering escalation.",
-    incorrectExplanation: "Incorrect. Blocked status indicates an unresolved barrier requiring escalation."
+    incorrectExplanation: "Incorrect. Blocked status indicates an unresolved barrier requiring escalation.",
+    optionFeedback: [
+      "Correct. Mark 'Blocked' when external dependencies or resource constraints prevent progress, triggering escalation.",
+      "Incorrect. 'Whenever an action is completed ahead of schedule' is not the right approach—blocked status indicates an unresolved barrier requiring escalation.",
+      "Incorrect. 'When an employee goes on annual leave for two days' is not the right approach—blocked status indicates an unresolved barrier requiring escalation.",
+      "Incorrect. 'When the action register file is locked for editing' is not the right approach—blocked status indicates an unresolved barrier requiring escalation."
+    ]
   },
   {
     order: 7,
     question: "Why is silently replacing an overdue target date with a new future date without explanation a high-risk mistake?",
     options: [
-      "Because it conceals operational delays and destroys change history, preventing management from understanding root causes",
-      "Because target dates can never be changed under any circumstances",
       "Because spreadsheets automatically crash when dates are edited",
+      "Because target dates can never be changed under any circumstances",
+      "Because it conceals operational delays and destroys change history, preventing management from understanding root causes",
       "Because target dates are legally binding court orders"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Target dates can be revised, but the change history and reason for delay must be preserved transparently.",
-    incorrectExplanation: "Incorrect. Revisions require transparent notes to preserve change history and record reasons for delay."
+    incorrectExplanation: "Incorrect. Revisions require transparent notes to preserve change history and record reasons for delay.",
+    optionFeedback: [
+      "Incorrect. 'Because spreadsheets automatically crash when dates are edited' is not the right approach—revisions require transparent notes to preserve change history and record reasons for delay.",
+      "Incorrect. 'Because target dates can never be changed under any circumstances' is not the right approach—revisions require transparent notes to preserve change history and record reasons for delay.",
+      "Correct. Target dates can be revised, but the change history and reason for delay must be preserved transparently.",
+      "Incorrect. 'Because target dates are legally binding court orders' is not the right approach—revisions require transparent notes to preserve change history and record reasons for delay."
+    ]
   },
   {
     order: 8,
     question: "What should a sustainability committee coordinator do when an action owner reports an unmanaged budget barrier?",
     options: [
-      "Update status to 'Blocked', record the specific budget barrier note, and escalate to the Team Sponsor for management review",
+      "Tell the action owner to pay for the equipment personally",
       "Mark the action 'Completed' so the register looks good",
       "Delete the action row from the database",
-      "Tell the action owner to pay for the equipment personally"
+      "Update status to 'Blocked', record the specific budget barrier note, and escalate to the Team Sponsor for management review"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Update status to Blocked, record the barrier note, and escalate to the Sponsor for management review.",
-    incorrectExplanation: "Incorrect. Record Blocked status and escalate to the Sponsor for management decision."
+    incorrectExplanation: "Incorrect. Record Blocked status and escalate to the Sponsor for management decision.",
+    optionFeedback: [
+      "Incorrect. 'Tell the action owner to pay for the equipment personally' is not the right approach—record Blocked status and escalate to the Sponsor for management decision.",
+      "Incorrect. 'Mark the action 'Completed' so the register looks good' is not the right approach—record Blocked status and escalate to the Sponsor for management decision.",
+      "Incorrect. 'Delete the action row from the database' is not the right approach—record Blocked status and escalate to the Sponsor for management decision.",
+      "Correct. Update status to Blocked, record the barrier note, and escalate to the Sponsor for management review."
+    ]
   },
   {
     order: 9,
@@ -321,20 +369,32 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "ELH-17 specifies evidence requirements on action logs; ELH-18 teaches technical data collection protocols.",
-    incorrectExplanation: "Incorrect. ELH-17 links evidence to tasks; ELH-18 teaches how to collect and validate data."
+    incorrectExplanation: "Incorrect. ELH-17 links evidence to tasks; ELH-18 teaches how to collect and validate data.",
+    optionFeedback: [
+      "Correct. ELH-17 specifies evidence requirements on action logs; ELH-18 teaches technical data collection protocols.",
+      "Incorrect. 'ELH-17 replaces ELH-18 so data collection is no longer necessary' is not the right approach—eLH-17 links evidence to tasks; ELH-18 teaches how to collect and validate data.",
+      "Incorrect. 'ELH-17 is for external auditors; ELH-18 is for receptionists' is not the right approach—eLH-17 links evidence to tasks; ELH-18 teaches how to collect and validate data.",
+      "Incorrect. 'There is no connection between tracking actions and data collection' is not the right approach—eLH-17 links evidence to tasks; ELH-18 teaches how to collect and validate data."
+    ]
   },
   {
     order: 10,
     question: "What is the primary takeaway of the TRACE Action Framework?",
     options: [
-      "Applying TRACE (Turn to action, Record owner/date, Add updates/evidence, Check status, Escalate delays) ensures workplace actions are delivered transparently",
-      "Action tracking is optional and has no impact on project completion",
       "Actions should be marked complete as soon as an email is sent",
+      "Action tracking is optional and has no impact on project completion",
+      "Applying TRACE (Turn to action, Record owner/date, Add updates/evidence, Check status, Escalate delays) ensures workplace actions are delivered transparently",
       "Action registers should be kept secret from department heads"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "The TRACE framework provides disciplined recordkeeping that turns decisions into verified workplace results.",
-    incorrectExplanation: "Incorrect. TRACE provides the structure needed for evidence-backed action delivery."
+    incorrectExplanation: "Incorrect. TRACE provides the structure needed for evidence-backed action delivery.",
+    optionFeedback: [
+      "Incorrect. 'Actions should be marked complete as soon as an email is sent' is not the right approach—tRACE provides the structure needed for evidence-backed action delivery.",
+      "Incorrect. 'Action tracking is optional and has no impact on project completion' is not the right approach—tRACE provides the structure needed for evidence-backed action delivery.",
+      "Correct. The TRACE framework provides disciplined recordkeeping that turns decisions into verified workplace results.",
+      "Incorrect. 'Action registers should be kept secret from department heads' is not the right approach—tRACE provides the structure needed for evidence-backed action delivery."
+    ]
   }
 ];
 
@@ -389,7 +449,7 @@ export async function ensureTrackingSustainabilityActionsCourse(): Promise<void>
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 10;
+      const hasMissingQuiz = existingQuizQuestions.length < 8;
 
       const needsRepair = !existingSeed || hasMissingLessons || hasEmptyBlocks || hasMissingQuiz;
 
@@ -460,6 +520,7 @@ export async function ensureTrackingSustainabilityActionsCourse(): Promise<void>
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );

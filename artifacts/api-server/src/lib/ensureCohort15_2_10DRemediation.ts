@@ -38,17 +38,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 1,
         question: "Workplace Scenario (Equipment Staging & Idle Energy): An executive chef notices that line cooks turn on all gas ranges, salamanders, and fryers at 06:00, even though service starts at 11:30. What is the most effective operational protocol to reduce energy waste without impacting food prep?",
         options: [
-          "Leave equipment running continuously to avoid thermal shock to metal burners",
           "Implement a phased equipment start-up schedule based on actual prep sequence and 15–20 minute manufacturer preheat times",
+          "Leave equipment running continuously to avoid thermal shock to metal burners",
           "Disconnect the gas mains until 15 minutes before lunch service begins",
           "Eliminate all hot menu items and switch entirely to cold salads"
         ],
-        correct: 1,
+        correct: 0,
         correctExplanation: "Staged warm-up schedules aligned with manufacturer preheat specifications eliminate hours of idle kitchen energy while ensuring stations are ready on time.",
         incorrectExplanation: "Incorrect. 5.5 hours of idling is unnecessary and costly; abrupt gas disconnection creates safety hazards, and eliminating hot food harms guest offerings.",
         optionFeedback: [
-          "Incorrect. Commercial cooking appliances do not require hours of idling to avoid thermal shock.",
           "Correct! A staged warm-up schedule aligned with preheat specifications eliminates idle cooking energy while ensuring stations are ready on time.",
+          "Incorrect. Commercial cooking appliances do not require hours of idling to avoid thermal shock.",
           "Incorrect. Disconnecting main valves without controlled shutoff protocols introduces safety risks.",
           "Incorrect. Completely removing cooked items destroys core menu offerings rather than managing equipment efficiently."
         ]
@@ -76,18 +76,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 3,
         question: "Equipment Efficiency (Commercial Induction vs Gas): A resort kitchen upgrades its cookline from open gas burners to commercial induction cooktops. What is the primary thermodynamic and operational advantage?",
         options: [
-          "Induction transfers 85–90% of energy directly to magnetic cookware, drastically reducing ambient heat and kitchen cooling loads",
-          "Induction requires open flame pilots that warm the kitchen during cold mornings",
           "Induction allows aluminum and copper pans to be used without magnetic bases",
+          "Induction requires open flame pilots that warm the kitchen during cold mornings",
+          "Induction transfers 85–90% of energy directly to magnetic cookware, drastically reducing ambient heat and kitchen cooling loads",
           "Induction eliminates the need for cookware washing"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Commercial induction operates at 85–90% thermal efficiency compared to 35–40% for gas, significantly reducing fuel use and kitchen cooling loads.",
         incorrectExplanation: "Incorrect. Induction uses magnetic eddy currents with zero open flames, requires ferrous cookware, and maintains standard sanitation rules.",
         optionFeedback: [
-          "Correct! Induction transfers 85–90% of energy directly to the pan, minimizing ambient heat load and reducing kitchen HVAC cooling demands.",
-          "Incorrect. Induction uses electromagnetic fields with zero open flames or pilot lights.",
           "Incorrect. Induction requires ferrous/magnetic cookware bases to generate eddy currents.",
+          "Incorrect. Induction uses electromagnetic fields with zero open flames or pilot lights.",
+          "Correct! Induction transfers 85–90% of energy directly to the pan, minimizing ambient heat load and reducing kitchen HVAC cooling demands.",
           "Incorrect. Cookware hygiene and sanitation requirements remain unchanged."
         ]
       },
@@ -96,35 +96,35 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         question: "Workplace Decision (Dishwashing Pre-Rinse Conservation): The stewarding team audits pre-rinse spray valves in the scullery. The current valve flows at 16 L/min. What is the best practice replacement?",
         options: [
           "Remove spray valves entirely and dump buckets of water on dish racks",
-          "Install a certified low-flow pre-rinse spray valve delivering 4.5 to 5.5 L/min with high-velocity knife-spray pattern",
+          "Connect hot water lines directly to garden hoses",
           "Drill extra holes in the spray face to widen water dispersion",
-          "Connect hot water lines directly to garden hoses"
+          "Install a certified low-flow pre-rinse spray valve delivering 4.5 to 5.5 L/min with high-velocity knife-spray pattern"
         ],
-        correct: 1,
+        correct: 3,
         correctExplanation: "High-efficiency pre-rinse valves (≤5.5 L/min) provide strong scraping force while reducing hot water and water heating energy by over 60%.",
         incorrectExplanation: "Incorrect. Bucket dumping is inefficient; drilling holes lowers velocity; garden hoses violate plumbing and sanitation codes.",
         optionFeedback: [
           "Incorrect. Bucket dumping is inefficient and risks cross-contamination.",
-          "Correct! High-efficiency pre-rinse valves (≤5.5 L/min) provide strong scraping force while reducing hot water and water heating energy by over 60%.",
+          "Incorrect. Garden hoses are not food-grade and violate commercial plumbing and sanitation standards.",
           "Incorrect. Drilling holes increases flow rate and drops spray velocity, degrading cleaning effectiveness.",
-          "Incorrect. Garden hoses are not food-grade and violate commercial plumbing and sanitation standards."
+          "Correct! High-efficiency pre-rinse valves (≤5.5 L/min) provide strong scraping force while reducing hot water and water heating energy by over 60%."
         ]
       },
       {
         order: 5,
         question: "Workplace Scenario (Refrigeration Gaskets & Maintenance): A pastry chef reports that a walk-in freezer door seal is torn, and frost has accumulated heavily around the evaporator coils. What is the immediate risk and required action?",
         options: [
-          "Warm ambient air infiltration causes compressor overload and thermal fluctuation; repair the gasket and run a defrost cycle",
           "Frost buildup improves insulation; leave the door unsealed to increase cold air circulation",
+          "Warm ambient air infiltration causes compressor overload and thermal fluctuation; repair the gasket and run a defrost cycle",
           "Turn off the freezer for 48 hours while keeping frozen seafood inside",
           "Set the thermostat 10°C colder to compensate for the air leak without fixing the seal"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Refrigeration door gaskets prevent warm moist air infiltration that causes coil icing, compressor strain, and excessive energy consumption.",
         incorrectExplanation: "Incorrect. Frost insulates coils and chokes heat transfer; lowering setpoints worsens icing without resolving air leaks.",
         optionFeedback: [
-          "Correct! Compromised gaskets cause warm moist air infiltration, ice buildup on coils, compressor cycling strain, and food safety risks.",
           "Incorrect. Frost on evaporator coils insulates heat transfer surfaces, choking refrigeration efficiency.",
+          "Correct! Compromised gaskets cause warm moist air infiltration, ice buildup on coils, compressor cycling strain, and food safety risks.",
           "Incorrect. Storing perishables in an unpowered unit breaches food safety regulations.",
           "Incorrect. Lowering the setpoint accelerates icing and compressor failure without resolving infiltration."
         ]
@@ -134,17 +134,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         question: "Culinary Workflow (Blast Chilling & Food Safety): What is the primary food safety and sustainability benefit of adopting cook-chill and blast-chilling workflows in high-volume banqueting?",
         options: [
           "It allows cooked poultry to sit at room temperature for 12 hours before chilling",
-          "It rapidly passes food through the 60°C to 10°C danger zone, extending shelf life, reducing spoilage, and enabling precise portion staging",
           "It eliminates the need to record temperature logs during hot holding",
+          "It rapidly passes food through the 60°C to 10°C danger zone, extending shelf life, reducing spoilage, and enabling precise portion staging",
           "It converts organic food waste into edible seasonings"
         ],
-        correct: 1,
+        correct: 2,
         correctExplanation: "Blast chilling moves hot food through the microbial danger zone in under 90 minutes, maintaining food safety and allowing accurate banquet portion control.",
         incorrectExplanation: "Incorrect. Room temperature holding breaches food safety laws; blast chillers preserve wholesome food and require HACCP logging.",
         optionFeedback: [
           "Incorrect. Leaving poultry at room temperature violates critical HACCP controls.",
-          "Correct! Blast chilling rapidly lowers core food temperature through the microbial danger zone, preserving nutritional quality and reducing food waste.",
           "Incorrect. HACCP and food safety standards mandate rigorous temperature logging.",
+          "Correct! Blast chilling rapidly lowers core food temperature through the microbial danger zone, preserving nutritional quality and reducing food waste.",
           "Incorrect. Blast chillers preserve wholesome food; they do not convert waste."
         ]
       },
@@ -153,35 +153,35 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         question: "Environmental Compliance (Grease Trap & Used Oil Management): Which practice represents compliant and environmentally sound commercial grease interceptor governance?",
         options: [
           "Flushing concentrated chemical solvents and boiling water into drains to dissolve grease into the municipal sewer",
-          "Skimming grease regularly into certified containers for biodiesel recycling and maintaining a professional waste collection manifest",
+          "Emptying grease traps only once every five years when drains back up",
           "Draining fryers directly into exterior stormwater retention ponds at closing time",
-          "Emptying grease traps only once every five years when drains back up"
+          "Skimming grease regularly into certified containers for biodiesel recycling and maintaining a professional waste collection manifest"
         ],
-        correct: 1,
+        correct: 3,
         correctExplanation: "Used cooking oil and grease trap interceptor waste must be mechanically captured and hauled by licensed recyclers for biofuel or specialized processing.",
         incorrectExplanation: "Incorrect. Chemical flushing creates sewer fatbergs; stormwater dumping is illegal; infrequent cleaning causes severe back-ups.",
         optionFeedback: [
           "Incorrect. Chemical solvents and boiling water merely liquefy grease temporarily, causing fatbergs down-pipe in public infrastructure.",
-          "Correct! Regular mechanical skimming and certified waste carrier collection for biodiesel recovery ensures compliance and prevents sewer clogging.",
+          "Incorrect. Infrequent cleaning causes severe blockages, odor, and environmental penalties.",
           "Incorrect. Discharging grease to stormwater is illegal and causes catastrophic aquatic pollution.",
-          "Incorrect. Infrequent cleaning causes severe blockages, odor, and environmental penalties."
+          "Correct! Regular mechanical skimming and certified waste carrier collection for biodiesel recovery ensures compliance and prevents sewer clogging."
         ]
       },
       {
         order: 8,
         question: "Sustainable Sourcing (Local Seasonal Menus): When designing a sustainable culinary purchasing policy, why is seasonality and local agro-ecological sourcing prioritized over long-distance imports?",
         options: [
-          "Imported produce is legally prohibited in all Indian Ocean commercial kitchens",
           "Local seasonal produce reduces air-freight carbon intensity, supports regional farmers, and delivers higher nutrient retention and freshness",
+          "Imported produce is legally prohibited in all Indian Ocean commercial kitchens",
           "Out-of-season produce is always toxic to hotel guests",
           "Local purchasing eliminates all kitchen inventory tracking requirements"
         ],
-        correct: 1,
+        correct: 0,
         correctExplanation: "Locally sourced seasonal ingredients reduce freight emissions, minimize supply chain delays, and reinforce destination culinary identity.",
         incorrectExplanation: "Incorrect. Imports are not banned; out-of-season food is edible but carries high transport emissions; inventory tracking is always mandatory.",
         optionFeedback: [
-          "Incorrect. Importation is regulated but not universally prohibited.",
           "Correct! Prioritizing seasonal local produce cuts Scope 3 transportation emissions, strengthens community economic resilience, and provides superior product quality.",
+          "Incorrect. Importation is regulated but not universally prohibited.",
           "Incorrect. Out-of-season produce is edible but carries high transport footprints and cold-chain costs.",
           "Incorrect. Rigorous inventory and quality controls apply to all incoming ingredients."
         ]
@@ -199,17 +199,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 1,
         question: "Workplace Framework (Food Recovery Hierarchy): A resort sustainability manager conducts a baseline food waste audit. Which level represents the highest-priority operational intervention?",
         options: [
-          "Sending edible buffet surplus directly to an off-site landfill",
           "Source reduction through menu rationalization, demand forecasting, and trim minimization",
+          "Sending edible buffet surplus directly to an off-site landfill",
           "Incinerating organic waste to generate electricity for the staff village",
           "Converting all buffet food into industrial animal feed regardless of quality"
         ],
-        correct: 1,
+        correct: 0,
         correctExplanation: "The Food Recovery Hierarchy identifies source reduction (prevention) as the most impactful level, followed by human rescue, animal feed, and composting.",
         incorrectExplanation: "Incorrect. Landfill and incineration are the lowest tiers; source reduction prevents waste before resources are consumed.",
         optionFeedback: [
-          "Incorrect. Landfill disposal is the least preferred option at the bottom of the hierarchy.",
           "Correct! Source reduction prevents food waste from occurring in the first place and delivers the greatest economic and environmental benefit.",
+          "Incorrect. Landfill disposal is the least preferred option at the bottom of the hierarchy.",
           "Incorrect. Thermal recovery is near the bottom of the food waste hierarchy.",
           "Incorrect. Feeding animals is appropriate for non-edible scraps, but source reduction takes precedence."
         ]
@@ -238,17 +238,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         question: "Workplace Scenario (Buffet Batch Production & Replenishment): A resort buffet experiences 40 kg of overproduction waste daily from hot holding pans. What service adjustment best mitigates this without lowering guest perception of abundance?",
         options: [
           "Fill 5 kg chafing pans to maximum capacity right up until closing time",
-          "Transition to smaller display vessels with live cooking stations and batch replenishment during the final 90 minutes of service",
           "Stop serving all food 2 hours before the scheduled closing time",
+          "Transition to smaller display vessels with live cooking stations and batch replenishment during the final 90 minutes of service",
           "Serve only cold pre-packaged airline meals on the buffet line"
         ],
-        correct: 1,
+        correct: 2,
         correctExplanation: "Batch cooking and smaller display vessels maintained with active replenishment preserve visual freshness while drastically cutting buffet overproduction.",
         incorrectExplanation: "Incorrect. Overfilling pans late in service leads to guaranteed waste; premature closing or pre-packaged meals harm guest satisfaction.",
         optionFeedback: [
           "Incorrect. Deep full pans late in service lead to guaranteed overproduction disposal.",
-          "Correct! Using smaller shallow pans and live à la minute replenishment maintains visual abundance while curbing end-of-service surplus.",
           "Incorrect. Abruptly ending service violates guest service commitments.",
+          "Correct! Using smaller shallow pans and live à la minute replenishment maintains visual abundance while curbing end-of-service surplus.",
           "Incorrect. Pre-packaged airline meals degrade luxury resort dining standards."
         ]
       },
@@ -257,18 +257,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         question: "Technical Standard (Aerobic Composting C:N Ratio): When establishing an on-site aerated composting program for landscape and vegetable scraps, what is the critical carbon-to-nitrogen (C:N) ratio needed for optimal decomposition?",
         options: [
           "1:1 (equal weights of wet meat scraps and plastic wrap)",
-          "Approximately 25:1 to 30:1 (balancing brown carbon-rich matter like dry leaves with green nitrogen-rich vegetable scraps)",
+          "1:50 (pure wet fish trimmings without any dry browns)",
           "500:1 (pure bleached cardboard with zero moisture or nitrogen)",
-          "1:50 (pure wet fish trimmings without any dry browns)"
+          "Approximately 25:1 to 30:1 (balancing brown carbon-rich matter like dry leaves with green nitrogen-rich vegetable scraps)"
         ],
-        correct: 1,
+        correct: 3,
         correctExplanation: "Aerobic composting requires a balanced C:N ratio (~25:1–30:1), adequate moisture (40–60%), and regular aeration to maintain thermophilic temperatures (55–65°C).",
         incorrectExplanation: "Incorrect. Equal ratio with plastics causes contamination; extreme carbon starves microbes; excess nitrogen causes putrid anaerobic odors.",
         optionFeedback: [
           "Incorrect. Equal ratio with plastics and meat causes severe odor, vector attraction, and contamination.",
-          "Correct! A 25:1 to 30:1 C:N ratio maintains aerobic microbial activity, regulates moisture, and prevents anaerobic foul odors.",
+          "Incorrect. Excessive nitrogen causes putrefaction and strong ammonia/hydrogen sulfide odors.",
           "Incorrect. Excessive carbon starves microbes of nitrogen, halting decomposition.",
-          "Incorrect. Excessive nitrogen causes putrefaction and strong ammonia/hydrogen sulfide odors."
+          "Correct! A 25:1 to 30:1 C:N ratio maintains aerobic microbial activity, regulates moisture, and prevents anaerobic foul odors."
         ]
       },
       {
@@ -294,18 +294,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 6,
         question: "Compliance & Safety (Surplus Food Donation Protocols): Which operational constraint must be verified before donating surplus prepared banquet food to a charitable food bank?",
         options: [
-          "Ensure the food has been stored under unbroken cold/hot chain conditions, logged according to food safety protocols, and transported in certified containers",
-          "Ensure guests have already eaten partially from the platters",
           "Ensure food has remained un-refrigerated for at least 6 hours",
+          "Ensure guests have already eaten partially from the platters",
+          "Ensure the food has been stored under unbroken cold/hot chain conditions, logged according to food safety protocols, and transported in certified containers",
           "Ensure all packaging labels are removed so the hotel cannot be identified"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Food donation programs mandate strict cold/hot chain adherence, allergen identification, and verification that donated items were never exposed to guest touch.",
         incorrectExplanation: "Incorrect. Half-eaten food or temperature-abused items violate food safety laws; batch labeling is essential for allergen tracking.",
         optionFeedback: [
-          "Correct! Food rescue partnerships require rigorous temperature tracking, unserved batch integrity, and traceable safety standards.",
-          "Incorrect. Plate waste or food served onto guest tables cannot be donated under food safety regulations.",
           "Incorrect. Extended time in the danger zone renders food unsafe for human consumption.",
+          "Incorrect. Plate waste or food served onto guest tables cannot be donated under food safety regulations.",
+          "Correct! Food rescue partnerships require rigorous temperature tracking, unserved batch integrity, and traceable safety standards.",
           "Incorrect. Full batch traceability and allergen labeling protect vulnerable recipients."
         ]
       },
@@ -314,18 +314,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         question: "Workplace Scenario (Compost Odor & Vector Troubleshooting): During hot weather, an on-site compost pile begins producing strong foul odors and attracting flies. What is the primary operational diagnosis and corrective action?",
         options: [
           "The pile is too dry; add 500 liters of sugary syrup",
-          "The pile has become anaerobic due to excessive moisture and lack of aeration; turn the pile to introduce oxygen and blend in dry brown carbon materials",
+          "Immediately dump the entire compost pile into the nearest ocean lagoon",
           "Spray the entire compost pile with synthetic chemical insecticides and seal it in plastic",
-          "Immediately dump the entire compost pile into the nearest ocean lagoon"
+          "The pile has become anaerobic due to excessive moisture and lack of aeration; turn the pile to introduce oxygen and blend in dry brown carbon materials"
         ],
-        correct: 1,
+        correct: 3,
         correctExplanation: "Foul odor in compost indicates anaerobic conditions caused by excess moisture or compaction; mechanical turning and dry carbon addition restore aerobic decomposition.",
         incorrectExplanation: "Incorrect. Adding syrup accelerates fermentation; chemical spraying destroys beneficial microbes; ocean dumping is illegal.",
         optionFeedback: [
           "Incorrect. Adding syrup worsens anaerobic fermentation and pest issues.",
-          "Correct! Anaerobic conditions cause foul sulfurous odors; turning the pile and adding dry structured browns restores oxygen and aerobic activity.",
+          "Incorrect. Dumping waste into the ocean violates environmental legislation and causes marine damage.",
           "Incorrect. Chemical insecticides destroy beneficial composting organisms and contaminate organic soil amendments.",
-          "Incorrect. Dumping waste into the ocean violates environmental legislation and causes marine damage."
+          "Correct! Anaerobic conditions cause foul sulfurous odors; turning the pile and adding dry structured browns restores oxygen and aerobic activity."
         ]
       },
       {
@@ -398,18 +398,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 3,
         question: "Process Innovation (Ozone Laundry Disinfection): A laundry manager evaluates aqueous ozone (O3) injection systems for cold-water washing. How does ozone technology reduce laundry environmental footprint?",
         options: [
-          "Ozone acts as a powerful oxidant at lower water temperatures, reducing thermal water heating energy and shortening rinse cycles while disinfecting linen",
-          "Ozone turns all colored uniforms pure white permanently",
           "Ozone eliminates the need to dry towels in tumble dryers",
+          "Ozone turns all colored uniforms pure white permanently",
+          "Ozone acts as a powerful oxidant at lower water temperatures, reducing thermal water heating energy and shortening rinse cycles while disinfecting linen",
           "Ozone replaces water completely with pressurized toxic gas"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Aqueous ozone allows effective sanitization and soil breakdown in 20–30°C water, cutting boiler water-heating energy by up to 75% and reducing cycle rinse times.",
         incorrectExplanation: "Incorrect. Ozone does not strip dyes when properly controlled; linens still require standard drying, and ozone is dissolved in water.",
         optionFeedback: [
-          "Correct! Ozone enhances chemical efficacy in cold water, cuts boiler fuel consumption, reduces wash cycle times, and lowers linen fiber wear.",
-          "Incorrect. Ozone does not strip color when dosed according to standard wash formulas.",
           "Incorrect. Linens still require standard tumble drying or ironer finishing.",
+          "Incorrect. Ozone does not strip color when dosed according to standard wash formulas.",
+          "Correct! Ozone enhances chemical efficacy in cold water, cuts boiler fuel consumption, reduces wash cycle times, and lowers linen fiber wear.",
           "Incorrect. Ozone is injected directly into water as a dissolved aqueous oxidant."
         ]
       },
@@ -417,36 +417,36 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 4,
         question: "Environmental Compliance (Effluent Treatment & Lint Control): A commercial laundry discharges wash wastewater into municipal or on-site treatment. What wastewater parameters are of greatest concern and what treatment is standard?",
         options: [
-          "High alkalinity (pH 10–12), thermal load, surfactants, and lint; requiring lint screening, heat recovery, and pH neutralization before discharge",
+          "Excessive carbon dioxide gas bubbles that float into the sky",
           "Excessive salt that turns surface drains into edible sea salt",
           "Zero environmental concern because laundry detergents are identical to drinking water",
-          "Excessive carbon dioxide gas bubbles that float into the sky"
+          "High alkalinity (pH 10–12), thermal load, surfactants, and lint; requiring lint screening, heat recovery, and pH neutralization before discharge"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Commercial laundry wastewater requires lint filtration, wastewater heat recovery, and pH neutralization to prevent sewer network damage and environmental degradation.",
         incorrectExplanation: "Incorrect. Laundry effluent contains high pH, suspended microfibers, surfactants, and heat that must be treated before discharge.",
         optionFeedback: [
-          "Correct! Commercial laundry effluent contains high pH, suspended lint, microfibers, surfactants, and residual heat that must be screened, neutralized, and treated.",
+          "Incorrect. The primary risks are pH shock, thermal pollution, chemical oxygen demand (COD), and microfibers.",
           "Incorrect. Laundry wastewater contains surfactants and alkaline chemicals, not edible sea salt.",
           "Incorrect. Untreated laundry effluent harms aquatic ecosystems and violates environmental standards.",
-          "Incorrect. The primary risks are pH shock, thermal pollution, chemical oxygen demand (COD), and microfibers."
+          "Correct! Commercial laundry effluent contains high pH, suspended lint, microfibers, surfactants, and residual heat that must be screened, neutralized, and treated."
         ]
       },
       {
         order: 5,
         question: "Thermal Energy Recovery (Wastewater Heat Exchangers): What is the primary operational benefit of installing a wastewater heat exchanger in a commercial laundry?",
         options: [
-          "It captures thermal energy from hot drain effluent to pre-heat incoming cold fresh wash water, lowering boiler fuel consumption",
           "It cools the laundry floor to allow ice skating",
+          "It captures thermal energy from hot drain effluent to pre-heat incoming cold fresh wash water, lowering boiler fuel consumption",
           "It converts wastewater into high-pressure steam for guest room saunas",
           "It increases electricity consumption to heat the outdoor air"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Effluent heat recovery exchangers transfer thermal energy from discarded warm wash water to incoming cold feed water, significantly reducing boiler load.",
         incorrectExplanation: "Incorrect. Heat exchangers are thermodynamic process devices; they do not cool floors or create high-pressure steam from low-grade drain heat.",
         optionFeedback: [
-          "Correct! Shell-and-tube or plate heat exchangers capture heat from outgoing 50–60°C wash water to preheat incoming supply, saving 20–40% on water heating fuel.",
           "Incorrect. Wastewater heat recovery systems are closed thermodynamic exchangers for process water.",
+          "Correct! Shell-and-tube or plate heat exchangers capture heat from outgoing 50–60°C wash water to preheat incoming supply, saving 20–40% on water heating fuel.",
           "Incorrect. Laundry wastewater heat is low-grade heat (40–60°C) unsuitable for direct steam generation.",
           "Incorrect. The system reduces boiler energy demand, lowering overall operating costs."
         ]
@@ -455,18 +455,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 6,
         question: "Workplace Safety & Efficiency (Dryer Lint Duct Maintenance): An engineer inspects commercial gas-fired tumble dryers and discovers heavy lint accumulation in exhaust ducts. What are the immediate risks?",
         options: [
-          "Severe combustion fire hazard, increased drying cycle times, restricted airflow, and excessive gas consumption",
-          "The dryers will produce fresh fruit scents in the laundry room",
           "Linen will dry 50% faster due to trapped air pressure",
+          "The dryers will produce fresh fruit scents in the laundry room",
+          "Severe combustion fire hazard, increased drying cycle times, restricted airflow, and excessive gas consumption",
           "Electricity consumption drops to zero automatically"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Routine cleaning of dryer lint screens and ductwork is vital for fire prevention, airflow velocity, and thermal energy efficiency.",
         incorrectExplanation: "Incorrect. Lint accumulation restricts airflow, prolonging drying times and presenting an extreme fire risk.",
         optionFeedback: [
-          "Correct! Clogged lint screens and exhaust ducts restrict airflow, extending drying cycle times, wasting fuel, and presenting a severe combustion fire hazard.",
-          "Incorrect. Lint accumulation produces acrid heat smells and fire risks.",
           "Incorrect. Restricted airflow chokes moisture removal, significantly extending cycle durations.",
+          "Incorrect. Lint accumulation produces acrid heat smells and fire risks.",
+          "Correct! Clogged lint screens and exhaust ducts restrict airflow, extending drying cycle times, wasting fuel, and presenting a severe combustion fire hazard.",
           "Incorrect. Dryer motors and burners continue consuming energy during elongated cycles."
         ]
       },
@@ -474,19 +474,19 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 7,
         question: "Operational Control (Moisture-Sensing Auto-Termination): How does implementing moisture-sensing automatic termination controls on commercial laundry dryers prevent linen damage and energy waste?",
         options: [
-          "It stops the dryer automatically when residual moisture reaches 3–5%, preventing fabric over-drying, fiber degradation, and unnecessary gas consumption",
+          "It converts the dryer into an automated dry cleaning solvent bath",
           "It keeps the dryer running for 90 minutes after linen is dry to sanitize the drum",
           "It drenches the linen with cold water inside the dryer at the end of every cycle",
-          "It converts the dryer into an automated dry cleaning solvent bath"
+          "It stops the dryer automatically when residual moisture reaches 3–5%, preventing fabric over-drying, fiber degradation, and unnecessary gas consumption"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Auto-dry moisture sensors prevent linen over-drying, preserving textile tensile strength and saving substantial thermal fuel.",
         incorrectExplanation: "Incorrect. Over-drying ruins cotton fibers and wastes gas; dryers do not inject cold water or solvent baths at the end of cycles.",
         optionFeedback: [
-          "Correct! Moisture sensors terminate cycles when target dryness is reached, eliminating over-drying which damages fibers and wastes 15–20% of dryer energy.",
+          "Incorrect. Tumble dryers utilize heated airflow, not chemical solvent immersion.",
           "Incorrect. Running dryers on empty or dry linen damages cotton fibers and wastes gas.",
           "Incorrect. Dryers evaporate moisture; they do not drench dry linen.",
-          "Incorrect. Tumble dryers utilize heated airflow, not chemical solvent immersion."
+          "Correct! Moisture sensors terminate cycles when target dryness is reached, eliminating over-drying which damages fibers and wastes 15–20% of dryer energy."
         ]
       },
       {
@@ -540,17 +540,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 2,
         question: "Engineering Principles (VFD Affinity Laws): An engineering team installs Variable Frequency Drives (VFDs) on secondary chilled water distribution pumps. According to the Affinity Laws, what happens to pump power consumption when flow rate is reduced to 80%?",
         options: [
-          "Power consumption drops to approximately 51% of full load power (proportional to the cube of speed)",
           "Power consumption remains at exactly 100%",
+          "Power consumption drops to approximately 51% of full load power (proportional to the cube of speed)",
           "Power consumption increases to 180% due to electrical resistance in the drive",
           "The pump stops pumping water and begins generating diesel fuel"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "The Affinity Laws dictate that centrifugal pump and fan shaft power varies with the cube of rotational speed, making VFD modulation exceptionally energy efficient.",
         incorrectExplanation: "Incorrect. Constant-speed throttling keeps power high; VFD modulation slashes power cubically (0.8^3 = 0.512), saving ~49% energy.",
         optionFeedback: [
-          "Correct! By the pump affinity laws, power varies with the cube of shaft speed (0.8^3 = 0.512), yielding nearly 50% energy savings at 80% flow.",
           "Incorrect. Constant-speed throttling maintains high power; VFD modulation slashes power quadratically and cubically.",
+          "Correct! By the pump affinity laws, power varies with the cube of shaft speed (0.8^3 = 0.512), yielding nearly 50% energy savings at 80% flow.",
           "Incorrect. VFDs modulate voltage and frequency efficiently without increasing load.",
           "Incorrect. VFDs are electric motor drives, not fuel generators."
         ]
@@ -559,18 +559,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 3,
         question: "Cooling Tower Operations (Approach Temperature & Scale): During cooling tower inspection, the technician observes heavy biological slime and scale on the fill, causing a 4°C approach temperature increase. What is the thermodynamic consequence?",
         options: [
-          "Condenser water enters chillers hotter, increasing compressor head pressure and elevating chiller electrical kW/ton draw by 10–15%",
-          "The chiller uses less electricity because warm water is easier to compress",
           "The cooling tower fill acts as a natural heater that eliminates boiler requirements",
+          "The chiller uses less electricity because warm water is easier to compress",
+          "Condenser water enters chillers hotter, increasing compressor head pressure and elevating chiller electrical kW/ton draw by 10–15%",
           "The approach temperature increase prevents Legionella bacteria growth"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Fouled cooling tower fill elevates condenser water temperature entering chillers; each 1°C rise in condenser water increases chiller compressor energy consumption by 2–3%.",
         incorrectExplanation: "Incorrect. Higher condensing temperature increases compressor lift and kWh draw; warm stagnant water promotes Legionella colonization.",
         optionFeedback: [
-          "Correct! Scaled and fouled cooling towers cannot reject heat efficiently, raising condensing temperatures and increasing chiller compressor power consumption by ~3% per °C.",
-          "Incorrect. Higher condensing temperatures increase compressor head pressure and electrical draw.",
           "Incorrect. Cooling towers reject waste heat; they cannot replace heating boilers.",
+          "Incorrect. Higher condensing temperatures increase compressor head pressure and electrical draw.",
+          "Correct! Scaled and fouled cooling towers cannot reject heat efficiently, raising condensing temperatures and increasing chiller compressor power consumption by ~3% per °C.",
           "Incorrect. Biological slime and warm stagnant water promote dangerous Legionella colonization."
         ]
       },
@@ -578,36 +578,36 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 4,
         question: "Building Automation (Air-Side Enthalpy Economizer): What is the primary function of a Building Management System (BMS) enthalpy economizer cycle on an air handling unit (AHU)?",
         options: [
-          "It uses cool, dry outdoor air for free cooling when outdoor air enthalpy is lower than return air enthalpy, reducing mechanical chiller operation",
+          "It injects perfume into the ductwork to mask stale air",
           "It warms indoor air using hot exhaust from guest showers",
           "It turns off all building fresh air ventilation permanently to preserve indoor cold air",
-          "It injects perfume into the ductwork to mask stale air"
+          "It uses cool, dry outdoor air for free cooling when outdoor air enthalpy is lower than return air enthalpy, reducing mechanical chiller operation"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Air-side economizers modulate outdoor air dampers to supply direct cooling when outside air enthalpy is lower than return air, reducing chiller runtime.",
         incorrectExplanation: "Incorrect. Shower exhaust contains moisture; shutting off fresh air violates ventilation standards; economizers control airflow thermodynamics.",
         optionFeedback: [
-          "Correct! Enthalpy economizers compare total heat content (temperature and humidity) of outdoor vs return air to introduce 'free cooling' when outdoor conditions are favorable.",
+          "Incorrect. Economizers control motorized dampers for thermodynamic cooling, not fragrance injection.",
           "Incorrect. Shower exhaust contains high humidity and contaminants unsuitable for economizer supply.",
           "Incorrect. ASHRAE standards require continuous minimum outdoor air ventilation for indoor air quality.",
-          "Incorrect. Economizers control motorized dampers for thermodynamic cooling, not fragrance injection."
+          "Correct! Enthalpy economizers compare total heat content (temperature and humidity) of outdoor vs return air to introduce 'free cooling' when outdoor conditions are favorable."
         ]
       },
       {
         order: 5,
         question: "HVAC Commissioning (VAV Reheat & Simultaneous Conditioning): An engineer audits guest floor Variable Air Volume (VAV) boxes. What operational defect causes simultaneous heating and cooling energy waste?",
         options: [
-          "VAV terminal boxes stuck at maximum airflow damper position while electric or hot-water reheat coils are active to prevent overcooling",
           "VAV boxes modulating smoothly between minimum ventilation and maximum cooling setpoints",
+          "VAV terminal boxes stuck at maximum airflow damper position while electric or hot-water reheat coils are active to prevent overcooling",
           "Air filters replaced on schedule every 30 days",
           "Duct static pressure sensor calibrated accurately to reset fan speed"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Simultaneous heating and cooling occurs when failed damper actuators or poor control logic cause reheat coils to heat air while the supply box is discharging maximum chilled air.",
         incorrectExplanation: "Incorrect. Modulating between minimum and maximum flow is proper design; clean filters and calibrated sensors maintain efficiency.",
         optionFeedback: [
-          "Correct! When dampers stick open at full cooling flow, reheat coils fire continuously to avoid freezing room occupants, wasting both cooling and heating energy simultaneously.",
           "Incorrect. Modulating between minimum and maximum airflow is the correct intended operation of VAV systems.",
+          "Correct! When dampers stick open at full cooling flow, reheat coils fire continuously to avoid freezing room occupants, wasting both cooling and heating energy simultaneously.",
           "Incorrect. Clean air filters maintain proper static pressure and airflow.",
           "Incorrect. Calibrated static pressure sensors ensure proper fan VFD tracking."
         ]
@@ -616,18 +616,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 6,
         question: "Chiller Plant Control (Chilled Water Supply Temperature Reset): Why is chilled water supply temperature reset (e.g., raising supply temperature from 6.0°C to 8.0°C during mild weather) an effective chiller optimization strategy?",
         options: [
-          "Each 1°C increase in chilled water supply temperature improves chiller compressor efficiency by approximately 2–3% while meeting lower cooling loads",
-          "It turns off all guest room air conditioning units permanently",
           "It prevents water from freezing inside the cooling tower basin",
+          "It turns off all guest room air conditioning units permanently",
+          "Each 1°C increase in chilled water supply temperature improves chiller compressor efficiency by approximately 2–3% while meeting lower cooling loads",
           "It converts centrifugal chillers into absorption chillers"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Raising chilled water supply setpoints during part-load conditions reduces compressor lift (the difference between evaporating and condensing pressure), saving substantial kWh.",
         incorrectExplanation: "Incorrect. Supply reset modulates water temperatures smoothly; it does not shut down room cooling or alter the mechanical chiller type.",
         optionFeedback: [
-          "Correct! Elevating chilled water setpoints during low-load conditions reduces compressor lift, boosting chiller efficiency by 2–3% per °C rise.",
-          "Incorrect. Resetting setpoints modulates water temperature according to ambient load without terminating room comfort.",
           "Incorrect. Cooling tower basins hold condenser water, not chilled water.",
+          "Incorrect. Resetting setpoints modulates water temperature according to ambient load without terminating room comfort.",
+          "Correct! Elevating chilled water setpoints during low-load conditions reduces compressor lift, boosting chiller efficiency by 2–3% per °C rise.",
           "Incorrect. Setpoint reset adjusts refrigeration cycle pressures; it does not change the physical chiller type."
         ]
       },
@@ -635,19 +635,19 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 7,
         question: "Thermal Integration (Heat Recovery Chillers): A hotel produces chilled water for HVAC and domestic hot water for guest showers using boilers. What heat recovery technology directly links these two thermal streams?",
         options: [
-          "A desuperheater or dedicated heat recovery chiller capturing compressor discharge heat from the chiller condenser loop to preheat domestic hot water to 50–55°C",
+          "Connecting the chiller drainage hose directly to guest bathtubs",
           "A diesel generator running continuously to burn off excess refrigerant",
           "A fan blowing condenser air onto guest laundry carts",
-          "Connecting the chiller drainage hose directly to guest bathtubs"
+          "A desuperheater or dedicated heat recovery chiller capturing compressor discharge heat from the chiller condenser loop to preheat domestic hot water to 50–55°C"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Heat recovery chillers capture rejected heat from the refrigeration cycle to produce domestic hot water, effectively providing free water heating while assisting cooling.",
         incorrectExplanation: "Incorrect. Heat recovery utilizes refrigeration thermodynamics, not auxiliary diesel burning; drain effluent is non-potable.",
         optionFeedback: [
-          "Correct! Heat recovery chillers capture high-temperature refrigerant rejection heat, producing simultaneous chilled water for HVAC and preheated hot water for domestic use.",
+          "Incorrect. Wastewater from drains is non-potable and cannot enter guest bathing systems.",
           "Incorrect. Heat recovery utilizes refrigeration thermodynamics, not auxiliary diesel burning.",
           "Incorrect. Water-cooled chillers reject heat to water loops, not direct air fans.",
-          "Incorrect. Wastewater from drains is non-potable and cannot enter guest bathing systems."
+          "Correct! Heat recovery chillers capture high-temperature refrigerant rejection heat, producing simultaneous chilled water for HVAC and preheated hot water for domestic use."
         ]
       },
       {
@@ -682,17 +682,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 1,
         question: "Behavioral Economics (Social Proof Normative Messaging): A resort wants to increase guest participation in its towel reuse program. Based on behavioral economics research, which in-room card message achieves the highest compliance?",
         options: [
-          "'Please save the planet by reusing your towel.'",
           "'75% of guests who stayed in this room participated in our towel conservation program by reusing their towels at least once.'",
+          "'Please save the planet by reusing your towel.'",
           "'You will be fined $10 if you request fresh towels every day.'",
           "'Towels are washed in dirty lake water to save electricity.'"
         ],
-        correct: 1,
+        correct: 0,
         correctExplanation: "Goldstein et al.'s behavioral research proves that specific normative social prompts ('most guests in this room reuse towels') increase reuse rates by over 25% compared to generic appeals.",
         incorrectExplanation: "Incorrect. Generic environmental pleas produce significantly lower compliance; punitive threats or false hygiene claims provoke severe guest backlash.",
         optionFeedback: [
-          "Incorrect. Generic environmental pleas produce significantly lower compliance than normative cues.",
           "Correct! Localized descriptive social norms (e.g., '75% of guests in this room reuse towels') leverage peer behavior to dramatically boost conservation compliance.",
+          "Incorrect. Generic environmental pleas produce significantly lower compliance than normative cues.",
           "Incorrect. Punitive financial threats damage guest satisfaction and provoke backlash.",
           "Incorrect. Fabricating claims about dirty wash water violates brand trust and hygiene standards."
         ]
@@ -701,17 +701,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 2,
         question: "Choice Architecture (Delboeuf Illusion & Buffet Plates): In a luxury breakfast buffet, a hotel experiences high plate waste. Which choice architecture nudge effectively reduces guest over-portioning without restricting buffet access?",
         options: [
-          "Replacing large 28 cm dinner plates with attractive 23 cm plates and providing small tasting ramekins for specialty dishes",
           "Having security guards inspect guest plates as they leave the buffet line",
+          "Replacing large 28 cm dinner plates with attractive 23 cm plates and providing small tasting ramekins for specialty dishes",
           "Closing the buffet after 15 minutes to limit eating time",
           "Posting graphic photographs of landfill sites above the pastry station"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Reducing plate diameter from 28 cm to 23 cm subtly alters visual portion perception, reducing food waste by up to 20% without perceived reduction in abundance.",
         incorrectExplanation: "Incorrect. Aggressive surveillance, premature closing, or unappealing photos destroy luxury dining atmosphere without addressing behavioral root causes.",
         optionFeedback: [
-          "Correct! Downsizing plate diameter utilizes the Delboeuf visual illusion, naturally encouraging smaller initial servings and cutting plate waste by 15–20% while allowing unlimited return trips.",
           "Incorrect. Intrusive surveillance creates an unpleasant guest dining atmosphere.",
+          "Correct! Downsizing plate diameter utilizes the Delboeuf visual illusion, naturally encouraging smaller initial servings and cutting plate waste by 15–20% while allowing unlimited return trips.",
           "Incorrect. Limiting service time causes panic-loading of plates and increases waste.",
           "Incorrect. Aggressive negative imagery ruins dining experiences and alienates guests."
         ]
@@ -721,17 +721,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         question: "Frontline Communication (Authentic Green Messaging vs Greenwashing): A resort concierge is asked by guests about local marine excursions. How should frontline staff communicate sustainability commitments authentically without greenwashing?",
         options: [
           "Promise that the resort's private speedboat tour never produces any carbon emissions",
-          "Recommend eco-certified operators who adhere to strict wildlife distancing, reef anchor bans, and marine conservation briefings",
           "Tell guests that coral reefs are indestructible and do not require care",
+          "Recommend eco-certified operators who adhere to strict wildlife distancing, reef anchor bans, and marine conservation briefings",
           "Discourage guests from ever going outside the hotel boundary"
         ],
-        correct: 1,
+        correct: 2,
         correctExplanation: "Authentic sustainability communication connects guests with verified, certified community and eco-tourism partners who practice responsible stewardship.",
         incorrectExplanation: "Incorrect. False zero-emission claims constitute greenwashing; corals are highly fragile; confining guests harms community engagement.",
         optionFeedback: [
           "Incorrect. Falsely claiming zero emissions for fossil-fuel boats is greenwashing.",
-          "Correct! Recommending verified eco-certified excursion partners with transparent conservation guidelines ensures genuine guest education and ecological protection.",
           "Incorrect. Coral reefs are fragile ecosystems highly vulnerable to physical and chemical damage.",
+          "Correct! Recommending verified eco-certified excursion partners with transparent conservation guidelines ensures genuine guest education and ecological protection.",
           "Incorrect. Isolating guests prevents positive community and conservation engagement."
         ]
       },
@@ -740,35 +740,35 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         question: "Behavioral Default (Opt-In vs Opt-Out Housekeeping): What is the primary mechanism of a 'default opt-in' green nudge for hotel housekeeping service?",
         options: [
           "Setting room cleaning as a daily automated service while charging guests secretly for each visit",
-          "Setting eco-stay (linen change every 3rd day, optional light daily tidy) as the standard default, allowing guests to request daily full change if desired",
+          "Cancelling room cleaning entirely without informing arriving guests",
           "Locking guest room doors so housekeeping cannot enter",
-          "Cancelling room cleaning entirely without informing arriving guests"
+          "Setting eco-stay (linen change every 3rd day, optional light daily tidy) as the standard default, allowing guests to request daily full change if desired"
         ],
-        correct: 1,
+        correct: 3,
         correctExplanation: "Default architecture leverages status quo bias: when sustainable service schedules are the preset default with simple opt-outs, adoption rates exceed 70%.",
         incorrectExplanation: "Incorrect. Hidden charges or locking doors violate consumer protection and hospitality standards; transparent defaults are key.",
         optionFeedback: [
           "Incorrect. Hidden charges violate consumer protection laws and trust.",
-          "Correct! Defaulting to a 3-day linen change schedule with an easy opt-out mechanism achieves high compliance because people tend to stay with default settings.",
+          "Incorrect. Withholding information breaks service standards and creates guest dissatisfaction.",
           "Incorrect. Locking rooms prevents necessary maintenance and guest access.",
-          "Incorrect. Withholding information breaks service standards and creates guest dissatisfaction."
+          "Correct! Defaulting to a 3-day linen change schedule with an easy opt-out mechanism achieves high compliance because people tend to stay with default settings."
         ]
       },
       {
         order: 5,
         question: "Gamification & Impact (Pro-Social Milestone Rewards): A resort introduces interactive digital kiosks where guests track their villa energy and water conservation, earning points for local coral restoration donations. What motivational driver is this?",
         options: [
-          "Gamification with pro-social purpose, transforming conservation into an engaging, tangible contribution to destination ecology",
           "Compulsory taxation on international tourists",
+          "Gamification with pro-social purpose, transforming conservation into an engaging, tangible contribution to destination ecology",
           "A covert method to spy on guest shower duration",
           "A marketing ploy that does not involve actual conservation"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Gamification with tangible pro-social rewards connects daily guest choices to observable local environmental restoration.",
         incorrectExplanation: "Incorrect. Voluntary engagement is distinct from taxation; aggregated data respects privacy; funding verified coral planting prevents greenwashing.",
         optionFeedback: [
-          "Correct! Gamification combined with altruistic impact (e.g., resort funds coral planting for guest conservation milestones) drives intrinsic guest participation.",
           "Incorrect. Voluntary engagement is distinct from mandatory taxation.",
+          "Correct! Gamification combined with altruistic impact (e.g., resort funds coral planting for guest conservation milestones) drives intrinsic guest participation.",
           "Incorrect. Aggregated anonymous tracking respects guest privacy.",
           "Incorrect. Linking tangible milestones to verified conservation funds prevents greenwashing."
         ]
@@ -777,18 +777,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 6,
         question: "Visual Communication (Point-of-Decision Water Refill Signage): When designing point-of-decision signage to encourage guests to use resort glass water refill stations instead of purchasing plastic bottles, what design principle is most effective?",
         options: [
-          "Place clear, positive signage at eye level next to chilled dispenser stations, highlighting water purity, temperature, and plastic bottles avoided",
-          "Hide the water dispensers in the engineering basement",
           "Put signs in only one rare dialect with no icons",
+          "Hide the water dispensers in the engineering basement",
+          "Place clear, positive signage at eye level next to chilled dispenser stations, highlighting water purity, temperature, and plastic bottles avoided",
           "Write a 50-page technical manual on water filtration and tape it to the tap"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Effective point-of-decision prompts must be placed directly where the action occurs, visually intuitive, and framed with positive attributes like freshness and collective impact.",
         incorrectExplanation: "Incorrect. Concealed dispensers or dense unreadable text prevent guest adoption; visual accessibility and clarity drive action.",
         optionFeedback: [
-          "Correct! Convenient placement, clear visual cues, and positive feedback (e.g., 'Pure Chilled Mountain Water — 1,200 bottles saved this week') drive adoption.",
-          "Incorrect. Poor accessibility prevents guests from using refill infrastructure.",
           "Incorrect. Multilingual icons and universal symbols are essential in international resorts.",
+          "Incorrect. Poor accessibility prevents guests from using refill infrastructure.",
+          "Correct! Convenient placement, clear visual cues, and positive feedback (e.g., 'Pure Chilled Mountain Water — 1,200 bottles saved this week') drive adoption.",
           "Incorrect. Dense technical text is ignored by guests on vacation."
         ]
       },
@@ -797,18 +797,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         question: "Service Conflict Resolution (Balcony Door HVAC Interlocks): A guest complains at the front desk that their air conditioning pauses when they open the balcony sliding door. How should the guest service agent respond professionally?",
         options: [
           "Argue with the guest and accuse them of destroying the environment",
-          "Politely explain that the smart door interlock protects the room from tropical humidity and mold while cooling resumes immediately upon closing the door",
+          "Bypass the electrical interlock with a wire jumper immediately for the entire building",
           "Call security to remove the guest from the hotel",
-          "Bypass the electrical interlock with a wire jumper immediately for the entire building"
+          "Politely explain that the smart door interlock protects the room from tropical humidity and mold while cooling resumes immediately upon closing the door"
         ],
-        correct: 1,
+        correct: 3,
         correctExplanation: "Frontline staff should reframe technical controls as comfort and humidity protection features, offering clear explanations that turn potential friction into positive sustainability awareness.",
         incorrectExplanation: "Incorrect. Confrontational responses damage hospitality service; bypassing interlocks causes room condensation and energy waste.",
         optionFeedback: [
           "Incorrect. Confrontational responses destroy guest rapport and hospitality standards.",
-          "Correct! Courteously explaining how the sensor prevents moisture damage, mold, and energy loss while reassuring instant cooling resumption educates the guest effectively.",
+          "Incorrect. Disabling energy-saving interlocks degrades building operations and increases humidity risks.",
           "Incorrect. Escalating a standard inquiry to security is unprofessional.",
-          "Incorrect. Disabling energy-saving interlocks degrades building operations and increases humidity risks."
+          "Correct! Courteously explaining how the sensor prevents moisture damage, mold, and energy loss while reassuring instant cooling resumption educates the guest effectively."
         ]
       },
       {
@@ -843,17 +843,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 1,
         question: "Standards & Scoping (ISO 20121 Event Sustainability Management): An event sales manager is planning a 300-delegate corporate conference under ISO 20121. What is the first step in the sustainability planning cycle?",
         options: [
-          "Order 500 plastic branded pens and single-use polyester lanyards",
           "Engage the client early to establish measurable sustainability objectives, including paperless ticketing, plant-forward catering, and waste diversion targets",
+          "Order 500 plastic branded pens and single-use polyester lanyards",
           "Print a 100-page conference binder for every participant",
           "Ignore client preferences and serve only bread and tap water"
         ],
-        correct: 1,
+        correct: 0,
         correctExplanation: "ISO 20121 requires early engagement with clients to set sustainability baselines, scope material flows, and integrate low-carbon catering and zero-waste protocols into event contracts.",
         incorrectExplanation: "Incorrect. Single-use plastic giveaways and dense paper binders generate preventable waste; early collaborative scoping is key.",
         optionFeedback: [
-          "Incorrect. Single-use plastic merchandise generates preventable event waste.",
           "Correct! ISO 20121 emphasizes early stakeholder engagement to define clear, measurable ESG criteria across catering, materials, energy, and waste management.",
+          "Incorrect. Single-use plastic merchandise generates preventable event waste.",
           "Incorrect. Physical paper binders are obsolete and resource-intensive.",
           "Incorrect. Sustainable catering balances quality, dietary variety, and resource efficiency."
         ]
@@ -881,18 +881,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 3,
         question: "Material Dematerialization (Paperless Digital Event Collaterals): A conference organizer insists on providing printed daily agendas, speaker bios, and handouts. What sustainable digital alternative should the banquet manager propose?",
         options: [
-          "A customized event mobile app or progressive web app with QR-code access on reusable digital display boards",
-          "Writing the agenda by hand on the ballroom mirrors using lipstick",
           "Telling delegates that agendas are confidential and will not be shared",
+          "Writing the agenda by hand on the ballroom mirrors using lipstick",
+          "A customized event mobile app or progressive web app with QR-code access on reusable digital display boards",
           "Carving the schedule into wooden slabs to be discarded after the event"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Digital conference apps and dynamic QR code displays eliminate event paper waste, provide real-time updates, and streamline attendee communications.",
         incorrectExplanation: "Incorrect. Defacing property, withholding schedules, or carving disposable wood fails professional event standards.",
         optionFeedback: [
-          "Correct! Mobile event apps and digital QR signage eliminate thousands of printed pages while allowing real-time schedule updates and attendee networking.",
-          "Incorrect. Defacing mirrors damages property and fails professional standards.",
           "Incorrect. Withholding schedules disrupts conference operations.",
+          "Incorrect. Defacing mirrors damages property and fails professional standards.",
+          "Correct! Mobile event apps and digital QR signage eliminate thousands of printed pages while allowing real-time schedule updates and attendee networking.",
           "Incorrect. Single-use wooden carvings waste materials and increase logistics costs."
         ]
       },
@@ -900,19 +900,19 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 4,
         question: "Single-Use Elimination (Hydration Infrastructure): What is the most effective operational strategy to eliminate single-use plastic water bottles in large conference breakout sessions and gala banquets?",
         options: [
-          "Provide refillable sanitized glass carafes and water dispensers with branded reusable bottles or glassware",
+          "Require attendees to drink directly from restroom sink faucets",
           "Do not provide any water to attendees to save cleanup time",
           "Give each attendee ten 250 ml plastic bottles at the start of every session",
-          "Require attendees to drink directly from restroom sink faucets"
+          "Provide refillable sanitized glass carafes and water dispensers with branded reusable bottles or glassware"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "High-capacity on-site filtered water bottling and reusable glassware replace thousands of single-use plastic bottles per banquet event.",
         incorrectExplanation: "Incorrect. Hydration is a basic health need; multiplying small plastic bottles worsens waste.",
         optionFeedback: [
-          "Correct! Sanitized glass carafes, water stations, and reusable glassware completely eliminate single-use PET bottles in conference and banquet settings.",
+          "Incorrect. Restroom sinks are inappropriate for conference catering.",
           "Incorrect. Hydration is an essential health and service standard.",
           "Incorrect. Small single-use bottles maximize plastic waste generation.",
-          "Incorrect. Restroom sinks are inappropriate for conference catering."
+          "Correct! Sanitized glass carafes, water stations, and reusable glassware completely eliminate single-use PET bottles in conference and banquet settings."
         ]
       },
       {
@@ -938,18 +938,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 6,
         question: "Circular Staging (Modular Exhibition & Decor): When designing ballroom staging and event exhibition decor, what circular economy practice should replace custom single-use foam core boards and printed PVC banners?",
         options: [
-          "Modular aluminum frame systems with reusable tension fabric graphics, digital LED video walls, and rented living plants",
-          "Burning the single-use PVC banners in the banquet parking lot after each event",
           "Constructing all stages out of fresh cut rainforest timber for every 2-hour event",
+          "Burning the single-use PVC banners in the banquet parking lot after each event",
+          "Modular aluminum frame systems with reusable tension fabric graphics, digital LED video walls, and rented living plants",
           "Painting the ballroom walls permanently with the logo of the current sponsor"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Modular staging components, LED digital backdrops, and rented potted greenery create sophisticated event aesthetics with zero landfill waste.",
         incorrectExplanation: "Incorrect. Burning PVC releases toxic dioxins; single-use timber is destructive; permanent wall painting is impractical.",
         optionFeedback: [
-          "Correct! Modular staging, LED displays, tension fabrics, and potted living plants eliminate tons of single-use exhibition waste.",
-          "Incorrect. Open burning of PVC releases toxic dioxins and hydrochloric acid fumes.",
           "Incorrect. Disposable timber staging is highly resource-destructive.",
+          "Incorrect. Open burning of PVC releases toxic dioxins and hydrochloric acid fumes.",
+          "Correct! Modular staging, LED displays, tension fabrics, and potted living plants eliminate tons of single-use exhibition waste.",
           "Incorrect. Painting permanent walls is impractical and destroys property."
         ]
       },
@@ -958,18 +958,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         question: "Waste Diversion (Multi-Stream Event Waste Stations): A banquet operations team sets up waste sorting stations for a 1,000-person outdoor festival on resort grounds. What station setup maximizes waste diversion from landfill?",
         options: [
           "Single unlabelled black bins placed 100 meters apart",
-          "Paired, color-coded, icon-based stations for food organics, clean recyclables (cans/glass/paper), and general waste, staffed by trained eco-ambassadors during peak periods",
+          "A large open burning pit where all waste is thrown together",
           "Bins hidden behind bushes so guests cannot see them",
-          "A large open burning pit where all waste is thrown together"
+          "Paired, color-coded, icon-based stations for food organics, clean recyclables (cans/glass/paper), and general waste, staffed by trained eco-ambassadors during peak periods"
         ],
-        correct: 1,
+        correct: 3,
         correctExplanation: "Multi-stream waste stations with clear visual signage and trained staff achieve diversion rates above 80%, preventing recyclables and organics from entering landfills.",
         incorrectExplanation: "Incorrect. Single unlabelled bins lead to 100% contamination; hidden bins cause littering; open burning is illegal.",
         optionFeedback: [
           "Incorrect. Unlabelled single bins guarantee 100% cross-contamination.",
-          "Correct! Co-locating distinct, visual waste streams with peer guidance prevents contamination and maximizes recycling and composting yields.",
+          "Incorrect. Open burn pits violate environmental and public safety laws.",
           "Incorrect. Inaccessible bins lead to widespread littering.",
-          "Incorrect. Open burn pits violate environmental and public safety laws."
+          "Correct! Co-locating distinct, visual waste streams with peer guidance prevents contamination and maximizes recycling and composting yields."
         ]
       },
       {
@@ -1023,17 +1023,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 2,
         question: "Filtration Media (Activated Recycled Glass Media AFM): An engineering team upgrades pool sand filtration. Which advanced filtration media reduces backwash water consumption by up to 50% while improving water clarity?",
         options: [
-          "Recycled activated glass media (AFM) or regenerative media filters",
           "Crushed concrete blocks from building demolition",
+          "Recycled activated glass media (AFM) or regenerative media filters",
           "Untreated soil and raw garden compost",
           "Plastic shredded shopping bags"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Activated glass media (AFM) prevents bacterial biofouling within the filter bed, reducing backwash frequency and saving substantial treated pool water and chemicals.",
         incorrectExplanation: "Incorrect. Demolition rubble leaches heavy alkali; compost adds organic pathogens; plastic shreds shed microplastics.",
         optionFeedback: [
-          "Correct! Activated glass filter media (AFM) resists biofouling, filters finer particles (down to 1–5 microns), and requires substantially less backwash water than silica sand.",
           "Incorrect. Demolition concrete leaches high alkalinity and clogs pumps.",
+          "Correct! Activated glass filter media (AFM) resists biofouling, filters finer particles (down to 1–5 microns), and requires substantially less backwash water than silica sand.",
           "Incorrect. Garden compost introduces biological contamination and organic matter.",
           "Incorrect. Plastic bags do not filter water and release microplastics."
         ]
@@ -1042,18 +1042,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 3,
         question: "Spa Amenities (Natural Biodegradable Wellness Materials): A spa director evaluates treatment amenities and single-use supplies. Which procurement choice best aligns with luxury wellness standards while eliminating persistent plastic waste?",
         options: [
-          "Biodegradable natural fiber slippers (e.g., jute, cork, organic cotton) and refillable ceramic/glass product dispensers",
-          "Wrapping every massage table in three layers of disposable PVC plastic film",
           "Providing single-use plastic flip-flops that are discarded after a 10-minute sauna session",
+          "Wrapping every massage table in three layers of disposable PVC plastic film",
+          "Biodegradable natural fiber slippers (e.g., jute, cork, organic cotton) and refillable ceramic/glass product dispensers",
           "Using disposable chemical wipes for all facial treatments"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Sustainable spa operations prioritize washable organic linens, natural fiber biodegradable amenities, and bulk-refillable aesthetic ceramic dispensers.",
         incorrectExplanation: "Incorrect. Excessive plastic wrapping cheapens spa luxury and creates persistent non-recyclable solid waste.",
         optionFeedback: [
-          "Correct! Natural biodegradable materials and elegant refillable dispensers elevate spa aesthetics while eliminating single-use plastic waste.",
-          "Incorrect. Excessive plastic wrapping cheapens spa luxury and creates large plastic waste volumes.",
           "Incorrect. Disposable plastic footwear is a major source of spa landfill waste.",
+          "Incorrect. Excessive plastic wrapping cheapens spa luxury and creates large plastic waste volumes.",
+          "Correct! Natural biodegradable materials and elegant refillable dispensers elevate spa aesthetics while eliminating single-use plastic waste.",
           "Incorrect. Reusable sanitized organic cotton compresses are superior for both skin health and sustainability."
         ]
       },
@@ -1061,36 +1061,36 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 4,
         question: "Disinfection Technology (Electrolytic Saltwater & UV Secondary Systems): When comparing saltwater electrolytic chlorination and secondary UV/ozone disinfection against traditional liquid chlorine drums, what are the primary benefits?",
         options: [
-          "On-site generation eliminates hazardous chemical transport and storage, reduces chloramines (eye/skin irritation), and improves bather comfort",
+          "Traditional liquid chlorine drums are 100% risk-free and require no ventilation",
           "Saltwater pools convert pool water into pure drinking milk",
           "Ozone systems eliminate the need to test pool water chemistry",
-          "Traditional liquid chlorine drums are 100% risk-free and require no ventilation"
+          "On-site generation eliminates hazardous chemical transport and storage, reduces chloramines (eye/skin irritation), and improves bather comfort"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Electrolytic chlorination and secondary UV/ozone systems provide superior disinfection, reduce chemical delivery logistics, and eliminate chloramine odor and eye irritation.",
         incorrectExplanation: "Incorrect. Salt pools are sanitized saline water; testing water chemistry is always mandatory; liquid chlorine carries severe hazardous handling risks.",
         optionFeedback: [
-          "Correct! On-site electrolytic generation and UV/ozone reduce bulk hazardous chemical handling, eliminate chlorine gas storage risks, and break down irritating chloramines.",
+          "Incorrect. Liquid sodium hypochlorite and chlorine gas carry significant chemical burn, inhalation, and transport hazards.",
           "Incorrect. Saltwater chlorination generates sanitized saline pool water, not milk.",
           "Incorrect. Water chemistry (pH, ORP, free chlorine, total alkalinity) must still be monitored rigorously.",
-          "Incorrect. Liquid sodium hypochlorite and chlorine gas carry significant chemical burn, inhalation, and transport hazards."
+          "Correct! On-site electrolytic generation and UV/ozone reduce bulk hazardous chemical handling, eliminate chlorine gas storage risks, and break down irritating chloramines."
         ]
       },
       {
         order: 5,
         question: "Thermal Demand Control (Sauna & Steam Room Standby Controls): A resort spa operates wet sauna and steam room facilities 14 hours daily. What automated control upgrade cuts energy consumption without compromising guest availability?",
         options: [
-          "On-demand push-button or occupancy sensor standby controls that maintain a baseline temperature and rapidly heat to operating temperature when entered by a guest",
           "Keeping steam generators running at maximum output continuously with the glass doors propped open",
+          "On-demand push-button or occupancy sensor standby controls that maintain a baseline temperature and rapidly heat to operating temperature when entered by a guest",
           "Turning off all spa lighting permanently",
           "Replacing steam generators with open campfires inside the spa"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "On-demand steam and sauna controls utilize smart setback temperatures during idle hours, delivering swift heat-up on entry while cutting baseline energy use by up to 50%.",
         incorrectExplanation: "Incorrect. Propping steam doors open wastes massive energy; open fires inside indoor facilities present fatal carbon monoxide hazards.",
         optionFeedback: [
-          "Correct! On-demand sensor controls reduce energy use by 40–60% during unoccupied periods while providing rapid temperature ramp-up when guests enter.",
           "Incorrect. Running steam generators with open doors wastes enormous electrical and water heating energy.",
+          "Correct! On-demand sensor controls reduce energy use by 40–60% during unoccupied periods while providing rapid temperature ramp-up when guests enter.",
           "Incorrect. Lighting controls should be energy-efficient (LEDs), not eliminated to ensure safety.",
           "Incorrect. Open fires inside indoor facilities present fatal carbon monoxide and fire hazards."
         ]
@@ -1099,18 +1099,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 6,
         question: "Ecological Risk (Backwash Discharge & Marine Lagoons): What is the primary ecological hazard of discharging backwash water from a conventionally chlorinated swimming pool directly into a natural mangrove lagoon or coral reef?",
         options: [
-          "Residual chlorine, high dissolved solids, and chemical shock destroy delicate coral polyps, mangrove flora, and juvenile fish populations",
-          "Chlorinated water turns mangroves into tall pine trees",
           "Backwash water is completely harmless and acts as organic fertilizer for coral",
+          "Chlorinated water turns mangroves into tall pine trees",
+          "Residual chlorine, high dissolved solids, and chemical shock destroy delicate coral polyps, mangrove flora, and juvenile fish populations",
           "The backwash water causes the ocean to freeze"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Pool backwash contains active biocides (free chlorine, algaecides) and high salts that must be de-chlorinated and settled in holding basins before safe disposal or reuse.",
         incorrectExplanation: "Incorrect. Direct discharge of pool chemical backwash causes severe marine toxicity and violates environmental protection laws.",
         optionFeedback: [
-          "Correct! Direct discharge of chlorinated backwash water causes severe chemical toxicity and osmotic shock to coastal marine organisms and violates environmental discharge laws.",
-          "Incorrect. Chemical backwash damages mangrove roots and cannot transform plant species.",
           "Incorrect. Chlorine and pool chemicals are toxic biocides, not marine fertilizer.",
+          "Incorrect. Chemical backwash damages mangrove roots and cannot transform plant species.",
+          "Correct! Direct discharge of chlorinated backwash water causes severe chemical toxicity and osmotic shock to coastal marine organisms and violates environmental discharge laws.",
           "Incorrect. Pool backwash does not cause freezing in marine environments."
         ]
       },
@@ -1118,19 +1118,19 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 7,
         question: "Service Protocols (Mindful Spa Linen Replenishment): In a luxury wellness spa, laundry represents a major operating footprint. How does an 'eco-towel protocol' impact operations?",
         options: [
-          "It reduces laundry water, chemical, and drying energy consumption by 30–40% while maintaining premium guest comfort through attentive on-request service",
+          "It violates local public health regulations",
           "It forces guests to dry themselves with paper napkins",
           "It increases laundry costs by 200%",
-          "It violates local public health regulations"
+          "It reduces laundry water, chemical, and drying energy consumption by 30–40% while maintaining premium guest comfort through attentive on-request service"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Educating spa guests and offering mindful towel replenishment reduces unnecessary wash loads by over a third without diminishing luxury service quality.",
         incorrectExplanation: "Incorrect. Luxurious reusable textiles remain standard; mindful replenishment lowers utility and linen replacement costs while complying fully with hygiene rules.",
         optionFeedback: [
-          "Correct! Mindful linen protocols in spas curb excessive over-washing of barely-used towels while preserving bespoke guest service upon request.",
+          "Incorrect. Providing clean linens upon request is fully compliant with hygiene standards.",
           "Incorrect. Luxurious reusable textiles remain standard; wasteful automatic replacement is curbed.",
           "Incorrect. Reducing wash volumes directly lowers utility, labor, and linen replacement costs.",
-          "Incorrect. Providing clean linens upon request is fully compliant with hygiene standards."
+          "Correct! Mindful linen protocols in spas curb excessive over-washing of barely-used towels while preserving bespoke guest service upon request."
         ]
       },
       {
@@ -1165,17 +1165,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 1,
         question: "Control Flaws (Mechanical Keycard Bypass): A resort replaces mechanical keycard slots with a smart Guest Room Energy Management System (EMS). Why are mechanical keycard slots easily bypassed and ineffective for deep energy savings?",
         options: [
-          "Mechanical slots consume too much electricity themselves",
           "Guests easily defeat mechanical slots using business cards or fake cards, leaving air conditioning running 24/7 in unoccupied rooms",
+          "Mechanical slots consume too much electricity themselves",
           "Mechanical slots erase magnetic hotel keys upon contact",
           "Mechanical slots turn off the fire alarm system"
         ],
-        correct: 1,
+        correct: 0,
         correctExplanation: "Mechanical keycard slots are easily circumvented by inserting business cards; smart EMS systems use passive infrared (PIR) and door contact sensors to verify true human occupancy.",
         incorrectExplanation: "Incorrect. Mechanical slots consume no power; they are easily defeated by dummy cards, causing continuous HVAC waste in empty rooms.",
         optionFeedback: [
-          "Incorrect. Mechanical slots consume no electric power themselves.",
           "Correct! Mechanical slots respond to any physical card, allowing guests to leave dummy cards inserted so air conditioning runs continuously in empty rooms.",
+          "Incorrect. Mechanical slots consume no electric power themselves.",
           "Incorrect. Keycard slots do not erase magnetic stripes.",
           "Incorrect. Life safety systems are independent of guest room convenience switches."
         ]
@@ -1184,17 +1184,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 2,
         question: "PMS Integration (Multi-Tier Temperature Setbacks): How does a smart guest room EMS utilize multi-tier temperature setback algorithms when integrated with the hotel Property Management System (PMS)?",
         options: [
-          "It maintains 'Sold-Unoccupied' rooms at a moderate setback (e.g., 24°C) for quick recovery, and 'Unsold' rooms at a deeper setback (e.g., 27°C) to maximize savings",
           "It turns off the electricity to the entire wing whenever a guest leaves their room",
+          "It maintains 'Sold-Unoccupied' rooms at a moderate setback (e.g., 24°C) for quick recovery, and 'Unsold' rooms at a deeper setback (e.g., 27°C) to maximize savings",
           "It freezes all rooms to 14°C regardless of occupancy to preserve furniture",
           "It disables the hotel PMS whenever a guest opens the door"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "PMS integration enables intelligent tiering: Unsold (deep setback ~27°C), Sold/Unoccupied (mild setback ~24°C with rapid 5-minute recovery), and Occupied (guest selected temperature).",
         incorrectExplanation: "Incorrect. Smart setback modulates HVAC setpoints dynamically; it does not cut off total wing power or overcool empty spaces.",
         optionFeedback: [
-          "Correct! Integrating EMS with PMS allows distinct thermal profiles: unrented rooms enter deep setback, while rented rooms use a shallow setback that quickly restores guest comfort upon entry.",
           "Incorrect. Smart setback modulates HVAC setpoints; it does not cut off total wing power.",
+          "Correct! Integrating EMS with PMS allows distinct thermal profiles: unrented rooms enter deep setback, while rented rooms use a shallow setback that quickly restores guest comfort upon entry.",
           "Incorrect. Overcooling empty rooms causes severe energy waste and moisture condensation.",
           "Incorrect. The EMS reads data from the PMS via API; it does not disable front desk software."
         ]
@@ -1203,18 +1203,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 3,
         question: "Humidity & Energy Interlocks (Balcony Door Reed Switches): An engineer audits balcony door interlocks in guest villas. How does the magnetic door reed switch interface with the guest room Fan Coil Unit (FCU)?",
         options: [
-          "When the balcony door remains open for >30 seconds, the interlock automatically turns off the FCU cooling valve and fan to prevent condensation and energy waste",
-          "Opening the balcony door turns the air conditioner to maximum freezing power",
           "The door interlock permanently locks the guest outside on the balcony",
+          "Opening the balcony door turns the air conditioner to maximum freezing power",
+          "When the balcony door remains open for >30 seconds, the interlock automatically turns off the FCU cooling valve and fan to prevent condensation and energy waste",
           "Opening the door sounds a loud police siren across the resort"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Balcony door sensors prevent the continuous infiltration of warm, humid outside air into actively cooled spaces, eliminating condensation and cutting HVAC waste.",
         incorrectExplanation: "Incorrect. Running cooling with open doors draws in tropical humidity, causing mold and coil icing; interlocks operate silently and safely.",
         optionFeedback: [
-          "Correct! Balcony interlocks pause HVAC cooling when doors are open, stopping energy waste and preventing warm humid outdoor air from causing indoor coil condensation.",
-          "Incorrect. Running cooling with open doors draws in tropical humidity, causing mold and coil icing.",
           "Incorrect. Interlocks control HVAC relays, not emergency door escape latches.",
+          "Incorrect. Running cooling with open doors draws in tropical humidity, causing mold and coil icing.",
+          "Correct! Balcony interlocks pause HVAC cooling when doors are open, stopping energy waste and preventing warm humid outdoor air from causing indoor coil condensation.",
           "Incorrect. System functions smoothly and silently without disruptive sirens."
         ]
       },
@@ -1222,36 +1222,36 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 4,
         question: "Plug-Load Management (Smart Relays & Phantom Loads): A hotel guest room contains a mini-fridge, television, kettle, and multiple USB hubs. What operational control best addresses 'vampire' plug loads when unoccupied?",
         options: [
-          "Connecting non-essential circuits to smart EMS load-shedding relays that cut power to unneeded entertainment/charging devices while preserving mini-fridge power",
+          "Requiring guests to bring their own diesel generators",
           "Unplugging all electrical equipment by hand every morning",
           "Shutting off the main municipal electrical grid connection to the resort",
-          "Requiring guests to bring their own diesel generators"
+          "Connecting non-essential circuits to smart EMS load-shedding relays that cut power to unneeded entertainment/charging devices while preserving mini-fridge power"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Smart relay circuits disconnect non-essential standby power devices when rooms are vacant while keeping dedicated circuits (mini-bars, safes) energized.",
         incorrectExplanation: "Incorrect. Manual unplugging is labor-intensive and damages cords; smart EMS relays automate load disconnection seamlessly.",
         optionFeedback: [
-          "Correct! Smart EMS automated plug-load relays disconnect non-essential phantom loads (TV standby, desk lamps) during unrented periods while maintaining critical continuous circuits.",
+          "Incorrect. Guest-provided generators are dangerous, noisy, and impractical.",
           "Incorrect. Manual unplugging is labor-intensive and damages cords and receptacles.",
           "Incorrect. Cutting municipal grid power disrupts all hotel operations.",
-          "Incorrect. Guest-provided generators are dangerous, noisy, and impractical."
+          "Correct! Smart EMS automated plug-load relays disconnect non-essential phantom loads (TV standby, desk lamps) during unrented periods while maintaining critical continuous circuits."
         ]
       },
       {
         order: 5,
         question: "Lighting Efficiency (Lighting Power Density Benchmarking): When upgrading guest room lighting to LED fixtures, why is calculating Lighting Power Density (LPD in W/m²) important for energy codes (e.g., ASHRAE 90.1)?",
         options: [
-          "It verifies that total installed lighting wattage per square meter is within mandatory energy efficiency benchmarks while providing adequate lux levels for guest comfort",
           "It determines how many light bulbs must be broken every week",
+          "It verifies that total installed lighting wattage per square meter is within mandatory energy efficiency benchmarks while providing adequate lux levels for guest comfort",
           "It ensures the room is pitch black so guests cannot read books",
           "It measures the weight of light fixtures in kilograms"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Lighting Power Density (W/m²) is a core energy efficiency metric ensuring lighting systems minimize power draw while maintaining optimal visual comfort.",
         incorrectExplanation: "Incorrect. LPD measures electrical power per floor area; modern LED design delivers warm, compliant lux levels without excess wattage.",
         optionFeedback: [
-          "Correct! LPD benchmarking ensures lighting designs deliver sufficient illumination (lux) while keeping total electrical load below code thresholds (typically ≤6 W/m² for guest rooms).",
           "Incorrect. LPD evaluates power efficiency, not maintenance destruction.",
+          "Correct! LPD benchmarking ensures lighting designs deliver sufficient illumination (lux) while keeping total electrical load below code thresholds (typically ≤6 W/m² for guest rooms).",
           "Incorrect. Modern LED design maintains warm, comfortable illumination levels (300–500 lux).",
           "Incorrect. LPD measures electrical power per floor area, not physical fixture mass."
         ]
@@ -1260,18 +1260,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 6,
         question: "Plumbing Fixtures (Low-Flow Aerated Showerheads & Thermal Energy): A resort retrofits guest bathrooms with low-flow aerated showerheads flowing at 6.8 L/min. What is the dual impact on room utilities?",
         options: [
-          "It cuts shower water consumption by 30–40% and proportionally reduces domestic hot water heating energy (gas/electricity) without degrading spray sensation",
-          "It causes hot water pipes to freeze solid in summer",
           "It increases water heating fuel costs by 300%",
+          "It causes hot water pipes to freeze solid in summer",
+          "It cuts shower water consumption by 30–40% and proportionally reduces domestic hot water heating energy (gas/electricity) without degrading spray sensation",
           "It eliminates the need for guests to shower during their stay"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Reducing shower flow rate from 10+ L/min to ≤6.8 L/min reduces both freshwater consumption and the substantial boiler fuel needed to generate domestic hot water.",
         incorrectExplanation: "Incorrect. Low-flow aerated fixtures maintain spray velocity while cutting water and heating fuel costs by over a third.",
         optionFeedback: [
-          "Correct! Low-flow aerated fixtures mix air into the water stream to maintain strong spray pressure while saving water and significant water heating fuel.",
-          "Incorrect. Water flow reduction in heated systems does not cause freezing.",
           "Incorrect. Reducing hot water flow directly lowers boiler fuel consumption.",
+          "Incorrect. Water flow reduction in heated systems does not cause freezing.",
+          "Correct! Low-flow aerated fixtures mix air into the water stream to maintain strong spray pressure while saving water and significant water heating fuel.",
           "Incorrect. Guest hygiene is maintained with high-performance spray patterns."
         ]
       },
@@ -1279,19 +1279,19 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 7,
         question: "Occupancy Sensing Logic (PIR & Door Contact State Tracking): During EMS commissioning, an engineer tests occupancy detection logic. Which sensor combination provides the most reliable tracking without false setbacks while guests sleep?",
         options: [
-          "Dual-technology sensors combining Passive Infrared (PIR) motion detection with door contact switch logic (triggering motion scan only after a door event)",
+          "Vibration sensors placed only on the television remote control",
           "Sound sensors that require guests to shout loudly every 10 minutes",
           "Thermal cameras streaming live video to YouTube",
-          "Vibration sensors placed only on the television remote control"
+          "Dual-technology sensors combining Passive Infrared (PIR) motion detection with door contact switch logic (triggering motion scan only after a door event)"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Door-supervised PIR occupancy algorithms check for motion only after an entry/exit door event, preventing false setbacks while occupants sleep or remain still.",
         incorrectExplanation: "Incorrect. Audio triggers disrupt sleep; video cameras severely violate privacy; door contact + PIR supervision is the industry standard.",
         optionFeedback: [
-          "Correct! Door contact + PIR logic determines occupancy with high accuracy: if no door event occurs, the system knows the guest is still inside (even when sleeping motionless).",
+          "Incorrect. Remote control sensors fail when guests are resting or reading.",
           "Incorrect. Sound triggers create annoying false alarms and disrupt sleep.",
           "Incorrect. Video cameras inside guest bedrooms severely violate privacy and legal rights.",
-          "Incorrect. Remote control sensors fail when guests are resting or reading."
+          "Correct! Door contact + PIR logic determines occupancy with high accuracy: if no door event occurs, the system knows the guest is still inside (even when sleeping motionless)."
         ]
       },
       {
@@ -1345,17 +1345,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 2,
         question: "Bathroom Amenities (Bulk Dispensers vs Miniatures): Housekeeping audits show guest bathrooms consume 180,000 miniature 30 ml plastic bottles annually. What is the standard sustainable replacement?",
         options: [
-          "Wall-mounted or freestanding tamper-resistant ceramic/stainless steel bulk refillable dispensers utilizing certified organic bulk liquid amenities",
           "Eliminate all soap and shampoo from guest rooms entirely",
+          "Wall-mounted or freestanding tamper-resistant ceramic/stainless steel bulk refillable dispensers utilizing certified organic bulk liquid amenities",
           "Give each guest a 20-liter plastic drum of shampoo at check-in",
           "Replace 30 ml bottles with 10 ml disposable plastic sachets"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Tamper-proof bulk dispensers eliminate miniature plastic bottle waste, reduce product cost per liter, and maintain high guest satisfaction.",
         incorrectExplanation: "Incorrect. Eliminating amenities violates hospitality standards; industrial drums are impractical; sachets increase plastic litter.",
         optionFeedback: [
-          "Correct! High-quality, tamper-resistant bulk dispensers eliminate millions of miniature plastic bottles while preserving luxury aesthetic and hygiene standards.",
           "Incorrect. Removing amenities entirely violates fundamental hospitality service standards.",
+          "Correct! High-quality, tamper-resistant bulk dispensers eliminate millions of miniature plastic bottles while preserving luxury aesthetic and hygiene standards.",
           "Incorrect. Providing industrial drums is impractical and unsightly in guest rooms.",
           "Incorrect. Plastic sachets increase plastic fragmentation and litter risks."
         ]
@@ -1364,18 +1364,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 3,
         question: "Bioplastics Reality (Industrial Composting Requirements for PLA): In F&B operations, a resort replaces plastic takeaway containers with bio-plastic (PLA). What critical waste reality must be verified before claiming sustainability?",
         options: [
-          "PLA requires industrial composting facilities operating at >58°C with controlled humidity to degrade; in standard landfills or marine environments, it persists like conventional plastic",
-          "PLA dissolves instantly in ordinary cold sea water within 5 seconds",
           "PLA can be melted and eaten as organic food",
+          "PLA dissolves instantly in ordinary cold sea water within 5 seconds",
+          "PLA requires industrial composting facilities operating at >58°C with controlled humidity to degrade; in standard landfills or marine environments, it persists like conventional plastic",
           "PLA is 100% recyclable in standard curbside PET bottle recycling streams"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Polylactic acid (PLA) requires commercial industrial composting facilities (58–60°C); without dedicated industrial composting infrastructure, PLA fails to degrade and contaminates PET recycling.",
         incorrectExplanation: "Incorrect. PLA does not dissolve in sea water, is not edible, and contaminates PET recycling streams.",
         optionFeedback: [
-          "Correct! PLA does not decompose in backyard compost, landfill, or marine conditions; without access to commercial industrial composting, it behaves like conventional plastic waste.",
-          "Incorrect. Bio-plastics do not dissolve in cold water and persist for decades in marine environments.",
           "Incorrect. Bio-plastics are technical polymers and not edible.",
+          "Incorrect. Bio-plastics do not dissolve in cold water and persist for decades in marine environments.",
+          "Correct! PLA does not decompose in backyard compost, landfill, or marine conditions; without access to commercial industrial composting, it behaves like conventional plastic waste.",
           "Incorrect. PLA contaminates PET recycling streams, causing entire batches of recycled plastic to be rejected."
         ]
       },
@@ -1383,36 +1383,36 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 4,
         question: "Bar & Beverage Policy (Straw Reduction Hierarchy): A resort bar replaces single-use plastic cocktail straws and beverage stirrers. Which operational standard best implements the reduction hierarchy?",
         options: [
-          "Adopt a 'Straw upon request only' policy, offering reusable stainless steel/bamboo straws or certified home-compostable natural plant reed straws when requested",
+          "Use lead-coated metal rods as disposable stirrers",
           "Put four plastic straws into every glass automatically",
           "Stop serving cocktails or drinks of any kind",
-          "Use lead-coated metal rods as disposable stirrers"
+          "Adopt a 'Straw upon request only' policy, offering reusable stainless steel/bamboo straws or certified home-compostable natural plant reed straws when requested"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Combining a 'straw on request' policy with durable reusable stainless steel or natural reed alternatives eliminates plastic waste while educating guests.",
         incorrectExplanation: "Incorrect. Automatic straw distribution maximizes waste; banning drinks disrupts operations; lead is toxic.",
         optionFeedback: [
-          "Correct! An 'on-request' policy reduces straw usage by over 80%, while natural reusable or home-compostable alternatives eliminate plastic waste.",
+          "Incorrect. Lead is a severe neurotoxin and dangerous in food contact.",
           "Incorrect. Automatic straw distribution maximizes single-use waste.",
           "Incorrect. Banning beverages is incompatible with bar operations.",
-          "Incorrect. Lead is a severe neurotoxin and dangerous in food contact."
+          "Correct! An 'on-request' policy reduces straw usage by over 80%, while natural reusable or home-compostable alternatives eliminate plastic waste."
         ]
       },
       {
         order: 5,
         question: "Supply Chain Packaging (Returnable Transport Packaging RTP): A procurement manager finds suppliers deliver produce wrapped in single-use plastic wrap and polystyrene boxes. What is the corrective supplier protocol?",
         options: [
-          "Implement a closed-loop returnable crate system with sanitized heavy-duty collapsible crates and mandate reusable pallet wraps in supplier contracts",
           "Accept all single-use packaging and bury it on the resort beach at night",
+          "Implement a closed-loop returnable crate system with sanitized heavy-duty collapsible crates and mandate reusable pallet wraps in supplier contracts",
           "Cancel all food orders and let resort kitchens run out of food",
           "Burn polystyrene boxes in open bonfires behind the receiving dock"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Closed-loop supplier agreements using returnable, washable crates and reusable pallet securing systems eliminate single-use plastic at the receiving dock.",
         incorrectExplanation: "Incorrect. Beach burial or open burning of polystyrene is toxic and illegal; supply agreements should mandate returnable crates.",
         optionFeedback: [
-          "Correct! Contracting suppliers to use returnable plastic crates (RPCs) and reusable pallet bands eliminates tons of stretch film and polystyrene waste.",
           "Incorrect. Burying waste on beaches causes severe environmental and legal violations.",
+          "Correct! Contracting suppliers to use returnable plastic crates (RPCs) and reusable pallet bands eliminates tons of stretch film and polystyrene waste.",
           "Incorrect. Strategic procurement collaborates with vendors rather than shutting down supply lines.",
           "Incorrect. Burning polystyrene releases toxic styrene monomers and dense black soot."
         ]
@@ -1421,18 +1421,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 6,
         question: "Material Hazard (Expanded Polystyrene EPS Ecological Impact): Why is Expanded Polystyrene (EPS / Styrofoam) one of the highest-priority plastic items targeted for total elimination in island resorts?",
         options: [
-          "It easily fragments into lightweight, indestructible micro-debris that blows into the ocean, harms marine life, absorbs toxins, and is virtually impossible to recycle locally",
-          "It is made of pure diamonds that are too expensive for resorts",
           "It makes hotel food taste too spicy",
+          "It is made of pure diamonds that are too expensive for resorts",
+          "It easily fragments into lightweight, indestructible micro-debris that blows into the ocean, harms marine life, absorbs toxins, and is virtually impossible to recycle locally",
           "It is illegal for humans to touch polystyrene with bare hands"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Expanded polystyrene fragments easily into microplastics that contaminate marine food webs, prompting worldwide bans in hospitality.",
         incorrectExplanation: "Incorrect. Polystyrene is a cheap petroleum polymer that fragments into persistent microplastics; it has no diamond content or flavor altering properties.",
         optionFeedback: [
-          "Correct! EPS is brittle, highly buoyant, easily ingested by marine animals, and has almost zero economic recycling value on isolated islands.",
-          "Incorrect. Polystyrene is a cheap petroleum-derived polymer, not diamond.",
           "Incorrect. Polystyrene is odorless and chemically inert to taste, but ecologically devastating.",
+          "Incorrect. Polystyrene is a cheap petroleum-derived polymer, not diamond.",
+          "Correct! EPS is brittle, highly buoyant, easily ingested by marine animals, and has almost zero economic recycling value on isolated islands.",
           "Incorrect. Handling it is not physically toxic, but its environmental persistence is disastrous."
         ]
       },
@@ -1440,19 +1440,19 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 7,
         question: "Retail Operations (Reusable Cloth Bags & Paper Packaging): A resort retail boutique sells souvenirs and sundries. What packaging policy should be enforced at checkout?",
         options: [
-          "Provide no single-use plastic bags; offer reusable certified organic cotton tote bags for purchase or borrow, or provide FSC-certified recycled paper bags upon request",
+          "Import plastic bags from countries that have no plastic regulations",
           "Wrap every item in five plastic shopping bags",
           "Require customers to carry items in their teeth",
-          "Import plastic bags from countries that have no plastic regulations"
+          "Provide no single-use plastic bags; offer reusable certified organic cotton tote bags for purchase or borrow, or provide FSC-certified recycled paper bags upon request"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Hospitality retail operations should eliminate single-use plastic carry bags in favor of branded reusable cloth bags and recycled paper alternatives.",
         incorrectExplanation: "Incorrect. Excessive plastic bagging generates preventable waste; circumvention undermines environmental integrity.",
         optionFeedback: [
-          "Correct! Retail bag elimination with reusable cloth or post-consumer recycled paper bags supports brand sustainability and eliminates retail plastic waste.",
+          "Incorrect. Circumventing plastic bans undermines sustainability integrity.",
           "Incorrect. Excessive plastic bagging generates preventable waste.",
           "Incorrect. Unreasonable customer treatment damages guest experience.",
-          "Incorrect. Circumventing plastic bans undermines sustainability integrity."
+          "Correct! Retail bag elimination with reusable cloth or post-consumer recycled paper bags supports brand sustainability and eliminates retail plastic waste."
         ]
       },
       {
@@ -1506,17 +1506,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 2,
         question: "Local Agriculture Partnerships (Forward Contracts & Price Stability): A resort enters into a direct procurement partnership with local agricultural cooperatives. What commercial mechanism best ensures supply stability while supporting fair livelihoods?",
         options: [
-          "Long-term forward contracts with guaranteed minimum pricing, seasonal crop planning, and shared quality-standard agreements",
           "Cancelling orders on 10 minutes notice whenever a cheaper imported container arrives at the port",
+          "Long-term forward contracts with guaranteed minimum pricing, seasonal crop planning, and shared quality-standard agreements",
           "Demanding that farmers provide free produce for the first year",
           "Paying farmers only if hotel guests leave 5-star online reviews"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Forward contracting with fair baseline pricing and joint crop planning fosters stable, mutually beneficial local agricultural partnerships.",
         incorrectExplanation: "Incorrect. Volatile cancellations destroy smallholder trust; exploitative terms violate ethical procurement standards.",
         optionFeedback: [
-          "Correct! Forward supply agreements with guaranteed floor prices reduce farmer market risk and ensure the hotel receives reliable, high-quality local harvests.",
           "Incorrect. Volatile cancellations destroy smallholder trust and economic viability.",
+          "Correct! Forward supply agreements with guaranteed floor prices reduce farmer market risk and ensure the hotel receives reliable, high-quality local harvests.",
           "Incorrect. Unfair commercial terms violate ethical procurement standards.",
           "Incorrect. Tying agricultural payment to subjective hotel reviews is exploitative."
         ]
@@ -1525,18 +1525,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 3,
         question: "Seafood Traceability (MSC & ASC Certified Sourcing): When sourcing seafood for resort restaurants, which certification standards provide independent proof of sustainable fisheries and responsible aquaculture?",
         options: [
-          "Marine Stewardship Council (MSC) for wild fisheries and Aquaculture Stewardship Council (ASC) / GlobalGAP for farmed seafood",
-          "Any fish caught using dynamite in shallow coral reefs",
           "Seafood that has no catch date, species name, or origin label",
+          "Any fish caught using dynamite in shallow coral reefs",
+          "Marine Stewardship Council (MSC) for wild fisheries and Aquaculture Stewardship Council (ASC) / GlobalGAP for farmed seafood",
           "Seafood imported illegally from closed marine reserves"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "MSC (wild) and ASC (farmed) certifications are globally recognized benchmarks verifying sustainable harvest limits, habitat protection, and full supply traceability.",
         incorrectExplanation: "Incorrect. Blast fishing is illegal and destructive; unlabelled seafood risks endangered stocks; marine reserve poaching is a crime.",
         optionFeedback: [
-          "Correct! MSC and ASC certifications verify that fisheries prevent overfishing, minimize bycatch, and operate with full traceability.",
-          "Incorrect. Blast fishing is illegal, destructive, and devastating to marine ecosystems.",
           "Incorrect. Traceability and species verification are essential to avoid endangered fish stocks.",
+          "Incorrect. Blast fishing is illegal, destructive, and devastating to marine ecosystems.",
+          "Correct! MSC and ASC certifications verify that fisheries prevent overfishing, minimize bycatch, and operate with full traceability.",
           "Incorrect. Sourcing from marine protected zones violates international conservation laws."
         ]
       },
@@ -1544,36 +1544,36 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 4,
         question: "Logistics Optimization (Supplier Consolidation & Scope 3 Freight): How does consolidating supplier delivery schedules (e.g., reducing deliveries from 15 partial trucks per week to 3 consolidated full trucks) impact operations?",
         options: [
-          "It reduces Scope 3 freight emissions, cuts receiving dock congestion, and lowers administrative processing labor",
+          "It requires the hotel to stop serving fresh food",
           "It causes delivery trucks to explode from being full",
           "It increases dock handling labor by 400%",
-          "It requires the hotel to stop serving fresh food"
+          "It reduces Scope 3 freight emissions, cuts receiving dock congestion, and lowers administrative processing labor"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Vendor consolidation and scheduled delivery windows reduce transport emissions, decrease dock traffic, and improve receiving quality control.",
         incorrectExplanation: "Incorrect. Consolidated logistics streamline labor and inspection routines while lowering freight carbon emissions.",
         optionFeedback: [
-          "Correct! Supplier consolidation optimizes delivery vehicle routing, slashes carbon emissions, and streamlines warehouse receiving operations.",
+          "Incorrect. Strategic ordering schedules maintain optimal fresh inventory rotations.",
           "Incorrect. Full truckload logistics are safe and standard commercial practice.",
           "Incorrect. Fewer scheduled deliveries streamline labor and inspection routines.",
-          "Incorrect. Strategic ordering schedules maintain optimal fresh inventory rotations."
+          "Correct! Supplier consolidation optimizes delivery vehicle routing, slashes carbon emissions, and streamlines warehouse receiving operations."
         ]
       },
       {
         order: 5,
         question: "Chemical Standards (Biodegradability & Eco-Labels): A purchasing team evaluates cleaning chemical vendors. Which environmental standard indicates formulations are biodegradable and low in aquatic toxicity and VOCs?",
         options: [
-          "EU Ecolabel, Green Seal, or Cradle to Cradle certified formulations with automated precision dilution dispensers",
           "Chemicals labeled with multiple skull-and-crossbones hazard warnings and no ingredient lists",
+          "EU Ecolabel, Green Seal, or Cradle to Cradle certified formulations with automated precision dilution dispensers",
           "Untreated concentrated petroleum solvents poured from unlabelled metal drums",
           "Chemicals that have never been tested for human or environmental safety"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Eco-certified cleaning chemicals (EU Ecolabel, Green Seal) guarantee rapid biodegradability, minimal aquatic toxicity, and low VOC emissions.",
         incorrectExplanation: "Incorrect. Unlabeled hazardous petroleum solvents violate safety regulations and pollute indoor air and wastewater.",
         optionFeedback: [
-          "Correct! Recognized eco-labels (EU Ecolabel, Green Seal) ensure chemicals meet strict biodegradability, low aquatic toxicity, and non-carcinogenic standards.",
           "Incorrect. Unlabeled hazardous solvents present severe worker and environmental risks.",
+          "Correct! Recognized eco-labels (EU Ecolabel, Green Seal) ensure chemicals meet strict biodegradability, low aquatic toxicity, and non-carcinogenic standards.",
           "Incorrect. Petroleum solvents damage wastewater systems and indoor air quality.",
           "Incorrect. Untested chemicals violate workplace safety regulations."
         ]
@@ -1582,18 +1582,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 6,
         question: "Strategic Framework (Sustainable Sourcing Matrix): What is the primary operational objective of establishing a Sustainable Sourcing Matrix across all hotel purchasing categories?",
         options: [
-          "To categorize all spend by environmental and social risk, setting clear mandatory minimum criteria and preferred certifications for every product category",
-          "To force buyers to buy only the cheapest product available regardless of quality or ethics",
           "To eliminate all supplier contracts and buy items randomly from retail supermarkets",
+          "To force buyers to buy only the cheapest product available regardless of quality or ethics",
+          "To categorize all spend by environmental and social risk, setting clear mandatory minimum criteria and preferred certifications for every product category",
           "To hide financial transactions from company auditors"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "A Sustainable Sourcing Matrix defines clear mandatory and preferred ESG standards across all purchasing categories (food, operating equipment, chemicals, textiles).",
         incorrectExplanation: "Incorrect. Lowest-price-only purchasing ignores lifecycle costs and ESG risks; retail ad-hoc purchasing lacks commercial governance.",
         optionFeedback: [
-          "Correct! A sustainable sourcing matrix provides category-by-category ESG specifications, guiding buyers toward verified sustainable choices across all departments.",
-          "Incorrect. Lowest-price-only purchasing ignores lifecycle costs, quality, and ESG risks.",
           "Incorrect. Random retail purchasing is inefficient and lacks commercial governance.",
+          "Incorrect. Lowest-price-only purchasing ignores lifecycle costs, quality, and ESG risks.",
+          "Correct! A sustainable sourcing matrix provides category-by-category ESG specifications, guiding buyers toward verified sustainable choices across all departments.",
           "Incorrect. Sourcing frameworks increase transparency and auditability."
         ]
       },
@@ -1601,19 +1601,19 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 7,
         question: "Textile Standards (GOTS & OEKO-TEX Verification): A hotel purchases bed linens and staff uniforms. Which textile certification guarantees organic cultivation without synthetic pesticides and manufacturing without hazardous azo dyes?",
         options: [
-          "Global Organic Textile Standard (GOTS) or OEKO-TEX Standard 100 / Made in Green",
+          "Fabrics dyed with lead and heavy metal pigments",
           "Any fabric that is 100% synthetic polyester with heavy chemical finishes",
           "Textiles produced in unmonitored sweatshops with no labor standards",
-          "Fabrics dyed with lead and heavy metal pigments"
+          "Global Organic Textile Standard (GOTS) or OEKO-TEX Standard 100 / Made in Green"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "GOTS and OEKO-TEX certifications ensure textiles meet rigorous organic farming, chemical safety, and ethical labor standards throughout the supply chain.",
         incorrectExplanation: "Incorrect. Virgin polyester sheds microplastics; unmonitored sweatshops violate human rights; heavy metal dyes are toxic.",
         optionFeedback: [
-          "Correct! GOTS and OEKO-TEX verify organic cultivation, fair labor standards, and strict chemical safety throughout textile manufacturing.",
+          "Incorrect. Heavy metal dyes are toxic to skin and pollute waterways.",
           "Incorrect. Virgin polyester is petroleum-derived and sheds persistent microplastics.",
           "Incorrect. Exploitative labor practices violate human rights and corporate procurement codes.",
-          "Incorrect. Heavy metal dyes are toxic to skin and pollute waterways."
+          "Correct! GOTS and OEKO-TEX verify organic cultivation, fair labor standards, and strict chemical safety throughout textile manufacturing."
         ]
       },
       {
@@ -1667,17 +1667,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 2,
         question: "Wildlife Navigation (Marine Mammal Approach Guidelines): Resort marine guides conduct dolphin-watching excursions. According to international marine wildlife guidelines, what navigation protocol must boat captains follow?",
         options: [
-          "Maintain a minimum distance of 50–100 meters, travel at slow no-wake speed, never cut across animal paths, and limit encounter duration to 20–30 minutes",
           "Chase pods at maximum throttle to force dolphins to jump for guest photos",
+          "Maintain a minimum distance of 50–100 meters, travel at slow no-wake speed, never cut across animal paths, and limit encounter duration to 20–30 minutes",
           "Surround a mother dolphin and calf with multiple speedboats to prevent them from diving",
           "Throw leftover banquet food into the water to attract apex sharks"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Responsible marine wildlife viewing mandates minimum approach buffers, low speeds, and non-intrusive parallel navigation to prevent animal distress and injury.",
         incorrectExplanation: "Incorrect. Chasing animals or trapping pods causes severe distress and vessel strikes; feeding wild predators disrupts natural foraging.",
         optionFeedback: [
-          "Correct! Responsible wildlife watching requires maintaining safe approach distances, parallel cruising, no-wake speeds, and strict time limits to avoid stressing marine mammals.",
           "Incorrect. Chasing animals causes severe distress, disorientation, and vessel strike injuries.",
+          "Correct! Responsible wildlife watching requires maintaining safe approach distances, parallel cruising, no-wake speeds, and strict time limits to avoid stressing marine mammals.",
           "Incorrect. Trapping or surrounding mothers and calves disrupts nursing and breathing.",
           "Incorrect. Feeding wild marine predators disrupts natural hunting behaviors and increases safety risks."
         ]
@@ -1686,18 +1686,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 3,
         question: "Snorkel Briefings (Reef-Safe Sunscreens & No-Touch Codes): A resort dive center provides pre-snorkel briefings. Which behavioral rules are essential to protect the shallow lagoon ecosystem?",
         options: [
-          "Never stand on, kick, or touch live coral; use reef-safe mineral sunscreen (non-nano zinc oxide/titanium dioxide); and do not feed fish or collect shells",
-          "Encourage guests to break off coral branches as free souvenirs",
           "Advise guests to apply heavy chemical sunscreens containing oxybenzone and octinoxate right before jumping into the reef",
+          "Encourage guests to break off coral branches as free souvenirs",
+          "Never stand on, kick, or touch live coral; use reef-safe mineral sunscreen (non-nano zinc oxide/titanium dioxide); and do not feed fish or collect shells",
           "Instruct guests to throw plastic cups into the ocean to create artificial fish habitats"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Pre-excursion briefings establish clear environmental codes: avoiding coral physical contact, using mineral-based sunscreens, and prohibiting wildlife feeding.",
         incorrectExplanation: "Incorrect. Breaking coral destroys living colonies; oxybenzone bleaches coral larvae; plastic waste causes severe marine toxicity.",
         optionFeedback: [
-          "Correct! Snorkel briefings emphasizing no-touch protocols, reef-safe mineral sunscreens, and no feeding protect delicate reef structures and water quality.",
-          "Incorrect. Breaking coral destroys living organisms and violates environmental law.",
           "Incorrect. Oxybenzone and octinoxate bleach coral larvae and disrupt marine endocrine systems.",
+          "Incorrect. Breaking coral destroys living organisms and violates environmental law.",
+          "Correct! Snorkel briefings emphasizing no-touch protocols, reef-safe mineral sunscreens, and no feeding protect delicate reef structures and water quality.",
           "Incorrect. Plastic waste causes severe marine ingestion, entanglement, and toxicity."
         ]
       },
@@ -1705,36 +1705,36 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 4,
         question: "Coastal Lighting Management (Turtle Nesting Disorientation): An island resort conducts turtle nesting monitoring on its beachfront. What coastal lighting management protocol must be enforced during nesting season?",
         options: [
-          "Shield, dim, or turn off exterior beachfront lights and use low-wavelength amber/red LED lighting to prevent disorienting nesting females and hatchlings",
+          "Build concrete seawalls across all natural nesting dunes",
           "Install high-powered stadium floodlights pointed directly at the water to illuminate turtles",
           "Set off fireworks every evening on the beach",
-          "Build concrete seawalls across all natural nesting dunes"
+          "Shield, dim, or turn off exterior beachfront lights and use low-wavelength amber/red LED lighting to prevent disorienting nesting females and hatchlings"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Turtle-friendly lighting utilizes low-glare, long-wavelength amber/red LEDs and fixture shielding to prevent nocturnal disorientation of nesting females and hatchlings.",
         incorrectExplanation: "Incorrect. White stadium lights and fireworks disorient and kill hatchlings; seawalls destroy natural nesting dunes.",
         optionFeedback: [
-          "Correct! Sea turtle hatchlings navigate toward the ocean using natural moonlight; artificial white light disorients them toward roads and predators.",
+          "Incorrect. Concrete seawalls destroy natural sandy nesting habitats.",
           "Incorrect. Bright white floodlights cause severe disorientation and mortality in hatchlings.",
           "Incorrect. Fireworks create intense noise and light disturbance that drives away nesting females.",
-          "Incorrect. Concrete seawalls destroy natural sandy nesting habitats."
+          "Correct! Sea turtle hatchlings navigate toward the ocean using natural moonlight; artificial white light disorients them toward roads and predators."
         ]
       },
       {
         order: 5,
         question: "Marine Protected Areas (Spillover Effect & Biodiversity Recovery): What is the primary ecological benefit of a resort establishing a designated voluntary no-take marine reserve fronting its property?",
         options: [
-          "It provides a nursery habitat where fish stocks and coral biomass recover and spill over into adjacent community fishing zones, enhancing regional biodiversity",
           "It allows the hotel to charge fish for swimming in the lagoon",
+          "It provides a nursery habitat where fish stocks and coral biomass recover and spill over into adjacent community fishing zones, enhancing regional biodiversity",
           "It makes the seawater turn into freshwater",
           "It eliminates all tides and ocean waves"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Marine reserves protect breeding grounds, resulting in increased fish biomass, larger breeding adults, and spillover benefits for local coastal fisheries.",
         incorrectExplanation: "Incorrect. Marine reserves protect breeding biomass and foster spillover; they do not alter salinity or tidal mechanics.",
         optionFeedback: [
-          "Correct! No-take marine reserves allow depleted fish populations to mature and reproduce, creating a 'spillover effect' that replenishes neighboring artisanal fisheries.",
           "Incorrect. MPAs protect wildlife and ecosystems without commercial absurdity.",
+          "Correct! No-take marine reserves allow depleted fish populations to mature and reproduce, creating a 'spillover effect' that replenishes neighboring artisanal fisheries.",
           "Incorrect. Marine reserves protect biodiversity; they do not alter ocean salinity.",
           "Incorrect. Marine reserves have no impact on celestial tidal cycles."
         ]
@@ -1743,18 +1743,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 6,
         question: "Marine Construction Safeguards (EIA Silt Curtains & Pylon Siting): A resort plans overwater bungalows and a guest jetty. What environmental impact assessment (EIA) mitigation must be implemented during marine construction?",
         options: [
-          "Deploy silt curtains to contain sediment plumes, schedule pile driving outside marine mammal breeding seasons, and avoid direct placement on seagrass or coral beds",
-          "Dredge the entire lagoon with explosives to create a smooth swimming pool",
           "Dump wet concrete slurry directly into live coral gardens",
+          "Dredge the entire lagoon with explosives to create a smooth swimming pool",
+          "Deploy silt curtains to contain sediment plumes, schedule pile driving outside marine mammal breeding seasons, and avoid direct placement on seagrass or coral beds",
           "Conduct construction secretly at night without environmental permits"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Marine construction requires stringent environmental safeguards, including turbidity curtains, acoustic buffers, and avoidance of critical benthic habitats.",
         incorrectExplanation: "Incorrect. Explosive dredging destroys reefs; dumping slurry smothers marine life; unpermitted work violates national laws.",
         optionFeedback: [
-          "Correct! Silt curtains prevent turbidity from smothering corals, while careful pylon positioning avoids sensitive seagrass and coral habitats.",
-          "Incorrect. Explosive dredging destroys entire lagoon ecosystems and causes catastrophic erosion.",
           "Incorrect. Concrete slurry raises pH and smothers benthic marine life.",
+          "Incorrect. Explosive dredging destroys entire lagoon ecosystems and causes catastrophic erosion.",
+          "Correct! Silt curtains prevent turbidity from smothering corals, while careful pylon positioning avoids sensitive seagrass and coral habitats.",
           "Incorrect. Unpermitted construction violates national environmental legislation."
         ]
       },
@@ -1762,19 +1762,19 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 7,
         question: "Blue Carbon Ecosystems (Mangroves & Seagrass Carbon Sequestration): Why are coastal mangrove forests and seagrass meadows considered vital 'blue carbon' ecosystems for island resorts?",
         options: [
-          "They sequester carbon up to 10 times faster per hectare than terrestrial tropical forests, while providing storm surge protection, water filtration, and fish nursery habitats",
+          "They consume all oxygen from the atmosphere",
           "They produce toxic gases that drive away tourists",
           "They are invasive weeds that must be paved over with concrete",
-          "They consume all oxygen from the atmosphere"
+          "They sequester carbon up to 10 times faster per hectare than terrestrial tropical forests, while providing storm surge protection, water filtration, and fish nursery habitats"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Blue carbon coastal ecosystems sequester vast amounts of organic carbon in their soils and provide essential shoreline protection and marine biodiversity habitats.",
         incorrectExplanation: "Incorrect. Mangroves and seagrasses are vital native ecosystems that filter water, protect coasts from erosion, and sequester carbon.",
         optionFeedback: [
-          "Correct! Mangroves and seagrasses are potent blue carbon sinks, trap terrestrial sediments, filter runoff, and provide critical coastal barrier defense against cyclones.",
+          "Incorrect. Marine plants are essential oxygen producers and carbon sinks.",
           "Incorrect. Mangroves and seagrasses support clean water, rich marine life, and coastal protection.",
           "Incorrect. Paving coastal wetlands destroys vital fish nurseries and accelerates beach erosion.",
-          "Incorrect. Marine plants are essential oxygen producers and carbon sinks."
+          "Correct! Mangroves and seagrasses are potent blue carbon sinks, trap terrestrial sediments, filter runoff, and provide critical coastal barrier defense against cyclones."
         ]
       },
       {
@@ -1828,17 +1828,17 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 2,
         question: "Data Transparency (Automated Utility Data Sharing Clauses): A commercial landlord drafts a Green Lease energy data sharing clause. What obligation does this clause establish for the tenant and landlord?",
         options: [
-          "Mutual automated sharing of monthly utility consumption data (electricity, water, gas, waste) and sub-meter readings to benchmark building carbon emissions",
           "Tenants must give their bank login passwords to the landlord",
+          "Mutual automated sharing of monthly utility consumption data (electricity, water, gas, waste) and sub-meter readings to benchmark building carbon emissions",
           "Landlords can spy on tenant employee emails",
           "Tenants must turn off their computer servers every afternoon at 14:00"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Data sharing clauses mandate exchange of anonymized utility, sub-meter, and waste data essential for ESG reporting, carbon accounting, and efficiency benchmarking.",
         incorrectExplanation: "Incorrect. Banking passwords and employee emails are private; arbitrary operational shutdowns are not part of green leases.",
         optionFeedback: [
-          "Correct! Data transparency clauses mandate sharing energy, water, and waste metrics to enable building benchmarking, GRESB/ESG reporting, and efficiency tracking.",
           "Incorrect. Financial passwords and banking details are private and excluded from green lease data.",
+          "Correct! Data transparency clauses mandate sharing energy, water, and waste metrics to enable building benchmarking, GRESB/ESG reporting, and efficiency tracking.",
           "Incorrect. Employee communications are protected by privacy laws.",
           "Incorrect. Green leases do not impose arbitrary operational shutdowns on commercial tenants."
         ]
@@ -1847,18 +1847,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 3,
         question: "Fit-Out Guidelines (Sustainable Materials & Lighting Power Limits): A retail tenant plans a store fit-out in a shopping center. What requirement in the Sustainable Fit-Out Guide ensures energy and indoor environmental quality (IEQ) compliance?",
         options: [
-          "Mandatory sub-metering, high-efficiency LED lighting with low Lighting Power Density (LPD), low-VOC adhesives and paints, and FSC-certified timber",
-          "Requiring the tenant to install incandescent spotlights and open solvent cans",
           "Forbidding the tenant from installing any lighting in the store",
+          "Requiring the tenant to install incandescent spotlights and open solvent cans",
+          "Mandatory sub-metering, high-efficiency LED lighting with low Lighting Power Density (LPD), low-VOC adhesives and paints, and FSC-certified timber",
           "Allowing tenants to dump construction demolition waste into the storm drain"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Sustainable fit-out guides establish mandatory standards for sub-metering, LED lighting power limits, certified materials, and low-VOC paints and adhesives.",
         incorrectExplanation: "Incorrect. Incandescent spotlights and toxic solvents violate codes; dumping construction waste in storm drains is illegal.",
         optionFeedback: [
-          "Correct! Sustainable fit-out criteria mandate sub-metering, efficient LED lighting limits, non-toxic low-VOC materials, and certified sustainable timber.",
-          "Incorrect. Incandescent spotlights and open toxic solvents violate energy and safety codes.",
           "Incorrect. Fit-out guides regulate lighting efficiency, not lighting elimination.",
+          "Incorrect. Incandescent spotlights and open toxic solvents violate energy and safety codes.",
+          "Correct! Sustainable fit-out criteria mandate sub-metering, efficient LED lighting limits, non-toxic low-VOC materials, and certified sustainable timber.",
           "Incorrect. Dumping construction waste in storm drains is illegal."
         ]
       },
@@ -1866,36 +1866,36 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 4,
         question: "Joint Governance (Landlord-Tenant Green Committees): What is the primary function of a joint Landlord-Tenant Green Committee established under a commercial green lease?",
         options: [
-          "A collaborative governance forum that meets quarterly to review building resource consumption, coordinate waste diversion, and plan joint energy efficiency initiatives",
+          "A committee dedicated to blocking all building maintenance repairs",
           "A court where the landlord issues criminal fines to tenant employees",
           "A social club that organizes mandatory weekly golf tournaments",
-          "A committee dedicated to blocking all building maintenance repairs"
+          "A collaborative governance forum that meets quarterly to review building resource consumption, coordinate waste diversion, and plan joint energy efficiency initiatives"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Landlord-Tenant Green Committees govern shared building resource targets, review sub-meter data, coordinate recycling streams, and plan joint sustainability campaigns.",
         incorrectExplanation: "Incorrect. Green committees are collaborative operational forums, not criminal courts or obstructive bodies.",
         optionFeedback: [
-          "Correct! Green Committees provide structured operational governance where building management and tenants review performance data and collaborate on shared ESG goals.",
+          "Incorrect. Green committees facilitate and optimize maintenance, not obstruct it.",
           "Incorrect. Green committees are collaborative operational forums, not criminal courts.",
           "Incorrect. Social entertainment is secondary to operational resource governance.",
-          "Incorrect. Green committees facilitate and optimize maintenance, not obstruct it."
+          "Correct! Green Committees provide structured operational governance where building management and tenants review performance data and collaborate on shared ESG goals."
         ]
       },
       {
         order: 5,
         question: "Operational Scheduling (Zoned After-Hours HVAC Activation): An office tenant requests air conditioning on weekends. Under a Green Lease operational schedule clause, how should after-hours HVAC be billed and managed?",
         options: [
-          "After-hours HVAC is requested via digital tenant portal, zoned only to the specific occupied floor/suite, and billed at direct marginal utility and maintenance cost",
           "The landlord must run the 1,000-ton central plant to chill the entire empty 40-story building for one person",
+          "After-hours HVAC is requested via digital tenant portal, zoned only to the specific occupied floor/suite, and billed at direct marginal utility and maintenance cost",
           "After-hours access is prohibited and violators are locked in the lobby",
           "The tenant must pay 100% of the entire building annual electric bill for 2 hours of overtime"
         ],
-        correct: 0,
+        correct: 1,
         correctExplanation: "Green lease after-hours clauses require digitized, zone-specific HVAC activation and fair cost-reflective billing, preventing wasteful whole-building cooling for small overtime needs.",
         incorrectExplanation: "Incorrect. Whole-building conditioning for one suite is extremely wasteful; excessive punitive billing breaches lease fairness.",
         optionFeedback: [
-          "Correct! Zoned after-hours HVAC controls with transparent marginal sub-metered billing prevent conditioning empty floors while accommodating tenant flexibility.",
           "Incorrect. Chilling an entire unoccupied building for an isolated suite causes severe energy waste.",
+          "Correct! Zoned after-hours HVAC controls with transparent marginal sub-metered billing prevent conditioning empty floors while accommodating tenant flexibility.",
           "Incorrect. Commercial leases must provide flexible access with fair operating terms.",
           "Incorrect. Billing must reflect reasonable, verified marginal energy and maintenance costs."
         ]
@@ -1904,18 +1904,18 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 6,
         question: "Sub-Metering Accountability (Ending Pro-Rata Utility Free-Riders): How does installing dedicated electrical and water sub-meters for individual tenant demised premises support energy conservation?",
         options: [
-          "It replaces unfair pro-rata square-meter billing with actual usage billing, creating direct financial accountability and incentives for tenants to conserve resources",
-          "It increases utility bills by 500% for all tenants automatically",
           "It disconnects electricity randomly whenever tenants use computers",
+          "It increases utility bills by 500% for all tenants automatically",
+          "It replaces unfair pro-rata square-meter billing with actual usage billing, creating direct financial accountability and incentives for tenants to conserve resources",
           "It eliminates the need for the building to have a municipal utility meter"
         ],
-        correct: 0,
+        correct: 2,
         correctExplanation: "Sub-metering establishes direct operational and financial accountability, motivating tenants to reduce consumption since savings directly reduce their utility expenses.",
         incorrectExplanation: "Incorrect. Sub-metering measures actual consumption accurately without artificial markups or circuit interruptions.",
         optionFeedback: [
-          "Correct! Sub-metering ends the 'free-rider' problem of square-footage apportioned utility bills, empowering tenants to see the direct financial savings of their energy conservation.",
-          "Incorrect. Sub-metering measures actual consumption accurately without artificial markups.",
           "Incorrect. Sub-meters measure power without interrupting circuits.",
+          "Incorrect. Sub-metering measures actual consumption accurately without artificial markups.",
+          "Correct! Sub-metering ends the 'free-rider' problem of square-footage apportioned utility bills, empowering tenants to see the direct financial savings of their energy conservation.",
           "Incorrect. Master utility meters remain at the building grid boundary."
         ]
       },
@@ -1923,19 +1923,19 @@ export const COHORT_15_2_10D_DATA: CohortCourseRemediationData[] = [
         order: 7,
         question: "Green Building Valuation (LEED/BREEAM Asset Benefits): A commercial landlord achieves an internationally recognized green building certification (e.g., LEED Platinum, BREEAM Outstanding). How does this benefit both landlord and tenants?",
         options: [
-          "Lower operational utility costs, superior indoor air quality and occupant wellness, reduced vacancy rates, higher asset valuation, and verified corporate ESG alignment",
+          "The landlord can double rent without providing maintenance services",
           "The building becomes immune to physical gravity",
           "Tenants are legally forbidden from using computers or lighting",
-          "The landlord can double rent without providing maintenance services"
+          "Lower operational utility costs, superior indoor air quality and occupant wellness, reduced vacancy rates, higher asset valuation, and verified corporate ESG alignment"
         ],
-        correct: 0,
+        correct: 3,
         correctExplanation: "Certified green buildings deliver measurable benefits: lower utility overheads, improved occupant cognitive performance and air quality, and strong ESG credentials.",
         incorrectExplanation: "Incorrect. Certified buildings operate under professional commissioning and maintenance standards, reducing overheads and enhancing indoor environment.",
         optionFeedback: [
-          "Correct! Green building certifications demonstrate lower operating costs, enhanced indoor environmental health, tenant talent retention, and institutional ESG asset value.",
+          "Incorrect. Certified buildings operate under professional commissioning and maintenance standards.",
           "Incorrect. Green building certifications adhere to standard laws of physics.",
           "Incorrect. High-performance buildings support productive, healthy tenant operations.",
-          "Incorrect. Certified buildings operate under professional commissioning and maintenance standards."
+          "Correct! Green building certifications demonstrate lower operating costs, enhanced indoor environmental health, tenant talent retention, and institutional ESG asset value."
         ]
       },
       {
@@ -1969,8 +1969,8 @@ export async function ensureCohort15_2_10DRemediation(): Promise<void> {
       .where(eq(systemSeedsTable.name, "sprint-15-2-10d-assessment-remediation"))
       .limit(1);
 
-    if (existingSeed) {
-      logger.info("Sprint 15.2.10D Controlled Assessment Quality Remediation already applied. Skipping runtime rewrite.");
+    if (existingSeed && (existingSeed.version ?? 1) >= 2) {
+      logger.info("Sprint 15.2.10D Controlled Assessment Quality Remediation (v2 balanced keys) already applied. Skipping runtime rewrite.");
       return;
     }
 
@@ -1994,23 +1994,53 @@ export async function ensureCohort15_2_10DRemediation(): Promise<void> {
           })
           .where(eq(coursesTable.id, courseId));
 
-        // 2. Re-seed questions with complete optionFeedback and scenario depth
-        await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
-        await tx.insert(quizQuestionsTable).values(
-          questions.map((q) => ({
-            courseId,
-            question: q.question,
-            options: q.options,
-            correctOption: q.correct,
-            orderIndex: q.order,
-            correctExplanation: q.correctExplanation,
-            incorrectExplanation: q.incorrectExplanation,
-            optionFeedback: q.optionFeedback,
-            competencyArea: q.competencyArea ?? null,
-            sourceCourseId: q.sourceCourseId ?? null,
-            isArchived: false,
-          }))
-        );
+        // 2. Update questions in-place (preserving question IDs for historical attempts) or insert if count differs
+        const existingQs = await tx
+          .select()
+          .from(quizQuestionsTable)
+          .where(eq(quizQuestionsTable.courseId, courseId));
+        const activeExisting = existingQs
+          .filter((eqRow) => !eqRow.isArchived)
+          .sort((a, b) => (a.orderIndex ?? 0) - (b.orderIndex ?? 0) || a.id - b.id);
+
+        if (activeExisting.length === questions.length) {
+          for (let i = 0; i < questions.length; i++) {
+            const q = questions[i];
+            const targetRow = activeExisting[i];
+            await tx
+              .update(quizQuestionsTable)
+              .set({
+                question: q.question,
+                options: q.options,
+                correctOption: q.correct,
+                orderIndex: q.order,
+                correctExplanation: q.correctExplanation,
+                incorrectExplanation: q.incorrectExplanation,
+                optionFeedback: q.optionFeedback,
+                competencyArea: q.competencyArea ?? null,
+                sourceCourseId: q.sourceCourseId ?? null,
+                isArchived: false,
+              })
+              .where(eq(quizQuestionsTable.id, targetRow.id));
+          }
+        } else {
+          await tx.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, courseId));
+          await tx.insert(quizQuestionsTable).values(
+            questions.map((q) => ({
+              courseId,
+              question: q.question,
+              options: q.options,
+              correctOption: q.correct,
+              orderIndex: q.order,
+              correctExplanation: q.correctExplanation,
+              incorrectExplanation: q.incorrectExplanation,
+              optionFeedback: q.optionFeedback,
+              competencyArea: q.competencyArea ?? null,
+              sourceCourseId: q.sourceCourseId ?? null,
+              isArchived: false,
+            }))
+          );
+        }
 
         logger.info({ courseId, courseCode, count: questions.length }, "Remediated course assessment with complete option-level feedback and scenarios.");
       }
@@ -2020,11 +2050,11 @@ export async function ensureCohort15_2_10DRemediation(): Promise<void> {
         .insert(systemSeedsTable)
         .values({
           name: "sprint-15-2-10d-assessment-remediation",
-          version: 1,
+          version: 2,
         })
         .onConflictDoUpdate({
           target: systemSeedsTable.name,
-          set: { version: 1, runAt: new Date() },
+          set: { version: 2, runAt: new Date() },
         });
 
       logger.info("Sprint 15.2.10D Controlled Assessment Quality Remediation transaction completed successfully.");

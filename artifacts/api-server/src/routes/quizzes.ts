@@ -15,7 +15,14 @@ import { SubmitQuizBody } from "@workspace/api-zod";
 import { randomUUID } from "crypto";
 import { getCompanyAccess, sendHttpError } from "../lib/access";
 import { syncEmployeeLearningStats } from "../lib/lmsData";
-import { awardCourseBadge, evaluateCourseMilestones } from "../lib/achievementsService";
+import {
+  evaluateQuizAchievements,
+  evaluateCourseCompletionAchievements,
+  awardCourseBadge,
+  evaluateCourseMilestones,
+} from "../lib/achievementsService";
+import { awardQuizPassScore, awardCourseCompletionScore } from "../lib/scoringService";
+import { evaluateEmployeeChallengeProgress } from "../lib/challengeService";
 
 const router = Router();
 
@@ -78,10 +85,6 @@ router.get("/:courseId/quiz", async (req, res): Promise<void> => {
       question: quizQuestionsTable.question,
       options: quizQuestionsTable.options,
       orderIndex: quizQuestionsTable.orderIndex,
-      correctExplanation: quizQuestionsTable.correctExplanation,
-      incorrectExplanation: quizQuestionsTable.incorrectExplanation,
-      optionFeedback: quizQuestionsTable.optionFeedback,
-      practicalTakeaway: quizQuestionsTable.practicalTakeaway,
     })
     .from(quizQuestionsTable)
     .where(eq(quizQuestionsTable.courseId, courseId))
@@ -421,6 +424,42 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
             ),
           );
         await syncEmployeeLearningStats(employee.id);
+        try {
+          const awardCompanyId = employee.companyId || enrollment?.companyId || access.companyId;
+          await awardQuizPassScore({
+            companyId: awardCompanyId,
+            employeeId: employee.id,
+            clerkUserId: userId,
+            courseId,
+            courseTitle: course?.title,
+            score,
+            quizAttemptId: dbAttempt[0].id,
+          });
+          await awardCourseCompletionScore({
+            companyId: awardCompanyId,
+            employeeId: employee.id,
+            clerkUserId: userId,
+            courseId,
+            courseTitle: course?.title,
+            version: effectiveCourseVersion,
+          });
+          await evaluateQuizAchievements({
+            employee,
+            courseId,
+            scorePct: score,
+            attemptCount: 1,
+          });
+          await evaluateCourseCompletionAchievements({
+            employee,
+            courseId,
+          });
+          await evaluateEmployeeChallengeProgress({
+            employee,
+            clerkUserId: userId,
+          });
+        } catch (scoreErr: any) {
+          req.log?.error({ err: scoreErr?.message }, "Non-fatal error awarding ELEVIO score or evaluating achievements");
+        }
       }
     }
 

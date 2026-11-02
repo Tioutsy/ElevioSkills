@@ -14,6 +14,10 @@ import {
 import { eq, and, or, asc, desc } from "drizzle-orm";
 import { getCompanyAccess, CompanyAccess } from "../lib/access";
 import { resolveBandCodeFromEmployeeCount } from "../lib/ensureHybridSubscriptions";
+import {
+  calculateSubscriptionPricing,
+  calculateAuthoritativePricing,
+} from "../lib/subscriptionPricingService";
 
 const router = Router();
 
@@ -61,11 +65,44 @@ router.get("/public-plans", async (_req, res): Promise<void> => {
       features: features.filter(f => f.subscriptionPlanId === p.id && f.isEnabled).map(f => f.featureCode),
     })),
     employeeBands: bands,
-    prices: prices.map(pr => ({
-      ...pr,
-      monthlyAmountMUR: pr.monthlyAmount ? parseFloat(pr.monthlyAmount) : null,
-    })),
+    prices: prices.map(pr => {
+      const monthlyAmountNum = pr.monthlyAmount ? parseFloat(pr.monthlyAmount) : null;
+      const yearlyCalc = calculateSubscriptionPricing(monthlyAmountNum, "YEARLY", pr.requiresTailoredQuote);
+      return {
+        ...pr,
+        monthlyAmountMUR: monthlyAmountNum,
+        yearlyAmountMUR: yearlyCalc.finalAmount,
+        yearlyUndiscountedMUR: yearlyCalc.undiscountedTotal,
+        yearlyDiscountMUR: yearlyCalc.discountAmount,
+        yearlySavingsMUR: yearlyCalc.annualSavings,
+        yearlyEquivalentMonthlyMUR: yearlyCalc.equivalentMonthlyAmount,
+        discountPercentage: yearlyCalc.discountPercentage,
+      };
+    }),
   });
+});
+
+// 1b. POST /api/subscriptions/calculate (Authoritative real-time pricing calculator)
+router.post("/calculate", async (req, res): Promise<void> => {
+  try {
+    const { planCode, employeeCount, billingInterval, bandCode } = req.body;
+    if (!planCode) {
+      res.status(400).json({ error: "planCode is required" });
+      return;
+    }
+
+    const count = employeeCount !== undefined && employeeCount !== null ? parseInt(String(employeeCount), 10) : undefined;
+    const breakdown = calculateAuthoritativePricing({
+      planCode,
+      employeeCount: count,
+      bandCode,
+      billingInterval,
+    });
+
+    res.json(breakdown);
+  } catch (err: any) {
+    res.status(400).json({ error: err.message || "Failed to calculate pricing" });
+  }
 });
 
 // 2. GET /api/subscriptions/company (for company dashboard)
@@ -89,7 +126,10 @@ router.get("/company", async (req, res): Promise<void> => {
       companyId: companySubscriptionsTable.companyId,
       status: companySubscriptionsTable.status,
       currency: companySubscriptionsTable.currency,
+      billingInterval: companySubscriptionsTable.billingInterval,
+      discountPercentage: companySubscriptionsTable.discountPercentage,
       agreedMonthlyAmount: companySubscriptionsTable.agreedMonthlyAmount,
+      agreedYearlyAmount: companySubscriptionsTable.agreedYearlyAmount,
       pricingSource: companySubscriptionsTable.pricingSource,
       startsAt: companySubscriptionsTable.startsAt,
       currentPeriodStartsAt: companySubscriptionsTable.currentPeriodStartsAt,
@@ -114,6 +154,23 @@ router.get("/company", async (req, res): Promise<void> => {
     return;
   }
 
+  // Infracare Complimentary Test Exemption Check
+  const [comp] = await db
+    .select({ name: companiesTable.name, slug: companiesTable.slug })
+    .from(companiesTable)
+    .where(eq(companiesTable.id, access.companyId))
+    .limit(1);
+
+  const isInfracare =
+    comp?.name?.toLowerCase().includes("infracare") ||
+    Boolean(comp?.slug && comp.slug.toLowerCase().includes("infracare"));
+
+  if (isInfracare) {
+    subscription.status = "ACTIVE";
+    subscription.agreedMonthlyAmount = "0.00";
+    subscription.agreedYearlyAmount = "0.00";
+  }
+
   // Fetch course entitlement IDs for this plan
   const courseEntitlements = await db
     .select({ courseId: planCourseEntitlementsTable.courseId })
@@ -121,10 +178,19 @@ router.get("/company", async (req, res): Promise<void> => {
     .where(eq(planCourseEntitlementsTable.subscriptionPlanId, subscription.planId));
 
   const entitledCourseIds = courseEntitlements.map(c => c.courseId);
+  const agreedMonthly = subscription.agreedMonthlyAmount ? parseFloat(subscription.agreedMonthlyAmount) : null;
+  const agreedYearly = subscription.agreedYearlyAmount ? parseFloat(subscription.agreedYearlyAmount) : null;
+  const interval = subscription.billingInterval || "MONTHLY";
+  const pricingBreakdown = calculateSubscriptionPricing(agreedMonthly, interval, false);
 
   res.json({
     ...subscription,
-    agreedMonthlyAmountMUR: subscription.agreedMonthlyAmount ? parseFloat(subscription.agreedMonthlyAmount) : null,
+    billingInterval: interval,
+    agreedMonthlyAmountMUR: agreedMonthly,
+    agreedYearlyAmountMUR: agreedYearly,
+    discountPercentage: subscription.discountPercentage ? parseFloat(subscription.discountPercentage) : 0,
+    annualSavingsMUR: pricingBreakdown.annualSavings,
+    equivalentMonthlyAmountMUR: pricingBreakdown.equivalentMonthlyAmount,
     entitledCourseIds,
   });
 });
@@ -139,36 +205,50 @@ router.post("/onboard", async (req, res): Promise<void> => {
     return;
   }
 
-  const { planCode, employeeBandCode, companyName, industry, employeeCount } = req.body;
+  const { planCode, employeeBandCode, companyName, industry, employeeCount, billingInterval } = req.body;
 
-  if (!planCode || !employeeBandCode) {
-    res.status(400).json({ error: "planCode and employeeBandCode are required" });
+  if (!planCode) {
+    res.status(400).json({ error: "planCode is required" });
     return;
   }
 
   // Server-side price resolution - NEVER trust browser submitted price
   const plan = await db.select().from(subscriptionPlansTable).where(eq(subscriptionPlansTable.code, planCode)).then(r => r[0]);
-  const band = await db.select().from(employeeBandsTable).where(eq(employeeBandsTable.code, employeeBandCode)).then(r => r[0]);
+  let band = employeeBandCode
+    ? await db.select().from(employeeBandsTable).where(eq(employeeBandsTable.code, employeeBandCode)).then(r => r[0])
+    : null;
 
-  if (!plan || !band) {
-    res.status(400).json({ error: "Invalid planCode or employeeBandCode" });
+  if (!plan) {
+    res.status(400).json({ error: "Invalid planCode" });
     return;
   }
 
-  const priceRecord = await db
-    .select()
-    .from(planPricesTable)
-    .where(
-      and(
-        eq(planPricesTable.subscriptionPlanId, plan.id),
-        eq(planPricesTable.employeeBandId, band.id),
-        eq(planPricesTable.isActive, true)
-      )
-    )
-    .limit(1)
-    .then(r => r[0]);
+  const rawCount = employeeCount !== undefined && employeeCount !== null ? parseInt(String(employeeCount), 10) : undefined;
+  const resolvedBandCode = employeeBandCode || (rawCount ? resolveBandCodeFromEmployeeCount(rawCount) : "UP_TO_25");
+  if (!band) {
+    band = await db.select().from(employeeBandsTable).where(eq(employeeBandsTable.code, resolvedBandCode)).then(r => r[0]);
+  }
+
+  if (!band) {
+    res.status(400).json({ error: "Invalid employee band" });
+    return;
+  }
+
+  let pricingBreakdown;
+  try {
+    pricingBreakdown = calculateAuthoritativePricing({
+      planCode: plan.code,
+      employeeCount: rawCount,
+      bandCode: band.code,
+      billingInterval,
+    });
+  } catch (err: any) {
+    res.status(400).json({ error: err.message || "Invalid pricing parameters" });
+    return;
+  }
 
   let companyId = access?.companyId;
+  const includedMaxSeats = pricingBreakdown.includedMaxEmployees;
 
   if (!companyId && companyName) {
     const slug = companyName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
@@ -178,12 +258,21 @@ router.post("/onboard", async (req, res): Promise<void> => {
         name: companyName,
         slug,
         industry: industry || null,
-        employeeCount: parseInt(employeeCount || "25", 10),
-        maxEmployees: band.maximumEmployees || 25,
+        employeeCount: rawCount || 25,
+        maxEmployees: includedMaxSeats,
         planId: plan.id,
       })
       .returning();
     companyId = newComp.id;
+  } else if (companyId) {
+    await db
+      .update(companiesTable)
+      .set({
+        maxEmployees: includedMaxSeats,
+        planId: plan.id,
+        employeeCount: rawCount || undefined,
+      })
+      .where(eq(companiesTable.id, companyId));
   }
 
   if (!companyId) {
@@ -191,8 +280,11 @@ router.post("/onboard", async (req, res): Promise<void> => {
     return;
   }
 
-  const isTailored = band.requiresTailoredQuote || !priceRecord || priceRecord.requiresTailoredQuote;
-  const initialStatus = isTailored ? "PENDING" : "PENDING_PAYMENT";
+  const isOver120 = band.code === "OVER_120" || (rawCount !== undefined && rawCount > 120);
+  const initialStatus = isOver120 ? "CUSTOM_QUOTE_REQUIRED" : "PENDING_PAYMENT";
+  const pricingSource = isOver120 ? "TAILORED" : "STANDARD";
+  const agreedMonthly = isOver120 ? null : pricingBreakdown.finalMonthlyAmount.toFixed(2);
+  const agreedYearly = isOver120 ? null : pricingBreakdown.finalYearlyAmount.toFixed(2);
 
   const [sub] = await db
     .insert(companySubscriptionsTable)
@@ -202,8 +294,11 @@ router.post("/onboard", async (req, res): Promise<void> => {
       employeeBandId: band.id,
       status: initialStatus,
       currency: "MUR",
-      agreedMonthlyAmount: isTailored ? null : priceRecord?.monthlyAmount || null,
-      pricingSource: isTailored ? "TAILORED" : "STANDARD",
+      billingInterval: pricingBreakdown.billingInterval,
+      discountPercentage: String(pricingBreakdown.discountPercentage),
+      agreedMonthlyAmount: agreedMonthly,
+      agreedYearlyAmount: agreedYearly,
+      pricingSource,
     })
     .onConflictDoUpdate({
       target: [companySubscriptionsTable.companyId],
@@ -211,8 +306,11 @@ router.post("/onboard", async (req, res): Promise<void> => {
         subscriptionPlanId: plan.id,
         employeeBandId: band.id,
         status: initialStatus,
-        agreedMonthlyAmount: isTailored ? null : priceRecord?.monthlyAmount || null,
-        pricingSource: isTailored ? "TAILORED" : "STANDARD",
+        billingInterval: pricingBreakdown.billingInterval,
+        discountPercentage: String(pricingBreakdown.discountPercentage),
+        agreedMonthlyAmount: agreedMonthly,
+        agreedYearlyAmount: agreedYearly,
+        pricingSource,
         updatedAt: new Date(),
       },
     })
@@ -252,10 +350,12 @@ router.post("/onboard", async (req, res): Promise<void> => {
     subscription: sub,
     plan,
     employeeBand: band,
-    resolvedMonthlyAmountMUR: sub.agreedMonthlyAmount ? parseFloat(sub.agreedMonthlyAmount) : null,
-    isTailoredQuote: isTailored,
-    message: isTailored 
-      ? "Your Elevio subscription request has been received. Our corporate team will contact you with a tailored proposal."
+    pricingBreakdown,
+    resolvedMonthlyAmountMUR: isOver120 ? null : pricingBreakdown.finalMonthlyAmount,
+    resolvedFinalAmountMUR: isOver120 ? null : pricingBreakdown.finalAmountDue,
+    isTailoredQuote: isOver120,
+    message: isOver120
+      ? "Custom quote request received. Our enterprise team will be in touch shortly."
       : "Subscription request received. Please complete payment to activate full access.",
   });
 });
@@ -391,7 +491,7 @@ router.patch("/admin/:companyId", async (req, res): Promise<void> => {
     return;
   }
 
-  const updateData: Record<string, any> = {};
+  const updateData: Partial<typeof companySubscriptionsTable.$inferInsert> = {};
 
   if (planCode) {
     const plan = await db.select().from(subscriptionPlansTable).where(eq(subscriptionPlansTable.code, planCode)).then(r => r[0]);

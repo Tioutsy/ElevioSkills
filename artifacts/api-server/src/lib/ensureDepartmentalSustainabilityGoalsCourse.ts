@@ -210,14 +210,20 @@ const NEW_QUIZ = [
     order: 1,
     question: "Why is a company priority like 'reduce environmental impact' insufficient on its own?",
     options: [
-      "Because it does not specify what individual departments are responsible for delivering based on their operational control",
-      "Because environmental priorities are illegal in commercial workplaces",
       "Because departments are not allowed to talk to executive management",
+      "Because environmental priorities are illegal in commercial workplaces",
+      "Because it does not specify what individual departments are responsible for delivering based on their operational control",
       "Because electricity and waste cannot be measured in commercial buildings"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Broad company priorities require specific departmental goals to define ownership, actions, and measurable outcomes.",
-    incorrectExplanation: "Incorrect. Company priorities must be translated into specific departmental responsibilities."
+    incorrectExplanation: "Incorrect. Company priorities must be translated into specific departmental responsibilities.",
+    optionFeedback: [
+      "Incorrect. 'Because departments are not allowed to talk to executive management' is not the right approach—company priorities must be translated into specific departmental responsibilities.",
+      "Incorrect. 'Because environmental priorities are illegal in commercial workplaces' is not the right approach—company priorities must be translated into specific departmental responsibilities.",
+      "Correct. Broad company priorities require specific departmental goals to define ownership, actions, and measurable outcomes.",
+      "Incorrect. 'Because electricity and waste cannot be measured in commercial buildings' is not the right approach—company priorities must be translated into specific departmental responsibilities."
+    ]
   },
   {
     order: 2,
@@ -230,46 +236,70 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "A = Assess the department's role to identify areas of direct control and influence.",
-    incorrectExplanation: "Incorrect. A = Assess the department's role."
+    incorrectExplanation: "Incorrect. A = Assess the department's role.",
+    optionFeedback: [
+      "Correct. A = Assess the department's role to identify areas of direct control and influence.",
+      "Incorrect. 'Announce a 50% target immediately without checking baseline data' is not the right approach—a = Assess the department's role.",
+      "Incorrect. 'Avoid talking to other departments about shared resources' is not the right approach—a = Assess the department's role.",
+      "Incorrect. 'Approve all purchase requests regardless of cost' is not the right approach—a = Assess the department's role."
+    ]
   },
   {
     order: 3,
     question: "Which of the following is an example of an operational area under DIRECT CONTROL of a company's HR department?",
     options: [
-      "Integrating sustainability orientation guidance into new employee onboarding programs",
       "Replacing the main electrical transformers in the building basement",
+      "Integrating sustainability orientation guidance into new employee onboarding programs",
       "Selecting the refrigerant gas used in central chiller plants",
       "Setting municipal water rates for commercial customers"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "HR directly controls employee onboarding programs and internal staff training schedules.",
-    incorrectExplanation: "Incorrect. HR directly controls onboarding, staff policies, and training."
+    incorrectExplanation: "Incorrect. HR directly controls onboarding, staff policies, and training.",
+    optionFeedback: [
+      "Incorrect. 'Replacing the main electrical transformers in the building basement' is not the right approach—hR directly controls onboarding, staff policies, and training.",
+      "Correct. HR directly controls employee onboarding programs and internal staff training schedules.",
+      "Incorrect. 'Selecting the refrigerant gas used in central chiller plants' is not the right approach—hR directly controls onboarding, staff policies, and training.",
+      "Incorrect. 'Setting municipal water rates for commercial customers' is not the right approach—hR directly controls onboarding, staff policies, and training."
+    ]
   },
   {
     order: 4,
     question: "In the departmental goal alignment board (`visual-departmental-sustainability-goals.png`), how do departmental goals connect to the top row?",
     options: [
-      "Each department (Kitchen, Housekeeping, Procurement, Facilities, HR) defines a specific goal that directly supports the central company priority",
+      "The board is decorative and contains no real department information",
       "All departments copy the exact same word-for-word text from the top row",
       "The top row is ignored and departments work on unrelated projects",
-      "The board is decorative and contains no real department information"
+      "Each department (Kitchen, Housekeeping, Procurement, Facilities, HR) defines a specific goal that directly supports the central company priority"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Departmental goals branch from the top company priority, showing each team's specific contribution.",
-    incorrectExplanation: "Incorrect. Departmental goals branch from and support the company priority."
+    incorrectExplanation: "Incorrect. Departmental goals branch from and support the company priority.",
+    optionFeedback: [
+      "Incorrect. 'The board is decorative and contains no real department information' is not the right approach—departmental goals branch from and support the company priority.",
+      "Incorrect. 'All departments copy the exact same word-for-word text from the top row' is not the right approach—departmental goals branch from and support the company priority.",
+      "Incorrect. 'The top row is ignored and departments work on unrelated projects' is not the right approach—departmental goals branch from and support the company priority.",
+      "Correct. Departmental goals branch from the top company priority, showing each team's specific contribution."
+    ]
   },
   {
     order: 5,
     question: "What is the difference between an ACTIVITY and an OUTCOME in departmental goal setting?",
     options: [
-      "An activity is a task step taken (e.g. conduct staff briefings); an outcome is the measured improvement achieved (e.g. 15% reduction in paper waste)",
       "An activity is a legal penalty; an outcome is a company logo",
+      "An activity is a task step taken (e.g. conduct staff briefings); an outcome is the measured improvement achieved (e.g. 15% reduction in paper waste)",
       "An activity is an assumption; an outcome is a rumor",
       "Activity and outcome mean the exact same thing"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Activities are tasks performed; outcomes are the actual measured results achieved.",
-    incorrectExplanation: "Incorrect. Activity = task performed; Outcome = measured improvement."
+    incorrectExplanation: "Incorrect. Activity = task performed; Outcome = measured improvement.",
+    optionFeedback: [
+      "Incorrect. 'An activity is a legal penalty; an outcome is a company logo' is not the right approach—activity = task performed; Outcome = measured improvement.",
+      "Correct. Activities are tasks performed; outcomes are the actual measured results achieved.",
+      "Incorrect. 'An activity is an assumption; an outcome is a rumor' is not the right approach—activity = task performed; Outcome = measured improvement.",
+      "Incorrect. 'Activity and outcome mean the exact same thing' is not the right approach—activity = task performed; Outcome = measured improvement."
+    ]
   },
   {
     order: 6,
@@ -282,33 +312,51 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Dependencies must be negotiated and agreed upon across departments before finalizing targets.",
-    incorrectExplanation: "Incorrect. Negotiate cross-department dependencies and secure agreement."
+    incorrectExplanation: "Incorrect. Negotiate cross-department dependencies and secure agreement.",
+    optionFeedback: [
+      "Correct. Dependencies must be negotiated and agreed upon across departments before finalizing targets.",
+      "Incorrect. 'Implement the changes secretly without informing the other department' is not the right approach—negotiate cross-department dependencies and secure agreement.",
+      "Incorrect. 'Set an unachievable target and blame the other department when it fails' is not the right approach—negotiate cross-department dependencies and secure agreement.",
+      "Incorrect. 'Cancel all departmental planning permanently' is not the right approach—negotiate cross-department dependencies and secure agreement."
+    ]
   },
   {
     order: 7,
     question: "What is a HIGH-RISK MISTAKE when setting departmental sustainability goals?",
     options: [
-      "Adopting a rigid percentage reduction target when no baseline measurement data exists",
-      "Defining a clear 6-month review date",
       "Naming an accountable staff member as goal owner",
+      "Defining a clear 6-month review date",
+      "Adopting a rigid percentage reduction target when no baseline measurement data exists",
       "Checking evidence receipts before reporting progress"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Setting percentage targets without baseline data leads to unverified claims and audit failures.",
-    incorrectExplanation: "Incorrect. Avoid adopting percentage targets without baseline data."
+    incorrectExplanation: "Incorrect. Avoid adopting percentage targets without baseline data.",
+    optionFeedback: [
+      "Incorrect. 'Naming an accountable staff member as goal owner' is not the right approach—avoid adopting percentage targets without baseline data.",
+      "Incorrect. 'Defining a clear 6-month review date' is not the right approach—avoid adopting percentage targets without baseline data.",
+      "Correct. Setting percentage targets without baseline data leads to unverified claims and audit failures.",
+      "Incorrect. 'Checking evidence receipts before reporting progress' is not the right approach—avoid adopting percentage targets without baseline data."
+    ]
   },
   {
     order: 8,
     question: "How does ELH-14 (Departmental Goals) connect to ELH-13 (Action Planning)?",
     options: [
-      "ELH-14 defines the overarching departmental goal; ELH-13 provides the step-by-step action plan to execute that goal",
+      "There is no connection between goals and action plans",
       "ELH-14 replaces ELH-13 entirely so action plans are no longer needed",
       "ELH-14 is for executive directors only; ELH-13 is for external auditors",
-      "There is no connection between goals and action plans"
+      "ELH-14 defines the overarching departmental goal; ELH-13 provides the step-by-step action plan to execute that goal"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "ELH-14 sets the departmental goal; ELH-13 builds the detailed action plan to deliver it.",
-    incorrectExplanation: "Incorrect. ELH-14 sets the goal; ELH-13 provides the execution action plan."
+    incorrectExplanation: "Incorrect. ELH-14 sets the goal; ELH-13 provides the execution action plan.",
+    optionFeedback: [
+      "Incorrect. 'There is no connection between goals and action plans' is not the right approach—eLH-14 sets the goal; ELH-13 provides the execution action plan.",
+      "Incorrect. 'ELH-14 replaces ELH-13 entirely so action plans are no longer needed' is not the right approach—eLH-14 sets the goal; ELH-13 provides the execution action plan.",
+      "Incorrect. 'ELH-14 is for executive directors only; ELH-13 is for external auditors' is not the right approach—eLH-14 sets the goal; ELH-13 provides the execution action plan.",
+      "Correct. ELH-14 sets the departmental goal; ELH-13 builds the detailed action plan to deliver it."
+    ]
   },
   {
     order: 9,
@@ -321,20 +369,32 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Select simple, verifiable indicators that directly track progress without excessive administrative burden.",
-    incorrectExplanation: "Incorrect. Select proportionate, verifiable indicators directly linked to goal progress."
+    incorrectExplanation: "Incorrect. Select proportionate, verifiable indicators directly linked to goal progress.",
+    optionFeedback: [
+      "Correct. Select simple, verifiable indicators that directly track progress without excessive administrative burden.",
+      "Incorrect. 'Complicated statistical models that require 20 hours of manual data entry per week' is not the right approach—select proportionate, verifiable indicators directly linked to goal progress.",
+      "Incorrect. 'Unverified opinions from social media comments' is not the right approach—select proportionate, verifiable indicators directly linked to goal progress.",
+      "Incorrect. 'Vague slogans printed on poster banners' is not the right approach—select proportionate, verifiable indicators directly linked to goal progress."
+    ]
   },
   {
     order: 10,
     question: "What is the primary takeaway of the ALIGN Goal-Setting Framework?",
     options: [
-      "Structured goal setting (ALIGN) enables departments to translate company strategy into owned, realistic, and evidence-backed workplace results",
-      "Departmental goal setting is optional and has no impact on business performance",
       "Any employee can change corporate procurement policies without management review",
+      "Departmental goal setting is optional and has no impact on business performance",
+      "Structured goal setting (ALIGN) enables departments to translate company strategy into owned, realistic, and evidence-backed workplace results",
       "Goals should only be set if they guarantee immediate financial bonuses"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "The ALIGN framework helps departments convert corporate priorities into owned, evidence-backed results.",
-    incorrectExplanation: "Incorrect. The ALIGN framework connects company priorities to owned departmental results."
+    incorrectExplanation: "Incorrect. The ALIGN framework connects company priorities to owned departmental results.",
+    optionFeedback: [
+      "Incorrect. 'Any employee can change corporate procurement policies without management review' is not the right approach—the ALIGN framework connects company priorities to owned departmental results.",
+      "Incorrect. 'Departmental goal setting is optional and has no impact on business performance' is not the right approach—the ALIGN framework connects company priorities to owned departmental results.",
+      "Correct. The ALIGN framework helps departments convert corporate priorities into owned, evidence-backed results.",
+      "Incorrect. 'Goals should only be set if they guarantee immediate financial bonuses' is not the right approach—the ALIGN framework connects company priorities to owned departmental results."
+    ]
   }
 ];
 
@@ -389,7 +449,7 @@ export async function ensureDepartmentalSustainabilityGoalsCourse(): Promise<voi
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 10;
+      const hasMissingQuiz = existingQuizQuestions.length < 8;
 
       const needsRepair = !existingSeed || hasMissingLessons || hasEmptyBlocks || hasMissingQuiz;
 
@@ -460,6 +520,7 @@ export async function ensureDepartmentalSustainabilityGoalsCourse(): Promise<voi
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );

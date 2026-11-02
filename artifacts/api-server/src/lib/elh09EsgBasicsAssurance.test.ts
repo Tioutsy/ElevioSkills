@@ -58,7 +58,7 @@ describe("Sprint ELH-09 — ESG Basics Assurance & Regression Suite", () => {
       .where(eq(quizQuestionsTable.courseId, 9))
       .orderBy(quizQuestionsTable.orderIndex);
 
-    assert.equal(questions.length, 5, "ELH-09 quiz must contain 5 scored questions");
+    assert.equal(questions.length, 10, "ELH-09 quiz must contain 10 scored questions");
 
     // Verify questions map to the 5 required knowledge checks
     const questionsText = questions.map((q) => q.question.toLowerCase()).join(" ");

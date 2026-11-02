@@ -210,14 +210,20 @@ const NEW_QUIZ = [
     order: 1,
     question: "What is the primary purpose of a workplace sustainability team?",
     options: [
-      "To coordinate cross-functional sustainability actions, share information, assign owners, and track progress",
-      "To replace the authority of department managers and executive directors",
       "To spend company funds without financial approval",
+      "To replace the authority of department managers and executive directors",
+      "To coordinate cross-functional sustainability actions, share information, assign owners, and track progress",
       "To create publicity announcements without requiring evidence of operational results"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "A sustainability team coordinates cross-functional actions and tracks accountability across departments.",
-    incorrectExplanation: "Incorrect. The team coordinates cross-functional progress within existing management structures."
+    incorrectExplanation: "Incorrect. The team coordinates cross-functional progress within existing management structures.",
+    optionFeedback: [
+      "Incorrect. 'To spend company funds without financial approval' is not the right approach—the team coordinates cross-functional progress within existing management structures.",
+      "Incorrect. 'To replace the authority of department managers and executive directors' is not the right approach—the team coordinates cross-functional progress within existing management structures.",
+      "Correct. A sustainability team coordinates cross-functional actions and tracks accountability across departments.",
+      "Incorrect. 'To create publicity announcements without requiring evidence of operational results' is not the right approach—the team coordinates cross-functional progress within existing management structures."
+    ]
   },
   {
     order: 2,
@@ -230,46 +236,70 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "T = Terms & purpose, establishing the team's written mandate and operational boundaries.",
-    incorrectExplanation: "Incorrect. T = Terms & purpose."
+    incorrectExplanation: "Incorrect. T = Terms & purpose.",
+    optionFeedback: [
+      "Correct. T = Terms & purpose, establishing the team's written mandate and operational boundaries.",
+      "Incorrect. 'Travel budget for committee members' is not the right approach—t = Terms & purpose.",
+      "Incorrect. 'Technical certification for legal compliance' is not the right approach—t = Terms & purpose.",
+      "Incorrect. 'Temporary task forces that meet once every three years' is not the right approach—t = Terms & purpose."
+    ]
   },
   {
     order: 3,
     question: "What is the key role of a Sustainability Team SPONSOR?",
     options: [
-      "A senior manager who provides executive authority, clarifies budget limits, and resolves escalated barriers",
       "The secretary who takes meeting notes and orders tea",
+      "A senior manager who provides executive authority, clarifies budget limits, and resolves escalated barriers",
       "An external auditor who issues legal fines to departments",
       "A staff member who cleans waste sorting bins on weekends"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "The Sponsor is an executive manager who provides authority, budget guidance, and barrier removal.",
-    incorrectExplanation: "Incorrect. The Sponsor provides management authority and handles escalations."
+    incorrectExplanation: "Incorrect. The Sponsor provides management authority and handles escalations.",
+    optionFeedback: [
+      "Incorrect. 'The secretary who takes meeting notes and orders tea' is not the right approach—the Sponsor provides management authority and handles escalations.",
+      "Correct. The Sponsor is an executive manager who provides authority, budget guidance, and barrier removal.",
+      "Incorrect. 'An external auditor who issues legal fines to departments' is not the right approach—the Sponsor provides management authority and handles escalations.",
+      "Incorrect. 'A staff member who cleans waste sorting bins on weekends' is not the right approach—the Sponsor provides management authority and handles escalations."
+    ]
   },
   {
     order: 4,
     question: "In the visual meeting board (`visual-workplace-sustainability-team.png`), why is the ACTION REGISTER essential?",
     options: [
-      "It records specific task items, assigned named owners, target dates, and required evidence to ensure accountability",
+      "It is decorative and has no operational function",
       "It lists employee salaries and personal home addresses",
       "It replaces the company's financial accounting system",
-      "It is decorative and has no operational function"
+      "It records specific task items, assigned named owners, target dates, and required evidence to ensure accountability"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "The Action Register tracks task items, named owners, deadlines, and evidence sources.",
-    incorrectExplanation: "Incorrect. The Action Register maintains clear task ownership, target dates, and evidence."
+    incorrectExplanation: "Incorrect. The Action Register maintains clear task ownership, target dates, and evidence.",
+    optionFeedback: [
+      "Incorrect. 'It is decorative and has no operational function' is not the right approach—the Action Register maintains clear task ownership, target dates, and evidence.",
+      "Incorrect. 'It lists employee salaries and personal home addresses' is not the right approach—the Action Register maintains clear task ownership, target dates, and evidence.",
+      "Incorrect. 'It replaces the company's financial accounting system' is not the right approach—the Action Register maintains clear task ownership, target dates, and evidence.",
+      "Correct. The Action Register tracks task items, named owners, deadlines, and evidence sources."
+    ]
   },
   {
     order: 5,
     question: "Why is assigning an action to 'Procurement' or 'The Team' a high-risk mistake?",
     options: [
-      "Because when tasks are assigned to a department or group rather than one named owner, no single individual is accountable",
       "Because departments do not exist in commercial companies",
+      "Because when tasks are assigned to a department or group rather than one named owner, no single individual is accountable",
       "Because procurement officers are not allowed to join teams",
       "Because tasks must only be assigned to external consultants"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Assigning tasks to groups creates ambiguity; every action must have one named individual owner.",
-    incorrectExplanation: "Incorrect. Every action requires one named accountable owner."
+    incorrectExplanation: "Incorrect. Every action requires one named accountable owner.",
+    optionFeedback: [
+      "Incorrect. 'Because departments do not exist in commercial companies' is not the right approach—every action requires one named accountable owner.",
+      "Correct. Assigning tasks to groups creates ambiguity; every action must have one named individual owner.",
+      "Incorrect. 'Because procurement officers are not allowed to join teams' is not the right approach—every action requires one named accountable owner.",
+      "Incorrect. 'Because tasks must only be assigned to external consultants' is not the right approach—every action requires one named accountable owner."
+    ]
   },
   {
     order: 6,
@@ -282,33 +312,51 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "ELH-15 teaches team structure and foundation; ELH-22 focuses on sustaining team dynamics over time.",
-    incorrectExplanation: "Incorrect. ELH-15 covers team foundation/structure; ELH-22 covers long-term team effectiveness/dynamics."
+    incorrectExplanation: "Incorrect. ELH-15 covers team foundation/structure; ELH-22 covers long-term team effectiveness/dynamics.",
+    optionFeedback: [
+      "Correct. ELH-15 teaches team structure and foundation; ELH-22 focuses on sustaining team dynamics over time.",
+      "Incorrect. 'ELH-15 is for hotels only; ELH-22 is for banks only' is not the right approach—eLH-15 covers team foundation/structure; ELH-22 covers long-term team effectiveness/dynamics.",
+      "Incorrect. 'ELH-15 replaces ELH-22 so green teams are no longer needed' is not the right approach—eLH-15 covers team foundation/structure; ELH-22 covers long-term team effectiveness/dynamics.",
+      "Incorrect. 'There is no difference between ELH-15 and ELH-22' is not the right approach—eLH-15 covers team foundation/structure; ELH-22 covers long-term team effectiveness/dynamics."
+    ]
   },
   {
     order: 7,
     question: "What should a committee Chair do if a meeting discussion becomes stuck on an unresolvable budget constraint?",
     options: [
-      "Record the constraint, assign a member to gather cost estimates, and escalate to the Team Sponsor for management review",
-      "Argue for two hours until everyone agrees",
       "Approve corporate spending without authority",
+      "Argue for two hours until everyone agrees",
+      "Record the constraint, assign a member to gather cost estimates, and escalate to the Team Sponsor for management review",
       "Cancel the sustainability team permanently"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Record the barrier, gather factual evidence, and escalate to the executive Sponsor for management decision.",
-    incorrectExplanation: "Incorrect. Factual evidence should be gathered and escalated to the Sponsor."
+    incorrectExplanation: "Incorrect. Factual evidence should be gathered and escalated to the Sponsor.",
+    optionFeedback: [
+      "Incorrect. 'Approve corporate spending without authority' is not the right approach—factual evidence should be gathered and escalated to the Sponsor.",
+      "Incorrect. 'Argue for two hours until everyone agrees' is not the right approach—factual evidence should be gathered and escalated to the Sponsor.",
+      "Correct. Record the barrier, gather factual evidence, and escalate to the executive Sponsor for management decision.",
+      "Incorrect. 'Cancel the sustainability team permanently' is not the right approach—factual evidence should be gathered and escalated to the Sponsor."
+    ]
   },
   {
     order: 8,
     question: "Which operational role is responsible for facilitating meetings and keeping discussions focused on agenda decisions?",
     options: [
-      "Team Chair",
+      "External Auditor",
       "Specialist Adviser",
       "Frontline Staff Representative",
-      "External Auditor"
+      "Team Chair"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "The Team Chair facilitates meetings and ensures discussions remain focused on agenda items and decisions.",
-    incorrectExplanation: "Incorrect. The Team Chair facilitates meetings and maintains focus."
+    incorrectExplanation: "Incorrect. The Team Chair facilitates meetings and maintains focus.",
+    optionFeedback: [
+      "Incorrect. 'External Auditor' is not the right approach—the Team Chair facilitates meetings and maintains focus.",
+      "Incorrect. 'Specialist Adviser' is not the right approach—the Team Chair facilitates meetings and maintains focus.",
+      "Incorrect. 'Frontline Staff Representative' is not the right approach—the Team Chair facilitates meetings and maintains focus.",
+      "Correct. The Team Chair facilitates meetings and ensures discussions remain focused on agenda items and decisions."
+    ]
   },
   {
     order: 9,
@@ -321,20 +369,32 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Specialists provide technical and safety guidance when specific operational actions require compliance input.",
-    incorrectExplanation: "Incorrect. Specialists provide expert input on specific technical or safety matters."
+    incorrectExplanation: "Incorrect. Specialists provide expert input on specific technical or safety matters.",
+    optionFeedback: [
+      "Correct. Specialists provide technical and safety guidance when specific operational actions require compliance input.",
+      "Incorrect. 'To take permanent ownership of all sustainability tasks' is not the right approach—specialists provide expert input on specific technical or safety matters.",
+      "Incorrect. 'To replace the General Manager on the board' is not the right approach—specialists provide expert input on specific technical or safety matters.",
+      "Incorrect. 'To prevent frontline staff from speaking' is not the right approach—specialists provide expert input on specific technical or safety matters."
+    ]
   },
   {
     order: 10,
     question: "What is the primary takeaway of the TEAM Operating Framework?",
     options: [
-      "Structured team operating practices (TEAM) enable cross-functional committees to translate corporate ambitions into owned workplace actions",
-      "Sustainability teams should meet without agendas or recorded minutes",
       "Enthusiasm alone is sufficient to run complex commercial projects",
+      "Sustainability teams should meet without agendas or recorded minutes",
+      "Structured team operating practices (TEAM) enable cross-functional committees to translate corporate ambitions into owned workplace actions",
       "Committees are only formed to create promotional marketing posters"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "The TEAM framework provides the structure needed to convert corporate priorities into owned, reviewable actions.",
-    incorrectExplanation: "Incorrect. The TEAM framework provides structure for cross-functional workplace action."
+    incorrectExplanation: "Incorrect. The TEAM framework provides structure for cross-functional workplace action.",
+    optionFeedback: [
+      "Incorrect. 'Enthusiasm alone is sufficient to run complex commercial projects' is not the right approach—the TEAM framework provides structure for cross-functional workplace action.",
+      "Incorrect. 'Sustainability teams should meet without agendas or recorded minutes' is not the right approach—the TEAM framework provides structure for cross-functional workplace action.",
+      "Correct. The TEAM framework provides the structure needed to convert corporate priorities into owned, reviewable actions.",
+      "Incorrect. 'Committees are only formed to create promotional marketing posters' is not the right approach—the TEAM framework provides structure for cross-functional workplace action."
+    ]
   }
 ];
 
@@ -389,7 +449,7 @@ export async function ensureWorkplaceSustainabilityTeamCourse(): Promise<void> {
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 10;
+      const hasMissingQuiz = existingQuizQuestions.length < 8;
 
       const needsRepair = !existingSeed || hasMissingLessons || hasEmptyBlocks || hasMissingQuiz;
 
@@ -460,6 +520,7 @@ export async function ensureWorkplaceSustainabilityTeamCourse(): Promise<void> {
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );

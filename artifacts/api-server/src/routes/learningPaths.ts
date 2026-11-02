@@ -14,17 +14,13 @@ const router = Router();
 router.get("/", async (req, res): Promise<void> => {
   try {
     const userId = (req as any).auth?.userId;
-    if (!userId) {
-      res.status(401).json({ error: "Unauthorized" });
-      return;
-    }
 
     // 1. Fetch published paths
     const paths = await db
       .select()
       .from(learningPathsTable)
       .where(eq(learningPathsTable.status, "active"))
-      .orderBy(asc(learningPathsTable.id)); // orderIndex is deprecated
+      .orderBy(asc(learningPathsTable.id));
 
     // 2. Fetch path courses
     const pathIds = paths.map((p) => p.id);
@@ -46,17 +42,20 @@ router.get("/", async (req, res): Promise<void> => {
       .where(inArray(learningPathCoursesTable.pathId, pathIds))
       .orderBy(asc(learningPathCoursesTable.pathId), asc(learningPathCoursesTable.position));
 
-    // 3. Fetch user's completed enrollments
-    const completedRows = await db
-      .select({ courseId: enrollmentsTable.courseId })
-      .from(enrollmentsTable)
-      .where(
-        and(
-          eq(enrollmentsTable.userId, userId),
-          eq(enrollmentsTable.status, "completed")
-        )
-      );
-    const completedSet = new Set(completedRows.map((r) => r.courseId));
+    // 3. Fetch user's completed enrollments (if authenticated)
+    let completedSet = new Set<number>();
+    if (userId) {
+      const completedRows = await db
+        .select({ courseId: enrollmentsTable.courseId })
+        .from(enrollmentsTable)
+        .where(
+          and(
+            eq(enrollmentsTable.userId, userId),
+            eq(enrollmentsTable.status, "completed")
+          )
+        );
+      completedSet = new Set(completedRows.map((r) => r.courseId));
+    }
 
     // 4. Map to summary
     const result = paths.map((path) => {
@@ -108,10 +107,6 @@ router.get("/", async (req, res): Promise<void> => {
 router.get("/:slug", async (req, res): Promise<void> => {
   try {
     const userId = (req as any).auth?.userId;
-    if (!userId) {
-      res.status(401).json({ error: "Unauthorized" });
-      return;
-    }
     const { slug } = req.params;
 
     // 1. Fetch the path
@@ -152,10 +147,10 @@ router.get("/:slug", async (req, res): Promise<void> => {
       .where(eq(learningPathCoursesTable.pathId, path.id))
       .orderBy(asc(learningPathCoursesTable.position));
 
-    // 3. Fetch user enrollments for these courses
+    // 3. Fetch user enrollments for these courses (if authenticated)
     const courseIds = pathCourses.map(c => c.course.id);
     let enrollmentsMap = new Map<number, any>();
-    if (courseIds.length > 0) {
+    if (userId && courseIds.length > 0) {
       const enrollments = await db
         .select()
         .from(enrollmentsTable)
@@ -211,21 +206,14 @@ router.get("/:slug", async (req, res): Promise<void> => {
         status = enr.status === "completed" ? "completed" : "in_progress";
       }
 
-      // Determine visual lock
-      let isLocked = false;
-      // Core curriculum logic: Course 12 is locked if courses 1-11 are not complete
-      if (c.course.courseCode === 'ELH-12' && !allFirstElevenCompleted) {
-        isLocked = true;
-        status = "locked";
-      }
+      const isLocked = false;
 
       if (status === "in_progress" && !firstInProgress) firstInProgress = c.course.id;
-      if (status === "not_started" && !firstNotStarted && !isLocked) firstNotStarted = c.course.id;
+      if (status === "not_started" && !firstNotStarted) firstNotStarted = c.course.id;
 
       let action = "Start course";
       if (status === "completed") action = "Review course";
       else if (status === "in_progress") action = "Continue course";
-      else if (status === "locked") action = "Locked";
 
       return {
         position: c.position,

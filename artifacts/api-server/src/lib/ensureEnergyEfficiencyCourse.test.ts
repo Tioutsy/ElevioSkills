@@ -39,7 +39,7 @@ test("Course 3 Seeding & Integrity Unit Tests", async () => {
     .select()
     .from(quizQuestionsTable)
     .where(eq(quizQuestionsTable.courseId, 3));
-  assert.equal(quizQuestions.length, 5);
+  assert.equal(quizQuestions.length, 10);
 
   // Verify badge definition
   const [badge] = await db
@@ -64,12 +64,12 @@ test("Course 3 Seeding & Integrity Unit Tests", async () => {
     .select()
     .from(quizQuestionsTable)
     .where(eq(quizQuestionsTable.courseId, 3));
-  assert.equal(quizRetry.length, 5);
+  assert.equal(quizRetry.length, 10);
 
   // 3. Integrity guard checks: Repair content when missing
   console.log("- Testing integrity guard (deleting all quiz questions to trigger repair)...");
   await db.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, 3));
-  await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "energy-efficiency-at-work-v2"));
+  await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "energy-efficiency-at-work-v3"));
 
   // Run seeder to repair missing questions
   await ensureEnergyEfficiencyCourse();
@@ -78,5 +78,5 @@ test("Course 3 Seeding & Integrity Unit Tests", async () => {
     .select()
     .from(quizQuestionsTable)
     .where(eq(quizQuestionsTable.courseId, 3));
-  assert.equal(quizRepaired.length, 5);
+  assert.equal(quizRepaired.length, 10);
 });

@@ -34,7 +34,7 @@ async function cleanUpCourse29() {
   }
   await db.delete(quizAttemptsTable).where(eq(quizAttemptsTable.userId, "preserve_user_id"));
   await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, SEED_NAME_V2));
-  await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "sustainability-for-operations-and-frontline-teams-v1"));
+  await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "sustainability-for-operations-and-frontline-teams-v2"));
 
   // Reset Course 28 recommendation link unconditionally
   await db.update(coursesTable)

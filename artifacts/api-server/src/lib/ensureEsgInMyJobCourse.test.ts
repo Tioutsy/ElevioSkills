@@ -52,8 +52,8 @@ test("Course 34 (ELH-34) Seeding & Integrity Unit Tests", async () => {
     .where(eq(quizQuestionsTable.courseId, course.id));
   assert.equal(
     quizQuestions.length,
-    5,
-    "Must have exactly 5 quiz questions"
+    10,
+    "Must have exactly 10 quiz questions"
   );
 
   // Verify badge definition
@@ -68,7 +68,7 @@ test("Course 34 (ELH-34) Seeding & Integrity Unit Tests", async () => {
   const [seedMarker] = await db
     .select()
     .from(systemSeedsTable)
-    .where(eq(systemSeedsTable.name, "esg-in-my-job-from-policy-to-everyday-action-v1"))
+    .where(eq(systemSeedsTable.name, "esg-in-my-job-from-policy-to-everyday-action-v2"))
     .limit(1);
   assert.ok(seedMarker, "Seed marker esg-in-my-job-from-policy-to-everyday-action-v1 must be recorded");
 
@@ -92,7 +92,7 @@ test("Course 34 (ELH-34) Seeding & Integrity Unit Tests", async () => {
     .where(eq(quizQuestionsTable.courseId, course.id));
   assert.equal(
     quizRetry.length,
-    5,
+    10,
     "Second run must not duplicate quiz questions"
   );
 });

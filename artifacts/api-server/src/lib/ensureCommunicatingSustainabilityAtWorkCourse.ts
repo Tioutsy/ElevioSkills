@@ -210,14 +210,20 @@ const NEW_QUIZ = [
     order: 1,
     question: "What is the primary objective of credible workplace sustainability communication?",
     options: [
-      "To provide clear, accurate, evidence-backed information so employees and stakeholders understand actual performance and required actions",
-      "To publish impressive slogans regardless of whether operational evidence exists",
       "To convince external clients that the company has zero environmental impact",
+      "To publish impressive slogans regardless of whether operational evidence exists",
+      "To provide clear, accurate, evidence-backed information so employees and stakeholders understand actual performance and required actions",
       "To prevent employees from asking questions about energy or waste"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Credible communication provides accurate, evidence-backed clarity on workplace performance and expected actions.",
-    incorrectExplanation: "Incorrect. Credible communication presents accurate, evidence-backed facts and instructions."
+    incorrectExplanation: "Incorrect. Credible communication presents accurate, evidence-backed facts and instructions.",
+    optionFeedback: [
+      "Incorrect. 'To convince external clients that the company has zero environmental impact' is not the right approach—credible communication presents accurate, evidence-backed facts and instructions.",
+      "Incorrect. 'To publish impressive slogans regardless of whether operational evidence exists' is not the right approach—credible communication presents accurate, evidence-backed facts and instructions.",
+      "Correct. Credible communication provides accurate, evidence-backed clarity on workplace performance and expected actions.",
+      "Incorrect. 'To prevent employees from asking questions about energy or waste' is not the right approach—credible communication presents accurate, evidence-backed facts and instructions."
+    ]
   },
   {
     order: 2,
@@ -230,46 +236,70 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "L = Link statements to evidence, ensuring every assertion is supported by factual data.",
-    incorrectExplanation: "Incorrect. L = Link statements to evidence."
+    incorrectExplanation: "Incorrect. L = Link statements to evidence.",
+    optionFeedback: [
+      "Correct. L = Link statements to evidence, ensuring every assertion is supported by factual data.",
+      "Incorrect. 'Launch advertising campaigns before checking facts' is not the right approach—l = Link statements to evidence.",
+      "Incorrect. 'Legal threats to employees who ask questions' is not the right approach—l = Link statements to evidence.",
+      "Incorrect. 'Limit communication to executive directors only' is not the right approach—l = Link statements to evidence."
+    ]
   },
   {
     order: 3,
     question: "Which of the following represents a FUTURE TARGET rather than a measured past fact?",
     options: [
-      "Our logistics department aims to reduce fleet fuel draw by 10% by December 2027",
       "Our logistics department reduced fleet fuel draw by 8% in Q1 based on fuel receipts",
+      "Our logistics department aims to reduce fleet fuel draw by 10% by December 2027",
       "The fleet consumed 4,200 litres of diesel last month",
       "We installed GPS route optimization hardware on 15 delivery vehicles"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Aiming to reduce fuel draw by a future date represents a future target objective, not a past fact.",
-    incorrectExplanation: "Incorrect. Stating a future reduction goal is a target, not a past fact."
+    incorrectExplanation: "Incorrect. Stating a future reduction goal is a target, not a past fact.",
+    optionFeedback: [
+      "Incorrect. 'Our logistics department reduced fleet fuel draw by 8% in Q1 based on fuel receipts' is not the right approach—stating a future reduction goal is a target, not a past fact.",
+      "Correct. Aiming to reduce fuel draw by a future date represents a future target objective, not a past fact.",
+      "Incorrect. 'The fleet consumed 4,200 litres of diesel last month' is not the right approach—stating a future reduction goal is a target, not a past fact.",
+      "Incorrect. 'We installed GPS route optimization hardware on 15 delivery vehicles' is not the right approach—stating a future reduction goal is a target, not a past fact."
+    ]
   },
   {
     order: 4,
     question: "In the visual communication review board (`visual-sustainability-communication-review.png`), why is the EVIDENCE SOURCE column vital?",
     options: [
-      "It identifies the specific data document (e.g. utility bill, weight audit) confirming the claim before publication",
+      "It is decorative and has no verification function",
       "It lists employee home addresses for mailing posters",
       "It displays company bank account details",
-      "It is decorative and has no verification function"
+      "It identifies the specific data document (e.g. utility bill, weight audit) confirming the claim before publication"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "The evidence source column links draft messages to specific verified data files.",
-    incorrectExplanation: "Incorrect. It confirms the verified data source supporting the claim."
+    incorrectExplanation: "Incorrect. It confirms the verified data source supporting the claim.",
+    optionFeedback: [
+      "Incorrect. 'It is decorative and has no verification function' is not the right approach—it confirms the verified data source supporting the claim.",
+      "Incorrect. 'It lists employee home addresses for mailing posters' is not the right approach—it confirms the verified data source supporting the claim.",
+      "Incorrect. 'It displays company bank account details' is not the right approach—it confirms the verified data source supporting the claim.",
+      "Correct. The evidence source column links draft messages to specific verified data files."
+    ]
   },
   {
     order: 5,
     question: "What is GREENWASHING in a workplace communication context?",
     options: [
-      "Presenting misleading, exaggerated, or unsupported environmental claims that overstate actual performance",
       "Washing solar panels with recycled rainwater",
+      "Presenting misleading, exaggerated, or unsupported environmental claims that overstate actual performance",
       "Cleaning office floors with eco-certified detergent",
       "Printing double-sided training manuals"
     ],
-    correct: 0,
+    correct: 1,
     correctExplanation: "Greenwashing is the practice of releasing misleading or unsupported environmental assertions.",
-    incorrectExplanation: "Incorrect. Greenwashing refers to misleading or exaggerated environmental claims."
+    incorrectExplanation: "Incorrect. Greenwashing refers to misleading or exaggerated environmental claims.",
+    optionFeedback: [
+      "Incorrect. 'Washing solar panels with recycled rainwater' is not the right approach—greenwashing refers to misleading or exaggerated environmental claims.",
+      "Correct. Greenwashing is the practice of releasing misleading or unsupported environmental assertions.",
+      "Incorrect. 'Cleaning office floors with eco-certified detergent' is not the right approach—greenwashing refers to misleading or exaggerated environmental claims.",
+      "Incorrect. 'Printing double-sided training manuals' is not the right approach—greenwashing refers to misleading or exaggerated environmental claims."
+    ]
   },
   {
     order: 6,
@@ -282,33 +312,51 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Misleading omission conceals material negative context to create a false impression of success.",
-    incorrectExplanation: "Incorrect. Misleading omission leaves out negative context or boundaries to distort results."
+    incorrectExplanation: "Incorrect. Misleading omission leaves out negative context or boundaries to distort results.",
+    optionFeedback: [
+      "Correct. Misleading omission conceals material negative context to create a false impression of success.",
+      "Incorrect. 'Including supplier audit receipts in the appendix' is not the right approach—misleading omission leaves out negative context or boundaries to distort results.",
+      "Incorrect. 'Explaining that data covers 3 out of 4 operating sites' is not the right approach—misleading omission leaves out negative context or boundaries to distort results.",
+      "Incorrect. 'Stating the exact reporting timeframe in the header' is not the right approach—misleading omission leaves out negative context or boundaries to distort results."
+    ]
   },
   {
     order: 7,
     question: "How should a hotel communicate a single-use plastic reduction initiative that is only partially complete?",
     options: [
-      "Issue a progress update specifying what has been achieved (e.g. guest room bottles), what remains in progress, and the next review date",
-      "Announce that 100% of plastic has been eliminated across the entire resort",
       "Cancel all communications and keep progress secret",
+      "Announce that 100% of plastic has been eliminated across the entire resort",
+      "Issue a progress update specifying what has been achieved (e.g. guest room bottles), what remains in progress, and the next review date",
       "Blame guests for continuing to bring plastic onto the property"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "Credible updates explain what has changed, what remains in progress, and what evidence supports it.",
-    incorrectExplanation: "Incorrect. State accurate achievements, remaining gaps, and next review dates."
+    incorrectExplanation: "Incorrect. State accurate achievements, remaining gaps, and next review dates.",
+    optionFeedback: [
+      "Incorrect. 'Cancel all communications and keep progress secret' is not the right approach—state accurate achievements, remaining gaps, and next review dates.",
+      "Incorrect. 'Announce that 100% of plastic has been eliminated across the entire resort' is not the right approach—state accurate achievements, remaining gaps, and next review dates.",
+      "Correct. Credible updates explain what has changed, what remains in progress, and what evidence supports it.",
+      "Incorrect. 'Blame guests for continuing to bring plastic onto the property' is not the right approach—state accurate achievements, remaining gaps, and next review dates."
+    ]
   },
   {
     order: 8,
     question: "What should an employee do if they discover an internal announcement contains an incorrect energy statistic?",
     options: [
-      "Notify the message author/approver, record the correct verified number, and issue a transparent correction notice",
+      "Post anonymous complaints on public social media",
       "Ignore the error and hope no one notices",
       "Delete the entire company intranet database",
-      "Post anonymous complaints on public social media"
+      "Notify the message author/approver, record the correct verified number, and issue a transparent correction notice"
     ],
-    correct: 0,
+    correct: 3,
     correctExplanation: "Record the correct verified data, notify the approver, and issue a prompt correction notice.",
-    incorrectExplanation: "Incorrect. Notify the approver, verify correct data, and issue a transparent correction."
+    incorrectExplanation: "Incorrect. Notify the approver, verify correct data, and issue a transparent correction.",
+    optionFeedback: [
+      "Incorrect. 'Post anonymous complaints on public social media' is not the right approach—notify the approver, verify correct data, and issue a transparent correction.",
+      "Incorrect. 'Ignore the error and hope no one notices' is not the right approach—notify the approver, verify correct data, and issue a transparent correction.",
+      "Incorrect. 'Delete the entire company intranet database' is not the right approach—notify the approver, verify correct data, and issue a transparent correction.",
+      "Correct. Record the correct verified data, notify the approver, and issue a prompt correction notice."
+    ]
   },
   {
     order: 9,
@@ -321,20 +369,32 @@ const NEW_QUIZ = [
     ],
     correct: 0,
     correctExplanation: "Formal approval ensures public statements are accurate, defensible, and compliant with governance rules.",
-    incorrectExplanation: "Incorrect. Formal authorization ensures public claims meet legal and corporate governance standards."
+    incorrectExplanation: "Incorrect. Formal authorization ensures public claims meet legal and corporate governance standards.",
+    optionFeedback: [
+      "Correct. Formal approval ensures public statements are accurate, defensible, and compliant with governance rules.",
+      "Incorrect. 'To prevent employees from talking to clients about basic office recycling' is not the right approach—formal authorization ensures public claims meet legal and corporate governance standards.",
+      "Incorrect. 'Because external communications cost $10,000 per word' is not the right approach—formal authorization ensures public claims meet legal and corporate governance standards.",
+      "Incorrect. 'Because managers write all social media posts personally' is not the right approach—formal authorization ensures public claims meet legal and corporate governance standards."
+    ]
   },
   {
     order: 10,
     question: "What is the primary takeaway of the CLEAR Communication Framework?",
     options: [
-      "Applying CLEAR (Confirm, Link, Explain, Approve, Record) ensures workplace sustainability messages are accurate, evidence-backed, and credible",
-      "Sustainability messages do not require evidence if they sound positive",
       "Any employee can publish unverified environmental claims on behalf of the company",
+      "Sustainability messages do not require evidence if they sound positive",
+      "Applying CLEAR (Confirm, Link, Explain, Approve, Record) ensures workplace sustainability messages are accurate, evidence-backed, and credible",
       "Communication should only occur once a year during annual shareholder meetings"
     ],
-    correct: 0,
+    correct: 2,
     correctExplanation: "The CLEAR framework provides the structure needed to maintain evidence-backed, credible workplace communication.",
-    incorrectExplanation: "Incorrect. The CLEAR framework ensures accurate, evidence-backed, and transparent communication."
+    incorrectExplanation: "Incorrect. The CLEAR framework ensures accurate, evidence-backed, and transparent communication.",
+    optionFeedback: [
+      "Incorrect. 'Any employee can publish unverified environmental claims on behalf of the company' is not the right approach—the CLEAR framework ensures accurate, evidence-backed, and transparent communication.",
+      "Incorrect. 'Sustainability messages do not require evidence if they sound positive' is not the right approach—the CLEAR framework ensures accurate, evidence-backed, and transparent communication.",
+      "Correct. The CLEAR framework provides the structure needed to maintain evidence-backed, credible workplace communication.",
+      "Incorrect. 'Communication should only occur once a year during annual shareholder meetings' is not the right approach—the CLEAR framework ensures accurate, evidence-backed, and transparent communication."
+    ]
   }
 ];
 
@@ -389,7 +449,7 @@ export async function ensureCommunicatingSustainabilityAtWorkCourse(): Promise<v
       const hasEmptyBlocks = existingLessons.some(
         (l) => !l.contentBlocks || !Array.isArray(l.contentBlocks) || l.contentBlocks.length === 0
       );
-      const hasMissingQuiz = existingQuizQuestions.length !== 10;
+      const hasMissingQuiz = existingQuizQuestions.length < 8;
 
       const needsRepair = !existingSeed || hasMissingLessons || hasEmptyBlocks || hasMissingQuiz;
 
@@ -460,6 +520,7 @@ export async function ensureCommunicatingSustainabilityAtWorkCourse(): Promise<v
           orderIndex: q.order,
           correctExplanation: q.correctExplanation,
           incorrectExplanation: q.incorrectExplanation,
+          optionFeedback: q.optionFeedback,
           isArchived: false,
         }))
       );

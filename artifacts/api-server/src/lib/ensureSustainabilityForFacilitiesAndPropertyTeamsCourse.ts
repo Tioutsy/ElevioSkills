@@ -392,18 +392,18 @@ const QUIZ_QUESTIONS = [
     question: "An employee suggests bypassing an air-handler safety limit switch to keep cooling running continuously overnight. How should facilities respond?",
     options: [
       "Bypass the switch immediately to maximize tenant satisfaction.",
-      "Refuse the unauthorized change and explain that equipment safety limit switches must never be bypassed for operational convenience.",
+      "Report the employee to local police for suggesting maintenance changes.",
       "Bypass the switch only during weekend shifts when managers are away.",
-      "Report the employee to local police for suggesting maintenance changes."
+      "Refuse the unauthorized change and explain that equipment safety limit switches must never be bypassed for operational convenience."
     ],
-    correctOption: 1,
+    correctOption: 3,
     correctExplanation: "Correct! Safety limit switches protect equipment and life safety; they must never be bypassed for convenience or energy targets.",
     incorrectExplanation: "Review safety limits: Equipment safety switches must never be bypassed.",
     optionFeedback: [
       "Incorrect. Bypassing safety switches causes motor burnouts, fires, and safety hazards.",
-      "Correct! Refuse the unauthorized change and explain that equipment safety limit switches must never be bypassed for operational convenience.",
+      "Incorrect. Suggestions should be guided through safety channels, not police reports.",
       "Incorrect. Bypassing switches on weekends creates unmonitored fire and breakdown risks.",
-      "Incorrect. Suggestions should be guided through safety channels, not police reports."
+      "Correct! Refuse the unauthorized change and explain that equipment safety limit switches must never be bypassed for operational convenience."
     ],
     orderIndex: 5
   },

@@ -52,8 +52,8 @@ test("Course 10 (ID 10) Seeding & Integrity Unit Tests", async () => {
     .where(eq(quizQuestionsTable.courseId, 10));
   assert.equal(
     quizQuestions.length,
-    5,
-    "Must have exactly 5 quiz questions"
+    10,
+    "Must have exactly 10 quiz questions"
   );
 
   // Verify badge definition
@@ -69,7 +69,7 @@ test("Course 10 (ID 10) Seeding & Integrity Unit Tests", async () => {
   const [seedMarker] = await db
     .select()
     .from(systemSeedsTable)
-    .where(eq(systemSeedsTable.name, "environmental-compliance-v2"))
+    .where(eq(systemSeedsTable.name, "environmental-compliance-v3"))
     .limit(1);
   assert.ok(seedMarker, "Seed marker environmental-compliance-v2 must be recorded");
 
@@ -93,14 +93,14 @@ test("Course 10 (ID 10) Seeding & Integrity Unit Tests", async () => {
     .where(eq(quizQuestionsTable.courseId, 10));
   assert.equal(
     quizRetry.length,
-    5,
+    10,
     "Second run must not duplicate quiz questions"
   );
 
   // 3. Integrity guard check — repair missing questions
   console.log("- Testing integrity guard (deleting quiz questions to trigger repair)...");
   await db.delete(quizQuestionsTable).where(eq(quizQuestionsTable.courseId, 10));
-  await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "environmental-compliance-v2"));
+  await db.delete(systemSeedsTable).where(eq(systemSeedsTable.name, "environmental-compliance-v3"));
 
   await ensureEnvironmentalComplianceCourse();
 
@@ -108,5 +108,5 @@ test("Course 10 (ID 10) Seeding & Integrity Unit Tests", async () => {
     .select()
     .from(quizQuestionsTable)
     .where(eq(quizQuestionsTable.courseId, 10));
-  assert.equal(quizRepaired.length, 5, "Repaired course must contain 5 questions");
+  assert.equal(quizRepaired.length, 10, "Repaired course must contain 10 questions");
 });
