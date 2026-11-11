@@ -46,7 +46,7 @@ export interface NavGroup {
 export const LEARNER_PRIMARY_NAV: NavItem[] = [
   { href: "/home", label: "Home", icon: HomeIcon, exact: true },
   { href: "/dashboard", label: "My Learning", icon: UserCircle, exact: true },
-  { href: "/courses", label: "Courses", icon: BookOpen },
+  { href: "/courses", label: "Challenges", icon: BookOpen },
 ];
 
 /**
@@ -94,6 +94,12 @@ export const MORE_NAV: NavItem[] = [
     label: "My Certificates",
     description: "Earned completion credentials",
     icon: Award,
+  },
+  {
+    href: "/review",
+    label: "Skills Review",
+    description: "Personal performance evaluation",
+    icon: Sparkles,
   },
 ];
 
@@ -236,6 +242,6 @@ export const PLATFORM_ADMIN_NAV: NavItem[] = [
  */
 export const PUBLIC_NAV: NavItem[] = [
   { href: "/experience", label: "Experience Morieva Skills", icon: Sparkles },
-  { href: "/courses", label: "Courses", icon: BookOpen },
+  { href: "/courses", label: "Learning Challenges", icon: BookOpen },
   { href: "/pricing", label: "Pricing", icon: Building2 },
 ];

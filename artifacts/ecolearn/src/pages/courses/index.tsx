@@ -26,6 +26,8 @@ import { useState, useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { sortCoursesByCode } from "@/lib/courseSorting";
 import { useLanguage } from "@/context/LanguageContext";
+import { isFreeFoundationalChallenge, getFreeChallengeByCourseId, FREE_FOUNDATIONAL_CHALLENGES } from "@/config/freePathway";
+import { PaidChallengePreviewModal } from "@/components/PaidChallengePreviewModal";
 import {
   Dialog,
   DialogContent,
@@ -161,16 +163,25 @@ export default function Courses() {
 
   // Filter categories order
   const categoryFilters = [
-    { slug: "all", label: "All Courses", description: "Browse the complete Morieva Skills catalogue" },
-    { slug: "core-sustainability-certificate", label: "Start Here", description: "Build essential sustainability knowledge across 12 foundation modules" },
+    { slug: "all", label: "All Challenges", description: "Browse the complete Morieva Skills catalogue" },
+    { slug: "free-pathway", label: "10 Free Challenges", description: "Foundational learning pathway 100% free for all employees in Mauritius" },
+    { slug: "core-sustainability-certificate", label: "Foundations", description: "Build essential sustainability knowledge across foundation modules" },
     { slug: "sustainability-in-action", label: "Sustainability in Action", description: "Turn sustainability knowledge into workplace processes, actions and evidence" },
     { slug: "sustainability-by-department", label: "By Department", description: "Apply sustainability directly to specialized department roles and workflows" },
     { slug: "leadership-and-sustainability-management", label: "Leadership", description: "Lead initiatives, engage teams and review company sustainability performance" },
-    { slug: "completed", label: "Completed", description: "Courses you have successfully completed" },
+    { slug: "completed", label: "Completed", description: "Challenges you have successfully completed" },
   ];
 
   const displayedCourses = useMemo<any[]>(() => {
     if (!courses) return [];
+    if (selectedFilter === "free-pathway") {
+      const freeList = courses.filter((c: any) => isFreeFoundationalChallenge(c.id));
+      return freeList.sort((a: any, b: any) => {
+        const orderA = getFreeChallengeByCourseId(a.id)?.order ?? 99;
+        const orderB = getFreeChallengeByCourseId(b.id)?.order ?? 99;
+        return orderA - orderB;
+      });
+    }
     const filtered = selectedFilter === "completed"
       ? courses.filter((c: any) => enrollmentMap.get(c.id)?.status === "completed")
       : courses;
@@ -204,9 +215,9 @@ export default function Courses() {
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 rounded-full mb-3">
               <Layers className="h-3.5 w-3.5" /> Structured Applied Learning
             </span>
-            <h1 className="text-3xl md:text-4xl font-bold font-serif mb-3 tracking-tight">Course Catalogue</h1>
+            <h1 className="text-3xl md:text-4xl font-bold font-serif mb-3 tracking-tight">Learning Challenges</h1>
             <p className="text-muted-foreground text-base md:text-lg">
-              Practical workplace sustainability and ESG training structured into clear learning categories for the Mauritian workforce.
+              Practical workplace sustainability challenges structured for everyday impact in Mauritian organisations. Complete the 10 free foundational challenges to unlock your performance review.
             </p>
           </div>
         </div>

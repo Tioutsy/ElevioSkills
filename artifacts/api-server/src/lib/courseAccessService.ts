@@ -11,17 +11,21 @@ import { eq, and, desc } from "drizzle-orm";
 import { CompanyAccess } from "./access";
 import { checkCourseEligibility } from "./prerequisites";
 import { logger } from "./logger";
+import { isFreeFoundationalChallenge, getFreeChallengeByCourseId } from "../config/freePathway";
 
 export interface CourseAccessDecision {
   allowed: boolean;
   reason:
     | "INCLUDED_IN_PLAN"
+    | "FREE_FOUNDATIONAL_CHALLENGE"
     | "PLAN_UPGRADE_REQUIRED"
     | "SUBSCRIPTION_INACTIVE"
     | "COMPANY_NOT_ASSIGNED"
     | "PREREQUISITE_REQUIRED"
     | "COURSE_UNAVAILABLE"
     | "UNAUTHORISED";
+  isFree?: boolean;
+  freePathwayOrder?: number;
   requiredPlanCode?: "ESSENTIAL" | "PROFESSIONAL" | "COMPLETE";
   requiredPlanName?: string;
   missingPrerequisiteCourseIds?: number[];
@@ -49,6 +53,19 @@ export async function evaluateCourseAccess(
 
   if (!course || !course.isPublished) {
     return { allowed: false, reason: "COURSE_UNAVAILABLE" };
+  }
+
+  // 2b. Free Foundational Challenge Check (Freemium open access)
+  const freeChallenge = getFreeChallengeByCourseId(courseId);
+  if (freeChallenge) {
+    return {
+      allowed: true,
+      reason: "INCLUDED_IN_PLAN",
+      isFree: true,
+      freePathwayOrder: freeChallenge.order,
+      requiredPlanCode: "ESSENTIAL",
+      requiredPlanName: "Free Foundation Challenge",
+    };
   }
 
   // Determine minimum required plan for this course across all entitlements

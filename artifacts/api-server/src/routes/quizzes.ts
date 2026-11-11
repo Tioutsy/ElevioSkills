@@ -23,6 +23,7 @@ import {
 } from "../lib/achievementsService";
 import { awardQuizPassScore, awardCourseCompletionScore } from "../lib/scoringService";
 import { evaluateEmployeeChallengeProgress } from "../lib/challengeService";
+import { isFreeFoundationalChallenge } from "../config/freePathway";
 
 const router = Router();
 
@@ -137,15 +138,30 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
       enrollmentClauses.push(eq(enrollmentsTable.userId, access.email));
     }
 
-    const [enrollment] = await db
+    let [enrollment] = await db
       .select()
       .from(enrollmentsTable)
       .where(and(eq(enrollmentsTable.courseId, courseId), or(...enrollmentClauses)))
       .orderBy(desc(enrollmentsTable.id))
       .limit(1);
 
+    if (!enrollment && (isPlatformAdmin || isFreeFoundationalChallenge(courseId))) {
+      const [autoEnrolled] = await db
+        .insert(enrollmentsTable)
+        .values({
+          userId: access.userId,
+          companyId: access.companyId || (access.employee?.companyId ?? 0),
+          employeeId: access.employee?.id ?? null,
+          courseId,
+          status: "active",
+          progressPct: 0,
+        })
+        .returning();
+      enrollment = autoEnrolled;
+    }
+
     if (!enrollment && !isPlatformAdmin) {
-      res.status(403).json({ error: "This course has not been assigned to you" });
+      res.status(403).json({ error: "This challenge has not been assigned to you" });
       return;
     }
 

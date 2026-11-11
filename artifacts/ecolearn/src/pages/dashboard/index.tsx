@@ -29,6 +29,8 @@ import {
   ChevronRight,
   CheckCircle2,
   Info,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
@@ -96,6 +98,18 @@ export default function Dashboard() {
     queryFn: () => customFetch<any>("/api/company-challenges"),
   });
 
+  const { data: skillsReviewSummary } = useQuery<{
+    isUnlocked: boolean;
+    completedCount: number;
+    totalRequired: number;
+    progressPercentage: number;
+    overallScore: number | null;
+    performanceRating: string;
+  }>({
+    queryKey: ["/api/skills-review/summary"],
+    queryFn: () => customFetch("/api/skills-review/summary"),
+  });
+
   const currentChallenge = companyChallengesData?.active?.[0];
 
   const lmsEnrollments = (enrollments ?? []) as LmsEnrollment[];
@@ -131,6 +145,59 @@ export default function Dashboard() {
       </div>
 
       <div className="container mx-auto px-4 py-8">
+        {/* Sustainability Skills Review Status Card */}
+        {skillsReviewSummary && (
+          <div className={`mb-8 p-6 rounded-2xl border-2 transition-all ${
+            skillsReviewSummary.isUnlocked
+              ? "border-emerald-300 bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100/60 dark:from-emerald-950/40 dark:to-teal-950/20 dark:border-emerald-800"
+              : "border-emerald-100 bg-card dark:border-emerald-950"
+          }`}>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold ${
+                    skillsReviewSummary.isUnlocked
+                      ? "bg-emerald-600 text-white"
+                      : "bg-amber-500/10 text-amber-700 dark:text-amber-400"
+                  }`}>
+                    <Sparkles className="h-3 w-3" />
+                    {skillsReviewSummary.isUnlocked ? "Skills Review Ready" : "Foundations Pathway"}
+                  </span>
+                  {skillsReviewSummary.isUnlocked && skillsReviewSummary.overallScore !== null && (
+                    <Badge variant="outline" className="font-mono text-xs font-semibold">
+                      Score: {skillsReviewSummary.overallScore}%
+                    </Badge>
+                  )}
+                </div>
+                <h3 className="text-xl font-bold font-serif text-foreground">
+                  {skillsReviewSummary.isUnlocked
+                    ? "Your Sustainability Skills Review is Available"
+                    : `${skillsReviewSummary.completedCount} of ${skillsReviewSummary.totalRequired} Free Challenges Completed`}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {skillsReviewSummary.isUnlocked
+                    ? "Review your personal strengths, workplace decisions handled well, and recommended next challenge."
+                    : "Complete all 10 free foundational learning challenges to unlock your personalized workplace review."}
+                </p>
+                {!skillsReviewSummary.isUnlocked && (
+                  <div className="pt-2 max-w-md">
+                    <Progress value={skillsReviewSummary.progressPercentage} className="h-2" />
+                  </div>
+                )}
+              </div>
+
+              <div className="shrink-0">
+                <Button asChild className="bg-emerald-700 hover:bg-emerald-800 text-white font-semibold">
+                  <Link href="/review">
+                    {skillsReviewSummary.isUnlocked ? "View Skills Review" : "Continue Free Pathway"}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Learner Skills Profile */}
         <LearnerSkillsProfileCard />
 

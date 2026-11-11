@@ -1283,11 +1283,17 @@ function CompletionScreen({
           {nextCourseId && nextCourse && nextCourse.isPublished ? (
             <Button asChild>
               <Link href={`/courses/${nextCourse.id}`}>
-                Next course: {nextCourse.title}
+                Next challenge: {nextCourse.title}
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           ) : null}
+          <Button variant="outline" asChild className="border-emerald-300 text-emerald-850 dark:text-emerald-200 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100">
+            <Link href="/review">
+              <Sparkles className="mr-2 h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              Sustainability Skills Review
+            </Link>
+          </Button>
           <Button variant="outline" asChild>
             <Link href={isPreview ? "/platform-admin/courses" : "/dashboard"}>
               Back to dashboard

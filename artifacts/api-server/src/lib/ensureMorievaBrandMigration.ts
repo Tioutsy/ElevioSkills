@@ -124,18 +124,21 @@ export async function ensureMorievaBrandMigration(): Promise<MorievaBrandMigrati
       if (
         hasLegacyBrandText(q.question) ||
         hasLegacyBrandText(optionsJson) ||
-        hasLegacyBrandText(q.explanation) ||
+        hasLegacyBrandText(q.correctExplanation) ||
+        hasLegacyBrandText(q.incorrectExplanation) ||
         hasLegacyBrandText(feedbackJson)
       ) {
         const nextQuestion = replaceBrandText(q.question);
         const nextOptionsJson = optionsJson ? replaceBrandText(optionsJson) : "";
-        const nextExplanation = q.explanation ? replaceBrandText(q.explanation) : q.explanation;
+        const nextCorrectExplanation = q.correctExplanation ? replaceBrandText(q.correctExplanation) : q.correctExplanation;
+        const nextIncorrectExplanation = q.incorrectExplanation ? replaceBrandText(q.incorrectExplanation) : q.incorrectExplanation;
         const nextFeedbackJson = feedbackJson ? replaceBrandText(feedbackJson) : "";
 
         if (
           nextQuestion !== q.question ||
           nextOptionsJson !== optionsJson ||
-          nextExplanation !== q.explanation ||
+          nextCorrectExplanation !== q.correctExplanation ||
+          nextIncorrectExplanation !== q.incorrectExplanation ||
           nextFeedbackJson !== feedbackJson
         ) {
           await db
@@ -143,7 +146,8 @@ export async function ensureMorievaBrandMigration(): Promise<MorievaBrandMigrati
             .set({
               question: nextQuestion,
               options: nextOptionsJson ? JSON.parse(nextOptionsJson) : q.options,
-              explanation: nextExplanation,
+              correctExplanation: nextCorrectExplanation,
+              incorrectExplanation: nextIncorrectExplanation,
               optionFeedback: nextFeedbackJson ? JSON.parse(nextFeedbackJson) : q.optionFeedback,
             })
             .where(eq(quizQuestionsTable.id, q.id));

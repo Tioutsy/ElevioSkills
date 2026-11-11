@@ -46,6 +46,7 @@ import Pricing from "@/pages/pricing";
 import ExperiencePage from "@/pages/experience";
 import Certificates from "@/pages/certificates";
 import VerifyCertificate from "@/pages/certificates/verify";
+import SkillsReviewPage from "@/pages/skills-review";
 import CompanyDashboard from "@/pages/company";
 import Subscribe from "@/pages/company/subscribe";
 import ChallengesReview from "@/pages/company/challenges-review";
@@ -505,6 +506,8 @@ function ClerkProviderWithRoutes() {
             <Route path="/certificates" component={Certificates} />
             <Route path="/certificates/verify/:code" component={VerifyCertificate} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/review" component={SkillsReviewPage} />
+            <Route path="/skills-review" component={SkillsReviewPage} />
             <Route path="/achievements" component={AchievementsPage} />
             <Route path="/milestones"><Redirect to="/achievements" /></Route>
             <Route path="/badges"><Redirect to="/achievements" /></Route>

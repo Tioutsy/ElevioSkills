@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Progress } from "@/components/ui/progress";
-import { CheckCircle2, XCircle, ArrowLeft, Award, Download } from "lucide-react";
+import { CheckCircle2, XCircle, ArrowLeft, Award, Download, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -130,7 +130,14 @@ export default function Quiz() {
             </div>
           )}
 
-          <div className="flex gap-4 justify-center mt-12">
+          <div className="flex flex-wrap gap-4 justify-center mt-12">
+            {result.passed && (
+              <Button asChild size="lg" className="bg-emerald-700 hover:bg-emerald-800 text-white font-medium">
+                <Link href="/review">
+                  <Sparkles className="mr-2 h-5 w-5" /> Skills Review
+                </Link>
+              </Button>
+            )}
             {result.passed && result.certificateId && (
               <Button asChild size="lg">
                 <Link href="/certificates"><Award className="mr-2 h-5 w-5" /> {t("common.view_certificates")}</Link>

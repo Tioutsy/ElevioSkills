@@ -49,6 +49,7 @@ import companyChallengesLearnerRouter from "./companyChallengesLearner";
 import companyChallengesAdminRouter from "./companyChallengesAdmin";
 import interactionsRouter from "./interactions";
 import gamificationAdminRouter from "./gamificationAdmin";
+import skillsReviewRouter from "./skillsReview";
 
 const router: IRouter = Router();
 
@@ -62,6 +63,7 @@ router.use(gamificationAdminRouter);
 router.use("/company-challenges", companyChallengesLearnerRouter);
 router.use("/company/challenges", companyChallengesAdminRouter);
 router.use("/interactions", interactionsRouter);
+router.use("/skills-review", skillsReviewRouter);
 
 
 router.use(healthRouter);

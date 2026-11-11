@@ -137,7 +137,7 @@ describe("Legacy Brand Audit (Morieva Skills Rebrand Verification)", () => {
 
     const [courseAfterFirst] = await db.select().from(coursesTable).where(eq(coursesTable.id, 12));
     assert.equal(courseAfterFirst.id, 12, "Course ID must be preserved");
-    assert.equal(courseAfterFirst.code, "ELH-12", "Course code must be preserved");
+    assert.equal(courseAfterFirst.courseCode, "ELH-12", "Course code must be preserved");
     assert.ok(courseAfterFirst.description.includes("Morieva Skills'"), "Description must be updated to Morieva Skills'");
     assert.equal(courseAfterFirst.badgeName, "Morieva Skills Sustainability Certificate", "Badge name must be updated");
 

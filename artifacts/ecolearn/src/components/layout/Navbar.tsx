@@ -85,7 +85,7 @@ export function Navbar() {
   // Contract variables for audit tests compatibility
   const navLinks = [
     { href: "/experience", label: "Experience Morieva Skills", icon: Sparkles },
-    { href: "/courses", label: t("nav.courses") || "Courses", icon: BookOpen },
+    { href: "/courses", label: "Learning Challenges", icon: BookOpen },
     { href: "/pricing", label: t("nav.pricing") || "Pricing", icon: Building2 },
   ];
 
@@ -93,7 +93,7 @@ export function Navbar() {
     ? [
         { href: "/home", label: t("nav.home") || "Home", icon: HomeIcon },
         { href: "/dashboard", label: "My Learning", icon: UserCircle },
-        { href: "/courses", label: t("nav.courses") || "Courses", icon: BookOpen },
+        { href: "/courses", label: "Challenges", icon: BookOpen },
         { href: "/company-ranking", label: "Ranking", icon: Trophy },
         { href: "/achievements", label: "Achievements", icon: Award },
         { href: "/challenges", label: t("nav.challenges") || "Challenges", icon: Target },

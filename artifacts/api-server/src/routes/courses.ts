@@ -19,6 +19,7 @@ import { getCompanyAccess, requireCompletedProfile, sendHttpError, HttpError, Co
 import { checkCourseEligibility } from "../lib/prerequisites";
 import { getRecommendedNextCourse } from "../lib/recommendationService";
 import { evaluateCourseAccess } from "../lib/courseAccessService";
+import { isFreeFoundationalChallenge, getFreeChallengeByCourseId } from "../config/freePathway";
 
 const router = Router();
 
@@ -202,7 +203,11 @@ router.get("/", async (req, res): Promise<void> => {
     const assignedCats = assignmentsMap.get(c.id) || [];
     const primaryCat = assignedCats.find(a => a.isPrimary) || (c.categoryId && c.categoryName ? { categoryId: c.categoryId, categoryName: c.categoryName, isPrimary: true } : null);
     const coursePrereqs = prereqsMap.get(c.id) || [];
-    const entitlement = planEntitlementMap.get(c.id) || { requiredPlanCode: "COMPLETE", requiredPlanName: "Complete" };
+    const isFree = isFreeFoundationalChallenge(c.id);
+    const freeDef = getFreeChallengeByCourseId(c.id);
+    const entitlement = isFree
+      ? { requiredPlanCode: "ESSENTIAL", requiredPlanName: "Free Foundation" }
+      : (planEntitlementMap.get(c.id) || { requiredPlanCode: "COMPLETE", requiredPlanName: "Complete" });
 
     return {
       ...c,
@@ -210,6 +215,8 @@ router.get("/", async (req, res): Promise<void> => {
       primaryCategory: primaryCat,
       categoryAssignments: assignedCats,
       prerequisites: coursePrereqs,
+      isFree,
+      freePathwayOrder: freeDef?.order,
       requiredPlanCode: entitlement.requiredPlanCode,
       requiredPlanName: entitlement.requiredPlanName,
       priceUsd: parseFloat(c.priceUsd),
@@ -341,6 +348,8 @@ router.get("/:id", async (req, res): Promise<void> => {
     .orderBy(lessonsTable.orderIndex);
 
   const accessDecision = await evaluateCourseAccess(id, accessContext);
+  const isFree = isFreeFoundationalChallenge(id);
+  const freeDef = getFreeChallengeByCourseId(id);
 
   let safeLessons = lessons.map((l) => {
     return {
@@ -350,6 +359,16 @@ router.get("/:id", async (req, res): Promise<void> => {
     };
   });
 
+  const previewTopic = course.categoryName || "Workplace Sustainability";
+  const whatYouWillPractise = course.learningObjectives || [
+    "Practical workplace procedures and environmental compliance",
+    "Identifying impact areas and reporting relevant workplace data",
+    "Collaborative habits supporting Mauritian workplace sustainability"
+  ];
+  const whoItIsFor = course.level === "Foundational"
+    ? "All frontline, office, and management employees across Mauritius"
+    : "Department specialists, team leaders, operations managers, and sustainability coordinators";
+
   res.json({
     ...course,
     priceUsd: parseFloat(course.priceUsd),
@@ -358,6 +377,12 @@ router.get("/:id", async (req, res): Promise<void> => {
     accessDecision,
     isEligible: accessDecision.allowed,
     prerequisites: accessDecision.prerequisiteDetails || [],
+    isFree,
+    freePathwayOrder: freeDef?.order,
+    previewTopic,
+    whatYouWillPractise,
+    whoItIsFor,
+    isPaidPreview: !accessDecision.allowed,
   });
 });
 
