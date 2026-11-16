@@ -81,7 +81,7 @@ const englishTranslations: Record<string, string> = {
 
   // Pricing Shell
   "pricing.title": "Choose the level of sustainability learning your organisation needs",
-  "pricing.subtitle": "Select a commercial plan for your required course coverage, with transparent monthly pricing based on your total employee category.",
+  "pricing.subtitle": "Select a commercial plan for your required challenge coverage, with transparent monthly pricing based on your total employee category.",
   "pricing.step1": "Step 1: Select your total employee category",
   "pricing.plan_essential": "Essential",
   "pricing.plan_professional": "Professional",
@@ -92,9 +92,9 @@ const englishTranslations: Record<string, string> = {
   // Dashboard
   "dashboard.welcome": "Welcome back, {name}",
   "dashboard.welcome_sub": "Track your workplace sustainability training progress and active assignments.",
-  "dashboard.my_learning_title": "My Sustainability Learning",
+  "dashboard.my_learning_title": "My Skills",
   "dashboard.overall_progress": "Overall Progress",
-  "dashboard.courses_completed": "Courses Completed",
+  "dashboard.courses_completed": "Challenges Completed",
   "dashboard.certificates_earned": "Certificates Earned",
   "dashboard.learning_points": "Learning Points",
   "dashboard.active_assignments": "Active Course Assignments",

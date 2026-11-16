@@ -312,7 +312,7 @@ export default function Subscribe() {
                     <CardFooter className="flex-col gap-4 border-t pt-6 bg-muted/30">
                       <div className="flex items-center gap-2 text-xs text-muted-foreground w-full">
                         <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
-                        <span>All sustainability courses, certificates, and compliance exports included.</span>
+                        <span>All sustainability challenges, certificates, and compliance exports included.</span>
                       </div>
                       <Button
                         type="submit"
@@ -379,7 +379,7 @@ export default function Subscribe() {
                     <ul className="space-y-2 text-xs text-muted-foreground">
                       <li className="flex gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>All Sustainability and ESG courses</span>
+                        <span>All Sustainability and ESG challenges</span>
                       </li>
                       <li className="flex gap-2">
                         <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />

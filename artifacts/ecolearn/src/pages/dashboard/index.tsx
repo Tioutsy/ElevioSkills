@@ -385,12 +385,12 @@ export default function Dashboard() {
               </div>
               <h3 className="text-lg font-bold font-serif mb-1">Ready to start learning?</h3>
               <p className="text-muted-foreground text-sm max-w-md mx-auto mb-5">
-                Browse our complete catalogue of {allCoursesData?.length || 34} ESG & Sustainability courses and start building your skills today.
+                Browse our complete catalogue of {allCoursesData?.length || 34} ESG & Sustainability challenges and start building your skills today.
               </p>
               <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm">
                 <Link href="/courses" className="flex items-center gap-2">
                   <BookOpen className="h-4 w-4" />
-                  Explore {allCoursesData?.length || 34} Sustainability Courses
+                  Explore {allCoursesData?.length || 34} Sustainability Challenges
                 </Link>
               </Button>
             </div>

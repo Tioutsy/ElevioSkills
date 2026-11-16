@@ -74,7 +74,7 @@ export const PER_EMPLOYEE_COST_MAP: Record<string, string> = {
 };
 
 export const INDICATIVE_CALCULATION_NOTE =
-  "Your company subscription is billed as a transparent fixed fee based on your employee category, with full access to all sustainability and ESG courses included.";
+  "Your company subscription is billed as a transparent fixed fee based on your employee category, with full access to all sustainability and ESG challenges included.";
 
 export interface CalculatedPricing {
   baseMonthly: number;
