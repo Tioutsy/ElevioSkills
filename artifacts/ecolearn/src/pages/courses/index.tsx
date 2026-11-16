@@ -174,8 +174,19 @@ export default function Courses() {
 
   const displayedCourses = useMemo<any[]>(() => {
     if (!courses) return [];
+    // Enforce publication catalogue scope: only active published courses ELH-01 to ELH-35
+    const activeCourses = courses.filter((c: any) => {
+      const code = c.courseCode || "";
+      const match = code.match(/^ELH-(\d+)$/i);
+      if (match) {
+        const num = parseInt(match[1], 10);
+        return num >= 1 && num <= 35;
+      }
+      return false;
+    });
+
     if (selectedFilter === "free-pathway") {
-      const freeList = courses.filter((c: any) => isFreeFoundationalChallenge(c.id));
+      const freeList = activeCourses.filter((c: any) => isFreeFoundationalChallenge(c.id));
       return freeList.sort((a: any, b: any) => {
         const orderA = getFreeChallengeByCourseId(a.id)?.order ?? 99;
         const orderB = getFreeChallengeByCourseId(b.id)?.order ?? 99;
@@ -183,8 +194,8 @@ export default function Courses() {
       });
     }
     const filtered = selectedFilter === "completed"
-      ? courses.filter((c: any) => enrollmentMap.get(c.id)?.status === "completed")
-      : courses;
+      ? activeCourses.filter((c: any) => enrollmentMap.get(c.id)?.status === "completed")
+      : activeCourses;
     return sortCoursesByCode(filtered);
   }, [courses, selectedFilter, enrollmentMap]);
 
@@ -194,6 +205,14 @@ export default function Courses() {
     if (!cat) return null;
 
     const catCourses = courses.filter(c => {
+      const code = (c as any).courseCode || "";
+      const match = code.match(/^ELH-(\d+)$/i);
+      if (match) {
+        const num = parseInt(match[1], 10);
+        if (num < 1 || num > 35) return false;
+      } else {
+        return false;
+      }
       if ((c as any).categoryAssignments) {
         return (c as any).categoryAssignments.some((a: any) => a.categoryId === cat.id);
       }

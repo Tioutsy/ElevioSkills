@@ -23,6 +23,11 @@ import { isFreeFoundationalChallenge, getFreeChallengeByCourseId } from "../conf
 
 const router = Router();
 
+export const ALLOWED_PUBLISHED_COURSE_CODES: string[] = Array.from(
+  { length: 35 },
+  (_, i) => `ELH-${String(i + 1).padStart(2, "0")}`
+);
+
 // Recommended next course endpoint for current learner
 router.get("/recommendation", async (req, res): Promise<void> => {
   let access: CompanyAccess | null = null;
@@ -71,6 +76,7 @@ router.get("/", async (req, res): Promise<void> => {
 
   const queryConditions = [
     eq(coursesTable.isPublished, true),
+    inArray(coursesTable.courseCode, ALLOWED_PUBLISHED_COURSE_CODES),
     search ? like(coursesTable.title, `%${search}%`) : undefined,
     featured === true ? eq(coursesTable.isFeatured, true) : undefined,
   ];
@@ -261,7 +267,13 @@ router.get("/featured", async (_req, res): Promise<void> => {
     })
     .from(coursesTable)
     .leftJoin(categoriesTable, eq(coursesTable.categoryId, categoriesTable.id))
-    .where(and(eq(coursesTable.isPublished, true), eq(coursesTable.isFeatured, true)))
+    .where(
+      and(
+        eq(coursesTable.isPublished, true),
+        eq(coursesTable.isFeatured, true),
+        inArray(coursesTable.courseCode, ALLOWED_PUBLISHED_COURSE_CODES)
+      )
+    )
     .orderBy(desc(coursesTable.enrollmentCount))
     .limit(6);
 
@@ -303,7 +315,11 @@ router.get("/:id", async (req, res): Promise<void> => {
 
   const whereClause = bypassFilter 
     ? eq(coursesTable.id, id)
-    : and(eq(coursesTable.id, id), eq(coursesTable.isPublished, true));
+    : and(
+        eq(coursesTable.id, id),
+        eq(coursesTable.isPublished, true),
+        inArray(coursesTable.courseCode, ALLOWED_PUBLISHED_COURSE_CODES)
+      );
 
   const [course] = await db
     .select({

@@ -776,8 +776,10 @@ export async function ensureSchemaModifications() {
           AND (
             "course_code" ~* '^ELH-(3[6-9]|[4-9][0-9]|1[0-3][0-9])$'
             OR "id" >= 36
-          );
+          )
+        `);
 
+        await db.execute(sql`
           UPDATE "courses"
           SET "is_published" = true, "status" = 'published', "updated_at" = NOW()
           WHERE "course_code" IN (
@@ -785,7 +787,7 @@ export async function ensureSchemaModifications() {
             'ELH-11','ELH-12','ELH-13','ELH-14','ELH-15','ELH-16','ELH-17','ELH-18','ELH-19','ELH-20',
             'ELH-21','ELH-22','ELH-23','ELH-24','ELH-25','ELH-26','ELH-27','ELH-28','ELH-29','ELH-30',
             'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35'
-          );
+          )
         `);
       }
     }
