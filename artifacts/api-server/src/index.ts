@@ -62,6 +62,7 @@ import { syncSequences } from "./lib/syncSequences";
 import { ensureSchemaModifications } from "./lib/ensureSchemaModifications";
 import { ensureCourseImages } from "./lib/ensureCourseImages";
 import { ensureMorievaBrandMigration } from "./lib/ensureMorievaBrandMigration";
+import { ensureSyncCourseQuestions } from "./lib/ensureSyncCourseQuestions";
 import { verifyDatabaseIntegrity } from "./lib/verifyDatabaseIntegrity";
 import { startInvitationDispatchWorker } from "./lib/invitationDispatchWorker";
 import { unpublishCourses36to139 } from "./scripts/unpublishCourses36to139";
@@ -178,6 +179,10 @@ async function start(): Promise<void> {
     await ensureCohort15_2_10JRemediation();
     await ensureCohort15_2_10KRemediation();
     await ensureCohort15_2_10LRemediation();
+
+    // Ensure all course quiz questions are dynamically mapped and populated by courseCode
+    await ensureSyncCourseQuestions();
+
     if (process.env.UNPUBLISH_STAGED_COURSES_ON_BOOT === "true") {
       await unpublishCourses36to139();
     }

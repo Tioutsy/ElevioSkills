@@ -15,7 +15,8 @@
     "build": "npm run build --workspace=@workspace/ecolearn",
     "typecheck": "npm run typecheck --workspace=@workspace/ecolearn",
     "lint": "npm run typecheck --workspace=@workspace/ecolearn",
-    "unpublish:courses": "node scripts/unpublish-courses-36-to-139.mjs"
+    "unpublish:courses": "node scripts/unpublish-courses-36-to-139.mjs",
+    "sync:questions": "node scripts/sync-questions.mjs"
   },
   "devDependencies": {
     "@rollup/rollup-darwin-arm64": "^4.63.3",
