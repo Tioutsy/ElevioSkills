@@ -63,6 +63,7 @@ import { ensureSchemaModifications } from "./lib/ensureSchemaModifications";
 import { ensureCourseImages } from "./lib/ensureCourseImages";
 import { ensureMorievaBrandMigration } from "./lib/ensureMorievaBrandMigration";
 import { ensureSyncCourseQuestions } from "./lib/ensureSyncCourseQuestions";
+import { ensureCatalogueContentRemediation } from "./lib/ensureCatalogueContentRemediation";
 import { verifyDatabaseIntegrity } from "./lib/verifyDatabaseIntegrity";
 import { startInvitationDispatchWorker } from "./lib/invitationDispatchWorker";
 import { unpublishCourses36to139 } from "./scripts/unpublishCourses36to139";
@@ -182,6 +183,9 @@ async function start(): Promise<void> {
 
     // Ensure all course quiz questions are dynamically mapped and populated by courseCode
     await ensureSyncCourseQuestions();
+
+    // Ensure all courses (ELH-01 through ELH-35) have fully populated rich lessons and content blocks
+    await ensureCatalogueContentRemediation();
 
     if (process.env.UNPUBLISH_STAGED_COURSES_ON_BOOT === "true") {
       await unpublishCourses36to139();

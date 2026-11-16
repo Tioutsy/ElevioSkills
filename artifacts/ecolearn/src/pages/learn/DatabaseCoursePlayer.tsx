@@ -16,6 +16,7 @@ import {
 } from "@workspace/api-client-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { WorkplaceCommitmentModal } from "@/components/WorkplaceCommitmentModal";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -31,6 +32,9 @@ import {
   Download,
   GraduationCap,
   AlertCircle,
+  Lock,
+  BookOpen,
+  FileText,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useQuery } from "@tanstack/react-query";
@@ -300,11 +304,130 @@ export default function DatabaseCoursePlayer({
     );
   }
 
+  // Check if course access is restricted by plan gating or missing company assignment
+  const accessDecision = (enrollment?.course as any)?.accessDecision || (fallbackCourse as any)?.accessDecision;
+  const isAccessBlocked = !isPreview && accessDecision && accessDecision.allowed === false;
+
+  if (isAccessBlocked) {
+    const courseTitle = fallbackCourse?.title || enrollment?.course?.title || "Sustainability Challenge";
+    const requiredPlan = accessDecision.requiredPlanName || "Professional";
+    const isCompanyNotAssigned = accessDecision.reason === "COMPANY_NOT_ASSIGNED";
+    const isPrereqRequired = accessDecision.reason === "PREREQUISITE_REQUIRED";
+
+    return (
+      <div className="min-h-screen bg-background flex flex-col">
+        <header className="h-16 border-b flex items-center justify-between px-4 shrink-0 bg-card sticky top-0 z-10">
+          <div className="flex items-center gap-3 min-w-0">
+            <Link href="/courses" className="text-muted-foreground hover:text-foreground shrink-0">
+              <ArrowLeft className="h-5 w-5" />
+            </Link>
+            <div className="font-serif font-semibold text-base sm:text-lg truncate">
+              {courseTitle}
+            </div>
+          </div>
+          <Badge variant="outline" className="text-xs bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/30">
+            <Lock className="w-3 h-3 mr-1" />
+            {requiredPlan} Plan
+          </Badge>
+        </header>
+
+        <main className="flex-1 flex items-center justify-center p-4 sm:p-8">
+          <div className="max-w-xl w-full mx-auto space-y-6 text-center">
+            <div className="mx-auto w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+              <Lock className="w-8 h-8 text-amber-600 dark:text-amber-400" />
+            </div>
+
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs font-semibold uppercase tracking-wider">
+                Morieva Skills • Paid Challenge
+              </div>
+              <h1 className="text-2xl sm:text-3xl font-serif font-bold text-foreground">
+                {courseTitle}
+              </h1>
+              <p className="text-sm sm:text-base text-muted-foreground max-w-lg mx-auto">
+                {isPrereqRequired
+                  ? "You must complete the prerequisite foundational challenges before taking this challenge."
+                  : isCompanyNotAssigned
+                  ? "This challenge is part of Morieva Skills enterprise corporate pathways. Link your account to an active company subscription or start with our Free Foundational Challenges."
+                  : `This challenge is available with the ${requiredPlan} Plan. Upgrade your subscription to unlock all interactive modules, workplace decision scenarios, and accredited micro-credentials.`}
+              </p>
+            </div>
+
+            <Card className="p-6 text-left border-border/80 bg-card/60 shadow-sm space-y-4">
+              <h4 className="font-semibold text-sm uppercase text-muted-foreground tracking-wider">What's Included in This Challenge:</h4>
+              <ul className="space-y-2.5 text-sm text-foreground">
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
+                  <span>5 interactive workplace modules with Mauritian industry scenarios</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
+                  <span>Practical decision exercises and operational commitment tools</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
+                  <span>Rigorous accredited quiz assessment with explanatory feedback</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
+                  <span>Official digital credential and verifiable Certificate of Completion</span>
+                </li>
+              </ul>
+            </Card>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <Link href="/pricing" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full bg-emerald-700 hover:bg-emerald-800 text-white gap-2">
+                  <Sparkles className="w-4 h-4" />
+                  View Subscription Plans
+                </Button>
+              </Link>
+              <Link href="/courses" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full">
+                  Browse Free Challenges
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  if (lessons.length === 0) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col">
+        <header className="h-16 border-b flex items-center justify-between px-4 shrink-0 bg-card">
+          <div className="flex items-center gap-3 min-w-0">
+            <Link href="/courses" className="text-muted-foreground hover:text-foreground shrink-0">
+              <ArrowLeft className="h-5 w-5" />
+            </Link>
+            <div className="font-serif font-semibold text-base sm:text-lg truncate">
+              {enrollment?.course?.title || fallbackCourse?.title || "Challenge Player"}
+            </div>
+          </div>
+        </header>
+        <main className="flex-1 flex items-center justify-center p-6 text-center">
+          <div className="max-w-md space-y-4">
+            <BookOpen className="h-12 w-12 text-muted-foreground/60 mx-auto" />
+            <h2 className="text-xl font-bold font-serif">Curriculum Finalization in Progress</h2>
+            <p className="text-sm text-muted-foreground">
+              The instructional lessons for this challenge are currently being scheduled and verified.
+            </p>
+            <Link href="/courses">
+              <Button variant="outline" className="mt-2">Back to Challenges</Button>
+            </Link>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   const module = lessons[moduleIndex];
   const blocks = module?.contentBlocks || [];
   const isCommitmentLesson = blocks.some((b: any) => b.type === "commitment" || b.type === "workplace_action" || b.type === "action_plan");
   const interactiveCount = blocks.filter(isDatabaseInteractive).length;
-  const gatePassed = isCommitmentLesson ? commitmentSel.size > 0 : resolved.size >= interactiveCount;
+  const gatePassed = isCommitmentLesson ? commitmentSel.size > 0 : interactiveCount === 0 || resolved.size >= interactiveCount;
   const overallPct = Math.round((completedIds.size / Math.max(lessons.length, 1)) * 100);
 
   function markResolved(blockIndex: number) {
@@ -675,8 +798,63 @@ export default function DatabaseCoursePlayer({
             ) : null}
           </div>
         );
-      default:
+      case "table": {
+        const headers: string[] = block.headers || [];
+        const rows: any[][] = block.rows || [];
+        return (
+          <div key={i} className="my-5 overflow-hidden rounded-xl border border-border/70 bg-card shadow-sm">
+            {block.title ? (
+              <div className="bg-muted/40 px-4 py-3 border-b font-semibold text-foreground text-sm flex items-center gap-2">
+                <FileText className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                <span>{block.title}</span>
+              </div>
+            ) : null}
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm text-left">
+                {headers.length > 0 && (
+                  <thead className="bg-muted/30 text-xs font-semibold uppercase text-muted-foreground border-b">
+                    <tr>
+                      {headers.map((h, idx) => (
+                        <th key={idx} className="px-4 py-3 font-semibold text-foreground">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                )}
+                <tbody className="divide-y divide-border/60">
+                  {rows.map((row, rIdx) => (
+                    <tr key={rIdx} className="hover:bg-muted/20 transition-colors">
+                      {Array.isArray(row)
+                        ? row.map((cell, cIdx) => (
+                            <td key={cIdx} className="px-4 py-3 text-muted-foreground text-sm leading-relaxed">{String(cell)}</td>
+                          ))
+                        : (
+                            <td className="px-4 py-3 text-muted-foreground text-sm leading-relaxed">{String(row)}</td>
+                          )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        );
+      }
+      default: {
+        const title = block?.headingText || block?.heading || block?.title;
+        const text = block?.bodyText || block?.body || block?.content || block?.text || block?.description;
+        if (title || text) {
+          return (
+            <TextView
+              key={i}
+              block={{
+                type: "text",
+                heading: title,
+                body: text || "",
+              }}
+            />
+          );
+        }
         return null;
+      }
     }
   }
 
@@ -731,9 +909,38 @@ export default function DatabaseCoursePlayer({
                 <h1 className="text-3xl font-bold font-serif leading-tight">{module?.title}</h1>
               </div>
 
-              <div className="space-y-5" key={module?.id}>
-                {blocks.map((b: any, i: number) => renderDatabaseBlock(b, i))}
-              </div>
+              {(() => {
+                const renderedBlocks = blocks
+                  .map((b: any, i: number) => renderDatabaseBlock(b, i))
+                  .filter(Boolean);
+                const hasVisibleBlocks = renderedBlocks.length > 0;
+
+                return (
+                  <div className="space-y-5" key={module?.id}>
+                    {hasVisibleBlocks ? (
+                      renderedBlocks
+                    ) : module?.content && module.content.trim().length > 0 ? (
+                      <div className="space-y-4">
+                        <TextView
+                          block={{
+                            type: "text",
+                            heading: module.title,
+                            body: module.content,
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      <div className="rounded-xl border border-dashed border-border/80 bg-muted/20 p-8 text-center space-y-3 my-6">
+                        <BookOpen className="h-8 w-8 text-muted-foreground/60 mx-auto" />
+                        <h3 className="font-semibold text-foreground text-base">Module Overview</h3>
+                        <p className="text-sm text-muted-foreground max-w-md mx-auto">
+                          {module?.title ? `Practical guidelines for ${module.title}.` : "This module content is being prepared."}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
 
               {!gatePassed ? (
                 <p className="text-sm text-muted-foreground">
