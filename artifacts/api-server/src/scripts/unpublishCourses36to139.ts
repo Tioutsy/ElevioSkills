@@ -1,5 +1,6 @@
 import { db, coursesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
+import { logger } from "../lib/logger";
 
 export async function unpublishCourses36to139(): Promise<{
   totalEvaluated: number;
@@ -7,75 +8,57 @@ export async function unpublishCourses36to139(): Promise<{
   remainingPublishedCount: number;
   updatedCourses: Array<{ id: number; courseCode: string | null; title: string }>;
 }> {
-  console.log("==================================================");
-  console.log("Executing Unpublish Task: Courses 36 to 139");
-  console.log("==================================================");
+  logger.info("Enforcing publication boundary: Keep only ELH-01 to ELH-35 published; unpublish all courses as from ELH-36...");
 
-  // Generate all codes from ELH-36 to ELH-139
-  const targetCodes = new Set<string>();
-  for (let i = 36; i <= 139; i++) {
-    targetCodes.add(`ELH-${i.toString().padStart(2, "0")}`);
+  // Generate allowed codes: ELH-01 to ELH-35
+  const allowedCodes = new Set<string>();
+  for (let i = 1; i <= 35; i++) {
+    allowedCodes.add(`ELH-${i.toString().padStart(2, "0")}`);
   }
 
-  // Canonical historical IDs for courses 36 to 136 from ELEVIO catalogue ledger
-  const canonicalIds36to136 = new Set<number>([
-    808, 809, 724, 810, 725, 726, 744, 745, 772, 727, 746, 811,
-    711, 712, 728, 729, 747, 773, 774, 713, 748, 714, 715, 730,
-    749, 731, 716, 732, 750, 775, 776, 733, 734, 751, 752, 735,
-    753, 777, 778, 736, 737, 754, 755, 738, 756, 757, 779, 717,
-    739, 718, 740, 761, 762, 780, 781, 763, 782, 764, 783, 741,
-    758, 759, 760, 765, 766, 767, 784, 785, 786, 787, 788, 789,
-    790, 791, 792, 793, 794, 795, 796, 797, 798, 719, 720, 768,
-    799, 721, 722, 769, 800, 801, 802, 803, 723, 804, 805, 742,
-    770, 743, 806, 807, 771
-  ]);
-
   const allCourses = await db.select().from(coursesTable);
-  console.log(`Found ${allCourses.length} total courses in database.`);
-
-  const toUnpublish = allCourses.filter((c) => {
-    // Check 1: Numeric ID between 36 and 139
-    if (c.id >= 36 && c.id <= 139) return true;
-
-    // Check 2: Canonical catalogue ID match
-    if (canonicalIds36to136.has(c.id)) return true;
-
-    // Check 3: Course code match (e.g., ELH-36 through ELH-139)
-    if (c.courseCode) {
-      if (targetCodes.has(c.courseCode)) return true;
-      const m = c.courseCode.match(/^ELH-(\d+)$/i);
-      if (m) {
-        const num = parseInt(m[1], 10);
-        if (num >= 36 && num <= 139) return true;
-      }
-    }
-
-    return false;
-  });
-
-  console.log(`Found ${toUnpublish.length} courses matching scope (36 to 139).`);
+  logger.info(`Found ${allCourses.length} total courses in database.`);
 
   const updatedCourses: Array<{ id: number; courseCode: string | null; title: string }> = [];
 
-  for (const course of toUnpublish) {
-    await db
-      .update(coursesTable)
-      .set({
-        isPublished: false,
-        status: "draft",
-        updatedAt: new Date(),
-      })
-      .where(eq(coursesTable.id, course.id));
+  for (const course of allCourses) {
+    const isAllowed = course.courseCode && allowedCodes.has(course.courseCode);
 
-    updatedCourses.push({
-      id: course.id,
-      courseCode: course.courseCode,
-      title: course.title,
-    });
+    if (isAllowed) {
+      // Ensure ELH-01 through ELH-35 remain published
+      if (!course.isPublished || course.status !== "published") {
+        await db
+          .update(coursesTable)
+          .set({
+            isPublished: true,
+            status: "published",
+            updatedAt: new Date(),
+          })
+          .where(eq(coursesTable.id, course.id));
+      }
+    } else {
+      // Unpublish all other courses (ELH-36 upwards or unassigned)
+      if (course.isPublished || course.status === "published") {
+        await db
+          .update(coursesTable)
+          .set({
+            isPublished: false,
+            status: "draft",
+            updatedAt: new Date(),
+          })
+          .where(eq(coursesTable.id, course.id));
 
-    console.log(
-      `  [UNPUBLISHED] ID: ${course.id.toString().padEnd(4)} | Code: ${(course.courseCode || "N/A").padEnd(8)} | "${course.title}"`
-    );
+        updatedCourses.push({
+          id: course.id,
+          courseCode: course.courseCode,
+          title: course.title,
+        });
+
+        logger.info(
+          `  [UNPUBLISHED] ID: ${course.id.toString().padEnd(4)} | Code: ${(course.courseCode || "N/A").padEnd(8)} | "${course.title}"`
+        );
+      }
+    }
   }
 
   // Verify remaining published courses
@@ -90,17 +73,15 @@ export async function unpublishCourses36to139(): Promise<{
     .from(coursesTable)
     .where(eq(coursesTable.isPublished, true));
 
-  console.log("--------------------------------------------------");
-  console.log(`Summary:`);
-  console.log(`- Evaluated: ${allCourses.length} courses`);
-  console.log(`- Unpublished: ${updatedCourses.length} courses (set to isPublished=false, status='draft')`);
-  console.log(`- Remaining Published: ${remainingPublished.length} courses`);
-  console.log("--------------------------------------------------");
-  console.log(`Active Published Courses:`);
-  for (const c of remainingPublished) {
-    console.log(`  [ACTIVE] ID: ${c.id.toString().padEnd(4)} | Code: ${(c.courseCode || "N/A").padEnd(8)} | "${c.title}"`);
-  }
-  console.log("==================================================");
+  logger.info(
+    {
+      totalEvaluated: allCourses.length,
+      unpublishedCount: updatedCourses.length,
+      remainingPublishedCount: remainingPublished.length,
+      activePublishedCodes: remainingPublished.map((c) => c.courseCode),
+    },
+    `Publication boundary enforcement completed: ${remainingPublished.length} courses published (ELH-01 to ELH-35), ${updatedCourses.length} courses unpublished.`
+  );
 
   return {
     totalEvaluated: allCourses.length,

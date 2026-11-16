@@ -187,9 +187,8 @@ async function start(): Promise<void> {
     // Ensure all courses (ELH-01 through ELH-35) have fully populated rich lessons and content blocks
     await ensureCatalogueContentRemediation();
 
-    if (process.env.UNPUBLISH_STAGED_COURSES_ON_BOOT === "true") {
-      await unpublishCourses36to139();
-    }
+    // Enforce publication boundary: keep only ELH-01 to ELH-35 published; unpublish all courses as from ELH-36
+    await unpublishCourses36to139();
 
     // Ensure course thumbnail images are set
     await ensureCourseImages();

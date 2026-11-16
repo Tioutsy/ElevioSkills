@@ -741,6 +741,53 @@ export async function ensureSchemaModifications() {
       name: "Add training_priorities to companies",
       check: () => columnExists("companies", "training_priorities"),
       execute: () => db.execute(sql`ALTER TABLE "companies" ADD COLUMN IF NOT EXISTS "training_priorities" text[] NOT NULL DEFAULT '{}';`)
+    },
+    {
+      name: "Enforce publication boundary: ELH-01 to ELH-35 published, ELH-36+ unpublished",
+      check: async () => {
+        try {
+          const res = await db.execute(sql`
+            SELECT 1 FROM "courses"
+            WHERE ("course_code" ~* '^ELH-(3[6-9]|[4-9][0-9]|1[0-3][0-9])$' OR "id" >= 36)
+              AND "is_published" = true
+              AND ("course_code" NOT IN (
+                'ELH-01','ELH-02','ELH-03','ELH-04','ELH-05','ELH-06','ELH-07','ELH-08','ELH-09','ELH-10',
+                'ELH-11','ELH-12','ELH-13','ELH-14','ELH-15','ELH-16','ELH-17','ELH-18','ELH-19','ELH-20',
+                'ELH-21','ELH-22','ELH-23','ELH-24','ELH-25','ELH-26','ELH-27','ELH-28','ELH-29','ELH-30',
+                'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35'
+              ) OR "course_code" IS NULL)
+            LIMIT 1;
+          `);
+          return res.rows.length === 0;
+        } catch {
+          return false;
+        }
+      },
+      execute: async () => {
+        await db.execute(sql`
+          UPDATE "courses"
+          SET "is_published" = false, "status" = 'draft', "updated_at" = NOW()
+          WHERE ("course_code" NOT IN (
+            'ELH-01','ELH-02','ELH-03','ELH-04','ELH-05','ELH-06','ELH-07','ELH-08','ELH-09','ELH-10',
+            'ELH-11','ELH-12','ELH-13','ELH-14','ELH-15','ELH-16','ELH-17','ELH-18','ELH-19','ELH-20',
+            'ELH-21','ELH-22','ELH-23','ELH-24','ELH-25','ELH-26','ELH-27','ELH-28','ELH-29','ELH-30',
+            'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35'
+          ) OR "course_code" IS NULL)
+          AND (
+            "course_code" ~* '^ELH-(3[6-9]|[4-9][0-9]|1[0-3][0-9])$'
+            OR "id" >= 36
+          );
+
+          UPDATE "courses"
+          SET "is_published" = true, "status" = 'published', "updated_at" = NOW()
+          WHERE "course_code" IN (
+            'ELH-01','ELH-02','ELH-03','ELH-04','ELH-05','ELH-06','ELH-07','ELH-08','ELH-09','ELH-10',
+            'ELH-11','ELH-12','ELH-13','ELH-14','ELH-15','ELH-16','ELH-17','ELH-18','ELH-19','ELH-20',
+            'ELH-21','ELH-22','ELH-23','ELH-24','ELH-25','ELH-26','ELH-27','ELH-28','ELH-29','ELH-30',
+            'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35'
+          );
+        `);
+      }
     }
   ];
 
