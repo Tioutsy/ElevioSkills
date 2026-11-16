@@ -58,6 +58,8 @@ function isDatabaseInteractive(block: any): boolean {
     "scenario",
     "interactive_scenario",
     "commitment",
+    "workplace_action",
+    "action_plan",
     "sorting",
     "sorting_activity",
     "matching",
@@ -300,7 +302,7 @@ export default function DatabaseCoursePlayer({
 
   const module = lessons[moduleIndex];
   const blocks = module?.contentBlocks || [];
-  const isCommitmentLesson = blocks.some((b: any) => b.type === "commitment");
+  const isCommitmentLesson = blocks.some((b: any) => b.type === "commitment" || b.type === "workplace_action" || b.type === "action_plan");
   const interactiveCount = blocks.filter(isDatabaseInteractive).length;
   const gatePassed = isCommitmentLesson ? commitmentSel.size > 0 : resolved.size >= interactiveCount;
   const overallPct = Math.round((completedIds.size / Math.max(lessons.length, 1)) * 100);
@@ -354,7 +356,7 @@ export default function DatabaseCoursePlayer({
   }
 
   function handleModuleContinue() {
-    if (isCommitmentLesson) {
+    if (isCommitmentLesson && commitmentSel.size > 0) {
       saveCommitments.mutate(
         { courseId, data: { commitments: Array.from(commitmentSel) } },
         {
@@ -362,10 +364,12 @@ export default function DatabaseCoursePlayer({
             if (!isPreview) {
               queryClient.invalidateQueries({ queryKey: ["commitments", courseId] });
             }
-            toast({ title: "Commitments saved", description: "Well done for taking the first step." });
+            toast({ title: "Commitment saved", description: "Well done for taking the first step." });
             advanceFromModule();
           },
-          onError: () => toast({ title: "Could not save commitments", variant: "destructive" }),
+          onError: () => {
+            advanceFromModule();
+          },
         },
       );
     } else {
@@ -379,12 +383,15 @@ export default function DatabaseCoursePlayer({
         return <TextView key={i} block={{ type: "text", heading: block.headingText || block.heading, body: "" }} />;
       case "text":
       case "short_text":
+      case "paragraph":
         return <TextView key={i} block={{ type: "text", heading: block.headingText || block.heading, body: block.bodyText || block.content || block.body || "" }} />;
+      case "case_study":
       case "key_message":
       case "workplace_example":
       case "mauritian_example":
       case "practical_action":
         return <CalloutView key={i} block={{ type: "callout", title: block.headingText || block.title || "Key Concept", body: block.bodyText || block.content || block.body || "" }} />;
+      case "checklist":
       case "bulleted-list":
       case "ordered-list":
       case "numbered-list":
@@ -614,26 +621,32 @@ export default function DatabaseCoursePlayer({
             onResolved={() => markResolved(i)}
           />
         );
-      case "commitment":
+      case "workplace_action":
+      case "action_plan":
+      case "commitment": {
+        const actionOptions = block.actionOptions || block.commitmentOptions || block.options || [];
         return (
-          <CommitmentView
-            key={i}
-            block={{
-              type: "commitment",
-              instruction: block.commitmentInstruction || "Select commitments:",
-              options: block.commitmentOptions || block.options || []
-            }}
-            selected={commitmentSel}
-            onToggle={(value) =>
-              setCommitmentSel((prev) => {
-                const next = new Set(prev);
-                if (next.has(value)) next.delete(value);
-                else next.add(value);
-                return next;
-              })
-            }
-          />
+          <div key={i} className="my-3">
+            <CommitmentView
+              block={{
+                type: "commitment",
+                instruction: block.commitmentInstruction || block.instruction || "",
+                options: actionOptions,
+              }}
+              selected={commitmentSel}
+              onToggle={(value) => {
+                setCommitmentSel((prev) => {
+                  const next = new Set(prev);
+                  if (next.has(value)) next.delete(value);
+                  else next.add(value);
+                  return next;
+                });
+                markResolved(i);
+              }}
+            />
+          </div>
         );
+      }
       case "memorable_fact":
         return (
           <CalloutView
@@ -647,6 +660,7 @@ export default function DatabaseCoursePlayer({
         );
       case "image":
       case "visual_question":
+      case "visual_identification":
         return (
           <div key={i} className="my-6 overflow-hidden rounded-xl border bg-card shadow-sm">
             {block.imageUrl || block.url ? (

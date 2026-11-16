@@ -1771,31 +1771,46 @@ export function CommitmentView({
   selected: Set<string>;
   onToggle: (val: string) => void;
 }) {
+  const options = block.options || block.actionOptions || [];
   return (
-    <Card className="p-5 border-border/80 space-y-3">
-      <h4 className="text-sm font-bold text-foreground">{block.instruction || "Choose Your Workplace Commitments"}</h4>
-      <div className="space-y-2">
-        {(block.options || []).map((opt: any) => {
-          const val = opt.value || opt.id || opt.slug || opt.label;
+    <div className="space-y-3 my-3">
+      {block.instruction ? (
+        <h4 className="text-sm font-semibold text-foreground tracking-tight">{block.instruction}</h4>
+      ) : null}
+      <div className="space-y-2.5">
+        {options.map((opt: any, idx: number) => {
+          const val = typeof opt === "string" ? opt : (opt.value || opt.id || opt.slug || opt.label || String(idx));
+          const label = typeof opt === "string" ? opt : (opt.label || opt.text || opt.title || opt.name || opt.value || "");
           const isSelected = selected.has(val);
           return (
             <div
-              key={val}
+              key={val || idx}
               onClick={() => onToggle(val)}
               className={cn(
-                "p-3 rounded-lg border text-xs cursor-pointer transition-all flex items-start gap-2.5",
-                isSelected ? "border-primary bg-primary/10" : "border-border/60 hover:bg-muted/40"
+                "p-4 rounded-xl border text-sm cursor-pointer transition-all flex items-start gap-3.5 shadow-sm select-none",
+                isSelected
+                  ? "border-emerald-600 bg-emerald-50/90 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-100 ring-1 ring-emerald-600/30"
+                  : "border-border/70 hover:border-emerald-500/50 hover:bg-muted/40 text-foreground bg-card/60"
               )}
             >
-              <CheckCircle2 className={cn("w-4 h-4 mt-0.5", isSelected ? "text-primary" : "text-muted-foreground/30")} />
-              <div>
-                <div className="font-semibold text-foreground">{opt.label}</div>
-                {opt.description && <div className="text-muted-foreground text-[11px]">{opt.description}</div>}
+              <div className="mt-0.5 shrink-0">
+                <CheckCircle2
+                  className={cn(
+                    "w-5 h-5 transition-colors",
+                    isSelected ? "text-emerald-600 dark:text-emerald-400" : "text-muted-foreground/30"
+                  )}
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="font-medium text-base leading-relaxed">{label}</div>
+                {typeof opt === "object" && opt?.description && (
+                  <div className="text-muted-foreground text-xs mt-1 leading-relaxed">{opt.description}</div>
+                )}
               </div>
             </div>
           );
         })}
       </div>
-    </Card>
+    </div>
   );
 }
