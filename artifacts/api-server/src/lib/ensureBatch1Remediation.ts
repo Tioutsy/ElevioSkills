@@ -692,7 +692,7 @@ export const BATCH_1_REMEDIATED_COURSES: RemediatedCourseDefinition[] = [
         content: "Mastering the order of priority: Refuse, Reduce, Reuse, Recycle.",
         blocks: [
           { id: "elh07-h2", type: "heading", position: 1, headingText: "The 5R Hierarchy in Daily Operations" },
-          { id: "elh07-t2", type: "short_text", position: 2, bodyText: "1. Refuse: Avoid purchasing non-essential single-use packaging and items.\n2. Reduce: Optimize usage volumes and eliminate operational excess.\n3. Reuse & Repair: Maintain equipment, repair broken fixtures, and use durable containers.\n4. Repurpose: Adapt surplus materials for alternative internal uses.\n5. Recycle: Clean and segregate genuine recyclable materials for industrial reprocessing." }
+          { id: "elh07-t2", type: "short_text", position: 2, bodyText: "1. Refuse: Avoid purchasing non-essential single-use packaging and items.\n\n2. Reduce: Optimize usage volumes and eliminate operational excess.\n\n3. Reuse & Repair: Maintain equipment, repair broken fixtures, and use durable containers.\n\n4. Repurpose: Adapt surplus materials for alternative internal uses.\n\n5. Recycle: Clean and segregate genuine recyclable materials for industrial reprocessing." }
         ]
       },
       {

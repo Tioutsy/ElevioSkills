@@ -104,7 +104,7 @@ const NEW_LESSONS = [
         type: "key_message",
         position: 3,
         headingText: "Mitigation vs Adaptation",
-        bodyText: "• Mitigation (Emissions Reduction): Actions that lower greenhouse gas emissions (e.g. switching off unused lights, buying energy-efficient machinery, reducing vehicle fuel draw).\n• Adaptation (Workplace Resilience): Actions that adjust operations to withstand current or expected physical climate impacts (e.g. elevating critical equipment, installing storm shutters, backing up digital records, cross-training staff)."
+        bodyText: "• Mitigation (Emissions Reduction): Actions that lower greenhouse gas emissions (e.g. switching off unused lights, buying energy-efficient machinery, reducing vehicle fuel draw).\n\n• Adaptation (Workplace Resilience): Actions that adjust operations to withstand current or expected physical climate impacts (e.g. elevating critical equipment, installing storm shutters, backing up digital records, cross-training staff)."
       },
       {
         id: "cr2-f1",
@@ -128,7 +128,7 @@ const NEW_LESSONS = [
         type: "key_message",
         position: 3,
         headingText: "The Risk Sequence",
-        bodyText: "1. HAZARD: The physical climate event (e.g. extreme heat, flash flooding, coastal storm surge).\n2. EXPOSURE: The location of people, buildings, or assets in the path of the hazard (e.g. ground-floor inventory storage near a river channel).\n3. VULNERABILITY: The weakness or lack of protection (e.g. cardboard boxes stored directly on concrete without pallets or water barriers).\n4. CONSEQUENCE: The operational impact (e.g. ruined inventory, cancelled customer orders, financial loss)."
+        bodyText: "1. HAZARD: The physical climate event (e.g. extreme heat, flash flooding, coastal storm surge).\n\n2. EXPOSURE: The location of people, buildings, or assets in the path of the hazard (e.g. ground-floor inventory storage near a river channel).\n\n3. VULNERABILITY: The weakness or lack of protection (e.g. cardboard boxes stored directly on concrete without pallets or water barriers).\n\n4. CONSEQUENCE: The operational impact (e.g. ruined inventory, cancelled customer orders, financial loss)."
       },
       {
         id: "cr3-w1",
@@ -152,7 +152,7 @@ const NEW_LESSONS = [
         type: "key_message",
         position: 3,
         headingText: "8 Resilience Areas",
-        bodyText: "1. PEOPLE: Clear emergency contact lists, staff welfare checks, and safe remote work protocols.\n2. BUILDINGS: Clear drainage channels, secure roof fixtures, and water barrier seals.\n3. EQUIPMENT: Critical machinery elevated on pallets or upper levels away from flood risk.\n4. UTILITIES: Backup power generator fuel checked, UPS battery backups tested, water storage filled.\n5. DATA & DOCUMENTS: Cloud data backups verified, confidential physical records stored in water-tight cabinets.\n6. SUPPLIERS: Alternative suppliers identified for critical materials and logistics routes.\n7. TRANSPORT & ACCESS: Safe travel advice, staff transport coordination, and site access checks.\n8. OPERATIONS: Clear priority list of essential business functions to maintain during disruption."
+        bodyText: "1. PEOPLE: Clear emergency contact lists, staff welfare checks, and safe remote work protocols.\n\n2. BUILDINGS: Clear drainage channels, secure roof fixtures, and water barrier seals.\n\n3. EQUIPMENT: Critical machinery elevated on pallets or upper levels away from flood risk.\n\n4. UTILITIES: Backup power generator fuel checked, UPS battery backups tested, water storage filled.\n\n5. DATA & DOCUMENTS: Cloud data backups verified, confidential physical records stored in water-tight cabinets.\n\n6. SUPPLIERS: Alternative suppliers identified for critical materials and logistics routes.\n\n7. TRANSPORT & ACCESS: Safe travel advice, staff transport coordination, and site access checks.\n\n8. OPERATIONS: Clear priority list of essential business functions to maintain during disruption."
       },
       {
         id: "cr4-img1",

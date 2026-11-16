@@ -1,4 +1,4 @@
-import { db, coursesTable, quizQuestionsTable } from "@workspace/db";
+import { db, coursesTable, quizQuestionsTable, lessonsTable } from "@workspace/db";
 import { eq, sql } from "drizzle-orm";
 import { logger } from "./logger";
 
@@ -138,6 +138,49 @@ export async function ensureSyncCourseQuestions(): Promise<SyncQuestionsResult> 
 
       result.questionsInsertedCount += cohort.questions.length;
       result.syncedCoursesCount++;
+    }
+
+    // Ensure listed formatting for ELH-30 / Waste Hierarchy lessons if present in database
+    try {
+      const allLessons = await db.select().from(lessonsTable);
+      for (const lesson of allLessons) {
+        if (!lesson.contentBlocks || !Array.isArray(lesson.contentBlocks)) continue;
+        let modified = false;
+        const updatedBlocks = (lesson.contentBlocks as any[]).map((block) => {
+          if (
+            block.headingText === "The 5R Hierarchy in Daily Operations" ||
+            (block.bodyText && block.bodyText.includes("1. Refuse: Avoid purchasing"))
+          ) {
+            modified = true;
+            return {
+              ...block,
+              bodyText:
+                "1. Refuse: Avoid purchasing non-essential single-use packaging and items.\n\n2. Reduce: Optimize usage volumes and eliminate operational excess.\n\n3. Reuse & Repair: Maintain equipment, repair broken fixtures, and use durable containers.\n\n4. Repurpose: Adapt surplus materials for alternative internal uses.\n\n5. Recycle: Clean and segregate genuine recyclable materials for industrial reprocessing.",
+            };
+          }
+          if (
+            block.headingText === "Operating Across Official MMS Cyclone Alert Stages" ||
+            (block.bodyText && block.bodyText.includes("Mauritius Meteorological Services Tropical Cyclone Warning System"))
+          ) {
+            modified = true;
+            return {
+              ...block,
+              bodyText:
+                "Under the Mauritius Meteorological Services Tropical Cyclone Warning System (metservice.intnet.mu/tropical-cyclone/warning-system.php), warnings are issued across 4 sequential alert stages:\n\n1. Class I: Issued 36 to 48 hours before the occurrence of gusts of 120 km/h (verify backup generator fuel, test sump pumps, clear roof drains).\n\n2. Class II: Issued so as to allow, as far as practicable, 12 hours of daylight before the occurrence of gusts of 120 km/h (secure outdoor equipment, shutter windows, initiate cloud backups).\n\n3. Class III: Issued so as to allow, as far as practicable, 6 hours of daylight before the occurrence of gusts of 120 km/h (orderly shutdown and staff dismissal before public transport stops).\n\n4. Class IV: Issued when gusts of 120 km/h are occurring in Mauritius and are expected to continue.",
+            };
+          }
+          return block;
+        });
+
+        if (modified) {
+          await db
+            .update(lessonsTable)
+            .set({ contentBlocks: updatedBlocks })
+            .where(eq(lessonsTable.id, lesson.id));
+        }
+      }
+    } catch (e) {
+      logger.warn({ err: e }, "[Sync Questions] Non-blocking lesson block formatting notice.");
     }
 
     logger.info(

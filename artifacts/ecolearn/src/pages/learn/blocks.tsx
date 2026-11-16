@@ -29,19 +29,200 @@ import { customFetch } from "@workspace/api-client-react";
 import { useToast } from "@/hooks/use-toast";
 
 // ==========================================
-// STATIC / TEXT BLOCKS
+// STATIC / TEXT BLOCKS & RICH LIST RENDERING
 // ==========================================
 
 export type TextBlock = { type: "text"; heading?: string; body: string };
 export type CalloutBlock = { type: "callout"; title: string; body: string };
 
+interface ParsedListItem {
+  num?: string;
+  title?: string | null;
+  desc: string;
+}
+
+interface ParsedContent {
+  type: "numbered-list" | "bullet-list";
+  intro: string;
+  items: ParsedListItem[];
+}
+
+export function parseContentToList(text: string): ParsedContent | null {
+  if (!text || typeof text !== "string") return null;
+
+  // 1. Check for bulleted lines (lines starting with •, -, or *)
+  const lines = text.split("\n").map((l) => l.trim()).filter(Boolean);
+  const bulletMatches = lines.filter((l) => /^[•\-\*]\s+/.test(l));
+  if (bulletMatches.length >= 2) {
+    const firstBulletIdx = lines.findIndex((l) => /^[•\-\*]\s+/.test(l));
+    const intro = lines.slice(0, firstBulletIdx).join(" ");
+    const items = lines.slice(firstBulletIdx).map((l) => {
+      const cleaned = l.replace(/^[•\-\*]\s+/, "").trim();
+      const colonIdx = cleaned.indexOf(":");
+      if (colonIdx > 0 && colonIdx < 60) {
+        return {
+          title: cleaned.slice(0, colonIdx).replace(/\*\*/g, "").trim(),
+          desc: cleaned.slice(colonIdx + 1).trim(),
+        };
+      }
+      return { title: null, desc: cleaned };
+    });
+    return { type: "bullet-list", intro, items };
+  }
+
+  // 2. Check for numbered list (either inline "1. ... 2. ... " or newline-separated)
+  const numberedItemRegex = /(?:^|\n|\s+)(?:(\d+)[\.\)]\s+)([\s\S]*?)(?=(?:\s+\d+[\.\)]\s+)|\n\d+[\.\)]|$)/g;
+  const numMatches = [...text.matchAll(numberedItemRegex)];
+  if (numMatches.length >= 2) {
+    const firstMatchIdx = numMatches[0].index ?? 0;
+    const intro = text.substring(0, firstMatchIdx).trim();
+    const items = numMatches.map((m) => {
+      const num = m[1];
+      const content = m[2].trim();
+      const colonIdx = content.indexOf(":");
+      if (colonIdx > 0 && colonIdx < 60) {
+        return {
+          num,
+          title: content.slice(0, colonIdx).replace(/\*\*/g, "").trim(),
+          desc: content.slice(colonIdx + 1).trim(),
+        };
+      }
+      return { num, title: null, desc: content };
+    });
+    return { type: "numbered-list", intro, items };
+  }
+
+  // 3. Check for semicolon or class-based stages like "**Class I**: ...; **Class II**: ..."
+  const stageRegex = /(\*\*[^*:]+\*\*|[A-Z][a-zA-Z\s0-9]{2,25}):\s*([^;]+)(?:;|$)/g;
+  const stageMatches = [...text.matchAll(stageRegex)];
+  if (stageMatches.length >= 3) {
+    const firstIdx = stageMatches[0].index ?? 0;
+    const intro = text.substring(0, firstIdx).trim();
+    const items = stageMatches.map((m, idx) => ({
+      num: String(idx + 1),
+      title: m[1].replace(/\*\*/g, "").replace(/^and\s+/i, "").trim(),
+      desc: m[2].trim(),
+    }));
+    return { type: "numbered-list", intro, items };
+  }
+
+  return null;
+}
+
+export function FormattedContent({ content, isCallout = false }: { content: string; isCallout?: boolean }) {
+  const parsed = useMemo(() => parseContentToList(content), [content]);
+
+  if (!parsed) {
+    // Standard paragraph(s) with preserved line breaks
+    const paragraphs = content.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+    if (paragraphs.length <= 1) {
+      return (
+        <p className={cn("leading-relaxed whitespace-pre-line", isCallout ? "text-sm text-emerald-900/80 dark:text-emerald-300/90" : "text-base text-muted-foreground")}>
+          {content}
+        </p>
+      );
+    }
+    return (
+      <div className="space-y-3">
+        {paragraphs.map((p, idx) => (
+          <p key={idx} className={cn("leading-relaxed whitespace-pre-line", isCallout ? "text-sm text-emerald-900/80 dark:text-emerald-300/90" : "text-base text-muted-foreground")}>
+            {p}
+          </p>
+        ))}
+      </div>
+    );
+  }
+
+  if (parsed.type === "numbered-list" && parsed.items) {
+    return (
+      <div className="space-y-3 my-2.5">
+        {parsed.intro ? (
+          <p className={cn("leading-relaxed", isCallout ? "text-sm font-medium text-emerald-950 dark:text-emerald-200" : "text-base text-muted-foreground mb-3")}>
+            {parsed.intro}
+          </p>
+        ) : null}
+        <ol className="space-y-2.5 list-none p-0 m-0">
+          {parsed.items.map((item, idx) => (
+            <li
+              key={idx}
+              className={cn(
+                "flex items-start gap-3.5 p-3.5 rounded-xl border transition-all shadow-sm",
+                isCallout
+                  ? "bg-white/80 dark:bg-emerald-900/30 border-emerald-200/80 dark:border-emerald-800/60"
+                  : "bg-card/70 hover:bg-card border-border/70 hover:border-emerald-500/40"
+              )}
+            >
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-600/10 text-emerald-700 dark:bg-emerald-400/20 dark:text-emerald-300 font-bold text-sm mt-0.5">
+                {item.num || idx + 1}
+              </span>
+              <div className="text-base leading-relaxed flex-1 min-w-0">
+                {item.title ? (
+                  <strong className={cn("font-semibold mr-1.5", isCallout ? "text-emerald-950 dark:text-emerald-100" : "text-foreground")}>
+                    {item.title}:
+                  </strong>
+                ) : null}
+                <span className={isCallout ? "text-emerald-900/90 dark:text-emerald-200/90 text-sm" : "text-muted-foreground"}>
+                  {item.desc}
+                </span>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    );
+  }
+
+  if (parsed.type === "bullet-list" && parsed.items) {
+    return (
+      <div className="space-y-3 my-2.5">
+        {parsed.intro ? (
+          <p className={cn("leading-relaxed", isCallout ? "text-sm font-medium text-emerald-950 dark:text-emerald-200" : "text-base text-muted-foreground mb-3")}>
+            {parsed.intro}
+          </p>
+        ) : null}
+        <ul className="space-y-2.5 list-none p-0 m-0">
+          {parsed.items.map((item, idx) => (
+            <li
+              key={idx}
+              className={cn(
+                "flex items-start gap-3.5 p-3.5 rounded-xl border transition-all shadow-sm",
+                isCallout
+                  ? "bg-white/80 dark:bg-emerald-900/30 border-emerald-200/80 dark:border-emerald-800/60"
+                  : "bg-card/70 hover:bg-card border-border/70 hover:border-emerald-500/40"
+              )}
+            >
+              <span className="h-2 w-2 rounded-full bg-emerald-600 dark:bg-emerald-400 mt-2.5 shrink-0" />
+              <div className="text-base leading-relaxed flex-1 min-w-0">
+                {item.title ? (
+                  <strong className={cn("font-semibold mr-1.5", isCallout ? "text-emerald-950 dark:text-emerald-100" : "text-foreground")}>
+                    {item.title}:
+                  </strong>
+                ) : null}
+                <span className={isCallout ? "text-emerald-900/90 dark:text-emerald-200/90 text-sm" : "text-muted-foreground"}>
+                  {item.desc}
+                </span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  return (
+    <p className={cn("leading-relaxed whitespace-pre-line", isCallout ? "text-sm text-emerald-900/80 dark:text-emerald-300/90" : "text-base text-muted-foreground")}>
+      {content}
+    </p>
+  );
+}
+
 export function TextView({ block }: { block: TextBlock }) {
   return (
-    <div className="space-y-2">
+    <div className="space-y-2.5">
       {block.heading ? (
-        <h3 className="text-lg font-bold text-foreground font-serif">{block.heading}</h3>
+        <h3 className="text-lg font-bold text-foreground font-serif tracking-tight">{block.heading}</h3>
       ) : null}
-      <p className="text-base leading-relaxed text-muted-foreground">{block.body}</p>
+      <FormattedContent content={block.body} />
     </div>
   );
 }
@@ -51,9 +232,9 @@ export function CalloutView({ block }: { block: CalloutBlock }) {
     <Card className="border-emerald-200 bg-emerald-50/70 p-4 dark:border-emerald-900 dark:bg-emerald-950/40">
       <div className="flex gap-3">
         <Lightbulb className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
-        <div className="space-y-1">
+        <div className="space-y-1.5 flex-1 min-w-0">
           <p className="font-semibold text-emerald-950 dark:text-emerald-200">{block.title}</p>
-          <p className="text-sm leading-relaxed text-emerald-900/80 dark:text-emerald-300/90">{block.body}</p>
+          <FormattedContent content={block.body} isCallout />
         </div>
       </div>
     </Card>

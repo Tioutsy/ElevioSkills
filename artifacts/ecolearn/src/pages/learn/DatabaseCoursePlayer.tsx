@@ -386,16 +386,61 @@ export default function DatabaseCoursePlayer({
       case "practical_action":
         return <CalloutView key={i} block={{ type: "callout", title: block.headingText || block.title || "Key Concept", body: block.bodyText || block.content || block.body || "" }} />;
       case "bulleted-list":
+      case "ordered-list":
+      case "numbered-list":
+      case "list": {
+        const items = block.items || [];
+        const isOrdered = block.type === "ordered-list" || block.type === "numbered-list";
         return (
-          <div key={i} className="space-y-2">
-            {block.headingText || block.title ? <h4 className="font-semibold text-foreground">{block.headingText || block.title}</h4> : null}
-            <ul className="list-disc list-inside space-y-1 text-muted-foreground text-base">
-              {(block.items || []).map((item: string, idx: number) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
+          <div key={i} className="space-y-3 my-3">
+            {block.headingText || block.title ? (
+              <h4 className="font-semibold text-foreground text-base tracking-tight">{block.headingText || block.title}</h4>
+            ) : null}
+            {isOrdered ? (
+              <ol className="space-y-2.5 list-none p-0 m-0">
+                {items.map((item: any, idx: number) => {
+                  const num = typeof item === "object" ? (item.number || item.num || idx + 1) : idx + 1;
+                  const title = typeof item === "object" ? item.title : null;
+                  const text = typeof item === "object" ? (item.text || item.desc || "") : String(item);
+                  return (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-3.5 p-3.5 rounded-xl border border-border/70 bg-card/70 hover:bg-card hover:border-emerald-500/40 transition-all shadow-sm"
+                    >
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-600/10 text-emerald-700 dark:bg-emerald-400/20 dark:text-emerald-300 font-bold text-sm mt-0.5">
+                        {num}
+                      </span>
+                      <div className="text-base leading-relaxed flex-1 min-w-0">
+                        {title ? <strong className="font-semibold text-foreground mr-1.5">{title}:</strong> : null}
+                        <span className="text-muted-foreground">{text}</span>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            ) : (
+              <ul className="space-y-2.5 list-none p-0 m-0">
+                {items.map((item: any, idx: number) => {
+                  const title = typeof item === "object" ? item.title : null;
+                  const text = typeof item === "object" ? (item.text || item.desc || "") : String(item);
+                  return (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-3.5 p-3.5 rounded-xl border border-border/70 bg-card/70 hover:bg-card hover:border-emerald-500/40 transition-all shadow-sm"
+                    >
+                      <span className="h-2 w-2 rounded-full bg-emerald-600 dark:bg-emerald-400 mt-2.5 shrink-0" />
+                      <div className="text-base leading-relaxed flex-1 min-w-0">
+                        {title ? <strong className="font-semibold text-foreground mr-1.5">{title}:</strong> : null}
+                        <span className="text-muted-foreground">{text}</span>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </div>
         );
+      }
       case "scenario":
       case "decision_scenario":
       case "interactive_scenario": {
