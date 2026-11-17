@@ -29,10 +29,15 @@ import {
   lessonsTable,
   quizQuestionsTable,
   companiesTable,
-  employeesTable
+  employeesTable,
+  enrollmentsTable,
+  lessonProgressTable,
+  courseAssignmentsTable,
+  certificatesTable
 } from "@workspace/db";
-import { eq, and, or, desc } from "drizzle-orm";
+import { eq, and, or, desc, inArray } from "drizzle-orm";
 import { requirePlatformAdmin, getCompanyAccess, sendHttpError } from "../lib/access";
+import { purgeTestAccountsAndTenants } from "../lib/purgeTestAccounts";
 
 const router = Router();
 
@@ -1854,6 +1859,81 @@ router.get("/accounts", async (req, res): Promise<void> => {
     }));
 
     res.json(accounts);
+  } catch (err) {
+    sendHttpError(res, err);
+  }
+});
+
+router.delete("/accounts/:id", async (req, res): Promise<void> => {
+  try {
+    await requirePlatformAdmin(req);
+    const id = parseInt(req.params.id, 10);
+    if (isNaN(id)) {
+      res.status(400).json({ error: "Invalid account ID" });
+      return;
+    }
+
+    const [employee] = await db.select().from(employeesTable).where(eq(employeesTable.id, id)).limit(1);
+    if (!employee) {
+      res.status(404).json({ error: "Account not found" });
+      return;
+    }
+
+    // Cascade delete enrollments and progress
+    const enrollments = await db.select({ id: enrollmentsTable.id }).from(enrollmentsTable).where(eq(enrollmentsTable.employeeId, id));
+    const enrollmentIds = enrollments.map((e) => e.id);
+    if (enrollmentIds.length > 0) {
+      await db.delete(lessonProgressTable).where(inArray(lessonProgressTable.enrollmentId, enrollmentIds));
+      await db.delete(enrollmentsTable).where(inArray(enrollmentsTable.id, enrollmentIds));
+    }
+
+    await db.delete(courseAssignmentsTable).where(eq(courseAssignmentsTable.employeeId, id));
+    await db.delete(certificatesTable).where(eq(certificatesTable.employeeId, id));
+    await db.delete(employeesTable).where(eq(employeesTable.id, id));
+
+    res.json({ success: true, message: `Account ID ${id} deleted successfully.` });
+  } catch (err) {
+    sendHttpError(res, err);
+  }
+});
+
+router.post("/accounts/bulk-delete", async (req, res): Promise<void> => {
+  try {
+    await requirePlatformAdmin(req);
+    const { ids } = req.body;
+    if (!Array.isArray(ids) || ids.length === 0) {
+      res.status(400).json({ error: "No account IDs provided" });
+      return;
+    }
+
+    const numIds = ids.map((id) => Number(id)).filter((id) => !isNaN(id));
+    if (numIds.length === 0) {
+      res.status(400).json({ error: "No valid account IDs provided" });
+      return;
+    }
+
+    const enrollments = await db.select({ id: enrollmentsTable.id }).from(enrollmentsTable).where(inArray(enrollmentsTable.employeeId, numIds));
+    const enrollmentIds = enrollments.map((e) => e.id);
+    if (enrollmentIds.length > 0) {
+      await db.delete(lessonProgressTable).where(inArray(lessonProgressTable.enrollmentId, enrollmentIds));
+      await db.delete(enrollmentsTable).where(inArray(enrollmentsTable.id, enrollmentIds));
+    }
+
+    await db.delete(courseAssignmentsTable).where(inArray(courseAssignmentsTable.employeeId, numIds));
+    await db.delete(certificatesTable).where(inArray(certificatesTable.employeeId, numIds));
+    await db.delete(employeesTable).where(inArray(employeesTable.id, numIds));
+
+    res.json({ success: true, deletedCount: numIds.length });
+  } catch (err) {
+    sendHttpError(res, err);
+  }
+});
+
+router.post("/accounts/cleanup-test-accounts", async (req, res): Promise<void> => {
+  try {
+    await requirePlatformAdmin(req);
+    const result = await purgeTestAccountsAndTenants();
+    res.json({ success: true, ...result });
   } catch (err) {
     sendHttpError(res, err);
   }

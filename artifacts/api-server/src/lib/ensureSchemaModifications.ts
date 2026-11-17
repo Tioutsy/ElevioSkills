@@ -2,6 +2,7 @@ import { db } from "@workspace/db";
 import { sql } from "drizzle-orm";
 import { logger } from "./logger";
 import { detectAndResolveDuplicateCompanySubscriptions } from "./subscriptionDiagnostics";
+import { purgeTestAccountsAndTenants } from "./purgeTestAccounts";
 
 async function columnExists(table: string, column: string): Promise<boolean> {
   try {
@@ -789,6 +790,25 @@ export async function ensureSchemaModifications() {
             'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35'
           )
         `);
+      }
+    },
+    {
+      name: "Purge legacy QA test accounts and dummy tenants",
+      check: async () => {
+        try {
+          const res = await db.execute(sql`
+            SELECT 1 FROM "employees"
+            WHERE LOWER("email") = 'infracare.mu@gmail.com'
+               OR "email" LIKE '%@ecolearnhub.test'
+            LIMIT 1;
+          `);
+          return res.rows.length === 0;
+        } catch {
+          return false;
+        }
+      },
+      execute: async () => {
+        await purgeTestAccountsAndTenants();
       }
     }
   ];
