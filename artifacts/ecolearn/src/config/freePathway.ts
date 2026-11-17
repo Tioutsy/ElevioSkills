@@ -200,6 +200,10 @@ export function getFreeChallengeByCourseId(courseId: number): FreeChallengeDefin
   return FREE_FOUNDATIONAL_CHALLENGES.find((c) => c.courseId === courseId);
 }
 
-export function getFreeChallengeByOrder(order: number): FreeChallengeDefinition | undefined {
-  return FREE_FOUNDATIONAL_CHALLENGES.find((c) => c.order === order);
+export function isPathwayFreeEntry(courseId: number): boolean {
+  return courseId === 36;
+}
+
+export function isFreeOrPathwayEntry(courseId: number): boolean {
+  return isFreeFoundationalChallenge(courseId) || isPathwayFreeEntry(courseId);
 }

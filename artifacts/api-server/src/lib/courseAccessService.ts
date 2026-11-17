@@ -68,6 +68,17 @@ export async function evaluateCourseAccess(
     };
   }
 
+  // 2c. Free Pathway Entry Check (The Right Bin at Work - ELH-36 / ID 36)
+  if (courseId === 36 || course.courseCode === "ELH-36") {
+    return {
+      allowed: true,
+      reason: "FREE_FOUNDATIONAL_CHALLENGE",
+      isFree: true,
+      requiredPlanCode: "ESSENTIAL",
+      requiredPlanName: "Free Pathway Entry Challenge",
+    };
+  }
+
   // Determine minimum required plan for this course across all entitlements
   const entitlements = await db
     .select({

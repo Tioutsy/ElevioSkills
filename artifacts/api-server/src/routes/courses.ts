@@ -24,7 +24,7 @@ import { isFreeFoundationalChallenge, getFreeChallengeByCourseId } from "../conf
 const router = Router();
 
 export const ALLOWED_PUBLISHED_COURSE_CODES: string[] = Array.from(
-  { length: 35 },
+  { length: 43 },
   (_, i) => `ELH-${String(i + 1).padStart(2, "0")}`
 );
 
@@ -209,10 +209,10 @@ router.get("/", async (req, res): Promise<void> => {
     const assignedCats = assignmentsMap.get(c.id) || [];
     const primaryCat = assignedCats.find(a => a.isPrimary) || (c.categoryId && c.categoryName ? { categoryId: c.categoryId, categoryName: c.categoryName, isPrimary: true } : null);
     const coursePrereqs = prereqsMap.get(c.id) || [];
-    const isFree = isFreeFoundationalChallenge(c.id);
+    const isFree = isFreeFoundationalChallenge(c.id) || c.id === 36 || c.courseCode === "ELH-36";
     const freeDef = getFreeChallengeByCourseId(c.id);
     const entitlement = isFree
-      ? { requiredPlanCode: "ESSENTIAL", requiredPlanName: "Free Foundation" }
+      ? { requiredPlanCode: "ESSENTIAL", requiredPlanName: "Free Entry" }
       : (planEntitlementMap.get(c.id) || { requiredPlanCode: "COMPLETE", requiredPlanName: "Complete" });
 
     return {
@@ -364,7 +364,7 @@ router.get("/:id", async (req, res): Promise<void> => {
     .orderBy(lessonsTable.orderIndex);
 
   const accessDecision = await evaluateCourseAccess(id, accessContext);
-  const isFree = isFreeFoundationalChallenge(id);
+  const isFree = isFreeFoundationalChallenge(id) || id === 36 || course.courseCode === "ELH-36";
   const freeDef = getFreeChallengeByCourseId(id);
 
   let safeLessons = lessons.map((l) => {

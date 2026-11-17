@@ -1,6 +1,11 @@
 import pg from "pg";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { getTableName } from "drizzle-orm";
+import {
+  WASTE_SORTING_CHALLENGES,
+  WASTE_SORTING_PATHWAY_SLUG,
+  WASTE_SORTING_PATHWAY_TITLE,
+} from "./wasteSortingData";
 
 const VALID_QUERY_METHODS = new Set([
   "select", "insert", "update", "delete", "execute", "transaction", "query",
@@ -90,14 +95,14 @@ const CANONICAL_COURSES = [
   { id: 33, code: "ELH-33", slug: "esg-data-measurement-and-reporting-basics", title: "ESG Data, Measurement & Reporting Basics" },
   { id: 34, code: "ELH-34", slug: "esg-in-my-job-from-policy-to-everyday-action", title: "ESG in My Job: From Policy to Everyday Action" },
   { id: 35, code: "ELH-35", slug: "sustainable-housekeeping-operations", title: "Sustainable Housekeeping Operations" },
-  { id: 36, code: "ELH-36", slug: "sustainable-commercial-kitchens-culinary", title: "Sustainable Commercial Kitchens & Culinary" },
-  { id: 37, code: "ELH-37", slug: "hotel-food-waste-prevention-composting", title: "Hotel Food Waste Prevention & Composting" },
-  { id: 38, code: "ELH-38", slug: "hotel-laundry-water-stewardship", title: "Hotel Laundry & Water Stewardship" },
-  { id: 39, code: "ELH-39", slug: "hotel-engineering-central-plant-hvac-optimization", title: "Hotel Engineering: Central Plant & HVAC Optimization" },
-  { id: 40, code: "ELH-40", slug: "resort-guest-engagement-green-nudges", title: "Resort Guest Engagement & Green Nudges" },
-  { id: 41, code: "ELH-41", slug: "sustainable-event-banquet-management", title: "Sustainable Event & Banquet Management" },
-  { id: 42, code: "ELH-42", slug: "eco-friendly-pool-spa-wellness-operations", title: "Eco-Friendly Pool, Spa & Wellness Operations" },
-  { id: 43, code: "ELH-43", slug: "energy-efficient-hotel-guest-rooms-smart-controls", title: "Energy-Efficient Hotel Guest Rooms & Smart Controls" },
+  { id: 36, code: "ELH-36", slug: "the-right-bin-at-work", title: "The Right Bin at Work" },
+  { id: 37, code: "ELH-37", slug: "paper-and-cardboard", title: "Paper and Cardboard" },
+  { id: 38, code: "ELH-38", slug: "plastic-bottles-and-packaging", title: "Plastic Bottles and Packaging" },
+  { id: 39, code: "ELH-39", slug: "glass-and-metal", title: "Glass and Metal" },
+  { id: 40, code: "ELH-40", slug: "food-scraps-and-soiled-packaging", title: "Food Scraps and Soiled Packaging" },
+  { id: 41, code: "ELH-41", slug: "batteries-bulbs-and-small-electronics", title: "Batteries, Bulbs and Small Electronics" },
+  { id: 42, code: "ELH-42", slug: "tricky-takeaway-packaging", title: "Tricky Takeaway Packaging" },
+  { id: 43, code: "ELH-43", slug: "the-final-sorting-challenge", title: "The Final Sorting Challenge" },
   { id: 44, code: "ELH-44", slug: "sustainable-single-use-plastic-elimination-in-resorts", title: "Sustainable Single-Use Plastic Elimination in Resorts" },
   { id: 45, code: "ELH-45", slug: "sustainable-hospitality-sourcing-local-purchasing", title: "Sustainable Hospitality Sourcing & Local Purchasing" },
   { id: 46, code: "ELH-46", slug: "eco-tourism-marine-biodiversity-protection", title: "Eco-Tourism & Marine Biodiversity Protection" },
@@ -219,11 +224,89 @@ function resetSeedInMemoryStore() {
 
   const activeMockCourses = process.env.MOCK_FULL_136_CATALOGUE === "true"
     ? CANONICAL_COURSES
-    : CANONICAL_COURSES.slice(0, 34);
+    : CANONICAL_COURSES.slice(0, 43);
 
   for (const c of activeMockCourses) {
+    const wsChallenge = WASTE_SORTING_CHALLENGES.find((w) => w.courseCode === c.code || w.order === (c.id - 35));
+    if (wsChallenge) {
+      courses.push({
+        id: c.id,
+        courseCode: c.code,
+        code: c.code,
+        title: wsChallenge.title,
+        slug: wsChallenge.slug,
+        isPublished: true,
+        status: "published",
+        version: 1,
+        passingScore: 80,
+        durationMinutes: wsChallenge.durationMinutes,
+        estimatedMinutes: wsChallenge.durationMinutes,
+        level: wsChallenge.order === 8 ? "Practical Capstone" : "Practical",
+        category: "Sustainability",
+        categoryId: 1,
+        isFeatured: wsChallenge.isFreeEntry,
+        priceUsd: wsChallenge.isFreeEntry ? "0.00" : "1400.00",
+        rating: "4.9",
+        thumbnailUrl: `/images/courses/waste-sorting-${wsChallenge.slug}.jpg`,
+        description: wsChallenge.scenario,
+        fullDescription: `${wsChallenge.scenario}\n\nLearning Objective: ${wsChallenge.learningObjective}\n\nWorkplace Action: ${wsChallenge.workplaceActionTakeaway}`,
+        badgeName: `${wsChallenge.title} Specialist`,
+        badgeDescription: `Demonstrated practical competency in ${wsChallenge.title} for Mauritian workplaces.`,
+        learningObjectives: [
+          wsChallenge.learningObjective,
+          "Distinguish recyclable materials from moisture and food grease contamination",
+          "Navigate site-specific instructions and verify accepted collector specifications",
+          wsChallenge.workplaceActionTakeaway
+        ],
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
+
+      for (const l of wsChallenge.lessons) {
+        lessons.push({
+          id: (c.id - 1) * 3 + l.orderIndex + 1,
+          courseId: c.id,
+          title: l.title,
+          content: l.content,
+          orderIndex: l.orderIndex,
+          durationMinutes: l.durationMinutes,
+          contentBlocks: l.contentBlocks,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        });
+      }
+
+      for (const q of wsChallenge.questions) {
+        questions.push({
+          id: questions.length + 1,
+          courseId: c.id,
+          question: q.question,
+          options: q.options,
+          correctOption: q.correctOption,
+          correctAnswer: q.correctOption,
+          orderIndex: q.orderIndex,
+          isArchived: false,
+          optionFeedback: q.optionFeedback,
+          correctExplanation: q.correctExplanation,
+          incorrectExplanation: q.incorrectExplanation,
+          practicalTakeaway: q.practicalTakeaway,
+          competencyArea: q.competencyArea,
+          learningOutcome: wsChallenge.learningObjective,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        });
+      }
+
+      const plansToEntitle = wsChallenge.isFreeEntry ? [1, 2, 3] : [2, 3];
+      for (const planId of plansToEntitle) {
+        entitlements.push({ id: entitlementId++, subscriptionPlanId: planId, courseId: c.id, accessType: "INCLUDED" });
+      }
+
+      continue;
+    }
+
     const num = c.code ? parseInt(c.code.replace("ELH-", ""), 10) : c.id;
-    const isUnpublished = (num >= 36 && num <= 139) || (c.id >= 36 && c.id <= 139);
+    const isUnpublished = (num >= 44 && num <= 139) || (c.id >= 44 && c.id <= 139);
     courses.push({
       id: c.id,
       courseCode: c.code,
@@ -372,6 +455,63 @@ function resetSeedInMemoryStore() {
     { id: 1, companyId: 1, subscriptionPlanId: 3, employeeBandId: 1, status: "ACTIVE", agreedMonthlyAmount: "300.00", updatedAt: new Date() },
     { id: 2, companyId: 2, subscriptionPlanId: 2, employeeBandId: 2, status: "ACTIVE", agreedMonthlyAmount: "200.00", updatedAt: new Date() },
   ]);
+
+  inMemoryStore.set("learning_paths", [
+    {
+      id: 1,
+      slug: "core-sustainability-certificate",
+      title: "Core Sustainability Certificate",
+      description: "Build essential sustainability knowledge across foundation modules.",
+      audience: "All employees",
+      level: "Core Curriculum",
+      providerLabel: "Morieva Skills Recommended",
+      isSystemManaged: true,
+      status: "active",
+      companyId: null,
+      icon: "route",
+      estimatedDurationMinutes: 240,
+    },
+    {
+      id: 2,
+      slug: WASTE_SORTING_PATHWAY_SLUG,
+      title: WASTE_SORTING_PATHWAY_TITLE,
+      description: "A practical workplace learning pathway designed for Mauritian businesses. Master waste sorting decisions across paper, plastics, glass, metals, food scraps, electronic waste, and tricky takeaway packaging to prevent landfill contamination and support local circular collectors.",
+      audience: "All employees, hospitality teams, retail staff, and office workers across Mauritius",
+      level: "Practical Workflow",
+      providerLabel: "Morieva Skills Practical Pathways",
+      isSystemManaged: true,
+      status: "active",
+      companyId: null,
+      icon: "recycle",
+      estimatedDurationMinutes: 54,
+    }
+  ]);
+
+  const lpCourses: any[] = [];
+  let lpCourseId = 1;
+  // Path 1: courses 1 to 12
+  for (let pos = 1; pos <= 12; pos++) {
+    lpCourses.push({
+      id: lpCourseId++,
+      pathId: 1,
+      courseId: pos === 12 ? 12 : pos,
+      position: pos,
+      orderIndex: pos,
+      isRequired: true,
+    });
+  }
+  // Path 2: courses 36 to 43 (Waste Sorting pathway)
+  for (let pos = 1; pos <= 8; pos++) {
+    lpCourses.push({
+      id: lpCourseId++,
+      pathId: 2,
+      courseId: 35 + pos,
+      position: pos,
+      orderIndex: pos,
+      isRequired: true,
+    });
+  }
+  inMemoryStore.set("learning_path_courses", lpCourses);
 }
 resetSeedInMemoryStore();
 
@@ -629,7 +769,7 @@ export function createTestMockDb(): any {
             for (const [k, col] of Object.entries(state.fields)) {
               const colName = getColumnNameSafe(col) || k;
               const tblName = (col as any)?.table?._?.name || (col as any)?.table?.[Symbol.for("drizzle:Name")];
-              if (tblName && r[tblName] && typeof r[tblName] === "object" && r[tblName][colName] !== undefined) {
+              if (tblName && r[tblName] && typeof r[tblName] === "object" && getFieldVal(r[tblName], colName, k) !== undefined) {
                 mapped[k] = getFieldVal(r[tblName], colName, k);
               } else {
                 mapped[k] = getFieldVal(r, colName, k);

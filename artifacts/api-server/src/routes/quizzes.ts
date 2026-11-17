@@ -145,7 +145,7 @@ router.post("/:courseId/quiz/submit", async (req, res): Promise<void> => {
       .orderBy(desc(enrollmentsTable.id))
       .limit(1);
 
-    if (!enrollment && (isPlatformAdmin || isFreeFoundationalChallenge(courseId))) {
+    if (!enrollment && (isPlatformAdmin || isFreeFoundationalChallenge(courseId) || courseId === 36)) {
       const [autoEnrolled] = await db
         .insert(enrollmentsTable)
         .values({

@@ -40,4 +40,5 @@ export const db: NodePgDatabase<typeof schema> = process.env.DATABASE_URL
   : (createTestMockDb() as unknown as NodePgDatabase<typeof schema>);
 
 export * from "./schema";
+export * from "./wasteSortingData";
 

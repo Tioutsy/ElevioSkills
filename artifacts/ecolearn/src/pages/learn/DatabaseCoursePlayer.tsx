@@ -23,6 +23,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
 import {
   ArrowLeft,
+  ArrowRight,
   ChevronRight,
   CheckCircle2,
   XCircle,
@@ -1433,6 +1434,31 @@ function CompletionScreen({
           {completionMessage}
         </p>
       </div>
+
+      {/* Continue with Waste Sorting & Recycling in Mauritius link for ELH-02 */}
+      {(courseId === 2 || enrollment?.course?.courseCode === "ELH-02" || enrollment?.course?.slug?.includes("waste-sorting")) && (
+        <Card className="p-6 border-2 border-emerald-400 bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100 dark:from-emerald-950/40 dark:via-teal-950/30 dark:to-emerald-900/40 shadow-md">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="space-y-1.5 max-w-xl text-left">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-600 text-white">
+                Next Pathway Unlocked
+              </span>
+              <h3 className="text-xl font-bold font-serif text-emerald-950 dark:text-emerald-100">
+                Continue with Waste Sorting & Recycling in Mauritius
+              </h3>
+              <p className="text-sm text-emerald-900/80 dark:text-emerald-200/80">
+                Put your waste knowledge into action with 8 practical challenges across Ebène offices, Curepipe shops, Grand Baie kitchens, and corporate event clean-ups.
+              </p>
+            </div>
+            <Button asChild size="lg" className="bg-emerald-700 hover:bg-emerald-800 text-white font-medium shrink-0 shadow-sm gap-2">
+              <Link href="/learning-paths/waste-sorting-and-recycling-in-mauritius">
+                <span>Continue with Waste Sorting Pathway</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </Card>
+      )}
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <Card className="p-4 text-center">

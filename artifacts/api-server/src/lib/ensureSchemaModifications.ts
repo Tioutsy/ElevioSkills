@@ -3,6 +3,7 @@ import { sql } from "drizzle-orm";
 import { logger } from "./logger";
 import { detectAndResolveDuplicateCompanySubscriptions } from "./subscriptionDiagnostics";
 import { purgeTestAccountsAndTenants } from "./purgeTestAccounts";
+import { ensureWasteSortingPathway } from "./ensureWasteSortingPathway";
 
 async function columnExists(table: string, column: string): Promise<boolean> {
   try {
@@ -744,18 +745,42 @@ export async function ensureSchemaModifications() {
       execute: () => db.execute(sql`ALTER TABLE "companies" ADD COLUMN IF NOT EXISTS "training_priorities" text[] NOT NULL DEFAULT '{}';`)
     },
     {
-      name: "Enforce publication boundary: ELH-01 to ELH-35 published, ELH-36+ unpublished",
+      name: "Ensure Waste Sorting & Recycling in Mauritius pathway and challenges",
+      check: async () => {
+        try {
+          const res = await db.execute(sql`
+            SELECT 1 FROM "learning_paths"
+            WHERE "slug" = 'waste-sorting-and-recycling-in-mauritius' AND "status" = 'active'
+            LIMIT 1;
+          `);
+          const courseRes = await db.execute(sql`
+            SELECT COUNT(*)::int as count FROM "courses"
+            WHERE "course_code" IN ('ELH-36','ELH-37','ELH-38','ELH-39','ELH-40','ELH-41','ELH-42','ELH-43')
+              AND "is_published" = true;
+          `);
+          return res.rows.length > 0 && Number((courseRes.rows[0] as any)?.count) === 8;
+        } catch {
+          return false;
+        }
+      },
+      execute: async () => {
+        await ensureWasteSortingPathway();
+      }
+    },
+    {
+      name: "Enforce publication boundary: ELH-01 to ELH-43 published, ELH-44+ unpublished",
       check: async () => {
         try {
           const res = await db.execute(sql`
             SELECT 1 FROM "courses"
-            WHERE ("course_code" ~* '^ELH-(3[6-9]|[4-9][0-9]|1[0-3][0-9])$' OR "id" >= 36)
+            WHERE ("course_code" ~* '^ELH-(4[4-9]|[5-9][0-9]|1[0-3][0-9])$' OR "id" >= 44)
               AND "is_published" = true
               AND ("course_code" NOT IN (
                 'ELH-01','ELH-02','ELH-03','ELH-04','ELH-05','ELH-06','ELH-07','ELH-08','ELH-09','ELH-10',
                 'ELH-11','ELH-12','ELH-13','ELH-14','ELH-15','ELH-16','ELH-17','ELH-18','ELH-19','ELH-20',
                 'ELH-21','ELH-22','ELH-23','ELH-24','ELH-25','ELH-26','ELH-27','ELH-28','ELH-29','ELH-30',
-                'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35'
+                'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35','ELH-36','ELH-37','ELH-38','ELH-39','ELH-40',
+                'ELH-41','ELH-42','ELH-43'
               ) OR "course_code" IS NULL)
             LIMIT 1;
           `);
@@ -772,11 +797,12 @@ export async function ensureSchemaModifications() {
             'ELH-01','ELH-02','ELH-03','ELH-04','ELH-05','ELH-06','ELH-07','ELH-08','ELH-09','ELH-10',
             'ELH-11','ELH-12','ELH-13','ELH-14','ELH-15','ELH-16','ELH-17','ELH-18','ELH-19','ELH-20',
             'ELH-21','ELH-22','ELH-23','ELH-24','ELH-25','ELH-26','ELH-27','ELH-28','ELH-29','ELH-30',
-            'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35'
+            'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35','ELH-36','ELH-37','ELH-38','ELH-39','ELH-40',
+            'ELH-41','ELH-42','ELH-43'
           ) OR "course_code" IS NULL)
           AND (
-            "course_code" ~* '^ELH-(3[6-9]|[4-9][0-9]|1[0-3][0-9])$'
-            OR "id" >= 36
+            "course_code" ~* '^ELH-(4[4-9]|[5-9][0-9]|1[0-3][0-9])$'
+            OR "id" >= 44
           )
         `);
 
@@ -787,7 +813,8 @@ export async function ensureSchemaModifications() {
             'ELH-01','ELH-02','ELH-03','ELH-04','ELH-05','ELH-06','ELH-07','ELH-08','ELH-09','ELH-10',
             'ELH-11','ELH-12','ELH-13','ELH-14','ELH-15','ELH-16','ELH-17','ELH-18','ELH-19','ELH-20',
             'ELH-21','ELH-22','ELH-23','ELH-24','ELH-25','ELH-26','ELH-27','ELH-28','ELH-29','ELH-30',
-            'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35'
+            'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35','ELH-36','ELH-37','ELH-38','ELH-39','ELH-40',
+            'ELH-41','ELH-42','ELH-43'
           )
         `);
       }

@@ -197,6 +197,30 @@ export default function CourseDetail() {
       <div className="container mx-auto px-4 py-16">
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-12">
+
+            {/* Pathway Link from Existing Waste Sorting Challenge (ELH-02) */}
+            {(courseId === 2 || (course as any).courseCode === "ELH-02" || course.slug?.includes("waste-sorting")) && (
+              <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100 dark:from-emerald-950/40 dark:via-teal-950/30 dark:to-emerald-900/30 border-2 border-emerald-300 dark:border-emerald-700 rounded-2xl p-6 shadow-sm">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="space-y-1.5">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-600 text-white">
+                      Recommended Practical Pathway
+                    </span>
+                    <h3 className="text-xl font-bold font-serif text-emerald-950 dark:text-emerald-100">
+                      Continue with Waste Sorting & Recycling in Mauritius
+                    </h3>
+                    <p className="text-sm text-emerald-900/80 dark:text-emerald-200/80 max-w-xl">
+                      Take your waste sorting skills further with 8 hands-on challenges across office, retail, hotel, and event workplaces in Mauritius.
+                    </p>
+                  </div>
+                  <Button asChild size="lg" className="bg-emerald-700 hover:bg-emerald-800 text-white shrink-0 font-medium">
+                    <Link href="/learning-paths/waste-sorting-and-recycling-in-mauritius">
+                      Continue with Pathway
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            )}
             
             {/* Learning Objectives */}
             {course.learningObjectives && course.learningObjectives.length > 0 && (

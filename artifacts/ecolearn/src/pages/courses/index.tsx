@@ -164,6 +164,7 @@ export default function Courses() {
   // Filter categories order
   const categoryFilters = [
     { slug: "all", label: "All Challenges", description: "Browse the complete Morieva Skills catalogue" },
+    { slug: "waste-sorting", label: "Waste Sorting & Recycling", description: "Practical pathway: 8 workplace challenges on sorting, contamination control, and Mauritian recycling realities" },
     { slug: "free-pathway", label: "10 Free Challenges", description: "Foundational learning pathway 100% free for all employees in Mauritius" },
     { slug: "core-sustainability-certificate", label: "Foundations", description: "Build essential sustainability knowledge across foundation modules" },
     { slug: "sustainability-in-action", label: "Sustainability in Action", description: "Turn sustainability knowledge into workplace processes, actions and evidence" },
@@ -174,16 +175,33 @@ export default function Courses() {
 
   const displayedCourses = useMemo<any[]>(() => {
     if (!courses) return [];
-    // Enforce publication catalogue scope: only active published courses ELH-01 to ELH-35
+    // Enforce publication catalogue scope: only active published courses ELH-01 to ELH-43
     const activeCourses = courses.filter((c: any) => {
       const code = c.courseCode || "";
       const match = code.match(/^ELH-(\d+)$/i);
       if (match) {
         const num = parseInt(match[1], 10);
-        return num >= 1 && num <= 35;
+        return (num >= 1 && num <= 35) || (num >= 36 && num <= 43);
       }
       return false;
     });
+
+    if (selectedFilter === "waste-sorting") {
+      const wasteList = activeCourses.filter((c: any) => {
+        const code = c.courseCode || "";
+        const match = code.match(/^ELH-(\d+)$/i);
+        if (match) {
+          const num = parseInt(match[1], 10);
+          return num >= 36 && num <= 43;
+        }
+        return false;
+      });
+      return wasteList.sort((a: any, b: any) => {
+        const numA = parseInt(a.courseCode?.replace("ELH-", "") || "0", 10);
+        const numB = parseInt(b.courseCode?.replace("ELH-", "") || "0", 10);
+        return numA - numB;
+      });
+    }
 
     if (selectedFilter === "free-pathway") {
       const freeList = activeCourses.filter((c: any) => isFreeFoundationalChallenge(c.id));
@@ -301,6 +319,36 @@ export default function Courses() {
           </div>
         ) : null}
 
+        {/* Waste Sorting & Recycling in Mauritius Pathway Feature Banner */}
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100 dark:from-emerald-950/40 dark:via-teal-950/30 dark:to-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-2xl p-5 md:p-6 mb-8 shadow-sm">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="space-y-1.5 max-w-2xl">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-600 text-white">
+                  <Sparkles className="h-3 w-3" /> Featured Practical Pathway
+                </span>
+                <span className="text-xs font-medium text-emerald-800 dark:text-emerald-300">
+                  8 Workplace Challenges • Ebène, Curepipe, Grand Baie, Bagatelle, Moka
+                </span>
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold font-serif text-emerald-950 dark:text-emerald-100">
+                Waste Sorting & Recycling in Mauritius
+              </h3>
+              <p className="text-sm text-emerald-900/80 dark:text-emerald-200/80">
+                A hands-on learning pathway designed for Mauritian businesses. Master sorting decisions across paper, plastics, glass, metals, food scraps, e-waste, and tricky takeaway packaging. Challenge 1 is 100% free for all learners!
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full md:w-auto">
+              <Link href="/learning-paths/waste-sorting-and-recycling-in-mauritius">
+                <Button className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium shadow-sm gap-2">
+                  <span>View 8 Challenges</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
         {/* Filter Controls & Search */}
         <div className="flex flex-col space-y-4">
           <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
@@ -326,7 +374,7 @@ export default function Courses() {
                         "text-xs px-1.5 py-0.5 rounded-full font-mono",
                         isActive ? "bg-primary-foreground/20 text-primary-foreground" : "bg-muted text-muted-foreground"
                       )}>
-                        {isLoadingCategories ? "…" : (categories?.find(c => c.slug === filter.slug)?.courseCount ?? 0)}
+                        {filter.slug === "free-pathway" ? 10 : (filter.slug === "waste-sorting" ? 8 : (isLoadingCategories ? "…" : (categories?.find(c => c.slug === filter.slug)?.courseCount ?? 0)))}
                       </span>
                     )}
                   </button>
@@ -442,7 +490,10 @@ export default function Courses() {
                 const reqPlanName = (course as any).requiredPlanName || "Essential";
                 
                 let isPlanLocked = false;
-                if (companySub) {
+                const isChallengeFree = (course as any).isFree || course.id === 36 || (course as any).courseCode === "ELH-36" || isFreeFoundationalChallenge(course.id);
+                if (isChallengeFree) {
+                  isPlanLocked = false;
+                } else if (companySub) {
                   isPlanLocked = !companySub.entitledCourseIds.includes(course.id) && !isCompleted;
                 }
 

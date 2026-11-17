@@ -8,11 +8,11 @@ export async function unpublishCourses36to139(): Promise<{
   remainingPublishedCount: number;
   updatedCourses: Array<{ id: number; courseCode: string | null; title: string }>;
 }> {
-  logger.info("Enforcing publication boundary: Keep only ELH-01 to ELH-35 published; unpublish all courses as from ELH-36...");
+  logger.info("Enforcing publication boundary: Keep only ELH-01 to ELH-43 published; unpublish all courses as from ELH-44...");
 
-  // Generate allowed codes: ELH-01 to ELH-35
+  // Generate allowed codes: ELH-01 to ELH-43
   const allowedCodes = new Set<string>();
-  for (let i = 1; i <= 35; i++) {
+  for (let i = 1; i <= 43; i++) {
     allowedCodes.add(`ELH-${i.toString().padStart(2, "0")}`);
   }
 
@@ -24,7 +24,8 @@ export async function unpublishCourses36to139(): Promise<{
         'ELH-01','ELH-02','ELH-03','ELH-04','ELH-05','ELH-06','ELH-07','ELH-08','ELH-09','ELH-10',
         'ELH-11','ELH-12','ELH-13','ELH-14','ELH-15','ELH-16','ELH-17','ELH-18','ELH-19','ELH-20',
         'ELH-21','ELH-22','ELH-23','ELH-24','ELH-25','ELH-26','ELH-27','ELH-28','ELH-29','ELH-30',
-        'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35'
+        'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35','ELH-36','ELH-37','ELH-38','ELH-39','ELH-40',
+        'ELH-41','ELH-42','ELH-43'
       ) OR "course_code" IS NULL);
     `);
     await db.execute(sql`
@@ -34,7 +35,8 @@ export async function unpublishCourses36to139(): Promise<{
         'ELH-01','ELH-02','ELH-03','ELH-04','ELH-05','ELH-06','ELH-07','ELH-08','ELH-09','ELH-10',
         'ELH-11','ELH-12','ELH-13','ELH-14','ELH-15','ELH-16','ELH-17','ELH-18','ELH-19','ELH-20',
         'ELH-21','ELH-22','ELH-23','ELH-24','ELH-25','ELH-26','ELH-27','ELH-28','ELH-29','ELH-30',
-        'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35'
+        'ELH-31','ELH-32','ELH-33','ELH-34','ELH-35','ELH-36','ELH-37','ELH-38','ELH-39','ELH-40',
+        'ELH-41','ELH-42','ELH-43'
       );
     `);
   } catch (sqlErr) {
@@ -50,7 +52,7 @@ export async function unpublishCourses36to139(): Promise<{
     const isAllowed = course.courseCode && allowedCodes.has(course.courseCode);
 
     if (isAllowed) {
-      // Ensure ELH-01 through ELH-35 remain published
+      // Ensure ELH-01 through ELH-43 remain published
       if (!course.isPublished || course.status !== "published") {
         await db
           .update(coursesTable)
@@ -62,7 +64,7 @@ export async function unpublishCourses36to139(): Promise<{
           .where(eq(coursesTable.id, course.id));
       }
     } else {
-      // Unpublish all other courses (ELH-36 upwards or unassigned)
+      // Unpublish all other courses (ELH-44 upwards or unassigned)
       if (course.isPublished || course.status === "published") {
         await db
           .update(coursesTable)

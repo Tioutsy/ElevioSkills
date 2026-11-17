@@ -225,10 +225,10 @@ export const TOPIC_PAID_RECOMMENDATIONS: TopicRecommendationRule[] = [
   },
   {
     competencyArea: "Workplace Waste Sorting & Contamination Control",
-    recommendedCourseId: 37,
-    recommendedCourseCode: "ELH-37",
-    recommendedTitle: "Hotel Food Waste Prevention & Composting",
-    reason: "Deepen waste diversion with advanced organic waste management, measurement, and on-site composting."
+    recommendedCourseId: 42,
+    recommendedCourseCode: "ELH-42",
+    recommendedTitle: "Tricky Takeaway Packaging",
+    reason: "Master complex sorting decisions, identify hidden plastic linings, and prevent contaminated takeaway materials from ruining workplace recycling streams."
   },
   {
     competencyArea: "Workplace Energy Efficiency & HVAC Management",
