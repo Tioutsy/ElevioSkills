@@ -263,7 +263,7 @@ export default function Courses() {
                     "inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-0.5 rounded-md",
                     recommendation.isLocked ? "bg-amber-500/10 text-amber-700 dark:text-amber-400" : "bg-emerald-600/10 text-emerald-700 dark:text-emerald-400"
                   )}>
-                    <Sparkles className="h-3.5 w-3.5" /> Recommended Next Course
+                    <Sparkles className="h-3.5 w-3.5" /> Recommended Next Challenge
                   </span>
                   {recommendation.courseCode && (
                     <span className="text-xs text-muted-foreground font-mono font-medium">
@@ -362,7 +362,7 @@ export default function Courses() {
                     <Award className="h-5 w-5 text-emerald-600 shrink-0" />
                     <div className="text-xs">
                       <span className="font-semibold text-foreground block">Category Progress</span>
-                      <span className="text-muted-foreground">{summary.completed} of {summary.total} courses completed</span>
+                      <span className="text-muted-foreground">{summary.completed} of {summary.total} challenges completed</span>
                     </div>
                   </div>
                 )}
@@ -372,9 +372,9 @@ export default function Courses() {
 
           {selectedFilter === "completed" && (
             <div className="bg-muted/50 border rounded-2xl p-4 md:p-6">
-              <h2 className="text-xl font-bold font-serif">Completed Courses</h2>
+              <h2 className="text-xl font-bold font-serif">Completed Challenges</h2>
               <p className="text-sm text-muted-foreground mt-1">
-                Courses you have successfully passed. You can review lesson material at any time.
+                Challenges you have successfully passed. You can review lesson material at any time.
               </p>
             </div>
           )}
@@ -385,10 +385,10 @@ export default function Courses() {
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-foreground">
               {isLoadingCourses
-                ? "Loading courses..."
+                ? "Loading challenges..."
                 : isErrorCourses
-                ? "Course catalogue temporarily unavailable"
-                : `${displayedCourses.length} ${displayedCourses.length === 1 ? "Course" : "Courses"} available`}
+                ? "Challenge catalogue temporarily unavailable"
+                : `${displayedCourses.length} ${displayedCourses.length === 1 ? "Challenge" : "Challenges"} available`}
             </h3>
           </div>
 
@@ -405,24 +405,24 @@ export default function Courses() {
             </div>
           ) : isErrorCourses ? (
             <div className="py-12 px-6 text-center border-2 border-rose-200 rounded-3xl bg-rose-50/50 text-rose-900">
-              <h4 className="text-lg font-semibold mb-1">Unable to load courses</h4>
+              <h4 className="text-lg font-semibold mb-1">Unable to load challenges</h4>
               <p className="text-sm text-rose-700 max-w-md mx-auto mb-4">
-                The catalogue request did not complete. Please retry to load available courses.
+                The catalogue request did not complete. Please retry to load available challenges.
               </p>
               <Button variant="outline" onClick={() => refetchCourses()}>
-                Retry loading courses
+                Retry loading challenges
               </Button>
             </div>
           ) : displayedCourses.length === 0 ? (
             <div className="py-16 text-center text-muted-foreground border-2 border-dashed rounded-3xl bg-card/50">
               <BookOpen className="h-10 w-10 mx-auto text-muted-foreground/50 mb-3" />
               <h4 className="text-lg font-semibold text-foreground mb-1">
-                {selectedFilter === "completed" ? "No completed courses yet" : "No courses found"}
+                {selectedFilter === "completed" ? "No completed challenges yet" : "No challenges found"}
               </h4>
               <p className="text-sm text-muted-foreground max-w-md mx-auto mb-4">
                 {selectedFilter === "completed"
                   ? "Start with Sustainability Foundations to begin building your completed credentials."
-                  : "No courses matched your current filter criteria."}
+                  : "No challenges matched your current filter criteria."}
               </p>
               <Button variant="outline" onClick={() => { setSearch(""); setSelectedFilter("all"); }}>
                 Reset catalogue filters
@@ -490,17 +490,17 @@ export default function Courses() {
                 }
 
                 // Primary action button text & link
-                let actionText = "Start course";
+                let actionText = "Start challenge";
                 let actionHref = `/courses/${course.id}`;
 
                 if (isCompleted) {
-                  actionText = "Review course";
+                  actionText = "Review challenge";
                   actionHref = enrollment ? `/learn/${enrollment.id}` : `/courses/${course.id}`;
                 } else if (isPlanLocked) {
                   actionText = "View plan";
                   actionHref = `/pricing`;
                 } else if (isInProgress && enrollment) {
-                  actionText = "Continue course";
+                  actionText = "Continue challenge";
                   actionHref = `/learn/${enrollment.id}`;
                 } else if (isPrereqLocked) {
                   actionText = "View prerequisite";
@@ -618,7 +618,7 @@ export default function Courses() {
                               View details
                             </button>
                           </div>
-                          <p>This course is included in your company's <span className="font-semibold">{reqPlanName}</span> plan. Contact your company administrator to upgrade access.</p>
+                          <p>This challenge is included in your company's <span className="font-semibold">{reqPlanName}</span> plan. Contact your company administrator to upgrade access.</p>
                         </div>
                       )}
 
@@ -643,11 +643,11 @@ export default function Courses() {
                             </button>
                           </div>
                           {isElh12 && coreCompletedCount < 11 ? (
-                            <p className="text-muted-foreground">Complete 11 Core Courses ({coreCompletedCount}/11 finished) to unlock.</p>
+                            <p className="text-muted-foreground">Complete 11 Core Challenges ({coreCompletedCount}/11 finished) to unlock.</p>
                           ) : missingRequiredPrereqs.length === 1 ? (
                             <p className="line-clamp-1 font-medium">{missingRequiredPrereqs[0].prerequisiteCourseCode ? `${missingRequiredPrereqs[0].prerequisiteCourseCode}: ` : ''}{missingRequiredPrereqs[0].prerequisiteTitle}</p>
                           ) : (
-                            <p className="text-muted-foreground">Requires {missingRequiredPrereqs.map(p => p.prerequisiteCourseCode).filter(Boolean).join(", ") || `${missingRequiredPrereqs.length} courses`}</p>
+                            <p className="text-muted-foreground">Requires {missingRequiredPrereqs.map(p => p.prerequisiteCourseCode).filter(Boolean).join(", ") || `${missingRequiredPrereqs.length} challenges`}</p>
                           )}
                         </div>
                       )}
@@ -674,7 +674,7 @@ export default function Courses() {
                           {missingRecommendedPrereqs.length === 1 ? (
                             <p className="line-clamp-1 font-medium">{missingRecommendedPrereqs[0].prerequisiteCourseCode ? `${missingRecommendedPrereqs[0].prerequisiteCourseCode}: ` : ''}{missingRecommendedPrereqs[0].prerequisiteTitle}</p>
                           ) : (
-                            <p className="text-muted-foreground">Recommended: {missingRecommendedPrereqs.map(p => p.prerequisiteCourseCode).filter(Boolean).join(", ") || `${missingRecommendedPrereqs.length} courses`}</p>
+                            <p className="text-muted-foreground">Recommended: {missingRecommendedPrereqs.map(p => p.prerequisiteCourseCode).filter(Boolean).join(", ") || `${missingRecommendedPrereqs.length} challenges`}</p>
                           )}
                         </div>
                       )}
@@ -741,16 +741,16 @@ export default function Courses() {
           const elh12CoreLocked = isElh12 && coreCompletedCount < 11;
           const isPrereqLocked = !isCompleted && (missingRequired.length > 0 || elh12CoreLocked);
 
-          let actionText = "Start course";
+          let actionText = "Start challenge";
           let actionHref = `/courses/${course.id}`;
           if (isCompleted) {
-            actionText = "Review course";
+            actionText = "Review challenge";
             actionHref = enrollment ? `/learn/${enrollment.id}` : `/courses/${course.id}`;
           } else if (isPlanLocked) {
             actionText = "View upgrade options";
             actionHref = `/pricing`;
           } else if (isInProgress && enrollment) {
-            actionText = "Continue course";
+            actionText = "Continue challenge";
             actionHref = `/learn/${enrollment.id}`;
           } else if (isPrereqLocked) {
             actionText = "Complete prerequisite first";
@@ -809,16 +809,16 @@ export default function Courses() {
                     <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3.5 text-xs space-y-1.5">
                       <div className="font-semibold text-amber-800 dark:text-amber-300 flex items-center gap-1.5">
                         <Lock className="h-4 w-4 shrink-0 text-amber-600" />
-                        <span>11 Foundation Core Courses Required</span>
+                        <span>11 Foundation Core Challenges Required</span>
                       </div>
-                      <p className="text-muted-foreground">You have completed {coreCompletedCount}/11 core courses. Complete all 11 foundation modules before attempting the final certification exam.</p>
+                      <p className="text-muted-foreground">You have completed {coreCompletedCount}/11 core challenges. Complete all 11 foundation modules before attempting the final certification exam.</p>
                     </div>
                   )}
 
                   {prereqsList.length === 0 && !isElh12 ? (
                     <div className="bg-muted/50 border rounded-xl p-3.5 text-xs text-muted-foreground flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                      <span>None — you can start this course directly without prerequisites.</span>
+                      <span>None — you can start this challenge directly without prerequisites.</span>
                     </div>
                   ) : (
                     <div className="space-y-2">
@@ -840,7 +840,7 @@ export default function Courses() {
                                 <span>{p.prerequisiteTitle}</span>
                               </div>
                               <span className="text-[11px] text-muted-foreground capitalize">
-                                {p.requirementType === "required" ? "Required prerequisite" : "Recommended preliminary course"}
+                                {p.requirementType === "required" ? "Required prerequisite" : "Recommended preliminary challenge"}
                               </span>
                             </div>
                             <span className={cn(

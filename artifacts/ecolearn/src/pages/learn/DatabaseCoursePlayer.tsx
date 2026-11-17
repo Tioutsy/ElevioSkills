@@ -868,7 +868,7 @@ export default function DatabaseCoursePlayer({
             <ArrowLeft className="h-5 w-5" />
           </Link>
           <div className="font-serif font-semibold text-base sm:text-lg truncate">
-            {enrollment?.course?.title || "Course Player"}
+            {enrollment?.course?.title || "Challenge Player"}
           </div>
         </div>
         <div className="text-sm font-medium text-muted-foreground shrink-0">{overallPct}% {t("common.completed")}</div>

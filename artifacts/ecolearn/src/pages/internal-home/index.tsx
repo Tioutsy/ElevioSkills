@@ -137,7 +137,7 @@ export default function InternalHome() {
         title: `Resume ${courseTitle}`,
         subtitle: `Assigned · Due ${overdue.dueDate ? new Date(overdue.dueDate).toLocaleDateString() : "Soon"}`,
         progress: overdue.progressPct || 0,
-        buttonText: "Resume course",
+        buttonText: "Resume challenge",
         link: `/learn/${overdue.id}`,
         thumbnail,
       };
@@ -145,7 +145,7 @@ export default function InternalHome() {
 
     if (inProgressList.length > 0) {
       const topInProgress = inProgressList[0];
-      const courseTitle = topInProgress.courseName || topInProgress.courseTitle || `Course #${topInProgress.courseId}`;
+      const courseTitle = topInProgress.courseName || topInProgress.courseTitle || `Challenge #${topInProgress.courseId}`;
       const courseObj = coursesMap.get(topInProgress.courseId);
       const thumbnail = topInProgress.courseThumbnail || courseObj?.thumbnailUrl || null;
       return {
@@ -153,7 +153,7 @@ export default function InternalHome() {
         title: `Continue ${courseTitle}`,
         subtitle: `You're ${Math.round(topInProgress.progressPct || 0)}% complete`,
         progress: topInProgress.progressPct || 0,
-        buttonText: "Continue learning",
+        buttonText: "Continue challenge",
         link: `/learn/${topInProgress.id}`,
         thumbnail,
       };
@@ -161,7 +161,7 @@ export default function InternalHome() {
 
     if (notStartedList.length > 0) {
       const nextAssigned = notStartedList[0];
-      const courseTitle = nextAssigned.courseName || nextAssigned.courseTitle || `Course #${nextAssigned.courseId}`;
+      const courseTitle = nextAssigned.courseName || nextAssigned.courseTitle || `Challenge #${nextAssigned.courseId}`;
       const courseObj = coursesMap.get(nextAssigned.courseId);
       const thumbnail = nextAssigned.courseThumbnail || courseObj?.thumbnailUrl || null;
       return {
@@ -169,7 +169,7 @@ export default function InternalHome() {
         title: `Start ${courseTitle}`,
         subtitle: nextAssigned.dueDate ? `Assigned to you · Due ${new Date(nextAssigned.dueDate).toLocaleDateString()}` : "Assigned to you",
         progress: 0,
-        buttonText: "Start course",
+        buttonText: "Start challenge",
         link: `/learn/${nextAssigned.id}`,
         thumbnail,
       };
@@ -191,9 +191,9 @@ export default function InternalHome() {
     return {
       type: "all_caught_up" as const,
       title: "You’re all caught up",
-      subtitle: "Explore our interactive courses catalogue whenever you're ready.",
+      subtitle: "Explore our interactive challenges catalogue whenever you're ready.",
       progress: 100,
-      buttonText: "Browse courses",
+      buttonText: "Browse challenges",
       link: "/courses",
       thumbnail: null,
     };
@@ -435,7 +435,7 @@ export default function InternalHome() {
                   <div className="flex items-center justify-between p-3 bg-muted/40 rounded-xl border">
                     <div className="flex items-center gap-2.5">
                       <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                      <span className="text-xs font-medium text-foreground">Completed Courses</span>
+                      <span className="text-xs font-medium text-foreground">Completed Challenges</span>
                     </div>
                     <span className="text-sm font-bold">{completedEnrollments.length}</span>
                   </div>

@@ -40,14 +40,14 @@ export default function CourseDetail() {
       {
         onSuccess: (enrollment) => {
           toast({
-            title: "Course Ready",
-            description: "Opening course player...",
+            title: "Challenge Ready",
+            description: "Opening challenge player...",
           });
           setLocation(`/learn/${enrollment.id}`);
         },
         onError: (err: any) => {
           toast({
-            title: "Course Access",
+            title: "Challenge Access",
             description: err?.message || "Opening your dashboard...",
           });
           setLocation("/dashboard");
@@ -80,9 +80,9 @@ export default function CourseDetail() {
     return (
       <Layout>
         <div className="container mx-auto px-4 py-24 text-center">
-          <h1 className="text-2xl font-bold font-serif mb-4">Course not found</h1>
+          <h1 className="text-2xl font-bold font-serif mb-4">Challenge not found</h1>
           <Button asChild>
-            <Link href="/courses">Browse all courses</Link>
+            <Link href="/courses">Browse all challenges</Link>
           </Button>
         </div>
       </Layout>
@@ -97,7 +97,7 @@ export default function CourseDetail() {
           <div className="mb-6">
             <Button variant="ghost" size="sm" asChild className="text-muted-foreground hover:text-foreground">
               <Link href="/courses">
-                <ArrowLeft className="h-4 w-4 mr-2" /> Back to courses
+                <ArrowLeft className="h-4 w-4 mr-2" /> Back to challenges
               </Link>
             </Button>
           </div>
@@ -162,15 +162,15 @@ export default function CourseDetail() {
                     <Link href={`/learn/${existingEnrollment.id}`}>
                       <PlayCircle className="h-5 w-5" />
                       {existingEnrollment.status === "completed"
-                        ? "Review Course"
+                        ? "Review Challenge"
                         : (existingEnrollment.progressPct ?? 0) > 0
-                        ? "Continue Course"
-                        : "Start Course"}
+                        ? "Continue Challenge"
+                        : "Start Challenge"}
                     </Link>
                   </Button>
                   <p className="text-center text-xs text-muted-foreground">
                     {existingEnrollment.status === "completed"
-                      ? "✓ Course Completed"
+                      ? "✓ Challenge Completed"
                       : `${existingEnrollment.progressPct ?? 0}% completed`}
                   </p>
                 </div>
@@ -216,7 +216,7 @@ export default function CourseDetail() {
             {/* Course Content */}
             {course.lessons && course.lessons.length > 0 && (
               <section>
-                <h2 className="text-2xl font-bold font-serif mb-6">Course Content</h2>
+                <h2 className="text-2xl font-bold font-serif mb-6">Challenge Content</h2>
                 <div className="mb-4 text-sm text-muted-foreground flex justify-between">
                   <span>{course.lessons.length} lessons</span>
                   <span>{course.durationMinutes} minutes total</span>
